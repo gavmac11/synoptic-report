@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grammar [
+<!ENTITY pert "http://www.cap.org/pert/2009/01/">
+<!ENTITY prostate "http://www.cap.org/pert/2009/01/prostate/">
+<!ENTITY redefine "../../../site/cap-cancer/prostate/redefine/">
+<!ENTITY add "../../../site/cap-cancer/prostate/add/">
+<!ENTITY cap-cancer "../../../section/cap-cancer/">
+]>
+<!--
+    
+    CAP Schema for Synoptic Reports
+    (c) Copyright 2008 College of American Pathologists
+    ===========================================================================
+    Component name:
+    resection@prostate.rng
+    
+    Component type:
+    schema
+    
+    Version date:
+    2008.12.02
+    
+    Defines:
+    semistructured report schema for a resection at prostate
+    
+    Purpose:
+    
+    
+    
+    Dependencies:      
+    direct <externalRef> to anyForeignContent.rng; must be in same folder
+    direct <externalRef> to anyForeignAttributes.rng; must be in same folder
+    indirect <externalRef> to anyForeignAttributes.rng; must be in same folder
+    ===========================================================================
+    This file is part of the "CAP Schema for Synoptic Reports".
+    
+    The "CAP Schema for Synoptic Reports" is free software: 
+    you can redistribute it and/or modify it under the terms of the 
+    GNU General Public License as published by the Free Software Foundation, 
+    either version 3 of the License, or (at your option) any later version.
+    
+    The "CAP Schema for Synoptic Reports" is distributed 
+    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or 
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+    for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with the "CAP Schema for Synoptic Reports".  
+    If not, see <http://www.gnu.org/licenses/>. 
+    ===========================================================================
+    
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:pert="&pert;"
+    xmlns:prostate="&prostate;" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="../../common.rng">
+        <a:documentation>Include the <synopsis/> element and associated base content.</a:documentation>
+        <define combine="choice" name="schemaLocation">
+            <a:documentation>Redefine the @schemaLocation to point to this schema.</a:documentation>
+            <value>&pert;resection@prostate.rng</value>
+        </define>
+        <define combine="choice" name="version">
+            <a:documentation>Version of this schema</a:documentation>
+            <value>2009-01-01</value>
+        </define>
+    </include>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="../../../method/cap-cancer/resection.rng">
+        <a:documentation>Include the sectional architecture of a generic resection report. No structured content is defined.</a:documentation>
+    </include>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;clinical-content.rng">
+        <a:documentation>Include the generic structured content of a Clinical section.</a:documentation>
+    </include>
+    <define combine="interleave" name="clinical-content">
+        <a:documentation>Interleave new prostate-specific additional content for the Clinical section.</a:documentation>
+        <externalRef href="&add;clinical-psa.rng"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;specimen-content.rng">
+        <a:documentation>Include the generic structured content of a Specimen section.</a:documentation>
+        <define combine="choice" name="procedures">
+            <a:documentation>Force prostate-specific redefinition of the "sites" pattern of the generic Specimen section.</a:documentation>
+            <externalRef href="&redefine;specimen-procedures-resection.rng"/>
+        </define>
+        <define combine="choice" name="sites">
+            <a:documentation>Force prostate-specific redefinition of the "sites" pattern of the generic Specimen section.</a:documentation>
+            <externalRef href="&redefine;specimen-sites-resection.rng"/>
+        </define>
+    </include>
+    <define combine="interleave" name="specimen-content">
+        <a:documentation>Interleave new prostate-specific additional content for the Specimen section.</a:documentation>
+        <externalRef href="&add;specimen-weight.rng"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;tumor-content.rng">
+        <a:documentation>Include the generic structured content of a Tumor section.</a:documentation>
+        <define name="histologicTypes">
+            <a:documentation>Force prostate-specific redefinition of the "histologicTypes" pattern of the generic Specimen section.</a:documentation>
+            <externalRef href="&redefine;tumor-histologicTypes.rng"/>
+        </define>
+        <define name="gradeContent">
+            <a:documentation>Force prostate-specific redefinition of the "grades" pattern of the generic Specimen section.</a:documentation>
+            <externalRef href="&redefine;tumor-gradeContent.rng"/>
+        </define>
+        <define name="gradingSystems">
+            <a:documentation>Force prostate-specific redefinition of the "gradingSystems" pattern of the generic Specimen section.</a:documentation>
+            <externalRef href="&redefine;tumor-gradingSystems.rng"/>
+        </define>
+    </include>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;extent-content.rng">
+        <a:documentation>Include the generic structured content of an Extent section.</a:documentation>
+        <define name="tumorSize-content">
+            <externalRef href="&redefine;extent-percentTumorInvolvement.rng"/>
+        </define>
+    </include>
+    <define combine="interleave" name="extent-content">
+        <a:documentation>Interleave new prostate-specific additional content for the Specimen section.</a:documentation>
+        <interleave>
+            <externalRef href="&add;extent-extension.rng"/>
+        </interleave>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;margin-content.rng">
+        <a:documentation>Include the generic structured content of a Margin section.</a:documentation>
+        <define name="marginLocations">
+            <a:documentation>Force prostate-resection-specific redefinition of the "locations" pattern of the generic Margin section.</a:documentation>
+            <externalRef href="&redefine;margin-locations-resection.rng">
+                <a:documentation/>
+            </externalRef>
+        </define>
+        <define name="marginStatuses">
+            <a:documentation>Force prostate-resection-specific redefinition of the "statuses" pattern of the generic Margin section.</a:documentation>
+            <externalRef href="&redefine;margin-statuses.rng"/>
+        </define>
+    </include>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;accessory-content.rng">
+        <a:documentation>Include the generic structured content of an Accessory section.</a:documentation>
+    </include>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;nodes-content.rng"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;mets-content.rng"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;studies-content.rng"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;stage-content.rng">
+        <define name="T-values">
+            <externalRef href="&redefine;stage-T-values.rng"/>
+        </define>
+        <define name="N-values">
+            <externalRef href="&redefine;stage-N-values.rng"/>
+        </define>
+        <define name="M-values">
+            <externalRef href="&redefine;stage-M-values.rng"/>
+        </define>
+    </include>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;additional-content.rng">
+        <define name="findings">
+            <externalRef href="&redefine;additional-findings.rng"/>
+        </define>
+    </include>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</grammar>

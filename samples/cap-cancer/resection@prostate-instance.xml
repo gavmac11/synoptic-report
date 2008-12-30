@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="../../report/cap-cancer/resection/resection@prostate.rng" type="xml"?>
+<?oxygen SCHSchema="../../rules/resection@prostate.sch"?>
+<synopsis pert:schemaLocation="http://www.cap.org/pert/2009/01/resection@prostate.rng" pert:version="2009-01-01"
+    xmlns="http://www.cap.org/pert/2009/01/" xmlns:cerner="http://www.cerner.com/"
+    xmlns:pert="http://www.cap.org/pert/2009/01/" xmlns:prostate="http://www.cap.org/pert/2009/01/prostate/">
+    <clinical>
+        <comment>this is a comment</comment>
+        <priorTherapies>
+            <priorTherapy date="2007" description="brachytherapy"/>
+        </priorTherapies>
+        <prostate:psa date="2007-12" unit="ng/ml" value="10.6"/>
+    </clinical>
+    <specimen>
+        <procedures>
+            <procedure value="abdominopelvic prostatectomy"> </procedure>
+        </procedures>
+        <sites>
+            <site value="left lobe"/>
+            <site value="right lobe"> </site>
+        </sites>
+        <tumorLocations>
+            <tumorLocation value="right lobe"/>
+            <tumorLocation value="left lobe"> </tumorLocation>
+        </tumorLocations>
+    </specimen>
+    <tumor>
+        <histologicTypes>
+            <histologicType value="acinar adenocarcinoma"> </histologicType>
+        </histologicTypes>
+        <grade gradingSystem="Gleason" primaryGrade="3" secondaryGrade="3"/>
+        <comment>Prior brachytherapy makes grading inconclusive.</comment>
+    </tumor>
+    <extent>
+        <tumorSize>
+            <prostate:percentTumorInvolvement laterality="right" value="60"/>
+            <prostate:percentTumorInvolvement laterality="left" value="80"/>
+            <prostate:percentTumorInvolvement laterality="both sides" value="70"/>
+        </tumorSize>
+        <prostate:extension>
+            <prostate:extraprostatic location="right side" value="negative"> </prostate:extraprostatic>
+            <prostate:extraprostatic location="left side" value="negative"/>
+            <prostate:seminalVesicle laterality="right" value="negative"/>
+            <prostate:seminalVesicle laterality="left" value="negative"/>
+            <prostate:adjacentStructure structure="external sphincter" value="negative"/>
+        </prostate:extension>
+    </extent>
+    <accessory>
+        <lymphovascularInvasion value="negative"/>
+        <perineuralInvasion value="positive"/>
+        <venousInvasion value="negative"/>
+    </accessory>
+    <margins>
+        <margin location="bladder neck" status="negative"/>
+        <margin location="left" status="negative"/>
+        <margin location="right" status="negative"/>
+    </margins>
+    <stage>
+        <T value="3"/>
+        <N value="0"/>
+        <M value="X"/>
+        <classification value="p"/>
+        <prefix value="a"/>
+    </stage>
+    <additional>
+        <findings>
+            <finding value="benign prostatic hypertrophy"/>
+        </findings>
+    </additional>
+    <nodes>
+        <nodeGroup location="left internal iliac" positiveNodes="2" regressedNodes="2" totalNodes="5"/>
+    </nodes>
+</synopsis>

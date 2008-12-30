@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute name="laterality" xmlns="http://relaxng.org/ns/structure/1.0">
+    <choice>
+        <value>right</value>
+        <value>left</value>
+    </choice>
+</attribute>

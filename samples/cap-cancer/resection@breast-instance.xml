@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="../../report/cap-cancer/resection/resection@breast.rng" type="xml"?>
+<?oxygen SCHSchema="../../rules/resection@breast.sch"?>
+<synopsis grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/breast@resection.xslt"
+    pert:schemaLocation="http://www.cap.org/pert/2009/01/resection@breast.rng" pert:version="2008-12-25"
+    xmlns="http://www.cap.org/pert/2009/01/" xmlns:breast="http://www.cap.org/pert/2009/01/breast/"
+    xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/">
+    <clinical>
+        <priorTherapies>
+            <priorTherapy description="viblastine-vincristine"/>
+        </priorTherapies>
+        <clinicalFindings>
+            <clinicalFinding value="personal history of breast cancer"/>
+        </clinicalFindings>
+        <radiologicFindings>
+            <radiologicFinding value="calcifications"/>
+        </radiologicFindings>
+    </clinical>
+    <specimen>
+        <procedures>
+            <procedure value="total mastectomy"/>
+            <procedure value="lymph node sampling, partial axillary dissection"/>
+        </procedures>
+        <tumorLocations>
+            <tumorLocation value="lower outer quadrant"/>
+        </tumorLocations>
+        <sites>
+            <site laterality="right" value="entire breast"/>
+        </sites>
+        <integrity value="fragmented"/>
+        <size dimension-1="3.3" dimension-2="2.2" dimension-3="1.1" unit="cm"/>
+    </specimen>
+    <tumor>
+        <grade value="2">
+            <breast:glandular score="1"/>
+            <breast:mitoticCount score="2"/>
+            <breast:nuclearPleomorphism score="3"/>
+        </grade>
+        <histologicTypes>
+            <histologicType value="ductal carcinoma"/>
+        </histologicTypes>
+    </tumor>
+    <extent>
+        <tumorSize dimension-1="3.2" dimension-2="1.1" dimension-3="0.9" unit="cm"/>
+        <breast:invasion>
+            <breast:invasionFinding location="skin ulceration" value="positive"/>
+        </breast:invasion>
+    </extent>
+    <accessory>
+        <breast:dermalLymphaticInvasion value="negative"/>
+        <lymphovascularInvasion value="inconclusive"/>
+        <perineuralInvasion value="negative"/>
+        <treatmentEffect value="inapplicable"/>
+        <venousInvasion value="negative"/>
+        <breast:microcalcification value="positive in benign tissue"/>
+    </accessory>
+    <margins>
+        <margin closest="true" for="invasive carcinoma" location="lateral" status="negative">
+            <distance unit="mm" value="2.4"/>
+        </margin>
+        <margin for="invasive carcinoma" location="superior" status="negative"/>
+    </margins>
+    <nodes>
+        <nodeGroup laterality="right" location="low axillary">
+            <nodeStatus count="2" value="isolated tumor cells">
+                <largestMet unit="mm" value="3"/>
+                <extracapsular value="negative"/>
+            </nodeStatus>
+            <nodeStatus count="1" value="macrometastasis"/>
+            <nodeStatus count="7" value="total"/>
+        </nodeGroup>
+    </nodes>
+    <studies>
+        <breast:estrogenReceptor antibody="" fixative="" value="negative" vendor=""/>
+        <breast:her2neu antibody="" fixative="" value="2+" vendor=""/>
+        <breast:progesteroneReceptor antibody="" fixative="" value="indeterminate" vendor=""/>
+    </studies>
+    <stage>
+        <T value="4b"/>
+        <N value="1c"/>
+        <M value="1"/>
+        <prefix value="y"/>
+        <classification value="p"/>
+    </stage>
+</synopsis>
