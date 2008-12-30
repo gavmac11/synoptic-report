@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element name="focality" ns="http://www.cap.org/pert/2009/01/lung/" xmlns="http://relaxng.org/ns/structure/1.0">
+    <ref name="baseContent"/>
+    <attribute name="value">
+        <choice>
+            <value>unifocal</value>
+            <value>multifocal same lobe</value>
+            <value>multifocal different lobes</value>
+            <value>synchronous tumors</value>
+            <value>indeterminate</value>
+        </choice>
+    </attribute>
+</element>
