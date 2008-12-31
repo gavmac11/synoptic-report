@@ -8,5 +8,3 @@ This project developed out of the work of the College of American Pathologists' 
 = Details =
 
 The content in the CAP Cancer schemas is derived from the CoC templates for cancer pathology reports.
-
-[VersioningIssues Versioning]
