@@ -1,0 +1,4 @@
+#summary Package structure of project
+
+
+http://synoptic-report.googlecode.com/files/folders.png
