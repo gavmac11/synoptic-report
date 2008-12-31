@@ -1,4 +1,4 @@
-  *[ProjectHome Home]
-  *[VersioningIssues Versioning]
-  *[Design Design]
-  *[ProjectStructure Packages]
+  * [ProjectHome Home]
+  * [VersioningIssues Versioning]
+  * [Design Design]
+  * [ProjectStructure Packages]
