@@ -2,4 +2,4 @@
 
 = Concept =
 
-http://code.google.com/p/synoptic-report/wiki/meth-site.png
+http://code.google.com/p/synoptic-report/svn/wiki/meth-site.png
