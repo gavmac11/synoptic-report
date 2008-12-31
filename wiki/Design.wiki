@@ -2,19 +2,19 @@
 
 = Concept =
 
-http://code.google.com/p/synoptic-report/svn/wiki/meth-site.png
+http://synoptic-report.googlecode.com/files/meth-site.png
 
 
-http://code.google.com/p/synoptic-report/svn/wiki/bx-lung.png
+http://synoptic-report.googlecode.com/files/bx-lung.png
 
 
-http://code.google.com/p/synoptic-report/svn/wiki/mri-pelv.png
+http://synoptic-report.googlecode.com/files/mri-pelv.png
 
 
-http://code.google.com/p/synoptic-report/svn/wiki/meth-site.png
+http://synoptic-report.googlecode.com/files/meth-site.png
 
 
-http://code.google.com/p/synoptic-report/svn/wiki/extend.png
+http://synoptic-report.googlecode.com/files/extend.png
 
 
-http://code.google.com/p/synoptic-report/svn/wiki/extend-example.png
+http://synoptic-report.googlecode.com/files/extend-example.png
