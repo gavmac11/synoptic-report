@@ -1,5 +1,5 @@
 #summary XML Framework for Structured Medical Diagnostic Reporting: Introduction
-
+#sidebar Contents
 = Introduction =
 
 This project developed out of the work of the College of American Pathologists' (CAP) Committee on Cancer (CoC) and Pathology Electronic Reporting Taskforce (PERT). 
