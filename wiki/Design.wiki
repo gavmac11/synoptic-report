@@ -1,0 +1,5 @@
+#summary One-sentence summary of this page.
+
+= Concept =
+
+http://code.google.com/p/synoptic-report/source/browse/wiki/meth-site.png
