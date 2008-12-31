@@ -1,5 +1,5 @@
 #summary Package structure of project
-
+#sidebar Contents
 
 http://synoptic-report.googlecode.com/files/folders.png
 
