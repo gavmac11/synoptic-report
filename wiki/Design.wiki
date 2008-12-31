@@ -2,6 +2,11 @@
 #sidebar Contents
 = Concept =
 
+In this project, a report is conceived as consisting of a specification of 
+
+  * a "method" (i.e. for pathology, a biopsy or a resection; or for radiology, a CT or an MRI)
+  * a "site" (i.e. for pathology, thyroid or lung or prostate; or for radiology, pelvis or thorax or head)
+
 http://synoptic-report.googlecode.com/files/meth-site.png
 
 
