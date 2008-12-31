@@ -1,5 +1,20 @@
-#summary One-sentence summary of this page.
+#summary Project design principles
 
 = Concept =
 
 http://code.google.com/p/synoptic-report/svn/wiki/meth-site.png
+
+
+http://code.google.com/p/synoptic-report/svn/wiki/bx-lung.png
+
+
+http://code.google.com/p/synoptic-report/svn/wiki/mri-pelv.png
+
+
+http://code.google.com/p/synoptic-report/svn/wiki/meth-site.png
+
+
+http://code.google.com/p/synoptic-report/svn/wiki/extend.png
+
+
+http://code.google.com/p/synoptic-report/svn/wiki/extend-example.png
