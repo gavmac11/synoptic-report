@@ -1,0 +1,7 @@
+#summary How do we version these schemas?
+
+Versioning of the schemas constituting the main deliverable of this project will use the [http://www.xfront.com/Versioning.pdf Best Practice] guideline set out by Roger Costello (option 2, usage A), with some modifications relevant to the Relax NG environment discussed by Oliver Steele [http://osteele.com/archives/2004/08/xml-schema-versions here].
+
+= Details =
+
+To be added...
