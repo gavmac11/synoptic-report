@@ -1,5 +1,5 @@
 #summary Project design principles
-
+#sidebar Contents
 = Concept =
 
 http://synoptic-report.googlecode.com/files/meth-site.png
