@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    
+    CAP Schema for Synoptic Reports
+    (c) Copyright 2008 College of American Pathologists
+    ===========================================================================
+    Component name:
+    resection@lung.sch
+    
+    Component type:
+    schematron schema for rules-based validation
+    
+    Version date:
+    2008.12.31
+    
+    Defines:
+    
+    
+    Purpose:
+    
+    
+    
+    Dependencies:      
+    
+    
+    ===========================================================================
+    This file is part of the "CAP Schema for Synoptic Reports".
+    
+    The "CAP Schema for Synoptic Reports" is free software: 
+    you can redistribute it and/or modify it under the terms of the 
+    GNU General Public License as published by the Free Software Foundation, 
+    either version 3 of the License, or (at your option) any later version.
+    
+    The "CAP Schema for Synoptic Reports" is distributed 
+    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or 
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+    for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with the "CAP Schema for Synoptic Reports".  
+    If not, see <http://www.gnu.org/licenses/>. 
+    ===========================================================================
+    
+-->
 <schema queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron"
     xmlns:iso="http://purl.oclc.org/dsdl/schematron">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -96,9 +141,15 @@
                 value="sum(//pert:nodeGroup/pert:nodeStatus[@value='positive']/@count) cast as
                 xs:integer"/>
             <let name="N" value="@value cast as xs:integer"/>
-            <assert test="if ($posNodes eq 0) then $N eq 0 else if ($posNodes lt 4)
-                then $N eq 1 else $N eq 2"> N-stage (<value-of select="$N"/>) must match the number
-                of positive nodes (<value-of select="$posNodes"/>). </assert>
+            <assert test="
+                     if ($posNodes eq 0) then $N eq 0 
+                else if ($posNodes lt 4) then $N eq 1 
+                else                          $N eq 2"> 
+                Reported N-stage (N<value-of select="$N"/>) does not match calculated (N<value-of select="     
+                         if ($posNodes eq 0) then '0' 
+                    else if ($posNodes lt 4) then '1' 
+                    else                          '2'"/>). 
+            </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -113,25 +164,50 @@
             <let name="pneumonitis" value="//lung:obstructivePneumonitis/@value"/>
             <let name="pleura" value="//lung:visceralPleuraInvasion/@value"/>
             <let name="T" value="@value cast as xs:string"/>
-            <assert test="                                   if ($focality    = 'multifocal
-                different lobes') then $T = '4'                   else if ($adjacent    =
-                ('mediastinum', 'heart', 'great vessels', 'trachea', 'recurrent laryngeal nerve',
-                'esophagus', 'vertebral body', 'carina') )
-                then $T = '4'                  else if ($focality    = 'multifocal same lobe')
-                then $T = '3'                 else if ($pneumonitis = 'entire lung')
-                then $T = '3'                   else if (carina       = 'positive')
-                then $T = '3'                  else if ($adjacent    = ('chest wall', 'diaphragm',
-                'phrenic nerve', 'mediastinal pleura', 'parietal pericardium'))
-                then $T = '3'                  else if ($size        > 7 and $unit = 'cm')
-                then $T = '3'                  else if ($size        > 5 and $unit = 'cm')
-                then $T = '2b'                  else if ($size        > 3 and $unit = 'cm')
-                then $T = '2a'                  else if ($mainstem    = 'positive')
-                then $T = '2a'                  else if ($pleura      = 'positive')
-                then $T = '2a'                  else if ($pneumonitis = 'extending to hilum')
-                then $T = '2a'                  else if (size         > 2 and $unit = 'cm')
-                then $T = '1b'                  else if (size         > 0)
-                then $T = '1a'                  else
-                $T = 'X'    "> Value of T-stage does not match value given for deepest invasion.
+            <assert test="                               
+                     if ($focality = 'multifocal different lobes') 
+                                                     then $T = '4'                   
+                else if ($adjacent = ('mediastinum', 'heart', 'great vessels', 'trachea', 'recurrent laryngeal nerve', 'esophagus', 'vertebral body', 'carina'))
+                                                     then $T = '4' 
+                else if ($focality = 'multifocal same lobe')  
+                                                     then $T = '3'                 
+                else if ($pneumonitis = 'entire lung') 
+                                                     then $T = '3'                   
+                else if (carina = 'positive')        then $T = '3'                  
+                else if ($adjacent = ('chest wall', 'diaphragm', 'phrenic nerve', 'mediastinal pleura', 'parietal pericardium'))
+                                                     then $T = '3'              
+                else if ($size > 7 and $unit = 'cm') then $T = '3'                  
+                else if ($size > 5 and $unit = 'cm') then $T = '2b'                 
+                else if ($size > 3 and $unit = 'cm') then $T = '2a'               
+                else if ($mainstem = 'positive')     then $T = '2a'                
+                else if ($pleura = 'positive')       then $T = '2a'                 
+                else if ($pneumonitis = 'extending to hilum') 
+                                                     then $T = '2a'                 
+                else if (size > 2 and $unit = 'cm')  then $T = '1b'                 
+                else if (size > 0)                   then $T = '1a'                
+                else                                      $T = 'X'    "> 
+                Reported T-stage (T<value-of select="$T"/>) does not match calculated (T<value-of select="
+                     if ($focality = 'multifocal different lobes') 
+                                                     then '4'                   
+                else if ($adjacent = ('mediastinum', 'heart', 'great vessels', 'trachea', 'recurrent laryngeal nerve', 'esophagus', 'vertebral body', 'carina'))
+                                                     then '4' 
+                else if ($focality = 'multifocal same lobe')  
+                                                     then '3'                 
+                else if ($pneumonitis = 'entire lung') 
+                                                     then '3'                   
+                else if (carina = 'positive')        then '3'                  
+                else if ($adjacent = ('chest wall', 'diaphragm', 'phrenic nerve', 'mediastinal pleura', 'parietal pericardium'))
+                                                     then '3'              
+                else if ($size > 7 and $unit = 'cm') then '3'                  
+                else if ($size > 5 and $unit = 'cm') then '2b'                 
+                else if ($size > 3 and $unit = 'cm') then '2a'               
+                else if ($mainstem = 'positive')     then '2a'                
+                else if ($pleura = 'positive')       then '2a'                 
+                else if ($pneumonitis = 'extending to hilum') 
+                                                     then '2a'                 
+                else if (size > 2 and $unit = 'cm')  then '1b'                 
+                else if (size > 0)                   then '1a'                
+                else                                      'X'    "/>).
             </assert>
         </rule>
     </pattern>
@@ -169,7 +245,7 @@
                 if ($met) then $M = '1' 
                 else $M = '0' 
                 else $M = 'X'">
-                Reported M-stage (<value-of select="$M"/>) does not match calculated (<value-of select=" 
+                Reported M-stage (M<value-of select="$M"/>) does not match calculated (M<value-of select=" 
                     if ($report) then 
                         if ($met) then '1' 
                         else '0' 

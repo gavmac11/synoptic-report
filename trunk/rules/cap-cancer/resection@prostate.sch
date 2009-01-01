@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    
+    CAP Schema for Synoptic Reports
+    (c) Copyright 2008 College of American Pathologists
+    ===========================================================================
+    Component name:
+    resection@prostate.sch
+    
+    Component type:
+    schematron schema for rules-based validation
+    
+    Version date:
+    2008.12.31
+    
+    Defines:
+    
+    
+    Purpose:
+    
+    
+    
+    Dependencies:      
+    
+    
+    ===========================================================================
+    This file is part of the "CAP Schema for Synoptic Reports".
+    
+    The "CAP Schema for Synoptic Reports" is free software: 
+    you can redistribute it and/or modify it under the terms of the 
+    GNU General Public License as published by the Free Software Foundation, 
+    either version 3 of the License, or (at your option) any later version.
+    
+    The "CAP Schema for Synoptic Reports" is distributed 
+    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or 
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+    for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with the "CAP Schema for Synoptic Reports".  
+    If not, see <http://www.gnu.org/licenses/>. 
+    ===========================================================================
+    
+-->
 <schema queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <ns prefix="pert" uri="http://www.cap.org/pert/2009/01/"/>
@@ -17,16 +62,14 @@
     <pattern id="size-dimensions-in-decreasing-order">
         <rule context="//pert:tumorSize">
             <let name="d1"
-                value="if (@dimension-1 castable as xs:float) then
-                xs:float(@dimension-1) else 0.0"/>
+                value="if (@dimension-1 castable as xs:float) then xs:float(@dimension-1) else 0.0"/>
             <let name="d2"
-                value="if (@dimension-2 castable as xs:float) then
-                xs:float(@dimension-2) else 0.0"/>
+                value="if (@dimension-2 castable as xs:float) then xs:float(@dimension-2) else 0.0"/>
             <let name="d3"
-                value="if (@dimension-3 castable as xs:float) then
-                xs:float(@dimension-3) else 0.0"/>
-            <assert test="$d1 ge $d2 and $d2 ge $d3"> Tumor size dimensions must be in
-                decreasing order. </assert>
+                value="if (@dimension-3 castable as xs:float) then xs:float(@dimension-3) else 0.0"/>
+            <assert test="$d1 ge $d2 and $d2 ge $d3"> 
+                Tumor size dimensions must be in decreasing order. 
+            </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -72,32 +115,35 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="other-histologic-type">
         <rule context="//pert:histologicType">
-            <assert test="if (@value eq 'other') then exists(@other-value) else
-                not(exists(@other-value))"> If the histologic type is "other", then a value must be
-                given in an "other-value" attribute which may otherwise not be present. </assert>
+            <assert test="if (@value eq 'other') then exists(@other-value) else not(exists(@other-value))"> 
+                If the histologic type is "other", then a value must be given in an "other-value" attribute which may otherwise not be present. 
+            </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="extraprostatic-specified-both-sides">
         <rule context="//prostate:extension">
             <let name="loc" value="prostate:extraprostatic/@location"/>
-            <assert test="$loc = 'right side' and $loc = 'left side'"> Extraprostatic extension
-                must be reported for both right and left sides (at least). </assert>
+            <assert test="$loc = 'right side' and $loc = 'left side'"> 
+                Extraprostatic extension must be reported for both right and left sides (at least). 
+            </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="seminal-vesicle-specified-both-sides">
         <rule context="//prostate:extension">
             <let name="lat" value="prostate:seminalVesicle/@laterality"/>
-            <assert test="$lat = 'right' and $lat = 'left'"> Seminal vesicle extension must be
-                reported for both right and left sides. </assert>
+            <assert test="$lat = 'right' and $lat = 'left'"> 
+                Seminal vesicle extension must be reported for both right and left sides. 
+            </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="seminal-vesicle-extent-only-if-positive">
         <rule context="//prostate:extension/prostate:seminalVesicle">
-            <report test="@value ne 'positive' and @extent"> Negative seminal vesicles must not
-                report extent. </report>
+            <report test="@value ne 'positive' and @extent"> 
+                Negative seminal vesicles must not report extent. 
+            </report>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -106,8 +152,8 @@
             <let name="r" value="parent::*/*[@laterality eq 'right']/@value"/>
             <let name="l" value="parent::*/*[@laterality eq 'left']/@value"/>
             <let name="b" value="xs:double(./@value)"/>
-            <assert test="if ($r and $l and $b) then max (($r, $l)) ge $b and min (($r, $l)) le
-                $b else $skip"> Bilateral cancer volume must be between the right and left unilateral volumes.
+            <assert test="if ($r and $l and $b) then max (($r, $l)) ge $b and min (($r, $l)) le $b else $skip"> 
+                Bilateral cancer volume must be between the right and left unilateral volumes.
             </assert>
         </rule>
     </pattern>
@@ -115,8 +161,9 @@
     <pattern id="treatment-effect-implies-prior-therapy">
         <rule context="//pert:treatmentEffect">
             <let name="RxEffect" value="exists(.) and @value ne 'inapplicable'"/>
-            <report test="$RxEffect and not(//pert:priorTherapy)"> If reporting tumor treatment
-                effect, you must also specify prior therapy in the clinical section. </report>
+            <report test="$RxEffect and not(//pert:priorTherapy)"> 
+                If reporting tumor treatment effect, you must also specify prior therapy in the clinical section. 
+            </report>
             <report test="$RxEffect and not(contains(//pert:stage/pert:prefix/@value, 'y'))">
                 Treatment effect must be noted in the stage descriptor using the 'y' prefix.
             </report>
@@ -134,14 +181,13 @@
             <assert test="if (not($status = 'positive')) then exists($closest) else $skip"> 
                 "Closest margin" must be reported if all margins are negative. 
             </assert>
-            <assert test="if (exists($closestLocation)) then $closestLocation = pert:margin[@status
-                = 'negative']/@location else $skip"> 
+            <assert test="if (exists($closestLocation)) then $closestLocation = pert:margin[@status = 'negative']/@location else $skip"> 
                 Closest margin location must correspond to a reported negative margin location."/>
             </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <pattern id="prostate-calculate-T-stage">
+    <pattern id="calculate-T-stage">
         <rule context="//pert:T">
             <let name="T" value="@value cast as xs:string"/>
             <let name="adj" value="//prostate:adjacentStructure/@value"/>
@@ -153,17 +199,29 @@
             <let name="lpti"
                 value="//prostate:percentTumorInvolvement[@laterality =
                 'left']/@value cast as xs:integer"/>
-            <assert test="                                       if ($adj = 'bladder' or $adj =
-                'rectum')  then $T = '4'                   else if ($svi = 'positive')
-                then $T = '3b'                  else if ($epe = 'positive')                    then
-                $T = '3a'                  else if ($rpti > 0 and $lpti > 0)              then $T =
-                '2c'                   else if ($rpti = 0 and $lpti > 50)             then $T = '2b'
-                else if ($lpti = 0 and $rpti > 50)             then $T = '2b'                  else
-                if ($rpti = 0 and $lpti > 0)              then $T = '2a'                  else if
-                ($lpti = 0 and $lpti > 0)              then $T = '2a'                 else if ($rpti
-                = 0 and $lpti = 0)              then $T = '0'                 else
-                $T = 'X'    "> Value of T-stage ("T<value-of select="$T"/>") does not match the given extension
-                information. </assert>
+            <assert test="                                       
+                     if ($adj = 'bladder' or $adj = 'rectum') then $T = '4'                   
+                else if ($svi = 'positive')                   then $T = '3b'                  
+                else if ($epe = 'positive')                   then $T = '3a'                 
+                else if ($rpti > 0 and $lpti > 0)             then $T = '2c'        
+                else if ($rpti = 0 and $lpti > 50)            then $T = '2b'
+                else if ($lpti = 0 and $rpti > 50)            then $T = '2b'             
+                else if ($rpti = 0 and $lpti > 0)             then $T = '2a'        
+                else if ($lpti = 0 and $lpti > 0)             then $T = '2a'                
+                else if ($rpti = 0 and $lpti = 0)             then $T = '0'                 
+                else                                               $T = 'X'    "> 
+                Reported T-stage (T<value-of select="$T"/>) does not match calculated (T<value-of select="
+                     if ($adj = 'bladder' or $adj = 'rectum') then '4'                   
+                else if ($svi = 'positive')                   then '3b'                  
+                else if ($epe = 'positive')                   then '3a'                 
+                else if ($rpti > 0 and $lpti > 0)             then '2c'        
+                else if ($rpti = 0 and $lpti > 50)            then '2b'
+                else if ($lpti = 0 and $rpti > 50)            then '2b'             
+                else if ($rpti = 0 and $lpti > 0)             then '2a'        
+                else if ($lpti = 0 and $lpti > 0)             then '2a'                
+                else if ($rpti = 0 and $lpti = 0)             then '0'                 
+                else                                               'X'    "/>). 
+            </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -171,7 +229,9 @@
         <rule context="//pert:N">
             <let name="posNodes" value="sum(//pert:nodeGroup/@positiveNodes)"/>
             <let name="N" value="@value cast as xs:integer"/>
-            <assert test="if ($posNodes eq 0) then $N eq 0 else $N eq 1"> N-stage ("N<value-of select="$N"/>") must match the number of positive nodes ("<value-of select="$posNodes"/>"). </assert>
+            <assert test="if ($posNodes eq 0) then $N eq 0 else $N eq 1"> 
+                Reported N-stage (N<value-of select="$N"/>) does not match calculated (N<value-of select="if ($posNodes eq 0) then '0' else '1'"/>). 
+            </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -185,7 +245,7 @@
                 if ($met) then $M = '1' 
                 else $M = '0' 
                 else $M = 'X'">
-                Reported M-stage (<value-of select="$M"/>) does not match calculated (<value-of select=" 
+                Reported M-stage (M<value-of select="$M"/>) does not match calculated (M<value-of select=" 
                     if ($report) then 
                         if ($met) then '1' 
                         else '0' 

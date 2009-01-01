@@ -52,9 +52,9 @@
     ===========================================================================
     
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    pert:schemaVersion="&version;" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:pert="&pert;">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" pert:schemaVersion="&version;"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:pert="&pert;">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <include href="&report;common.rng">
         <a:documentation>The biopsy schema is based on the shell schema, adding structured content.</a:documentation>

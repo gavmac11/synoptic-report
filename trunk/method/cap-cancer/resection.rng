@@ -5,10 +5,10 @@
     (c) Copyright 2008 College of American Pathologists
     ===========================================================================
     Component name:
-    unspecified_site-biopsy.rng
+    resection.rng
     
     Component type:
-    pattern
+    grammar for inclusion
     
     Version date:
     2008.12.02
@@ -27,9 +27,9 @@
     biopsy procedure at an unspecified site.
     
     Dependencies:      
-    direct <externalRef> to anyForeignContent.rng; must be in same folder
-    direct <externalRef> to anyForeignAttributes.rng; must be in same folder
-    indirect <externalRef> to anyForeignAttributes.rng; must be in same folder
+    
+    
+    
     ===========================================================================
     This file is part of the "CAP Schema for Synoptic Reports".
     
