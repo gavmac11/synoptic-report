@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="../../report/cap-cancer/resection/resection@lung.rng" type="xml"?>
+<?oxygen SCHSchema="../../rules/cap-cancer/resection@lung.sch"?>
+<synopsis
+    grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/prostate@resection.xslt"
+    pert:schemaLocation="http://www.cap.org/pert/2009/01/resection@lung.rng"
+    pert:version="2009-01-01" xmlns="http://www.cap.org/pert/2009/01/"
+    xmlns:grddl="http://www.w3.org/2003/g/data-view#"
+    xmlns:lung="http://www.cap.org/pert/2009/01/lung/" xmlns:pert="http://www.cap.org/pert/2009/01/">
+    <clinical>
+        <lung:smokingHistory packYears="3"/>
+        <priorTherapies>
+            <priorTherapy description="chemoirradiation"/>
+        </priorTherapies>
+    </clinical>
+    <specimen>
+        <procedures>
+            <procedure value="lobectomy"/>
+        </procedures>
+        <sites>
+            <site value="left lower lobe"/>
+            <site value="lingula"/>
+        </sites>
+        <tumorLocations>
+            <tumorLocation value="left lower lobe"/>
+        </tumorLocations>
+    </specimen>
+    <tumor>
+        <grade gradingSystem="WHO" value="3"/>
+        <histologicTypes>
+            <histologicType value="adenocarcinoma"/>
+            <histologicType value="large cell adenocarcinoma"/>
+        </histologicTypes>
+    </tumor>
+    <extent>
+        <tumorSize dimension-1="4" unit="cm"/>
+        <lung:adjacentStructureInvasion>
+            <lung:structure value="mediastinum"/>
+        </lung:adjacentStructureInvasion>
+        <lung:focality value="multifocal same lobe"/>
+        <lung:carinaInvolvment value="negative"/>
+        <lung:obstructivePneumonitis value="extending to hilum"/>
+        <lung:mainstemBronchusInvolvement value="negative"/>
+        <lung:visceralPleuraInvasion value="inconclusive"/>
+        <lung:malignantEffusion value="inapplicable"/>
+    </extent>
+    <accessory>
+        <lymphovascularInvasion value="positive"/>
+        <perineuralInvasion value="indeterminate"/>
+        <treatmentEffect value="&lt;10% viable"/>
+    </accessory>
+    <margins>
+        <margin location="bronchial" status="positive for CIS" closest="true">
+            <distance unit="mm" value="4"/>
+        </margin>
+    </margins>
+    <nodes>
+        <nodeGroup laterality="right" location="hilar">
+            <nodeStatus count="3" value="positive">
+                <extracapsular value="negative"/>
+                <largestMet unit="cm" value="0.6"/>
+            </nodeStatus>
+            <nodeStatus count="4" value="regressed"/>
+            <nodeStatus count="7" value="total"/>
+        </nodeGroup>
+    </nodes>
+    <stage>
+        <classification value="p"/>
+        <prefix value="y"/>
+        <T value="4"/>
+        <N value="1"/>
+        <M value="0"/>
+    </stage>
+    <mets>
+        <metastasis site="liver"/>
+        <!-- metastatic sites are not correct -->
+    </mets>
+    <studies>
+        <lung:egfr method="standard" value="positive"/>
+    </studies>
+</synopsis>
