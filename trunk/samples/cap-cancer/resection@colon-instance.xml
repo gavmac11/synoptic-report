@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="../../report/cap-cancer/resection/resection@colon.rng" type="xml"?>
 <?oxygen SCHSchema="../../rules/cap-cancer/resection@colon.sch"?>
-<synopsis
-    grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/prostate@resection.xslt"
-    pert:schemaLocation="http://www.cap.org/pert/2009/01/resection@colon.rng"
-    pert:version="2009-01-01" xmlns="http://www.cap.org/pert/2009/01/"
-    xmlns:cerner="http://www.cerner.com/" xmlns:colon="http://www.cap.org/pert/2009/01/colon/"
-    xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/">
+<synopsis grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/prostate@resection.xslt"
+    pert:schemaLocation="http://www.cap.org/pert/2009/01/resection@colon.rng" pert:version="2009-01-01"
+    xmlns="http://www.cap.org/pert/2009/01/" xmlns:cerner="http://www.cerner.com/"
+    xmlns:colon="http://www.cap.org/pert/2009/01/colon/" xmlns:grddl="http://www.w3.org/2003/g/data-view#"
+    xmlns:pert="http://www.cap.org/pert/2009/01/">
     <comment xml:lang="en">This synopsis demonstrates the resection@colon.rng schema</comment>
     <displayText>SYNOPTIC REPORT</displayText>
     <clinical>

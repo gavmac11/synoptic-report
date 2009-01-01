@@ -6,7 +6,7 @@
     <ns prefix="breast" uri="http://www.cap.org/pert/2009/01/breast/"/>
     <ns prefix="grddl" uri="http://www.w3.org/2003/g/data-view#"/>
     <let name="skip" value="true()"/>
-    <let name="no-report" value="false()"/>
+    <let name="report" value="true()"/>
     <pattern id="therapy-description-not-allowed">
         <rule context="//hasPriorTherapy" subject="@description @value">
             <assert test="@value ge count(@description)">
@@ -16,12 +16,9 @@
     </pattern>
     <pattern id="size-dimensions-in-decreasing-order">
         <rule context="//pert:tumorSize">
-            <let name="d1"
-                value="if (@dimension-1 castable as xs:float) then xs:float(@dimension-1) else 0.0"/>
-            <let name="d2"
-                value="if (@dimension-2 castable as xs:float) then xs:float(@dimension-2) else 0.0"/>
-            <let name="d3"
-                value="if (@dimension-3 castable as xs:float) then xs:float(@dimension-3) else 0.0"/>
+            <let name="d1" value="if (@dimension-1 castable as xs:float) then xs:float(@dimension-1) else 0.0"/>
+            <let name="d2" value="if (@dimension-2 castable as xs:float) then xs:float(@dimension-2) else 0.0"/>
+            <let name="d3" value="if (@dimension-3 castable as xs:float) then xs:float(@dimension-3) else 0.0"/>
             <assert test="$d1 ge $d2 and $d2 ge $d3"> 
                 Tumor size dimensions must be in decreasing order. 
             </assert>
@@ -109,8 +106,7 @@
             <let name="pos" value="('micrometastasis', 'macrometastasis')"/>
             <let name="mac" value="'macrometastasis'"/>
             <let name="mic" value="'micrometastasis'"/>
-            <let name="ax"
-                value="//pert:nodeGroup[@location = ('low axillary', 'mid axillary', 'high axillary')]"/>
+            <let name="ax" value="//pert:nodeGroup[@location = ('low axillary', 'mid axillary', 'high axillary')]"/>
             <let name="sc-pos" value="sum($sc/pert:nodeStatus[@value = $pos]/@count)"/>
             <let name="ic-pos" value="sum($ic/pert:nodeStatus[@value = $pos]/@count)"/>
             <let name="im-pos" value="sum($im/pert:nodeStatus[@value = $pos]/@count)"/>
@@ -123,7 +119,7 @@
             <let name="N" value="@value"/>
             <let name="N_" value="substring($N, 1, 1)"/>
             <assert test="
-                     if ($sc-pos gt 0)                  then $N eq '3c'
+                if ($sc-pos gt 0)                  then $N eq '3c'
                 else if ($ax-pos gt 3 and $im-mac gt 0) then $N eq '3b'
                 else if ($ax-pos gt 0 and $im-pos gt 0) then $N eq '3b'
                 else if ($ic-pos gt 0)                  then $N eq '3a'
@@ -136,7 +132,20 @@
                 else if ($mic)                          then $N eq '1mi'
                 else if ($itc)                          then $N_ = '0'
                 else                                         $N eq 'X'    "> 
-                The N-stage (<value-of select="$N"/>) does not match the findings reported in the "nodes" section.
+                Reported N-stage (<value-of select="$N"/>) does not match calculated (<value-of select="
+                    if ($sc-pos gt 0)                  then '3c'
+                    else if ($ax-pos gt 3 and $im-mac gt 0) then '3b'
+                    else if ($ax-pos gt 0 and $im-pos gt 0) then '3b'
+                    else if ($ic-pos gt 0)                  then '3a'
+                    else if ($ax-pos gt 9 and $ax-mac gt 0) then '3a'
+                    else if ($ax-pos eq 0 and $im-mac gt 0) then '2b'
+                    else if ($ax-pos gt 3 and $ax-mac gt 0) then '2a'
+                    else if ($ax-pos gt 0 and $im-mic gt 0) then '1c'
+                    else if ($im-pos gt 0)                  then '1b'
+                    else if ($ax-pos gt 0 and $ax-mac gt 0) then '1a'
+                    else if ($mic)                          then '1mi'
+                    else if ($itc)                          then '0'
+                    else                                         'X'    "/>).
             </assert>
         </rule>
     </pattern>
@@ -151,10 +160,8 @@
                 value="//breast:invasionFinding[@location = 'extension to chest wall']/@value = 'positive'"/>
             <let name="ulcer"
                 value="//breast:invasionFinding[@location = 'extension to chest wall']/@value = 'positive'"/>
-            <let name="edema"
-                value="//breast:invasionFinding[@location = 'skin ulceration']/@value = 'positive'"/>
-            <let name="sat"
-                value="//breast:invasionFinding[@location = 'skin satellite nodules']/@value = 'positive'"/>
+            <let name="edema" value="//breast:invasionFinding[@location = 'skin ulceration']/@value = 'positive'"/>
+            <let name="sat" value="//breast:invasionFinding[@location = 'skin satellite nodules']/@value = 'positive'"/>
             <let name="skin" value="$edema or $ulcer or $sat"/>
             <let name="T" value="@value cast as xs:string"/>
             <assert test="
@@ -170,7 +177,18 @@
                 else if ($size gt 0.0)      then $T eq '1mic'
                 else                             $T eq 'X'    
             ">    
-                The T-stage (<value-of select="$T"/>) does not match the findings reported in the "invasion" section (unit <value-of select="//pert:tumorSize/@unit"/>, size <value-of select="$size"/>).
+                Reported T-stage (<value-of select="$T"/>) does not match calculated (<value-of select="
+                    if ($inflam)           then '4d'
+                    else if ($chwall and $skin) then '4c'
+                    else if ($skin)             then '4b'
+                    else if ($chwall)           then '4a'
+                    else if ($size gt 5.0)      then '3'
+                    else if ($size gt 2.0)      then '2'
+                    else if ($size gt 1.0)      then '1c'
+                    else if ($size gt 0.5)      then '1b'
+                    else if ($size gt 0.1)      then '1a'
+                    else if ($size gt 0.0)      then '1mic'
+                    else                             'X'    "/>).
             </assert>
         </rule>
     </pattern>
@@ -205,6 +223,24 @@
             </assert>
             <assert test="if (@value = ('micrometastasis', 'macrometastasis')) then exists(pert:largestMet) else $skip">
                 Micro- or macrometastasis is present in a node group for which largest metastasis is unspecified.
+            </assert>
+        </rule>
+    </pattern>
+    <pattern>
+        <rule context="//pert:M">
+            <let name="M" value="@value"/>
+            <let name="met" value="exists(//pert:metastasis)"/>
+            <let name="report" value="exists(//pert:metastases)"/>
+            <assert test="
+                if ($report) then 
+                if ($met) then $M = '1' 
+                else $M = '0' 
+                else $M = 'X'">
+                Reported M-stage (<value-of select="$M"/>) does not match calculated (<value-of select=" 
+                    if ($report) then 
+                        if ($met) then '1' 
+                        else '0' 
+                    else 'X'"/>).
             </assert>
         </rule>
     </pattern>

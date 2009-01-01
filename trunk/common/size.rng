@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" name="size"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <ref name="baseContent"/>
+    <attribute name="unit">
+        <externalRef href="lengthUnits.rng"/>
+    </attribute>
+    <attribute name="dimension-1">
+        <data type="float"/>
+    </attribute>
+    <optional>
+        <attribute name="dimension-2">
+            <data type="float"/>
+        </attribute>
+        <optional>
+            <attribute name="dimension-3">
+                <data type="float"/>
+            </attribute>
+        </optional>
+    </optional>
+</element>
