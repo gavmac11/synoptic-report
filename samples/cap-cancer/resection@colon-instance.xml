@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="../../report/cap-cancer/resection/resection@colon.rng" type="xml"?>
 <?oxygen SCHSchema="../../rules/cap-cancer/resection@colon.sch"?>
+<!--
+    
+    CAP Schema for Synoptic Reports
+    (c) Copyright 2008 College of American Pathologists
+    ===========================================================================
+    Component name:
+    resection@colon-instance.xml
+    
+    Component type:
+    sample conformant instance (exemplar)
+    
+    Version date:
+    2008.12.31
+    
+    Defines:
+    
+    
+    Purpose:
+    
+    
+    
+    Dependencies:      
+    
+    
+    ===========================================================================
+    This file is part of the "CAP Schema for Synoptic Reports".
+    
+    The "CAP Schema for Synoptic Reports" is free software: 
+    you can redistribute it and/or modify it under the terms of the 
+    GNU General Public License as published by the Free Software Foundation, 
+    either version 3 of the License, or (at your option) any later version.
+    
+    The "CAP Schema for Synoptic Reports" is distributed 
+    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or 
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+    for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with the "CAP Schema for Synoptic Reports".  
+    If not, see <http://www.gnu.org/licenses/>. 
+    ===========================================================================
+    
+-->
 <synopsis grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/prostate@resection.xslt"
     pert:schemaLocation="http://www.cap.org/pert/2009/01/resection@colon.rng" pert:version="2009-01-01"
     xmlns="http://www.cap.org/pert/2009/01/" xmlns:cerner="http://www.cerner.com/"
