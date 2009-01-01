@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://purl.oclc.org/dsdl/schematron">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <ns prefix="pert" uri="http://www.cap.org/pert/2009/01/"/>
     <ns prefix="prostate" uri="http://www.cap.org/pert/2009/01/prostate/"/>
@@ -70,4 +68,11 @@
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-</schema>
+    <pattern id="other-value" abstract="true">
+        <rule context="$context">
+            <assert test="if @value eq 'other' then exists(@otherValue) else not exists(@otherValue)">
+                <name/> has the value 'other'; therefore otherValue attribute must be specified.
+            </assert>
+        </rule>
+    </pattern>
+
