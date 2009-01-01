@@ -222,17 +222,17 @@
                 else                             $T eq 'X'    
             ">    
                 Reported T-stage (<value-of select="$T"/>) does not match calculated (<value-of select="
-                    if ($inflam)           then '4d'
-                    else if ($chwall and $skin) then '4c'
-                    else if ($skin)             then '4b'
-                    else if ($chwall)           then '4a'
-                    else if ($size gt 5.0)      then '3'
-                    else if ($size gt 2.0)      then '2'
-                    else if ($size gt 1.0)      then '1c'
-                    else if ($size gt 0.5)      then '1b'
-                    else if ($size gt 0.1)      then '1a'
-                    else if ($size gt 0.0)      then '1mic'
-                    else                             'X'    "/>).
+                     if ($inflam)           then '4d'
+                else if ($chwall and $skin) then '4c'
+                else if ($skin)             then '4b'
+                else if ($chwall)           then '4a'
+                else if ($size gt 5.0)      then '3'
+                else if ($size gt 2.0)      then '2'
+                else if ($size gt 1.0)      then '1c'
+                else if ($size gt 0.5)      then '1b'
+                else if ($size gt 0.1)      then '1a'
+                else if ($size gt 0.0)      then '1mic'
+                else                             'X'    "/>).
             </assert>
         </rule>
     </pattern>
