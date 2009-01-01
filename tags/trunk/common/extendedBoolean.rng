@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+  <value>positive</value>
+  <value>negative</value>
+  <value>inconclusive</value>
+  <value>indeterminate</value>
+  <value>inapplicable</value>
+</choice>

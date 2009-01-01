@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>carina</value>
+    <value>rightLung</value>
+    <value>rightUpperLobe</value>
+    <value>rightMiddleLobe</value>
+    <value>rightLowerLobe</value>
+    <value>leftLung</value>
+    <value>leftUpperLobe</value>
+    <value>lingula</value>
+    <value>leftLowerLobe</value>
+    <value>ApicalRightUpperSegment</value>
+    <value>posteriorRightUpperSegment</value>
+    <value>anteriorRightUpperSegmentl</value>
+    <value>lateralRightMiddleSegment</value>
+    <value>medialRightMiddleSegment</value>
+    <value>superiorRightLowerSegment</value>
+    <value>medial-basalRightLowerSegment</value>
+    <value>anterior-basalRightLowerSegment</value>
+    <value>lateral-basalRightLowerSegment</value>
+    <value>apical-posteriorLeftUpperSegment</value>
+    <value>anteriorLeftUpperSegment</value>
+    <value>inferiorLingularSegment</value>
+    <value>superiorLeftLowerSegment</value>
+    <value>anteromedial-basalLeftLowerSegment</value>
+    <value>posterior-basalLeftLowerSegment</value>
+    <value>lateral-basalLeftLowerSegment</value>
+    <value>rightMainstemBronchus</value>
+    <value>rightUpperLobeBronchus</value>
+    <value>bronchusIntermedius</value>
+    <value>rightMiddleLobeBronchus</value>
+    <value>rightLowerLobeBronchus</value>
+    <value>leftUpperLobeBronchus</value>
+    <value>leftLowerLobeBronchus</value>
+    <value>leftUpperLobeBronchus</value>
+</choice>

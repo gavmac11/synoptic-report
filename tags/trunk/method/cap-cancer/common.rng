@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <define combine="interleave" name="additional">
+        <element name="additional">
+            <ref name="additional-attrib"/>
+            <interleave>
+                <ref name="baseContent"/>
+                <ref name="additional-content"/>
+            </interleave>
+        </element>
+    </define>
+    <define combine="interleave" name="clinical">
+        <element name="clinical">
+            <ref name="clinical-attrib"/>
+            <interleave>
+                <ref name="baseContent"/>
+                <ref name="clinical-content"/>
+            </interleave>
+        </element>
+    </define>
+    <define combine="interleave" name="specimen">
+        <element name="specimen">
+            <ref name="specimen-attrib"/>
+            <interleave>
+                <ref name="baseContent"/>
+                <ref name="specimen-content"/>
+            </interleave>
+        </element>
+    </define>
+    <define combine="interleave" name="studies">
+        <element name="studies">
+            <ref name="studies-attrib"/>
+            <interleave>
+                <ref name="baseContent"/>
+                <ref name="studies-content"/>
+            </interleave>
+        </element>
+    </define>
+    <define combine="interleave" name="accessory">
+        <element name="accessory">
+            <ref name="accessory-attrib"/>
+            <interleave>
+                <ref name="baseContent"/>
+                <ref name="accessory-content"/>
+            </interleave>
+        </element>
+    </define>
+    <define combine="interleave" name="extent">
+        <element name="extent">
+            <ref name="extent-attrib"/>
+            <interleave>
+                <ref name="baseContent"/>
+                <ref name="extent-content"/>
+            </interleave>
+        </element>
+    </define>
+    <define combine="interleave" name="margins">
+        <element name="margins">
+            <ref name="margins-attrib"/>
+            <interleave>
+                <ref name="baseContent"/>
+                <ref name="margins-content"/>
+            </interleave>
+        </element>
+    </define>
+    <define combine="interleave" name="mets">
+        <element name="mets">
+            <ref name="mets-attrib"/>
+            <interleave>
+                <ref name="baseContent"/>
+                <ref name="mets-content"/>
+            </interleave>
+        </element>
+    </define>
+    <define combine="interleave" name="nodes">
+        <element name="nodes">
+            <ref name="nodes-attrib"/>
+            <interleave>
+                <ref name="baseContent"/>
+                <ref name="nodes-content"/>
+            </interleave>
+        </element>
+    </define>
+    <define combine="interleave" name="stage">
+        <element name="stage">
+            <ref name="stage-attrib"/>
+            <interleave>
+                <ref name="baseContent"/>
+                <ref name="stage-content"/>
+            </interleave>
+        </element>
+    </define>
+    <define combine="interleave" name="tumor">
+        <element name="tumor">
+            <ref name="tumor-attrib"/>
+            <interleave>
+                <ref name="baseContent"/>
+                <ref name="tumor-content"/>
+            </interleave>
+        </element>
+    </define>
+    <!--  -->
+    <define combine="interleave" name="additional-attrib">
+        <empty/>
+    </define>
+    <define combine="interleave" name="additional-content">
+        <empty/>
+    </define>
+    <define combine="interleave" name="clinical-attrib">
+        <empty/>
+    </define>
+    <define combine="interleave" name="clinical-content">
+        <empty/>
+    </define>
+    <define combine="interleave" name="specimen-attrib">
+        <empty/>
+    </define>
+    <define combine="interleave" name="specimen-content">
+        <empty/>
+    </define>
+    <define combine="interleave" name="studies-attrib">
+        <empty/>
+    </define>
+    <define combine="interleave" name="studies-content">
+        <empty/>
+    </define>
+    <define combine="interleave" name="accessory-attrib">
+        <empty/>
+    </define>
+    <define combine="interleave" name="accessory-content">
+        <empty/>
+    </define>
+    <define combine="interleave" name="extent-attrib">
+        <empty/>
+    </define>
+    <define combine="interleave" name="extent-content">
+        <empty/>
+    </define>
+    <define combine="interleave" name="margins-attrib">
+        <empty/>
+    </define>
+    <define combine="interleave" name="margins-content">
+        <empty/>
+    </define>
+    <define combine="interleave" name="mets-attrib">
+        <empty/>
+    </define>
+    <define combine="interleave" name="mets-content">
+        <empty/>
+    </define>
+    <define combine="interleave" name="nodes-attrib">
+        <empty/>
+    </define>
+    <define combine="interleave" name="nodes-content">
+        <empty/>
+    </define>
+    <define combine="interleave" name="stage-attrib">
+        <empty/>
+    </define>
+    <define combine="interleave" name="stage-content">
+        <empty/>
+    </define>
+    <define combine="interleave" name="tumor-attrib">
+        <empty/>
+    </define>
+    <define combine="interleave" name="tumor-content">
+        <empty/>
+    </define>
+</grammar>

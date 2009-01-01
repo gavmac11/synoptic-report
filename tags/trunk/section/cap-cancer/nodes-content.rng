@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--   
+    CAP Schema for Synoptic Reports
+    (c) Copyright 2008 College of American Pathologists
+    ========================================================================
+    
+    <<<File name>>>
+    nodes.rng
+    
+    <<<Component type>>>
+    not_specified
+    
+    <<<Version date>>>
+    2008.11.18
+    
+    <<<Purpose>>>
+    not_specified
+    
+    <<<Defines>>>
+    none
+    
+    <<<Dependencies>>>
+    none
+    
+    <<<Comments>>>
+    none
+    
+    ========================================================================
+    This file is part of the "CAP Schema for Synoptic Reports".
+    
+    The "CAP Schema for Synoptic Reports" is free software: 
+    you can redistribute it and/or modify it under the terms of the 
+    GNU General Public License as published by the Free Software Foundation, 
+    either version 3 of the License, or (at your option) any later version.
+    
+    The "CAP Schema for Synoptic Reports" is distributed 
+    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or 
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+    for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with the "CAP Schema for Synoptic Reports".  
+    If not, see <http://www.gnu.org/licenses/>. 
+    ========================================================================
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+    <define combine="interleave" name="nodes-content">
+        <zeroOrMore>
+            <element name="nodeGroup">
+                <externalRef href="../../common/laterality.rng"/>
+                <attribute name="location">
+                    <ref name="nodeGroups"/>
+                </attribute>
+                <interleave>
+                    <ref name="baseContent"/>
+                    <ref name="nodeGroup-content"/>
+                </interleave>
+            </element>
+        </zeroOrMore>
+    </define>
+    <define name="nodeGroups">
+        <text/>
+    </define>
+    <define combine="interleave" name="nodeGroup-content">
+        <zeroOrMore>
+            <element name="nodeStatus">
+                <ref name="baseContent"/>
+                <attribute name="value">
+                    <ref name="nodeStatuses"/>
+                </attribute>
+                <attribute name="count">
+                    <data type="nonNegativeInteger"/>
+                </attribute>
+                <interleave>
+                    <optional>
+                        <element name="extracapsular">
+                            <ref name="baseContent"/>
+                            <attribute name="value">
+                                <externalRef href="../../common/extendedBoolean.rng"/>
+                            </attribute>
+                        </element>
+                    </optional>
+                    <optional>
+                        <element name="largestMet">
+                            <ref name="baseContent"/>
+                            <attribute name="value">
+                                <data type="float"/>
+                            </attribute>
+                            <attribute name="unit">
+                                <externalRef href="../../common/lengthUnits.rng"/>
+                            </attribute>
+                        </element>
+                    </optional>
+                </interleave>
+            </element>
+        </zeroOrMore>
+    </define>
+    <define combine="choice" name="nodeStatuses">
+        <choice>
+            <value>total</value>
+            <value>positive</value>
+            <value>regressed</value>
+        </choice>
+    </define>
+</grammar>

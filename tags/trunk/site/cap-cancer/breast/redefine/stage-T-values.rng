@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <value>X</value>
+    <value>0</value>
+    <value>1mic</value>
+    <value>1a</value>
+    <value>1b</value>
+    <value>1c</value>
+    <value>2</value>
+    <value>3</value>
+    <value>4a</value>
+    <value>4b</value>
+    <value>4c</value>
+    <value>4d</value>
+</choice>

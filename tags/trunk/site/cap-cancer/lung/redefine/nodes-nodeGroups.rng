@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>peribronchial</value>
+    <value>hilar</value>
+    <value>intrapulmonary</value>
+    <value>mediastinal</value>
+    <value>subcarinal</value>
+    <value>scalene</value>
+    <value>supraclavicular</value>
+</choice>
