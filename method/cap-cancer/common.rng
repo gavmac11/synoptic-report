@@ -65,7 +65,7 @@
         </element>
     </define>
     <define combine="interleave" name="mets">
-        <element name="mets">
+        <element name="metastases">
             <ref name="mets-attrib"/>
             <interleave>
                 <ref name="baseContent"/>

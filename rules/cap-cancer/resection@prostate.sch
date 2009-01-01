@@ -175,4 +175,22 @@
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <pattern>
+        <rule context="//pert:M">
+            <let name="M" value="@value"/>
+            <let name="met" value="exists(//pert:metastasis)"/>
+            <let name="report" value="exists(//pert:metastases)"/>
+            <assert test="
+                if ($report) then 
+                if ($met) then $M = '1' 
+                else $M = '0' 
+                else $M = 'X'">
+                Reported M-stage (<value-of select="$M"/>) does not match calculated (<value-of select=" 
+                    if ($report) then 
+                        if ($met) then '1' 
+                        else '0' 
+                    else 'X'"/>).
+            </assert>
+        </rule>
+    </pattern>
 </schema>

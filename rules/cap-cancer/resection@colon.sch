@@ -81,8 +81,7 @@
     <iso:pattern id="colon-site-matches-procedure">
         <iso:rule context="//pert:site">
             <let name="proc" value="//pert:procedure/@value"/>
-            <iso:assert
-                test="                                  if ($proc = 'right hemicolectomy')
+            <iso:assert test="                                  if ($proc = 'right hemicolectomy')
                 then @value = ('cecum', 'ascending colon', 'hepatic flexure', 'transverse colon')
                 else if ($proc = 'transverse colectomy')       then @value = ('hepatic flexure',
                 'transverse colon', 'splenic flexure')                 else if ($proc = 'left
@@ -93,8 +92,7 @@
                 'anus')                 else if ($proc = 'abdominoperineal resection') then @value =
                 ('sigmoid colon', 'rectum', 'anus')                  else if ($proc = 'transanal
                 disk excision')    then @value = ('sigmoid colon', 'rectum', 'anus')
-                else                                           $skip    "
-                > Specimen site "<value-of select="@value"/>" must match a corresponding procedure.
+                else                                           $skip    "> Specimen site "<value-of select="@value"/>" must match a corresponding procedure.
             </iso:assert>
         </iso:rule>
     </iso:pattern>
@@ -116,14 +114,11 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <iso:pattern id="colon-calculate-N-stage">
         <iso:rule context="//pert:N">
-            <iso:let name="posNodes"
-                value="sum(//pert:nodeGroup/@positiveNodes) cast as
+            <iso:let name="posNodes" value="sum(//pert:nodeGroup/@positiveNodes) cast as
                 xs:integer"/>
             <iso:let name="N" value="@value cast as xs:integer"/>
-            <iso:assert
-                test="if ($posNodes eq 0) then $N eq 0 else if ($posNodes lt 4)
-                then $N eq 1 else $N eq 2"
-                > N-stage (<value-of select="$N"/>) must match the number of positive nodes
+            <iso:assert test="if ($posNodes eq 0) then $N eq 0 else if ($posNodes lt 4)
+                then $N eq 1 else $N eq 2"> N-stage (<value-of select="$N"/>) must match the number of positive nodes
                     (<value-of select="$posNodes"/>). </iso:assert>
         </iso:rule>
     </iso:pattern>
@@ -132,8 +127,7 @@
         <iso:rule context="//pert:T">
             <iso:let name="depth" value="//colon:deepestInvasion/@value cast as xs:string"/>
             <iso:let name="T" value="@value cast as xs:string"/>
-            <iso:assert
-                test="                                  if ($depth = 'adjacent structure')
+            <iso:assert test="                                  if ($depth = 'adjacent structure')
                 then $T = '4'                   else if ($depth = 'serosal surface')           then
                 $T = '3'                  else if ($depth = 'periolic tissue')           then $T =
                 '3'                  else if ($depth = 'subserosa')                 then $T = '3'
@@ -142,8 +136,7 @@
                 ($depth = 'lamina propria')            then $T = 'is'                  else if
                 ($depth = 'intraepithelial carcinoma') then $T = 'is'                  else if
                 ($depth = 'no evidence of tumor')      then $T = '0'                  else
-                $T = 'X'    "
-                > Value of T-stage does not match value given for deepest invasion. </iso:assert>
+                $T = 'X'    "> Value of T-stage does not match value given for deepest invasion. </iso:assert>
         </iso:rule>
     </iso:pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -184,4 +177,22 @@
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <pattern>
+        <rule context="//pert:M">
+            <let name="M" value="@value"/>
+            <let name="met" value="exists(//pert:metastasis)"/>
+            <let name="report" value="exists(//pert:metastases)"/>
+            <assert test="
+                if ($report) then 
+                if ($met) then $M = '1' 
+                else $M = '0' 
+                else $M = 'X'">
+                Reported M-stage (<value-of select="$M"/>) does not match calculated (<value-of select=" 
+                    if ($report) then 
+                        if ($met) then '1' 
+                        else '0' 
+                    else 'X'"/>).
+            </assert>
+        </rule>
+    </pattern>
 </schema>

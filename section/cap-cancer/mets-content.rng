@@ -51,12 +51,23 @@
             <element name="metastasis">
                 <ref name="baseContent"/>
                 <attribute name="site">
-                    <ref name="sites"/>
+                    <ref name="metastaticSites"/>
                 </attribute>
+                <attribute name="howDiagnosed">
+                    <choice>
+                        <value>this accesion</value>
+                        <value>prior accession</value>
+                        <value>outside report</value>
+                        <value>clinical examination</value>
+                    </choice>
+                </attribute>
+                <optional>
+                    <externalRef href="../../common/size.rng"/>
+                </optional>
             </element>
         </zeroOrMore>
     </define>
-    <define name="sites">
-        <data type="string"/>
+    <define name="metastaticSites">
+        <text/>
     </define>
 </grammar>
