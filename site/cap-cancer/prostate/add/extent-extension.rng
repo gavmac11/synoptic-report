@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<element name="extension" ns="http://www.cap.org/pert/2009/01/prostate/" xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+<element name="extension" ns="http://www.cap.org/pert/2009/01/prostate/"
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:iso="http://purl.oclc.org/dsdl/schematron">
   <interleave>
     <ref name="baseContent"/>
     <oneOrMore>

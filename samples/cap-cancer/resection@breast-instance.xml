@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="../../report/cap-cancer/resection/resection@breast.rng" type="xml"?>
-<?oxygen SCHSchema="../../rules/resection@breast.sch"?>
-<synopsis grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/breast@resection.xslt"
-    pert:schemaLocation="http://www.cap.org/pert/2009/01/resection@breast.rng" pert:version="2008-12-25"
-    xmlns="http://www.cap.org/pert/2009/01/" xmlns:breast="http://www.cap.org/pert/2009/01/breast/"
+<?oxygen SCHSchema="../../rules/cap-cancer/resection@breast.sch"?>
+<synopsis
+    grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/breast@resection.xslt"
+    pert:schemaLocation="http://www.cap.org/pert/2009/01/resection@breast.rng"
+    pert:version="2008-12-25" xmlns="http://www.cap.org/pert/2009/01/"
+    xmlns:breast="http://www.cap.org/pert/2009/01/breast/"
     xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/">
     <clinical>
         <priorTherapies>
@@ -62,11 +64,11 @@
     </margins>
     <nodes>
         <nodeGroup laterality="right" location="low axillary">
-            <nodeStatus count="2" value="isolated tumor cells">
+            <nodeStatus count="2" value="macrometastasis">
                 <largestMet unit="mm" value="3"/>
                 <extracapsular value="negative"/>
             </nodeStatus>
-            <nodeStatus count="1" value="macrometastasis"/>
+            <nodeStatus count="1" value="isolated tumor cells"/>
             <nodeStatus count="7" value="total"/>
         </nodeGroup>
     </nodes>
@@ -77,7 +79,7 @@
     </studies>
     <stage>
         <T value="4b"/>
-        <N value="1c"/>
+        <N value="1a"/>
         <M value="1"/>
         <prefix value="y"/>
         <classification value="p"/>

@@ -31,25 +31,45 @@
         </iso:rule>
     </iso:pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <iso:pattern id="node-numbers-add-up">
-        <iso:rule context="//pert:nodeGroup">
-            <iso:let name="positiveNodes"
-                value="if (@positiveNodes castable as xs:integer) then
-                xs:integer(@positiveNodes) else 0"/>
-            <iso:let name="regressedNodes"
-                value="if (@regressedNodes castable as xs:integer) then
-                xs:integer(@regressedNodes) else 0"/>
-            <iso:let name="totalNodes"
-                value="if (@totalNodes castable as xs:integer) then
-                xs:integer(@totalNodes) else -1"/>
-            <iso:assert test="$positiveNodes le $totalNodes"> Positive nodes must not exceed total
-                nodes in the "<iso:value-of select="@location"/>" lymph node group. </iso:assert>
-            <iso:assert test="$regressedNodes le $totalNodes"> Regressed nodes must not exceed total
-                nodes in the "<iso:value-of select="@location"/>" lymph node group. </iso:assert>
-            <iso:assert test="$regressedNodes + $positiveNodes le $totalNodes"> Positive plus
-                regressed nodes must not exceed total nodes in the "<iso:value-of select="@location"/>" lymph node group. </iso:assert>
-        </iso:rule>
-    </iso:pattern>
+    <pattern id="total-nodes-must-be-specified-for-each-nodeGroup">
+        <rule context="//pert:nodeGroup">
+            <assert test="exists(pert:nodeStatus[@value = 'total'])">
+                At a minimum, the total number of nodes in every group must be specified (missing for "<value-of select="@location"/>").
+            </assert>
+        </rule>
+    </pattern>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <pattern id="node-numbers-add-up">
+        <rule context="//pert:nodeGroup">
+            <let name="regressed"
+                value="
+                if (pert:nodeStatus[@value = 'regressed']/@count castable as xs:integer)
+                then xs:integer(pert:nodeStatus[@value = 'regressed']/@count)
+                else 0
+                "/>
+            <let name="pos"
+                value="
+                if (pert:nodeStatus[@value = 'positive']/@count castable as xs:integer) 
+                then xs:integer(pert:nodeStatus[@value = 'positive']/@count) 
+                else 0
+                "/>
+            <let name="total"
+                value="
+                if (pert:nodeStatus[@value = 'total']/@count castable as xs:integer) 
+                then xs:integer(pert:nodeStatus[@value = 'total']/@count) 
+                else -1
+                "/>
+            <assert test="$regressed le $total">
+                Nodes positive for regressed tumor (<value-of select="$regressed"/>) must not exceed total nodes (<value-of select="$total"/>) in the "<value-of select="@location"/>" lymph node group. 
+            </assert>
+            <assert test="$pos le $total">
+                Nodes positive (<value-of select="$pos"/>) must not exceed total nodes (<value-of select="$total"/>) in the "<value-of select="@location"/>" lymph node group. 
+            </assert>
+            <assert test="$regressed + $pos le $total"> 
+                Sum (<value-of select="$regressed + $pos"/>) of nodes with regressed tumor (<value-of select="$regressed"/>)  and positive (<value-of select="$pos"/>) must not exceed total nodes (<value-of select="$total"/>) in the "<value-of select="@location"/>" lymph node group.
+            </assert>
+        </rule>
+    </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <iso:pattern id="mucinous-percentage-only-if-present">
         <iso:rule context="//colon:mucinousComponent">
@@ -61,7 +81,8 @@
     <iso:pattern id="colon-site-matches-procedure">
         <iso:rule context="//pert:site">
             <let name="proc" value="//pert:procedure/@value"/>
-            <iso:assert test="                                  if ($proc = 'right hemicolectomy')
+            <iso:assert
+                test="                                  if ($proc = 'right hemicolectomy')
                 then @value = ('cecum', 'ascending colon', 'hepatic flexure', 'transverse colon')
                 else if ($proc = 'transverse colectomy')       then @value = ('hepatic flexure',
                 'transverse colon', 'splenic flexure')                 else if ($proc = 'left
@@ -72,7 +93,9 @@
                 'anus')                 else if ($proc = 'abdominoperineal resection') then @value =
                 ('sigmoid colon', 'rectum', 'anus')                  else if ($proc = 'transanal
                 disk excision')    then @value = ('sigmoid colon', 'rectum', 'anus')
-                else                                           $skip    "> Specimen site "<value-of select="@value"/>" must match a corresponding procedure. </iso:assert>
+                else                                           $skip    "
+                > Specimen site "<value-of select="@value"/>" must match a corresponding procedure.
+            </iso:assert>
         </iso:rule>
     </iso:pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -93,12 +116,15 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <iso:pattern id="colon-calculate-N-stage">
         <iso:rule context="//pert:N">
-            <iso:let name="posNodes" value="sum(//pert:nodeGroup/@positiveNodes) cast as
+            <iso:let name="posNodes"
+                value="sum(//pert:nodeGroup/@positiveNodes) cast as
                 xs:integer"/>
             <iso:let name="N" value="@value cast as xs:integer"/>
-            <iso:assert test="if ($posNodes eq 0) then $N eq 0 else if ($posNodes lt 4)
-                then $N eq 1 else $N eq 2"> N-stage (<value-of select="$N"/>) must match the number
-                of positive nodes (<value-of select="$posNodes"/>). </iso:assert>
+            <iso:assert
+                test="if ($posNodes eq 0) then $N eq 0 else if ($posNodes lt 4)
+                then $N eq 1 else $N eq 2"
+                > N-stage (<value-of select="$N"/>) must match the number of positive nodes
+                    (<value-of select="$posNodes"/>). </iso:assert>
         </iso:rule>
     </iso:pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -106,7 +132,8 @@
         <iso:rule context="//pert:T">
             <iso:let name="depth" value="//colon:deepestInvasion/@value cast as xs:string"/>
             <iso:let name="T" value="@value cast as xs:string"/>
-            <iso:assert test="                                  if ($depth = 'adjacent structure')
+            <iso:assert
+                test="                                  if ($depth = 'adjacent structure')
                 then $T = '4'                   else if ($depth = 'serosal surface')           then
                 $T = '3'                  else if ($depth = 'periolic tissue')           then $T =
                 '3'                  else if ($depth = 'subserosa')                 then $T = '3'
@@ -115,8 +142,8 @@
                 ($depth = 'lamina propria')            then $T = 'is'                  else if
                 ($depth = 'intraepithelial carcinoma') then $T = 'is'                  else if
                 ($depth = 'no evidence of tumor')      then $T = '0'                  else
-                $T = 'X'    "> Value of T-stage does not match value given for deepest invasion.
-            </iso:assert>
+                $T = 'X'    "
+                > Value of T-stage does not match value given for deepest invasion. </iso:assert>
         </iso:rule>
     </iso:pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -145,15 +172,15 @@
     <pattern id="report-closest-if-all-margins-negative">
         <rule context="//pert:margins">
             <let name="status" value="pert:margin/@status"/>
-            <let name="closest" value="pert:closestMargin"/>
-            <let name="closestLocation" value="pert:closestMargin/@location"/>
+            <let name="closest" value="pert:margin[@closest = 'true']"/>
+            <let name="closestLocation" value="$closest/@location"/>
             <assert test="if (exists($status) and $status = 'positive') then not(exists($closest))
-                else $skip"> "Closest margin" is not reportable if any margin is frankly positive. </assert>
+                else $skip"> Closest margin is not reportable if any margin is frankly positive. </assert>
             <assert test="if (exists($status) and not($status = 'positive')) then exists($closest)
                 else $skip"> "Closest margin" must be reported if all margins are negative. </assert>
-            <assert test="if (exists($closestLocation)) then $closestLocation = pert:margin[@status
-                = 'negative']/@location else $skip"> Closest margin location must correspond to a
-                reported negative margin location. </assert>
+            <assert test="if (exists($closest)) then $closest/@status
+                = 'negative' else $skip"> Closest margin must be
+                 negative margin. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

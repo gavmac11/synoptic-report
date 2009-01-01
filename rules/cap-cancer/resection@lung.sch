@@ -148,13 +148,13 @@
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="report-closest-if-all-margins-negative">
-        <rule context="//pert:margins/pert:margin">
-            <let name="status" value="@status"/>
-            <let name="closest" value="pert:distance[@closestMargin='true']"/>
-            <assert test="if (exists($status) and $status = 'positive') then not(exists($closest))
-                else $skip"> "Closest margin" is not reportable if any margin is frankly positive. </assert>
-            <assert test="if (exists($status) and not($status = 'positive')) then exists($closest)
-                else $skip"> "Closest margin" must be reported if all margins are negative.
+        <rule context="//pert:margins">
+            <let name="status" value="pert:margin/@status"/>
+            <let name="closest" value="pert:margin[@closest='true']"/>
+            <assert test="if (exists($status) and $status = 'positive for carcinoma') then not(exists($closest))
+                else $skip"> "Closest margin" is not reportable if any margin is positive. </assert>
+            <assert test="if (exists($status) and not($status = 'positive for carcinoma')) then exists($closest)
+                else $skip"> Closest margin must be reported if no margins are positive for invasive carcinoma.
             </assert>
         </rule>
     </pattern>

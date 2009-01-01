@@ -16,9 +16,12 @@
     </pattern>
     <pattern id="size-dimensions-in-decreasing-order">
         <rule context="//pert:tumorSize">
-            <let name="d1" value="if (@dimension-1 castable as xs:float) then xs:float(@dimension-1) else 0.0"/>
-            <let name="d2" value="if (@dimension-2 castable as xs:float) then xs:float(@dimension-2) else 0.0"/>
-            <let name="d3" value="if (@dimension-3 castable as xs:float) then xs:float(@dimension-3) else 0.0"/>
+            <let name="d1"
+                value="if (@dimension-1 castable as xs:float) then xs:float(@dimension-1) else 0.0"/>
+            <let name="d2"
+                value="if (@dimension-2 castable as xs:float) then xs:float(@dimension-2) else 0.0"/>
+            <let name="d3"
+                value="if (@dimension-3 castable as xs:float) then xs:float(@dimension-3) else 0.0"/>
             <assert test="$d1 ge $d2 and $d2 ge $d3"> 
                 Tumor size dimensions must be in decreasing order. 
             </assert>
@@ -106,7 +109,8 @@
             <let name="pos" value="('micrometastasis', 'macrometastasis')"/>
             <let name="mac" value="'macrometastasis'"/>
             <let name="mic" value="'micrometastasis'"/>
-            <let name="ax" value="//pert:nodeGroup[@location = ('low axillary', 'mid axillary', 'high axillary')]"/>
+            <let name="ax"
+                value="//pert:nodeGroup[@location = ('low axillary', 'mid axillary', 'high axillary')]"/>
             <let name="sc-pos" value="sum($sc/pert:nodeStatus[@value = $pos]/@count)"/>
             <let name="ic-pos" value="sum($ic/pert:nodeStatus[@value = $pos]/@count)"/>
             <let name="im-pos" value="sum($im/pert:nodeStatus[@value = $pos]/@count)"/>
@@ -147,8 +151,10 @@
                 value="//breast:invasionFinding[@location = 'extension to chest wall']/@value = 'positive'"/>
             <let name="ulcer"
                 value="//breast:invasionFinding[@location = 'extension to chest wall']/@value = 'positive'"/>
-            <let name="edema" value="//breast:invasionFinding[@location = 'skin ulceration']/@value = 'positive'"/>
-            <let name="sat" value="//breast:invasionFinding[@location = 'skin satellite nodules']/@value = 'positive'"/>
+            <let name="edema"
+                value="//breast:invasionFinding[@location = 'skin ulceration']/@value = 'positive'"/>
+            <let name="sat"
+                value="//breast:invasionFinding[@location = 'skin satellite nodules']/@value = 'positive'"/>
             <let name="skin" value="$edema or $ulcer or $sat"/>
             <let name="T" value="@value cast as xs:string"/>
             <assert test="

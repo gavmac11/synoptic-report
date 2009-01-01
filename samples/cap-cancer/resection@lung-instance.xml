@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="../../report/cap-cancer/resection/resection@lung.rng" type="xml"?>
-<?oxygen SCHSchema="../../rules/resection@lung.sch"?>
-<synopsis pert:schemaLocation="http://www.cap.org/pert/2009/01/resection@lung.rng"
-    xmlns="http://www.cap.org/pert/2009/01/" xmlns:lung="http://www.cap.org/pert/2009/01/lung/"
-    xmlns:pert="http://www.cap.org/pert/2009/01/">
+<?oxygen SCHSchema="../../rules/cap-cancer/resection@lung.sch"?>
+<synopsis
+    grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/prostate@resection.xslt"
+    pert:schemaLocation="http://www.cap.org/pert/2009/01/resection@lung.rng"
+    pert:version="2009-01-01" xmlns="http://www.cap.org/pert/2009/01/"
+    xmlns:grddl="http://www.w3.org/2003/g/data-view#"
+    xmlns:lung="http://www.cap.org/pert/2009/01/lung/" xmlns:pert="http://www.cap.org/pert/2009/01/">
     <clinical>
         <lung:smokingHistory packYears="3"/>
         <priorTherapies>
@@ -18,6 +21,9 @@
             <site value="left lower lobe"/>
             <site value="lingula"/>
         </sites>
+        <tumorLocations>
+            <tumorLocation value="left lower lobe"/>
+        </tumorLocations>
     </specimen>
     <tumor>
         <grade gradingSystem="WHO" value="3"/>
@@ -44,8 +50,8 @@
         <treatmentEffect value="&lt;10% viable"/>
     </accessory>
     <margins>
-        <margin location="bronchial" status="positive for CIS">
-            <distance closestMargin="true" unit="mm" value="4"/>
+        <margin location="bronchial" status="positive for CIS" closest="true">
+            <distance unit="mm" value="4"/>
         </margin>
     </margins>
     <nodes>
