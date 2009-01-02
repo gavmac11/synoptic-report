@@ -26,7 +26,7 @@
     <pattern abstract="true" id="x-iff-y">
         <rule context="$context">
             <assert test="if (exists($x)) then exists($y) else not(exists($y))">
-                In <name/>, <value-of select="$x-name"/> must be accompanied by <value-of select="$y-name"/>, and vice-versa.
+                In <name/>, <value-of select="$x-name"/> must have <value-of select="$y-name"/>, and vice-versa.
             </assert>
         </rule>
     </pattern>
@@ -60,6 +60,14 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern is-a="dimensions-decreasing">
         <param name="$context" value="//pert:tumorSize"/>
+    </pattern>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <pattern is-a="x-iff-y">
+        <param name="context" value="//prostate:extension/prostate:seminalVesicle"/>
+        <param name="x" value="@value='positive'"/>
+        <param name="y" value="@extent"/>
+        <param name="x-name" value="positive seminal vesicle invasion"/>
+        <param name="y" value="specification of extent"/>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="total-nodes-must-be-specified-for-each-nodeGroup">
