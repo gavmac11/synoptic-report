@@ -60,14 +60,11 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="size-dimensions-in-decreasing-order">
         <rule context="//pert:tumorSize">
-            <let name="d1"
-                value="if (@dimension-1 castable as xs:float) then
-                xs:float(@dimension-1) else 0.0"/>
-            <let name="d2"
-                value="if (@dimension-2 castable as xs:float) then
+            <let name="d1" value="if (@dimension-1 castable as xs:float) 
+                then xs:float(@dimension-1) else 0.0"/>
+            <let name="d2" value="if (@dimension-2 castable as xs:float) then
                 xs:float(@dimension-2) else 0.0"/>
-            <let name="d3"
-                value="if (@dimension-3 castable as xs:float) then
+            <let name="d3" value="if (@dimension-3 castable as xs:float) then
                 xs:float(@dimension-3) else 0.0"/>
             <assert test="$d1 ge $d2 and $d2 ge $d3"> Tumor size dimensions must be in
                 decreasing order. </assert>
@@ -84,20 +81,17 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="node-numbers-add-up">
         <rule context="//pert:nodeGroup">
-            <let name="regressed"
-                value="
+            <let name="regressed" value="
                 if (pert:nodeStatus[@value = 'regressed']/@count castable as xs:integer)
                 then xs:integer(pert:nodeStatus[@value = 'regressed']/@count)
                 else 0
                 "/>
-            <let name="pos"
-                value="
+            <let name="pos" value="
                 if (pert:nodeStatus[@value = 'positive']/@count castable as xs:integer) 
                 then xs:integer(pert:nodeStatus[@value = 'positive']/@count) 
                 else 0
                 "/>
-            <let name="total"
-                value="
+            <let name="total" value="
                 if (pert:nodeStatus[@value = 'total']/@count castable as xs:integer) 
                 then xs:integer(pert:nodeStatus[@value = 'total']/@count) 
                 else -1
@@ -125,14 +119,21 @@
         <rule context="//pert:site">
             <let name="proc" value="//pert:procedure/@value"/>
             <assert test="                                  
-                     if ($proc = 'right hemicolectomy')        then @value = ('cecum', 'ascending colon', 'hepatic flexure', 'transverse colon')
-                else if ($proc = 'transverse colectomy')       then @value = ('hepatic flexure', 'transverse colon', 'splenic flexure')  
-                else if ($proc = 'left hemicolectomy')         then @value = ('splenic flexure', 'descending colon', 'sigmoid colon')                 
-                else if ($proc = 'sigmoidectomy')              then @value = ('descending colon', 'sigmoid colon', 'rectum')                 
-                else if ($proc = 'low anterior resection')     then @value = ('sigmoid colon', 'rectum', 'anus')                 
-                else if ($proc = 'abdominoperineal resection') then @value = ('sigmoid colon', 'rectum', 'anus')                  
-                else if ($proc = 'transanal disk excision')    then @value = ('sigmoid colon', 'rectum', 'anus')
-                else                                                $skip    "> 
+                if ($proc = 'right hemicolectomy')        
+                    then @value = ('cecum', 'ascending colon', 'hepatic flexure', 'transverse colon')
+                else if ($proc = 'transverse colectomy')       
+                    then @value = ('hepatic flexure', 'transverse colon', 'splenic flexure')  
+                else if ($proc = 'left hemicolectomy')         
+                    then @value = ('splenic flexure', 'descending colon', 'sigmoid colon')                 
+                else if ($proc = 'sigmoidectomy')              
+                    then @value = ('descending colon', 'sigmoid colon', 'rectum')                 
+                else if ($proc = 'low anterior resection')     
+                    then @value = ('sigmoid colon', 'rectum', 'anus')                 
+                else if ($proc = 'abdominoperineal resection') 
+                    then @value = ('sigmoid colon', 'rectum', 'anus')                  
+                else if ($proc = 'transanal disk excision')    
+                    then @value = ('sigmoid colon', 'rectum', 'anus')
+                else $skip    "> 
                 Specimen site "<value-of select="@value"/>" must match a corresponding procedure.
             </assert>
         </rule>
@@ -202,20 +203,21 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="adjacent-structure-involvement">
         <rule context="//pert:invasion">
-            <assert test="if (colon:deepestInvasion/@value eq 'adjacent structure') then
-                colon:adjacentStructure else $skip"> Deepest invasion of adjacent structure(s)
-                requires specifying which structure(s) and extent. </assert>
-            <assert test="if (colon:adjacentStructure) then colon:deepestInvasion eq 'adjacent
-                structure' else $skip"> Adjacent structure(s) must be specified only if deepest
-                invasion is of adjacent structure. </assert>
+            <assert test="if (colon:deepestInvasion/@value eq 'adjacent structure') then colon:adjacentStructure else $skip"> 
+                Deepest invasion of adjacent structure(s) requires specifying which structure(s) and extent. 
+            </assert>
+            <assert test="if (colon:adjacentStructure) then colon:deepestInvasion eq 'adjacent structure' else $skip"> 
+                Adjacent structure(s) must be specified only if deepest invasion is of adjacent structure. 
+            </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="treatment-effect-implies-prior-therapy">
         <rule context="//pert:treatmentEffect">
             <let name="RxEffect" value="exists(.) and @value ne 'inapplicable'"/>
-            <report test="$RxEffect and not(//pert:priorTherapy)"> If reporting tumor treatment
-                effect, you must also specify prior therapy in the clinical section. </report>
+            <report test="$RxEffect and not(//pert:priorTherapy)"> 
+                If reporting tumor treatment effect, you must also specify prior therapy in the clinical section.
+            </report>
             <report test="$RxEffect and not(contains(//pert:stage/pert:prefix/@value, 'y'))">
                 Treatment effect must be noted in the stage descriptor using the 'y' prefix.
             </report>
@@ -227,13 +229,15 @@
             <let name="status" value="pert:margin/@status"/>
             <let name="closest" value="pert:margin[@closest = 'true']"/>
             <let name="closestLocation" value="$closest/@location"/>
-            <assert test="if (exists($status) and $status = 'positive') then not(exists($closest))
-                else $skip"> Closest margin is not reportable if any margin is frankly positive. </assert>
-            <assert test="if (exists($status) and not($status = 'positive')) then exists($closest)
-                else $skip"> "Closest margin" must be reported if all margins are negative. </assert>
-            <assert test="if (exists($closest)) then $closest/@status
-                = 'negative' else $skip"> Closest margin must be
-                 negative margin. </assert>
+            <assert test="if (exists($status) and $status = 'positive') then not(exists($closest)) else $skip"> 
+                Closest margin is not reportable if any margin is frankly positive. 
+            </assert>
+            <assert test="if (exists($status) and not($status = 'positive')) then exists($closest) else $skip"> 
+                "Closest margin" must be reported if all margins are negative. 
+            </assert>
+            <assert test="if (exists($closest)) then $closest/@status = 'negative' else $skip"> 
+                Closest margin must be negative margin. 
+            </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
