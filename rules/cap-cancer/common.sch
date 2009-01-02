@@ -45,7 +45,8 @@
     <pattern is-a="x-iff-y">
         <param name="context" value="//hasPriorTherapy"/>
         <param name="x" value="@value"/>
-        <param name="x-name" value="'a prior therapy element marked as positive'"/>
+        <param name="x-name"
+            value="'a prior therapy element marked as positive'"/>
         <param name="y" value="@description"/>
         <param name="y-name" value="'a prior therapy description'"/>
     </pattern>
@@ -63,7 +64,8 @@
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern is-a="x-iff-y">
-        <param name="context" value="//prostate:extension/prostate:seminalVesicle"/>
+        <param name="context"
+            value="//prostate:extension/prostate:seminalVesicle"/>
         <param name="x" value="@value='positive'"/>
         <param name="y" value="@extent"/>
         <param name="x-name" value="positive seminal vesicle invasion"/>
