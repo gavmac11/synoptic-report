@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    
+    CAP Schema for Synoptic Reports
+    (c) Copyright 2008 College of American Pathologists
+    ===========================================================================
+    Component name:
+    unspecified_site-biopsy.rng
+    
+    Component type:
+    grammar for inclusion
+    
+    Version date:
+    2008.12.02
+    
+    Defines:
+    schema fragment defining the sections appropriate for a resection report, and 
+    definining some as optional
+    
+    Purpose:
+    This schema defines a report that includes all the sections appropriate
+    for a biopsy report, but does not include any further internal structure
+    within these sections. 
+    
+    This schema is "abstract" in intent; we do not anticipate it would ever
+    be instantiated. It can be thought of as the schema for a report of a
+    biopsy procedure at an unspecified site.
+    
+    Dependencies:      
+    
+    
+    
+    ===========================================================================
+    This file is part of the "CAP Schema for Synoptic Reports".
+    
+    The "CAP Schema for Synoptic Reports" is free software: 
+    you can redistribute it and/or modify it under the terms of the 
+    GNU General Public License as published by the Free Software Foundation, 
+    either version 3 of the License, or (at your option) any later version.
+    
+    The "CAP Schema for Synoptic Reports" is distributed 
+    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or 
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+    for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with the "CAP Schema for Synoptic Reports".  
+    If not, see <http://www.gnu.org/licenses/>. 
+    ===========================================================================
+    
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <include href="common.rng"/>
+    <define combine="interleave" name="synopsis-content">
+        <interleave>
+            <optional>
+                <ref name="clinical">
+                    <a:documentation>
+                    An optional Clinical section.
+                </a:documentation>
+                </ref>
+            </optional>
+            <ref name="specimen">
+                <a:documentation>
+                A required Specimen section.
+            </a:documentation>
+            </ref>
+            <ref name="tumor"/>
+            <optional>
+                <ref name="extent"/>
+            </optional>
+            <optional>
+                <ref name="accessory"/>
+            </optional>
+            <optional>
+                <ref name="nodes"/>
+            </optional>
+            <optional>
+                <ref name="additional"/>
+            </optional>
+        </interleave>
+    </define>
+</grammar>
