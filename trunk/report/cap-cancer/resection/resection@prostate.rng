@@ -5,6 +5,8 @@
 <!ENTITY redefine "../../../site/cap-cancer/prostate/redefine/">
 <!ENTITY add "../../../site/cap-cancer/prostate/add/">
 <!ENTITY cap-cancer "../../../section/cap-cancer/">
+<!ENTITY repository "http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/">
+<!ENTITY version "55">
 ]>
 <!--
     
@@ -51,20 +53,22 @@
     ===========================================================================
     
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:pert="&pert;"
-    xmlns:prostate="&prostate;" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:pert="&pert;" xmlns:prostate="&prostate;"
+    xmlns:rng="http://relaxng.org/ns/structure/1.0">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <include href="../../common.rng">
         <a:documentation>Include the <synopsis/> element and associated base content.</a:documentation>
         <define combine="choice" name="schemaLocation">
             <a:documentation>Redefine the @schemaLocation to point to this schema.</a:documentation>
-            <value>&pert;resection@prostate.rng</value>
+            <value>&repository;resection@prostate.rng</value>
         </define>
         <define combine="choice" name="version">
             <a:documentation>Version of this schema</a:documentation>
-            <value>2009-01-01</value>
+            <value>&version;</value>
         </define>
     </include>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -84,7 +88,8 @@
         <a:documentation>Include the generic structured content of a Specimen section.</a:documentation>
         <define combine="choice" name="procedures">
             <a:documentation>Force prostate-specific redefinition of the "sites" pattern of the generic Specimen section.</a:documentation>
-            <externalRef href="&redefine;specimen-procedures-resection.rng"/>
+            <externalRef href="&redefine;specimen-procedures-resection.rng"
+            />
         </define>
         <define combine="choice" name="sites">
             <a:documentation>Force prostate-specific redefinition of the "sites" pattern of the generic Specimen section.</a:documentation>
@@ -115,7 +120,8 @@
     <include href="&cap-cancer;extent-content.rng">
         <a:documentation>Include the generic structured content of an Extent section.</a:documentation>
         <define name="tumorSize-content">
-            <externalRef href="&redefine;extent-percentTumorInvolvement.rng"/>
+            <externalRef href="&redefine;extent-percentTumorInvolvement.rng"
+            />
         </define>
     </include>
     <define combine="interleave" name="extent-content">
