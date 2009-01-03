@@ -2,6 +2,9 @@
 #sidebar Contents
 = Concept =
 
+http://synoptic-report.googlecode.com/files/Classes.png
+
+
 In this project, a report is conceived as consisting of a specification of 
 
   * a "method" (i.e. for pathology, a biopsy or a resection; or for radiology, a CT or an MRI)
