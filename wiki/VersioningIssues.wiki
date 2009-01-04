@@ -4,6 +4,4 @@ Versioning of the schemas constituting the main deliverable of this project will
 
 = Details =
 
-To be added...
-
-[ProjectHome Project home]
+The version item could be a decimal release, a date or a SVN build number. I think both decimal release and SVN build should ideally be included in each instance.
