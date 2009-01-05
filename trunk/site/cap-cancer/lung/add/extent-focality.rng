@@ -8,6 +8,7 @@
             <value>multifocal different lobes</value>
             <value>synchronous tumors</value>
             <value>indeterminate</value>
+            <value>other</value>
         </choice>
     </attribute>
 </element>

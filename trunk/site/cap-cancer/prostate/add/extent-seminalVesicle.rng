@@ -10,6 +10,7 @@
     <choice>
       <value>extensive</value>
       <value>focal</value>
+      <value>other</value>
     </choice>
   </attribute>
 </element>

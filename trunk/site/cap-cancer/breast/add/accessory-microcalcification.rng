@@ -9,6 +9,7 @@
             <value>positive in invasive carcinoma</value>
             <value>positive in benign tissue</value>
             <value>positive in both carcinoma and benign tissue</value>
+            <value>other</value>
         </choice>
     </attribute>
 </element>

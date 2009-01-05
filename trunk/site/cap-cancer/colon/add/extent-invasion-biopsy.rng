@@ -15,6 +15,7 @@
                     <value>inapplicable</value>
                     <value>inconclusive</value>
                     <value>indeterminate</value>
+                    <value>other</value>
                 </choice>
             </attribute>
         </element>

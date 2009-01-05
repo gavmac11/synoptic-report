@@ -9,6 +9,7 @@
       <value>left side</value>
       <value>bladder neck</value>
       <value>apex</value>
+      <value>other</value>
     </choice>
   </attribute>
   <attribute name="value">

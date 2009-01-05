@@ -11,6 +11,7 @@
             <value>sessile serrated adenoma</value>
             <value>hamartomatous polyp</value>
             <value>indeterminate type</value>
+            <value>other</value>
         </choice>
     </attribute>
 </element>

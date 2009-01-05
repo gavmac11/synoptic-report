@@ -20,5 +20,6 @@
         <value>9:00</value>
         <value>10:00</value>
         <value>11:00</value>
+        <value>other</value>
     </choice>
 </choice>

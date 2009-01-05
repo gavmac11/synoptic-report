@@ -11,6 +11,7 @@
                 <value>right</value>
                 <value>left</value>
                 <value>both sides</value>
+                <value>other</value>
             </choice>
         </attribute>
         <attribute name="value">
