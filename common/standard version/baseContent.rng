@@ -108,6 +108,7 @@
                     <choice>
                         <value>label</value>
                         <value>value</value>
+                        <value>other</value>
                     </choice>
                 </attribute>
             </optional>
