@@ -103,6 +103,7 @@
             <value>2</value>
             <value>3</value>
             <value>4</value>
+            <value>other</value>
         </choice>
     </define>
     <define name="N-values">
@@ -110,6 +111,7 @@
             <value>X</value>
             <value>0</value>
             <value>1</value>
+            <value>other</value>
         </choice>
     </define>
     <define name="M-values">
@@ -117,6 +119,7 @@
             <value>X</value>
             <value>0</value>
             <value>1</value>
+            <value>other</value>
         </choice>
     </define>
     <define name="classification-values">
@@ -127,6 +130,7 @@
             <value>y</value>
             <value>r</value>
             <value>a</value>
+            <value>other</value>
         </choice>
     </define>
     <define name="suffix-values">

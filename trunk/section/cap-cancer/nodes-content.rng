@@ -103,6 +103,7 @@
             <value>total</value>
             <value>positive</value>
             <value>regressed</value>
+            <value>other</value>
         </choice>
     </define>
 </grammar>

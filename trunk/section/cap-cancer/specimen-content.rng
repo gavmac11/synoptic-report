@@ -117,6 +117,7 @@
                         <choice>
                             <value>g</value>
                             <value>kg</value>
+                            <value>other</value>
                         </choice>
                     </attribute>
                     <attribute name="value">

@@ -57,11 +57,6 @@
                             <attribute name="value">
                                 <ref name="histologicTypes"/>
                             </attribute>
-                            <optional>
-                                <attribute name="other-value">
-                                    <data type="string"/>
-                                </attribute>
-                            </optional>
                         </element>
                     </oneOrMore>
                 </interleave>
@@ -126,12 +121,14 @@
             <value>2</value>
             <value>3</value>
             <value>4</value>
+            <value>other</value>
         </choice>
     </define>
     <define combine="choice" name="gradingSystems">
         <choice>
             <value>WHO</value>
             <value>not specified</value>
+            <value>other</value>
         </choice>
     </define>
 </grammar>
