@@ -46,5 +46,6 @@
     <choice>
         <value>right</value>
         <value>left</value>
+        <value>other</value>
     </choice>
 </attribute>
