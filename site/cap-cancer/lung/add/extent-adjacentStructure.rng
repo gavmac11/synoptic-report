@@ -17,6 +17,7 @@
                     <value>trachea</value>
                     <value>esophagus</value>
                     <value>vertebral body</value>
+                    <value>other</value>
                 </choice>
             </attribute>
             <ref name="baseContent"/>

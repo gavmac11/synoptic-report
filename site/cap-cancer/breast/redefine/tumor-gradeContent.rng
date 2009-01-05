@@ -4,9 +4,6 @@
     <attribute name="value">
         <externalRef href="tumor-grades.rng"/>
     </attribute>
-    <optional>
-        <attribute name="otherValue"/>
-    </optional>
     <element name="glandular">
         <externalRef href="grade-score.rng"/>
     </element>

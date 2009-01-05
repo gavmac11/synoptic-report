@@ -11,8 +11,5 @@
                 <value>other</value>
             </choice>
         </attribute>
-        <optional>
-            <attribute name="otherValue"/>
-        </optional>
     </element>
 </optional>

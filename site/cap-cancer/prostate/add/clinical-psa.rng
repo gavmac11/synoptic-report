@@ -9,7 +9,7 @@
   <attribute name="unit">
     <choice>
       <value>ng/ml</value>
-      <value/>
+      <value>other</value>
     </choice>
   </attribute>
   <attribute name="date">

@@ -30,6 +30,7 @@
                         <choice>
                             <value>pedunculated</value>
                             <value>sessile</value>
+                            <value>other</value>
                         </choice>
                     </attribute>
                 </element>

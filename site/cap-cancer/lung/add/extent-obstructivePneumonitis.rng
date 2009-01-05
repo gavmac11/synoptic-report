@@ -10,6 +10,7 @@
             <value>indeterminate</value>
             <value>inapplicable</value>
             <value>inconcllusive</value>
+            <value>other</value>
         </choice>
     </attribute>
 </element>
