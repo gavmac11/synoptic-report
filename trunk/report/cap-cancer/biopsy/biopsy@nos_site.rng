@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE grammar [
 <!ENTITY pert "http://www.cap.org/pert/2009/01/" >
-<!ENTITY version "2008-11-28">
+<!ENTITY version "0.1">
 <!ENTITY method "../../../method/cap-cancer/">
 <!ENTITY report "../../">
 <!ENTITY cap-cancer "../../../section/cap-cancer/">

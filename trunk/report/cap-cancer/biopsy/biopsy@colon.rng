@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE grammar [
 <!ENTITY pert "http://www.cap.org/pert/2009/01/" >
-<!ENTITY version "2008.11.28">
+<!ENTITY version "0.1">
 <!ENTITY redefine "../../../site/cap-cancer/colon/redefine/">
 <!ENTITY add "../../../site/cap-cancer/colon/add/">
 <!ENTITY cap-cancer "../../../section/cap-cancer/">
 <!ENTITY method "../../../method/cap-cancer/">
 <!ENTITY report "../../">
+<!ENTITY repository "http://purl.oclc.org/medical/reporting/report/cap-cancer/biopsy/biopsy@colon.rng">
 ]>
 <!--
     
@@ -60,7 +61,7 @@
         <a:documentation>The biopsy schema is based on the shell schema, adding structured content.</a:documentation>
         <define combine="choice" name="schemaLocation">
             <a:documentation>Instances claim conformance to this schema by referencing the official location of the schema immediately below.</a:documentation>
-            <value>pert:biopsy@colon.rng</value>
+            <value>&repository;</value>
         </define>
         <define name="version">
             <a:documentation>Instances claim conformance to this schema by referencing the version of the schema immediately below. </a:documentation>
