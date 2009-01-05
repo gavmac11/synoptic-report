@@ -5,6 +5,7 @@
 <!ENTITY redefine "../../../site/cap-cancer/lung/redefine/">
 <!ENTITY add "../../../site/cap-cancer/lung/add/">
 <!ENTITY cap-cancer "../../../section/cap-cancer/">
+<!ENTITY version "0.1">
 ]>
 <!--
     
@@ -63,7 +64,7 @@
         </define>
         <define combine="choice" name="version">
             <a:documentation>Version of this schema</a:documentation>
-            <value>2009-01-01</value>
+            <value>&version;</value>
         </define>
     </include>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
