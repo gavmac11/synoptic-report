@@ -47,7 +47,7 @@
     
 -->
 <synopsis grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/breast@resection.xslt"
-    pert:schemaLocation="http://www.cap.org/pert/2009/01/resection@breast.rng" pert:version="2008-12-25"
+    pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@breast.rng" pert:version="0.1"
     xmlns="http://www.cap.org/pert/2009/01/" xmlns:breast="http://www.cap.org/pert/2009/01/breast/"
     xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/">
     <clinical>
