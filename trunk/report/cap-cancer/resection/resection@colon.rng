@@ -6,7 +6,8 @@
 <!ENTITY cap-cancer "../../../section/cap-cancer/">
 <!ENTITY method "../../../method/cap-cancer/">
 <!ENTITY report "../../">
-<!ENTITY repository "http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/">
+<!ENTITY repository "http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@colon.rng">
+<!ENTITY version "0.1">
 ]>
 <!--
     
@@ -53,16 +54,14 @@
     ===========================================================================
     
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-    xmlns:colon="&pert;colon/" xmlns:pert="&pert;">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:colon="&pert;colon/" xmlns:pert="&pert;">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <include href="&report;common.rng">
         <define combine="choice" name="schemaLocation">
-            <value>&repository;resection@colon.rng</value>
+            <value>&repository;</value>
         </define>
-        <define name="version" combine="choice">
+        <define name="version">
             <value>&version;</value>
         </define>
     </include>
