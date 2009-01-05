@@ -1,14 +1,31 @@
 #summary Project design principles
 #sidebar Contents
 = Concept =
+This project is a framework for expressing pathology/radiology reports in a structured fashion. The cornerstone design concept is to maintain a modular, loosely-coupled relationship among:
+
+  # the user interface (a.k.a. user input/output form/format)
+  # the underlying data model (a.k.a. report document schema, data persistence model)
+  # the business rules defining valid combinations of data for specific purposes 
+  # the sharable semantics (a.k.a. ontology binding)
+
+This layered design mirrors an extended version of the classic model-view-controller paradigm, with the addition of a data integration layer below the model layer. Component #1 corresponds to the View layer. Component #2 corresponds to the Model layer. Component #3 corresponds to the Controller layer. Component #4 is an added data integration layer that sits below the Model (#2) layer and allows for data integration with other systems.
 
 http://synoptic-report.googlecode.com/files/Classes.png
 
+In this Google project, the focus is on #2 and #3. Here's a high-level overview in UML.
 
-In this project, a report is conceived as consisting of a specification of 
+The red "Report Schema" class represents the definitive Component #2 artifact. In this project, this class is instantiated as a set of Relax NG schemas (which can be translated into XSD as required).
+
+The blue "Business Rule" class represents the definitive artifact of Component #3. In this project, this class is instantiated as a set of Schematron schemas. 
+
+The purple "User form" class is Component #1. This particular project will contain at most examples of implementations of the user layer, but the instantiation of this class is intended to be a form in any of the common, widely-used user frameworks that use XML artifacts (XML schema, XML exemplar documents, etc.) as the data binding targets for their form controls. This would include all the widely-used form frameworks currently available, including XForms, PDF Forms, InfoPath forms and WPF forms.
+
+The branch containing the green "Mapping transform" class represents Component #4. As in the W3C GRDDL architecture, ontological representations of the data are viewed as resulting from an extraction process that begins with the domain-specific data, proceeds through an extraction/mapping event that is driven by a standardized mapping transform (instantiated in this project as GRDDL/XSLT) and results in a separate document that is the ontolgical "image" of the document content.
 
   * a "method" (i.e. for pathology, a biopsy or a resection; or for radiology, a CT or an MRI)
   * a "site" (i.e. for pathology, thyroid or lung or prostate; or for radiology, pelvis or thorax or head)
+
+The 
 
 http://synoptic-report.googlecode.com/files/meth-site.png
 
