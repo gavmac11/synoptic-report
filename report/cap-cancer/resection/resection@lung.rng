@@ -5,8 +5,8 @@
 <!ENTITY redefine "../../../site/cap-cancer/lung/redefine/">
 <!ENTITY add "../../../site/cap-cancer/lung/add/">
 <!ENTITY cap-cancer "../../../section/cap-cancer/">
-<!ENTITY repository "http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/">
-<!ENTITY version "55">
+<!ENTITY repository "http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@lung.rng">
+<!ENTITY version "0.1">
 ]>
 <!--
     
@@ -53,17 +53,15 @@
     ===========================================================================
 
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-    xmlns:lung="&pert;lung" xmlns:pert="&pert;"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:lung="&pert;lung" xmlns:pert="&pert;"
     xmlns:rng="http://relaxng.org/ns/structure/1.0">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <include href="../../common.rng">
         <a:documentation>Include the <synopsis/> element and associated base content.</a:documentation>
         <define combine="choice" name="schemaLocation">
             <a:documentation>Redefine the @schemaLocation to point to this schema.</a:documentation>
-            <value>&repository;resection@lung.rng</value>
+            <value>&repository;</value>
         </define>
         <define combine="choice" name="version">
             <a:documentation>Version of this schema</a:documentation>
@@ -87,8 +85,7 @@
         <a:documentation>Include the generic structured content of a Specimen section.</a:documentation>
         <define combine="choice" name="procedures">
             <a:documentation>Force lung-specific redefinition of the "sites" pattern of the generic Specimen section.</a:documentation>
-            <externalRef href="&redefine;specimen-procedures-resection.rng"
-            />
+            <externalRef href="&redefine;specimen-procedures-resection.rng"/>
         </define>
         <define combine="choice" name="sites">
             <a:documentation>Force lung-specific redefinition of the "sites" pattern of the generic Specimen section.</a:documentation>
@@ -149,8 +146,7 @@
     <include href="&cap-cancer;accessory-content.rng">
         <a:documentation>Include the generic structured content of an Accessory section.</a:documentation>
         <define name="treatmentEffectValues">
-            <externalRef
-                href="&redefine;accessory-treatmentEffectValues.rng"/>
+            <externalRef href="&redefine;accessory-treatmentEffectValues.rng"/>
         </define>
     </include>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
