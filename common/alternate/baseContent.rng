@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
     
     CAP Schema for Synoptic Reports
     (c) Copyright 2008 College of American Pathologists
     ===========================================================================
     Component name:
-    foreignNameClass.rng
+    baseContent.rng
     
     Component type:
     schema fragment for inclusion
@@ -43,12 +44,47 @@
     
 -->
 
-<anyName xmlns="http://relaxng.org/ns/structure/1.0">
-    <except>
-        <nsName ns="http://www.cap.org/pert/2009/01/"/>
-        <nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
-        <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
-        <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
-        <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
-    </except>
-</anyName>
+
+<!DOCTYPE grammar [
+<!ENTITY localNames "
+
+    <nsName ns='http://www.cap.org/pert/2009/01/'/>
+    <nsName ns='http://www.cap.org/pert/2009/01/breast/'/>
+    <nsName ns='http://www.cap.org/pert/2009/01/colon/'/>
+    <nsName ns='http://www.cap.org/pert/2009/01/lung/'/>
+    <nsName ns='http://www.cap.org/pert/2009/01/prostate/'/>
+    
+">
+]>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0">
+    <define name="baseContent">
+        <zeroOrMore>
+            <ref name="displayText"/>
+        </zeroOrMore>
+        <zeroOrMore>
+            <ref name="comment"/>
+        </zeroOrMore>
+    </define>
+    <define name="displayText">
+        <element name="displayText">
+            <optional>
+                <attribute name="role">
+                    <choice>
+                        <value>label</value>
+                        <value>value</value>
+                    </choice>
+                </attribute>
+            </optional>
+            <text/>
+        </element>
+    </define>
+    <define name="comment">
+        <element name="comment">
+            <optional>
+                <ref name="displayText"/>
+            </optional>
+            <text/>
+        </element>
+    </define>
+</grammar>

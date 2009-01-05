@@ -46,8 +46,7 @@
 <schema queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <ns prefix="pert" uri="http://www.cap.org/pert/2009/01/"/>
-    <p>Schema for constraining CAP/PERT compliant XML breast cancer resection
-        documents.</p>
+    <p>Schema for constraining CAP/PERT compliant XML breast cancer resection documents.</p>
     <ns prefix="breast" uri="http://www.cap.org/pert/2009/01/breast/"/>
     <ns prefix="grddl" uri="http://www.w3.org/2003/g/data-view#"/>
     <let name="skip" value="true()"/>
@@ -71,27 +70,32 @@
     </pattern>
     <pattern id="node-numbers-add-up">
         <rule context="//pert:nodeGroup">
-            <let name="regressed" value="
+            <let name="regressed"
+                value="
                 if (pert:nodeStatus[@value = 'regressed']/@count castable as xs:integer)
                 then xs:integer(pert:nodeStatus[@value = 'regressed']/@count)
                 else 0
             "/>
-            <let name="itc" value="
+            <let name="itc"
+                value="
                 if (pert:nodeStatus[@value = 'isolated tumor cells']/@count castable as xs:integer)
                 then xs:integer(pert:nodeStatus[@value = 'isolated tumor cells']/@count) 
                 else 0
             "/>
-            <let name="micrometastasis" value="
+            <let name="micrometastasis"
+                value="
                 if (pert:nodeStatus[@value = 'micrometastasis']/@count castable as xs:integer) 
                 then xs:integer(pert:nodeStatus[@value = 'micrometastasis']/@count) 
                 else 0
             "/>
-            <let name="macrometastasis" value="
+            <let name="macrometastasis"
+                value="
                 if (pert:nodeStatus[@value = 'macrometastasis']/@count castable as xs:integer) 
                 then xs:integer(pert:nodeStatus[@value = 'macrometastasis']/@count) 
                 else 0
             "/>
-            <let name="total" value="
+            <let name="total"
+                value="
                 if (pert:nodeStatus[@value = 'total']/@count castable as xs:integer) 
                 then xs:integer(pert:nodeStatus[@value = 'total']/@count) 
                 else -1
@@ -192,10 +196,14 @@
     <pattern id="calculate-T-stage">
         <rule context="//pert:T" id="validate-T-stage">
             <let name="unit" value="//pert:tumorSize/@unit"/>
-            <let name="size" value="if ($unit = 'cm') then xs:float(//pert:tumorSize/@dimension-1) else if ($unit = 'mm') then xs:float(//pert:tumorSize/@dimension-1) * 0.1 else 0.0"/>
-            <let name="inflam" value="//breast:invasionFinding[@location = 'inflammatory carcinoma (clinical finding)']/@value = 'positive'"/>
-            <let name="chwall" value="//breast:invasionFinding[@location = 'extension to chest wall']/@value = 'positive'"/>
-            <let name="ulcer" value="//breast:invasionFinding[@location = 'extension to chest wall']/@value = 'positive'"/>
+            <let name="size"
+                value="if ($unit = 'cm') then xs:float(//pert:tumorSize/@dimension-1) else if ($unit = 'mm') then xs:float(//pert:tumorSize/@dimension-1) * 0.1 else 0.0"/>
+            <let name="inflam"
+                value="//breast:invasionFinding[@location = 'inflammatory carcinoma (clinical finding)']/@value = 'positive'"/>
+            <let name="chwall"
+                value="//breast:invasionFinding[@location = 'extension to chest wall']/@value = 'positive'"/>
+            <let name="ulcer"
+                value="//breast:invasionFinding[@location = 'extension to chest wall']/@value = 'positive'"/>
             <let name="edema" value="//breast:invasionFinding[@location = 'skin ulceration']/@value = 'positive'"/>
             <let name="sat" value="//breast:invasionFinding[@location = 'skin satellite nodules']/@value = 'positive'"/>
             <let name="skin" value="$edema or $ulcer or $sat"/>

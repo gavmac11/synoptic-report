@@ -1,56 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!--
-    
-    CAP Schema for Synoptic Reports
-    (c) Copyright 2008 College of American Pathologists
-    ===========================================================================
-    Component name:
-    resection@prostate.sch
-    
-    Component type:
-    schematron schema for rules-based validation
-    
-    Version date:
-    2008.12.31
-    
-    Defines:
-    
-    
-    Purpose:
-    
-    
-    
-    Dependencies:      
-    
-    
-    ===========================================================================
-    This file is part of the "CAP Schema for Synoptic Reports".
-    
-    The "CAP Schema for Synoptic Reports" is free software: 
-    you can redistribute it and/or modify it under the terms of the 
-    GNU General Public License as published by the Free Software Foundation, 
-    either version 3 of the License, or (at your option) any later version.
-    
-    The "CAP Schema for Synoptic Reports" is distributed 
-    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
-    without even the implied warranty of MERCHANTABILITY or 
-    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
-    for more details.
-    
-    You should have received a copy of the GNU General Public License
-    along with the "CAP Schema for Synoptic Reports".  
-    If not, see <http://www.gnu.org/licenses/>. 
-    ===========================================================================
-    
--->
-<schema queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron">
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <ns prefix="pert" uri="http://www.cap.org/pert/2009/01/"/>
     <ns prefix="prostate" uri="http://www.cap.org/pert/2009/01/prostate/"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->   
+    <pattern is-a="x-iff-y">
+        <param name="context" value="//prostate:extension/prostate:seminalVesicle"/>
+        <param name="x" value="@value='positive'"/>
+        <param name="y" value="@extent"/>
+        <param name="x-name" value="positive seminal vesicle invasion"/>
+        <param name="y" value="specification of extent"/>
+    </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <let name="skip" value="true()"/>
-    <let name="no-report" value="false()"/>
+    <pattern is-a="bilaterality">
+        <param name="context" value="//prostate:extension"/>
+        <param name="finding" value="prostate:extraprostatic"/>
+        <param name="finding-name" value="'extraprostatic extension status'"/>
+    </pattern>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <pattern is-a="bilaterality">
+        <param name="context" value="//prostate:extension"/>
+        <param name="finding" value="prostate:seminalVesicle"/>
+        <param name="finding-name" value="'seminal vesicle extension status'"/>
+    </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="node-numbers-add-up">
         <rule context="//pert:nodeGroup">
@@ -82,6 +50,14 @@
                 Sum (<value-of select="$regressed + $pos"/>) of nodes with regressed tumor (<value-of select="$regressed"/>)  and positive (<value-of select="$pos"/>) must not exceed total nodes (<value-of select="$total"/>) in the "<value-of select="@location"/>" lymph node group.
             </assert>
         </rule>
+    </pattern>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <pattern is-a="x-iff-y">
+        <param name="context" value="//prostate:extension/prostate:seminalVesicle"/>
+        <param name="x" value="@value = 'positive'"/>
+        <param name="y" value="exists(@extent)"/>
+        <param name="x-name" value="a positive seminal vesicle"/>
+        <param name="y-name" value="a specification of extent"/>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="calculate-overall-PTI">
@@ -190,4 +166,3 @@
             </assert>
         </rule>
     </pattern>
-</schema>

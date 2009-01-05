@@ -1,8 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://purl.oclc.org/dsdl/schematron">
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <ns prefix="pert" uri="http://www.cap.org/pert/2009/01/"/>
-    <ns prefix="prostate" uri="http://www.cap.org/pert/2009/01/prostate/"/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <let name="skip" value="true()"/>
     <let name="no-report" value="false()"/>
@@ -45,8 +41,7 @@
     <pattern is-a="x-iff-y">
         <param name="context" value="//hasPriorTherapy"/>
         <param name="x" value="@value"/>
-        <param name="x-name"
-            value="'a prior therapy element marked as positive'"/>
+        <param name="x-name" value="'a prior therapy element marked as positive'"/>
         <param name="y" value="@description"/>
         <param name="y-name" value="'a prior therapy description'"/>
     </pattern>
@@ -61,15 +56,6 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern is-a="dimensions-decreasing">
         <param name="$context" value="//pert:tumorSize"/>
-    </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <pattern is-a="x-iff-y">
-        <param name="context"
-            value="//prostate:extension/prostate:seminalVesicle"/>
-        <param name="x" value="@value='positive'"/>
-        <param name="y" value="@extent"/>
-        <param name="x-name" value="positive seminal vesicle invasion"/>
-        <param name="y" value="specification of extent"/>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="total-nodes-must-be-specified-for-each-nodeGroup">
@@ -107,33 +93,3 @@
             </assert>
         </rule>
     </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <pattern is-a="a-subsets-b">
-        <param name="context" value="pert:tumorLocation"/>
-        <param name="a" value="@value"/>
-        <param name="b" value="//pert:site/@value"/>
-        <param name="escape" value="'entire breast' = $b"/>
-        <param name="a-name" value="tumor locqtion"/>
-        <param name="b-name" value="a specimen site"/>
-    </pattern>
-    <pattern id="tumor-site-subsets-specimen-site">
-        <rule context="//pert:tumorLocation">
-            <assert test="@value = //pert:site/@value or 'entire breast' = //pert:site/@value"> 
-                The tumor site "<value-of select="@value"/>" must be among the sites comprising the specimen. 
-            </assert>
-        </rule>
-    </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <pattern is-a="bilaterality">
-        <param name="context" value="//prostate:extension"/>
-        <param name="finding" value="prostate:extraprostatic"/>
-        <param name="finding-name" value="'extraprostatic extension status'"/>
-    </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <pattern is-a="bilaterality">
-        <param name="context" value="//prostate:extension"/>
-        <param name="finding" value="prostate:seminalVesicle"/>
-        <param name="finding-name" value="'seminal vesicle extension status'"/>
-    </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-</schema>
