@@ -59,6 +59,7 @@
                         <value>prior accession</value>
                         <value>outside report</value>
                         <value>clinical examination</value>
+                        <value>other</value>
                     </choice>
                 </attribute>
                 <optional>
