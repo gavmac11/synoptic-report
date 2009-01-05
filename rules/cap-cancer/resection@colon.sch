@@ -79,6 +79,14 @@
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <pattern>
+        <rule context="//*">
+            <assert test="if (@value = 'other') then exists(@otherValue) else not(exists(@otherValue))">
+                In <name/>, a value of 'other" requires a specified 'otherValue', and vice versa.
+            </assert>
+        </rule>
+    </pattern>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="node-numbers-add-up">
         <rule context="//pert:nodeGroup">
             <let name="regressed" value="
@@ -136,14 +144,6 @@
                 else $skip    "> 
                 Specimen site "<value-of select="@value"/>" must match a corresponding procedure.
             </assert>
-        </rule>
-    </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <pattern id="other-histologic-type">
-        <rule context="//pert:histologicType">
-            <assert test="if (@value eq 'other') then exists(@other-value) else
-                not(exists(@other-value))"> If the histologic type is "other", then a value must be
-                given in an "other-value" attribute which may otherwise not be present. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
