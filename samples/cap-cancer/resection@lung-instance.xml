@@ -47,7 +47,7 @@
     
 -->
 <synopsis grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/prostate@resection.xslt"
-    pert:schemaLocation="http://www.cap.org/pert/2009/01/resection@lung.rng" pert:version="2009-01-01"
+    pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@lung.rng" pert:version="0.1"
     xmlns="http://www.cap.org/pert/2009/01/" xmlns:grddl="http://www.w3.org/2003/g/data-view#"
     xmlns:lung="http://www.cap.org/pert/2009/01/lung/" xmlns:pert="http://www.cap.org/pert/2009/01/">
     <clinical>
@@ -110,9 +110,9 @@
     <stage>
         <classification value="p"/>
         <prefix value="y"/>
-        <T value="3"/>
-        <N value="0"/>
-        <M value="0"/>
+        <T value="4"/>
+        <N value="1"/>
+        <M value="1"/>
     </stage>
     <metastases>
         <metastasis site="liver"/>

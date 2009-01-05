@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?oxygen RNGSchema="file:/Users/me/Desktop/PERT-1/report/cap-cancer/resection/resection@colon.rng" type="xml"?>
+<?oxygen RNGSchema="../../report/cap-cancer/resection/resection@colon.rng" type="xml"?>
 <!--
     
     CAP Schema for Synoptic Reports
@@ -44,8 +44,6 @@
     ===========================================================================
     
 -->
-
-
 <synopsis xmlns="http://www.cap.org/pert/2009/01/">
     <displayText> CARCINOMA OF COLON: </displayText>
     <tumor>
