@@ -16,7 +16,7 @@ In this Google project, the focus is on #2 and #3. Here's a high-level overview 
 
 The red "Report Schema" class represents the definitive Component #2 artifact. In this project, this class is instantiated as a set of Relax NG schemas (which can be translated into XSD as required).
 
-The blue "Business Rule" class represents the definitive artifact of Component #3. In this project, this class is instantiated as a set of Schematron schemas. 
+The blue "Business Rule" class _(currently missing from diagram -- need to update diagram!)_ represents the definitive artifact of Component #3. In this project, this class is instantiated as a set of Schematron schemas. 
 
 The purple "User form" class is Component #1. This particular project will contain at most examples of implementations of the user layer, but the instantiation of this class is intended to be a form in any of the common, widely-used user frameworks that use XML artifacts (XML schema, XML exemplar documents, etc.) as the data binding targets for their form controls. This would include all the widely-used form frameworks currently available, including XForms, PDF Forms, InfoPath forms and WPF forms.
 
