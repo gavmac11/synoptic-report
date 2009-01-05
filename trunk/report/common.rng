@@ -84,7 +84,7 @@
     <data type="anyURI"/>
   </define>
   <define combine="choice" name="version">
-    <data type="date"/>
+    <data type="string"/>
   </define>
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <define combine="interleave" name="synopsis-content">
