@@ -14,11 +14,11 @@ http://synoptic-report.googlecode.com/files/Classes-2.png
 
 In this Google project, the focus is on #2 and #3. Here's a high-level overview in UML.
 
-The red "Report Schema" class represents the definitive Component #2 artifact. In this project, this class is instantiated as a set of Relax NG schemas (which can be translated into XSD as required).
+The data mode (blue background) has as its central artifact the red "Report Schema" class. In this project, this class is instantiated as a set of Relax NG schemas (which can be translated into XSD as required).
 
-The blue "Business Rule" class _(currently missing from diagram -- need to update diagram!)_ represents the definitive artifact of Component #3. In this project, this class is instantiated as a set of Schematron schemas. 
+The "Business Rule" class (purple background) represents the definitive artifact of Component #3. In this project, this class is instantiated as a set of Schematron schemas. It is in a sense an extended part of the data model, so it lives also inside the blue background.
 
-The purple "User form" class is Component #1. This particular project will contain at most examples of implementations of the user layer, but the instantiation of this class is intended to be a form in any of the common, widely-used user frameworks that use XML artifacts (XML schema, XML exemplar documents, etc.) as the data binding targets for their form controls. This would include all the widely-used form frameworks currently available, including XForms, PDF Forms, InfoPath forms and WPF forms.
+The red-background "User form" class is Component #1. This particular project will contain at most examples of implementations of the user layer, but the instantiation of this class is intended to be a form in any of the common, widely-used user frameworks that use XML artifacts (XML schema, XML exemplar documents, etc.) as the data binding targets for their form controls. This would include all the widely-used form frameworks currently available, including XForms, PDF Forms, InfoPath forms and WPF forms.
 
 The branch containing the green "Mapping transform" class represents Component #4. As in the W3C GRDDL architecture, ontological representations of the data are viewed as resulting from an extraction process that begins with the domain-specific data, proceeds through an extraction/mapping event that is driven by a standardized mapping transform (instantiated in this project as GRDDL/XSLT) and results in a separate document that is the ontolgical "image" of the document content.
 
