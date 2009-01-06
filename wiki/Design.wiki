@@ -10,7 +10,7 @@ This project is a framework for expressing pathology/radiology reports in a stru
 
 This layered design mirrors an extended version of the classic model-view-controller paradigm, with the addition of a data integration layer below the model layer. Component #1 corresponds to the View layer. Component #2 corresponds to the Model layer. Component #3 corresponds to the Controller layer. Component #4 is an added data integration layer that sits below the Model (#2) layer and allows for data integration with other systems.
 
-http://synoptic-report.googlecode.com/files/Classes.png
+http://synoptic-report.googlecode.com/files/Classes-2.png
 
 In this Google project, the focus is on #2 and #3. Here's a high-level overview in UML.
 
