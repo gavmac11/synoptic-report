@@ -8,7 +8,15 @@ This project is a framework for expressing pathology/radiology reports in a stru
   # the sharable semantics (a.k.a. ontology binding)
   # the transport format
 
-This layered design mirrors an extended version of the classic model-view-controller paradigm, with the addition of a data integration layer below the model layer. Component #1 corresponds to the View layer. Component #2 corresponds to the Model layer. Component #3 corresponds to the Controller layer. Component #4 is an added data integration layer that sits below the Model (#2) layer and allows for data integration with other systems.
+This layered design mirrors an extended version of the classic model-view-controller paradigm, with the addition of a data integration layer below the model layer. 
+
+Component #1 corresponds to the View layer. (UI's today typically incorporate some controller functions too, in the form of data integrity checks.) 
+
+Component #2 corresponds to the Model layer, plus (in the form of rules) some aspects of controller. 
+
+Component #3 is an added data integration layer that sits below the Model (#2) layer and allows for semantic integration. 
+
+Component #4 is a traditional (non-semantic) data integration layer like any classic XML data integration layer.
 
 http://synoptic-report.googlecode.com/files/Classes-2.png
 
