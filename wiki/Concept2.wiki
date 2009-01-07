@@ -33,3 +33,5 @@ So, for example, if in some domain an additional primary determinant of the data
 
 http://synoptic-report.googlecode.com/files/extend-example.png
 
+
+So far all this is at a very high level! But how is this all implemented? The answer is as a series of Relax NG schemas that reference each other. This is presented on the [ReportUML next page].
