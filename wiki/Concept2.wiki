@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Data model concept
 
 Each report schema is conceived of as being determined by the composition of:
 
