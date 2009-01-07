@@ -1,5 +1,5 @@
   * [ProjectHome Home]
-  * [Design Design]
+  * [Design Overall design]
   * [Concept2 Data model concept]
   * [ReportUML Data model implementation]
   * [ProjectStructure Packages]
