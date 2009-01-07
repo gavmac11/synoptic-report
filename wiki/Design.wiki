@@ -58,5 +58,3 @@ So, for example, if in some domain an additional primary determinant of the data
 http://synoptic-report.googlecode.com/files/extend-example.png
 
 
-
-[ProjectHome Project home]
