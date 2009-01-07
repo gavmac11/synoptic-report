@@ -1,3 +1,3 @@
 #summary Implementation of the data model.
 
-http://synoptic-report.googlecode.com/files/ResportSchema.png
+http://synoptic-report.googlecode.com/files/ReportUML.png
