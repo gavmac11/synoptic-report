@@ -1,5 +1,6 @@
   * [ProjectHome Home]
   * [Design Design]
-  * [Concept2 Report concept]
+  * [Concept2 Data model concept]
+  * [ReportUML Data model implementation]
   * [ProjectStructure Packages]
   * [VersioningIssues Versioning]
