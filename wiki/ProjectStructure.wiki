@@ -1,6 +1,10 @@
 #summary Package structure of project
 #sidebar Contents
 
+So now you know how the classes fit together to create a site- and method-specific data model (=schema). But where _are_ all these Relax NG classes in the Source folder? Which file is which?
+
+This diagram shows the package (i.e. folder) structure of the project. These are the folder names you will see if you click on the *Source* tab up above and browse the repository. (Remember, for those new to Subversion, that the repository contains a main development  line in the *trunk* folder, various named, snapshotted versions of the entire project in the *tags* folder, and alternate development branches in the *branches* folder.)
+
 http://synoptic-report.googlecode.com/files/folders.png
 
 
