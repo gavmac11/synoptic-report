@@ -3,11 +3,20 @@
 
 So now you know how the classes fit together to create a site- and method-specific data model (=schema). But where _are_ all these Relax NG classes in the Source folder? Which file is which?
 
-This diagram shows the package (i.e. folder) structure of the project. These are the folder names you will see if you click on the *Source* tab up above and browse the repository. (Remember, for those new to Subversion, that the repository contains a main development  line in the *trunk* folder, various named, snapshotted versions of the entire project in the *tags* folder, and alternate development branches in the *branches* folder.)
+This diagram shows the package (i.e. folder) structure of the project. These are the folder names you will see if you click on the *Source* tab up above and browse the repository. 
+
+(For those new to Subversion, that the repository contains a main development  line in the *trunk* folder, various named, snapshotted versions of the entire project in the *tags* folder, and alternate development branches in the *branches* folder.)
+
 
 http://synoptic-report.googlecode.com/files/Packages.png
 
 
+Let's take these folders one at a time.
 
+*report* is where you look to see the "completed" schema, that is to say, the full schema for, say, a "breast resection" or a "pelvic MRI" or the like. When you open this folder you will see that the contents are organized into subfolders, each one representing a particular report domain. Thus we have a *cap-cancer* folder that contains the schemas for CAP cancer report templates; a *cap-medicalKidney* folder that contains (as yet imaginary) templates for CAP medical kidney reports; and a *rsna-mri* folder that contains (again, as yet imaginary) RSNA MRI reports.
 
-[ProjectHome Project home]
+When you open */report/cap-cancer* you will see a couple of additional "convenience" subfolders that help organize the contents: a *biopsy* subfolder and a *resection* subfolder. This means what it says: all the schemas for various biopsy templates are in the one, for various resection templates are in the other.
+
+When you look inside, let's say, the *resection* subfolder, you will see a bunch of schema for resections at various sites. There is a *resection@breast.rng* file that represents the complete schema for a breast resection, and so on.
+
+All files with a suffix of *.rng* are Relax NG schemas, in case you didn't know. There may also be some *.xsd* files in there; these are the cognate XML Schema translations of the Relax NG schemas.
