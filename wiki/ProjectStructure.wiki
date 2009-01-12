@@ -23,4 +23,10 @@ All files with a suffix of *.rng* are Relax NG schemas, in case you didn't know.
 
 Okay, now back out of *report* and let's look at the other folders. Notice there is one called *method* and one called *site*? That should remind you of the project design principle I mentioned elsewhere, namely that we conceive of a report as consisting of a composition of a Method and a Site. And indeed, that's exactly why these two folders exist.
 
-The *method* folder defines schema "bits" that are specific to various methods. Open it up, and just like the *report* folder, notice the subfolder named *cap-cancer*. Look inside and you will see 
+The *method* folder defines schema "bits" that are specific to various methods. Open it up, and just like the *report* folder, notice the subfolder named *cap-cancer*. Look inside and you will see three files: *common.rng*, *biopsy.rng* and *resection.rng*. Right at the moment, biopsy and resection are the two methods that we accommodate in the CAP cancer project. We might subsequently add more methods, like for example, fine needle biopsy, or exfoliative cytology, or whatever; but right now we support these two. The *common.rng* file contains bits relating to method definition that are common to biopsy and resection, and the other two files contain the schema bits unique to each method.
+
+What exactly are these "bits"? Well, what about a report is constrained by the method (as opposed to the site)?  
+
+Answer: most importantly, the choice of relevant report sections and their optionality. For example, a resection report must have an staging section. By contrast, a biopsy report does not have a staging section (because you don't stage from a biopsy). Both biopsy and resection need to have a clinical history section. A resection has a required lymph nodes section (even if no nodes were retrieved, that needs to be reported), whereas for a biopsy the nodes sections is optional (nodes may not have been sampled).
+
+So most of what's in these particular "bits" is the definition of the sectional structure of the report, particularized to this method.
