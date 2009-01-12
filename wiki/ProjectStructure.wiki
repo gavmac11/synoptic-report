@@ -5,7 +5,7 @@ So now you know how the classes fit together to create a site- and method-specif
 
 This diagram shows the package (i.e. folder) structure of the project. These are the folder names you will see if you click on the *Source* tab up above and browse the repository. (Remember, for those new to Subversion, that the repository contains a main development  line in the *trunk* folder, various named, snapshotted versions of the entire project in the *tags* folder, and alternate development branches in the *branches* folder.)
 
-http://synoptic-report.googlecode.com/files/folders.png
+http://synoptic-report.googlecode.com/files/Packages.png
 
 
 
