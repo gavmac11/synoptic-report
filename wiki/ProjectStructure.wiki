@@ -30,3 +30,5 @@ What exactly are these "bits"? Well, what about a report is constrained by the m
 Answer: most importantly, the choice of relevant report sections and their optionality. For example, a resection report must have an staging section. By contrast, a biopsy report does not have a staging section (because you don't stage from a biopsy). Both biopsy and resection need to have a clinical history section. A resection has a required lymph nodes section (even if no nodes were retrieved, that needs to be reported), whereas for a biopsy the nodes sections is optional (nodes may not have been sampled).
 
 So most of what's in these particular "bits" is the definition of the sectional structure of the report, particularized to this method.
+
+...to be continued...
