@@ -19,4 +19,4 @@ When you open */report/cap-cancer* you will see a couple of additional "convenie
 
 When you look inside, let's say, the *resection* subfolder, you will see a bunch of schema for resections at various sites. There is a *resection@breast.rng* file that represents the complete schema for a breast resection, and so on.
 
-All files with a suffix of *.rng* are Relax NG schemas, in case you didn't know. There may also be some *.xsd* files in there; these are the cognate XML Schema translations of the Relax NG schemas.
+All files with a suffix of *.rng* are Relax NG schemas, in case you didn't know. There may also be some *.xsd* files in there; these are the cognate XML Schema translations of the Relax NG schemas. Open one up and look at it if you like, but I'll explain how these schemas are structured internally [ReportSchemaStructure elsewhere].
