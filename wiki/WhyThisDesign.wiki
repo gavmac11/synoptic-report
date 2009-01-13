@@ -31,7 +31,7 @@ The (perceived) advantage of the first approach is that (if you're lucky) you'll
 
   But in the real world, subtle and not-so-subtle differences in understanding of vocabulary among user 
   communities are a fact of life--in fact, it's these subtle, use-case specific meanings that may well be precisely 
-  the thing that the use case is trying to capture! 
+  the thing that the software is trying to capture! 
 
   Ongoing negotiation of such differences is the very essence of genuine human language. Such differences arise
   and recede constantly as knowledge and practice evolve. Large global ontologies always provide, therefore, at best 
