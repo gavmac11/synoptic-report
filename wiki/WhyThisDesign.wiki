@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Why did we choose to do it this way?
 
 *1. Why aren't there any "codes" in the document instances? I want codes!*
 
