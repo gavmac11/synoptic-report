@@ -21,9 +21,7 @@ We recognize (at least) two approaches to making documents machine-interoperable
 The (perceived) advantage of the first approach is that (if you're lucky) you'll find some "ready-made" vocabulary items that you can "bake-in" to your design, thus possibly saving yourself some work downstream. The real-world disadvantages, however, are that:
 
   # typically you _don't_ find all the vocabulary items you need to cover a specialized use case. You need to go to the "owners" of the vocabulary and request that your items be added. This takes time, and may involve a balloting process. The ontology owners may disagree with your semantics, and give you some terms that are similar to what you requested, but not exactly the same. 
-
   # the vocabulary items you requested may be highly specific to your use case and of no interest to the general users of big ontologies. When thousands of such requests are made, the central ontology suffers "bloat". The mere accretion of more terms does not add quality to the central ontology unless the new terms are accurately "hooked up" with existing terms. But the central ontology administrators, who are not experts in every use case, may not be able to do this. Or they may simply be overwhelmed by the number of term requests and enter them into the ontology perforce with very little "modeling", i.e. very few connections to existing terms. The central ontology begins to look like a flat term list with hundreds of thousands of terms that no one can possibly curate.
-
   # central ontologies typically make some claim of "global semantics"; but this project is an example of a highly specialized, use-case specific standard (although it's an important use-case!)
 
   _When I say "global semantics" I mean that by virtue of being central and serving every possible use case, a central
