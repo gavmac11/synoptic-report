@@ -27,19 +27,29 @@ The (perceived) advantage of the first approach is that (if you're lucky) you'll
   _When I say "global semantics" I mean that by virtue of being central and serving every possible use case, a central
   ontology needs to define terms in ways that "reconcile" differences in understanding among different user 
   communities. If such reconciliation is not enforced, then the central ontology will come to contain logically 
-  incompatible assertions, and will ultimately become "unclassifiable" (i.e. it will no longer "compute"). But in the real
-  world, subtle and not-so-subtle differences in understanding of vocabulary among user communities are a fact of
-  life. Ongoing negotiation of such differences is the very essence of genuine human language. Such differences arise
+  incompatible assertions, and will ultimately become "unclassifiable" (i.e. it will no longer "compute"). 
+
+  But in the real world, subtle and not-so-subtle differences in understanding of vocabulary among user 
+  communities are a fact of life--in fact, it's these subtle, use-case specific meanings that may well be precisely 
+  the thing that the use case is trying to capture! 
+
+  Ongoing negotiation of such differences is the very essence of genuine human language. Such differences arise
   and recede constantly as knowledge and practice evolve. Large global ontologies always provide, therefore, at best 
   a temporal "snapshot" and a conceptual "average" of how vocabulary is used and how concepts are understood by       
   users. (In the semantic web world, this dynamic character of language has been recognized, and a variety of 
-  techniques have been proposed to accommodate it. For example, you might want to google "Named Graphs".) The  
-  more specialized the use case, the more violence the reconciliation process may do to the conceptualizations of the 
+  techniques have been proposed to accommodate it. For example, you might want to google "Named Graphs".) 
+
+  The more specialized the use case, the more violence the reconciliation process may do to conceptualizations of 
   specialized users. For example, pathologists have a particular way of looking at tumors, particular understandings 
   of terms like "size", "extent", "differentiation" and so on, that are overlapping, but also subtly or not-so-subtly 
-  different from the understanding of, say, radiologists or oncologists or molecular biology researchers. (In fact, a lot 
+  different from the understanding of, say, radiologists or oncologists or molecular biology researchers. In fact, a lot 
   of what a surgical pathologist spends her day doing, is talking to other medical specialists and explicating precisely 
-  these matters so her meaning is appropriately understood by other specialists.)_
+  these matters so her meaning is appropriately understood by other specialists.
+
+  So for specialized use cases, a global ontology isn't at all where you want to start! Instead, you want to proceed 
+  from the "bottom-up", modeling your use case with as few external constraints as possible, until you have the 
+  formalization as close as possible to the community's intent. Only then do you want to begin to worry about making 
+  it compliant with some "global" standard._
 
 The second approach takes a completely different tack, inspired by innovations like [http://microformats.org/ microformats], federative semantics, and the like. The idea here is that communities of practice (pathologists, radiologists, etc.) should formalize their own meaning, according to their own practice, in maximally light-weight and agile fashion; and then secondarily provide mappings to one or many ontologies that make global claims, controlling the mappings themselves.
 
