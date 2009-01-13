@@ -21,8 +21,10 @@ We recognize (at least) two approaches to making documents machine-interoperable
 The (perceived) advantage of the first approach is that (if you're lucky) you'll find some "ready-made" vocabulary items that you can "bake-in" to your design, thus possibly saving yourself some work downstream. The real-world disadvantages, however, are that:
 
   # typically you _don't_ find all the vocabulary items you need to cover a specialized use case. You need to go to the "owners" of the vocabulary and request that your items be added. This takes time, and may involve a balloting process. The ontology owners may disagree with your semantics, and give you some terms that are similar to what you requested, but not exactly the same. 
+
   # the vocabulary items you requested may be highly specific to your use case and of no interest to the general users of big ontologies. When thousands of such requests are made, the central ontology suffers "bloat". The mere accretion of more terms does not add quality to the central ontology unless the new terms are accurately "hooked up" with existing terms. But the central ontology administrators, who are not experts in every use case, may not be able to do this. Or they may simply be overwhelmed by the number of term requests and enter them into the ontology perforce with very little "modeling", i.e. very few connections to existing terms. The central ontology begins to look like a flat term list with hundreds of thousands of terms that no one can possibly curate.
-  # central ontologies typically make some claim of "global semantics"; this project is an example of a highly specialized, use-case specific standard (although it's an important use-case!)
+
+  # central ontologies typically make some claim of "global semantics"; but this project is an example of a highly specialized, use-case specific standard (although it's an important use-case!)
 
   _When I say "global semantics" I mean that by virtue of being central and serving every possible use case, a central
   ontology needs to define terms in ways that "reconcile" differences in understanding among different user 
@@ -31,7 +33,7 @@ The (perceived) advantage of the first approach is that (if you're lucky) you'll
 
   But in the real world, subtle and not-so-subtle differences in understanding of vocabulary among user 
   communities are a fact of life--in fact, it's these subtle, use-case specific meanings that may well be precisely 
-  the thing that the software is trying to capture! 
+  the thing that your software project is trying to capture! 
 
   Ongoing negotiation of such differences is the very essence of genuine human language. Such differences arise
   and recede constantly as knowledge and practice evolve. Large global ontologies always provide, therefore, at best 
@@ -48,8 +50,10 @@ The (perceived) advantage of the first approach is that (if you're lucky) you'll
 
   So for specialized use cases, a global ontology isn't at all where you want to start! Instead, you want to proceed 
   from the "bottom-up", modeling your use case with as few external constraints as possible, until you have the 
-  formalization as close as possible to the community's intent. Only then do you want to begin to worry about making 
-  it compliant with some "global" standard._
+  formalization as close as possible to the community's intent. Only then do you want to begin to worry about 
+  matching your vocabulary up with some "global" standard._
+
+  # the more expressive ontologies are first-order logic constructs; human thoughts are not (whence Wittgenstein repudiated the _Tractatus_)! In terms of logical "expressivity" some ontology languages exceed everyday thought, which means that attempts too quickly to translate everyday "knowledge" into an ontology may "pickle" the meaning, i.e. force overspecification of concepts that were not (by intent) so tightly specified in their everyday usage. (Philosophically, this goes back to the notion that everyday language is a degenerate dialect of FOL, that ideally could be cleaned up by paying attention to FOL. This concept was discarded now going on a century ago by most people (except, evidently, some healthcare ontologists).
 
 The second approach takes a completely different tack, inspired by innovations like [http://microformats.org/ microformats], federative semantics, and the like. The idea here is that communities of practice (pathologists, radiologists, etc.) should formalize their own meaning, according to their own practice, in maximally light-weight and agile fashion; and then secondarily provide mappings to one or many ontologies that make global claims, controlling the mappings themselves.
 
