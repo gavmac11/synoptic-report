@@ -40,3 +40,9 @@ The (perceived) advantage of the first approach is that (if you're lucky) you'll
   different from the understanding of, say, radiologists or oncologists or molecular biology researchers. (In fact, a lot 
   of what a surgical pathologist spends her day doing, is talking to other medical specialists and explicating precisely 
   these matters so her meaning is appropriately understood by other specialists.)_
+
+The second approach takes a completely different tack, inspired by innovations like [http://microformats.org/ microformats], federative semantics, and the like. The idea here is that communities of practice (pathologists, radiologists, etc.) should formalize their own meaning, according to their own practice, in maximally light-weight and agile fashion; and then secondarily provide mappings to one or many ontologies that make global claims, controlling the mappings themselves.
+
+In our project, we make no high-falutin' claims that we have created an "ontology". We intentionally did not choose to develop our project in, say, OWL as an implementation language. Our claim is simply that we know what a pathology report for cancer is supposed to "look like". We know what sections it's supposed to contain, we know what data items should be included in each section, and we know what "fill-in-the-blanks" responses should be allowed (or disallowed) for each item. In short, rather than an "ontology", we have chosen to publish a description of a particular document structure, in a way that makes it "ripe" for extracting ontological (semantic) information.
+
+By avoiding ontologic claims, we have made our task _much simpler_ than it might otherwise have been. We don't need to reconcile the first-order logic of our vocabulary with the 1.2 million terms of SNOMED CT in order for it to be useful. We can change our document schema whenever we like, without having to "reclassify" multiple million-term ontologies.
