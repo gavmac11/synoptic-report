@@ -1,0 +1,7 @@
+#summary One-sentence summary of this page.
+
+*1. Why aren't there any "codes" in the document instances? I want codes!*
+
+Ah, but there are! There are no obscure numeric codes, but all the elements in this design reside in an XML namespace (http://purl.oclc.org/medical/report/ or namespaces that are derived from this). This means that the full name (or to use the official XML term, the namespace-qualified name) of (for example) the element that wraps information about the tumor histologic type in this project is:
+
+     http://purl.oclc.org/medical/reporting/cap-cancer/histologicType
