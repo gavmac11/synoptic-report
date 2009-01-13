@@ -16,7 +16,7 @@ For those unfamiliar with XML, you just have to realize that because namespace-q
 
 Unlike question #1, which is purely about technical implementation, this gets to the heart of the design philosophy. 
 
-We recognize (at least) two approaches to making documents machine-interoperable. One is to compose them directly in some existing, standardized, "ontology" that is administered by someone else. The other is to compose them in a public, unambiguous, but use-case specific vocabulary and then map to one or more shared "ontologies".
+We recognize (at least) two approaches to making documents machine-interoperable. One is to compose them directly in some existing, standardized, "ontology" that is administered by someone else. The other is to compose them in a public, unambiguous, but use-case specific vocabulary and then (in a separate step) map to one or more shared "ontologies".
 
 The (perceived) advantage of the first approach is that (if you're lucky) you'll find some "ready-made" vocabulary items that you can "bake-in" to your design, thus possibly saving yourself some work downstream. The real-world disadvantages, however, are that:
 
