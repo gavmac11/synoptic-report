@@ -10,7 +10,7 @@ Is that sufficiently "code-like" to suit you?
 
 For those unfamiliar with XML, you just have to realize that because namespace-qualified names can be long and human-unfriendly (like any "codes"), the XML standard allows them to be "abbreviated" in schemas by declaring a default namespace in the document. This is what we do.
 
-(One sidelight for XML connoisseurs: notice that while all out element names are in specific namespaces, the associated attributes are in no-namespace (i.e. the "" namespace). We could have put our attributes in a namespace (and it's a discussable point), but at the moment we believe that since these attributes only exist in associated with a "carrying' element, namespace restriction is unnecessary for them.)
+(One sidelight for XML connoisseurs: notice that while all our element names are in specific namespaces, the associated attributes are in no-namespace (i.e. the "" namespace). We could have put our attributes in a namespace (and it's a discussable point), but at the moment we believe that since these attributes only exist in associated with a "carrying' element, namespace restriction is unnecessary for them.)
 
 *2. Why doesn't the document use SNOMED-CT (or LOINC, or UMLS, or RadLex) codes instead of your own XML element names? After all those coding systems are more widely used, whereas your system is novel!*
 
