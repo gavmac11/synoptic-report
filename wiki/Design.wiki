@@ -20,7 +20,7 @@ Component #4 is a traditional (non-semantic) data integration layer like any cla
 
 http://synoptic-report.googlecode.com/files/Classes-2.png
 
-We've noted that some users of existing software (like some HL7 users) find that this design novel in some ways. A discussion of why we chose this design is [here WhyThisDesign].
+We've noted that some users of existing software (like some HL7 users) find that this design novel in some ways. A discussion of why we chose this design is [WhyThisDesign here].
 
 In this Google project, the focus is on #2 and #3. Here's a high-level overview in UML.
 
