@@ -1,1119 +1,1138 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cap.org/pert/2009/01/" xmlns:breast="http://www.cap.org/pert/2009/01/breast/" xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/">
-  <xs:import namespace="http://www.cap.org/pert/2009/01/breast/" schemaLocation="breast.xsd"/>
-  <xs:import namespace="http://www.w3.org/2003/g/data-view#" schemaLocation="data-view.xsd"/>
-  <xs:element name="synopsis" type="pert:p0"/>
-  <xs:complexType name="p0" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:clinical"/>
-      <xs:element ref="pert:specimen"/>
-      <xs:element ref="pert:tumor"/>
-      <xs:element ref="pert:extent"/>
-      <xs:element ref="pert:margins"/>
-      <xs:element ref="pert:accessory"/>
-      <xs:element ref="pert:nodes"/>
-      <xs:element ref="pert:metastases"/>
-      <xs:element ref="pert:studies"/>
-      <xs:element ref="pert:stage"/>
-      <xs:element ref="pert:additional"/>
-    </xs:choice>
-    <xs:attribute name="schemaLocation" use="required" form="qualified">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@breast.rng"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="version" use="required" form="qualified">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="55"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute ref="data-view:transformation" use="required"/>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="displayText" type="pert:p1"/>
-  <xs:element name="comment" type="pert:p2"/>
-  <xs:element name="clinical" type="pert:p4"/>
-  <xs:element name="specimen" type="pert:p5"/>
-  <xs:element name="tumor" type="pert:p6"/>
-  <xs:element name="extent" type="pert:p7"/>
-  <xs:element name="margins" type="pert:p8"/>
-  <xs:element name="accessory" type="pert:p9"/>
-  <xs:element name="nodes" type="pert:p10"/>
-  <xs:element name="metastases" type="pert:p11"/>
-  <xs:element name="studies" type="pert:p12"/>
-  <xs:element name="stage" type="pert:p13"/>
-  <xs:element name="additional" type="pert:p14"/>
-  <xs:complexType name="p1" mixed="true">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" ref="pert:displayText"/>
-    </xs:sequence>
-    <xs:attribute name="role">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="label"/>
-          <xs:enumeration value="value"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p2" mixed="true">
-    <xs:sequence>
-      <xs:element minOccurs="0" ref="pert:displayText"/>
-    </xs:sequence>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:group name="p3">
-    <xs:sequence>
-      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
-    </xs:sequence>
-  </xs:group>
-  <xs:attributeGroup name="p3">
-    <xs:anyAttribute processContents="skip"/>
-  </xs:attributeGroup>
-  <xs:complexType name="p4" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:priorTherapies"/>
-      <xs:element ref="pert:clinicalFindings"/>
-      <xs:element ref="pert:radiologicFindings"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="priorTherapies" type="pert:p15"/>
-  <xs:element name="clinicalFindings" type="pert:p16"/>
-  <xs:element name="radiologicFindings" type="pert:p17"/>
-  <xs:complexType name="p5" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:procedures"/>
-      <xs:element ref="pert:sites"/>
-      <xs:element ref="pert:tumorLocations"/>
-      <xs:element ref="pert:integrity"/>
-      <xs:element ref="pert:size"/>
-      <xs:element ref="pert:weight"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="procedures" type="pert:p18"/>
-  <xs:element name="sites" type="pert:p19"/>
-  <xs:element name="tumorLocations" type="pert:p20"/>
-  <xs:element name="integrity" type="pert:p21"/>
-  <xs:element name="size" type="pert:p22"/>
-  <xs:element name="weight" type="pert:p23"/>
-  <xs:complexType name="p6" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:histologicTypes"/>
-      <xs:element ref="pert:grade"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="histologicTypes" type="pert:p24"/>
-  <xs:element name="grade" type="pert:p25"/>
-  <xs:complexType name="p7" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:tumorSize"/>
-      <xs:element ref="pert:userDefined"/>
-      <xs:element ref="breast:invasion"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="tumorSize" type="pert:p26"/>
-  <xs:element name="userDefined" type="pert:p27"/>
-  <xs:complexType name="p8" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:margin"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="margin" type="pert:p29"/>
-  <xs:complexType name="p9" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:venousInvasion"/>
-      <xs:element ref="pert:lymphovascularInvasion"/>
-      <xs:element ref="pert:perineuralInvasion"/>
-      <xs:element ref="pert:treatmentEffect"/>
-      <xs:choice>
-        <xs:element ref="breast:dermalLymphaticInvasion"/>
-        <xs:element ref="breast:microcalcification"/>
-      </xs:choice>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="venousInvasion" type="pert:p30"/>
-  <xs:element name="lymphovascularInvasion" type="pert:p30"/>
-  <xs:element name="perineuralInvasion" type="pert:p30"/>
-  <xs:element name="treatmentEffect" type="pert:p31"/>
-  <xs:complexType name="p10" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:nodeGroup"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="nodeGroup" type="pert:p34"/>
-  <xs:complexType name="p11" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:metastasis"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="metastasis" type="pert:p35"/>
-  <xs:complexType name="p12" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="breast:estrogenReceptor"/>
-      <xs:element ref="breast:progesteroneReceptor"/>
-      <xs:element ref="breast:her2neu"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p13" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:prefix"/>
-      <xs:element ref="pert:classification"/>
-      <xs:element ref="pert:T"/>
-      <xs:element ref="pert:N"/>
-      <xs:element ref="pert:M"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="prefix" type="pert:p38"/>
-  <xs:element name="classification" type="pert:p39"/>
-  <xs:element name="T" type="pert:p40"/>
-  <xs:element name="N" type="pert:p41"/>
-  <xs:element name="M" type="pert:p42"/>
-  <xs:complexType name="p14" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:findings"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="findings" type="pert:p43"/>
-  <xs:complexType name="p15" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:priorTherapy"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="priorTherapy" type="pert:p44"/>
-  <xs:complexType name="p16" mixed="true">
-    <xs:sequence>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element minOccurs="0" maxOccurs="unbounded" ref="pert:clinicalFinding"/>
-    </xs:sequence>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="clinicalFinding" type="pert:p45"/>
-  <xs:complexType name="p17" mixed="true">
-    <xs:sequence>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element minOccurs="0" maxOccurs="unbounded" ref="pert:radiologicFinding"/>
-    </xs:sequence>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="radiologicFinding" type="pert:p46"/>
-  <xs:complexType name="p18" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:procedure"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="procedure" type="pert:p47"/>
-  <xs:complexType name="p19" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:site"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="site" type="pert:p48"/>
-  <xs:complexType name="p20" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:tumorLocation"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="tumorLocation" type="pert:p49"/>
-  <xs:complexType name="p21" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="single intact"/>
-          <xs:enumeration value="multiple designated"/>
-          <xs:enumeration value="fragmented"/>
-          <xs:enumeration value="other"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p22" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="unit" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="mm"/>
-          <xs:enumeration value="cm"/>
-          <xs:enumeration value="in"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="dimension-1" use="required"/>
-    <xs:attribute name="dimension-2"/>
-    <xs:attribute name="dimension-3"/>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p23" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="unit" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="g"/>
-          <xs:enumeration value="kg"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="value" use="required"/>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p24" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:histologicType"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="histologicType" type="pert:p50"/>
-  <xs:complexType name="p25" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="breast:glandular"/>
-      <xs:element ref="breast:nuclearPleomorphism"/>
-      <xs:element ref="breast:mitoticCount"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="1"/>
-          <xs:enumeration value="2"/>
-          <xs:enumeration value="3"/>
-          <xs:enumeration value="microinvasive only"/>
-          <xs:enumeration value="indeterminate"/>
-          <xs:enumeration value="inapplicable"/>
-          <xs:enumeration value=""/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="otherValue"/>
-    <xs:attribute name="gradingSystem">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="Nottingham"/>
-          <xs:enumeration value="WHO"/>
-          <xs:enumeration value="other"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p26" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="dimension-1" use="required"/>
-    <xs:attribute name="dimension-2"/>
-    <xs:attribute name="dimension-3"/>
-    <xs:attribute name="unit" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="mm"/>
-          <xs:enumeration value="cm"/>
-          <xs:enumeration value="in"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p27" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p28" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="breast:invasionFinding"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p29" mixed="true">
-    <xs:sequence>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element minOccurs="0" ref="pert:distance"/>
-    </xs:sequence>
-    <xs:attribute name="location" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="superior"/>
-          <xs:enumeration value="inferior"/>
-          <xs:enumeration value="medial"/>
-          <xs:enumeration value="lateral"/>
-          <xs:enumeration value="anterior"/>
-          <xs:enumeration value="posterior"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="status" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="negative"/>
-          <xs:enumeration value="indeterminate"/>
-          <xs:enumeration value="inapplicable"/>
-          <xs:enumeration value="inconclusive"/>
-          <xs:enumeration value="focally positive"/>
-          <xs:enumeration value="positive"/>
-          <xs:enumeration value="extensively positive"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="closest"/>
-    <xs:attribute name="for" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="carcinoma-in-situ"/>
-          <xs:enumeration value="invasive carcinoma"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="distance" type="pert:p53"/>
-  <xs:complexType name="p30" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="positive"/>
-          <xs:enumeration value="negative"/>
-          <xs:enumeration value="inconclusive"/>
-          <xs:enumeration value="indeterminate"/>
-          <xs:enumeration value="inapplicable"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p31" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="inapplicable"/>
-          <xs:enumeration value="negative"/>
-          <xs:enumeration value="positive"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:attributeGroup name="p32">
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="positive"/>
-          <xs:enumeration value="negative"/>
-          <xs:enumeration value="inconclusive"/>
-          <xs:enumeration value="indeterminate"/>
-          <xs:enumeration value="inapplicable"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="p33">
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="negative"/>
-          <xs:enumeration value="positive in DCIS"/>
-          <xs:enumeration value="positive in invasive carcinoma"/>
-          <xs:enumeration value="positive in benign tissue"/>
-          <xs:enumeration value="positive in both carcinoma and benign tissue"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-  </xs:attributeGroup>
-  <xs:complexType name="p34" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:nodeStatus"/>
-    </xs:choice>
-    <xs:attribute name="laterality" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="right"/>
-          <xs:enumeration value="left"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="location" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="low axillary"/>
-          <xs:enumeration value="mid axillary"/>
-          <xs:enumeration value="high axillary"/>
-          <xs:enumeration value="infraclavicular"/>
-          <xs:enumeration value="supraclavicular"/>
-          <xs:enumeration value="internal mammary"/>
-          <xs:enumeration value="sentinel"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="nodeStatus" type="pert:p54"/>
-  <xs:complexType name="p35" mixed="true">
-    <xs:sequence>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element minOccurs="0" ref="pert:size"/>
-    </xs:sequence>
-    <xs:attribute name="site" use="required"/>
-    <xs:attribute name="howDiagnosed" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="this accesion"/>
-          <xs:enumeration value="prior accession"/>
-          <xs:enumeration value="outside report"/>
-          <xs:enumeration value="clinical examination"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:attributeGroup name="p36">
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="positive"/>
-          <xs:enumeration value="negative"/>
-          <xs:enumeration value="inconclusive"/>
-          <xs:enumeration value="indeterminate"/>
-          <xs:enumeration value="inapplicable"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="antibody" use="required"/>
-    <xs:attribute name="vendor" use="required"/>
-    <xs:attribute name="fixative" use="required"/>
-  </xs:attributeGroup>
-  <xs:attributeGroup name="p37">
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="0"/>
-          <xs:enumeration value="1+"/>
-          <xs:enumeration value="2+"/>
-          <xs:enumeration value="3+"/>
-          <xs:enumeration value="pending"/>
-          <xs:enumeration value="not performed"/>
-          <xs:enumeration value="other"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="antibody" use="required"/>
-    <xs:attribute name="vendor" use="required"/>
-    <xs:attribute name="fixative" use="required"/>
-  </xs:attributeGroup>
-  <xs:complexType name="p38" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction>
-          <xs:simpleType>
-            <xs:list>
-              <xs:simpleType>
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.cap.org/pert/2009/01/"
+    xmlns:breast="http://www.cap.org/pert/2009/01/breast/"
+    xmlns:data-view="http://www.w3.org/2003/g/data-view#"
+    xmlns:pert="http://www.cap.org/pert/2009/01/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import namespace="http://www.cap.org/pert/2009/01/breast/"
+        schemaLocation="breast.xsd"/>
+    <xs:import namespace="http://www.w3.org/2003/g/data-view#"
+        schemaLocation="data-view.xsd"/>
+    <xs:element name="synopsis" type="pert:p0"/>
+    <xs:complexType mixed="true" name="p0">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:clinical"/>
+            <xs:element ref="pert:specimen"/>
+            <xs:element ref="pert:tumor"/>
+            <xs:element ref="pert:extent"/>
+            <xs:element ref="pert:margins"/>
+            <xs:element ref="pert:accessory"/>
+            <xs:element ref="pert:nodes"/>
+            <xs:element ref="pert:metastases"/>
+            <xs:element ref="pert:studies"/>
+            <xs:element ref="pert:stage"/>
+            <xs:element ref="pert:additional"/>
+        </xs:choice>
+        <xs:attribute form="qualified" name="schemaLocation" use="required">
+            <xs:simpleType>
                 <xs:restriction base="xs:token">
-                  <xs:enumeration value="y"/>
-                  <xs:enumeration value="r"/>
-                  <xs:enumeration value="a"/>
-                  <xs:enumeration value="y"/>
-                  <xs:enumeration value="r"/>
-                  <xs:enumeration value="a"/>
-                  <xs:enumeration value="y"/>
-                  <xs:enumeration value="r"/>
-                  <xs:enumeration value="a"/>
+                    <xs:enumeration
+                        value="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@breast.rng"
+                    />
                 </xs:restriction>
-              </xs:simpleType>
-            </xs:list>
-          </xs:simpleType>
-          <xs:minLength value="1"/>
-          <xs:maxLength value="3"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p39" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="p"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p40" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="suffix">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="m"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="X"/>
-          <xs:enumeration value="0"/>
-          <xs:enumeration value="1mic"/>
-          <xs:enumeration value="1a"/>
-          <xs:enumeration value="1b"/>
-          <xs:enumeration value="1c"/>
-          <xs:enumeration value="2"/>
-          <xs:enumeration value="3"/>
-          <xs:enumeration value="4a"/>
-          <xs:enumeration value="4b"/>
-          <xs:enumeration value="4c"/>
-          <xs:enumeration value="4d"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p41" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="X"/>
-          <xs:enumeration value="0"/>
-          <xs:enumeration value="0(i-)"/>
-          <xs:enumeration value="0(i+)"/>
-          <xs:enumeration value="0(mol-)"/>
-          <xs:enumeration value="0(mol+)"/>
-          <xs:enumeration value="1"/>
-          <xs:enumeration value="1mi"/>
-          <xs:enumeration value="1a"/>
-          <xs:enumeration value="1b"/>
-          <xs:enumeration value="1c"/>
-          <xs:enumeration value="2a"/>
-          <xs:enumeration value="2b"/>
-          <xs:enumeration value="3a"/>
-          <xs:enumeration value="3b"/>
-          <xs:enumeration value="3c"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p42" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="X"/>
-          <xs:enumeration value="0"/>
-          <xs:enumeration value="1"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p43" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:choice>
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:element ref="pert:finding"/>
-    </xs:choice>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="finding" type="pert:p55"/>
-  <xs:complexType name="p44" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="description" use="required"/>
-    <xs:attribute name="date"/>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p45" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="palpable mass"/>
-          <xs:enumeration value="nipple discharge"/>
-          <xs:enumeration value="personal history of breast cancer"/>
-          <xs:enumeration value="family history of breast cancer"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p46" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="mass"/>
-          <xs:enumeration value="architectural distortion"/>
-          <xs:enumeration value="calcifications"/>
-          <xs:enumeration value="other"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p47" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="excision"/>
-          <xs:enumeration value="excision, wire-guided"/>
-          <xs:enumeration value="total mastectomy"/>
-          <xs:enumeration value="partial mastectomy"/>
-          <xs:enumeration value="lymph node sampling, sentinel nodes"/>
-          <xs:enumeration value="lymph node sampling, partial axillary dissection"/>
-          <xs:enumeration value="lymph node sampling, complete axillary dissection"/>
-          <xs:enumeration value="lymph node sampling, intramammary nodes"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p48" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="upper outer quadrant"/>
-          <xs:enumeration value="lower outer quadrant"/>
-          <xs:enumeration value="upper inner quadrant"/>
-          <xs:enumeration value="lower inner quadrant"/>
-          <xs:enumeration value="entire breast"/>
-          <xs:enumeration value="central"/>
-          <xs:enumeration value="nipple"/>
-          <xs:enumeration value="12:00"/>
-          <xs:enumeration value="1:00"/>
-          <xs:enumeration value="2:00"/>
-          <xs:enumeration value="3:00"/>
-          <xs:enumeration value="4:00"/>
-          <xs:enumeration value="5:00"/>
-          <xs:enumeration value="6:00"/>
-          <xs:enumeration value="7:00"/>
-          <xs:enumeration value="8:00"/>
-          <xs:enumeration value="9:00"/>
-          <xs:enumeration value="10:00"/>
-          <xs:enumeration value="11:00"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="laterality" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="right"/>
-          <xs:enumeration value="left"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p49" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="upper outer quadrant"/>
-          <xs:enumeration value="lower outer quadrant"/>
-          <xs:enumeration value="upper inner quadrant"/>
-          <xs:enumeration value="lower inner quadrant"/>
-          <xs:enumeration value="entire breast"/>
-          <xs:enumeration value="central"/>
-          <xs:enumeration value="nipple"/>
-          <xs:enumeration value="12:00"/>
-          <xs:enumeration value="1:00"/>
-          <xs:enumeration value="2:00"/>
-          <xs:enumeration value="3:00"/>
-          <xs:enumeration value="4:00"/>
-          <xs:enumeration value="5:00"/>
-          <xs:enumeration value="6:00"/>
-          <xs:enumeration value="7:00"/>
-          <xs:enumeration value="8:00"/>
-          <xs:enumeration value="9:00"/>
-          <xs:enumeration value="10:00"/>
-          <xs:enumeration value="11:00"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p50" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="ductal carcinoma-in-situ with microinvasion"/>
-          <xs:enumeration value="lobular carcinoma-in-situ with microinvasion"/>
-          <xs:enumeration value="Paget disease with microinvasion"/>
-          <xs:enumeration value="ductal carcinoma"/>
-          <xs:enumeration value="lobular carcinoma"/>
-          <xs:enumeration value="mixed type carcinoma"/>
-          <xs:enumeration value="mucinous carcinoma"/>
-          <xs:enumeration value="medullary carcinoma"/>
-          <xs:enumeration value="papillary carcinoma"/>
-          <xs:enumeration value="micropapillary carcinoma"/>
-          <xs:enumeration value="tubular carcinoma"/>
-          <xs:enumeration value="cribriform carcinoma"/>
-          <xs:enumeration value="indeterminate type carcinoma"/>
-          <xs:enumeration value="other"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="other-value"/>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:attributeGroup name="p51">
-    <xs:attribute name="score" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="1"/>
-          <xs:enumeration value="2"/>
-          <xs:enumeration value="3"/>
-          <xs:enumeration value="microinvasion only"/>
-          <xs:enumeration value="indeterminate"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-  </xs:attributeGroup>
-  <xs:complexType name="p52" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="location" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="extension to pectoralis muscle"/>
-          <xs:enumeration value="extension to chest wall"/>
-          <xs:enumeration value="skin edema"/>
-          <xs:enumeration value="skin ulceration"/>
-          <xs:enumeration value="skin satellite nodules"/>
-          <xs:enumeration value="inflammatory carcinoma (clinical finding)"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="positive"/>
-          <xs:enumeration value="negative"/>
-          <xs:enumeration value="inconclusive"/>
-          <xs:enumeration value="indeterminate"/>
-          <xs:enumeration value="inapplicable"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p53" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="unit" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="mm"/>
-          <xs:enumeration value="cm"/>
-          <xs:enumeration value="in"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="value" use="required"/>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p54" mixed="true">
-    <xs:sequence>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="pert:displayText"/>
-        <xs:element ref="pert:comment"/>
-        <xs:any processContents="skip"/>
-      </xs:choice>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="pert:extracapsular"/>
-        <xs:element ref="pert:largestMet"/>
-      </xs:choice>
-    </xs:sequence>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="total"/>
-          <xs:enumeration value="regressed"/>
-          <xs:enumeration value="isolated tumor cells"/>
-          <xs:enumeration value="micrometastasis"/>
-          <xs:enumeration value="macrometastasis"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="count" use="required"/>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:element name="extracapsular" type="pert:p56"/>
-  <xs:element name="largestMet" type="pert:p57"/>
-  <xs:complexType name="p55" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="fibrocystic changes"/>
-          <xs:enumeration value="ordinary hyperplasia"/>
-          <xs:enumeration value="atypical hyperplasia"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p56" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="positive"/>
-          <xs:enumeration value="negative"/>
-          <xs:enumeration value="inconclusive"/>
-          <xs:enumeration value="indeterminate"/>
-          <xs:enumeration value="inapplicable"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
-  <xs:complexType name="p57" mixed="true">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element ref="pert:displayText"/>
-      <xs:element ref="pert:comment"/>
-      <xs:any processContents="skip"/>
-    </xs:choice>
-    <xs:attribute name="value" use="required"/>
-    <xs:attribute name="unit" use="required">
-      <xs:simpleType>
-        <xs:restriction base="xs:token">
-          <xs:enumeration value="mm"/>
-          <xs:enumeration value="cm"/>
-          <xs:enumeration value="in"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:anyAttribute processContents="skip"/>
-  </xs:complexType>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute form="qualified" name="version" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="55"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute ref="data-view:transformation" use="required"/>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="displayText" type="pert:p1"/>
+    <xs:element name="comment" type="pert:p2"/>
+    <xs:element name="clinical" type="pert:p4"/>
+    <xs:element name="specimen" type="pert:p5"/>
+    <xs:element name="tumor" type="pert:p6"/>
+    <xs:element name="extent" type="pert:p7"/>
+    <xs:element name="margins" type="pert:p8"/>
+    <xs:element name="accessory" type="pert:p9"/>
+    <xs:element name="nodes" type="pert:p10"/>
+    <xs:element name="metastases" type="pert:p11"/>
+    <xs:element name="studies" type="pert:p12"/>
+    <xs:element name="stage" type="pert:p13"/>
+    <xs:element name="additional" type="pert:p14"/>
+    <xs:complexType mixed="true" name="p1">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0"
+                ref="pert:displayText"/>
+        </xs:sequence>
+        <xs:attribute name="role">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="label"/>
+                    <xs:enumeration value="value"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p2">
+        <xs:sequence>
+            <xs:element minOccurs="0" ref="pert:displayText"/>
+        </xs:sequence>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:group name="p3">
+        <xs:sequence>
+            <xs:any maxOccurs="unbounded" minOccurs="0" processContents="skip"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:attributeGroup name="p3">
+        <xs:anyAttribute processContents="skip"/>
+    </xs:attributeGroup>
+    <xs:complexType mixed="true" name="p4">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:priorTherapies"/>
+            <xs:element ref="pert:clinicalFindings"/>
+            <xs:element ref="pert:radiologicFindings"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="priorTherapies" type="pert:p15"/>
+    <xs:element name="clinicalFindings" type="pert:p16"/>
+    <xs:element name="radiologicFindings" type="pert:p17"/>
+    <xs:complexType mixed="true" name="p5">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:procedures"/>
+            <xs:element ref="pert:sites"/>
+            <xs:element ref="pert:tumorLocations"/>
+            <xs:element ref="pert:integrity"/>
+            <xs:element ref="pert:size"/>
+            <xs:element ref="pert:weight"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="procedures" type="pert:p18"/>
+    <xs:element name="sites" type="pert:p19"/>
+    <xs:element name="tumorLocations" type="pert:p20"/>
+    <xs:element name="integrity" type="pert:p21"/>
+    <xs:element name="size" type="pert:p22"/>
+    <xs:element name="weight" type="pert:p23"/>
+    <xs:complexType mixed="true" name="p6">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:histologicTypes"/>
+            <xs:element ref="pert:grade"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="histologicTypes" type="pert:p24"/>
+    <xs:element name="grade" type="pert:p25"/>
+    <xs:complexType mixed="true" name="p7">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:tumorSize"/>
+            <xs:element ref="pert:userDefined"/>
+            <xs:element ref="breast:invasion"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="tumorSize" type="pert:p26"/>
+    <xs:element name="userDefined" type="pert:p27"/>
+    <xs:complexType mixed="true" name="p8">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:margin"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="margin" type="pert:p29"/>
+    <xs:complexType mixed="true" name="p9">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:venousInvasion"/>
+            <xs:element ref="pert:lymphovascularInvasion"/>
+            <xs:element ref="pert:perineuralInvasion"/>
+            <xs:element ref="pert:treatmentEffect"/>
+            <xs:choice>
+                <xs:element ref="breast:dermalLymphaticInvasion"/>
+                <xs:element ref="breast:microcalcification"/>
+            </xs:choice>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="venousInvasion" type="pert:p30"/>
+    <xs:element name="lymphovascularInvasion" type="pert:p30"/>
+    <xs:element name="perineuralInvasion" type="pert:p30"/>
+    <xs:element name="treatmentEffect" type="pert:p31"/>
+    <xs:complexType mixed="true" name="p10">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:nodeGroup"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="nodeGroup" type="pert:p34"/>
+    <xs:complexType mixed="true" name="p11">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:metastasis"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="metastasis" type="pert:p35"/>
+    <xs:complexType mixed="true" name="p12">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="breast:estrogenReceptor"/>
+            <xs:element ref="breast:progesteroneReceptor"/>
+            <xs:element ref="breast:her2neu"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p13">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:prefix"/>
+            <xs:element ref="pert:classification"/>
+            <xs:element ref="pert:T"/>
+            <xs:element ref="pert:N"/>
+            <xs:element ref="pert:M"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="prefix" type="pert:p38"/>
+    <xs:element name="classification" type="pert:p39"/>
+    <xs:element name="T" type="pert:p40"/>
+    <xs:element name="N" type="pert:p41"/>
+    <xs:element name="M" type="pert:p42"/>
+    <xs:complexType mixed="true" name="p14">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:findings"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="findings" type="pert:p43"/>
+    <xs:complexType mixed="true" name="p15">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:priorTherapy"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="priorTherapy" type="pert:p44"/>
+    <xs:complexType mixed="true" name="p16">
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element maxOccurs="unbounded" minOccurs="0"
+                ref="pert:clinicalFinding"/>
+        </xs:sequence>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="clinicalFinding" type="pert:p45"/>
+    <xs:complexType mixed="true" name="p17">
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element maxOccurs="unbounded" minOccurs="0"
+                ref="pert:radiologicFinding"/>
+        </xs:sequence>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="radiologicFinding" type="pert:p46"/>
+    <xs:complexType mixed="true" name="p18">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:procedure"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="procedure" type="pert:p47"/>
+    <xs:complexType mixed="true" name="p19">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:site"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="site" type="pert:p48"/>
+    <xs:complexType mixed="true" name="p20">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:tumorLocation"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="tumorLocation" type="pert:p49"/>
+    <xs:complexType mixed="true" name="p21">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="single intact"/>
+                    <xs:enumeration value="multiple designated"/>
+                    <xs:enumeration value="fragmented"/>
+                    <xs:enumeration value="other"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p22">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="unit" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="mm"/>
+                    <xs:enumeration value="cm"/>
+                    <xs:enumeration value="in"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="dimension-1" use="required"/>
+        <xs:attribute name="dimension-2"/>
+        <xs:attribute name="dimension-3"/>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p23">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="unit" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="g"/>
+                    <xs:enumeration value="kg"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="value" use="required"/>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p24">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:histologicType"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="histologicType" type="pert:p50"/>
+    <xs:complexType mixed="true" name="p25">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="breast:glandular"/>
+            <xs:element ref="breast:nuclearPleomorphism"/>
+            <xs:element ref="breast:mitoticCount"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="1"/>
+                    <xs:enumeration value="2"/>
+                    <xs:enumeration value="3"/>
+                    <xs:enumeration value="microinvasive only"/>
+                    <xs:enumeration value="indeterminate"/>
+                    <xs:enumeration value="inapplicable"/>
+                    <xs:enumeration value=""/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="otherValue"/>
+        <xs:attribute name="gradingSystem">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="Nottingham"/>
+                    <xs:enumeration value="WHO"/>
+                    <xs:enumeration value="other"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p26">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="dimension-1" use="required"/>
+        <xs:attribute name="dimension-2"/>
+        <xs:attribute name="dimension-3"/>
+        <xs:attribute name="unit" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="mm"/>
+                    <xs:enumeration value="cm"/>
+                    <xs:enumeration value="in"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p27">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p28">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="breast:invasionFinding"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p29">
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element minOccurs="0" ref="pert:distance"/>
+        </xs:sequence>
+        <xs:attribute name="location" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="superior"/>
+                    <xs:enumeration value="inferior"/>
+                    <xs:enumeration value="medial"/>
+                    <xs:enumeration value="lateral"/>
+                    <xs:enumeration value="anterior"/>
+                    <xs:enumeration value="posterior"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="status" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="negative"/>
+                    <xs:enumeration value="indeterminate"/>
+                    <xs:enumeration value="inapplicable"/>
+                    <xs:enumeration value="inconclusive"/>
+                    <xs:enumeration value="focally positive"/>
+                    <xs:enumeration value="positive"/>
+                    <xs:enumeration value="extensively positive"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="closest"/>
+        <xs:attribute name="for" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="carcinoma-in-situ"/>
+                    <xs:enumeration value="invasive carcinoma"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="distance" type="pert:p53"/>
+    <xs:complexType mixed="true" name="p30">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="positive"/>
+                    <xs:enumeration value="negative"/>
+                    <xs:enumeration value="inconclusive"/>
+                    <xs:enumeration value="indeterminate"/>
+                    <xs:enumeration value="inapplicable"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p31">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="inapplicable"/>
+                    <xs:enumeration value="negative"/>
+                    <xs:enumeration value="positive"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:attributeGroup name="p32">
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="positive"/>
+                    <xs:enumeration value="negative"/>
+                    <xs:enumeration value="inconclusive"/>
+                    <xs:enumeration value="indeterminate"/>
+                    <xs:enumeration value="inapplicable"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="p33">
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="negative"/>
+                    <xs:enumeration value="positive in DCIS"/>
+                    <xs:enumeration value="positive in invasive carcinoma"/>
+                    <xs:enumeration value="positive in benign tissue"/>
+                    <xs:enumeration
+                        value="positive in both carcinoma and benign tissue"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <xs:complexType mixed="true" name="p34">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:nodeStatus"/>
+        </xs:choice>
+        <xs:attribute name="laterality" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="right"/>
+                    <xs:enumeration value="left"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="location" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="low axillary"/>
+                    <xs:enumeration value="mid axillary"/>
+                    <xs:enumeration value="high axillary"/>
+                    <xs:enumeration value="infraclavicular"/>
+                    <xs:enumeration value="supraclavicular"/>
+                    <xs:enumeration value="internal mammary"/>
+                    <xs:enumeration value="sentinel"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="nodeStatus" type="pert:p54"/>
+    <xs:complexType mixed="true" name="p35">
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element minOccurs="0" ref="pert:size"/>
+        </xs:sequence>
+        <xs:attribute name="site" use="required"/>
+        <xs:attribute name="howDiagnosed" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="this accesion"/>
+                    <xs:enumeration value="prior accession"/>
+                    <xs:enumeration value="outside report"/>
+                    <xs:enumeration value="clinical examination"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:attributeGroup name="p36">
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="positive"/>
+                    <xs:enumeration value="negative"/>
+                    <xs:enumeration value="inconclusive"/>
+                    <xs:enumeration value="indeterminate"/>
+                    <xs:enumeration value="inapplicable"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="antibody" use="required"/>
+        <xs:attribute name="vendor" use="required"/>
+        <xs:attribute name="fixative" use="required"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="p37">
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="0"/>
+                    <xs:enumeration value="1+"/>
+                    <xs:enumeration value="2+"/>
+                    <xs:enumeration value="3+"/>
+                    <xs:enumeration value="pending"/>
+                    <xs:enumeration value="not performed"/>
+                    <xs:enumeration value="other"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="antibody" use="required"/>
+        <xs:attribute name="vendor" use="required"/>
+        <xs:attribute name="fixative" use="required"/>
+    </xs:attributeGroup>
+    <xs:complexType mixed="true" name="p38">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction>
+                    <xs:simpleType>
+                        <xs:list>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:token">
+                                    <xs:enumeration value="y"/>
+                                    <xs:enumeration value="r"/>
+                                    <xs:enumeration value="a"/>
+                                    <xs:enumeration value="y"/>
+                                    <xs:enumeration value="r"/>
+                                    <xs:enumeration value="a"/>
+                                    <xs:enumeration value="y"/>
+                                    <xs:enumeration value="r"/>
+                                    <xs:enumeration value="a"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:list>
+                    </xs:simpleType>
+                    <xs:minLength value="1"/>
+                    <xs:maxLength value="3"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p39">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="p"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p40">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="suffix">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="m"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="X"/>
+                    <xs:enumeration value="0"/>
+                    <xs:enumeration value="1mic"/>
+                    <xs:enumeration value="1a"/>
+                    <xs:enumeration value="1b"/>
+                    <xs:enumeration value="1c"/>
+                    <xs:enumeration value="2"/>
+                    <xs:enumeration value="3"/>
+                    <xs:enumeration value="4a"/>
+                    <xs:enumeration value="4b"/>
+                    <xs:enumeration value="4c"/>
+                    <xs:enumeration value="4d"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p41">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="X"/>
+                    <xs:enumeration value="0"/>
+                    <xs:enumeration value="0(i-)"/>
+                    <xs:enumeration value="0(i+)"/>
+                    <xs:enumeration value="0(mol-)"/>
+                    <xs:enumeration value="0(mol+)"/>
+                    <xs:enumeration value="1"/>
+                    <xs:enumeration value="1mi"/>
+                    <xs:enumeration value="1a"/>
+                    <xs:enumeration value="1b"/>
+                    <xs:enumeration value="1c"/>
+                    <xs:enumeration value="2a"/>
+                    <xs:enumeration value="2b"/>
+                    <xs:enumeration value="3a"/>
+                    <xs:enumeration value="3b"/>
+                    <xs:enumeration value="3c"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p42">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="X"/>
+                    <xs:enumeration value="0"/>
+                    <xs:enumeration value="1"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p43">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:choice>
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:element ref="pert:finding"/>
+        </xs:choice>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="finding" type="pert:p55"/>
+    <xs:complexType mixed="true" name="p44">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="description" use="required"/>
+        <xs:attribute name="date"/>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p45">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="palpable mass"/>
+                    <xs:enumeration value="nipple discharge"/>
+                    <xs:enumeration value="personal history of breast cancer"/>
+                    <xs:enumeration value="family history of breast cancer"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p46">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="mass"/>
+                    <xs:enumeration value="architectural distortion"/>
+                    <xs:enumeration value="calcifications"/>
+                    <xs:enumeration value="other"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p47">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="excision"/>
+                    <xs:enumeration value="excision, wire-guided"/>
+                    <xs:enumeration value="total mastectomy"/>
+                    <xs:enumeration value="partial mastectomy"/>
+                    <xs:enumeration value="lymph node sampling, sentinel nodes"/>
+                    <xs:enumeration
+                        value="lymph node sampling, partial axillary dissection"/>
+                    <xs:enumeration
+                        value="lymph node sampling, complete axillary dissection"/>
+                    <xs:enumeration
+                        value="lymph node sampling, intramammary nodes"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p48">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="upper outer quadrant"/>
+                    <xs:enumeration value="lower outer quadrant"/>
+                    <xs:enumeration value="upper inner quadrant"/>
+                    <xs:enumeration value="lower inner quadrant"/>
+                    <xs:enumeration value="entire breast"/>
+                    <xs:enumeration value="central"/>
+                    <xs:enumeration value="nipple"/>
+                    <xs:enumeration value="12:00"/>
+                    <xs:enumeration value="1:00"/>
+                    <xs:enumeration value="2:00"/>
+                    <xs:enumeration value="3:00"/>
+                    <xs:enumeration value="4:00"/>
+                    <xs:enumeration value="5:00"/>
+                    <xs:enumeration value="6:00"/>
+                    <xs:enumeration value="7:00"/>
+                    <xs:enumeration value="8:00"/>
+                    <xs:enumeration value="9:00"/>
+                    <xs:enumeration value="10:00"/>
+                    <xs:enumeration value="11:00"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="laterality" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="right"/>
+                    <xs:enumeration value="left"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p49">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="upper outer quadrant"/>
+                    <xs:enumeration value="lower outer quadrant"/>
+                    <xs:enumeration value="upper inner quadrant"/>
+                    <xs:enumeration value="lower inner quadrant"/>
+                    <xs:enumeration value="entire breast"/>
+                    <xs:enumeration value="central"/>
+                    <xs:enumeration value="nipple"/>
+                    <xs:enumeration value="12:00"/>
+                    <xs:enumeration value="1:00"/>
+                    <xs:enumeration value="2:00"/>
+                    <xs:enumeration value="3:00"/>
+                    <xs:enumeration value="4:00"/>
+                    <xs:enumeration value="5:00"/>
+                    <xs:enumeration value="6:00"/>
+                    <xs:enumeration value="7:00"/>
+                    <xs:enumeration value="8:00"/>
+                    <xs:enumeration value="9:00"/>
+                    <xs:enumeration value="10:00"/>
+                    <xs:enumeration value="11:00"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p50">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration
+                        value="ductal carcinoma-in-situ with microinvasion"/>
+                    <xs:enumeration
+                        value="lobular carcinoma-in-situ with microinvasion"/>
+                    <xs:enumeration value="Paget disease with microinvasion"/>
+                    <xs:enumeration value="ductal carcinoma"/>
+                    <xs:enumeration value="lobular carcinoma"/>
+                    <xs:enumeration value="mixed type carcinoma"/>
+                    <xs:enumeration value="mucinous carcinoma"/>
+                    <xs:enumeration value="medullary carcinoma"/>
+                    <xs:enumeration value="papillary carcinoma"/>
+                    <xs:enumeration value="micropapillary carcinoma"/>
+                    <xs:enumeration value="tubular carcinoma"/>
+                    <xs:enumeration value="cribriform carcinoma"/>
+                    <xs:enumeration value="indeterminate type carcinoma"/>
+                    <xs:enumeration value="other"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="other-value"/>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:attributeGroup name="p51">
+        <xs:attribute name="score" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="1"/>
+                    <xs:enumeration value="2"/>
+                    <xs:enumeration value="3"/>
+                    <xs:enumeration value="microinvasion only"/>
+                    <xs:enumeration value="indeterminate"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <xs:complexType mixed="true" name="p52">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="location" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="extension to pectoralis muscle"/>
+                    <xs:enumeration value="extension to chest wall"/>
+                    <xs:enumeration value="skin edema"/>
+                    <xs:enumeration value="skin ulceration"/>
+                    <xs:enumeration value="skin satellite nodules"/>
+                    <xs:enumeration
+                        value="inflammatory carcinoma (clinical finding)"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="positive"/>
+                    <xs:enumeration value="negative"/>
+                    <xs:enumeration value="inconclusive"/>
+                    <xs:enumeration value="indeterminate"/>
+                    <xs:enumeration value="inapplicable"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p53">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="unit" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="mm"/>
+                    <xs:enumeration value="cm"/>
+                    <xs:enumeration value="in"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="value" use="required"/>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p54">
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:element ref="pert:displayText"/>
+                <xs:element ref="pert:comment"/>
+                <xs:any processContents="skip"/>
+            </xs:choice>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:element ref="pert:extracapsular"/>
+                <xs:element ref="pert:largestMet"/>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="total"/>
+                    <xs:enumeration value="regressed"/>
+                    <xs:enumeration value="isolated tumor cells"/>
+                    <xs:enumeration value="micrometastasis"/>
+                    <xs:enumeration value="macrometastasis"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="count" use="required"/>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:element name="extracapsular" type="pert:p56"/>
+    <xs:element name="largestMet" type="pert:p57"/>
+    <xs:complexType mixed="true" name="p55">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="fibrocystic changes"/>
+                    <xs:enumeration value="ordinary hyperplasia"/>
+                    <xs:enumeration value="atypical hyperplasia"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p56">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="positive"/>
+                    <xs:enumeration value="negative"/>
+                    <xs:enumeration value="inconclusive"/>
+                    <xs:enumeration value="indeterminate"/>
+                    <xs:enumeration value="inapplicable"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="p57">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="pert:displayText"/>
+            <xs:element ref="pert:comment"/>
+            <xs:any processContents="skip"/>
+        </xs:choice>
+        <xs:attribute name="value" use="required"/>
+        <xs:attribute name="unit" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="mm"/>
+                    <xs:enumeration value="cm"/>
+                    <xs:enumeration value="in"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
 </xs:schema>
