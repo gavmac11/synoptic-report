@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.cap.org/pert/2009/01/"
+  xmlns:breast="http://www.cap.org/pert/2009/01/breast/" xmlns:data-view="http://www.w3.org/2003/g/data-view#"
+  xmlns:pert="http://www.cap.org/pert/2009/01/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.cap.org/pert/2009/01/breast/" schemaLocation="breast.xsd"/>
+  <xs:import namespace="http://www.w3.org/2003/g/data-view#" schemaLocation="data-view.xsd"/>
+  <xs:element name="synopsis" type="pert:p0"/>
+  <xs:complexType name="p0">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element ref="pert:clinical"/>
+      <xs:element ref="pert:specimen"/>
+      <xs:element ref="pert:tumor"/>
+      <xs:element ref="pert:extent"/>
+      <xs:element ref="pert:margins"/>
+      <xs:element ref="pert:accessory"/>
+      <xs:element ref="pert:nodes"/>
+      <xs:element ref="pert:metastases"/>
+      <xs:element ref="pert:studies"/>
+      <xs:element ref="pert:stage"/>
+      <xs:element ref="pert:additional"/>
+    </xs:choice>
+    <xs:attribute form="qualified" name="schemaLocation" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="http://www.cap.org/pert/2009/01/resection@breast.rng"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute form="qualified" name="version" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="2008-12-25"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute ref="data-view:transformation" use="required"/>
+  </xs:complexType>
+  <xs:element name="clinical" type="pert:p1"/>
+  <xs:element name="specimen" type="pert:p2"/>
+  <xs:element name="tumor" type="pert:p3"/>
+  <xs:element name="extent" type="pert:p4"/>
+  <xs:element name="margins" type="pert:p5"/>
+  <xs:element name="accessory" type="pert:p6"/>
+  <xs:element name="nodes" type="pert:p7"/>
+  <xs:element name="metastases" type="pert:p8"/>
+  <xs:element name="studies" type="pert:p9"/>
+  <xs:element name="stage" type="pert:p10"/>
+  <xs:element name="additional" type="pert:p11"/>
+  <xs:complexType name="p1">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element ref="pert:priorTherapies"/>
+      <xs:element ref="pert:clinicalFindings"/>
+      <xs:element ref="pert:radiologicFindings"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="priorTherapies" type="pert:p12"/>
+  <xs:element name="clinicalFindings" type="pert:p13"/>
+  <xs:element name="radiologicFindings" type="pert:p14"/>
+  <xs:complexType name="p2">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element ref="pert:procedures"/>
+      <xs:element ref="pert:sites"/>
+      <xs:element ref="pert:tumorLocations"/>
+      <xs:element ref="pert:integrity"/>
+      <xs:element ref="pert:size"/>
+      <xs:element ref="pert:weight"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="procedures" type="pert:p15"/>
+  <xs:element name="sites" type="pert:p16"/>
+  <xs:element name="tumorLocations" type="pert:p17"/>
+  <xs:element name="integrity">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p18"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="size">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p19"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="weight">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p20"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="p3">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element ref="pert:histologicTypes"/>
+      <xs:element ref="pert:grade"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="histologicTypes" type="pert:p21"/>
+  <xs:element name="grade" type="pert:p22"/>
+  <xs:complexType name="p4">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element ref="pert:tumorSize"/>
+      <xs:element ref="pert:userDefined"/>
+      <xs:element ref="breast:invasion"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="tumorSize">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p23"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="userDefined">
+    <xs:complexType/>
+  </xs:element>
+  <xs:complexType name="p5">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="pert:margin"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="margin" type="pert:p26"/>
+  <xs:complexType name="p6">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element ref="pert:venousInvasion"/>
+      <xs:element ref="pert:lymphovascularInvasion"/>
+      <xs:element ref="pert:perineuralInvasion"/>
+      <xs:element ref="pert:treatmentEffect"/>
+      <xs:choice>
+        <xs:element ref="breast:dermalLymphaticInvasion"/>
+        <xs:element ref="breast:microcalcification"/>
+      </xs:choice>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="venousInvasion">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p27"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lymphovascularInvasion">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p27"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="perineuralInvasion">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p27"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="treatmentEffect">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p28"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="p7">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="pert:nodeGroup"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="nodeGroup" type="pert:p30"/>
+  <xs:complexType name="p8">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="pert:metastasis"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="metastasis" type="pert:p31"/>
+  <xs:complexType name="p9">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element ref="breast:estrogenReceptor"/>
+      <xs:element ref="breast:progesteroneReceptor"/>
+      <xs:element ref="breast:her2neu"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="p10">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element ref="pert:prefix"/>
+      <xs:element ref="pert:classification"/>
+      <xs:element ref="pert:T"/>
+      <xs:element ref="pert:N"/>
+      <xs:element ref="pert:M"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="prefix">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p34"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="classification">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p35"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="T">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p36"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="N">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p37"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="M">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p38"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="p11">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="pert:findings"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="findings" type="pert:p39"/>
+  <xs:complexType name="p12">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="pert:priorTherapy"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="priorTherapy">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p40"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="p13">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="pert:clinicalFinding"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clinicalFinding">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p41"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="p14">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="pert:radiologicFinding"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="radiologicFinding">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p42"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="p15">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="pert:procedure"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="procedure">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p43"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="p16">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="pert:site"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="site">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p44"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="p17">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="pert:tumorLocation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tumorLocation">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p45"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="p18">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="single intact"/>
+          <xs:enumeration value="multiple designated"/>
+          <xs:enumeration value="fragmented"/>
+          <xs:enumeration value="other"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p19">
+    <xs:attribute name="unit" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="mm"/>
+          <xs:enumeration value="cm"/>
+          <xs:enumeration value="in"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="dimension-1" use="required"/>
+    <xs:attribute name="dimension-2"/>
+    <xs:attribute name="dimension-3"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p20">
+    <xs:attribute name="unit" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="g"/>
+          <xs:enumeration value="kg"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="value" use="required"/>
+  </xs:attributeGroup>
+  <xs:complexType name="p21">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" ref="pert:histologicType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="histologicType">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p46"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="p22">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element ref="breast:glandular"/>
+      <xs:element ref="breast:nuclearPleomorphism"/>
+      <xs:element ref="breast:mitoticCount"/>
+    </xs:choice>
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="1"/>
+          <xs:enumeration value="2"/>
+          <xs:enumeration value="3"/>
+          <xs:enumeration value="microinvasive only"/>
+          <xs:enumeration value="indeterminate"/>
+          <xs:enumeration value="inapplicable"/>
+          <xs:enumeration value=""/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="otherValue"/>
+    <xs:attribute name="gradingSystem">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Nottingham"/>
+          <xs:enumeration value="WHO"/>
+          <xs:enumeration value="other"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:attributeGroup name="p23">
+    <xs:attribute name="dimension-1" use="required"/>
+    <xs:attribute name="dimension-2"/>
+    <xs:attribute name="dimension-3"/>
+    <xs:attribute name="unit" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="mm"/>
+          <xs:enumeration value="cm"/>
+          <xs:enumeration value="in"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:complexType name="p25">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="breast:invasionFinding"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="p26">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="pert:distance"/>
+    </xs:sequence>
+    <xs:attribute name="location" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="superior"/>
+          <xs:enumeration value="inferior"/>
+          <xs:enumeration value="medial"/>
+          <xs:enumeration value="lateral"/>
+          <xs:enumeration value="anterior"/>
+          <xs:enumeration value="posterior"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="status" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="negative"/>
+          <xs:enumeration value="indeterminate"/>
+          <xs:enumeration value="inapplicable"/>
+          <xs:enumeration value="inconclusive"/>
+          <xs:enumeration value="focally positive"/>
+          <xs:enumeration value="positive"/>
+          <xs:enumeration value="extensively positive"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="closest"/>
+    <xs:attribute name="for" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="carcinoma-in-situ"/>
+          <xs:enumeration value="invasive carcinoma"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:element name="distance">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p49"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="p27">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="positive"/>
+          <xs:enumeration value="negative"/>
+          <xs:enumeration value="inconclusive"/>
+          <xs:enumeration value="indeterminate"/>
+          <xs:enumeration value="inapplicable"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p28">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="inapplicable"/>
+          <xs:enumeration value="negative"/>
+          <xs:enumeration value="positive"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p29">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="negative"/>
+          <xs:enumeration value="positive in DCIS"/>
+          <xs:enumeration value="positive in invasive carcinoma"/>
+          <xs:enumeration value="positive in benign tissue"/>
+          <xs:enumeration value="positive in both carcinoma and benign tissue"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:complexType name="p30">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="pert:nodeStatus"/>
+    </xs:sequence>
+    <xs:attribute name="laterality" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="right"/>
+          <xs:enumeration value="left"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="location" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="low axillary"/>
+          <xs:enumeration value="mid axillary"/>
+          <xs:enumeration value="high axillary"/>
+          <xs:enumeration value="infraclavicular"/>
+          <xs:enumeration value="supraclavicular"/>
+          <xs:enumeration value="internal mammary"/>
+          <xs:enumeration value="sentinel"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:element name="nodeStatus" type="pert:p50"/>
+  <xs:complexType name="p31">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="pert:size"/>
+    </xs:sequence>
+    <xs:attribute name="site" use="required"/>
+    <xs:attribute name="howDiagnosed" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="this accesion"/>
+          <xs:enumeration value="prior accession"/>
+          <xs:enumeration value="outside report"/>
+          <xs:enumeration value="clinical examination"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:attributeGroup name="p32">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="positive"/>
+          <xs:enumeration value="negative"/>
+          <xs:enumeration value="inconclusive"/>
+          <xs:enumeration value="indeterminate"/>
+          <xs:enumeration value="inapplicable"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="antibody" use="required"/>
+    <xs:attribute name="vendor" use="required"/>
+    <xs:attribute name="fixative" use="required"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p33">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="0"/>
+          <xs:enumeration value="1+"/>
+          <xs:enumeration value="2+"/>
+          <xs:enumeration value="3+"/>
+          <xs:enumeration value="pending"/>
+          <xs:enumeration value="not performed"/>
+          <xs:enumeration value="other"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="antibody" use="required"/>
+    <xs:attribute name="vendor" use="required"/>
+    <xs:attribute name="fixative" use="required"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p34">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction>
+          <xs:simpleType>
+            <xs:list>
+              <xs:simpleType>
+                <xs:restriction base="xs:token">
+                  <xs:enumeration value="y"/>
+                  <xs:enumeration value="r"/>
+                  <xs:enumeration value="a"/>
+                  <xs:enumeration value="y"/>
+                  <xs:enumeration value="r"/>
+                  <xs:enumeration value="a"/>
+                  <xs:enumeration value="y"/>
+                  <xs:enumeration value="r"/>
+                  <xs:enumeration value="a"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:list>
+          </xs:simpleType>
+          <xs:minLength value="1"/>
+          <xs:maxLength value="3"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p35">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="p"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p36">
+    <xs:attribute name="suffix">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="m"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="X"/>
+          <xs:enumeration value="0"/>
+          <xs:enumeration value="1mic"/>
+          <xs:enumeration value="1a"/>
+          <xs:enumeration value="1b"/>
+          <xs:enumeration value="1c"/>
+          <xs:enumeration value="2"/>
+          <xs:enumeration value="3"/>
+          <xs:enumeration value="4a"/>
+          <xs:enumeration value="4b"/>
+          <xs:enumeration value="4c"/>
+          <xs:enumeration value="4d"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p37">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="X"/>
+          <xs:enumeration value="0"/>
+          <xs:enumeration value="0(i-)"/>
+          <xs:enumeration value="0(i+)"/>
+          <xs:enumeration value="0(mol-)"/>
+          <xs:enumeration value="0(mol+)"/>
+          <xs:enumeration value="1"/>
+          <xs:enumeration value="1mi"/>
+          <xs:enumeration value="1a"/>
+          <xs:enumeration value="1b"/>
+          <xs:enumeration value="1c"/>
+          <xs:enumeration value="2a"/>
+          <xs:enumeration value="2b"/>
+          <xs:enumeration value="3a"/>
+          <xs:enumeration value="3b"/>
+          <xs:enumeration value="3c"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p38">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="X"/>
+          <xs:enumeration value="0"/>
+          <xs:enumeration value="1"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:complexType name="p39">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" ref="pert:finding"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="finding">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p51"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="p40">
+    <xs:attribute name="description" use="required"/>
+    <xs:attribute name="date"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p41">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="palpable mass"/>
+          <xs:enumeration value="nipple discharge"/>
+          <xs:enumeration value="personal history of breast cancer"/>
+          <xs:enumeration value="family history of breast cancer"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p42">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="mass"/>
+          <xs:enumeration value="architectural distortion"/>
+          <xs:enumeration value="calcifications"/>
+          <xs:enumeration value="other"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p43">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="excision"/>
+          <xs:enumeration value="excision, wire-guided"/>
+          <xs:enumeration value="total mastectomy"/>
+          <xs:enumeration value="partial mastectomy"/>
+          <xs:enumeration value="lymph node sampling, sentinel nodes"/>
+          <xs:enumeration value="lymph node sampling, partial axillary dissection"/>
+          <xs:enumeration value="lymph node sampling, complete axillary dissection"/>
+          <xs:enumeration value="lymph node sampling, intramammary nodes"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p44">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="upper outer quadrant"/>
+          <xs:enumeration value="lower outer quadrant"/>
+          <xs:enumeration value="upper inner quadrant"/>
+          <xs:enumeration value="lower inner quadrant"/>
+          <xs:enumeration value="entire breast"/>
+          <xs:enumeration value="central"/>
+          <xs:enumeration value="nipple"/>
+          <xs:enumeration value="12:00"/>
+          <xs:enumeration value="1:00"/>
+          <xs:enumeration value="2:00"/>
+          <xs:enumeration value="3:00"/>
+          <xs:enumeration value="4:00"/>
+          <xs:enumeration value="5:00"/>
+          <xs:enumeration value="6:00"/>
+          <xs:enumeration value="7:00"/>
+          <xs:enumeration value="8:00"/>
+          <xs:enumeration value="9:00"/>
+          <xs:enumeration value="10:00"/>
+          <xs:enumeration value="11:00"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="laterality" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="right"/>
+          <xs:enumeration value="left"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p45">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="upper outer quadrant"/>
+          <xs:enumeration value="lower outer quadrant"/>
+          <xs:enumeration value="upper inner quadrant"/>
+          <xs:enumeration value="lower inner quadrant"/>
+          <xs:enumeration value="entire breast"/>
+          <xs:enumeration value="central"/>
+          <xs:enumeration value="nipple"/>
+          <xs:enumeration value="12:00"/>
+          <xs:enumeration value="1:00"/>
+          <xs:enumeration value="2:00"/>
+          <xs:enumeration value="3:00"/>
+          <xs:enumeration value="4:00"/>
+          <xs:enumeration value="5:00"/>
+          <xs:enumeration value="6:00"/>
+          <xs:enumeration value="7:00"/>
+          <xs:enumeration value="8:00"/>
+          <xs:enumeration value="9:00"/>
+          <xs:enumeration value="10:00"/>
+          <xs:enumeration value="11:00"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p46">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="ductal carcinoma-in-situ with microinvasion"/>
+          <xs:enumeration value="lobular carcinoma-in-situ with microinvasion"/>
+          <xs:enumeration value="Paget disease with microinvasion"/>
+          <xs:enumeration value="ductal carcinoma"/>
+          <xs:enumeration value="lobular carcinoma"/>
+          <xs:enumeration value="mixed type carcinoma"/>
+          <xs:enumeration value="mucinous carcinoma"/>
+          <xs:enumeration value="medullary carcinoma"/>
+          <xs:enumeration value="papillary carcinoma"/>
+          <xs:enumeration value="micropapillary carcinoma"/>
+          <xs:enumeration value="tubular carcinoma"/>
+          <xs:enumeration value="cribriform carcinoma"/>
+          <xs:enumeration value="indeterminate type carcinoma"/>
+          <xs:enumeration value="other"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="other-value"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p47">
+    <xs:attribute name="score" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="1"/>
+          <xs:enumeration value="2"/>
+          <xs:enumeration value="3"/>
+          <xs:enumeration value="microinvasion only"/>
+          <xs:enumeration value="indeterminate"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p48">
+    <xs:attribute name="location" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="extension to pectoralis muscle"/>
+          <xs:enumeration value="extension to chest wall"/>
+          <xs:enumeration value="skin edema"/>
+          <xs:enumeration value="skin ulceration"/>
+          <xs:enumeration value="skin satellite nodules"/>
+          <xs:enumeration value="inflammatory carcinoma (clinical finding)"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="positive"/>
+          <xs:enumeration value="negative"/>
+          <xs:enumeration value="inconclusive"/>
+          <xs:enumeration value="indeterminate"/>
+          <xs:enumeration value="inapplicable"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p49">
+    <xs:attribute name="unit" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="mm"/>
+          <xs:enumeration value="cm"/>
+          <xs:enumeration value="in"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="value" use="required"/>
+  </xs:attributeGroup>
+  <xs:complexType name="p50">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element ref="pert:extracapsular"/>
+      <xs:element ref="pert:largestMet"/>
+    </xs:choice>
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="total"/>
+          <xs:enumeration value="regressed"/>
+          <xs:enumeration value="isolated tumor cells"/>
+          <xs:enumeration value="micrometastasis"/>
+          <xs:enumeration value="macrometastasis"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="count" use="required"/>
+  </xs:complexType>
+  <xs:element name="extracapsular">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p27"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="largestMet">
+    <xs:complexType>
+      <xs:attributeGroup ref="pert:p52"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="p51">
+    <xs:attribute name="value" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="fibrocystic changes"/>
+          <xs:enumeration value="ordinary hyperplasia"/>
+          <xs:enumeration value="atypical hyperplasia"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="p52">
+    <xs:attribute name="value" use="required"/>
+    <xs:attribute name="unit" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="mm"/>
+          <xs:enumeration value="cm"/>
+          <xs:enumeration value="in"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+</xs:schema>

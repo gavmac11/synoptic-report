@@ -1,0 +1,332 @@
+<project basedir="." name="pert-schemas" default="all">
+	<!-- base properties -->
+	<property file="build.properties" />
+	<path id="lib.dependencies">
+		<fileset dir="${java.home.dir}" includes="*.jar" />
+	</path>
+	
+	<target name="all" depends="init, clean, generate, deploy"
+		description="default target">
+	</target>
+
+	<target name="init" depends="clean">
+		<tstamp taskname="init" />
+	</target>
+	
+	<target name="clean" 
+		description="delete previously generated xml schema files">
+    		<delete>
+    			<fileset dir="${xsd.dir}" includes="**/*.xsd" />
+		</delete>
+	</target>
+
+	<target name="generate"  depends="pert-all"
+		description="generate xml schema files">
+	</target>
+
+	<target name="deploy" 
+		description="deploy all relax ng and xml schema files">
+		<copy todir="${dist.dir}">
+			<fileset dir="${rng.dir}" includes="**/*.rng" />
+			<fileset dir="${xsd.dir}" includes="**/*.xsd" />
+		</copy>
+	</target>
+	
+	<!--- pert -->
+	<target name="pert-all" depends=""
+		description="generate PERT schemas">		
+	</target>
+	
+	<target name="pert-common" depends=""
+		description="generate PERT common schemas">
+		<!--
+		./common/baseContent-candidate.rng
+		./common/extendedBoolean.rng
+		./common/foreignNameClass.rng
+		./common/lax/anyForeignAttributes.rng
+		./common/lax/anyForeignContent.rng
+		./common/lax/anyForeignElements.rng
+		./common/lax/baseContent.rng
+		./common/lax/comments.rng
+		./common/lax/foreignNameClass.rng
+		./common/lengthUnits.rng
+		./common/strict/anyForeignAttributes.rng
+		./common/strict/anyForeignContent.rng
+		./common/strict/anyForeignElements.rng
+		./common/strict/baseContent.rng
+		./common/strict/comments.rng
+		-->
+	</target>
+
+	<target name="test-rng-simplify" depends=""
+		description="test-rng-simplify">
+		<!--
+		./protocol/biopsy.rng
+		-->
+		<rng-simplify base.dir="./protocol" prefix="biopsy" />
+	</target>
+
+	<target name="test-generate-xml" depends=""
+		description="test-generate-xml">
+		<!--
+		./report/cap-cancer/biopsy/biopsy@colon.rng
+		-->
+		<generate-xml base.dir="./report/cap-cancer/biopsy" prefix="biopsy@colon" />
+	</target>
+	
+	<!-- NAA. These will fail due to missing start elements, etc. and dependency to baseContent -->
+	<target name="pert-protocol" depends=""
+		description="generate PERT protocol schemas">
+		<!--
+		./protocol/biopsy.rng
+		./protocol/common.rng
+		./protocol/mri.rng
+		./protocol/resection.rng
+		-->
+		<rng-simplify base.dir="./protocol" prefix="common" />
+		<rng-simplify base.dir="./protocol" prefix="biopsy" />
+		<rng-simplify base.dir="./protocol" prefix="mri" />
+		<rng-simplify base.dir="./protocol" prefix="resection" />
+	</target>
+
+	<target name="pert-report" depends=""
+		description="generate PERT report schemas">
+		<!--
+		./report/cap-cancer/biopsy/biopsy@colon.rng
+		./report/cap-cancer/biopsy/biopsy@lung.rng
+		./report/cap-cancer/biopsy/biopsy@nos_site.rng
+		./report/cap-cancer/resection/resection@colon.rng
+		./report/cap-cancer/resection/resection@lung.rng
+		./report/cap-cancer/resection/resection@nos_site.rng
+		./report/cap-cancer/resection/resection@prostate.rng
+		./report/common.rng
+		  -->
+		<rng-simplify base.dir="./report/cap-cancer/biopsy" prefix="biopsy@colon" />
+		<rng-simplify base.dir="./report/cap-cancer/biopsy" prefix="biopsy@lung" />
+		<rng-simplify base.dir="./report/cap-cancer/biopsy" prefix="biopsy@nos_site" />
+		<rng-simplify base.dir="./report/cap-cancer/resection" prefix="resection@colon" />
+		<rng-simplify base.dir="./report/cap-cancer/resection" prefix="resection@nos_site" />
+		<rng-simplify base.dir="./report/cap-cancer/resection" prefix="resection@prostate" />
+	</target>
+
+	<!-- NAA. These will fail due to dependency to baseContent -->
+	<target name="pert-section" depends=""
+		description="generate PERT section schemas">
+		<!--
+		./section/cap-cancer/accessory-content.rng
+		./section/cap-cancer/additional-content.rng
+		./section/cap-cancer/clinical-content.rng
+		./section/cap-cancer/extent-content.rng
+		./section/cap-cancer/margin-content.rng
+		./section/cap-cancer/mets-content.rng
+		./section/cap-cancer/nodes-content.rng
+		./section/cap-cancer/specimen-content.rng
+		./section/cap-cancer/stage-content.rng
+		./section/cap-cancer/studies-content.rng
+		./section/cap-cancer/tumor-content.rng
+		  -->
+		<rng-simplify base.dir="./section/cap-cancer" prefix="accessory-content" />
+		<rng-simplify base.dir="./section/cap-cancer" prefix="additional-content" />
+		<rng-simplify base.dir="./section/cap-cancer" prefix="clinical-content" />
+		<rng-simplify base.dir="./section/cap-cancer" prefix="extent-content" />
+		<rng-simplify base.dir="./section/cap-cancer" prefix="margin-content" />
+		<rng-simplify base.dir="./section/cap-cancer" prefix="mets-content" />
+		<rng-simplify base.dir="./section/cap-cancer" prefix="nodes-content" />
+		<rng-simplify base.dir="./section/cap-cancer" prefix="specimen-content" />
+		<rng-simplify base.dir="./section/cap-cancer" prefix="stage-content" />
+		<rng-simplify base.dir="./section/cap-cancer" prefix="studies-content" />
+		<rng-simplify base.dir="./section/cap-cancer" prefix="tumor-content" />
+	</target>
+
+	<target name="pert-site-colon" depends=""
+		description="generate PERT site / colon schemas">
+		<!--
+		./site/colon/add/accessory-discontinuousExtension.rng
+		./site/colon/add/accessory-preexistingPolyp.rng
+		./site/colon/add/extent-invasion-biopsy.rng
+		./site/colon/add/extent-invasion-resection.rng
+		./site/colon/add/specimen-integrity.rng
+		./site/colon/add/specimen-length.rng
+		./site/colon/add/specimen-polyp.rng
+		./site/colon/add/tumor-microsatellite.rng
+		./site/colon/add/tumor-perforation.rng
+		
+		./site/colon/redefine/additional-findings.rng
+		./site/colon/redefine/margin-locations-biopsy.rng
+		./site/colon/redefine/margin-locations-resection.rng
+		./site/colon/redefine/margin-statuses.rng
+		./site/colon/redefine/specimen-procedures.rng
+		./site/colon/redefine/specimen-sites.rng
+		./site/colon/redefine/tumor-grades.rng
+		./site/colon/redefine/tumor-gradingSystems.rng
+		./site/colon/redefine/tumor-histologicTypes.rng
+		-->
+		<rng-simplify base.dir="./site/colon/add" prefix="accessory-discontinuousExtension" />
+		<rng-simplify base.dir="./site/colon/add" prefix="accessory-preexistingPolyp" />
+		<rng-simplify base.dir="./site/colon/add" prefix="extent-invasion-biopsy" />
+		<rng-simplify base.dir="./site/colon/add" prefix="extent-invasion-resection" />
+		<rng-simplify base.dir="./site/colon/add" prefix="specimen-integrity" />
+		<rng-simplify base.dir="./site/colon/add" prefix="specimen-length" />
+		<rng-simplify base.dir="./site/colon/add" prefix="specimen-polyp" />
+		<rng-simplify base.dir="./site/colon/add" prefix="tumor-microsatellite" />
+		<rng-simplify base.dir="./site/colon/add" prefix="tumor-perforation" />
+		
+		<rng-simplify base.dir="./site/colon/redefine" prefix="additional-findings" />
+		<rng-simplify base.dir="./site/colon/redefine" prefix="margin-locations-biopsy" />
+		<rng-simplify base.dir="./site/colon/redefine" prefix="margin-locations-resection" />
+		<rng-simplify base.dir="./site/colon/redefine" prefix="margin-statuses" />
+		<rng-simplify base.dir="./site/colon/redefine" prefix="specimen-procedures" />
+		<rng-simplify base.dir="./site/colon/redefine" prefix="specimen-sites" />
+		<rng-simplify base.dir="./site/colon/redefine" prefix="tumor-grades" />
+		<rng-simplify base.dir="./site/colon/redefine" prefix="tumor-gradingSystems" />
+		<rng-simplify base.dir="./site/colon/redefine" prefix="tumor-histologicTypes" />
+	</target>
+
+	<target name="pert-site-lung" depends=""
+		description="generate PERT site / lung schemas">
+		<!--
+		./site/lung/add/clinical-smokingHistory.rng
+		./site/lung/add/extent-adjacentStructure.rng
+		./site/lung/add/extent-carina.rng
+		./site/lung/add/extent-mainstemBronchus.rng
+		./site/lung/add/extent-malignantEffusion.rng
+		./site/lung/add/extent-obstructivePneumonitis.rng
+		./site/lung/add/extent-visceralPleura.rng
+		./site/lung/redefine/additional-findings.rng
+		./site/lung/redefine/margin-locations-biopsy.rng
+		./site/lung/redefine/margin-locations-resection.rng
+		./site/lung/redefine/margin-statuses.rng
+		./site/lung/redefine/specimen-procedures-biopsy.rng
+		./site/lung/redefine/specimen-procedures-resection.rng
+		./site/lung/redefine/specimen-sites-biopsy.rng
+		./site/lung/redefine/specimen-sites-resection.rng
+		./site/lung/redefine/tumor-grades.rng
+		./site/lung/redefine/tumor-gradingSystems.rng
+		./site/lung/redefine/tumor-histologicTypes.rng
+		-->
+		<rng-simplify base.dir="./site/lung/add" prefix="clinical-smokingHistory" />
+		<rng-simplify base.dir="./site/lung/add" prefix="extent-adjacentStructure" />
+		<rng-simplify base.dir="./site/lung/add" prefix="extent-carina" />
+		<rng-simplify base.dir="./site/lung/add" prefix="extent-mainstemBrochus" />
+		<rng-simplify base.dir="./site/lung/add" prefix="extent-malignantEffusion" />
+		<rng-simplify base.dir="./site/lung/add" prefix="extent-obstructivePneumontis" />
+		<rng-simplify base.dir="./site/lung/add" prefix="extent-visceralPleura" />
+		
+		<rng-simplify base.dir="./site/lung/redefine" prefix="additional-findings" />
+		<rng-simplify base.dir="./site/lung/redefine" prefix="margin-locations-biopsy" />
+		<rng-simplify base.dir="./site/lung/redefine" prefix="margin-locations-resection" />
+		<rng-simplify base.dir="./site/lung/redefine" prefix="margin-statuses" />
+		<rng-simplify base.dir="./site/lung/redefine" prefix="specimen-procedures-biopsy" />
+		<rng-simplify base.dir="./site/lung/redefine" prefix="specimen-sites-biopsy" />
+		<rng-simplify base.dir="./site/lung/redefine" prefix="specimen-sites-resection" />
+		<rng-simplify base.dir="./site/lung/redefine" prefix="tumor-grades" />
+		<rng-simplify base.dir="./site/lung/redefine" prefix="tumor-gradingSystems" />
+		<rng-simplify base.dir="./site/lung/redefine" prefix="tumor-histologicTypes" />
+	</target>
+
+	<target name="pert-site-prostrate" depends=""
+		description="generate PERT site / prostrate schemas">
+		<!--
+		./site/prostate/add/clinical-psa.rng
+		./site/prostate/add/extent-adjacentStructure.rng
+		./site/prostate/redefine/additional-findings.rng
+		./site/prostate/redefine/margin-locations-resection.rng
+		./site/prostate/redefine/margin-statuses.rng
+		./site/prostate/redefine/specimen-procedures-resection.rng
+		./site/prostate/redefine/specimen-sites-resection.rng
+		./site/prostate/redefine/tumor-grades.rng
+		./site/prostate/redefine/tumor-gradingSystems.rng
+		./site/prostate/redefine/tumor-histologicTypes.rng
+		-->
+		<rng-simplify base.dir="./site/prostrate/add" prefix="clinical-psa" />
+		<rng-simplify base.dir="./site/prostrate/add" prefix="extent-adjacentStructure" />
+		<rng-simplify base.dir="./site/prostrate/redefine" prefix="additional-findings" />
+		<rng-simplify base.dir="./site/prostrate/redefine" prefix="margin-locations-resection" />
+		<rng-simplify base.dir="./site/prostrate/redefine" prefix="specimen-procedures-resection" />
+		<rng-simplify base.dir="./site/prostrate/redefine" prefix="specimen-sites-resection" />
+		<rng-simplify base.dir="./site/prostrate/redefine" prefix="tumor-grades" />
+		<rng-simplify base.dir="./site/prostrate/redefine" prefix="tumor-gradingSystems" />
+		<rng-simplify base.dir="./site/prostrate/redefine" prefix="tumor-histologicTypes" />
+	</target>
+
+	<macrodef name="rng-simplify">
+		<attribute name="base.dir" />
+		<attribute name="prefix" />
+		<sequential>
+			<java     
+				dir="${exec.dir}"
+				classname="GetResolvedRelaxNGSchema"
+				fork="true"
+				failonerror="true">
+				<arg value="@{base.dir}/@{prefix}.rng"/>
+				<arg value="${rng-simplified.dir}/@{prefix}.rng"/>
+				<classpath>
+					<pathelement location="./lib/onvdl.jar"/>
+					<pathelement path="./lib"/>
+					<pathelement path="${java.class.path}"/>
+				</classpath>
+			</java>
+		</sequential>
+	</macrodef>	
+	
+	<macrodef name="rng2xsd">
+		<attribute name="prefix" />
+		<sequential>
+			<java     dir="${exec.dir}"
+				jar="${trang.jar}"
+				fork="true"
+				failonerror="true">
+				<arg value="${rng.dir}/@{prefix}.rng"/>
+				<arg value="${xsd.dir}/@{prefix}.xsd"/>
+				<classpath>
+					<pathelement location="${trang.jar}"/>
+				</classpath>
+			</java>	
+		</sequential>
+	</macrodef>	
+
+	<!--
+	  java -jar xmlgen.jar -n 100 myPattern.trex out$.xml
+	-->
+	<macrodef name="generate-xml">
+		<attribute name="base.dir" />
+		<attribute name="prefix" />
+		<sequential>
+			<java     dir="${exec.dir}"
+				jar="./lib/xmlgen.jar"
+				fork="true"
+				failonerror="true">
+				<arg value="@{base.dir}/@{prefix}.rng"/>
+				<arg value="@{base.dir}/@{prefix}-out$.xml"/>
+				<classpath>
+					<pathelement location="./lib"/>
+				</classpath>
+			</java>	
+		</sequential>
+	</macrodef>	
+	
+	<target name="validate-xml" description="validate instances ">
+		<xmlvalidate failonerror="no" lenient="yes" warn="yes"
+			classname="org.apache.xerces.parsers.SAXParser"
+			classpath="lib/xerces.jar">
+			<fileset dir="${xml.dir}" includes="**/*.xml" />
+		</xmlvalidate>
+	</target>
+	
+	<!-- NAA.  Need to fix this.  Missing some dependencies.  -->
+	<target name="validate-xsd" description="validate instances using Xml schema">
+		<schemavalidate
+			noNamespaceFile="../xsd/"
+			file="xml/31.100004300.xml">
+		</schemavalidate>
+	</target>	
+	
+	<!--NAA.  Need to finish this.  
+	target name="validate-schematron" description="validate instances using schematron">
+		<taskdef name="schematron" classname="com.schematron.ant.SchematronTask"
+			classpath="../lib/ant-schematron.jar"/>
+		<schematron schema="../schemas/test.sch" failonerror="true" debugmode="false">
+			<fileset dir="../xml" includes="*.xml"/>
+		</schematron>
+	</target-->
+</project>
