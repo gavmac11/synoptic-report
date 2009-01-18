@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <value>right lobe</value>
+  <value>left lobe</value>
+  <value>apex</value>
+  <value>base</value>
+  <value>right transition zone</value>
+  <value>left transition zone</value>
+</choice>
