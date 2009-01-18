@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--   
+    CAP Schema for Synoptic Reports
+    (c) Copyright 2008 College of American Pathologists
+    ========================================================================
+    
+    <<<File name>>>
+    tumor.rng
+    
+    <<<Component type>>>
+    not_specified
+    
+    <<<Version date>>>
+    2008.11.18
+    
+    <<<Purpose>>>
+    not_specified
+    
+    <<<Defines>>>
+    none
+    
+    <<<Dependencies>>>
+    none
+    
+    <<<Comments>>>
+    none
+    
+    ========================================================================
+    This file is part of the "CAP Schema for Synoptic Reports".
+    
+    The "CAP Schema for Synoptic Reports" is free software: 
+    you can redistribute it and/or modify it under the terms of the 
+    GNU General Public License as published by the Free Software Foundation, 
+    either version 3 of the License, or (at your option) any later version.
+    
+    The "CAP Schema for Synoptic Reports" is distributed 
+    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or 
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+    for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with the "CAP Schema for Synoptic Reports".  
+    If not, see <http://www.gnu.org/licenses/>. 
+    ========================================================================
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <define combine="interleave" name="tumor-content">
+        <interleave>
+            <element name="histologicTypes">
+                <interleave>
+                    <ref name="baseContent"/>
+                    <oneOrMore>
+                        <element name="histologicType">
+                            <ref name="baseContent"/>
+                            <attribute name="value">
+                                <ref name="histologicTypes"/>
+                            </attribute>
+                            <optional>
+                                <attribute name="other-value">
+                                    <data type="string"/>
+                                </attribute>
+                            </optional>
+                        </element>
+                    </oneOrMore>
+                </interleave>
+            </element>
+            <element name="grade">
+                <interleave>
+                    <ref name="baseContent"/>
+                    <ref name="gradeContent"/>
+                </interleave>
+                <optional>
+                    <attribute name="gradingSystem">
+                        <ref name="gradingSystems"/>
+                    </attribute>
+                </optional>
+            </element>
+        </interleave>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--
+        Now here come a series of lookup tables in which valid responses
+        are listed for various items.
+        
+        When semantic extraction is performed, each of this will generally
+        (but not necessarily) map to a single OWL concept.
+        
+        In some cases, the mapping will/can be "contextual".
+        
+        In other words, these choices represent a mediating layer
+        between the document presentation of the data and the semantic
+        presentation of the data.
+        
+        I could have chosen simply to use the OWL concepts themselves
+        as the UID's for these responses. But that would have meant that
+        changes to the document model would necessarily require revalidation
+        of the OWL model.
+        
+        This seems undesirable. Hence, the presence of these identifiers
+        allows more decoupling between the document modelling and the
+        semantic modelling.
+        
+        Note that the string used to represent these in the user presentation
+        layer is different from this identifier, and is the mechanism for
+        decoupling the presentation layer from the data layer.
+        
+        So in other words, these UID's decouple the document schema from
+        the semantic schema.
+    -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="histologicTypes">
+        <data type="string"/>
+    </define>
+    <define combine="choice" name="gradeContent">
+        <attribute name="value">
+            <ref name="grades"/>
+        </attribute>
+    </define>
+    <define combine="choice" name="grades">
+        <choice>
+            <value>1</value>
+            <value>2</value>
+            <value>3</value>
+            <value>4</value>
+        </choice>
+    </define>
+    <define combine="choice" name="gradingSystems">
+        <choice>
+            <value>WHO</value>
+            <value>not specified</value>
+        </choice>
+    </define>
+</grammar>

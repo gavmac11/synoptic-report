@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" name="dermalLymphaticInvasion"
+    ns="http://www.cap.org/pert/2009/01/breast/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <attribute name="value">
+        <externalRef href="../../../../common/extendedBoolean.rng"/>
+    </attribute>
+</element>
