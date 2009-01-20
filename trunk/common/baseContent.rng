@@ -70,6 +70,7 @@
                         <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
                         <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
                         <nsName ns="http://www.w3.org/2003/g/data-view#"/>
+                        <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
                     </except>
                 </anyName>
             </attribute>
@@ -100,6 +101,7 @@
                             <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
                             <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
                             <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
+                            <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
                         </except>
                     </anyName>
                 </attribute>
@@ -133,6 +135,7 @@
                             <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
                             <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
                             <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
+                            <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
                         </except>
                     </anyName>
                 </attribute>
@@ -152,6 +155,7 @@
                     <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
                     <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
                     <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
+                    <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
                 </except>
             </anyName>
         </attribute>
@@ -166,6 +170,7 @@
                     <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
                     <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
                     <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
+                    <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
                 </except>
             </anyName>
             <zeroOrMore>
