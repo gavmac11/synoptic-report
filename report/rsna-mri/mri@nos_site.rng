@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grammar [
+<!ENTITY pert "http://www.cap.org/pert/2009/01/">
+<!ENTITY rsna-mri "../../section/rsna-mri/">
+<!ENTITY version "0.01">
+<!ENTITY method "../../method/rsna-mri/">
+<!ENTITY report "../">
+<!ENTITY repository "http://purl.oclc.org/medical/reporting/report/cap-cancer/mri/mri.rng">
+]>
 <!--
     
     CAP Schema for Synoptic Reports
     (c) Copyright 2008 College of American Pathologists
     ===========================================================================
     Component name:
-    unspecified_site-biopsy.rng
+    unspecified_site-resection.rng
     
     Component type:
-    pattern
+    schema
     
     Version date:
     2008.12.02
     
     Defines:
-    schema fragment defining the sections appropriate for a resection report, and 
-    definining some as optional
+    semistructured report schema for a resection at an unspecified site
     
     Purpose:
     This schema defines a report that includes all the sections appropriate
     for a biopsy report, but does not include any further internal structure
     within these sections. 
     
-    This schema is "abstract" in intent; we do not anticipate it would ever
+    This schema is in intent "abstract"; we do not anticipate it would ever
     be instantiated. It can be thought of as the schema for a report of a
     biopsy procedure at an unspecified site.
     
@@ -52,14 +59,21 @@
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <include href="common.rng"/>
-    <define combine="interleave" name="synopsis-content">
-        <interleave>
-            <ref name="comparisons"/>
-            <ref name="indications"/>
-            <ref name="techniques"/>
-            <ref name="findings"/>
-            <ref name="impressions"/>
-        </interleave>
-    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&report;common.rng">
+        <define combine="choice" name="schemaLocation">
+            <value>&repository;</value>
+        </define>
+        <define name="version">
+            <a:documentation>Instances claim conformance to this schema by referencing the version of the schema immediately below. </a:documentation>
+            <value>&version;</value>
+        </define>
+    </include>
+    <include href="&method;mri.rng"/>
+    <include href="&rsna-mri;comparisons-content.rng"/>
+    <include href="&rsna-mri;indications-content.rng"/>
+    <include href="&rsna-mri;techniques-content.rng"/>
+    <include href="&rsna-mri;findings-content.rng"/>
+    <include href="&rsna-mri;impressions-content.rng"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>
