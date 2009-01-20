@@ -5,12 +5,15 @@
         <externalRef href="tumor-grades.rng"/>
     </attribute>
     <element name="glandular">
+        <ref name="baseContent"/>
         <externalRef href="grade-score.rng"/>
     </element>
     <element name="nuclearPleomorphism">
+        <ref name="baseContent"/>
         <externalRef href="grade-score.rng"/>
     </element>
     <element name="mitoticCount">
+        <ref name="baseContent"/>
         <externalRef href="grade-score.rng"/>
     </element>
 </interleave>
