@@ -55,9 +55,10 @@
     ===========================================================================
     
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:breast="&pert;breast/"
-    xmlns:pert="&pert;">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:breast="&pert;breast/" xmlns:pert="&pert;">
     <include href="&report;common.rng">
         <define combine="choice" name="schemaLocation">
             <value>&repository;</value>
@@ -69,10 +70,12 @@
     <include href="&method;resection.rng"/>
     <include href="&cap-cancer;clinical-content.rng">
         <define name="clinicalFindingValues">
-            <externalRef href="&redefine;clinical-clinicalFindingValues.rng"/>
+            <externalRef href="&redefine;clinical-clinicalFindingValues.rng"
+            />
         </define>
         <define name="radiologicFindingValues">
-            <externalRef href="&redefine;clinical-radiologicFindingValues.rng"/>
+            <externalRef
+                href="&redefine;clinical-radiologicFindingValues.rng"/>
         </define>
     </include>
     <a:documentation>Specimen section</a:documentation>
@@ -128,7 +131,8 @@
     </define>
     <include href="&cap-cancer;accessory-content.rng">
         <define name="treatmentEffectValues">
-            <externalRef href="&redefine;accessory-treatmentEffectValues.rng"/>
+            <externalRef
+                href="&redefine;accessory-treatmentEffectValues.rng"/>
         </define>
     </include>
     <define combine="interleave" name="accessory-content">

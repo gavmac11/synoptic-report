@@ -45,12 +45,16 @@
     ===========================================================================
     
 -->
-<synopsis grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/prostate@resection.xslt"
+<synopsis
+    grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/prostate@resection.xslt"
     pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@colon.rng"
-    pert:version="0.1" xmlns="http://www.cap.org/pert/2009/01/" xmlns:cerner="http://www.cerner.com/"
-    xmlns:colon="http://www.cap.org/pert/2009/01/colon/" xmlns:grddl="http://www.w3.org/2003/g/data-view#"
+    pert:version="0.1" xmlns="http://www.cap.org/pert/2009/01/"
+    xmlns:cerner="http://www.cerner.com/"
+    xmlns:colon="http://www.cap.org/pert/2009/01/colon/"
+    xmlns:grddl="http://www.w3.org/2003/g/data-view#"
     xmlns:pert="http://www.cap.org/pert/2009/01/">
-    <comment xml:lang="en">This synopsis demonstrates the resection@colon.rng schema</comment>
+    <comment xml:lang="en">This synopsis demonstrates the resection@colon.rng
+        schema</comment>
     <displayText>SYNOPTIC REPORT</displayText>
     <clinical>
         <comment>Might want to provide wrapper for free text</comment>
@@ -63,7 +67,8 @@
         <displayText>Specimen</displayText>
         <procedures>
             <procedure value="abdominoperineal resection">
-                <comment>In this example this procedure was an A-P resection</comment>
+                <comment>In this example this procedure was an A-P
+                    resection</comment>
             </procedure>
         </procedures>
         <sites>
@@ -100,10 +105,12 @@
     <extent>
         <invasion>
             <colon:deepestInvasion value="muscularis propria">
-                <colon:adjacentStructure extent="adheres" value="pelvic sidewall"/>
+                <colon:adjacentStructure extent="adheres"
+                    value="pelvic sidewall"/>
             </colon:deepestInvasion>
         </invasion>
-        <tumorSize dimension-1="2.1" dimension-2="2.0" dimension-3="1.2" unit="cm"/>
+        <tumorSize dimension-1="2.1" dimension-2="2.0" dimension-3="1.2"
+            unit="cm"/>
     </extent>
     <accessory>
         <colon:preexistingPolyp value="serrated adenoma"/>
