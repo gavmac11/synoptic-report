@@ -44,8 +44,9 @@
     ===========================================================================
     
 -->
-<synopsis xmlns="http://www.cap.org/pert/2009/01/">
+<synopsis grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/prostate@resection.xslt" pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@colon.rng" pert:version="0.1" xmlns="http://www.cap.org/pert/2009/01/" xmlns:cerner="http://www.cerner.com/" xmlns:colon="http://www.cap.org/pert/2009/01/colon/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/">
     <displayText> CARCINOMA OF COLON: </displayText>
+    <specimen><procedures><procedure value="right hemicolectomy"/></procedures><sites><site value="cecum"/><site value="right colon"/></sites><tumorLocations><tumorLocation value="cecum"/></tumorLocations></specimen>
     <tumor>
         <histologicTypes>
             <displayText>Histologic type: </displayText>
@@ -57,10 +58,12 @@
             <displayText role="label">Histologic grade: </displayText>
             <displayText role="value">Moderately differentiated (Grade 2) </displayText>
         </grade>
+        <colon:tumorPerforation value="indeterminate"/>
     </tumor>
-    <extent>Extent of invasion: Deepest extension: Muscularis propria Adjacent structures: Negative </extent>
+    <extent><tumorSize unit="cm" dimension-1="1.2"/><invasion>Extent of invasion: <colon:deepestInvasion value="muscularis propria">Deepest extension: Muscularis propria Adjacent structures: Negative </colon:deepestInvasion></invasion></extent>
     <margins>Margins: Proximal: Negative Distal: Negative Radial: Negative </margins>
-    <accessory>Lymphovascular: Negative Perineural: Negative </accessory>
+    <accessory><lymphovascularInvasion value="negative">Lymphovascular: Negative </lymphovascularInvasion><perineuralInvasion value="negative">Perineural: Negative </perineuralInvasion><colon:discontinuousExtramuralExtension value="inapplicable"/><colon:preexistingPolyp value="indeterminate type"/></accessory>
     <nodes>Nodes: Metastatic adenocarcinoma in one of twelve (1/12) pericolonic lymph nodes </nodes>
+    <stage><classification value="p"/><T value="0"/><N value="0"/><M value="X"/></stage>
     <additional>Additional findings: Chronic colitis consistent with mildly active ulcerative colitis </additional>
 </synopsis>
