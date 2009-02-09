@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element name="adjacentStructure" ns="http://www.cap.org/pert/2009/01/prostate/"
+  xmlns="http://relaxng.org/ns/structure/1.0">
+  <ref name="baseContent"/>
+  <attribute name="structure">
+    <choice>
+      <value>bladder</value>
+      <value>bladder neck</value>
+      <value>external sphincter</value>
+      <value>rectum</value>
+      <value>levator muscles</value>
+      <value>pelvic wall</value>
+      <value>other</value>
+    </choice>
+  </attribute>
+  <attribute name="value">
+    <externalRef href="../../../../common/extendedBoolean.rng"/>
+  </attribute>
+</element>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zeroOrMore datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0">
+    <element name="comment" ns="http://www.cap.org/pert/2009/01/">
+        <optional>
+            <attribute name="xml:lang">
+                <data type="token">
+                    <param name="pattern">[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*</param>
+                </data>
+            </attribute>
+        </optional>
+        <text/>
+    </element>
+</zeroOrMore>

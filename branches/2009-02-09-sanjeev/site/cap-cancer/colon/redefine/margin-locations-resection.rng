@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <value>proximal</value>
+  <value>distal</value>
+  <value>circumferential</value>
+  <value>lateral</value>
+  <choice>
+    <value>1:00</value>
+    <value>2:00</value>
+    <value>3:00</value>
+    <value>4:00</value>
+    <value>5:00</value>
+    <value>6:00</value>
+    <value>7:00</value>
+    <value>8:00</value>
+    <value>9:00</value>
+    <value>10:00</value>
+    <value>11:00</value>
+    <value>12:00</value>
+    <value>other</value>
+  </choice>
+</choice>
