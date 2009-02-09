@@ -57,8 +57,8 @@
         schema</comment>
     <displayText>SYNOPTIC REPORT</displayText>
     <clinical>
-        <comment>Might want to provide wrapper for free text</comment>
-        <displayText>Clinical History</displayText>
+        <comment>I never saw this patient before today</comment>
+        <displayText>Histoire Clinique</displayText>
         <priorTherapies>
             <priorTherapy date="2008-05" description="Chemoirradiation"/>
         </priorTherapies>
@@ -131,8 +131,8 @@
     <nodes>
         <nodeGroup laterality="right" location="anorectal">
             <nodeStatus count="6" value="total"/>
-            <nodeStatus count="4" value="positive"/>
-            <nodeStatus count="2" value="regressed"/>
+            <nodeStatus count="0" value="positive"/>
+            <nodeStatus count="0" value="regressed"/>
         </nodeGroup>
         <nodeGroup laterality="right" location="anterior cecal">
             <nodeStatus count="7" value="total"/>
@@ -142,7 +142,7 @@
         <classification value="p"/>
         <T value="2"/>
         <N value="0"/>
-        <M value="X"/>
+        <M value="0"/>
         <prefix value="a r y"/>
     </stage>
 </synopsis>
