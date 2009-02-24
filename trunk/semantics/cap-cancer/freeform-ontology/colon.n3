@@ -1,0 +1,152 @@
+# Saved by TopBraid on Thu Feb 19 19:48:47 CST 2009
+# baseURI: http://www.cap.org/pert/2009/01/colon/
+# imports: http://purl.org/dc/elements/1.1/
+
+@prefix cap:     <http://www.cap.org/pert/2009/01/#> .
+@prefix cmh:     <http://www.centerville-memorial-hospital.org#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix colon:   <http://www.cap.org/pert/2009/01/colon#> .
+@prefix anat:    <http://www.rsna.org/radlex/2009/01/anat/#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix :        <http://www.cap.org/pert/2009/01/colon/> .
+
+cap:Biopsy
+      a       owl:Class .
+
+cap:Cancer
+      a       owl:Class .
+
+cap:M
+      a       owl:Class .
+
+cap:N
+      a       owl:Class .
+
+cap:Negative
+      a       owl:Class .
+
+cap:Polyp
+      a       owl:Class .
+
+cap:Positive
+      a       owl:Class .
+
+cap:SegmentalColectomy
+      a       owl:Class .
+
+cap:Size
+      a       owl:Class .
+
+cap:T
+      a       owl:Class .
+
+cap:Tumor
+      a       owl:Class .
+
+cap:additionalFinding
+      a       rdf:Property .
+
+cap:clinicalFinding
+      a       rdf:Property .
+
+cap:derivedFromProcedure
+      a       rdf:Property .
+
+cap:diagnosedBy
+      a       rdf:Property .
+
+cap:hasTumorFinding
+      a       rdf:Property .
+
+cap:histologyGrade
+      a       rdf:Property .
+
+cap:histologyType
+      a       rdf:Property .
+
+cap:includesAnatomicPart
+      a       rdf:Property .
+
+cap:involvedByDisease
+      a       rdf:Property .
+
+cap:mass
+      a       owl:Class .
+
+cap:site
+      a       rdf:Property .
+
+cap:sourceOfSpecimen
+      a       rdf:Property .
+
+colon:DeepestInvasion
+      a       owl:Class .
+
+colon:HighGrade
+      a       owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+colon:MedullaryComponent
+      a       owl:Class .
+
+colon:MucinousComponent
+      a       owl:Class .
+
+colon:discontinousExtramuralExtenstion
+      a       rdf:Property .
+
+colon:intratumoralResponse
+      a       rdf:Property .
+
+colon:peritumoralResponse
+      a       rdf:Property .
+
+colon:tumorPerforation
+      a       rdf:Property .
+
+:     a       owl:Ontology ;
+      owl:imports dc: ;
+      owl:versionInfo "Created with TopBraid Composer"^^xsd:string .
+
+:M    a       cap:M .
+
+:N    a       cap:N .
+
+:T    a       cap:T .
+
+:X875693
+      a       cmh:Patient ;
+      rdfs:label "X875693" .
+
+:pathologist_9871_1
+      a       cmh:Pathologist ;
+      rdfs:label "9876-1" .
+
+:some_tumor
+      a       cap:Tumor .
+
+cmh:Pathologist
+      a       owl:Class .
+
+cmh:Patient
+      a       owl:Class .
+
+cmh:SL-09-12345
+      a       cmh:Specimen ;
+      rdfs:label "SL-09-12345" .
+
+cmh:Specimen
+      a       owl:Class .
+
+cmh:patientId
+      a       rdf:Property .
+
+anat:Cecum
+      a       owl:Class .
+
+anat:LeftColon
+      a       owl:Class ;
+      rdfs:subClassOf owl:Thing .
