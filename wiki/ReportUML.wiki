@@ -8,3 +8,6 @@ The below UML shows the compositional design of the Report Schema.
 
 
 http://synoptic-report.googlecode.com/files/ReportUML-2.png
+
+
+http://synoptic-report.googlecode.com/files/methodUML.png
