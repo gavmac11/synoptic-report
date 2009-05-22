@@ -80,7 +80,8 @@
     </include>
     <a:documentation>Specimen section</a:documentation>
     <include href="&cap-cancer;specimen-content.rng">
-        <a:documentation>Site-specific content redefines for specimen section</a:documentation>
+        <a:documentation>Site-specific content redefines for specimen
+            section</a:documentation>
         <define combine="choice" name="procedures">
             <externalRef href="&redefine;specimen-procedures.rng"/>
         </define>
@@ -91,13 +92,15 @@
             <externalRef href="&redefine;specimen-integrityValues.rng"/>
         </define>
     </include>
-    <a:documentation>Site-specific new content for specimen section</a:documentation>
+    <a:documentation>Site-specific new content for specimen
+        section</a:documentation>
     <define combine="interleave" name="site-content">
         <externalRef href="&common;laterality.rng"/>
     </define>
     <a:documentation>Tumor section</a:documentation>
     <include href="&cap-cancer;tumor-content.rng">
-        <a:documentation>Site-specific content redefines for tumor section</a:documentation>
+        <a:documentation>Site-specific content redefines for tumor
+            section</a:documentation>
         <define name="histologicTypes">
             <externalRef href="&redefine;tumor-histologicTypes.rng"/>
         </define>
@@ -108,7 +111,8 @@
             <externalRef href="&redefine;tumor-gradingSystems.rng"/>
         </define>
     </include>
-    <a:documentation>Site-specific new content for tumor section</a:documentation>
+    <a:documentation>Site-specific new content for tumor
+        section</a:documentation>
     <include href="&cap-cancer;extent-content.rng"/>
     <define combine="interleave" name="extent-content">
         <externalRef href="&add;extent-invasion.rng"/>

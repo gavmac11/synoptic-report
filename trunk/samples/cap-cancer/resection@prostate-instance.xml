@@ -45,11 +45,7 @@
     ===========================================================================
     
 -->
-<synopsis grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/prostate@resection.xslt"
-    pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@prostate.rng" pert:version="0.1"
-    xmlns="http://www.cap.org/pert/2009/01/" xmlns:cerner="http://www.cerner.com/"
-    xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/"
-    xmlns:prostate="http://www.cap.org/pert/2009/01/prostate/">
+<synopsis grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/prostate@resection.xslt" pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@prostate.rng" pert:version="0.1" xmlns="http://www.cap.org/pert/2009/01/" xmlns:cerner="http://www.cerner.com/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/" xmlns:prostate="http://www.cap.org/pert/2009/01/prostate/">
     <clinical>
         <comment>this is a comment</comment>
         <priorTherapies>
@@ -103,7 +99,7 @@
         <margin location="right" status="negative"/>
     </margins>
     <stage>
-        <T value="2c"/>
+        <T value="1"/>
         <N value="0"/>
         <M value="X"/>
         <classification value="p"/>
