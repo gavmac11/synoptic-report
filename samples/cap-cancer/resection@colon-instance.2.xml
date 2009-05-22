@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen SCHSchema="../../rules/cap-cancer/resection@colon.sch"?>
-<synopsis pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@colon.rng"
-    pert:version="0.1" xmlns="http://www.cap.org/pert/2009/01/" xmlns:colon="http://www.cap.org/pert/2009/01/colon/"
-    xmlns:pert="http://www.cap.org/pert/2009/01/">
+<synopsis pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@colon.rng" pert:version="0.1" xmlns="http://www.cap.org/pert/2009/01/" xmlns:colon="http://www.cap.org/pert/2009/01/colon/" xmlns:pert="http://www.cap.org/pert/2009/01/">
     <clinical>
         <clinicalFindings>
             <clinicalFinding value="mass"/>
@@ -14,8 +12,8 @@
             <procedure value="segmental colectomy"/>
         </procedures>
         <sites>
-            <site value="cecum"/>
-            <site value="left colon"/>
+            <site value="cecum" primary="true"/>
+            <site value="left colon" primary="false"/>
         </sites>
         <tumorLocations>
             <tumorLocation value="cecum"/>
