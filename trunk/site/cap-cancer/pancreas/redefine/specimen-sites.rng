@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>head of pancreas</value>
+    <value>body of pancreas</value>
+    <value>uncinate process</value>
+    <value>tail of pancreas</value>
+    <value>duodenum</value>
+    <value>stomach</value>
+    <value>common bile duct</value>
+    <value>gallbladder</value>
+    <value>spleen</value>
+    <value>portal vein</value>
+    <value>superior mesenteric vein</value>
+</choice>
