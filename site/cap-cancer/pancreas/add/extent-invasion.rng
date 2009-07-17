@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<element datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" name="invasion"
-    ns="http://www.cap.org/pert/2009/01/breast/" xmlns="http://relaxng.org/ns/structure/1.0"
+<element datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    name="invasion" ns="http://www.cap.org/pert/2009/01/pancreas/"
+    xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <interleave>
         <ref name="baseContent"/>
@@ -9,13 +10,15 @@
                 <ref name="baseContent"/>
                 <attribute name="location">
                     <choice>
-                        <value>extension to pectoralis muscle</value>
-                        <value>extension to chest wall</value>
-                        <value>skin edema</value>
-                        <value>skin ulceration</value>
-                        <value>skin satellite nodules</value>
-                        <value>inflammatory carcinoma (clinical finding)</value>
-                        <value>other</value>
+                        <value>invades ampulla of Vater</value>
+                        <value>invades sphincter of Oddi</value>
+                        <value>invades duodenal wall</value>
+                        <value>invades peripancreatic soft tissue</value>
+                        <value>invades retroperitoneal soft tissue</value>
+                        <value>invades mesenteric adipose tissue</value>
+                        <value>invades mesocolon</value>
+                        <value>invades extrapancreatic common bile duct</value>
+                        <value>invades adjacent organs or structures</value>
                     </choice>
                 </attribute>
                 <attribute name="value">
