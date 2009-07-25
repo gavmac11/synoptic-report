@@ -42,7 +42,6 @@
     ===========================================================================
     
 -->
-
 <choice xmlns="http://relaxng.org/ns/structure/1.0">
     <value>mm</value>
     <value>cm</value>

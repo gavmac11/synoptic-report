@@ -51,19 +51,15 @@
   ===========================================================================
   
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-  ns="http://www.cap.org/pert/2009/01/"
-  xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-  xmlns:grddl="http://www.w3.org/2003/g/data-view#"
-  xmlns:pert="http://www.cap.org/pert/2009/01/">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+  xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/">
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <include href="../common/baseContent.rng"/>
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <start combine="interleave">
     <element name="synopsis">
-      <a:documentation>The root element for all synoptic
-        reports</a:documentation>
+      <a:documentation>The root element for all synoptic reports</a:documentation>
       <ref name="synopsis-attrib"/>
       <interleave>
         <ref name="baseContent"/>
@@ -73,8 +69,7 @@
   </start>
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <define combine="interleave" name="synopsis-attrib">
-    <a:documentation>Standard attribute set for synopsis
-      element</a:documentation>
+    <a:documentation>Standard attribute set for synopsis element</a:documentation>
     <attribute name="pert:schemaLocation">
       <ref name="schemaLocation"/>
     </attribute>

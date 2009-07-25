@@ -90,25 +90,7 @@
                 </element>
             </optional>
             <optional>
-                <element name="size">
-                    <ref name="baseContent"/>
-                    <attribute name="unit">
-                        <externalRef href="./../../common/lengthUnits.rng"/>
-                    </attribute>
-                    <attribute name="dimension-1">
-                        <data type="float"/>
-                    </attribute>
-                    <optional>
-                        <attribute name="dimension-2">
-                            <data type="float"/>
-                        </attribute>
-                        <optional>
-                            <attribute name="dimension-3">
-                                <data type="float"/>
-                            </attribute>
-                        </optional>
-                    </optional>
-                </element>
+                <externalRef href="../../common/size.rng"/>
             </optional>
             <optional>
                 <element name="weight">
