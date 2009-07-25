@@ -12,8 +12,8 @@
             <procedure value="segmental colectomy"/>
         </procedures>
         <sites>
-            <site primary="true" value="cecum"/>
-            <site primary="false" value="left colon"/>
+            <site value="cecum" primary="true"/>
+            <site value="left colon" primary="false"/>
         </sites>
         <tumorLocations>
             <tumorLocation value="cecum"/>

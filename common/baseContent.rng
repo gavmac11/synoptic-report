@@ -60,7 +60,8 @@
     
     ">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0">
     <define name="baseContent">
         <zeroOrMore>
@@ -94,13 +95,13 @@
                 </attribute>
             </zeroOrMore>
             <optional>
-                <attribute name="role">
+                <element name="role">
                     <choice>
                         <value>label</value>
                         <value>value</value>
                         <value>other</value>
                     </choice>
-                </attribute>
+                </element>
             </optional>
             <interleave>
                 <text/>
@@ -149,16 +150,17 @@
         <optional>
             <attribute name="xml:lang">
                 <data type="token">
-                    <param name="pattern">[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*</param>
+                    <param name="pattern"
+                        >[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*</param>
                 </data>
             </attribute>
         </optional>
     </define>
     <define name="otherValue">
         <optional>
-            <attribute name="otherValue">
+            <element name="otherValue">
                 <text/>
-            </attribute>
+            </element>
         </optional>
     </define>
 </grammar>

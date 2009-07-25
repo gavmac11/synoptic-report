@@ -44,39 +44,41 @@
     If not, see <http://www.gnu.org/licenses/>. 
     ========================================================================
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <define combine="interleave" name="accessory-content">
         <interleave>
             <optional>
                 <element name="venousInvasion">
-                    <attribute name="value">
+                    <element name="value">
                         <ref name="venousInvasionValues"/>
-                    </attribute>
+                    </element>
                     <ref name="baseContent"/>
                 </element>
             </optional>
             <optional>
                 <element name="lymphovascularInvasion">
-                    <attribute name="value">
+                    <element name="value">
                         <ref name="lymphaticInvasionValues"/>
-                    </attribute>
+                    </element>
                     <ref name="baseContent"/>
                 </element>
             </optional>
             <optional>
                 <element name="perineuralInvasion">
-                    <attribute name="value">
+                    <element name="value">
                         <ref name="perineuralInvasionValues"/>
-                    </attribute>
+                    </element>
                     <ref name="baseContent"/>
                 </element>
             </optional>
             <optional>
                 <element name="treatmentEffect">
-                    <attribute name="value">
+                    <element name="value">
                         <ref name="treatmentEffectValues"/>
-                    </attribute>
+                    </element>
                     <ref name="baseContent"/>
                 </element>
             </optional>

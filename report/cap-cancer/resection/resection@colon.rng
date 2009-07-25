@@ -54,8 +54,10 @@
     ===========================================================================
     
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:colon="&pert;colon/" xmlns:pert="&pert;">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:colon="&pert;colon/" xmlns:pert="&pert;">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <div>
         <include href="&report;common.rng">
@@ -125,7 +127,8 @@
         <include href="&cap-cancer;margin-content.rng">
             <a:documentation>Site-specific redefines</a:documentation>
             <define name="marginLocations">
-                <externalRef href="&redefine;margin-locations-resection.rng"/>
+                <externalRef href="&redefine;margin-locations-resection.rng"
+                />
             </define>
             <define name="marginStatuses">
                 <externalRef href="&redefine;margin-statuses.rng"/>
@@ -137,7 +140,8 @@
         <include href="&cap-cancer;accessory-content.rng"/>
         <define combine="interleave" name="accessory-content">
             <interleave>
-                <externalRef href="&add;accessory-discontinuousExtension.rng"/>
+                <externalRef
+                    href="&add;accessory-discontinuousExtension.rng"/>
                 <externalRef href="&add;accessory-preexistingPolyp.rng"/>
             </interleave>
         </define>

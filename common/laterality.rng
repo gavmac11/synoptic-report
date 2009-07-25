@@ -42,10 +42,10 @@
     ===========================================================================
     
 -->
-<attribute name="laterality" xmlns="http://relaxng.org/ns/structure/1.0">
+<element name="laterality" xmlns="http://relaxng.org/ns/structure/1.0">
     <choice>
         <value>right</value>
         <value>left</value>
         <value>other</value>
     </choice>
-</attribute>
+</element>

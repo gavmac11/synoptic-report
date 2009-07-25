@@ -44,8 +44,10 @@
     If not, see <http://www.gnu.org/licenses/>. 
     ========================================================================
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <define combine="interleave" name="margins-content">
         <zeroOrMore>
             <element name="margin">
@@ -55,18 +57,18 @@
         </zeroOrMore>
     </define>
     <define combine="interleave" name="margin-content">
-        <attribute name="location">
+        <element name="location">
             <choice>
                 <ref name="marginLocations"/>
             </choice>
-        </attribute>
-        <attribute name="status">
+        </element>
+        <element name="status">
             <ref name="marginStatuses"/>
-        </attribute>
+        </element>
         <optional>
-            <attribute name="closest">
+            <element name="closest">
                 <data type="boolean"/>
-            </attribute>
+            </element>
         </optional>
         <optional>
             <element name="distance">
@@ -74,9 +76,9 @@
                 <attribute name="unit">
                     <externalRef href="../../common/lengthUnits.rng"/>
                 </attribute>
-                <attribute name="value">
+                <element name="value">
                     <data type="float"/>
-                </attribute>
+                </element>
             </element>
         </optional>
     </define>

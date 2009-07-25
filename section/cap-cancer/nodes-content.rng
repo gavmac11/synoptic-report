@@ -44,16 +44,18 @@
     If not, see <http://www.gnu.org/licenses/>. 
     ========================================================================
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:iso="http://purl.oclc.org/dsdl/schematron">
     <define combine="interleave" name="nodes-content">
         <zeroOrMore>
             <element name="nodeGroup">
                 <externalRef href="../../common/laterality.rng"/>
-                <attribute name="location">
+                <element name="location">
                     <ref name="nodeGroups"/>
-                </attribute>
+                </element>
                 <interleave>
                     <ref name="baseContent"/>
                     <ref name="nodeGroup-content"/>
@@ -68,29 +70,31 @@
         <zeroOrMore>
             <element name="nodeStatus">
                 <ref name="baseContent"/>
-                <attribute name="value">
+                <element name="value">
                     <ref name="nodeStatuses"/>
-                </attribute>
-                <attribute name="count">
+                </element>
+                <element name="count">
                     <data type="nonNegativeInteger"/>
-                </attribute>
+                </element>
                 <interleave>
                     <optional>
                         <element name="extracapsular">
                             <ref name="baseContent"/>
-                            <attribute name="value">
-                                <externalRef href="../../common/extendedBoolean.rng"/>
-                            </attribute>
+                            <element name="value">
+                                <externalRef
+                                    href="../../common/extendedBoolean.rng"/>
+                            </element>
                         </element>
                     </optional>
                     <optional>
                         <element name="largestMet">
                             <ref name="baseContent"/>
-                            <attribute name="value">
+                            <element name="value">
                                 <data type="float"/>
-                            </attribute>
+                            </element>
                             <attribute name="unit">
-                                <externalRef href="../../common/lengthUnits.rng"/>
+                                <externalRef href="../../common/lengthUnits.rng"
+                                />
                             </attribute>
                         </element>
                     </optional>

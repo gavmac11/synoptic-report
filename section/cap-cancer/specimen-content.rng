@@ -44,8 +44,10 @@
     If not, see <http://www.gnu.org/licenses/>. 
     ========================================================================
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <define combine="interleave" name="specimen-content">
         <interleave>
             <element name="procedures">
@@ -84,13 +86,31 @@
             <optional>
                 <element name="integrity">
                     <ref name="baseContent"/>
-                    <attribute name="value">
+                    <element name="value">
                         <ref name="integrityValues"/>
-                    </attribute>
+                    </element>
                 </element>
             </optional>
             <optional>
-                <externalRef href="../../common/size.rng"/>
+                <element name="size">
+                    <ref name="baseContent"/>
+                    <attribute name="unit">
+                        <externalRef href="./../../common/lengthUnits.rng"/>
+                    </attribute>
+                    <element name="dimension">
+                        <data type="float"/>
+                    </element>
+                    <optional>
+                        <element name="dimension">
+                            <data type="float"/>
+                        </element>
+                        <optional>
+                            <element name="dimension">
+                                <data type="float"/>
+                            </element>
+                        </optional>
+                    </optional>
+                </element>
             </optional>
             <optional>
                 <element name="weight">
@@ -102,9 +122,9 @@
                             <value>other</value>
                         </choice>
                     </attribute>
-                    <attribute name="value">
+                    <element name="value">
                         <data type="float"/>
-                    </attribute>
+                    </element>
                 </element>
             </optional>
         </interleave>
@@ -149,19 +169,19 @@
         <data type="token"/>
     </define>
     <define combine="interleave" name="site-content">
-        <attribute name="value">
+        <element name="value">
             <ref name="sites"/>
-        </attribute>
+        </element>
     </define>
     <define combine="interleave" name="procedure-content">
-        <attribute name="value">
+        <element name="value">
             <ref name="procedures"/>
-        </attribute>
+        </element>
     </define>
     <define name="tumorLocation-content">
-        <attribute name="value">
+        <element name="value">
             <ref name="sites"/>
-        </attribute>
+        </element>
     </define>
     <define name="integrityValues">
         <externalRef href="../../common/extendedBoolean.rng"/>

@@ -44,10 +44,42 @@
     If not, see <http://www.gnu.org/licenses/>. 
     ========================================================================
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:iso="http://purl.oclc.org/dsdl/schematron">
     <define combine="interleave" name="extent-content">
-        <externalRef href="../../common/size.rng"/>
+        <interleave>
+            <element name="tumorSize">
+                <interleave>
+                    <ref name="baseContent"/>
+                    <ref name="tumorSize-content"/>
+                </interleave>
+            </element>
+            <optional>
+                <element name="userDefined">
+                    <ref name="baseContent"/>
+                </element>
+            </optional>
+        </interleave>
+    </define>
+    <define name="tumorSize-content">
+        <element name="dimension">
+            <data type="float"/>
+        </element>
+        <optional>
+            <element name="dimension">
+                <data type="float"/>
+            </element>
+            <optional>
+                <element name="dimension">
+                    <data type="float"/>
+                </element>
+            </optional>
+        </optional>
+        <attribute name="unit">
+            <externalRef href="../../common/lengthUnits.rng"/>
+        </attribute>
     </define>
 </grammar>

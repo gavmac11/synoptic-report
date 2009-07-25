@@ -44,16 +44,18 @@
     If not, see <http://www.gnu.org/licenses/>. 
     ========================================================================
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <define combine="interleave" name="mets-content">
         <zeroOrMore>
             <element name="metastasis">
                 <ref name="baseContent"/>
-                <attribute name="site">
+                <element name="site">
                     <ref name="metastaticSites"/>
-                </attribute>
-                <attribute name="howDiagnosed">
+                </element>
+                <element name="howDiagnosed">
                     <choice>
                         <value>this accesion</value>
                         <value>prior accession</value>
@@ -61,7 +63,7 @@
                         <value>clinical examination</value>
                         <value>other</value>
                     </choice>
-                </attribute>
+                </element>
                 <optional>
                     <externalRef href="../../common/size.rng"/>
                 </optional>

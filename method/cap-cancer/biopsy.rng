@@ -50,22 +50,21 @@
     ===========================================================================
     
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <include href="common.rng"/>
     <define combine="interleave" name="synopsis-content">
         <interleave>
             <optional>
                 <ref name="clinical">
-                    <a:documentation>
-                    An optional Clinical section.
-                </a:documentation>
+                    <a:documentation> An optional Clinical section.
+                    </a:documentation>
                 </ref>
             </optional>
             <ref name="specimen">
-                <a:documentation>
-                A required Specimen section.
-            </a:documentation>
+                <a:documentation> A required Specimen section.
+                </a:documentation>
             </ref>
             <ref name="tumor"/>
             <optional>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="file:/Users/me/Desktop/PERT/trunk/report/cap-cancer/resection/resection@pancreas.rng" type="xml"?>
-<synopsis ns1:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@pancreas.rng" ns1:version="0.1" ns2:transformation="" xmlns="http://www.cap.org/pert/2009/01/" xmlns:ns1="http://www.cap.org/pert/2009/01/" xmlns:ns2="http://www.w3.org/2003/g/data-view#">
+<synopsis ns1:version="0.1" xmlns="http://www.cap.org/pert/2009/01/" xmlns:ns1="http://www.cap.org/pert/2009/01/" ns1:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@pancreas.rng" xmlns:ns2="http://www.w3.org/2003/g/data-view#" ns2:transformation="">
     <clinical>
         <clinicalFindings>
             <clinicalFinding value="familial pancreatitis"/>
@@ -11,18 +11,18 @@
             <procedure value="pancreaticoduodenectomy, partial pancreatectomy"/>
         </procedures>
         <sites>
-            <site laterality="right" value="body of pancreas"/>
+            <site value="body of pancreas" laterality="right"/>
         </sites>
         <tumorLocations>
             <tumorLocation value="gallbladder"/>
         </tumorLocations>
         <integrity value="negative"/>
-        <size dimension-1="15" unit="cm"/>
-        <weight unit="g" value="238"/>
+        <size unit="cm" dimension-1="15"/>
+        <weight value="238" unit="g"/>
     </specimen>
     <margins>
-        <margin for="carcinoma-in-situ" location="common bile duct" status="negative"/>
-        <margin for="carcinoma-in-situ" location="distal pancreas" status="focally positive"/>
+        <margin location="common bile duct" status="negative" for="carcinoma-in-situ"/>
+        <margin location="distal pancreas" status="focally positive" for="carcinoma-in-situ"/>
     </margins>
     <tumor>
         <grade value="2"/>
@@ -31,9 +31,8 @@
         </histologicTypes>
     </tumor>
     <extent>
-        <tumorSize unit="cm"></tumorSize>
         <invasion xmlns="http://www.cap.org/pert/2009/01/pancreas/">
-            <invasionFinding location="duodenal wall" value="positive">
+            <invasionFinding>
                 
             </invasionFinding>
         </invasion>

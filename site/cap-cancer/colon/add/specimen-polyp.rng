@@ -5,7 +5,23 @@
         <interleave>
             <ref name="baseContent"/>
             <optional>
-                <externalRef href="../../../../common/size.rng"/>
+                <element name="size">
+                    <ref name="baseContent"/>
+                    <attribute name="value">
+                        <list>
+                            <data type="float"/>
+                            <optional>
+                                <data type="float"/>
+                                <optional>
+                                    <data type="float"/>
+                                </optional>
+                            </optional>
+                        </list>
+                    </attribute>
+                    <attribute name="unit">
+                        <externalRef href="../../../../common/lengthUnits.rng"/>
+                    </attribute>
+                </element>
             </optional>
             <optional>
                 <element name="configuration">
