@@ -55,10 +55,8 @@
     ===========================================================================
     
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-    xmlns:pancreas="&pert;pancreas/" xmlns:pert="&pert;">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:pancreas="&pert;pancreas/" xmlns:pert="&pert;">
     <include href="&report;common.rng">
         <define combine="choice" name="schemaLocation">
             <value>&repository;</value>
@@ -70,18 +68,15 @@
     <include href="&method;resection.rng"/>
     <include href="&cap-cancer;clinical-content.rng">
         <define name="clinicalFindingValues">
-            <externalRef href="&redefine;clinical-clinicalFindingValues.rng"
-            />
+            <externalRef href="&redefine;clinical-clinicalFindingValues.rng"/>
         </define>
         <define name="radiologicFindingValues">
-            <externalRef
-                href="&redefine;clinical-radiologicFindingValues.rng"/>
+            <externalRef href="&redefine;clinical-radiologicFindingValues.rng"/>
         </define>
     </include>
     <a:documentation>Specimen section</a:documentation>
     <include href="&cap-cancer;specimen-content.rng">
-        <a:documentation>Site-specific content redefines for specimen
-            section</a:documentation>
+        <a:documentation>Site-specific content redefines for specimen section</a:documentation>
         <define combine="choice" name="procedures">
             <externalRef href="&redefine;specimen-procedures.rng"/>
         </define>
@@ -89,21 +84,18 @@
             <externalRef href="&redefine;specimen-sites.rng"/>
         </define>
     </include>
-    <a:documentation>Site-specific new content for specimen
-        section</a:documentation>
+    <a:documentation>Site-specific new content for specimen section</a:documentation>
     <define combine="interleave" name="site-content">
         <externalRef href="&common;laterality.rng"/>
     </define>
     <a:documentation>Tumor section</a:documentation>
     <include href="&cap-cancer;tumor-content.rng">
-        <a:documentation>Site-specific content redefines for tumor
-            section</a:documentation>
+        <a:documentation>Site-specific content redefines for tumor section</a:documentation>
         <define name="histologicTypes">
             <externalRef href="&redefine;tumor-histologicTypes.rng"/>
         </define>
     </include>
-    <a:documentation>Site-specific new content for tumor
-        section</a:documentation>
+    <a:documentation>Site-specific new content for tumor section</a:documentation>
     <include href="&cap-cancer;extent-content.rng"/>
     <define combine="interleave" name="extent-content">
         <externalRef href="&add;extent-invasion.rng"/>
@@ -126,8 +118,7 @@
     </define>
     <include href="&cap-cancer;accessory-content.rng">
         <define name="treatmentEffectValues">
-            <externalRef
-                href="&redefine;accessory-treatmentEffectValues.rng"/>
+            <externalRef href="&redefine;accessory-treatmentEffectValues.rng"/>
         </define>
     </include>
     <include href="&cap-cancer;nodes-content.rng">

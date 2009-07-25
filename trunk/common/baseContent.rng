@@ -48,13 +48,17 @@
 <!DOCTYPE grammar [
 <!ENTITY localNames "
 
+    <nsName ns=''/>
     <nsName ns='http://www.cap.org/pert/2009/01/'/>
     <nsName ns='http://www.cap.org/pert/2009/01/breast/'/>
     <nsName ns='http://www.cap.org/pert/2009/01/colon/'/>
     <nsName ns='http://www.cap.org/pert/2009/01/lung/'/>
     <nsName ns='http://www.cap.org/pert/2009/01/prostate/'/>
+    <nsName ns='http://www.cap.org/pert/2009/01/pancreas/'/>
+    <nsName ns='http://www.w3.org/2003/g/data-view#'/>
+    <nsName ns='http://www.rsna.org/reporting/2009/01/'/>
     
-">
+    ">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0">
@@ -62,16 +66,7 @@
         <zeroOrMore>
             <attribute>
                 <anyName>
-                    <except>
-                        <nsName ns=""/>
-                        <nsName ns="http://www.cap.org/pert/2009/01/"/>
-                        <nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
-                        <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
-                        <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
-                        <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
-                        <nsName ns="http://www.w3.org/2003/g/data-view#"/>
-                        <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
-                    </except>
+                    <except>&localNames;</except>
                 </anyName>
             </attribute>
         </zeroOrMore>
@@ -94,15 +89,7 @@
             <zeroOrMore>
                 <attribute>
                     <anyName>
-                        <except>
-                            <nsName ns=""/>
-                            <nsName ns="http://www.cap.org/pert/2009/01/"/>
-                            <nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
-                            <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
-                            <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
-                            <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
-                            <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
-                        </except>
+                        <except>&localNames;</except>
                     </anyName>
                 </attribute>
             </zeroOrMore>
@@ -128,15 +115,7 @@
             <zeroOrMore>
                 <attribute>
                     <anyName>
-                        <except>
-                            <nsName ns=""/>
-                            <nsName ns="http://www.cap.org/pert/2009/01/"/>
-                            <nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
-                            <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
-                            <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
-                            <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
-                            <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
-                        </except>
+                        <except>&localNames;</except>
                     </anyName>
                 </attribute>
             </zeroOrMore>
@@ -149,29 +128,14 @@
     <define name="anyForeignAttribute">
         <attribute>
             <anyName>
-                <except>
-                    <nsName ns="http://www.cap.org/pert/2009/01/"/>
-                    <nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
-                    <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
-                    <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
-                    <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
-                    <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
-                </except>
+                <except>&localNames;</except>
             </anyName>
         </attribute>
     </define>
     <define name="anyForeignElement">
         <element>
             <anyName>
-                <except>
-                    <nsName ns=""/>
-                    <nsName ns="http://www.cap.org/pert/2009/01/"/>
-                    <nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
-                    <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
-                    <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
-                    <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
-                    <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
-                </except>
+                <except>&localNames;</except>
             </anyName>
             <zeroOrMore>
                 <choice>
