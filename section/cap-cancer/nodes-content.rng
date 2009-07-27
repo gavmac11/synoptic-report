@@ -44,10 +44,8 @@
     If not, see <http://www.gnu.org/licenses/>. 
     ========================================================================
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:iso="http://purl.oclc.org/dsdl/schematron">
     <define combine="interleave" name="nodes-content">
         <zeroOrMore>
@@ -81,8 +79,7 @@
                         <element name="extracapsular">
                             <ref name="baseContent"/>
                             <element name="value">
-                                <externalRef
-                                    href="../../common/extendedBoolean.rng"/>
+                                <externalRef href="../../common/extendedBoolean.rng"/>
                             </element>
                         </element>
                     </optional>
@@ -93,8 +90,7 @@
                                 <data type="float"/>
                             </element>
                             <attribute name="unit">
-                                <externalRef href="../../common/lengthUnits.rng"
-                                />
+                                <externalRef href="../../common/lengthUnits.rng"/>
                             </attribute>
                         </element>
                     </optional>
