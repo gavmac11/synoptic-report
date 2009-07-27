@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>main bronchus</value>
+    <value>right lung</value>
+    <value>right upper lobe</value>
+    <value>right middle lobe</value>
+    <value>right lower lobe</value>
+    <value>left lung</value>
+    <value>left upper lobe</value>
+    <value>lingula</value>
+    <value>left lower lobe</value>
+</choice>

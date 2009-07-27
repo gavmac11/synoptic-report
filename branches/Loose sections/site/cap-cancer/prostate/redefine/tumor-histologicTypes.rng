@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <a:documentation>Reflects 2008-9-15 CoC draft</a:documentation>
+  <value>acinar adenocarcinoma</value>
+  <value>prostatic duct adenocarcinoma</value>
+  <value>mucinous adenocarcinoma</value>
+  <value>signet ring cell carcinoma</value>
+  <value>adenosquamous carcinoma</value>
+  <value>small cell carcinoma</value>
+  <value>sarcomatoid carcinoma</value>
+  <value>undifferentiated carcinoma</value>
+  <value>other</value>
+</choice>
