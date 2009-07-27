@@ -64,20 +64,19 @@
             <ref name="marginStatuses"/>
         </attribute>
         <optional>
-            <attribute name="closest">
-                <data type="boolean"/>
-            </attribute>
-        </optional>
-        <optional>
-            <element name="distance">
-                <ref name="baseContent"/>
-                <attribute name="unit">
-                    <externalRef href="../../common/lengthUnits.rng"/>
+            <choice>
+                <group>
+                    <attribute name="closest">
+                        <value type="boolean">true</value>
+                    </attribute>
+                    <optional>
+                        <externalRef href="../../common/distance.rng"/>
+                    </optional>
+                </group>
+                <attribute name="closest">
+                    <value type="boolean">false</value>
                 </attribute>
-                <attribute name="value">
-                    <data type="float"/>
-                </attribute>
-            </element>
+            </choice>
         </optional>
     </define>
     <define combine="choice" name="marginLocations">

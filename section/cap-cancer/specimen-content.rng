@@ -48,45 +48,30 @@
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <define combine="interleave" name="specimen-content">
         <interleave>
-            <element name="procedures">
-                <interleave>
+            <zeroOrMore>
+                <element name="procedure">
                     <ref name="baseContent"/>
-                    <zeroOrMore>
-                        <element name="procedure">
-                            <ref name="baseContent"/>
-                            <ref name="procedure-content"/>
-                        </element>
-                    </zeroOrMore>
-                </interleave>
-            </element>
-            <element name="sites">
-                <interleave>
+                    <ref name="procedure-content"/>
+                </element>
+            </zeroOrMore>
+            <zeroOrMore>
+                <element name="site">
                     <ref name="baseContent"/>
-                    <zeroOrMore>
-                        <element name="site">
-                            <ref name="baseContent"/>
-                            <ref name="site-content"/>
-                        </element>
-                    </zeroOrMore>
-                </interleave>
-            </element>
-            <element name="tumorLocations">
-                <interleave>
+                    <ref name="site-content"/>
+                </element>
+            </zeroOrMore>
+            <zeroOrMore>
+                <element name="tumorLocation">
                     <ref name="baseContent"/>
-                    <zeroOrMore>
-                        <element name="tumorLocation">
-                            <ref name="baseContent"/>
-                            <ref name="tumorLocation-content"/>
-                        </element>
-                    </zeroOrMore>
-                </interleave>
-            </element>
+                    <ref name="tumorLocation-content"/>
+                </element>
+            </zeroOrMore>
             <optional>
                 <element name="integrity">
                     <ref name="baseContent"/>
-                    <attribute name="value">
+                    <element name="value">
                         <ref name="integrityValues"/>
-                    </attribute>
+                    </element>
                 </element>
             </optional>
             <optional>
@@ -96,15 +81,13 @@
                 <element name="weight">
                     <ref name="baseContent"/>
                     <attribute name="unit">
-                        <choice>
-                            <value>g</value>
-                            <value>kg</value>
-                            <value>other</value>
-                        </choice>
+                        <externalRef href="../../common/weightUnits"/>
                     </attribute>
-                    <attribute name="value">
-                        <data type="float"/>
-                    </attribute>
+                    <element name="value">
+                        <data type="float">
+                            <param name="minExclusive">0.0</param>
+                        </data>
+                    </element>
                 </element>
             </optional>
         </interleave>
@@ -143,25 +126,25 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="sites">
-        <data type="token"/>
+        <data type="string"/>
     </define>
     <define combine="choice" name="procedures">
-        <data type="token"/>
+        <data type="string"/>
     </define>
     <define combine="interleave" name="site-content">
-        <attribute name="value">
+        <element name="value">
             <ref name="sites"/>
-        </attribute>
+        </element>
     </define>
     <define combine="interleave" name="procedure-content">
-        <attribute name="value">
+        <element name="value">
             <ref name="procedures"/>
-        </attribute>
+        </element>
     </define>
     <define name="tumorLocation-content">
-        <attribute name="value">
+        <element name="value">
             <ref name="sites"/>
-        </attribute>
+        </element>
     </define>
     <define name="integrityValues">
         <externalRef href="../../common/extendedBoolean.rng"/>

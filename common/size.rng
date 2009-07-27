@@ -41,32 +41,24 @@
     ===========================================================================
     
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <include href="baseContent.rng"/>
-    <start>
-        <element name="size">
-            <ref name="baseContent"/>
-            <ref name="dimension"/>
-            <optional>
-                <ref name="dimension"/>
-                <optional>
-                    <ref name="dimension"/>
-                </optional>
-            </optional>
-        </element>
-    </start>
-    <define name="dimension">
+<element datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    name="size" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <ref name="baseContent"/>
+    <attribute name="unit">
+        <externalRef href="lengthUnits.rng"/>
+    </attribute>
+    <element name="dimension">
+        <data type="float"/>
+    </element>
+    <optional>
         <element name="dimension">
-            <attribute name="unit">
-                <externalRef href="lengthUnits.rng"/>
-            </attribute>
-            <ref name="baseContent"/>
-            <attribute name="value">
-                <data type="float">
-                    <param name="minExclusive">0.0</param>
-                </data>
-            </attribute>
+            <data type="float"/>
         </element>
-    </define>
-</grammar>
+        <optional>
+            <element name="dimension">
+                <data type="float"/>
+            </element>
+        </optional>
+    </optional>
+</element>

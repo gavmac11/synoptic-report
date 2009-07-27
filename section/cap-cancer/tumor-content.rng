@@ -48,28 +48,23 @@
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <define combine="interleave" name="tumor-content">
         <interleave>
-            <element name="histologicTypes">
-                <interleave>
+            <oneOrMore>
+                <element name="histologicType">
                     <ref name="baseContent"/>
-                    <oneOrMore>
-                        <element name="histologicType">
-                            <ref name="baseContent"/>
-                            <attribute name="value">
-                                <ref name="histologicTypes"/>
-                            </attribute>
-                        </element>
-                    </oneOrMore>
-                </interleave>
-            </element>
+                    <element name="value">
+                        <ref name="histologicTypes"/>
+                    </element>
+                </element>
+            </oneOrMore>
             <element name="grade">
                 <interleave>
                     <ref name="baseContent"/>
                     <ref name="gradeContent"/>
                 </interleave>
                 <optional>
-                    <attribute name="gradingSystem">
+                    <element name="gradingSystem">
                         <ref name="gradingSystems"/>
-                    </attribute>
+                    </element>
                 </optional>
             </element>
         </interleave>
@@ -111,9 +106,9 @@
         <data type="string"/>
     </define>
     <define combine="choice" name="gradeContent">
-        <attribute name="value">
+        <element name="value">
             <ref name="grades"/>
-        </attribute>
+        </element>
     </define>
     <define combine="choice" name="grades">
         <choice>

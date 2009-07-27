@@ -134,8 +134,8 @@
         </choice>
     </define>
     <define name="suffix-values">
-        <choice>
-            <value>m</value>
-        </choice>
+        <data type="string">
+            <param name="pattern">\(\d+\)</param>
+        </data>
     </define>
 </grammar>

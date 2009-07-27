@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<element datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" name="invasion"
-    ns="http://www.cap.org/pert/2009/01/pancreas/" xmlns="http://relaxng.org/ns/structure/1.0"
+<element datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    name="invasion" ns="http://www.cap.org/pert/2009/01/pancreas/"
+    xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <interleave>
         <ref name="baseContent"/>
@@ -9,24 +10,22 @@
                 <ref name="baseContent"/>
                 <attribute name="location">
                     <choice>
-                        <value>ampulla of Vater</value>
-                        <value>sphincter of Oddi</value>
-                        <value>duodenal wall</value>
-                        <value>retroperitoneal soft tissue</value>
-                        <value>mesenteric adipose tissue</value>
-                        <value>mesocolon</value>
-                        <value>other peripancreatic soft tissue</value>
-                        <value>extrapancreatic common bile duct</value>
-                        <value>adjacent organs or structures</value>
+                        <value>invades ampulla of Vater</value>
+                        <value>invades sphincter of Oddi</value>
+                        <value>invades duodenal wall</value>
+                        <value>invades peripancreatic soft tissue</value>
+                        <value>invades retroperitoneal soft tissue</value>
+                        <value>invades mesenteric adipose tissue</value>
+                        <value>invades mesocolon</value>
+                        <value>invades extrapancreatic common bile duct</value>
                     </choice>
                 </attribute>
                 <attribute name="value">
                     <externalRef href="../../../../common/extendedBoolean.rng"/>
                 </attribute>
-                <optional>
-                    <a:documentation>For "other peripancreatic soft tissue" and/or "adjacent organs or structures", need to be
-                        able to specify which</a:documentation>
-                    <element name="specify">
+                <zeroOrMore>
+                    <element name="adjacentStructure"
+                        ns="http://www.cap.org/pert/2009/01/pancreas/">
                         <ref name=" baseContent"/>
                         <attribute name="value"/>
                         <optional>
@@ -34,11 +33,12 @@
                                 <choice>
                                     <value>adheres</value>
                                     <value>invades</value>
+                                    <data type="string"></data>
                                 </choice>
                             </attribute>
                         </optional>
                     </element>
-                </optional>
+                </zeroOrMore>
             </element>
         </zeroOrMore>
     </interleave>

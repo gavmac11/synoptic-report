@@ -65,45 +65,43 @@
         <text/>
     </define>
     <define combine="interleave" name="nodeGroup-content">
-        <zeroOrMore>
+        <oneOrMore>
             <element name="nodeStatus">
                 <ref name="baseContent"/>
-                <attribute name="value">
-                    <ref name="nodeStatuses"/>
-                </attribute>
                 <attribute name="count">
                     <data type="nonNegativeInteger"/>
                 </attribute>
-                <interleave>
-                    <optional>
-                        <element name="extracapsular">
-                            <ref name="baseContent"/>
-                            <attribute name="value">
+                <choice>
+                    <group>
+                        <attribute name="value">
+                            <value>positive</value>
+                        </attribute>
+                        <optional>
+                            <attribute name="extracapsular">
                                 <externalRef href="../../common/extendedBoolean.rng"/>
                             </attribute>
-                        </element>
-                    </optional>
-                    <optional>
-                        <element name="largestMet">
-                            <ref name="baseContent"/>
-                            <attribute name="value">
-                                <data type="float"/>
-                            </attribute>
-                            <attribute name="unit">
-                                <externalRef href="../../common/lengthUnits.rng"/>
-                            </attribute>
-                        </element>
-                    </optional>
-                </interleave>
+                        </optional>
+                        <optional>
+                            <element name="largestMet">
+                                <ref name="baseContent"/>
+                                <element name="value">
+                                    <data type="float"/>
+                                </element>
+                                <attribute name="unit">
+                                    <externalRef href="../../common/lengthUnits.rng"/>
+                                </attribute>
+                            </element>
+                        </optional>
+                    </group>
+                    <attribute name="value">
+                        <choice>
+                            <value>total</value>
+                            <value>regressed</value>
+                            <value>other</value>
+                        </choice>
+                    </attribute>
+                </choice>
             </element>
-        </zeroOrMore>
-    </define>
-    <define combine="choice" name="nodeStatuses">
-        <choice>
-            <value>total</value>
-            <value>positive</value>
-            <value>regressed</value>
-            <value>other</value>
-        </choice>
+        </oneOrMore>
     </define>
 </grammar>

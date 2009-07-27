@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<choice datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+<choice datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <value>X</value>
     <value>0</value>
+    <value>0(i-)</value>
+    <value>0(i+)</value>
+    <value>0(mol-)</value>
+    <value>0(mol+)</value>
     <value>1</value>
+    <value>1mi</value>
+    <value>1a</value>
+    <value>1b</value>
+    <value>1c</value>
+    <value>2a</value>
+    <value>2b</value>
+    <value>3a</value>
+    <value>3b</value>
+    <value>3c</value>
 </choice>

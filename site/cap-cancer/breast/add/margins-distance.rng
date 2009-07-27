@@ -6,9 +6,7 @@
             <externalRef href="../../../../common/lengthUnits.rng"/>
         </attribute>
         <attribute name="value">
-            <data type="float">
-                <param name="minExclusive">0.0</param>
-            </data>
+            <data type="float"/>
         </attribute>
         <attribute name="closestMargin">
             <data type="boolean"/>
