@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by John Francis Madden (Duke University Medical Center) -->
+<FormData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="TumorData.xsd">
+    <Control Label="Heading"/>
+    <Control Label="Subheading"/>
+    <Control Label="Histologic type" SCTID="371441004" Type="select1">
+        <Item Label="Squamous cell carcinoma" SCTID="28899001"/>
+        <Item Label="Small cell carcinoma" SCTID="74364000"/>
+        <Item Label="Combined small cell carcinoma" SCTID="21326004"/>
+        <Item Label="Adenocarcinoma" SCTID="35917007"/>
+        <Item Label="Bronchiolo-alveolar cell carcinoma" SCTID="112677002"/>
+        <Item Label="Large cell carcinoma" SCTID="22687000"/>
+        <Item Label="Large cell neuroendocrine carcinoma" SCTID="128628002"/>
+        <Item Label="Basaloid carcinoma" SCTID="5843004"/>
+        <Item Label="Adenosquamous carcinoma" SCTID="59367005"/>
+        <Item Label="Carcinoid tumor" SCTID="81622000"/>
+        <Item Label="Mucoepidermoid carcinoma" SCTID="4079000"/>
+        <Item Label="Carcinoma, NOS" SCTID="68453008"/>
+    </Control>
+    <Control Label="Histologic grade" SCTID="371469007" Type="select1">
+        <Item Label="Grade 1" SCTID="54102005"/>
+        <Item Label="Grade 2" SCTID="1663004"/>
+        <Item Label="Grade 3" SCTID="61026006"/>
+        <Item Label="Grade 4" SCTID="258245003"/>
+        <Item Label="Grade not determined" SCTID="60815008"/>
+    </Control>
+    <Control Label="Extent of invasion" SCTID="371487005">
+        <Control Label="Tumor Diameter" SCTID="00000000" Type="input"/>
+        <Control Label="Mainstem bronchus involvement" SCTID="000000000" Type="select1">
+            <Item Label="Negative" Modifier="Negative" SCTID="384979005"/>
+            <Item Label="Positive" SCTID="384979005"/>
+            <Item Label="Indeterminate" Modifier="Indeterminate" SCTID="384979005"/>
+        </Control>
+        <Control Label="Visceral pleura invasion" SCTID="000000000" Type="select1">
+            <Item Label="Negative" Modifier="Negative" SCTID="384966001"/>
+            <Item Label="Positive" SCTID="384966001"/>
+            <Item Label="Indeterminate" Modifier="Indeterminate" SCTID="384966001"/>
+        </Control>
+        <Control Label="Chest wall (muscle) invasion" SCTID="000000000" Type="select1">
+            <Item Label="Negative" Modifier="Negative" SCTID="384966001"/>
+            <Item Label="Positive" SCTID="384963009"/>
+            <Item Label="Indeterminate" Modifier="Indeterminate" SCTID="384966001"/>
+        </Control>
+        <Control Label="Mediastinal invasion" SCTID="000000000" Type="select1">
+            <Item Label="Negative" Modifier="Negative" SCTID="384966001"/>
+            <Item Label="Positive" SCTID="384968000"/>
+            <Item Label="Indeterminate" Modifier="Indeterminate" SCTID="384966001"/>
+        </Control>
+        <Control Label="Multiple tumor nodules" SCTID="000000000" Type="select1">
+            <Item Label="Negative" Modifier="Negative" SCTID="384966001"/>
+            <Item Label="Positive" SCTID="384979005"/>
+            <Item Label="Indeterminate" Modifier="Indeterminate" SCTID="384966001"/>
+        </Control>
+        <Control Label="Panlobar atelectasis" SCTID="000000000" Type="select1">
+            <Item Label="Negative" Modifier="Negative" SCTID="384966001"/>
+            <Item Label="Positive" SCTID="384980008"/>
+            <Item Label="Indeterminate" Modifier="Indeterminate" SCTID="384966001"/>
+        </Control>
+    </Control>
+    <Control Label="Margin" SCTID="396631001">
+        <Control Label="Bronchial margin" SCTID="000000000" Type="select1">
+            <Item Label="Negative" Modifier="Negative" SCTID="384955008"/>
+            <Item Label="Positive" SCTID="384955008"/>
+            <Item Label="Indeterminate" Modifier="Indeterminate" SCTID="384955008"/>
+        </Control>
+        <Control Label="Vascular margin" SCTID="000000000" Type="select1">
+            <Item Label="Negative" Modifier="Negative" SCTID="384956009"/>
+            <Item Label="Positive" SCTID="384956009"/>
+            <Item Label="Indeterminate" Modifier="Indeterminate" SCTID="384956009"/>
+        </Control>
+        <Control Label="Parenchymal margin" SCTID="000000000" Type="select1">
+            <Item Label="Negative" Modifier="Negative" SCTID="384957000"/>
+            <Item Label="Positive" SCTID="384957000"/>
+            <Item Label="Indeterminate" Modifier="Indeterminate" SCTID="384957000"/>
+        </Control>
+        <Control Label="Pleural margin" SCTID="000000000" Type="select1">
+            <Item Label="Negative" Modifier="Negative" SCTID="384958005"/>
+            <Item Label="Positive" SCTID="384958005"/>
+            <Item Label="Indeterminate" Modifier="Indeterminate" SCTID="384958005"/>
+        </Control>
+    </Control>
+    <Control Label="Other tumor-related findings">
+        <Control Label="Venous (large vessel) invasion" SCTID="371493002" Type="select1">
+            <Item Label="Negative" SCTID="40223008"/>
+            <Item Label="Positive" SCTID="369732007"/>
+            <Item Label="Indeterminate" SCTID="6510002"/>
+        </Control>
+        <Control Label="Lymphatic (small vessel) invasion" SCTID="395715009" Type="select1">
+            <Item Label="Negative" SCTID="44649003"/>
+            <Item Label="Positive" SCTID="74139005"/>
+            <Item Label="Indeterminate" SCTID="33419001"/>
+        </Control>
+    </Control>
+    <Control Label="Regional lymph node status" SCTID="371494008" Type="select1">
+        <Control Label="Negative" SCTID="21917009">
+            <Control Label="Number of lymph nodes examined" SCTID="372309006" Type="input"/>
+        </Control>
+        <Control Label="Positive" SCTID="399374009">
+            <Control Label="Number of lymph nodes involved" SCTID="372308003" Type="input"/>
+        </Control>
+        <Control Label="Indeterminate" SCTID="54452005"/>
+    </Control>
+    <Control Label="NontumorRelated" Type="input"/>
+</FormData>

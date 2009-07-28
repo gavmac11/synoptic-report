@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="Mediastinum">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="Item"/>
+            </xsd:sequence>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Chest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="Item"/>
+            </xsd:sequence>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Invasion">
+        <xsd:complexType>
+            <xsd:all>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Diameter"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Mainstem"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Pleura"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Chest"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Mediastinum"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Multiple"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Atelectasis"/>
+            </xsd:all>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="SCTID"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PosLNNo">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                    <xsd:attribute ref="id"/>
+                    <xsd:attribute ref="SCTID"/>
+                    <xsd:attribute ref="Label"/>
+                    <xsd:attribute ref="Type"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Grade">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="Item"/>
+            </xsd:sequence>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Venous">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="Item"/>
+            </xsd:sequence>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Pleural">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="Item"/>
+            </xsd:sequence>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Parenchymal">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="Item"/>
+            </xsd:sequence>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Bronchial">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="Item"/>
+            </xsd:sequence>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Vascular">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="Item"/>
+            </xsd:sequence>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Multiple">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="Item"/>
+            </xsd:sequence>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Heading">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                    <xsd:attribute ref="id"/>
+                    <xsd:attribute ref="Label"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Diameter">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                    <xsd:attribute ref="id"/>
+                    <xsd:attribute ref="SCTID"/>
+                    <xsd:attribute ref="Label"/>
+                    <xsd:attribute ref="Type"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RLNNeg">
+        <xsd:complexType>
+            <xsd:all>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="LNNo"/>
+            </xsd:all>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="SCTID"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Margin">
+        <xsd:complexType>
+            <xsd:all>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Bronchial"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Vascular"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Parenchymal"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Pleural"/>
+            </xsd:all>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="SCTID"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Lymphatic">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="Item"/>
+            </xsd:sequence>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OtherTumor">
+        <xsd:complexType>
+            <xsd:all>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Venous"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Lymphatic"/>
+            </xsd:all>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="Label"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RLN">
+        <xsd:complexType>
+            <xsd:all>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="RLNNeg"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="RLNPos"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="RLNInd"/>
+            </xsd:all>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Item">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                    <xsd:attribute ref="id"/>
+                    <xsd:attribute ref="SCTID"/>
+                    <xsd:attribute ref="Modifier"/>
+                    <xsd:attribute ref="Label"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FormData">
+        <xsd:complexType>
+            <xsd:all>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Heading"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Subheading"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Type"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Grade"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Invasion"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Margin"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="OtherTumor"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="RLN"/>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="Nontumor"/>
+            </xsd:all>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Pleura">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="Item"/>
+            </xsd:sequence>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LNNo">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                    <xsd:attribute ref="id"/>
+                    <xsd:attribute ref="SCTID"/>
+                    <xsd:attribute ref="Label"/>
+                    <xsd:attribute ref="Type"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Type">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="Item"/>
+            </xsd:sequence>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Nontumor">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                    <xsd:attribute ref="id"/>
+                    <xsd:attribute ref="Label"/>
+                    <xsd:attribute ref="Type"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Subheading">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                    <xsd:attribute ref="id"/>
+                    <xsd:attribute ref="Label"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Mainstem">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="Item"/>
+            </xsd:sequence>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Atelectasis">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="Item"/>
+            </xsd:sequence>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="SCTID"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="Type"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RLNPos">
+        <xsd:complexType>
+            <xsd:all>
+                <xsd:element maxOccurs="1" minOccurs="0" ref="PosLNNo"/>
+            </xsd:all>
+            <xsd:attribute ref="id"/>
+            <xsd:attribute ref="Label"/>
+            <xsd:attribute ref="SCTID"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RLNInd">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                    <xsd:attribute ref="id"/>
+                    <xsd:attribute ref="Label"/>
+                    <xsd:attribute ref="SCTID"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:attribute name="id" type="xsd:string"/>
+    <xsd:attribute name="SCTID" type="xsd:string"/>
+    <xsd:attribute name="Modifier" type="xsd:string"/>
+    <xsd:attribute name="Label" type="xsd:string"/>
+    <xsd:attribute name="Type" type="xsd:string"/>
+</xsd:schema>
