@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>hilar</value>
+    <value>hepatoduodenal ligament</value>
+    <value>caval</value>
+    <value>hepatic artery</value>
+    <value>portal vein</value>
+</choice>
