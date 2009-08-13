@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>wedge resection</value>
+    <value>partial hepatectomy, major</value>
+    <value>partial hepatectomy, minor</value>
+    <value>total hepatectomy</value>
+    <value>other</value>
+    <value>not specified</value>
+</choice>

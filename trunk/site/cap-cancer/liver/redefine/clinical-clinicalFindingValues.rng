@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>cirrhosis</value>
+    <value>hepatitis C infection</value>
+    <value>hepatitis B infection</value>
+    <value>alcoholic liver disease</value>
+    <value>hereditary hemochromatosis</value>
+    <value>other</value>
+    <value>not known</value>
+</choice>

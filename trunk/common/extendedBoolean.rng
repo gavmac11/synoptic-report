@@ -45,7 +45,8 @@
 <choice xmlns="http://relaxng.org/ns/structure/1.0">
   <value>positive</value>
   <value>negative</value>
-  <value>inconclusive</value>
+  <value>equivocal</value>
+  <value>cannot be assessed</value>
+  <value>not applicable</value>
   <value>indeterminate</value>
-  <value>inapplicable</value>
 </choice>
