@@ -1,0 +1,7 @@
+<attribute name="inflammation" xmlns="http://relaxng.org/ns/structure/1.0">
+    <choice>
+        <value>acute</value>
+        <value>acute and chronic</value>
+        <value>chronic</value>
+    </choice>
+</attribute>
