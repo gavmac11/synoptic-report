@@ -131,7 +131,7 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="calculate-T-stage">
         <rule context="//pert:T">
-            <let name="T" value="@value cast as xs:string"/>
+            <let name="T-reported" value="@value cast as xs:string"/>
             <let name="adj" value="//prostate:adjacentStructure/@value"/>
             <let name="epe" value="//prostate:extraprostatic/@value"/>
             <let name="svi" value="//prostate:seminalVesicle/@value"/>
@@ -141,18 +141,7 @@
             <let name="lpti"
                 value="//prostate:percentTumorInvolvement[@laterality =
                 'left']/@value cast as xs:integer"/>
-            <assert test="                                       
-                     if ($adj = 'bladder' or $adj = 'rectum') then $T = '4'                   
-                else if ($svi = 'positive')                   then $T = '3b'                  
-                else if ($epe = 'positive')                   then $T = '3a'                 
-                else if ($rpti > 0 and $lpti > 0)             then $T = '2c'        
-                else if ($rpti = 0 and $lpti > 50)            then $T = '2b'
-                else if ($lpti = 0 and $rpti > 50)            then $T = '2b'             
-                else if ($rpti = 0 and $lpti > 0)             then $T = '2a'        
-                else if ($lpti = 0 and $lpti > 0)             then $T = '2a'                
-                else if ($rpti = 0 and $lpti = 0)             then $T = '0'                 
-                else                                               $T = 'X'    "> 
-                Reported T-stage (T<value-of select="$T"/>) does not match calculated (T<value-of select="
+            <let name="T-calculated" value="
                      if ($adj = 'bladder' or $adj = 'rectum') then '4'                   
                 else if ($svi = 'positive')                   then '3b'                  
                 else if ($epe = 'positive')                   then '3a'                 
@@ -162,7 +151,9 @@
                 else if ($rpti = 0 and $lpti > 0)             then '2a'        
                 else if ($lpti = 0 and $lpti > 0)             then '2a'                
                 else if ($rpti = 0 and $lpti = 0)             then '0'                 
-                else                                               'X'    "/>). 
+                else                                               'X'    "/>
+            <assert test="$T-reported = $T-calculated"> 
+                Reported T-stage (T<value-of select="$T-reported"/>) does not match calculated (T<value-of select="$T-calculated"/>). 
             </assert>
         </rule>
     </pattern>
