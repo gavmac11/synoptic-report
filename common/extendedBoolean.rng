@@ -46,7 +46,5 @@
   <value>positive</value>
   <value>negative</value>
   <value>equivocal</value>
-  <value>cannot be assessed</value>
   <value>not applicable</value>
-  <value>indeterminate</value>
 </choice>

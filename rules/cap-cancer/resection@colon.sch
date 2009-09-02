@@ -253,7 +253,8 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern>
         <rule context="//pert:specimen">
-            <assert test="exists(colon:polyp) = (procedures/procedure/@value eq 'polypectomy')"> Polyp is reportable in the specimen section if and only if the procedure is polypectomy. </assert>
+            <assert test="exists(colon:polyp) = (procedures/procedure/@value eq 'polypectomy')"> Polyp is reportable in the
+                specimen section if and only if the procedure is polypectomy. </assert>
         </rule>
     </pattern>
 </schema>
