@@ -44,8 +44,7 @@
     ===========================================================================
     
 -->
-<schema queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron"
-    xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+<schema queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:iso="http://purl.oclc.org/dsdl/schematron">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <ns prefix="pert" uri="http://www.cap.org/pert/2009/01/"/>
     <ns prefix="colon" uri="http://www.cap.org/pert/2009/01/colon/"/>
@@ -57,24 +56,19 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="therapy-description-not-allowed">
         <rule context="//hasPriorTherapy">
-            <assert test="@value &gt;= count(@description)"> Description is not allowed unless
-                value is true. </assert>
+            <assert test="@value &gt;= count(@description)"> Description is not allowed unless value is true. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="size-dimensions-in-decreasing-order">
         <rule context="//pert:tumorSize">
-            <let name="d1"
-                value="if (@dimension-1 castable as xs:float) then xs:float(@dimension-1)
+            <let name="d1" value="if (@dimension-1 castable as xs:float) then xs:float(@dimension-1)
                 else 0.0"/>
-            <let name="d2"
-                value="if (@dimension-2 castable as xs:float) then xs:float(@dimension-2)
+            <let name="d2" value="if (@dimension-2 castable as xs:float) then xs:float(@dimension-2)
                 else 0.0"/>
-            <let name="d3"
-                value="if (@dimension-3 castable as xs:float) then xs:float(@dimension-3)
+            <let name="d3" value="if (@dimension-3 castable as xs:float) then xs:float(@dimension-3)
                 else 0.0"/>
-            <assert test="$d1 ge $d2 and $d2 ge $d3"> Tumor size dimensions must be in decreasing
-                order. </assert>
+            <assert test="$d1 ge $d2 and $d2 ge $d3"> Tumor size dimensions must be in decreasing order. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -91,20 +85,21 @@
             <let name="totalNodes"
                 value="if (pert:nodeStatus[@value = 'total']/@count castable as
                 xs:integer) then xs:integer(pert:nodeStatus[@value = 'total']/@count) else -1"/>
-            <assert test="$positiveNodes le $totalNodes"> Positive nodes (<value-of select="$positiveNodes"/>) must not exceed total nodes (<value-of select="$totalNodes"/>) in the "<value-of select="@location"/>" lymph node
-                group. </assert>
-            <assert test="$regressedNodes le $totalNodes"> Regressed nodes (<value-of select="$regressedNodes"/>) must not exceed total nodes (<value-of select="$totalNodes"/>) in the "<value-of select="@location"/>" lymph node
-                group. </assert>
-            <assert test="$regressedNodes + $positiveNodes le $totalNodes"> Positive (<value-of select="$positiveNodes"/>) plus regressed (<value-of select="$regressedNodes"/>)
-                nodes must not exceed total nodes (<value-of select="$totalNodes"/>) in the
-                    "<value-of select="@location"/>" lymph node group. </assert>
+            <assert test="$positiveNodes le $totalNodes"> Positive nodes (<value-of select="$positiveNodes"/>) must not exceed
+                total nodes (<value-of select="$totalNodes"/>) in the "<value-of select="@location"/>" lymph node group. </assert>
+            <assert test="$regressedNodes le $totalNodes"> Regressed nodes (<value-of select="$regressedNodes"/>) must not exceed
+                total nodes (<value-of select="$totalNodes"/>) in the "<value-of select="@location"/>" lymph node group. </assert>
+            <assert test="$regressedNodes + $positiveNodes le $totalNodes"> Positive (<value-of select="$positiveNodes"/>) plus
+                regressed (<value-of select="$regressedNodes"/>) nodes must not exceed total nodes (<value-of select="$totalNodes"
+                />) in the "<value-of select="@location"/>" lymph node group. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="site-matches-procedure">
         <rule context="//pert:site">
             <let name="proc" value="//pert:procedure/@value"/>
-            <assert test="                                       if ($proc = 'major airway
+            <assert
+                test="                                       if ($proc = 'major airway
                 resection') then @value = ('main bronchus')                 else if ($proc = 'wedge
                 resection')        then @value = ('right upper lobe', 'right middle lobe', 'right
                 lower lobe', 'left upper lobe', 'lingula', 'left lower lobe')                 else
@@ -115,23 +110,24 @@
                 else if ($proc = 'bilobectomy')            then @value = ('right upper lobe', 'right
                 middle lobe', 'right lower lobe', 'left upper lobe', 'lingula', 'left lower lobe')
                 else if ($proc = 'pneumonectomy')          then @value = ('right lung', 'left lung')
-                else $skip"> Specimen site "<value-of select="@value"/>" must match a corresponding
-                procedure. </assert>
+                else $skip"
+                > Specimen site "<value-of select="@value"/>" must match a corresponding procedure. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="other-histologic-type">
         <rule context="//pert:histologicType">
             <assert test="if (@value eq 'other') then exists(@other-value) else
-                not(exists(@other-value))"> If the histologic type is "other", then a value must be
-                given in an "other-value" attribute which may otherwise not be present. </assert>
+                not(exists(@other-value))"> If the
+                histologic type is "other", then a value must be given in an "other-value" attribute which may otherwise not be
+                present. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="tumor-site-subsets-specimen-site">
         <rule context="//pert:tumorLocation">
-            <assert test="@value = //pert:site/@value"> The tumor site "<value-of select="@value"/>"
-                must be among the sites comprising specimen. </assert>
+            <assert test="@value = //pert:site/@value"> The tumor site "<value-of select="@value"/>" must be among the sites
+                comprising specimen. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -141,15 +137,17 @@
                 value="sum(//pert:nodeGroup/pert:nodeStatus[@value='positive']/@count) cast as
                 xs:integer"/>
             <let name="N" value="@value cast as xs:integer"/>
-            <assert test="
+            <assert
+                test="
                      if ($posNodes eq 0) then $N eq 0 
                 else if ($posNodes lt 4) then $N eq 1 
-                else                          $N eq 2"> 
-                Reported N-stage (N<value-of select="$N"/>) does not match calculated (N<value-of select="     
+                else                          $N eq 2"
+                > Reported N-stage (N<value-of select="$N"/>) does not match calculated (N<value-of
+                    select="     
                          if ($posNodes eq 0) then '0' 
                     else if ($posNodes lt 4) then '1' 
-                    else                          '2'"/>). 
-            </assert>
+                    else                          '2'"
+                />). </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -164,7 +162,8 @@
             <let name="pneumonitis" value="//lung:obstructivePneumonitis/@value"/>
             <let name="pleura" value="//lung:visceralPleuraInvasion/@value"/>
             <let name="T" value="@value cast as xs:string"/>
-            <assert test="                               
+            <assert
+                test="                               
                      if ($focality = 'multifocal different lobes') 
                                                      then $T = '4'                   
                 else if ($adjacent = ('mediastinum', 'heart', 'great vessels', 'trachea', 'recurrent laryngeal nerve', 'esophagus', 'vertebral body', 'carina'))
@@ -185,8 +184,9 @@
                                                      then $T = '2a'                 
                 else if (size > 2 and $unit = 'cm')  then $T = '1b'                 
                 else if (size > 0)                   then $T = '1a'                
-                else                                      $T = 'X'    "> 
-                Reported T-stage (T<value-of select="$T"/>) does not match calculated (T<value-of select="
+                else                                      $T = 'X'    "
+                > Reported T-stage (T<value-of select="$T"/>) does not match calculated (T<value-of
+                    select="
                      if ($focality = 'multifocal different lobes') 
                                                      then '4'                   
                 else if ($adjacent = ('mediastinum', 'heart', 'great vessels', 'trachea', 'recurrent laryngeal nerve', 'esophagus', 'vertebral body', 'carina'))
@@ -207,19 +207,18 @@
                                                      then '2a'                 
                 else if (size > 2 and $unit = 'cm')  then '1b'                 
                 else if (size > 0)                   then '1a'                
-                else                                      'X'    "/>).
-            </assert>
+                else                                      'X'    "
+                />). </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="treatment-effect-implies-prior-therapy">
         <rule context="//pert:treatmentEffect">
             <let name="RxEffect" value="exists(.) and @value ne 'inapplicable'"/>
-            <report test="$RxEffect and not(//pert:priorTherapy)"> If reporting tumor treatment
-                effect, you must also specify prior therapy in the clinical section. </report>
-            <report test="$RxEffect and not(contains(//pert:stage/pert:prefix/@value, 'y'))">
-                Treatment effect must be noted in the stage descriptor using the 'y' prefix.
-            </report>
+            <report test="$RxEffect and not(//pert:priorTherapy)"> If reporting tumor treatment effect, you must also specify
+                prior therapy in the clinical section. </report>
+            <report test="$RxEffect and not(contains(//pert:stage/pert:prefix/@value, 'y'))"> Treatment effect must be noted in
+                the stage descriptor using the 'y' prefix. </report>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -227,11 +226,14 @@
         <rule context="//pert:margins">
             <let name="status" value="pert:margin/@status"/>
             <let name="closest" value="pert:margin[@closest='true']"/>
-            <assert test="if (exists($status) and $status = 'positive for carcinoma') then not(exists($closest))
-                else $skip"> "Closest margin" is not reportable if any margin is positive. </assert>
-            <assert test="if (exists($status) and not($status = 'positive for carcinoma')) then exists($closest)
-                else $skip"> Closest margin must be reported if no margins are positive for invasive carcinoma.
-            </assert>
+            <assert
+                test="if (exists($status) and $status = 'positive for carcinoma') then not(exists($closest))
+                else $skip"
+                > "Closest margin" is not reportable if any margin is positive. </assert>
+            <assert
+                test="if (exists($status) and not($status = 'positive for carcinoma')) then exists($closest)
+                else $skip"
+                > Closest margin must be reported if no margins are positive for invasive carcinoma. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -240,17 +242,19 @@
             <let name="M" value="@value"/>
             <let name="met" value="exists(//pert:metastasis)"/>
             <let name="report" value="exists(//pert:metastases)"/>
-            <assert test="
+            <assert
+                test="
                 if ($report) then 
                 if ($met) then $M = '1' 
                 else $M = '0' 
-                else $M = 'X'">
-                Reported M-stage (M<value-of select="$M"/>) does not match calculated (M<value-of select=" 
+                else $M = 'X'"
+                > Reported M-stage (M<value-of select="$M"/>) does not match calculated (M<value-of
+                    select=" 
                     if ($report) then 
                         if ($met) then '1' 
                         else '0' 
-                    else 'X'"/>).
-            </assert>
+                    else 'X'"
+                />). </assert>
         </rule>
     </pattern>
 </schema>

@@ -90,7 +90,9 @@
                 </element>
             </optional>
             <optional>
-                <externalRef href="../../common/size.rng"/>
+                <element name="tumorSize">
+                    <ref name="tumorSize-content"/>
+                </element>
             </optional>
             <optional>
                 <element name="weight">
@@ -165,5 +167,8 @@
     </define>
     <define name="integrityValues">
         <externalRef href="../../common/extendedBoolean.rng"/>
+    </define>
+    <define combine="choice" name="tumorSize-content">
+        <externalRef href="../../common/size.rng"/>
     </define>
 </grammar>

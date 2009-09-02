@@ -117,10 +117,12 @@
     </define>
     <define combine="choice" name="grades">
         <choice>
+            <value>not applicable</value>
             <value>1</value>
             <value>2</value>
             <value>3</value>
             <value>4</value>
+            <value>X</value>
             <value>other</value>
         </choice>
     </define>

@@ -46,10 +46,7 @@
     ===========================================================================
     
 -->
-<synopsis grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/breast@resection.xslt"
-    pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@breast.rng" pert:version="0.1"
-    xmlns="http://www.cap.org/pert/2009/01/" xmlns:breast="http://www.cap.org/pert/2009/01/breast/"
-    xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/">
+<synopsis grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/breast@resection.xslt" pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@breast.rng" pert:version="0.1" xmlns="http://www.cap.org/pert/2009/01/" xmlns:breast="http://www.cap.org/pert/2009/01/breast/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/">
     <clinical>
         <priorTherapies>
             <priorTherapy description="viblastine-vincristine"/>
@@ -73,7 +70,13 @@
             <site laterality="right" value="entire breast"/>
         </sites>
         <integrity value="fragmented"/>
-        <size dimension-1="3.3" dimension-2="2.2" dimension-3="1.1" unit="cm"/>
+        <tumorSize>
+            <size>
+                <dimension value="2.2" unit="cm"></dimension>
+                <dimension value="1.1" unit="cm"></dimension>
+                <dimension value="0.9" unit="cm"></dimension>
+            </size>
+        </tumorSize>
     </specimen>
     <tumor>
         <grade value="2">
@@ -86,14 +89,18 @@
         </histologicTypes>
     </tumor>
     <extent>
-        <tumorSize dimension-1="3.2" dimension-2="1.1" dimension-3="0.9" unit="cm"/>
+        <size>
+            <dimension value="5.2" unit="cm"></dimension>
+            <dimension value="4.3" unit="cm"></dimension>
+            <dimension value="3.3" unit="cm"></dimension>
+        </size>
         <breast:invasion>
             <breast:invasionFinding location="skin ulceration" value="positive"/>
         </breast:invasion>
     </extent>
     <accessory>
         <breast:dermalLymphaticInvasion value="negative"/>
-        <lymphovascularInvasion value="inconclusive"/>
+        <lymphovascularInvasion value="negative"/>
         <perineuralInvasion value="negative"/>
         <treatmentEffect value="inapplicable"/>
         <venousInvasion value="negative"/>
@@ -118,7 +125,7 @@
     <studies>
         <breast:estrogenReceptor antibody="" fixative="" value="negative" vendor=""/>
         <breast:her2neu antibody="" fixative="" value="2+" vendor=""/>
-        <breast:progesteroneReceptor antibody="" fixative="" value="indeterminate" vendor=""/>
+        <breast:progesteroneReceptor antibody="" fixative="" value="equivocal" vendor=""/>
     </studies>
     <stage>
         <T value="4b"/>
@@ -129,7 +136,9 @@
     </stage>
     <metastases>
         <metastasis howDiagnosed="this accesion" site="liver">
-            <size dimension-1="2.2" unit="cm"/>
+            <size>
+                <dimension value="1.1" unit="cm"></dimension>
+            </size>
         </metastasis>
     </metastases>
 </synopsis>
