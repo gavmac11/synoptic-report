@@ -85,13 +85,19 @@
             <let name="totalNodes"
                 value="if (pert:nodeStatus[@value = 'total']/@count castable as
                 xs:integer) then xs:integer(pert:nodeStatus[@value = 'total']/@count) else -1"/>
-            <assert test="$positiveNodes le $totalNodes"> Positive nodes (<value-of select="$positiveNodes"/>) must not exceed
-                total nodes (<value-of select="$totalNodes"/>) in the "<value-of select="@location"/>" lymph node group. </assert>
-            <assert test="$regressedNodes le $totalNodes"> Regressed nodes (<value-of select="$regressedNodes"/>) must not exceed
-                total nodes (<value-of select="$totalNodes"/>) in the "<value-of select="@location"/>" lymph node group. </assert>
-            <assert test="$regressedNodes + $positiveNodes le $totalNodes"> Positive (<value-of select="$positiveNodes"/>) plus
-                regressed (<value-of select="$regressedNodes"/>) nodes must not exceed total nodes (<value-of select="$totalNodes"
-                />) in the "<value-of select="@location"/>" lymph node group. </assert>
+            <assert test="$positiveNodes le $totalNodes"> Positive nodes (<value-of select="$positiveNodes"
+                    />) must not exceed
+                total nodes (<value-of select="$totalNodes"/>) in the "<value-of
+                    select="@location"/>" lymph node group. </assert>
+            <assert test="$regressedNodes le $totalNodes"> Regressed nodes (<value-of select="$regressedNodes"
+                    />) must not exceed
+                total nodes (<value-of select="$totalNodes"/>) in the "<value-of
+                    select="@location"/>" lymph node group. </assert>
+            <assert test="$regressedNodes + $positiveNodes le $totalNodes"> Positive (<value-of select="$positiveNodes"
+                    />) plus
+                regressed (<value-of select="$regressedNodes"
+                    />) nodes must not exceed total nodes (<value-of select="$totalNodes"/>) in the "<value-of select="@location"
+                />" lymph node group. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -111,14 +117,15 @@
                 middle lobe', 'right lower lobe', 'left upper lobe', 'lingula', 'left lower lobe')
                 else if ($proc = 'pneumonectomy')          then @value = ('right lung', 'left lung')
                 else $skip"
-                > Specimen site "<value-of select="@value"/>" must match a corresponding procedure. </assert>
+                    > Specimen site "<value-of select="@value"/>" must match a corresponding procedure. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="other-histologic-type">
         <rule context="//pert:histologicType">
             <assert test="if (@value eq 'other') then exists(@other-value) else
-                not(exists(@other-value))"> If the
+                not(exists(@other-value))"
+                > If the
                 histologic type is "other", then a value must be given in an "other-value" attribute which may otherwise not be
                 present. </assert>
         </rule>
@@ -126,7 +133,8 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="tumor-site-subsets-specimen-site">
         <rule context="//pert:tumorLocation">
-            <assert test="@value = //pert:site/@value"> The tumor site "<value-of select="@value"/>" must be among the sites
+            <assert test="@value = //pert:site/@value"> The tumor site "<value-of select="@value"
+                />" must be among the sites
                 comprising specimen. </assert>
         </rule>
     </pattern>
@@ -142,7 +150,7 @@
                      if ($posNodes eq 0) then $N eq 0 
                 else if ($posNodes lt 4) then $N eq 1 
                 else                          $N eq 2"
-                > Reported N-stage (N<value-of select="$N"/>) does not match calculated (N<value-of
+                    > Reported N-stage (N<value-of select="$N"/>) does not match calculated (N<value-of
                     select="     
                          if ($posNodes eq 0) then '0' 
                     else if ($posNodes lt 4) then '1' 
@@ -185,7 +193,7 @@
                 else if (size > 2 and $unit = 'cm')  then $T = '1b'                 
                 else if (size > 0)                   then $T = '1a'                
                 else                                      $T = 'X'    "
-                > Reported T-stage (T<value-of select="$T"/>) does not match calculated (T<value-of
+                    > Reported T-stage (T<value-of select="$T"/>) does not match calculated (T<value-of
                     select="
                      if ($focality = 'multifocal different lobes') 
                                                      then '4'                   
@@ -215,9 +223,11 @@
     <pattern id="treatment-effect-implies-prior-therapy">
         <rule context="//pert:treatmentEffect">
             <let name="RxEffect" value="exists(.) and @value ne 'inapplicable'"/>
-            <report test="$RxEffect and not(//pert:priorTherapy)"> If reporting tumor treatment effect, you must also specify
+            <report test="$RxEffect and not(//pert:priorTherapy)"
+                > If reporting tumor treatment effect, you must also specify
                 prior therapy in the clinical section. </report>
-            <report test="$RxEffect and not(contains(//pert:stage/pert:prefix/@value, 'y'))"> Treatment effect must be noted in
+            <report test="$RxEffect and not(contains(//pert:stage/pert:prefix/@value, 'y'))"
+                > Treatment effect must be noted in
                 the stage descriptor using the 'y' prefix. </report>
         </rule>
     </pattern>
@@ -248,7 +258,7 @@
                 if ($met) then $M = '1' 
                 else $M = '0' 
                 else $M = 'X'"
-                > Reported M-stage (M<value-of select="$M"/>) does not match calculated (M<value-of
+                    > Reported M-stage (M<value-of select="$M"/>) does not match calculated (M<value-of
                     select=" 
                     if ($report) then 
                         if ($met) then '1' 

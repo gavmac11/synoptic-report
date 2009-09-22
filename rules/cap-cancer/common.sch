@@ -16,14 +16,16 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern abstract="true" id="bilaterality">
         <rule context="$context">
-            <assert test="$finding/@location = 'right' and $finding/@location = 'left'"> The <value-of select="'finding-name'"/>
+            <assert test="$finding/@location = 'right' and $finding/@location = 'left'"> The <value-of select="'finding-name'"
+                />
                 must be reported for both right and left sides, at least. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern abstract="true" id="x-iff-y">
         <rule context="$context">
-            <assert test="if (exists($x)) then exists($y) else not(exists($y))"> In <name/>, <value-of select="$x-name"/> must
+            <assert test="if (exists($x)) then exists($y) else not(exists($y))"> In <name/>, <value-of select="$x-name"
+                    /> must
                 have <value-of select="$y-name"/>, and vice-versa. </assert>
         </rule>
     </pattern>
@@ -59,17 +61,21 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="total-nodes-must-be-specified-for-each-nodeGroup">
         <rule context="//pert:nodeGroup">
-            <assert test="exists(pert:nodeStatus[@value = 'total'])"> The total number of nodes in every group must be specified
-                (missing for "<value-of select="@location"/>"). </assert>
+            <assert test="exists(pert:nodeStatus[@value = 'total'])"
+                    > The total number of nodes in every group must be specified
+                (missing for "<value-of
+                    select="@location"/>"). </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="treatment-effect-implies-prior-therapy">
         <rule context="//pert:treatmentEffect">
             <let name="RxEffect" value="exists(.) and @value ne 'inapplicable'"/>
-            <report test="$RxEffect and not(//pert:priorTherapy)"> If reporting tumor treatment effect, the clinical section must
+            <report test="$RxEffect and not(//pert:priorTherapy)"
+                > If reporting tumor treatment effect, the clinical section must
                 specify prior therapy. </report>
-            <report test="$RxEffect and not(contains(//pert:stage/pert:prefix/@value, 'y'))"> Stage must note treatment effect
+            <report test="$RxEffect and not(contains(//pert:stage/pert:prefix/@value, 'y'))"
+                > Stage must note treatment effect
                 using the 'y' prefix. </report>
         </rule>
     </pattern>
@@ -79,9 +85,11 @@
             <let name="status" value="pert:margin/@status"/>
             <let name="closest" value="pert:margin/@closest"/>
             <assert test="count(pert:margin[@closest=true()]) le 1"> Only one margin can be the closest margin. </assert>
-            <assert test="if ($closest) then not($status = ('focally positive', 'positive', 'extensively positive')) else $skip">
+            <assert test="if ($closest) then not($status = ('focally positive', 'positive', 'extensively positive')) else $skip"
+                >
                 No margin may be designated "closest margin" because at least one margin is positive. </assert>
-            <assert test="if (not($status = ('focally positive', 'positive', 'extensively positive'))) then $closest else $skip">
+            <assert test="if (not($status = ('focally positive', 'positive', 'extensively positive'))) then $closest else $skip"
+                >
                 One margin must be designated closest, because all margins are negative. </assert>
         </rule>
     </pattern>
