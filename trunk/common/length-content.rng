@@ -4,7 +4,7 @@
     (c) Copyright 2008 College of American Pathologists
     ===========================================================================
     Component name:
-    laterality.rng
+    size.rng
     
     Component type:
     schema fragment for inclusion
@@ -13,7 +13,7 @@
     2008.12.31
     
     Defines:
-    
+    semistructured report schema for a resection at colon
     
     Purpose:
     
@@ -21,10 +21,7 @@
     
     Dependencies:      
     
-    
     ===========================================================================
-    Copyright 2009 College of American Pathologists (CAP)
-    
     This file is part of the "CAP Schema for Synoptic Cancer Reports".
     
     The "CAP Schema for Synoptic Cancer Reports" is licensed under the 
@@ -43,10 +40,16 @@
     ===========================================================================
     
 -->
-<attribute name="laterality" xmlns="http://relaxng.org/ns/structure/1.0">
-    <choice>
-        <value>right</value>
-        <value>left</value>
-        <value>other</value>
-    </choice>
-</attribute>
+
+<div datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0">
+    <attribute name="unit">
+        <externalRef href="lengthUnits.rng"/>
+    </attribute>
+    <ref name="baseContent"/>
+    <attribute name="value">
+        <data type="decimal">
+            <param name="minExclusive">0.0</param>
+        </data>
+    </attribute>
+</div>
