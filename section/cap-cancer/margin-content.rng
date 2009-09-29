@@ -75,7 +75,9 @@
                     <externalRef href="../../common/lengthUnits.rng"/>
                 </attribute>
                 <attribute name="value">
-                    <data type="float"/>
+                    <data type="decimal">
+                        <param name="minExclusive">0.0</param>
+                    </data>
                 </attribute>
             </element>
         </optional>
