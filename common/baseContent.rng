@@ -49,7 +49,6 @@
 <!DOCTYPE grammar [
 <!ENTITY localNames "
 
-    <nsName ns=''/>
     <nsName ns='http://www.cap.org/pert/2009/01/'/>
     <nsName ns='http://www.cap.org/pert/2009/01/breast/'/>
     <nsName ns='http://www.cap.org/pert/2009/01/colon/'/>
@@ -62,13 +61,15 @@
     
     ">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0">
     <define name="baseContent">
         <zeroOrMore>
             <attribute>
                 <anyName>
-                    <except>&localNames;</except>
+                    <except>
+                        <nsName ns=""/> &localNames; </except>
                 </anyName>
             </attribute>
         </zeroOrMore>
@@ -91,7 +92,8 @@
             <zeroOrMore>
                 <attribute>
                     <anyName>
-                        <except>&localNames;</except>
+                        <except> &localNames; <nsName ns=""/>
+                        </except>
                     </anyName>
                 </attribute>
             </zeroOrMore>
@@ -137,12 +139,13 @@
     <define name="anyForeignElement">
         <element>
             <anyName>
-                <except>&localNames;</except>
+                <except>&localNames;<nsName ns=""/></except>
             </anyName>
             <zeroOrMore>
                 <choice>
                     <ref name="anyForeignAttribute"/>
                     <ref name="anyForeignElement"/>
+                    <text/>
                 </choice>
             </zeroOrMore>
         </element>
@@ -151,7 +154,8 @@
         <optional>
             <attribute name="xml:lang">
                 <data type="token">
-                    <param name="pattern">[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*</param>
+                    <param name="pattern"
+                        >[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*</param>
                 </data>
             </attribute>
         </optional>
