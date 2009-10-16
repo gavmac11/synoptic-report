@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="../../report/cap-cancer/resection/resection@colon.rng" type="xml"?>
+<?oxygen SCHSchema="../../rules/cap-cancer/resection@colon.sch"?>
+<!--
+    
+    CAP Schema for Synoptic Reports
+    (c) Copyright 2008 College of American Pathologists
+    ===========================================================================
+    Component name:
+    resection@colon-instance.xml
+    
+    Component type:
+    sample conformant instance (exemplar)
+    
+    Version date:
+    2008.12.31
+    
+    Defines:
+    
+    
+    Purpose:
+    
+    
+    
+    Dependencies:      
+    
+    
+    ===========================================================================
+    This file is part of the "CAP Schema for Synoptic Reports".
+    
+    The "CAP Schema for Synoptic Reports" is free software: 
+    you can redistribute it and/or modify it under the terms of the 
+    GNU General Public License as published by the Free Software Foundation, 
+    either version 3 of the License, or (at your option) any later version.
+    
+    The "CAP Schema for Synoptic Reports" is distributed 
+    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or 
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+    for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with the "CAP Schema for Synoptic Reports".  
+    If not, see <http://www.gnu.org/licenses/>. 
+    ===========================================================================
+    
+-->
+<synopsis grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/prostate@resection.xslt"
+    pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@colon.rng"
+    pert:version="0.1" xmlns="http://www.cap.org/pert/2009/01/" xmlns:cerner="http://www.cerner.com/"
+    xmlns:colon="http://www.cap.org/pert/2009/01/colon/" xmlns:grddl="http://www.w3.org/2003/g/data-view#"
+    xmlns:pert="http://www.cap.org/pert/2009/01/">
+    <comment xml:lang="en">This synopsis demonstrates the resection@colon.rng
+        schema</comment>
+    <displayText>SYNOPTIC REPORT</displayText>
+    <clinical>
+        <comment>I never saw this patient before today</comment>
+        <displayText>Histoire Clinique</displayText>
+        <priorTherapy date="2008-05" description="Chemoirradiation"/>
+    </clinical>
+    <specimen>
+        <displayText>Specimen</displayText>
+        <procedure value="abdominoperineal resection">
+            <comment>In this example this procedure was an A-P
+                    resection</comment>
+        </procedure>
+        <site value="rectum"/>
+        <site value="sigmoid colon"/>
+        <tumorLocation value="rectum"/>
+        <colon:polyp>
+            <colon:configuration value="pedunculated"/>
+            <size>
+                <dimension unit="cm" value="1.1"/>
+                <dimension unit="cm" value="0.8"/>
+                <dimension unit="mm" value="3"/>
+            </size>
+        </colon:polyp>
+        <integrity value="fragmented"/>
+        <tumorSize>
+            <dimension unit="cm" value="2.2"/>
+            <dimension unit="cm" value="1.1"/>
+            <dimension unit="cm" value="0.5"/>
+        </tumorSize>
+    </specimen>
+    <tumor>
+        <histologicType otherValue="linguinioma" value="other"/>
+        <grade gradingSystem="WHO" value="high"/>
+        <colon:immuneResponse>
+            <colon:intratumoralResponse value="marked"/>
+            <colon:peritumoralResponse value="marked"/>
+        </colon:immuneResponse>
+        <colon:suggestMicrosatelliteInstability>
+            <colon:highGrade value="negative"/>
+            <colon:medullaryComponent value="positive"/>
+            <colon:mucinousComponent percentage="50" value="positive"/>
+        </colon:suggestMicrosatelliteInstability>
+        <colon:tumorPerforation value="negative"/>
+    </tumor>
+    <extent>
+        <invasion>
+            <colon:deepestInvasion value="muscularis propria">
+                <colon:adjacentStructure extent="adheres" value="pelvic sidewall"/>
+            </colon:deepestInvasion>
+        </invasion>
+        <size>
+            <dimension unit="cm" value="5.1"/>
+        </size>
+    </extent>
+    <accessory>
+        <colon:preexistingPolyp value="serrated adenoma"/>
+        <colon:discontinuousExtramuralExtension value="negative"/>
+        <lymphovascularInvasion value="negative"/>
+        <perineuralInvasion value="negative"/>
+        <venousInvasion value="negative"/>
+        <treatmentEffect value="slightResponse"/>
+    </accessory>
+    <margins>
+        <margin closest="true" location="proximal" status="negative">
+            <distance unit="mm" value="1"/>
+        </margin>
+        <margin location="proximal" status="negative"/>
+        <margin location="distal" status="negative"/>
+        <margin location="circumferential" status="negative"/>
+    </margins>
+    <nodes>
+        <nodeGroup laterality="right" location="anorectal">
+            <nodeStatus count="6" value="total"/>
+            <nodeStatus count="3" value="positive"/>
+            <nodeStatus count="3" value="regressed"/>
+        </nodeGroup>
+        <nodeGroup laterality="right" location="anterior cecal">
+            <nodeStatus count="7" value="total"/>
+        </nodeGroup>
+    </nodes>
+    <stage>
+        <classification value="p"/>
+        <T value="2"/>
+        <N value="0"/>
+        <M value="X"/>
+        <prefix value="a r y"/>
+    </stage>
+</synopsis>

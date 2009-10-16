@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="../../report/cap-cancer/resection/resection@colon.rng" type="xml"?>
+<?oxygen SCHSchema="../../rules/cap-cancer/resection@colon.sch"?>
+<synopsis pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@colon.rng"
+    pert:version="0.1" xmlns="http://www.cap.org/pert/2009/01/" xmlns:colon="http://www.cap.org/pert/2009/01/colon/"
+    xmlns:pert="http://www.cap.org/pert/2009/01/">
+    <clinical>
+        <clinicalFinding value="mass"/>
+        <clinicalFinding value="biopsy positive for adenocarcinoma"/>
+    </clinical>
+    <specimen>
+        <procedure value="segmental colectomy"/>
+        <site value="cecum"/>
+        <site value="left colon"/>
+        <tumorLocation value="cecum"/>
+    </specimen>
+    <tumor>
+        <histologicType value="adenocarcinoma"/>
+        <grade value="high"/>
+        <colon:suggestMicrosatelliteInstability>
+            <colon:highGrade value="positive"/>
+            <colon:medullaryComponent value="negative"/>
+            <colon:mucinousComponent value="negative"/>
+        </colon:suggestMicrosatelliteInstability>
+        <colon:immuneResponse>
+            <colon:intratumoralResponse value="marked"/>
+            <colon:peritumoralResponse value="mild to moderate"/>
+        </colon:immuneResponse>
+        <colon:tumorPerforation value="negative"/>
+    </tumor>
+    <accessory>
+        <colon:discontinuousExtramuralExtension value="negative"/>
+        <colon:preexistingPolyp value="villous adenoma"/>
+        <lymphovascularInvasion value="negative"/>
+        <venousInvasion value="negative"/>
+    </accessory>
+    <extent>
+        <invasion>
+            <colon:deepestInvasion value="muscularis propria"/>
+        </invasion>
+        <size>
+            <dimension unit="cm" value="4.3"/>
+        </size>
+    </extent>
+    <margins>
+        <margin location="distal" status="negative"/>
+        <margin location="proximal" status="negative"/>
+        <margin closest="true" location="circumferential" status="negative">
+            <distance unit="cm" value="0.8"/>
+        </margin>
+    </margins>
+    <nodes>
+        <nodeGroup location="posterior cecal">
+            <nodeStatus count="7" value="total"/>
+            <nodeStatus count="0" value="positive"/>
+        </nodeGroup>
+    </nodes>
+    <stage>
+        <T value="2"/>
+        <N value="0"/>
+        <M value="X"/>
+    </stage>
+    <additional>
+        <finding value="other polyp"/>
+    </additional>
+</synopsis>

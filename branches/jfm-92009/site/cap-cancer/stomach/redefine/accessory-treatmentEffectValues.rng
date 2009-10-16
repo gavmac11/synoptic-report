@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <value>prior treatment status unknown</value>
+    <value>no prior treatment</value>
+    <value>no residual tumor</value>
+    <value>marked response</value>
+    <value>moderate response</value>
+    <value>no definite response</value>
+    <value>equivocal</value>
+</choice>

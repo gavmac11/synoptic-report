@@ -1,0 +1,194 @@
+@prefix cap:	<http://www.cap.org/pert/2009/01/> .
+@prefix colon:	<http://www.cap.org/pert/2009/01/colon/> .
+@prefix anat:	<http://www.rsna.org/radlex/2009/01/anat/> .
+@prefix rdfs:	<http://www.w3.org/200/01/rdf-schema#> .
+@prefix cmh:	<http://www.centerville-memorial-hospital.org/pid#> .
+@prefix cmhsp:	<http://www.centerville-memorial-hospital.org/pathology/sid#> .
+@prefix cmhmd:	<http://www.centerville-memorial-hospital.org/md-id#> .
+@prefix dc:		<http://purl.org/dc/elements/1.1/ > .
+
+<#patient> = <cmh:X875693> .
+<#specimen> = <cmhsp:SL-09-12345> .
+<#> dc:author <#pathologist>.
+<#pathologist> = <cmhmd:9876-1> .
+
+<rdf:RDF xmlns="file:/tmp/tmpzuv4Mc-rdfconverter#"
+    xmlns:anat="http://www.rsna.org/radlex/2009/01/anat/"
+    xmlns:cap="http://www.cap.org/pert/2009/01/"
+    xmlns:cmh="http://www.centerville-memorial-hospital.org/pid#"
+    xmlns:cmhmd="http://www.centerville-memorial-hospital.org/md-id#"
+    xmlns:cmhsp="http://www.centerville-memorial-hospital.org/pathology/sid#"
+    xmlns:colon="http://www.cap.org/pert/2009/01/colon/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/ "
+    xmlns:log="http://www.w3.org/2000/10/swap/log#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/200/01/rdf-schema#">
+
+    <rdf:Description rdf:about="#">
+        <dc:author rdf:resource="#pathologist"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#pathologist">
+        <sameAs xmlns="http://www.w3.org/2002/07/owl#"
+            rdf:resource="cmhmd:9876-1"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#patient">
+        <sameAs xmlns="http://www.w3.org/2002/07/owl#"
+            rdf:resource="cmh:X875693"/>
+    </rdf:Description>
+
+    <rdf:Description rdf:about="#specimen">
+        <sameAs xmlns="http://www.w3.org/2002/07/owl#"
+            rdf:resource="cmhsp:SL-09-12345"/>
+    </rdf:Description>
+</rdf:RDF>
+
+<!-- individuals -->
+<!--
+cmh:X875693 (as individual of patient)
+cmhsp:SL-09-12345 (as individual of specimen)
+cmhmd:9876-1 (as individual of pathologist)... which has property dc:author 
+  -->
+
+<!-- classes (as rdf subjects)-->
+<!--
+cap:mass
+cap:biopsy
+cap:cancer
+cap:polyp
+cap:site
+anat:cecum
+cap:histologicType
+cap:histologicGrade
+
+colon:intraTumoralResponse
+colon:periTumoralResponse
+colon:tumorPerforation
+  -->
+
+<!-- properties/roles (as rdf predicates) -->
+<!--
+cap:diagnosedBy
+cap:sourceOfSpecimen
+cap:derivedFromProcedure
+cap:includesAnatomicPart
+cap:involvedByDisease
+cap:hasTumorFinding
+cap:discontinuousExtramuralExtenstion
+  -->
+
+<#patient> 
+	<cap:clinicalFinding> 
+		[a <cap:Mass>], 
+		[<cap:diagnosedBy> <cap:Biopsy>; a <cap:Cancer>]
+.
+
+<#patient> <cap:sourceOfSpecimen> <_:ThisSpecimen>.
+
+<#specimen> = 
+	[
+		a <cap:Specimen>;
+		<cap:derivedFromProcedure> [a <cap:segmentalColectomy>];
+		<cap:includesAnatomicPart> [a <anat:Cecum>, <anat:leftColon>];
+		<cap:involvedByDisease> <_:ThisTumor>
+	]
+.
+
+<rdf:RDF xmlns="http://www.w3.org/2000/10/swap/log#"
+    xmlns:log="http://www.w3.org/2000/10/swap/log#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+    <rdf:Description rdf:about="#specimen">
+        <sameAs xmlns="http://www.w3.org/2002/07/owl#"
+            rdf:parseType="Resource">
+            <rdf:type rdf:resource="cap:Specimen"/>
+            <derivedFromProcedure xmlns="cap:"
+                rdf:parseType="Resource">
+                <rdf:type rdf:resource="cap:segmentalColectomy"/>
+            </derivedFromProcedure>
+            <includesAnatomicPart xmlns="cap:"
+                rdf:parseType="Resource">
+                <rdf:type rdf:resource="anat:Cecum"/>
+                <rdf:type rdf:resource="anat:leftColon"/>
+            </includesAnatomicPart>
+            <involvedByDisease xmlns="cap:"
+                rdf:resource="_:ThisTumor"/>
+        </sameAs>
+    </rdf:Description>
+</rdf:RDF>
+
+
+<_:ThisTumor> 
+	a <cap:Carcinoma>; 
+	<cap:site [a <anat:Cecum>];
+	<cap:histologicType> <cap:Adenocarcinoma>;
+	<cap:histologicGrade> <cap:highGrade>;
+	<cap:hasTumorFinding> <_:microsatelliteInstabilityFindings>;
+	<colon:intratumoralResponse> <cap:marked>;
+	<colon:peritumoralResponse> <cap:mildToModerate>;
+	<colon:tumorPerforation> <cap:negative>;
+	<colon:discontinuousExtramuralExtenstion> <cap:negative>;
+	<colon:preexistingPolyp> [a cap:Concept; rdfs:label "villous adenoma"];
+	<cap:lymphovascularInvasion> <cap:inconclusive>;
+	<cap:venousInvasion> <cap:negative>;
+	<colon:deepestInvasion> [a cap:Concept; rdfs:label "muscularis propria"];
+	<cap:size> [<cap:dimension> 3.5; <cap:unit> [<rdfs:label> "cm"]]
+.
+
+<_:microsatelliteInstabilityFindings> = 
+	(
+		[<colon:highGrade> <cap:positive>], 
+		[<colon:medullaryComponent> <cap:negative>],
+		[<colon:mucinousComponent> <cap:negative>]
+	)
+.
+
+<#specimen> <cap:margin>
+	(
+		[
+			<cap:location> <cap:distalMargin>; 
+			<cap:marginStatus> <cap:negative>
+		],
+		[
+			<cap:location> <cap:proximalMargin>; 
+			<cap:marginStatus> <cap:negative>
+		],
+		[
+			<cap:location> <cap:circumferentiallMargin>; 
+			<cap:marginStatus> <cap:negative>; 
+			a <cap:ClosestMargin>
+		]
+	)
+.
+
+<_:ThisTumor> 
+	<cap:regionalLymphNodes> 
+		[
+			<cap:nodeGroup> [<rdfs:label> "posterior cecal"]; 
+			<cap:totalNodes> 7; 
+			<cap:positiveNodes> 0
+		]
+.
+
+    <rdf:Description rdf:about="_:ThisTumor">
+        <regionalLymphNodes xmlns="cap:"
+            rdf:parseType="Resource">
+            <nodeGroup rdf:parseType="Resource">
+                <label xmlns="rdfs:">posterior cecal</label>
+            </nodeGroup>
+            <positiveNodes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</positiveNodes>
+            <totalNodes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</totalNodes>
+        </regionalLymphNodes>
+    </rdf:Description>
+
+
+<_:ThisTumor> 
+	<cap:T> "2"; 
+	<cap:N> "0"; 
+	<cap:M> "X"
+.
+
+<_:ThisSpecimen> 
+	<cap:additionalFinding> <cap:polyp>
+.

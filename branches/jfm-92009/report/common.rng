@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  
+  CAP Schema for Synoptic Reports
+  (c) Copyright 2008 College of American Pathologists
+  ===========================================================================
+  Component name:
+  shell
+  
+  Component type:
+  schema
+  
+  Version date:
+  2008.11.18
+  
+  Defines:
+  base schema for all CAP schemas
+  
+  Purpose:
+  Container schema for all CAP schemas. Defines the <synopsis> element, 
+  which is the root element for all other schemas; includes standard 
+  attribute set for this element. Has no other CAP structured content. 
+  Allows any mixed content with any foreign elements. 
+  Does not allow any other CAP elements. 
+  
+  This schema is in intent "abstract"; we do not anticipate it would ever
+  be instantiated. It can be thought of as the schema for a report of an
+  unspecified procedure at an unspecified site.
+  
+  Dependencies:      
+  direct <externalRef> to anyForeignContent.rng; must be in same folder
+  direct <externalRef> to anyForeignAttributes.rng; must be in same folder
+  indirect <externalRef> to anyForeignAttributes.rng; must be in same folder
+  
+  ===========================================================================
+  Copyright 2009 College of American Pathologists (CAP)
+  
+  This file is part of the "CAP Schema for Synoptic Cancer Reports".
+  
+  The "CAP Schema for Synoptic Cancer Reports" is licensed under the 
+  Apache License, Version 2.0 (the "License"); you may not use this 
+  file except in compliance with the License.
+  
+  You may obtain a copy of the License at
+  
+  http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  ===========================================================================
+  
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+  xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/">
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <include href="../common/baseContent.rng"/>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <start combine="interleave">
+    <element name="synopsis">
+      <a:documentation>The root element for all synoptic reports</a:documentation>
+      <ref name="synopsis-attrib"/>
+      <interleave>
+        <ref name="baseContent"/>
+        <ref name="synopsis-content"/>
+      </interleave>
+    </element>
+  </start>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <define combine="interleave" name="synopsis-attrib">
+    <a:documentation>Standard attribute set for synopsis element</a:documentation>
+    <attribute name="pert:schemaLocation">
+      <ref name="schemaLocation"/>
+    </attribute>
+    <attribute name="pert:version">
+      <ref name="version"/>
+    </attribute>
+    <attribute name="grddl:transformation"/>
+  </define>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <define combine="choice" name="schemaLocation">
+    <data type="anyURI"/>
+  </define>
+  <define combine="choice" name="version">
+    <data type="string"/>
+  </define>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <define combine="interleave" name="synopsis-content">
+    <empty/>
+  </define>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</grammar>

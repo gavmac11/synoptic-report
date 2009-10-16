@@ -1,0 +1,645 @@
+# Saved by TopBraid on Fri Sep 18 15:05:00 EDT 2009
+# baseURI: http://www.cap.org/pert/2009/01/colon/
+# imports: http://sweet.jpl.nasa.gov/2.0/data.owl
+# imports: http://purl.org/dc/dcmitype/
+# imports: http://sweet.jpl.nasa.gov/2.0/time.owl
+# imports: http://sweet.jpl.nasa.gov/2.0/spaceObject.owl
+# imports: http://sweet.jpl.nasa.gov/2.0/human.owl
+# imports: http://www.ifomis.org/bfo/1.1
+# imports: http://purl.org/dc/dcam/
+# imports: file:///Applications/TopBraidComposer/workspace/TopBraid/Common/articulate.rdf
+# imports: http://purl.org/dc/elements/1.1/
+# imports: http://www.w3.org/2004/02/skos/core
+# imports: http://sweet.jpl.nasa.gov/2.0/sciUnits.owl
+# imports: http://sweet.jpl.nasa.gov/2.0/spaceDirection.owl
+# imports: http://sweet.jpl.nasa.gov/2.0/spaceDistribution.owl
+# imports: http://xmlns.com/foaf/0.1/
+# imports: http://sweet.jpl.nasa.gov/2.0/biol.owl
+
+@prefix :        <http://www.cap.org/pert/2009/01/colon/> .
+@prefix anat:    <http://www.rsna.org/radlex/2009/01/anat/#> .
+@prefix art:     <file:///Applications/TopBraidComposer/workspace/TopBraid/Common/articulate.rdf#> .
+@prefix biol:    <http://sweet.jpl.nasa.gov/2.0/biol.owl#> .
+@prefix cap:     <http://www.cap.org/pert/2009/01/#> .
+@prefix cmh:     <http://www.centerville-memorial-hospital.org#> .
+@prefix colon:   <http://www.cap.org/pert/2009/01/colon#> .
+@prefix data:    <http://sweet.jpl.nasa.gov/2.0/data.owl#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dir:     <http://sweet.jpl.nasa.gov/2.0/spaceDirection.owl#> .
+@prefix dist:    <http://sweet.jpl.nasa.gov/2.0/spaceDistribution.owl#> .
+@prefix human:   <http://sweet.jpl.nasa.gov/2.0/human.owl#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix owl11:   <http://www.w3.org/2006/12/owl11#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix sweet:   <http://sweet.jpl.nasa.gov/2.0#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+biol:BiologicalOxygenDemand
+      rdfs:subClassOf owl:Thing .
+
+biol:LivingThing
+      rdfs:subClassOf owl:Thing .
+
+biol:Organism
+      rdfs:subClassOf owl:Thing .
+
+biol:Species
+      rdfs:subClassOf owl:Thing .
+
+biol:VitalStatistics
+      rdfs:subClassOf owl:Thing .
+
+data:Collection
+      rdfs:subClassOf owl:Thing .
+
+data:Data
+      rdfs:subClassOf owl:Thing .
+
+data:DataModel
+      rdfs:subClassOf owl:Thing .
+
+data:DataProduct
+      rdfs:subClassOf owl:Thing .
+
+data:DataStructure
+      rdfs:subClassOf owl:Thing .
+
+data:DatasetProperty
+      rdfs:subClassOf owl:Thing .
+
+data:Dimension
+      rdfs:subClassOf owl:Thing .
+
+data:Ensemble
+      rdfs:subClassOf owl:Thing .
+
+data:Field
+      rdfs:subClassOf owl:Thing .
+
+data:Increment
+      rdfs:subClassOf owl:Thing .
+
+data:L1
+      rdfs:subClassOf owl:Thing .
+
+data:L2
+      rdfs:subClassOf owl:Thing .
+
+data:L3
+      rdfs:subClassOf owl:Thing .
+
+data:L4
+      rdfs:subClassOf owl:Thing .
+
+data:Layer
+      rdfs:subClassOf owl:Thing .
+
+data:Metadata
+      rdfs:subClassOf owl:Thing .
+
+data:Provenance
+      rdfs:subClassOf owl:Thing .
+
+data:Raster
+      rdfs:subClassOf owl:Thing .
+
+data:Value
+      rdfs:subClassOf owl:Thing .
+
+data:Variable
+      rdfs:subClassOf owl:Thing .
+
+data:Version
+      rdfs:subClassOf owl:Thing .
+
+human:Human
+      rdfs:subClassOf owl:Thing .
+
+human:HumanActivity
+      rdfs:subClassOf owl:Thing .
+
+human:HumanHealth
+      rdfs:subClassOf owl:Thing .
+
+human:KnowledgeDomain
+      rdfs:subClassOf owl:Thing .
+
+human:Service
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/math.owl#Discontinuity>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/math.owl#Discontinuous>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/math.owl#Equation>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/math.owl#Extent>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/math.owl#LinearExtent>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/math.owl#Net>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/math.owl#NumericalEntity>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/math.owl#Operation>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/math.owl#ReferenceSystem>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/math.owl#Relation>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/math.owl#Sum>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/math.owl#Theorem>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/mathFunction.owl#Affine>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/mathFunction.owl#ChiSquareDistribution>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/mathFunction.owl#NormalDistribution>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Campaign>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Category>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Characteristics>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Classification>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Condition>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Description>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Dimension>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#EmpiricalLaw>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Group>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Hypothesis>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#HypothesisTest>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Index>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Indicator>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#IntervalQuantity>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#MeasurementScale>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Model>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Phenomena>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Prediction>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Process>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Project>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Property>
+      rdfs:subClassOf owl:Thing , <http://sweet.jpl.nasa.gov/2.0/sci.owl#Property> .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Qualitative>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Quality>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Quantitative>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Quantity>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Role>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Scale>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Size>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Superimpose>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Theory>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sci.owl#Type>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sciUnits.owl#BaseUnitOrUnitDerivedWithoutChangingOfDimension>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sciUnits.owl#Prefix>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sciUnits.owl#PrefixOrUnit>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/sciUnits.owl#Unit>
+      rdfs:subClassOf owl:Thing .
+
+dir:Angle
+      rdfs:subClassOf owl:Thing .
+
+dir:AngularDirection
+      rdfs:subClassOf owl:Thing .
+
+dir:Bearing
+      rdfs:subClassOf owl:Thing .
+
+dir:Component
+      rdfs:subClassOf owl:Thing .
+
+dir:Downward
+      rdfs:subClassOf owl:Thing .
+
+dir:Eastward
+      rdfs:subClassOf owl:Thing .
+
+dir:HorizontalDirection
+      rdfs:subClassOf owl:Thing .
+
+dir:Inward
+      rdfs:subClassOf owl:Thing .
+
+dir:Northward
+      rdfs:subClassOf owl:Thing .
+
+dir:Outward
+      rdfs:subClassOf owl:Thing .
+
+dir:Southward
+      rdfs:subClassOf owl:Thing .
+
+dir:Upward
+      rdfs:subClassOf owl:Thing .
+
+dir:Westward
+      rdfs:subClassOf owl:Thing .
+
+dist:SpatialDistribution
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/spaceObject.owl#Edge>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/time.owl#Age>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/time.owl#Autumn>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/time.owl#Beginning>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/time.owl#Event>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/time.owl#Instantaneous>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/time.owl#LocalTime>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/time.owl#Occurrence>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/time.owl#SolarTime>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/time.owl#TemporalEntity>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/time.owl#TemporalReference>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/time.owl#TimeStep>
+      rdfs:subClassOf owl:Thing .
+
+<http://sweet.jpl.nasa.gov/2.0/time.owl#UT>
+      rdfs:subClassOf owl:Thing .
+
+cap:Biopsy
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:Procedure .
+
+cap:CancerFeature
+      rdf:type owl:Class ;
+      rdfs:subClassOf <http://sweet.jpl.nasa.gov/2.0/sci.owl#Property> , cap:Thing .
+
+cap:ColonBodySite
+      rdf:type owl:Class ;
+      rdfs:subClassOf anat:BodySite .
+
+cap:Equivocal
+      rdf:type cap:ExtendedBooleanResult .
+
+cap:ExtendedBooleanResult
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:ObservationValue .
+
+cap:ExtentOfInvasion
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:CancerFeature ;
+      owl:disjointWith colon:MucinousComponent , cap:CancerFeature , cap:Procedure , cap:ObservationValue , cmh:Specimen , cap:Polyp , colon:StageElement , colon:MedullaryComponent , anat:BodySite , cap:Tumor .
+
+cap:Grade
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:CancerFeature .
+
+cap:HistologicType
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:CancerFeature .
+
+cap:Inapplicable
+      rdf:type cap:IndeterminateResult .
+
+cap:Indeterminate
+      rdf:type cap:IndeterminateResult .
+
+cap:IndeterminateResult
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:ExtendedBooleanResult .
+
+cap:Negative
+      rdf:type cap:ExtendedBooleanResult .
+
+cap:ObservationValue
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:Thing .
+
+cap:Pathologist
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:Person .
+
+cap:Patient
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:Person .
+
+cap:Person
+      rdf:type owl:Class ;
+      rdfs:subClassOf <http://xmlns.com/foaf/0.1/Person> , cap:Thing , human:Human .
+
+cap:Polyp
+      rdf:type owl:Class ;
+      rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> , cap:Thing .
+
+cap:Positive
+      rdf:type cap:ExtendedBooleanResult .
+
+cap:Procedure
+      rdf:type owl:Class ;
+      rdfs:subClassOf <http://www.ifomis.org/bfo/1.1/span#ProcessualEntity> , cap:Thing .
+
+cap:Report
+      rdf:type owl:Class ;
+      rdfs:subClassOf <http://xmlns.com/foaf/0.1/Document> .
+
+cap:Resection
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:Procedure .
+
+cap:Thing
+      rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing , skos:Concept .
+
+cap:Tumor
+      rdf:type owl:Class ;
+      rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> , cap:Thing , <http://www.ifomis.org/bfo/1.1/snap#FiatObjectPart> .
+
+cap:TumorSize
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:ExtentOfInvasion , <http://sweet.jpl.nasa.gov/2.0/sci.owl#Size> .
+
+cap:Weight
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:Thing .
+
+cap:additionalFinding
+      rdf:type rdf:Property .
+
+cap:clinicalFinding
+      rdf:type rdf:Property .
+
+cap:derivedFromProcedure
+      rdf:type rdf:Property .
+
+cap:diagnosedBy
+      rdf:type rdf:Property .
+
+cap:hasTumorFinding
+      rdf:type rdf:Property .
+
+cap:histologyGrade
+      rdf:type rdf:Property .
+
+cap:histologyType
+      rdf:type rdf:Property .
+
+cap:includesAnatomicPart
+      rdf:type rdf:Property .
+
+cap:involvedByDisease
+      rdf:type rdf:Property .
+
+cap:site
+      rdf:type rdf:Property .
+
+cap:sourceOfSpecimen
+      rdf:type rdf:Property .
+
+colon:Biopsy
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:Biopsy , colon:Procedure .
+
+colon:DeepestInvasion
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:ExtentOfInvasion .
+
+colon:Grade
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:Grade .
+
+colon:HighGrade
+      rdf:type colon:Grade .
+
+colon:LowGrade
+      rdf:type colon:Grade .
+
+colon:M
+      rdf:type owl:Class ;
+      rdfs:subClassOf colon:StageElement .
+
+colon:M0
+      rdf:type colon:M .
+
+colon:M1
+      rdf:type colon:M .
+
+colon:MedullaryComponent
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:Thing .
+
+colon:MucinousComponent
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:Thing .
+
+colon:N
+      rdf:type owl:Class ;
+      rdfs:subClassOf colon:StageElement .
+
+colon:N0
+      rdf:type colon:N .
+
+colon:N1
+      rdf:type colon:N .
+
+colon:N2
+      rdf:type colon:N .
+
+colon:NX
+      rdf:type colon:N .
+
+colon:Procedure
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:Procedure .
+
+colon:SegmentalColectomy
+      rdf:type owl:Class ;
+      rdfs:subClassOf colon:Procedure , cap:Resection .
+
+colon:StageElement
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:Thing .
+
+colon:T
+      rdf:type owl:Class ;
+      rdfs:subClassOf colon:StageElement .
+
+colon:T0
+      rdf:type colon:T .
+
+colon:T1
+      rdf:type colon:T .
+
+colon:T2
+      rdf:type colon:T .
+
+colon:T3
+      rdf:type colon:T .
+
+colon:T4
+      rdf:type colon:T .
+
+colon:TX
+      rdf:type colon:T .
+
+colon:discontinousExtramuralExtenstion
+      rdf:type rdf:Property .
+
+colon:intratumoralResponse
+      rdf:type rdf:Property .
+
+colon:peritumoralResponse
+      rdf:type rdf:Property .
+
+colon:tumorPerforation
+      rdf:type rdf:Property .
+
+:     rdf:type owl:Ontology ;
+      owl:imports <http://sweet.jpl.nasa.gov/2.0/sciUnits.owl> , <http://purl.org/dc/dcam/> , <http://xmlns.com/foaf/0.1/> , <http://www.w3.org/2004/02/skos/core> , <http://sweet.jpl.nasa.gov/2.0/time.owl> , dc: , <http://www.ifomis.org/bfo/1.1> , <file:///Applications/TopBraidComposer/workspace/TopBraid/Common/articulate.rdf> , <http://sweet.jpl.nasa.gov/2.0/biol.owl> , <http://sweet.jpl.nasa.gov/2.0/spaceDistribution.owl> , <http://sweet.jpl.nasa.gov/2.0/data.owl> , <http://purl.org/dc/dcmitype/> , <http://sweet.jpl.nasa.gov/2.0/spaceObject.owl> , <http://sweet.jpl.nasa.gov/2.0/human.owl> , <http://sweet.jpl.nasa.gov/2.0/spaceDirection.owl> ;
+      owl:versionInfo "Created with TopBraid Composer"^^xsd:string .
+
+:This
+      rdf:type owl:Ontology , cap:Thing , skos:ConceptScheme .
+
+:X875693
+      rdf:type cap:Patient ;
+      rdfs:label "X875693" .
+
+:pathologist_9871_1
+      rdf:type cap:Pathologist ;
+      rdfs:label "9876-1" .
+
+:some_tumor
+      rdf:type cap:Tumor .
+
+cmh:SL-09-12345
+      rdf:type cmh:Specimen ;
+      rdfs:label "SL-09-12345" .
+
+cmh:Specimen
+      rdf:type owl:Class ;
+      rdfs:subClassOf <http://www.ifomis.org/bfo/1.1/snap#Object> , <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> , cap:Thing .
+
+cmh:patientId
+      rdf:type rdf:Property .
+
+anat:AscendingColon
+      rdf:type cap:ColonBodySite .
+
+anat:BodySite
+      rdf:type owl:Class ;
+      rdfs:subClassOf cap:Thing .
+
+anat:Cecum
+      rdf:type cap:ColonBodySite .
+
+anat:DescendingColon
+      rdf:type cap:ColonBodySite .
+
+anat:HepaticFlexure
+      rdf:type cap:ColonBodySite .
+
+anat:Rectum
+      rdf:type cap:ColonBodySite .
+
+anat:SigmoidColon
+      rdf:type cap:ColonBodySite .
+
+anat:SplenicFlexure
+      rdf:type cap:ColonBodySite .
+
+anat:TransverseColon
+      rdf:type cap:ColonBodySite .

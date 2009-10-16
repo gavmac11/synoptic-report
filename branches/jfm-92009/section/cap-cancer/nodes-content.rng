@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--   
+    CAP Schema for Synoptic Reports
+    (c) Copyright 2008 College of American Pathologists
+    ========================================================================
+    
+    <<<File name>>>
+    nodes.rng
+    
+    <<<Component type>>>
+    not_specified
+    
+    <<<Version date>>>
+    2008.11.18
+    
+    <<<Purpose>>>
+    not_specified
+    
+    <<<Defines>>>
+    none
+    
+    <<<Dependencies>>>
+    none
+    
+    <<<Comments>>>
+    none
+    
+    ===========================================================================
+    Copyright 2009 College of American Pathologists (CAP)
+    
+    This file is part of the "CAP Schema for Synoptic Cancer Reports".
+    
+    The "CAP Schema for Synoptic Cancer Reports" is licensed under the 
+    Apache License, Version 2.0 (the "License"); you may not use this 
+    file except in compliance with the License.
+    
+    You may obtain a copy of the License at
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+    <define combine="interleave" name="nodes-content">
+        <zeroOrMore>
+            <element name="nodeGroup">
+                <externalRef href="../../common/laterality.rng"/>
+                <attribute name="location">
+                    <ref name="nodeGroups"/>
+                </attribute>
+                <interleave>
+                    <ref name="baseContent"/>
+                    <ref name="nodeGroup-content"/>
+                </interleave>
+            </element>
+        </zeroOrMore>
+    </define>
+    <define name="nodeGroups">
+        <text/>
+    </define>
+    <define combine="interleave" name="nodeGroup-content">
+        <zeroOrMore>
+            <element name="nodeStatus">
+                <ref name="baseContent"/>
+                <attribute name="value">
+                    <ref name="nodeStatuses"/>
+                </attribute>
+                <attribute name="count">
+                    <data type="nonNegativeInteger"/>
+                </attribute>
+                <interleave>
+                    <optional>
+                        <element name="extracapsular">
+                            <ref name="baseContent"/>
+                            <attribute name="value">
+                                <externalRef href="../../common/extendedBoolean.rng"/>
+                            </attribute>
+                        </element>
+                    </optional>
+                    <optional>
+                        <element name="largestMet">
+                            <ref name="baseContent"/>
+                            <attribute name="value">
+                                <data type="float"/>
+                            </attribute>
+                            <attribute name="unit">
+                                <externalRef href="../../common/lengthUnits.rng"/>
+                            </attribute>
+                        </element>
+                    </optional>
+                </interleave>
+            </element>
+        </zeroOrMore>
+    </define>
+    <define combine="choice" name="nodeStatuses">
+        <choice>
+            <value>total</value>
+            <value>positive</value>
+            <value>regressed</value>
+            <value>other</value>
+        </choice>
+    </define>
+</grammar>

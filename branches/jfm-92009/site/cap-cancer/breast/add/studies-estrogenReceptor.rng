@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" name="estrogenReceptor"
+  ns="http://www.cap.org/pert/2009/01/breast/" xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <attribute name="value">
+    <choice>
+      <externalRef href="../../../../common/extendedBoolean.rng"/>
+    </choice>
+  </attribute>
+  <attribute name="antibody"/>
+  <attribute name="vendor"/>
+  <attribute name="fixative"/>
+</element>
