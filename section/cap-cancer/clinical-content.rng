@@ -49,54 +49,37 @@
     xmlns:iso="http://purl.oclc.org/dsdl/schematron">
     <define combine="interleave" name="clinical-content">
         <interleave>
-            <optional>
-                <element name="priorTherapies">
-                    <interleave>
-                        <ref name="baseContent"/>
-                        <zeroOrMore>
-                            <element name="priorTherapy">
-                                <ref name="baseContent"/>
-                                <attribute name="description"/>
-                                <optional>
-                                    <attribute name="date">
-                                        <choice>
-                                            <data type="date"/>
-                                            <data type="gYear"/>
-                                            <data type="gYearMonth"/>
-                                        </choice>
-                                    </attribute>
-                                </optional>
-                            </element>
-                        </zeroOrMore>
-                    </interleave>
-                </element>
-            </optional>
-            <optional>
-                <element name="clinicalFindings">
+            <zeroOrMore>
+                <element name="priorTherapy">
                     <ref name="baseContent"/>
-                    <zeroOrMore>
-                        <element name="clinicalFinding">
-                            <ref name="baseContent"/>
-                            <attribute name="value">
-                                <ref name="clinicalFindingValues"/>
-                            </attribute>
-                        </element>
-                    </zeroOrMore>
+                    <attribute name="description"/>
+                    <optional>
+                        <attribute name="date">
+                            <choice>
+                                <data type="date"/>
+                                <data type="gYear"/>
+                                <data type="gYearMonth"/>
+                            </choice>
+                        </attribute>
+                    </optional>
                 </element>
-            </optional>
-            <optional>
-                <element name="radiologicFindings">
+            </zeroOrMore>
+            <zeroOrMore>
+                <element name="clinicalFinding">
                     <ref name="baseContent"/>
-                    <zeroOrMore>
-                        <element name="radiologicFinding">
-                            <ref name="baseContent"/>
-                            <attribute name="value">
-                                <ref name="radiologicFindingValues"/>
-                            </attribute>
-                        </element>
-                    </zeroOrMore>
+                    <attribute name="value">
+                        <ref name="clinicalFindingValues"/>
+                    </attribute>
                 </element>
-            </optional>
+            </zeroOrMore>
+            <zeroOrMore>
+                <element name="radiologicFinding">
+                    <ref name="baseContent"/>
+                    <attribute name="value">
+                        <ref name="radiologicFindingValues"/>
+                    </attribute>
+                </element>
+            </zeroOrMore>
         </interleave>
     </define>
     <define name="clinicalFindingValues">

@@ -42,17 +42,14 @@
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0">
-        <define name="size">
-        <element name="size">
-            <ref name="baseContent"/>
+    <define name="size-content">
+        <ref name="dimension"/>
+        <optional>
             <ref name="dimension"/>
             <optional>
                 <ref name="dimension"/>
-                <optional>
-                    <ref name="dimension"/>
-                </optional>
             </optional>
-        </element>
+        </optional>
     </define>
     <define name="dimension">
         <element name="dimension">

@@ -61,15 +61,16 @@
     
     ">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0">
     <define name="baseContent">
         <zeroOrMore>
             <attribute>
                 <anyName>
                     <except>
-                        <nsName ns=""/> &localNames; </except>
+                        <nsName ns=""/>
+                        &localNames;
+                    </except>
                 </anyName>
             </attribute>
         </zeroOrMore>
@@ -92,7 +93,9 @@
             <zeroOrMore>
                 <attribute>
                     <anyName>
-                        <except> &localNames; <nsName ns=""/>
+                        <except>
+                            <nsName ns=""/>
+                            &localNames;
                         </except>
                     </anyName>
                 </attribute>
@@ -119,7 +122,10 @@
             <zeroOrMore>
                 <attribute>
                     <anyName>
-                        <except>&localNames;</except>
+                        <except>
+                            <nsName ns=""/>
+                            &localNames;
+                        </except>
                     </anyName>
                 </attribute>
             </zeroOrMore>
@@ -132,14 +138,19 @@
     <define name="anyForeignAttribute">
         <attribute>
             <anyName>
-                <except>&localNames;</except>
+                <except>
+                    &localNames;
+                </except>
             </anyName>
         </attribute>
     </define>
     <define name="anyForeignElement">
         <element>
             <anyName>
-                <except>&localNames;<nsName ns=""/></except>
+                <except>
+                    <nsName ns=""/>
+                    &localNames;
+                </except>
             </anyName>
             <zeroOrMore>
                 <choice>
@@ -154,8 +165,7 @@
         <optional>
             <attribute name="xml:lang">
                 <data type="token">
-                    <param name="pattern"
-                        >[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*</param>
+                    <param name="pattern">[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*</param>
                 </data>
             </attribute>
         </optional>

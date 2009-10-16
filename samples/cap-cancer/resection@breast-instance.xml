@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="../../report/cap-cancer/resection/resection@breast.rng" type="xml"?>
 <?oxygen SCHSchema="../../rules/cap-cancer/resection@breast.sch"?>
+
 <!--
     
     CAP Schema for Synoptic Reports
@@ -45,11 +46,10 @@
     ===========================================================================
     
 -->
-<synopsis xmlns:cco="http://www.cco.on.ca/ourElements" grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/breast@resection.xslt" pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@breast.rng" pert:version="0.1" xmlns="http://www.cap.org/pert/2009/01/" xmlns:breast="http://www.cap.org/pert/2009/01/breast/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/">
+<synopsis grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/breast@resection.xslt" pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@breast.rng" pert:version="0.1" xmlns="http://www.cap.org/pert/2009/01/" xmlns:breast="http://www.cap.org/pert/2009/01/breast/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/">
     <clinical>
         <priorTherapies>
             <priorTherapy description="viblastine-vincristine"/>
-            <cco:whoAdmimistered cco:value="Andrea M"/>
         </priorTherapies>
         <clinicalFindings>
             <clinicalFinding value="personal history of breast cancer"/>
@@ -70,12 +70,13 @@
             <site laterality="right" value="entire breast"/>
         </sites>
         <integrity value="fragmented"/>
-        <size>
-            <dimension unit="cm" value="2.2"/>
-            <dimension value="1.1" unit="cm"/>
-            <dimension value="0.9" unit="cm"/>
-        </size>
-        
+        <tumorSize>
+            <size>
+                <dimension value="2.2" unit="cm"></dimension>
+                <dimension value="1.1" unit="cm"></dimension>
+                <dimension value="0.9" unit="cm"></dimension>
+            </size>
+        </tumorSize>
     </specimen>
     <tumor>
         <grade value="2">
@@ -99,7 +100,7 @@
     </extent>
     <accessory>
         <breast:dermalLymphaticInvasion value="negative"/>
-        <lymphovascularInvasion value="inconclusive"/>
+        <lymphovascularInvasion value="negative"/>
         <perineuralInvasion value="negative"/>
         <treatmentEffect value="inapplicable"/>
         <venousInvasion value="negative"/>
@@ -124,10 +125,9 @@
     <studies>
         <breast:estrogenReceptor antibody="" fixative="" value="negative" vendor=""/>
         <breast:her2neu antibody="" fixative="" value="2+" vendor=""/>
-        <breast:progesteroneReceptor antibody="" fixative="" value="indeterminate" vendor=""/>
+        <breast:progesteroneReceptor antibody="" fixative="" value="equivocal" vendor=""/>
     </studies>
     <stage>
-        <cco:scrambledEggs value="delicious">yummy</cco:scrambledEggs>
         <T value="4b"/>
         <N value="1a"/>
         <M value="1"/>
@@ -137,8 +137,8 @@
     <metastases>
         <metastasis howDiagnosed="this accesion" site="liver">
             <size>
-                <dimension unit="cm" value="0.3"/>
-            </size>           
+                <dimension value="1.1" unit="cm"></dimension>
+            </size>
         </metastasis>
     </metastases>
 </synopsis>
