@@ -89,9 +89,9 @@
     </tumor>
     <extent>
         <size>
-            <dimension value="5.2" unit="cm"></dimension>
-            <dimension value="4.3" unit="cm"></dimension>
-            <dimension value="3.3" unit="cm"></dimension>
+            <dimension value="5.2" unit="cm"/>
+            <dimension value="4.3" unit="cm"/>
+            <dimension value="3.3" unit="cm"/>
         </size>
         <breast:invasion>
             <breast:invasionFinding location="skin ulceration" value="positive"/>
