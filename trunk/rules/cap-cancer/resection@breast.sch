@@ -46,16 +46,17 @@
 <schema queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <ns prefix="pert" uri="http://www.cap.org/pert/2009/01/"/>
-    <p>Schema for constraining CAP/PERT compliant XML breast cancer resection documents.</p>
+    <p>Schema for constraining CAP/PERT compliant XML breast cancer resection
+        documents.</p>
     <ns prefix="breast" uri="http://www.cap.org/pert/2009/01/breast/"/>
     <ns prefix="grddl" uri="http://www.w3.org/2003/g/data-view#"/>
     <let name="skip" value="true()"/>
     <let name="report" value="true()"/>
     <pattern id="therapy-description-not-allowed">
         <rule context="//hasPriorTherapy" subject="@description @value">
-            <assert test="xs:integer(@value) ge count(@description)"> Prior therapy
-                description is forbidden because prior therapy value is not
-                "true". </assert>
+            <assert test="xs:integer(@value) ge count(@description)"> Prior
+                therapy description is forbidden because prior therapy value is
+                not "true". </assert>
         </rule>
     </pattern>
     <pattern id="node-numbers-add-up">
@@ -172,8 +173,10 @@
             <let name="ax-mac"
                 value="sum($ax/pert:nodeStatus[@value = $mac]/@count)"/>
             <let name="mic" value="//pert:nodeStatus[@value = $mic]/@count"/>
-            <let name="im-mic" value="sum($im/pert:nodeStatus[@value = $mic]/@count)"/>
-            <let name="itc" value="//pert:nodeStatus[@value = 'isolated tumor cells']/@count"/>
+            <let name="im-mic"
+                value="sum($im/pert:nodeStatus[@value = $mic]/@count)"/>
+            <let name="itc"
+                value="//pert:nodeStatus[@value = 'isolated tumor cells']/@count"/>
             <let name="reported-N" value="@value"/>
             <let name="calculated-N"
                 value="
@@ -190,10 +193,9 @@
                 else if ($mic)                          then '1mi'
                 else if ($itc)                          then '0'
                 else                                         'X'    "/>
-            <assert test="$reported-N eq $calculated-N"> 
-                Reported N-stage (<value-of select="$reported-N"
-                    />) does not match calculated (<value-of select="$calculated-N"/>). 
-            </assert>
+            <assert test="$reported-N eq $calculated-N"> Reported N-stage
+                    (<value-of select="$reported-N"/>) does not match calculated
+                    (<value-of select="$calculated-N"/>). </assert>
         </rule>
     </pattern>
     <pattern id="calculate-T-stage">
@@ -226,10 +228,9 @@
                 else if ($size gt 0.1)      then '1a'
                 else if ($size gt 0.0)      then '1mic'
                 else                             'X'    "/>
-            <assert test="$reported-T eq $calculated-T">
-                    Reported T-stage (<value-of select="$reported-T"
-                    />) does not match calculated (<value-of select="$calculated-T"/>).
-            </assert>
+            <assert test="$reported-T eq $calculated-T"> Reported T-stage
+                    (<value-of select="$reported-T"/>) does not match calculated
+                    (<value-of select="$calculated-T"/>). </assert>
         </rule>
     </pattern>
     <pattern id="treatment-effect-implies-prior-therapy">
