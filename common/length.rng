@@ -40,15 +40,32 @@
     ===========================================================================
     
 -->
-<div datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0">
-    <attribute name="unit">
-        <externalRef href="lengthUnits.rng"/>
-    </attribute>
-    <ref name="baseContent"/>
-    <attribute name="value">
-        <data type="decimal">
-            <param name="minExclusive">0.0</param>
-        </data>
-    </attribute>
-</div>
+    <include href="baseContent.rng"/>
+    <start>
+        <element name="size">
+            <ref name="baseContent"/>
+            <ref name="dimension"/>
+            <optional>
+                <ref name="dimension"/>
+                <optional>
+                    <ref name="dimension"/>
+                </optional>
+            </optional>
+        </element>
+    </start>
+    <define name="dimension">
+        <element name="dimension">
+            <attribute name="unit">
+                <externalRef href="lengthUnits.rng"/>
+            </attribute>
+            <ref name="baseContent"/>
+            <attribute name="value">
+                <data type="decimal">
+                    <param name="minExclusive">0.0</param>
+                </data>
+            </attribute>
+        </element>
+    </define>
+</grammar>
