@@ -6,7 +6,7 @@ start = notAllowed
 ## Procedure section values
 div {
     procedure-values =
-          "total colectomy"
+        "total colectomy"
         | "right hemicolectomy"
         | "transverse colectomy"
         | "left hemicolectomy"
@@ -14,7 +14,7 @@ div {
         | "abdominoperineal resection"
         | "proctocolectomy"
     site-values =
-          "cecum"
+        "cecum"
         | "right colon"
         | "hepatic flexure"
         | "transverse colon"
@@ -29,13 +29,14 @@ div {
 ## Tumor section values
 div {
     histologicType-values =
-          "adenocarcinoma"
+        "adenocarcinoma"
         | "mucinous adenocarcinoma"
         | "signet-ring cell carcinoma"
         | "small cell carcinoma"
         | "squamous cell carcinoma"
         | "adenosquamous carcinoma"
         | "medullary carcinoma"
+        | "lumpectomy"
         | "undifferentiated carcinoma"
         | "carcinoma indeterminate type"
         | "other"
@@ -51,7 +52,7 @@ div {
 ## Tumor section values
 div {
     additionalFindings-values =
-          ""
+        ""
         | "adenoma"
         | "ulcerative colitis"
         | "Crohn's disease"
@@ -63,7 +64,7 @@ div {
 ## Tumor section values
 div {
     marginLocation-values =
-          "deep"
+        "deep"
         | "mucosalLateral"
         | "1:00"
         | "2:00"
@@ -79,7 +80,7 @@ div {
         | "12:00"
         | "other"
     marginStatus-values =
-          "negative"
+        "negative"
         | "indeterminate"
         | "inapplicable"
         | "positive for adenoma"
@@ -89,7 +90,7 @@ div {
 ## Tumor section values
 div {
     nodeGroup-values =
-          "pericolic"
+        "pericolic"
         | "ileocolic"
         | "anterior cecal"
         | "posterior cecal"

@@ -68,9 +68,9 @@
         <zeroOrMore>
             <element name="nodeStatus">
                 <ref name="baseContent"/>
-                <attribute name="value">
+                <optional><element name="value">
                     <ref name="nodeStatuses"/>
-                </attribute>
+                </element></optional>
                 <attribute name="count">
                     <data type="nonNegativeInteger"/>
                 </attribute>
@@ -78,17 +78,17 @@
                     <optional>
                         <element name="extracapsular">
                             <ref name="baseContent"/>
-                            <attribute name="value">
+                            <optional><element name="value">
                                 <externalRef href="../../common/extendedBoolean.rng"/>
-                            </attribute>
+                            </element></optional>
                         </element>
                     </optional>
                     <optional>
                         <element name="largestMet">
                             <ref name="baseContent"/>
-                            <attribute name="value">
+                            <optional><element name="value">
                                 <data type="float"/>
-                            </attribute>
+                            </element></optional>
                             <attribute name="unit">
                                 <externalRef href="../../common/lengthUnits.rng"/>
                             </attribute>

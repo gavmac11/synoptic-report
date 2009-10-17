@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="../../report/cap-cancer/resection/resection@colon.rng" type="xml"?>
+<?oxygen SCHSchema="../../rules/cap-cancer/resection@colon.sch"?>
+<!--
+    
+    CAP Schema for Synoptic Reports
+    (c) Copyright 2008 College of American Pathologists
+    ===========================================================================
+    Component name:
+    resection@colon-instance.xml
+    
+    Component type:
+    sample conformant instance (exemplar)
+    
+    Version date:
+    2008.12.31
+    
+    Defines:
+    
+    
+    Purpose:
+    
+    
+    
+    Dependencies:      
+    
+    
+    ===========================================================================
+    This file is part of the "CAP Schema for Synoptic Reports".
+    
+    The "CAP Schema for Synoptic Reports" is free software: 
+    you can redistribute it and/or modify it under the terms of the 
+    GNU General Public License as published by the Free Software Foundation, 
+    either version 3 of the License, or (at your option) any later version.
+    
+    The "CAP Schema for Synoptic Reports" is distributed 
+    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or 
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+    for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with the "CAP Schema for Synoptic Reports".  
+    If not, see <http://www.gnu.org/licenses/>. 
+    ===========================================================================
+    
+-->
+<synopsis displayText="PATHOLOGY REPORT" grddl:transformation="http://www.cap.org/pert/2009/01/semantics/snomed/prostate@resection.xslt" xmlns:cco="http://cco.org.ca" pert:schemaLocation="http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@colon.rng" pert:version="0.1" xmlns="http://www.cap.org/pert/2009/01/" xmlns:cerner="http://www.cerner.com/" xmlns:colon="http://www.cap.org/pert/2009/01/colon/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/">
+    <comment xml:lang="en">This synopsis demonstrates the resection@colon.rng
+        schema</comment>
+    <clinical>
+        <comment>This is the first visit for this patient. The outside records are not available for review.</comment>
+     
+        <priorTherapies displayText="Please enter the prior thearpeis here">
+            <priorTherapy date="2008-05" description="Chemoirradiation"/>
+        </priorTherapies>
+    </clinical>
+    <specimen>
+        
+        <procedures>
+            <procedure>
+                <comment>In this example this procedure was an A-P resection</comment>                
+                <value>proctocolectomy</value>                
+            </procedure>
+        </procedures>
+        <cco:somethingNew>hello Andrea</cco:somethingNew>
+        <sites>
+            <site><value>rectum</value></site>
+            <site><value>sigmoid colon</value></site>
+        </sites>
+        <tumorLocations>
+            <tumorLocation><value>rectum</value></tumorLocation>
+        </tumorLocations>        
+        <integrity><value>fragmented</value></integrity>
+        <tumorSize>
+            <size>
+                <dimension unit="cm"><value>2.2</value></dimension>
+                <dimension unit="cm"><value>1.5</value></dimension>
+                <dimension unit="cm"><value>1.1</value></dimension>
+            </size>
+        </tumorSize>      
+    </specimen>
+    <tumor>
+        <histologicTypes>
+            <histologicType><value>adenocarcinoma</value></histologicType>/>
+        </histologicTypes>
+        <grade gradingSystem="WHO"><value>high</value></grade>
+        <colon:immuneResponse>
+            <colon:intratumoralResponse><colon:value>marked</colon:value></colon:intratumoralResponse>
+            <colon:peritumoralResponse><colon:value>marked</colon:value></colon:peritumoralResponse>
+        </colon:immuneResponse>
+        <colon:suggestMicrosatelliteInstability>
+            <colon:highGrade><colon:value>equivocal</colon:value></colon:highGrade>
+            <colon:medullaryComponent><colon:value>positive</colon:value></colon:medullaryComponent>
+            <colon:mucinousComponent percentage="50"><colon:value>positive</colon:value></colon:mucinousComponent>
+        </colon:suggestMicrosatelliteInstability>
+        <colon:tumorPerforation><colon:value>positive</colon:value></colon:tumorPerforation>
+    </tumor>
+    <extent>
+        <invasion>
+            <colon:deepestInvasion><colon:value>muscularis propria</colon:value></colon:deepestInvasion>
+        </invasion>
+        <size>
+            <dimension unit="cm"><value>1.2</value></dimension>
+        </size>
+    </extent>
+    <accessory>
+        <colon:preexistingPolyp><colon:value>serrated adenoma</colon:value></colon:preexistingPolyp>
+        <colon:discontinuousExtramuralExtension value="negative"/>
+        <lymphovascularInvasion value="equivocal"/>
+        <perineuralInvasion value="equivocal"/>
+        <venousInvasion value="negative"/>
+        <treatmentEffect value="slightResponse"/>
+    </accessory>
+    <margins>
+        <margin closest="true" location="proximal" status="negative">
+            <distance unit="mm" value="1"/>
+        </margin>
+        <margin location="proximal" status="negative"/>
+        <margin location="distal" status="negative"/>
+        <margin location="circumferential" status="negative"/>
+    </margins>
+    <nodes>
+        <nodeGroup laterality="right" location="anorectal">
+            <nodeStatus count="6" value="total"/>
+            <nodeStatus count="3" value="positive"/>
+            <nodeStatus count="3" value="regressed"/>
+        </nodeGroup>
+        <nodeGroup laterality="right" location="anterior cecal">
+            <nodeStatus count="7" value="total"/>
+        </nodeGroup>
+    </nodes>
+    <stage>
+        <classification value="p"/>
+        <T value="2"/>
+        <N value="0"/>
+        <M value="X"/>
+        <prefix value="a r y"/>
+    </stage>
+</synopsis>
