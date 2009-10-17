@@ -40,18 +40,15 @@
     ===========================================================================
     
 -->
-<div datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/"
+<div datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0">
     <attribute name="unit">
         <externalRef href="lengthUnits.rng"/>
     </attribute>
     <ref name="baseContent"/>
-    <optional>
-        <element name="value">
-            <data type="decimal">
-                <param name="minExclusive">0.0</param>
-            </data>
-        </element>
-    </optional>
+    <attribute name="value">
+        <data type="decimal">
+            <param name="minExclusive">0.0</param>
+        </data>
+    </attribute>
 </div>

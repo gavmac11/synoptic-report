@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<element name="invasion" ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0"
+<element name="invasion" ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <interleave>
         <ref name="baseContent"/>
-        <element name="deepestInvasion"
-            ns="http://www.cap.org/pert/2009/01/stomach/">
+        <element name="deepestInvasion" ns="http://www.cap.org/pert/2009/01/stomach/">
             <ref name="baseContent"/>
-            <optional>
-                <element name="value">
-                    <choice>
-                        <value>high grade dyplasia/CIS only</value>
-                        <value>lamina propria</value>
-                        <value>muscularis mucosae</value>
-                        <value>submucosa</value>
-                        <value>muscularis propria</value>
-                        <value>subserosa</value>
-                        <value>serosal surface</value>
-                        <value>adjacent structure</value>
-                        <value>serosal surface and adjacent structures</value>
-                    </choice>
-                </element>
-            </optional>
+            <attribute name="value">
+                <choice>
+                    <value>high grade dyplasia/CIS only</value>
+                    <value>lamina propria</value>
+                    <value>muscularis mucosae</value>
+                    <value>submucosa</value>
+                    <value>muscularis propria</value>
+                    <value>subserosa</value>
+                    <value>serosal surface</value>
+                    <value>adjacent structure</value>
+                    <value>serosal surface and adjacent structures</value>
+                </choice>
+            </attribute>
             <zeroOrMore>
-                <element name="adjacentStructure"
-                    ns="http://www.cap.org/pert/2009/01/colon/">
+                <element name="adjacentStructure" ns="http://www.cap.org/pert/2009/01/colon/">
                     <ref name=" baseContent"/>
                     <attribute name="value"/>
                     <attribute name="extent">

@@ -5,11 +5,11 @@
         <attribute name="unit">
             <externalRef href="../../../../common/lengthUnits.rng"/>
         </attribute>
-        <optional><element name="value">
+        <attribute name="value">
             <data type="float">
                 <param name="minExclusive">0.0</param>
             </data>
-        </element></optional>
+        </attribute>
         <attribute name="closestMargin">
             <data type="boolean"/>
         </attribute>

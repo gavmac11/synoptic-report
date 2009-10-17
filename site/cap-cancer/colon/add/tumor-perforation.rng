@@ -2,7 +2,7 @@
 <element name="tumorPerforation" ns="http://www.cap.org/pert/2009/01/colon/" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <ref name="baseContent"/>
-    <optional><element name="value">
+    <attribute name="value">
         <externalRef href="../../../../common/extendedBoolean.rng"/>
-    </element></optional>
+    </attribute>
 </element>

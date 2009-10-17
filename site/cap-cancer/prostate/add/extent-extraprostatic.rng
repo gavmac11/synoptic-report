@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <element name="extraprostatic" ns="http://www.cap.org/pert/2009/01/prostate/"
-  xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   xmlns:iso="http://purl.oclc.org/dsdl/schematron">
   <ref name="baseContent"/>
   <attribute name="location">
@@ -13,9 +12,7 @@
       <value>other</value>
     </choice>
   </attribute>
-  <optional>
-    <element name="value">
-      <externalRef href="../../../../common/extendedBoolean.rng"/>
-    </element>
-  </optional>
+  <attribute name="value">
+    <externalRef href="../../../../common/extendedBoolean.rng"/>
+  </attribute>
 </element>

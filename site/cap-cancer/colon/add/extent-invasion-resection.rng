@@ -7,7 +7,7 @@
         <element name="deepestInvasion"
             ns="http://www.cap.org/pert/2009/01/colon/">
             <ref name="baseContent"/>
-            <optional><element name="value">
+            <attribute name="value">
                 <choice>
                     <value>lamina propria</value>
                     <value>submucosa</value>
@@ -24,7 +24,7 @@
                     <value>indeterminate</value>
                     <value>other</value>
                 </choice>
-            </element></optional>
+            </attribute>
             <zeroOrMore>
                 <element name="adjacentStructure"
                     ns="http://www.cap.org/pert/2009/01/colon/">

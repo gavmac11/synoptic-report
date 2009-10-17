@@ -3,7 +3,7 @@
     ns="http://www.cap.org/pert/2009/01/breast/" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <ref name="baseContent"/>
-    <optional><element name="value">
+    <attribute name="value">
         <choice>
             <value>negative</value>
             <value>positive in DCIS</value>
@@ -12,5 +12,5 @@
             <value>positive in both carcinoma and benign tissue</value>
             <value>other</value>
         </choice>
-    </element></optional>
+    </attribute>
 </element>

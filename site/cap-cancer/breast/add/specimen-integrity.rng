@@ -3,13 +3,13 @@
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <element name="specimenIntegrity">
         <ref name="baseContent"/>
-        <optional><element name="value">
+        <attribute name="value">
             <choice>
                 <value>single intact</value>
                 <value>multiple designated</value>
                 <value>fragmented</value>
                 <value>other</value>
             </choice>
-        </element></optional>
+        </attribute>
     </element>
 </optional>

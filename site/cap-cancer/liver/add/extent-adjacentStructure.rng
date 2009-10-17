@@ -4,7 +4,7 @@
     <ref name="baseContent"/>
     <zeroOrMore>
         <element name="structure">
-            <optional><element name="value">
+            <attribute name="value">
                 <choice>
                     <value>chest wall</value>
                     <value>diaphragm</value>
@@ -19,7 +19,7 @@
                     <value>vertebral body</value>
                     <value>other</value>
                 </choice>
-            </element></optional>
+            </attribute>
             <ref name="baseContent"/>
         </element>
     </zeroOrMore>

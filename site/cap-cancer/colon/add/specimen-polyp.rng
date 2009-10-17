@@ -10,13 +10,13 @@
             <optional>
                 <element name="configuration">
                     <ref name="baseContent"/>
-                    <optional><element name="value">
+                    <attribute name="value">
                         <choice>
                             <value>pedunculated</value>
                             <value>sessile</value>
                             <value>other</value>
                         </choice>
-                    </element></optional>
+                    </attribute>
                 </element>
             </optional>
         </interleave>

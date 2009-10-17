@@ -77,9 +77,9 @@
                     <zeroOrMore>
                         <element name="clinicalFinding">
                             <ref name="baseContent"/>
-                            <optional><element name="value">
+                            <attribute name="value">
                                 <ref name="clinicalFindingValues"/>
-                            </element></optional>
+                            </attribute>
                         </element>
                     </zeroOrMore>
                 </element>
@@ -90,9 +90,9 @@
                     <zeroOrMore>
                         <element name="radiologicFinding">
                             <ref name="baseContent"/>
-                            <optional><element name="value">
+                            <attribute name="value">
                                 <ref name="radiologicFindingValues"/>
-                            </element></optional>
+                            </attribute>
                         </element>
                     </zeroOrMore>
                 </element>

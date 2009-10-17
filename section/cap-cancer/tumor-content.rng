@@ -54,9 +54,9 @@
                     <oneOrMore>
                         <element name="histologicType">
                             <ref name="baseContent"/>
-                            <optional><element name="value">
+                            <attribute name="value">
                                 <ref name="histologicTypes"/>
-                            </element></optional>
+                            </attribute>
                         </element>
                     </oneOrMore>
                 </interleave>
@@ -111,9 +111,9 @@
         <data type="string"/>
     </define>
     <define combine="choice" name="gradeContent">
-        <optional><element name="value">
+        <attribute name="value">
             <ref name="grades"/>
-        </element></optional>
+        </attribute>
     </define>
     <define combine="choice" name="grades">
         <choice>
