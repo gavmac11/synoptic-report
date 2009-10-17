@@ -26,7 +26,7 @@
     ===========================================================================
     Copyright 2009 College of American Pathologists (CAP)
     
-    This file is part of the "CAP Schema for Synoptic Cancer Reports".
+    This file is part of the "CAP Schemas for Synoptic Cancer Reports".
     
     The "CAP Schema for Synoptic Cancer Reports" is licensed under the 
     Apache License, Version 2.0 (the "License"); you may not use this 
@@ -34,7 +34,7 @@
     
     You may obtain a copy of the License at
     
-    http://www.apache.org/licenses/LICENSE-2.0
+        http://www.apache.org/licenses/LICENSE-2.0
     
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
@@ -56,86 +56,88 @@
     <nsName ns='http://www.cap.org/pert/2009/01/prostate/'/>
     <nsName ns='http://www.cap.org/pert/2009/01/pancreas/'/>
     <nsName ns='http://www.cap.org/pert/2009/01/stomach/'/>
+    <nsName ns='http://www.cap.org/pert/2009/01/endometrium/'/>
     <nsName ns='http://www.w3.org/2003/g/data-view#'/>
     <nsName ns='http://www.rsna.org/reporting/2009/01/'/>
     
     ">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0">
+    ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <define name="baseContent">
+        <ref name="comment"/>
+        <ref name="label"/>
+    </define>
+    <define name="customContent">
         <zeroOrMore>
-            <attribute>
-                <anyName>
-                    <except>
-                        <nsName ns=""/> &localNames; </except>
-                </anyName>
-            </attribute>
+            <ref name="anyUserAttribute"/>
         </zeroOrMore>
         <interleave>
             <zeroOrMore>
-                <ref name="displayText"/>
+                <choice>
+                    <ref name="anyForeignElement"/>
+                    <ref name="text"/>
+                </choice>
             </zeroOrMore>
-            <zeroOrMore>
-                <ref name="comment"/>
-            </zeroOrMore>
-            <zeroOrMore>
-                <ref name="anyForeignElement"/>
-            </zeroOrMore>
-            <ref name="otherValue"/>
-            <text/>
         </interleave>
     </define>
-    <define name="displayText">
-        <attribute name="displayText"/>
+    <define name="label">
+        <element name="label">
+            <a:documentation>String indicating the label on the pathologist's input
+                form</a:documentation>
+            <text/>
+            <ref name="baseContent"/>
+        </element>
     </define>
     <define name="comment">
         <element name="comment">
-            <zeroOrMore>
-                <attribute>
-                    <anyName>
-                        <except>&localNames;</except>
-                    </anyName>
-                </attribute>
-            </zeroOrMore>
+            <text/>
+            <ref name="baseContent"/>
+        </element>
+    </define>
+    <define name="text">
+        <element name="text">
             <text/>
         </element>
+    </define>
+    <define name="anyUserAttribute">
+        <a:documentation>Any attribute in a non-null namespace other than the CAP eCC
+            namespaces</a:documentation>
+        <attribute>
+            <anyName>
+                <except>
+                    <nsName ns=""/> 
+                    &localNames; 
+                </except>
+            </anyName>
+        </attribute>
     </define>
     <define name="anyForeignAttribute">
         <attribute>
             <anyName>
-                <except>&localNames;</except>
+                <except>
+                    &localNames;
+                </except>
             </anyName>
         </attribute>
     </define>
     <define name="anyForeignElement">
         <element>
             <anyName>
-                <except>&localNames;<nsName ns=""/></except>
+                <except>
+                    <nsName ns=""/>
+                    &localNames;
+                </except>
             </anyName>
-            <zeroOrMore>
-                <choice>
-                    <ref name="anyForeignAttribute"/>
-                    <ref name="anyForeignElement"/>
-                    <text/>
-                </choice>
-            </zeroOrMore>
+            <mixed>
+                <zeroOrMore>
+                    <choice>
+                        <ref name="anyForeignAttribute"/>
+                        <ref name="anyForeignElement"/>
+                    </choice>
+                </zeroOrMore>
+            </mixed>
         </element>
-    </define>
-    <define name="lang-attribute">
-        <optional>
-            <attribute name="xml:lang">
-                <data type="token">
-                    <param name="pattern"
-                        >[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*</param>
-                </data>
-            </attribute>
-        </optional>
-    </define>
-    <define name="otherValue">
-        <optional>
-            <attribute name="otherValue"/>
-        </optional>
     </define>
 </grammar>
