@@ -51,7 +51,7 @@
             <optional>
                 <element name="prefix">
                     <ref name="baseContent"/>
-                    <attribute name="value">
+                    <optional><element name="value">
                         <list>
                             <ref name="prefix-values"/>
                             <optional>
@@ -61,14 +61,14 @@
                                 </optional>
                             </optional>
                         </list>
-                    </attribute>
+                    </element></optional>
                 </element>
             </optional>
             <element name="classification">
                 <ref name="baseContent"/>
-                <attribute name="value">
+                <optional><element name="value">
                     <ref name="classification-values"/>
-                </attribute>
+                </element></optional>
             </element>
             <element name="T">
                 <ref name="baseContent"/>
@@ -77,21 +77,21 @@
                         <ref name="suffix-values"/>
                     </attribute>
                 </optional>
-                <attribute name="value">
+                <optional><element name="value">
                     <ref name="T-values"/>
-                </attribute>
+                </element></optional>
             </element>
             <element name="N">
                 <ref name="baseContent"/>
-                <attribute name="value">
+                <optional><element name="value">
                     <ref name="N-values"/>
-                </attribute>
+                </element></optional>
             </element>
             <element name="M">
                 <ref name="baseContent"/>
-                <attribute name="value">
+                <optional><element name="value">
                     <ref name="M-values"/>
-                </attribute>
+                </element></optional>
             </element>
         </interleave>
     </define>

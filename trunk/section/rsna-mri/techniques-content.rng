@@ -49,9 +49,9 @@
     <define combine="interleave" name="techniques-content">
         <zeroOrMore>
             <element name="technique">
-                <attribute name="value">
+                <optional><element name="value">
                     <ref name="techniqueValues"/>
-                </attribute>
+                </element></optional>
                 <ref name="baseContent"/>
             </element>
         </zeroOrMore>

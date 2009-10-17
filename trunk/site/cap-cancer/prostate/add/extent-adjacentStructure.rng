@@ -13,7 +13,9 @@
       <value>other</value>
     </choice>
   </attribute>
-  <attribute name="value">
-    <externalRef href="../../../../common/extendedBoolean.rng"/>
-  </attribute>
+  <optional>
+    <element name="value">
+      <externalRef href="../../../../common/extendedBoolean.rng"/>
+    </element>
+  </optional>
 </element>

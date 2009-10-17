@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<oneOrMore datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/prostate/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+<oneOrMore datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/prostate/"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:iso="http://purl.oclc.org/dsdl/schematron">
     <element name="percentTumorInvolvement">
         <ref name="baseContent"/>
-        <iso:ns prefix="prostate" uri="http://www.cap.org/pert/2009/01/prostate/"/>
+        <iso:ns prefix="prostate"
+            uri="http://www.cap.org/pert/2009/01/prostate/"/>
         <iso:ns prefix="pert" uri="http://www.cap.org/pert/2009/01/"/>
         <attribute name="laterality">
             <choice>
@@ -14,10 +17,12 @@
                 <value>other</value>
             </choice>
         </attribute>
-        <attribute name="value">
-            <data type="nonNegativeInteger">
-                <param name="maxInclusive">100</param>
-            </data>
-        </attribute>
+        <optional>
+            <element name="value">
+                <data type="nonNegativeInteger">
+                    <param name="maxInclusive">100</param>
+                </data>
+            </element>
+        </optional>
     </element>
 </oneOrMore>

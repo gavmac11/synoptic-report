@@ -71,19 +71,15 @@
         </sites>
         <tumorLocations>
             <tumorLocation value="rectum"/>
-        </tumorLocations>
-        <colon:polyp>
-            <colon:configuration value="pedunculated"/>
-            <size>
-                <dimension value="1.1" unit="cm"></dimension>
-                <dimension value="0.8" unit="cm"></dimension>
-                <dimension value="3" unit="mm"></dimension>
-            </size>
-        </colon:polyp>
+        </tumorLocations>        
         <integrity value="fragmented"/>
-        <size>
-            <dimension value="3.2" unit="cm"></dimension>
-        </size>
+        <tumorSize>
+            <size>
+                <dimension unit="cm" value="2.2"/>
+                <dimension value="1.5" unit="cm"/>
+                <dimension value="1.1" unit="cm"/>
+            </size>
+        </tumorSize>      
     </specimen>
     <tumor>
         <histologicTypes>
@@ -108,14 +104,14 @@
             </colon:deepestInvasion>
         </invasion>
         <size>
-            <dimension value="5.1" unit="cm"></dimension>
+            <dimension value="5.1" unit="cm"/>
         </size>
     </extent>
     <accessory>
         <colon:preexistingPolyp value="serrated adenoma"/>
         <colon:discontinuousExtramuralExtension value="negative"/>
-        <lymphovascularInvasion value="inconclusive"/>
-        <perineuralInvasion value="inconclusive"/>
+        <lymphovascularInvasion value="equivocal"/>
+        <perineuralInvasion value="equivocal"/>
         <venousInvasion value="negative"/>
         <treatmentEffect value="slightResponse"/>
     </accessory>

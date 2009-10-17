@@ -88,31 +88,7 @@
         </interleave>
     </define>
     <define name="displayText">
-        <element name="displayText">
-            <zeroOrMore>
-                <attribute>
-                    <anyName>
-                        <except> &localNames; <nsName ns=""/>
-                        </except>
-                    </anyName>
-                </attribute>
-            </zeroOrMore>
-            <optional>
-                <attribute name="role">
-                    <choice>
-                        <value>label</value>
-                        <value>value</value>
-                        <value>other</value>
-                    </choice>
-                </attribute>
-            </optional>
-            <interleave>
-                <text/>
-                <zeroOrMore>
-                    <ref name="displayText"/>
-                </zeroOrMore>
-            </interleave>
-        </element>
+        <attribute name="displayText"/>
     </define>
     <define name="comment">
         <element name="comment">
@@ -123,9 +99,6 @@
                     </anyName>
                 </attribute>
             </zeroOrMore>
-            <optional>
-                <ref name="displayText"/>
-            </optional>
             <text/>
         </element>
     </define>

@@ -44,8 +44,10 @@
     If not, see <http://www.gnu.org/licenses/>. 
     ========================================================================
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:iso="http://purl.oclc.org/dsdl/schematron">
     <define combine="interleave" name="clinical-content">
         <interleave>
@@ -60,9 +62,9 @@
                                 <optional>
                                     <attribute name="date">
                                         <choice>
-                                            <data type="date"/>
-                                            <data type="gYear"/>
-                                            <data type="gYearMonth"/>
+                                        <data type="date"/>
+                                        <data type="gYear"/>
+                                        <data type="gYearMonth"/>
                                         </choice>
                                     </attribute>
                                 </optional>
@@ -77,9 +79,11 @@
                     <zeroOrMore>
                         <element name="clinicalFinding">
                             <ref name="baseContent"/>
-                            <attribute name="value">
-                                <ref name="clinicalFindingValues"/>
-                            </attribute>
+                            <optional>
+                                <element name="value">
+                                    <ref name="clinicalFindingValues"/>
+                                </element>
+                            </optional>
                         </element>
                     </zeroOrMore>
                 </element>
@@ -90,9 +94,11 @@
                     <zeroOrMore>
                         <element name="radiologicFinding">
                             <ref name="baseContent"/>
-                            <attribute name="value">
-                                <ref name="radiologicFindingValues"/>
-                            </attribute>
+                            <optional>
+                                <element name="value">
+                                    <ref name="radiologicFindingValues"/>
+                                </element>
+                            </optional>
                         </element>
                     </zeroOrMore>
                 </element>
