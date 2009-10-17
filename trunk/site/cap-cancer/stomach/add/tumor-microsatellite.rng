@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<optional datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/colon/"
-    xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+<optional datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/colon/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:iso="http://purl.oclc.org/dsdl/schematron">
     <element name="suggestMicrosatelliteInstability">
         <interleave>
@@ -10,12 +8,9 @@
             <optional>
                 <element name="mucinousComponent">
                     <ref name="baseContent"/>
-                    <optional>
-                        <element name="value">
-                            <externalRef
-                                href="../../../../common/extendedBoolean.rng"/>
-                        </element>
-                    </optional>
+                    <attribute name="value">
+                        <externalRef href="../../../../common/extendedBoolean.rng"/>
+                    </attribute>
                     <optional>
                         <attribute name="percentage">
                             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -32,23 +27,17 @@
             <optional>
                 <element name="medullaryComponent">
                     <ref name="baseContent"/>
-                    <optional>
-                        <element name="value">
-                            <externalRef
-                                href="../../../../common/extendedBoolean.rng"/>
-                        </element>
-                    </optional>
+                    <attribute name="value">
+                        <externalRef href="../../../../common/extendedBoolean.rng"/>
+                    </attribute>
                 </element>
             </optional>
             <optional>
                 <element name="highGrade">
                     <ref name="baseContent"/>
-                    <optional>
-                        <element name="value">
-                            <externalRef
-                                href="../../../../common/extendedBoolean.rng"/>
-                        </element>
-                    </optional>
+                    <attribute name="value">
+                        <externalRef href="../../../../common/extendedBoolean.rng"/>
+                    </attribute>
                 </element>
             </optional>
         </interleave>

@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<element name="obstructivePneumonitis"
-    ns="http://www.cap.org/pert/2009/01/lung/"
+<element name="obstructivePneumonitis" ns="http://www.cap.org/pert/2009/01/lung/"
     xmlns="http://relaxng.org/ns/structure/1.0">
     <ref name="baseContent"/>
-    <optional>
-        <element name="value">
-            <choice>
-                <value>focal or negative</value>
-                <value>extending to hilum</value>
-                <value>entire lung</value>
-                <value>indeterminate</value>
-                <value>inapplicable</value>
-                <value>inconcllusive</value>
-                <value>other</value>
-            </choice>
-        </element>
-    </optional>
+    <attribute name="value">
+        <choice>
+            <value>focal or negative</value>
+            <value>extending to hilum</value>
+            <value>entire lung</value>
+            <value>indeterminate</value>
+            <value>inapplicable</value>
+            <value>inconcllusive</value>
+            <value>other</value>
+        </choice>
+    </attribute>
 </element>

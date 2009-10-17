@@ -6,17 +6,17 @@
             <optional>
                 <element name="intratumoralResponse">
                     <ref name="baseContent"/>
-                    <optional><element name="value">
+                    <attribute name="value">
                         <externalRef href="../../../../common/severities.rng"/>
-                    </element></optional>
+                    </attribute>
                 </element>
             </optional>
             <optional>
                 <element name="peritumoralResponse">
                     <ref name="baseContent"/>
-                    <optional><element name="value">
+                    <attribute name="value">
                         <externalRef href="../../../../common/severities.rng"/>
-                    </element></optional>
+                    </attribute>
                 </element>
             </optional>
         </interleave>

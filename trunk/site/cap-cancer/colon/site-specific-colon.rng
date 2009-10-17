@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-    xmlns:dc="http://purl.org/dc/elements/1.1/">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
     <include href="../../../common/extendedBooleanx.rng"/>
     <include href="../../../common/baseContent.rng"/>
     <include href="../../../common/sizex.rng"/>
@@ -13,8 +11,7 @@
         <div dc:subject="procedures">
             <a:documentation/>
             <define name="procedure-values">
-                <a:documentation>Allowed values for colon
-                    procedure</a:documentation>
+                <a:documentation>Allowed values for colon procedure</a:documentation>
                 <choice>
                     <value>total colectomy</value>
                     <value>right hemicolectomy</value>
@@ -45,14 +42,11 @@
                 </choice>
             </define>
             <define name="tumorPerforation">
-                <element name="tumorPerforation"
-                    ns="http://www.cap.org/pert/2009/01/colon/">
+                <element name="tumorPerforation" ns="http://www.cap.org/pert/2009/01/colon/">
                     <ref name="baseContent"/>
-                    <optional>
-                        <element name="value">
-                            <ref name="extendedBoolean"/>
-                        </element>
-                    </optional>
+                    <attribute name="value">
+                        <ref name="extendedBoolean"/>
+                    </attribute>
                 </element>
             </define>
             <define name="polyp" ns="http://www.cap.org/pert/2009/01/colon/">
@@ -66,15 +60,13 @@
                             <optional>
                                 <element name="configuration">
                                     <ref name="baseContent"/>
-                                    <optional>
-                                        <element name="value">
+                                    <attribute name="value">
                                         <choice>
-                                        <value>pedunculated</value>
-                                        <value>sessile</value>
-                                        <value>other</value>
+                                            <value>pedunculated</value>
+                                            <value>sessile</value>
+                                            <value>other</value>
                                         </choice>
-                                        </element>
-                                    </optional>
+                                    </attribute>
                                 </element>
                             </optional>
                         </interleave>
@@ -114,18 +106,14 @@
             </choice>
         </define>
         <define name="tumorPerforation-addition">
-            <element name="tumorPerforation"
-                ns="http://www.cap.org/pert/2009/01/colon/">
+            <element name="tumorPerforation" ns="http://www.cap.org/pert/2009/01/colon/">
                 <ref name="baseContent"/>
-                <optional>
-                    <element name="value">
-                        <ref name="extendedBoolean"/>
-                    </element>
-                </optional>
+                <attribute name="value">
+                    <ref name="extendedBoolean"/>
+                </attribute>
             </element>
         </define>
-        <define name="suggestMicrosatelliteInstability"
-            ns="http://www.cap.org/pert/2009/01/colon/">
+        <define name="suggestMicrosatelliteInstability" ns="http://www.cap.org/pert/2009/01/colon/">
             <optional>
                 <element name="suggestMicrosatelliteInstability">
                     <interleave>
@@ -133,15 +121,13 @@
                         <optional>
                             <element name="mucinousComponent">
                                 <ref name="baseContent"/>
-                                <optional>
-                                    <element name="value">
-                                        <ref name="extendedBoolean"/>
-                                    </element>
-                                </optional>
+                                <attribute name="value">
+                                    <ref name="extendedBoolean"/>
+                                </attribute>
                                 <optional>
                                     <attribute name="percentage">
                                         <data type="nonNegativeInteger">
-                                        <param name="maxExclusive">100</param>
+                                            <param name="maxExclusive">100</param>
                                         </data>
                                     </attribute>
                                 </optional>
@@ -150,21 +136,17 @@
                         <optional>
                             <element name="medullaryComponent">
                                 <ref name="baseContent"/>
-                                <optional>
-                                    <element name="value">
-                                        <ref name="extendedBoolean"/>
-                                    </element>
-                                </optional>
+                                <attribute name="value">
+                                    <ref name="extendedBoolean"/>
+                                </attribute>
                             </element>
                         </optional>
                         <optional>
                             <element name="highGrade">
                                 <ref name="baseContent"/>
-                                <optional>
-                                    <element name="value">
-                                        <ref name="extendedBoolean"/>
-                                    </element>
-                                </optional>
+                                <attribute name="value">
+                                    <ref name="extendedBoolean"/>
+                                </attribute>
                             </element>
                         </optional>
                     </interleave>
@@ -254,36 +236,30 @@
             <element name="invasion">
                 <interleave>
                     <ref name="baseContent"/>
-                    <element name="deepestInvasion"
-                        ns="http://www.cap.org/pert/2009/01/colon/">
+                    <element name="deepestInvasion" ns="http://www.cap.org/pert/2009/01/colon/">
                         <ref name="baseContent"/>
-                        <optional>
-                            <element name="value">
+                        <attribute name="value">
+                            <choice>
+                                <value>lamina propria</value>
+                                <value>submucosa</value>
+                                <value>muscularis propria</value>
                                 <choice>
-                                    <value>lamina propria</value>
-                                    <value>submucosa</value>
-                                    <value>muscularis propria</value>
-                                    <choice>
-                                        <value>subserosa</value>
-                                        <value>pericolic tissue</value>
-                                    </choice>
-                                    <value>serosal surface</value>
-                                    <value>adjacent structure</value>
-                                    <value>no evidence of tumor</value>
-                                    <value>inapplicable</value>
-                                    <value>inconclusive</value>
-                                    <value>indeterminate</value>
-                                    <value>other</value>
+                                    <value>subserosa</value>
+                                    <value>pericolic tissue</value>
                                 </choice>
-                            </element>
-                        </optional>
+                                <value>serosal surface</value>
+                                <value>adjacent structure</value>
+                                <value>no evidence of tumor</value>
+                                <value>inapplicable</value>
+                                <value>inconclusive</value>
+                                <value>indeterminate</value>
+                                <value>other</value>
+                            </choice>
+                        </attribute>
                         <zeroOrMore>
-                            <element name="adjacentStructure"
-                                ns="http://www.cap.org/pert/2009/01/colon/">
+                            <element name="adjacentStructure" ns="http://www.cap.org/pert/2009/01/colon/">
                                 <ref name=" baseContent"/>
-                                <element name="value">
-                                    <text/>
-                                </element>
+                                <attribute name="value"/>
                                 <attribute name="extent">
                                     <choice>
                                         <value>adheres</value>

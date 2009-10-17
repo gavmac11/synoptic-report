@@ -84,9 +84,9 @@
             <optional>
                 <element name="integrity">
                     <ref name="baseContent"/>
-                    <optional><element name="value">
+                    <attribute name="value">
                         <ref name="integrityValues"/>
-                    </element></optional>
+                    </attribute>
                 </element>
             </optional>
             <optional>
@@ -104,9 +104,9 @@
                             <value>other</value>
                         </choice>
                     </attribute>
-                    <optional><element name="value">
+                    <attribute name="value">
                         <data type="float"/>
-                    </element></optional>
+                    </attribute>
                 </element>
             </optional>
         </interleave>
@@ -151,19 +151,19 @@
         <data type="token"/>
     </define>
     <define combine="interleave" name="site-content">
-        <optional><element name="value">
+        <attribute name="value">
             <ref name="sites"/>
-        </element></optional>
+        </attribute>
     </define>
     <define combine="interleave" name="procedure-content">
-        <optional><element name="value">
+        <attribute name="value">
             <ref name="procedures"/>
-        </element></optional>
+        </attribute>
     </define>
     <define name="tumorLocation-content">
-        <optional><element name="value">
+        <attribute name="value">
             <ref name="sites"/>
-        </element></optional>
+        </attribute>
     </define>
     <define name="integrityValues">
         <externalRef href="../../common/extendedBoolean.rng"/>

@@ -74,11 +74,11 @@
                 <attribute name="unit">
                     <externalRef href="../../common/lengthUnits.rng"/>
                 </attribute>
-                <optional><element name="value">
+                <attribute name="value">
                     <data type="decimal">
                         <param name="minExclusive">0.0</param>
                     </data>
-                </element></optional>
+                </attribute>
             </element>
         </optional>
     </define>

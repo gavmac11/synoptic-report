@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<element datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    name="invasion" ns="http://www.cap.org/pert/2009/01/pancreas/"
-    xmlns="http://relaxng.org/ns/structure/1.0"
+<element datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" name="invasion"
+    ns="http://www.cap.org/pert/2009/01/pancreas/" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <interleave>
         <ref name="baseContent"/>
@@ -21,16 +20,12 @@
                         <value>adjacent organs or structures</value>
                     </choice>
                 </attribute>
+                <attribute name="value">
+                    <externalRef href="../../../../common/extendedBoolean.rng"/>
+                </attribute>
                 <optional>
-                    <element name="value">
-                        <externalRef
-                            href="../../../../common/extendedBoolean.rng"/>
-                    </element>
-                </optional>
-                <optional>
-                    <a:documentation>For "other peripancreatic soft tissue"
-                        and/or "adjacent organs or structures", need to be able
-                        to specify which</a:documentation>
+                    <a:documentation>For "other peripancreatic soft tissue" and/or "adjacent organs or structures", need to be
+                        able to specify which</a:documentation>
                     <element name="specify">
                         <ref name=" baseContent"/>
                         <attribute name="value"/>

@@ -44,49 +44,39 @@
     If not, see <http://www.gnu.org/licenses/>. 
     ========================================================================
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <define combine="interleave" name="accessory-content">
         <interleave>
             <optional>
                 <element name="venousInvasion">
-                    <optional>
-                        <element name="value">
-                            <ref name="venousInvasionValues"/>
-                        </element>
-                    </optional>
+                    <attribute name="value">
+                        <ref name="venousInvasionValues"/>
+                    </attribute>
                     <ref name="baseContent"/>
                 </element>
             </optional>
             <optional>
                 <element name="lymphovascularInvasion">
-                    <optional>
-                        <element name="value">
-                            <ref name="lymphaticInvasionValues"/>
-                        </element>
-                    </optional>
+                    <attribute name="value">
+                        <ref name="lymphaticInvasionValues"/>
+                    </attribute>
                     <ref name="baseContent"/>
                 </element>
             </optional>
             <optional>
                 <element name="perineuralInvasion">
-                    <optional>
-                        <element name="value">
-                            <ref name="perineuralInvasionValues"/>
-                        </element>
-                    </optional>
+                    <attribute name="value">
+                        <ref name="perineuralInvasionValues"/>
+                    </attribute>
                     <ref name="baseContent"/>
                 </element>
             </optional>
             <optional>
                 <element name="treatmentEffect">
-                    <optional>
-                        <element name="value">
-                            <ref name="treatmentEffectValues"/>
-                        </element>
-                    </optional>
+                    <attribute name="value">
+                        <ref name="treatmentEffectValues"/>
+                    </attribute>
                     <ref name="baseContent"/>
                 </element>
             </optional>

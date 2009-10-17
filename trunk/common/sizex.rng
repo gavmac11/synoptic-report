@@ -40,10 +40,9 @@
     ===========================================================================
     
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0">
-    <define name="size">
+        <define name="size">
         <element name="size">
             <ref name="baseContent"/>
             <ref name="dimension"/>
@@ -61,13 +60,11 @@
                 <externalRef href="lengthUnits.rng"/>
             </attribute>
             <ref name="baseContent"/>
-            <optional>
-                <element name="value">
-                    <data type="decimal">
-                        <param name="minExclusive">0.0</param>
-                    </data>
-                </element>
-            </optional>
+            <attribute name="value">
+                <data type="decimal">
+                    <param name="minExclusive">0.0</param>
+                </data>
+            </attribute>
         </element>
     </define>
 </grammar>

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<element name="visceralPleuraInvasion"
-    ns="http://www.cap.org/pert/2009/01/lung/"
+<element name="visceralPleuraInvasion" ns="http://www.cap.org/pert/2009/01/lung/"
     xmlns="http://relaxng.org/ns/structure/1.0">
     <ref name="baseContent"/>
-    <optional>
-        <element name="value">
-            <externalRef href="../../../../common/extendedBoolean.rng"/>
-        </element>
-    </optional>
+    <attribute name="value">
+        <externalRef href="../../../../common/extendedBoolean.rng"/>
+    </attribute>
 </element>
