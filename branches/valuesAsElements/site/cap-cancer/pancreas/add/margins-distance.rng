@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<optional datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0">
+    <element name="distance">
+        <ref name="baseContent"/>
+        <attribute name="unit">
+            <externalRef href="../../../../common/lengthUnits.rng"/>
+        </attribute>
+        <optional>
+            <element name="value">
+                <data type="float"/>
+            </element>
+        </optional>
+        <attribute name="closestMargin">
+            <data type="boolean"/>
+        </attribute>
+    </element>
+</optional>

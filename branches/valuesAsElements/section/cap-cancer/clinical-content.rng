@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--   
+    CAP Schema for Synoptic Reports
+    (c) Copyright 2008 College of American Pathologists
+    ========================================================================
+    
+    <<<File name>>>
+    clinical.rng
+    
+    <<<Component type>>>
+    not_specified
+    
+    <<<Version date>>>
+    2008.11.18
+    
+    <<<Purpose>>>
+    not_specified
+    
+    <<<Defines>>>
+    none
+    
+    <<<Dependencies>>>
+    none
+    
+    <<<Comments>>>
+    none
+    
+    ========================================================================
+    This file is part of the "CAP Schema for Synoptic Reports".
+    
+    The "CAP Schema for Synoptic Reports" is free software: 
+    you can redistribute it and/or modify it under the terms of the 
+    GNU General Public License as published by the Free Software Foundation, 
+    either version 3 of the License, or (at your option) any later version.
+    
+    The "CAP Schema for Synoptic Reports" is distributed 
+    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or 
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+    for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with the "CAP Schema for Synoptic Reports".  
+    If not, see <http://www.gnu.org/licenses/>. 
+    ========================================================================
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+    <define combine="interleave" name="clinical-content">
+        <interleave>
+            <optional>
+                <element name="priorTherapies">
+                    <interleave>
+                        <ref name="baseContent"/>
+                        <zeroOrMore>
+                            <element name="priorTherapy">
+                                <ref name="baseContent"/>
+                                <attribute name="description"/>
+                                <optional>
+                                    <attribute name="date">
+                                        <choice>
+                                            <data type="date"/>
+                                            <data type="gYear"/>
+                                            <data type="gYearMonth"/>
+                                        </choice>
+                                    </attribute>
+                                </optional>
+                            </element>
+                        </zeroOrMore>
+                    </interleave>
+                </element>
+            </optional>
+            <optional>
+                <element name="clinicalFindings">
+                    <ref name="baseContent"/>
+                    <zeroOrMore>
+                        <element name="clinicalFinding">
+                            <ref name="baseContent"/>
+                            <optional><element name="value">
+                                <ref name="clinicalFindingValues"/>
+                            </element></optional>
+                        </element>
+                    </zeroOrMore>
+                </element>
+            </optional>
+            <optional>
+                <element name="radiologicFindings">
+                    <ref name="baseContent"/>
+                    <zeroOrMore>
+                        <element name="radiologicFinding">
+                            <ref name="baseContent"/>
+                            <optional><element name="value">
+                                <ref name="radiologicFindingValues"/>
+                            </element></optional>
+                        </element>
+                    </zeroOrMore>
+                </element>
+            </optional>
+        </interleave>
+    </define>
+    <define name="clinicalFindingValues">
+        <text/>
+    </define>
+    <define name="radiologicFindingValues">
+        <text/>
+    </define>
+</grammar>

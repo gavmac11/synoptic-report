@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<optional datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/colon/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+    <element name="suggestMicrosatelliteInstability">
+        <interleave>
+            <ref name="baseContent"/>
+            <optional>
+                <element name="mucinousComponent">
+                    <ref name="baseContent"/>
+                    <optional><element name="value">
+                        <externalRef href="../../../../common/extendedBoolean.rng"/>
+                    </element></optional>
+                    <optional>
+                        <attribute name="percentage">
+                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                            <data type="nonNegativeInteger">
+                                <param name="maxExclusive">100</param>
+                            </data>
+                        </attribute>
+                    </optional>
+                </element>
+            </optional>
+            <optional>
+                <element name="medullaryComponent">
+                    <ref name="baseContent"/>
+                    <optional><element name="value">
+                        <externalRef href="../../../../common/extendedBoolean.rng"/>
+                    </element></optional>
+                </element>
+            </optional>
+            <optional>
+                <element name="highGrade">
+                    <ref name="baseContent"/>
+                    <optional><element name="value">
+                        <externalRef href="../../../../common/extendedBoolean.rng"/>
+                    </element></optional>
+                </element>
+            </optional>
+        </interleave>
+    </element>
+</optional>

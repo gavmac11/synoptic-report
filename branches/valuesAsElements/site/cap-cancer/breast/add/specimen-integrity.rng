@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<optional ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <element name="specimenIntegrity">
+        <ref name="baseContent"/>
+        <optional><element name="value">
+            <choice>
+                <value>single intact</value>
+                <value>multiple designated</value>
+                <value>fragmented</value>
+                <value>other</value>
+            </choice>
+        </element></optional>
+    </element>
+</optional>

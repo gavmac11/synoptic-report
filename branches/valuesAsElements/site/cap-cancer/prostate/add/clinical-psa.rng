@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" name="psa"
+  ns="http://www.cap.org/pert/2009/01/prostate/"
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <ref name="baseContent"/>
+  <optional>
+    <element name="value">
+      <data type="float"/>
+    </element>
+  </optional>
+  <attribute name="unit">
+    <choice>
+      <value>ng/ml</value>
+      <value>other</value>
+    </choice>
+  </attribute>
+  <attribute name="date">
+    <choice>
+      <data type="date"/>
+      <data type="gYear"/>
+      <data type="gYearMonth"/>
+    </choice>
+  </attribute>
+</element>

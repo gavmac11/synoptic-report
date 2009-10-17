@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <!--need a schematron rule to require body & antrum if "stomach" is selected -->
+    <value>stomach</value>
+    <value>gastric body</value>
+    <value>gastric antrum</value>
+    <value>distal esophagus</value>
+    <value>proximal duodenum</value>
+</choice>

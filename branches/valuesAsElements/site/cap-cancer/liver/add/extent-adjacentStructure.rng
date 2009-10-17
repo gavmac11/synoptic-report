@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element name="adjacentStructureInvasion" ns="http://www.cap.org/pert/2009/01/lung/"
+    xmlns="http://relaxng.org/ns/structure/1.0">
+    <ref name="baseContent"/>
+    <zeroOrMore>
+        <element name="structure">
+            <optional><element name="value">
+                <choice>
+                    <value>chest wall</value>
+                    <value>diaphragm</value>
+                    <value>mediastinal pleura</value>
+                    <value>phrenic nerve</value>
+                    <value>parietal pericardium</value>
+                    <value>mediastinum</value>
+                    <value>heart</value>
+                    <value>great vessels</value>
+                    <value>trachea</value>
+                    <value>esophagus</value>
+                    <value>vertebral body</value>
+                    <value>other</value>
+                </choice>
+            </element></optional>
+            <ref name="baseContent"/>
+        </element>
+    </zeroOrMore>
+</element>

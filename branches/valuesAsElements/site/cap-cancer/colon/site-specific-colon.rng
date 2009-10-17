@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <include href="../../../common/extendedBooleanx.rng"/>
+    <include href="../../../common/baseContent.rng"/>
+    <include href="../../../common/sizex.rng"/>
+    <start>
+        <notAllowed/>
+    </start>
+    <div dc:subject="specimen">
+        <div dc:subject="procedures">
+            <a:documentation/>
+            <define name="procedure-values">
+                <a:documentation>Allowed values for colon
+                    procedure</a:documentation>
+                <choice>
+                    <value>total colectomy</value>
+                    <value>right hemicolectomy</value>
+                    <value>transverse colectomy</value>
+                    <value>left hemicolectomy</value>
+                    <value>segmental colectomy</value>
+                    <value>abdominoperineal resection</value>
+                    <value>proctocolectomy</value>
+                </choice>
+            </define>
+            <define name="site-values">
+                <choice>
+                    <value>cecum</value>
+                    <value>right colon</value>
+                    <value>hepatic flexure</value>
+                    <value>transverse colon</value>
+                    <value>splenic flexure</value>
+                    <value>left colon</value>
+                    <value>sigmoid colon</value>
+                    <value>rectum</value>
+                    <value>anus</value>
+                </choice>
+            </define>
+            <define name="fragmentation-values">
+                <choice>
+                    <value>intact</value>
+                    <value>fragmented</value>
+                </choice>
+            </define>
+            <define name="tumorPerforation">
+                <element name="tumorPerforation"
+                    ns="http://www.cap.org/pert/2009/01/colon/">
+                    <ref name="baseContent"/>
+                    <optional>
+                        <element name="value">
+                            <ref name="extendedBoolean"/>
+                        </element>
+                    </optional>
+                </element>
+            </define>
+            <define name="polyp" ns="http://www.cap.org/pert/2009/01/colon/">
+                <optional>
+                    <element name="polyp">
+                        <interleave>
+                            <ref name="baseContent"/>
+                            <optional>
+                                <ref name="size"/>
+                            </optional>
+                            <optional>
+                                <element name="configuration">
+                                    <ref name="baseContent"/>
+                                    <optional>
+                                        <element name="value">
+                                        <choice>
+                                        <value>pedunculated</value>
+                                        <value>sessile</value>
+                                        <value>other</value>
+                                        </choice>
+                                        </element>
+                                    </optional>
+                                </element>
+                            </optional>
+                        </interleave>
+                    </element>
+                </optional>
+            </define>
+        </div>
+    </div>
+    <div>
+        <a:documentation>Tumor section values</a:documentation>
+        <define name="histologicType-values">
+            <choice>
+                <value>adenocarcinoma</value>
+                <value>mucinous adenocarcinoma</value>
+                <value>signet-ring cell carcinoma</value>
+                <value>small cell carcinoma</value>
+                <value>squamous cell carcinoma</value>
+                <value>adenosquamous carcinoma</value>
+                <value>medullary carcinoma</value>
+                <value>undifferentiated carcinoma</value>
+                <value>carcinoma indeterminate type</value>
+                <value>other</value>
+            </choice>
+        </define>
+        <define name="gradingSystem-values">
+            <choice>
+                <value>WHO</value>
+                <value>CAP</value>
+                <value>two-grade system</value>
+            </choice>
+        </define>
+        <define name="grade-values">
+            <choice>
+                <value>low</value>
+                <value>high</value>
+                <value>indeterminate</value>
+            </choice>
+        </define>
+        <define name="tumorPerforation-addition">
+            <element name="tumorPerforation"
+                ns="http://www.cap.org/pert/2009/01/colon/">
+                <ref name="baseContent"/>
+                <optional>
+                    <element name="value">
+                        <ref name="extendedBoolean"/>
+                    </element>
+                </optional>
+            </element>
+        </define>
+        <define name="suggestMicrosatelliteInstability"
+            ns="http://www.cap.org/pert/2009/01/colon/">
+            <optional>
+                <element name="suggestMicrosatelliteInstability">
+                    <interleave>
+                        <ref name="baseContent"/>
+                        <optional>
+                            <element name="mucinousComponent">
+                                <ref name="baseContent"/>
+                                <optional>
+                                    <element name="value">
+                                        <ref name="extendedBoolean"/>
+                                    </element>
+                                </optional>
+                                <optional>
+                                    <attribute name="percentage">
+                                        <data type="nonNegativeInteger">
+                                        <param name="maxExclusive">100</param>
+                                        </data>
+                                    </attribute>
+                                </optional>
+                            </element>
+                        </optional>
+                        <optional>
+                            <element name="medullaryComponent">
+                                <ref name="baseContent"/>
+                                <optional>
+                                    <element name="value">
+                                        <ref name="extendedBoolean"/>
+                                    </element>
+                                </optional>
+                            </element>
+                        </optional>
+                        <optional>
+                            <element name="highGrade">
+                                <ref name="baseContent"/>
+                                <optional>
+                                    <element name="value">
+                                        <ref name="extendedBoolean"/>
+                                    </element>
+                                </optional>
+                            </element>
+                        </optional>
+                    </interleave>
+                </element>
+            </optional>
+        </define>
+    </div>
+    <div>
+        <a:documentation>Tumor section values</a:documentation>
+        <define name="additionalFindings-values">
+            <choice>
+                <value/>
+                <value>adenoma</value>
+                <value>ulcerative colitis</value>
+                <value>Crohn's disease</value>
+                <value>dysplasia with IBD</value>
+                <value>sessile serrated adenoma</value>
+                <value>other polyp</value>
+            </choice>
+        </define>
+    </div>
+    <div>
+        <a:documentation>Margin section values</a:documentation>
+        <define name="marginLocation-values">
+            <choice>
+                <value>deep</value>
+                <value>mucosalLateral</value>
+                <value>1:00</value>
+                <value>2:00</value>
+                <value>3:00</value>
+                <value>4:00</value>
+                <value>5:00</value>
+                <value>6:00</value>
+                <value>7:00</value>
+                <value>8:00</value>
+                <value>9:00</value>
+                <value>10:00</value>
+                <value>11:00</value>
+                <value>12:00</value>
+                <value>other</value>
+            </choice>
+        </define>
+        <define name="marginStatus-values">
+            <choice>
+                <value>negative</value>
+                <value>indeterminate</value>
+                <value>inapplicable</value>
+                <value>positive for adenoma</value>
+                <value>positive for carcinoma</value>
+            </choice>
+        </define>
+    </div>
+    <div>
+        <a:documentation>Node section values</a:documentation>
+        <define name="nodeGroup-values">
+            <choice>
+                <value>pericolic</value>
+                <value>ileocolic</value>
+                <value>anterior cecal</value>
+                <value>posterior cecal</value>
+                <value>right colic</value>
+                <value>middle colic</value>
+                <value>left colic</value>
+                <value>inferior mesenteric</value>
+                <value>sigmoid</value>
+                <value>superior rectal</value>
+                <value>superior hemorrhoidal</value>
+                <value>sigmoidal</value>
+                <value>sigmoid mesenteric</value>
+                <value>middle hemorrhoidal</value>
+                <value>lateral sacral</value>
+                <value>presacral</value>
+                <value>internal iliac</value>
+                <value>sacral promontory (Gerota's)</value>
+                <value>inferior hemorrhoidal</value>
+                <value>anorectal</value>
+                <value>superficial inguinal</value>
+                <value>internal iliac</value>
+                <value>hypogastric</value>
+                <value>femoral</value>
+                <value>lateral sacral</value>
+            </choice>
+        </define>
+    </div>
+    <div>
+        <define name="invasion">
+            <element name="invasion">
+                <interleave>
+                    <ref name="baseContent"/>
+                    <element name="deepestInvasion"
+                        ns="http://www.cap.org/pert/2009/01/colon/">
+                        <ref name="baseContent"/>
+                        <optional>
+                            <element name="value">
+                                <choice>
+                                    <value>lamina propria</value>
+                                    <value>submucosa</value>
+                                    <value>muscularis propria</value>
+                                    <choice>
+                                        <value>subserosa</value>
+                                        <value>pericolic tissue</value>
+                                    </choice>
+                                    <value>serosal surface</value>
+                                    <value>adjacent structure</value>
+                                    <value>no evidence of tumor</value>
+                                    <value>inapplicable</value>
+                                    <value>inconclusive</value>
+                                    <value>indeterminate</value>
+                                    <value>other</value>
+                                </choice>
+                            </element>
+                        </optional>
+                        <zeroOrMore>
+                            <element name="adjacentStructure"
+                                ns="http://www.cap.org/pert/2009/01/colon/">
+                                <ref name=" baseContent"/>
+                                <element name="value">
+                                    <text/>
+                                </element>
+                                <attribute name="extent">
+                                    <choice>
+                                        <value>adheres</value>
+                                        <value>invades</value>
+                                        <value>other</value>
+                                    </choice>
+                                </attribute>
+                            </element>
+                        </zeroOrMore>
+                    </element>
+                </interleave>
+            </element>
+        </define>
+    </div>
+    <div>
+        <a:documentation>Stage section values</a:documentation>
+        <define name="T-values">
+            <choice>
+                <value>X</value>
+                <value>0</value>
+                <value>is</value>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+                <value>4</value>
+            </choice>
+        </define>
+        <define name="N-values">
+            <choice>
+                <value>X</value>
+                <value>0</value>
+                <value>1</value>
+                <value>2</value>
+            </choice>
+        </define>
+        <define name="M-values">
+            <choice>
+                <value>X</value>
+                <value>0</value>
+                <value>1</value>
+            </choice>
+        </define>
+    </div>
+</grammar>
