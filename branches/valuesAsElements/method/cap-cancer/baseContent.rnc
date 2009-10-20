@@ -1,0 +1,107 @@
+# 
+# CAP Schema for Synoptic Reports
+# (c) Copyright 2008 College of American Pathologists
+# ===========================================================================
+# Component name:
+# baseContent.rng
+# 
+# Component type:
+# schema fragment for inclusion
+# 
+# Version date:
+# 2008.12.31
+# 
+# Defines:
+# 
+# 
+# Purpose:
+# 
+# 
+# 
+# Dependencies:      
+# 
+# 
+# ===========================================================================
+# Copyright 2009 College of American Pathologists (CAP)
+# 
+# This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+# 
+# The "CAP Schema for Synoptic Cancer Reports" is licensed under the 
+# Apache License, Version 2.0 (the "License"); you may not use this 
+# file except in compliance with the License.
+# 
+# You may obtain a copy of the License at
+# 
+#     http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ===========================================================================
+#
+
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace local = ""
+default namespace ns1 = "http://www.cap.org/pert/2009/01/"
+namespace ns10 = "http://www.cap.org/pert/2009/01/colon/"
+namespace ns2 = "http://www.rsna.org/reporting/2009/01/"
+namespace ns3 = "http://www.cap.org/pert/2009/01/stomach/"
+namespace ns4 = "http://www.cap.org/pert/2009/01/pancreas/"
+namespace ns5 = "http://www.cap.org/pert/2009/01/endometrium/"
+namespace ns6 = "http://www.cap.org/pert/2009/01/breast/"
+namespace ns7 = "http://www.cap.org/pert/2009/01/prostate/"
+namespace ns8 = "http://www.w3.org/2003/g/data-view#"
+namespace ns9 = "http://www.cap.org/pert/2009/01/lung/"
+
+baseContent = comment, label
+customContent =
+  (anyForeignElement | anyUserAttribute | unstructuredText)*
+comment = element comment { text, baseContent }
+label =
+  
+  ## String indicating the label on the pathologist's input
+  ##                 form
+  element label { text, baseContent }
+
+## Any attribute in a non-null namespace other than the CAP eCC
+##             namespaces
+anyUserAttribute =
+  attribute * - (local:*
+                 | ns1:*
+                 | ns6:*
+                 | ns10:*
+                 | ns9:*
+                 | ns7:*
+                 | ns4:*
+                 | ns3:*
+                 | ns5:*
+                 | ns8:*
+                 | ns2:*) { text }
+anyForeignAttribute =
+  attribute * - (ns1:*
+                 | ns6:*
+                 | ns10:*
+                 | ns9:*
+                 | ns7:*
+                 | ns4:*
+                 | ns3:*
+                 | ns5:*
+                 | ns8:*
+                 | ns2:*) { text }
+anyForeignElement =
+  element * - (local:*
+               | ns1:*
+               | ns6:*
+               | ns10:*
+               | ns9:*
+               | ns7:*
+               | ns4:*
+               | ns3:*
+               | ns5:*
+               | ns8:*
+               | ns2:*) {
+    mixed { (anyForeignAttribute | anyForeignElement)* }
+  }
+unstructuredText = element text { text }

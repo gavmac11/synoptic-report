@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grammar [
+<!ENTITY pert "http://www.cap.org/pert/2009/01/" >
+<!ENTITY version "0.1">
+<!ENTITY redefine "../../../site/cap-cancer/colon/redefine/">
+<!ENTITY add "../../../site/cap-cancer/colon/add/">
+<!ENTITY cap-cancer "../../../section/cap-cancer/">
+<!ENTITY method "../../../method/cap-cancer/">
+<!ENTITY report "../../">
+<!ENTITY repository "http://purl.oclc.org/medical/reporting/report/cap-cancer/biopsy/biopsy@colon.rng">
+]>
+<!--
+    
+    CAP Schema for Synoptic Reports
+    (c) Copyright 2008 College of American Pathologists
+    ===========================================================================
+    Component name:
+    unspecified_site-biopsy.rng
+    
+    Component type:
+    schema
+    
+    Version date:
+    2008.11.18
+    
+    Defines:
+    semistructured report schema for a biopsy at colon
+
+    Purpose:
+    
+    
+    Dependencies:      
+    direct <externalRef> to anyForeignContent.rng; must be in same folder
+    direct <externalRef> to anyForeignAttributes.rng; must be in same folder
+    indirect <externalRef> to anyForeignAttributes.rng; must be in same folder
+    ===========================================================================
+    This file is part of the "CAP Schema for Synoptic Reports".
+    
+    The "CAP Schema for Synoptic Reports" is free software: 
+    you can redistribute it and/or modify it under the terms of the 
+    GNU General Public License as published by the Free Software Foundation, 
+    either version 3 of the License, or (at your option) any later version.
+    
+    The "CAP Schema for Synoptic Reports" is distributed 
+    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or 
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+    for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with the "CAP Schema for Synoptic Reports".  
+    If not, see <http://www.gnu.org/licenses/>. 
+    ===========================================================================
+    
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" pert:schemaVersion="&version;"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:pert="&pert;">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&report;common.rng">
+        <a:documentation>The biopsy schema is based on the shell schema, adding structured content.</a:documentation>
+        <define combine="choice" name="schemaLocation">
+            <a:documentation>Instances claim conformance to this schema by referencing the official location of the schema immediately below.</a:documentation>
+            <value>&repository;</value>
+        </define>
+        <define name="version">
+            <a:documentation>Instances claim conformance to this schema by referencing the version of the schema immediately below. </a:documentation>
+            <value>&version;</value>
+        </define>
+    </include>
+    <include href="&method;biopsy.rng"/>
+    <include href="&cap-cancer;clinical-content.rng"/>
+    <include href="&cap-cancer;specimen-content.rng">
+        <define combine="choice" name="sites">
+            <externalRef href="&redefine;specimen-sites.rng"/>
+        </define>
+        <define name="integrityValues">
+            <externalRef href="&redefine;specimen-integrityValues.rng"/>
+        </define>
+    </include>
+    <define combine="interleave" name="specimen-content">
+        <externalRef href="&add;specimen-polyp.rng"/>
+    </define>
+    <include href="&cap-cancer;tumor-content.rng">
+        <a:documentation>Site-specific content redefines for tumor section</a:documentation>
+        <define name="histologicTypes">
+            <externalRef href="&redefine;tumor-histologicTypes.rng"/>
+        </define>
+        <define name="grades">
+            <externalRef href="&redefine;tumor-grades.rng"/>
+        </define>
+    </include>
+    <include href="&cap-cancer;extent-content.rng"/>
+    <define combine="interleave" name="extent-content">
+        <externalRef href="&add;extent-invasion-biopsy.rng"/>
+    </define>
+    <include href="&cap-cancer;margin-content.rng">
+        <define name="marginLocations">
+            <externalRef href="&redefine;margin-locations-biopsy.rng"/>
+        </define>
+        <define name="marginStatuses">
+            <externalRef href="&redefine;margin-statuses.rng"/>
+        </define>
+    </include>
+    <include href="&cap-cancer;accessory-content.rng"/>
+    <define combine="interleave" name="accessory-content">
+        <externalRef href="&add;accessory-preexistingPolyp.rng"/>
+    </define>
+    <include href="&cap-cancer;nodes-content.rng"/>
+    <include href="&cap-cancer;studies-content.rng"/>
+    <include href="&cap-cancer;additional-content.rng">
+        <define name="findings">
+            <externalRef href="&redefine;additional-findings.rng"/>
+        </define>
+    </include>
+</grammar>
