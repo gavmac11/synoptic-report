@@ -5,7 +5,7 @@
         <ref name="baseContent"/>
         <element name="deepestInvasion" ns="http://www.cap.org/pert/2009/01/colon/">
             <ref name="baseContent"/>
-            <attribute name="value">
+            <optional><element name="value">
                 <choice>
                     <value>no evidence of tumor</value>
                     <value>intraepithelial carcinoma</value>
@@ -17,7 +17,7 @@
                     <value>indeterminate</value>
                     <value>other</value>
                 </choice>
-            </attribute>
+            </element></optional>
         </element>
     </interleave>
 </element>

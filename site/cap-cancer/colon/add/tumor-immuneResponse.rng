@@ -2,10 +2,10 @@
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <element name="immuneResponse">
         <interleave>
-            <ref name="baseContent"/>
+            <ref name="standard.content"/>
             <optional>
                 <element name="intratumoralResponse">
-                    <ref name="baseContent"/>
+                    <ref name="standard.content"/>
                     <optional><element name="value">
                         <externalRef href="../../../../common/severities.rng"/>
                     </element></optional>
@@ -13,7 +13,7 @@
             </optional>
             <optional>
                 <element name="peritumoralResponse">
-                    <ref name="baseContent"/>
+                    <ref name="standard.content"/>
                     <optional><element name="value">
                         <externalRef href="../../../../common/severities.rng"/>
                     </element></optional>

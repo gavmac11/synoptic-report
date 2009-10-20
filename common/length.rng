@@ -43,10 +43,10 @@
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
     ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0">
-    <include href="baseContent.rng"/>
+    <include href="standard.content.rng"/>
     <start>
         <element name="size">
-            <ref name="baseContent"/>
+            <ref name="standard.content"/>
             <ref name="dimension"/>
             <optional>
                 <ref name="dimension"/>
@@ -61,7 +61,7 @@
             <attribute name="unit">
                 <externalRef href="lengthUnits.rng"/>
             </attribute>
-            <ref name="baseContent"/>
+            <ref name="standard.content"/>
             <optional>
                 <element name="value">
                     <data type="decimal">

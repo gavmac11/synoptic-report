@@ -72,13 +72,13 @@
         </define>
     </include>
     <include href="&method;biopsy.rng"/>
-    <include href="&cap-cancer;clinical-content.rng"/>
-    <include href="&cap-cancer;specimen-content.rng"/>
-    <include href="&cap-cancer;tumor-content.rng"/>
-    <include href="&cap-cancer;extent-content.rng"/>
-    <include href="&cap-cancer;accessory-content.rng"/>
-    <include href="&cap-cancer;nodes-content.rng"/>
-    <include href="&cap-cancer;studies-content.rng"/>
-    <include href="&cap-cancer;additional-content.rng"/>
+    <include href="&cap-cancer;clinical.content.rng"/>
+    <include href="&cap-cancer;specimen.content.rng"/>
+    <include href="&cap-cancer;tumor.content.rng"/>
+    <include href="&cap-cancer;extent.content.rng"/>
+    <include href="&cap-cancer;accessory.content.rng"/>
+    <include href="&cap-cancer;nodes.content.rng"/>
+    <include href="&cap-cancer;studies.content.rng"/>
+    <include href="&cap-cancer;additional.content.rng"/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>

@@ -46,29 +46,33 @@
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <define combine="interleave" name="stage-content">
+    <define combine="interleave" name="stage.content">
         <interleave>
             <optional>
                 <element name="prefix">
                     <ref name="baseContent"/>
-                    <attribute name="value">
-                        <list>
-                            <ref name="prefix-values"/>
-                            <optional>
+                    <optional>
+                        <element name="value">
+                            <list>
                                 <ref name="prefix-values"/>
                                 <optional>
                                     <ref name="prefix-values"/>
+                                    <optional>
+                                        <ref name="prefix-values"/>
+                                    </optional>
                                 </optional>
-                            </optional>
-                        </list>
-                    </attribute>
+                            </list>
+                        </element>
+                    </optional>
                 </element>
             </optional>
             <element name="classification">
                 <ref name="baseContent"/>
-                <attribute name="value">
-                    <ref name="classification-values"/>
-                </attribute>
+                <optional>
+                    <element name="value">
+                        <ref name="classification-values"/>
+                    </element>
+                </optional>
             </element>
             <element name="T">
                 <ref name="baseContent"/>
@@ -77,21 +81,27 @@
                         <ref name="suffix-values"/>
                     </attribute>
                 </optional>
-                <attribute name="value">
-                    <ref name="T-values"/>
-                </attribute>
+                <optional>
+                    <element name="value">
+                        <ref name="T-values"/>
+                    </element>
+                </optional>
             </element>
             <element name="N">
                 <ref name="baseContent"/>
-                <attribute name="value">
-                    <ref name="N-values"/>
-                </attribute>
+                <optional>
+                    <element name="value">
+                        <ref name="N-values"/>
+                    </element>
+                </optional>
             </element>
             <element name="M">
                 <ref name="baseContent"/>
-                <attribute name="value">
-                    <ref name="M-values"/>
-                </attribute>
+                <optional>
+                    <element name="value">
+                        <ref name="M-values"/>
+                    </element>
+                </optional>
             </element>
         </interleave>
     </define>

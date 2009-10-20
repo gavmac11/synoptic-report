@@ -47,78 +47,78 @@
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <define combine="interleave" name="comparisons">
         <element name="comparisons">
-            <ref name="comparisons-attrib"/>
+            <ref name="comparisons.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="comparisons-content"/>
+                <ref name="standard.content"/>
+                <ref name="comparisons.content"/>
             </interleave>
         </element>
     </define>
     <define combine="interleave" name="indications">
         <element name="indications">
-            <ref name="indications-attrib"/>
+            <ref name="indications.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="indications-content"/>
+                <ref name="standard.content"/>
+                <ref name="indications.content"/>
             </interleave>
         </element>
     </define>
     <define combine="interleave" name="techniques">
         <element name="techniques">
-            <ref name="techniques-attrib"/>
+            <ref name="techniques.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="techniques-content"/>
+                <ref name="standard.content"/>
+                <ref name="techniques.content"/>
             </interleave>
         </element>
     </define>
     <define combine="interleave" name="findings">
         <element name="findings">
-            <ref name="findings-attrib"/>
+            <ref name="findings.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="findings-content"/>
+                <ref name="standard.content"/>
+                <ref name="findings.content"/>
             </interleave>
         </element>
     </define>
     <define combine="interleave" name="impressions">
         <element name="impressions">
-            <ref name="impressions-attrib"/>
+            <ref name="impressions.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="impressions-content"/>
+                <ref name="standard.content"/>
+                <ref name="impressions.content"/>
             </interleave>
         </element>
     </define>
     <!--  -->
-    <define combine="interleave" name="comparisons-attrib">
+    <define combine="interleave" name="comparisons.attrib">
         <empty/>
     </define>
-    <define combine="interleave" name="comparisons-content">
+    <define combine="interleave" name="comparisons.content">
         <empty/>
     </define>
-    <define combine="interleave" name="indications-attrib">
+    <define combine="interleave" name="indications.attrib">
         <empty/>
     </define>
-    <define combine="interleave" name="indications-content">
+    <define combine="interleave" name="indications.content">
         <empty/>
     </define>
-    <define combine="interleave" name="techniques-attrib">
+    <define combine="interleave" name="techniques.attrib">
         <empty/>
     </define>
-    <define combine="interleave" name="techniques-content">
+    <define combine="interleave" name="techniques.content">
         <empty/>
     </define>
-    <define combine="interleave" name="findings-attrib">
+    <define combine="interleave" name="findings.attrib">
         <empty/>
     </define>
-    <define combine="interleave" name="findings-content">
+    <define combine="interleave" name="findings.content">
         <empty/>
     </define>
-    <define combine="interleave" name="impressions-attrib">
+    <define combine="interleave" name="impressions.attrib">
         <empty/>
     </define>
-    <define combine="interleave" name="impressions-content">
+    <define combine="interleave" name="impressions.content">
         <empty/>
     </define>
 </grammar>

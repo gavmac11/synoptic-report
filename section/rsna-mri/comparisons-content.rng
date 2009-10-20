@@ -46,15 +46,15 @@
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.rsna.org/reporting/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <define combine="interleave" name="comparisons-content">
+    <define combine="interleave" name="comparisons.content">
         <zeroOrMore>
             <element name="comparison">
-                <ref name="baseContent"/>
-                <ref name="comparison-content"/>
+                <ref name="standard.content"/>
+                <ref name="comparison.content"/>
             </element>
         </zeroOrMore>
     </define>
-    <define combine="interleave" name="comparison-content">
+    <define combine="interleave" name="comparison.content">
         <attribute name="performedDate">
             <choice>
                 <data type="dateTime"/>

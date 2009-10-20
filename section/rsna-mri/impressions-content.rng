@@ -46,15 +46,15 @@
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.rsna.org/reporting/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <define combine="interleave" name="impressions-content">
+    <define combine="interleave" name="impressions.content">
         <zeroOrMore>
             <element name="impression">
-                <ref name="baseContent"/>
-                <ref name="impression-content"/>
+                <ref name="standard.content"/>
+                <ref name="impression.content"/>
             </element>
         </zeroOrMore>
     </define>
-    <define combine="interleave" name="impression-content">
+    <define combine="interleave" name="impression.content">
         <text/>
     </define>
 </grammar>

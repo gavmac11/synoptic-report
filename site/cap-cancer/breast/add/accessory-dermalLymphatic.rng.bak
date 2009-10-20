@@ -3,7 +3,7 @@
     ns="http://www.cap.org/pert/2009/01/breast/" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <ref name="baseContent"/>
-    <attribute name="value">
+    <optional><element name="value">
         <externalRef href="../../../../common/extendedBoolean.rng"/>
-    </attribute>
+    </element></optional>
 </element>

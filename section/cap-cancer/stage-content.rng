@@ -46,52 +46,62 @@
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <define combine="interleave" name="stage-content">
+    <define combine="interleave" name="stage.content">
         <interleave>
             <optional>
                 <element name="prefix">
-                    <ref name="baseContent"/>
-                    <optional><element name="value">
-                        <list>
-                            <ref name="prefix-values"/>
-                            <optional>
+                    <ref name="standard.content"/>
+                    <optional>
+                        <element name="value">
+                            <list>
                                 <ref name="prefix-values"/>
                                 <optional>
                                     <ref name="prefix-values"/>
+                                    <optional>
+                                        <ref name="prefix-values"/>
+                                    </optional>
                                 </optional>
-                            </optional>
-                        </list>
-                    </element></optional>
+                            </list>
+                        </element>
+                    </optional>
                 </element>
             </optional>
             <element name="classification">
-                <ref name="baseContent"/>
-                <optional><element name="value">
-                    <ref name="classification-values"/>
-                </element></optional>
+                <ref name="standard.content"/>
+                <optional>
+                    <element name="value">
+                        <ref name="classification-values"/>
+                    </element>
+                </optional>
             </element>
             <element name="T">
-                <ref name="baseContent"/>
+                <ref name="standard.content"/>
                 <optional>
                     <attribute name="suffix">
                         <ref name="suffix-values"/>
                     </attribute>
                 </optional>
-                <optional><element name="value">
-                    <ref name="T-values"/>
-                </element></optional>
+                <optional>
+                    <element name="value">
+                        <ref name="T-values"/>
+                    </element>
+                </optional>
             </element>
             <element name="N">
-                <ref name="baseContent"/>
-                <optional><element name="value">
-                    <ref name="N-values"/>
-                </element></optional>
+                <ref name="standard.content"/>
+                <optional>
+                    <element name="value">
+                        <ref name="N-values"/>
+                    </element>
+                </optional>
             </element>
             <element name="M">
-                <ref name="baseContent"/>
-                <optional><element name="value">
-                    <ref name="M-values"/>
-                </element></optional>
+                <ref name="standard.content"/>
+                <optional>
+                    <element name="value">
+                        <ref name="M-values"/>
+                    </element>
+                </optional>
             </element>
         </interleave>
     </define>

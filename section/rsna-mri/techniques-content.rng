@@ -46,13 +46,13 @@
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.rsna.org/reporting/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <define combine="interleave" name="techniques-content">
+    <define combine="interleave" name="techniques.content">
         <zeroOrMore>
             <element name="technique">
                 <optional><element name="value">
                     <ref name="techniqueValues"/>
                 </element></optional>
-                <ref name="baseContent"/>
+                <ref name="standard.content"/>
             </element>
         </zeroOrMore>
     </define>

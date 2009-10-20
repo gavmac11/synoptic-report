@@ -69,8 +69,8 @@
         </define>
     </include>
     <include href="&method;biopsy.rng"/>
-    <include href="&cap-cancer;clinical-content.rng"/>
-    <include href="&cap-cancer;specimen-content.rng">
+    <include href="&cap-cancer;clinical.content.rng"/>
+    <include href="&cap-cancer;specimen.content.rng">
         <define combine="choice" name="sites">
             <externalRef href="&redefine;specimen-sites.rng"/>
         </define>
@@ -78,10 +78,10 @@
             <externalRef href="&redefine;specimen-integrityValues.rng"/>
         </define>
     </include>
-    <define combine="interleave" name="specimen-content">
+    <define combine="interleave" name="specimen.content">
         <externalRef href="&add;specimen-polyp.rng"/>
     </define>
-    <include href="&cap-cancer;tumor-content.rng">
+    <include href="&cap-cancer;tumor.content.rng">
         <a:documentation>Site-specific content redefines for tumor section</a:documentation>
         <define name="histologicTypes">
             <externalRef href="&redefine;tumor-histologicTypes.rng"/>
@@ -90,11 +90,11 @@
             <externalRef href="&redefine;tumor-grades.rng"/>
         </define>
     </include>
-    <include href="&cap-cancer;extent-content.rng"/>
-    <define combine="interleave" name="extent-content">
+    <include href="&cap-cancer;extent.content.rng"/>
+    <define combine="interleave" name="extent.content">
         <externalRef href="&add;extent-invasion-biopsy.rng"/>
     </define>
-    <include href="&cap-cancer;margin-content.rng">
+    <include href="&cap-cancer;margin.content.rng">
         <define name="marginLocations">
             <externalRef href="&redefine;margin-locations-biopsy.rng"/>
         </define>
@@ -102,13 +102,13 @@
             <externalRef href="&redefine;margin-statuses.rng"/>
         </define>
     </include>
-    <include href="&cap-cancer;accessory-content.rng"/>
-    <define combine="interleave" name="accessory-content">
+    <include href="&cap-cancer;accessory.content.rng"/>
+    <define combine="interleave" name="accessory.content">
         <externalRef href="&add;accessory-preexistingPolyp.rng"/>
     </define>
-    <include href="&cap-cancer;nodes-content.rng"/>
-    <include href="&cap-cancer;studies-content.rng"/>
-    <include href="&cap-cancer;additional-content.rng">
+    <include href="&cap-cancer;nodes.content.rng"/>
+    <include href="&cap-cancer;studies.content.rng"/>
+    <include href="&cap-cancer;additional.content.rng">
         <define name="findings">
             <externalRef href="&redefine;additional-findings.rng"/>
         </define>

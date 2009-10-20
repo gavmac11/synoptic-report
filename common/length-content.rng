@@ -46,7 +46,7 @@
     <attribute name="unit">
         <externalRef href="lengthUnits.rng"/>
     </attribute>
-    <ref name="baseContent"/>
+    <ref name="standard.content"/>
     <optional>
         <element name="value">
             <data type="decimal">

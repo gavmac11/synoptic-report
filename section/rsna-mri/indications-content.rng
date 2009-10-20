@@ -46,15 +46,15 @@
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.rsna.org/reporting/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <define combine="interleave" name="indications-content">
+    <define combine="interleave" name="indications.content">
         <zeroOrMore>
             <element name="indication">
-                <ref name="baseContent"/>
-                <ref name="indication-content"/>
+                <ref name="standard.content"/>
+                <ref name="indication.content"/>
             </element>
         </zeroOrMore>
     </define>
-    <define combine="interleave" name="indication-content">
+    <define combine="interleave" name="indication.content">
         <text/>
     </define>
 </grammar>
