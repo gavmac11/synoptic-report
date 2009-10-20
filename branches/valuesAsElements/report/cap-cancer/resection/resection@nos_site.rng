@@ -85,16 +85,16 @@
         </define>
     </include>
     <include href="&method;resection.rng"/>
-    <include href="&cap-cancer;clinical-content.rng"/>
-    <include href="&cap-cancer;specimen-content.rng"/>
-    <include href="&cap-cancer;tumor-content.rng"/>
-    <include href="&cap-cancer;extent-content.rng"/>
-    <include href="&cap-cancer;margin-content.rng"/>
-    <include href="&cap-cancer;accessory-content.rng"/>
-    <include href="&cap-cancer;nodes-content.rng"/>
-    <include href="&cap-cancer;mets-content.rng"/>
-    <include href="&cap-cancer;studies-content.rng"/>
-    <include href="&cap-cancer;stage-content.rng"/>
-    <include href="&cap-cancer;additional-content.rng"/>
+    <include href="&cap-cancer;clinical.content.rng"/>
+    <include href="&cap-cancer;specimen.content.rng"/>
+    <include href="&cap-cancer;tumor.content.rng"/>
+    <include href="&cap-cancer;extent.content.rng"/>
+    <include href="&cap-cancer;margin.content.rng"/>
+    <include href="&cap-cancer;accessory.content.rng"/>
+    <include href="&cap-cancer;nodes.content.rng"/>
+    <include href="&cap-cancer;mets.content.rng"/>
+    <include href="&cap-cancer;studies.content.rng"/>
+    <include href="&cap-cancer;stage.content.rng"/>
+    <include href="&cap-cancer;additional.content.rng"/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>

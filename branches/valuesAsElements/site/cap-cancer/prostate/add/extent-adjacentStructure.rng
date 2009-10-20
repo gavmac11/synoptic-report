@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <element name="adjacentStructure" ns="http://www.cap.org/pert/2009/01/prostate/"
   xmlns="http://relaxng.org/ns/structure/1.0">
-  <ref name="baseContent"/>
+  <ref name="standard.content"/>
   <attribute name="structure">
     <choice>
       <value>bladder</value>

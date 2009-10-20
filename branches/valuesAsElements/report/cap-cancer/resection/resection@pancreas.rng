@@ -66,7 +66,7 @@
         </define>
     </include>
     <include href="&method;resection.rng"/>
-    <include href="&cap-cancer;clinical-content.rng">
+    <include href="&cap-cancer;clinical.content.rng">
         <define name="clinicalFindingValues">
             <externalRef href="&redefine;clinical-clinicalFindingValues.rng"/>
         </define>
@@ -75,7 +75,7 @@
         </define>
     </include>
     <a:documentation>Specimen section</a:documentation>
-    <include href="&cap-cancer;specimen-content.rng">
+    <include href="&cap-cancer;specimen.content.rng">
         <a:documentation>Site-specific content redefines for specimen section</a:documentation>
         <define combine="choice" name="procedures">
             <externalRef href="&redefine;specimen-procedures.rng"/>
@@ -85,22 +85,22 @@
         </define>
     </include>
     <a:documentation>Site-specific new content for specimen section</a:documentation>
-    <define combine="interleave" name="site-content">
+    <define combine="interleave" name="site.content">
         <externalRef href="&common;laterality.rng"/>
     </define>
     <a:documentation>Tumor section</a:documentation>
-    <include href="&cap-cancer;tumor-content.rng">
+    <include href="&cap-cancer;tumor.content.rng">
         <a:documentation>Site-specific content redefines for tumor section</a:documentation>
         <define name="histologicTypes">
             <externalRef href="&redefine;tumor-histologicTypes.rng"/>
         </define>
     </include>
     <a:documentation>Site-specific new content for tumor section</a:documentation>
-    <include href="&cap-cancer;extent-content.rng"/>
-    <define combine="interleave" name="extent-content">
+    <include href="&cap-cancer;extent.content.rng"/>
+    <define combine="interleave" name="extent.content">
         <externalRef href="&add;extent-invasion.rng"/>
     </define>
-    <include href="&cap-cancer;margin-content.rng">
+    <include href="&cap-cancer;margin.content.rng">
         <define name="marginLocations">
             <externalRef href="&redefine;margin-locations-resection.rng"/>
         </define>
@@ -108,7 +108,7 @@
             <externalRef href="&redefine;margin-statuses.rng"/>
         </define>
     </include>
-    <define combine="interleave" name="margin-content">
+    <define combine="interleave" name="margin.content">
         <attribute name="for">
             <choice xmlns="http://relaxng.org/ns/structure/1.0">
                 <value>carcinoma-in-situ</value>
@@ -116,12 +116,12 @@
             </choice>
         </attribute>
     </define>
-    <include href="&cap-cancer;accessory-content.rng">
+    <include href="&cap-cancer;accessory.content.rng">
         <define name="treatmentEffectValues">
             <externalRef href="&redefine;accessory-treatmentEffectValues.rng"/>
         </define>
     </include>
-    <include href="&cap-cancer;nodes-content.rng">
+    <include href="&cap-cancer;nodes.content.rng">
         <define name="nodeGroups">
             <externalRef href="&redefine;nodes-nodeGroups.rng"/>
         </define>
@@ -129,9 +129,9 @@
             <externalRef href="&redefine;nodes-statuses.rng"/>
         </define>
     </include>
-    <include href="&cap-cancer;mets-content.rng"/>
-    <include href="&cap-cancer;studies-content.rng"/>
-    <include href="&cap-cancer;stage-content.rng">
+    <include href="&cap-cancer;mets.content.rng"/>
+    <include href="&cap-cancer;studies.content.rng"/>
+    <include href="&cap-cancer;stage.content.rng">
         <define name="T-values">
             <externalRef href="&redefine;stage-T-values.rng"/>
         </define>
@@ -142,7 +142,7 @@
             <externalRef href="&redefine;stage-M-values.rng"/>
         </define>
     </include>
-    <include href="&cap-cancer;additional-content.rng">
+    <include href="&cap-cancer;additional.content.rng">
         <define name="findings">
             <externalRef href="&redefine;additional-findings.rng"/>
         </define>

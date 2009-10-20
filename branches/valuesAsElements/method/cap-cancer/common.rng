@@ -1,215 +1,436 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     
-    CAP Schema for Synoptic Reports
-    (c) Copyright 2008 College of American Pathologists
     ===========================================================================
-    Component name:
-    common.rng
+    Copyright 2009 College of American Pathologists (CAP)
     
-    Component type:
-    grammar for inclusion
+    This file is part of the "CAP Schemas for Synoptic Cancer Reports".
     
-    Version date:
-    2008.12.31
+    The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
     
-    Defines:
+    You may obtain a copy of the License at:
     
+    http://www.apache.org/licenses/LICENSE-2.0
     
-    Purpose:
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     
-    
-    
-    Dependencies:      
-    
-    
+    See the License for the specific language governing permissions and
+    limitations under the License.
     ===========================================================================
-    This file is part of the "CAP Schema for Synoptic Reports".
-    
-    The "CAP Schema for Synoptic Reports" is free software: 
-    you can redistribute it and/or modify it under the terms of the 
-    GNU General Public License as published by the Free Software Foundation, 
-    either version 3 of the License, or (at your option) any later version.
-    
-    The "CAP Schema for Synoptic Reports" is distributed 
-    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
-    without even the implied warranty of MERCHANTABILITY or 
-    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
-    for more details.
-    
-    You should have received a copy of the GNU General Public License
-    along with the "CAP Schema for Synoptic Reports".  
-    If not, see <http://www.gnu.org/licenses/>. 
-    ===========================================================================
-    
 -->
-
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <!--  -->
+    <include href="../../common/common.rng"/>
+    <start>
+        <ref name="clinical"/>
+    </start>
+    <!--  -->
     <define combine="interleave" name="additional">
         <element name="additional">
-            <ref name="additional-attrib"/>
+            <ref name="additional.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="additional-content"/>
+                <ref name="additional.content"/>
+                <ref name="base.content"/>
             </interleave>
         </element>
     </define>
     <define combine="interleave" name="clinical">
         <element name="clinical">
-            <ref name="clinical-attrib"/>
+            <ref name="clinical.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="clinical-content"/>
+                <ref name="clinical.content"/>
+                <ref name="base.content"/>
             </interleave>
         </element>
     </define>
     <define combine="interleave" name="specimen">
         <element name="specimen">
-            <ref name="specimen-attrib"/>
+            <ref name="specimen.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="specimen-content"/>
+                <ref name="specimen.content"/>
+                <ref name="base.content"/>
             </interleave>
         </element>
     </define>
     <define combine="interleave" name="studies">
         <element name="studies">
-            <ref name="studies-attrib"/>
+            <ref name="studies.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="studies-content"/>
+                <ref name="studies.content"/>
+                <ref name="base.content"/>
             </interleave>
         </element>
     </define>
     <define combine="interleave" name="accessory">
         <element name="accessory">
-            <ref name="accessory-attrib"/>
+            <ref name="accessory.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="accessory-content"/>
+                <ref name="accessory.content"/>
+                <ref name="base.content"/>
             </interleave>
         </element>
     </define>
     <define combine="interleave" name="extent">
         <element name="extent">
-            <ref name="extent-attrib"/>
+            <ref name="extent.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="extent-content"/>
+                <ref name="extent.content"/>
+                <ref name="base.content"/>
             </interleave>
         </element>
     </define>
     <define combine="interleave" name="margins">
         <element name="margins">
-            <ref name="margins-attrib"/>
+            <ref name="margins.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="margins-content"/>
+                <ref name="margins.content"/>
+                <ref name="base.content"/>
             </interleave>
         </element>
     </define>
     <define combine="interleave" name="mets">
         <element name="metastases">
-            <ref name="mets-attrib"/>
+            <ref name="mets.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="mets-content"/>
+                <ref name="mets.content"/>
+                <ref name="base.content"/>
             </interleave>
         </element>
     </define>
     <define combine="interleave" name="nodes">
         <element name="nodes">
-            <ref name="nodes-attrib"/>
+            <ref name="nodes.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="nodes-content"/>
+                <ref name="nodes.content"/>
+                <ref name="base.content"/>
             </interleave>
         </element>
     </define>
     <define combine="interleave" name="stage">
         <element name="stage">
-            <ref name="stage-attrib"/>
+            <ref name="stage.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="stage-content"/>
+                <ref name="stage.content"/>
+                <ref name="base.content"/>
             </interleave>
         </element>
     </define>
     <define combine="interleave" name="tumor">
         <element name="tumor">
-            <ref name="tumor-attrib"/>
+            <ref name="tumor.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
-                <ref name="tumor-content"/>
+                <ref name="tumor.content"/>
+                <ref name="base.content"/>
             </interleave>
         </element>
     </define>
     <!--  -->
-    <define combine="interleave" name="additional-attrib">
-        <empty/>
-    </define>
-    <define combine="interleave" name="additional-content">
-        <empty/>
-    </define>
-    <define combine="interleave" name="clinical-attrib">
-        <empty/>
-    </define>
-    <define combine="interleave" name="clinical-content">
-        <empty/>
-    </define>
-    <define combine="interleave" name="specimen-attrib">
-        <empty/>
-    </define>
-    <define combine="interleave" name="specimen-content">
-        <empty/>
-    </define>
-    <define combine="interleave" name="studies-attrib">
-        <empty/>
-    </define>
-    <define combine="interleave" name="studies-content">
-        <empty/>
-    </define>
-    <define combine="interleave" name="accessory-attrib">
-        <empty/>
-    </define>
-    <define combine="interleave" name="accessory-content">
-        <empty/>
-    </define>
-    <define combine="interleave" name="extent-attrib">
-        <empty/>
-    </define>
-    <define combine="interleave" name="extent-content">
-        <empty/>
-    </define>
-    <define combine="interleave" name="margins-attrib">
-        <empty/>
-    </define>
-    <define combine="interleave" name="margins-content">
-        <empty/>
-    </define>
-    <define combine="interleave" name="mets-attrib">
-        <empty/>
-    </define>
-    <define combine="interleave" name="mets-content">
-        <empty/>
-    </define>
-    <define combine="interleave" name="nodes-attrib">
-        <empty/>
-    </define>
-    <define combine="interleave" name="nodes-content">
-        <empty/>
-    </define>
-    <define combine="interleave" name="stage-attrib">
-        <empty/>
-    </define>
-    <define combine="interleave" name="stage-content">
-        <empty/>
-    </define>
-    <define combine="interleave" name="tumor-attrib">
-        <empty/>
-    </define>
-    <define combine="interleave" name="tumor-content">
-        <empty/>
-    </define>
+    <div>
+        <define combine="interleave" name="additional.attrib">
+            <empty/>
+        </define>
+        <define combine="interleave" name="additional.content">
+            <empty/>
+        </define>
+    </div>
+    <div>
+        <a:documentation>Clinical section default content</a:documentation>
+        <define combine="interleave" name="clinical.attrib">
+            <empty/>
+        </define>
+        <define combine="interleave" name="clinical.content">
+            <interleave>
+                <zeroOrMore>
+                    <element name="priorTherapy">
+                        <interleave>
+                            <ref name="clinical.priorTherapy.content"/>
+                            <ref name="base.content"/>
+                        </interleave>
+                    </element>
+                </zeroOrMore>
+                <zeroOrMore>
+                    <element name="clinicalFinding">
+                        <interleave>
+                            <ref name="clinical.clinicalFinding.content"/>
+                            <ref name="base.content"/>
+                        </interleave>
+                    </element>
+                </zeroOrMore>
+                <zeroOrMore>
+                    <element name="radiologicFinding">
+                        <interleave>
+                            <ref name="clinical.radiologicFinding.content"/>
+                            <ref name="base.content"/>
+                        </interleave>
+                    </element>
+                </zeroOrMore>
+            </interleave>
+        </define>
+        <define combine="interleave" name="clinical.priorTherapy.content">
+            <interleave>
+                <element name="value">
+                    <attribute name="is">
+                        <ref name="priorTherapy.values"/>
+                    </attribute>
+                    <ref name="base.content"/>
+                </element>
+                <optional>
+                    <element name="date">
+                        <element name="value">
+                            <attribute name="is">
+                                <ref name="date.content"/>
+                            </attribute>
+                            <ref name="base.content"/>
+                        </element>
+                    </element>
+                </optional>
+            </interleave>
+        </define>
+        <define combine="choice" name="priorTherapy.values">
+            <data type="token"/>
+        </define>
+        <define combine="interleave" name="clinical.clinicalFinding.content">
+            <element name="value">
+                <attribute name="is">
+                    <ref name="clinicalFinding.values"/>
+                </attribute>
+                <ref name="base.content"/>
+            </element>
+        </define>
+        <define combine="choice" name="clinicalFinding.values">
+            <data type="token"/>
+        </define>
+        <define combine="interleave" name="clinical.radiologicFinding.content">
+            <element name="value">
+                <attribute name="is">
+                    <ref name="radiologicFinding.values"/>
+                </attribute>
+                <ref name="base.content"/>
+            </element>
+        </define>
+        <define combine="choice" name="radiologicFinding.values">
+            <data type="token"/>
+        </define>
+    </div>
+    <div>
+        <define combine="interleave" name="specimen.attrib">
+            <empty/>
+        </define>
+        <define combine="interleave" name="specimen.content">
+            <ref name="specimen.attrib"/>
+            <interleave>
+                <zeroOrMore>
+                    <element name="procedure">
+                        <interleave>
+                            <ref name="specimen.procedure.content"/>
+                            <ref name="base.content"/>
+                        </interleave>
+                    </element>
+                </zeroOrMore>
+                <zeroOrMore>
+                    <element name="site">
+                        <interleave>
+                            <ref name="specimen.site.content"/>
+                            <ref name="base.content"/>
+                        </interleave>
+                    </element>
+                </zeroOrMore>
+                <zeroOrMore>
+                    <element name="tumorLocation">
+                        <interleave>
+                            <ref name="specimen.tumorLocation.content"/>
+                            <ref name="base.content"/>
+                        </interleave>
+                    </element>
+                </zeroOrMore>
+                <optional>
+                    <element name="integrity">
+                        <interleave>
+                            <ref name="specimen.integrity.content"/>
+                            <ref name="base.content"/>
+                        </interleave>
+                    </element>
+                </optional>
+                <optional>
+                    <element name="tumorSize">
+                        <interleave>
+                            <ref name="specimen.tumorSize.content"/>
+                            <ref name="base.content"/>
+                        </interleave>
+                    </element>
+                </optional>
+                <optional>
+                    <element name="weight">
+                        <interleave>
+                            <ref name="base.content"/>
+                            <optional>
+                                <element name="value">
+                                    <data type="float"/>
+                                </element>
+                                <element name="unit">
+                                    <choice>
+                                        <value>g</value>
+                                        <value>kg</value>
+                                        <value>other</value>
+                                    </choice>
+                                </element>
+                            </optional>
+                        </interleave>
+                    </element>
+                </optional>
+            </interleave>
+        </define>
+        <define combine="choice" name="site.values">
+            <data type="token"/>
+        </define>
+        <define combine="choice" name="procedures">
+            <data type="token"/>
+        </define>
+        <define combine="interleave" name="specimen.site.content">
+            <element name="value">
+                <attribute name="is">
+                    <ref name="site.values"/>
+                </attribute>
+                <ref name="base.content"/>
+            </element>
+        </define>
+        <define combine="interleave" name="specimen.procedure.content">
+            <element name="value">
+                <attribute name="is">
+                    <ref name="procedures"/>
+                </attribute>
+                <ref name="base.content"/>
+            </element>
+        </define>
+        <define combine="interleave" name="specimen.tumorLocation.content">
+            <element name="value">
+                <attribute name="is">
+                    <ref name="site.values"/>
+                </attribute>
+                <ref name="base.content"/>
+            </element>
+        </define>
+        <define combine="interleave" name="specimen.integrity.content">
+            <element name="value">
+                <attribute name="is">
+                    <ref name="integrity.values"/>
+                </attribute>
+                <ref name="base.content"/>
+            </element>
+        </define>
+        <define combine="choice" name="integrity.values">
+            <ref name="extendedBoolean"/>
+        </define>
+        <define combine="choice" name="specimen.tumorSize.content">
+            <ref name="size"/>
+        </define>
+    </div>
+    <div>
+        <define combine="interleave" name="studies.attrib">
+            <empty/>
+        </define>
+        <define combine="interleave" name="studies.content">
+            <ref name="studies.attrib"/>
+            <zeroOrMore>
+                <element name="study">
+                    <interleave>
+                        <ref name="study.content"/>
+                        <ref name="base.content"/>
+                    </interleave>
+                </element>
+            </zeroOrMore>
+        </define>
+        <define name="study.content">
+            <element name="name">
+                <interleave>
+                    <ref name="studies.study.name.content"/>
+                    <ref name="base.content"/>
+                </interleave>
+            </element>
+            <optional>
+                <element name="method">
+                    <interleave>
+                        <ref name="studies.study.method.content"/>
+                        <ref name="base.content"/>
+                    </interleave>
+                </element>
+            </optional>
+            <element name="value">
+                <interleave>
+                    <ref name="studies.study.value.content"/>
+                    <ref name="base.content"/>
+                </interleave>
+            </element>
+        </define>
+        <define name="studies.study.name.content">
+            <text/>
+        </define>
+        <define name="studies.study.method.content">
+            <text/>
+        </define>
+        <define name="studies.study.value.content">
+            <text/>
+        </define>
+    </div>
+    <div>
+        <define combine="interleave" name="accessory.attrib">
+            <empty/>
+        </define>
+        <define combine="interleave" name="accessory.content">
+            <empty/>
+        </define>
+    </div>
+    <div>
+        <define combine="interleave" name="extent.attrib">
+            <empty/>
+        </define>
+        <define combine="interleave" name="extent.content">
+            <empty/>
+        </define>
+    </div>
+    <div>
+        <define combine="interleave" name="margins.attrib">
+            <empty/>
+        </define>
+        <define combine="interleave" name="margins.content">
+            <empty/>
+        </define>
+    </div>
+    <div>
+        <define combine="interleave" name="mets.attrib">
+            <empty/>
+        </define>
+        <define combine="interleave" name="mets.content">
+            <empty/>
+        </define>
+    </div>
+    <div>
+        <define combine="interleave" name="nodes.attrib">
+            <empty/>
+        </define>
+        <define combine="interleave" name="nodes.content">
+            <empty/>
+        </define>
+    </div>
+    <div>
+        <define combine="interleave" name="stage.attrib">
+            <empty/>
+        </define>
+        <define combine="interleave" name="stage.content">
+            <empty/>
+        </define>
+    </div>
+    <div>
+        <define combine="interleave" name="tumor.attrib">
+            <empty/>
+        </define>
+        <define combine="interleave" name="tumor.content">
+            <empty/>
+        </define>
+    </div>
 </grammar>

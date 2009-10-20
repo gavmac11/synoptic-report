@@ -46,24 +46,26 @@
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <define combine="interleave" name="tumor-content">
+    <define combine="interleave" name="tumor.content">
         <interleave>
             <element name="histologicTypes">
                 <interleave>
-                    <ref name="baseContent"/>
+                    <ref name="standard.content"/>
                     <oneOrMore>
                         <element name="histologicType">
-                            <ref name="baseContent"/>
-                            <optional><element name="value">
-                                <ref name="histologicTypes"/>
-                            </element></optional>
+                            <ref name="standard.content"/>
+                            <optional>
+                                <element name="value">
+                                    <ref name="histologicTypes"/>
+                                </element>
+                            </optional>
                         </element>
                     </oneOrMore>
                 </interleave>
             </element>
             <element name="grade">
                 <interleave>
-                    <ref name="baseContent"/>
+                    <ref name="standard.content"/>
                     <ref name="gradeContent"/>
                 </interleave>
                 <optional>
@@ -111,9 +113,11 @@
         <data type="string"/>
     </define>
     <define combine="choice" name="gradeContent">
-        <optional><element name="value">
-            <ref name="grades"/>
-        </element></optional>
+        <optional>
+            <element name="value">
+                <ref name="grades"/>
+            </element>
+        </optional>
     </define>
     <define combine="choice" name="grades">
         <choice>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<optional datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/colon/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<optional datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/colon/"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <element name="polyp">
         <interleave>
             <ref name="baseContent"/>
@@ -10,13 +12,15 @@
             <optional>
                 <element name="configuration">
                     <ref name="baseContent"/>
-                    <attribute name="value">
-                        <choice>
-                            <value>pedunculated</value>
-                            <value>sessile</value>
-                            <value>other</value>
-                        </choice>
-                    </attribute>
+                    <optional>
+                        <element name="value">
+                            <choice>
+                                <value>pedunculated</value>
+                                <value>sessile</value>
+                                <value>other</value>
+                            </choice>
+                        </element>
+                    </optional>
                 </element>
             </optional>
         </interleave>

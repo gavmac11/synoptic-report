@@ -3,10 +3,10 @@
     ns="http://www.cap.org/pert/2009/01/breast/" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <interleave>
-        <ref name="baseContent"/>
+        <ref name="standard.content"/>
         <zeroOrMore>
             <element name="invasionFinding">
-                <ref name="baseContent"/>
+                <ref name="standard.content"/>
                 <attribute name="location">
                     <choice>
                         <value>extension to pectoralis muscle</value>

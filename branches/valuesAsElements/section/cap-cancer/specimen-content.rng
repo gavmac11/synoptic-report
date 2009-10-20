@@ -46,57 +46,59 @@
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <define combine="interleave" name="specimen-content">
+    <define combine="interleave" name="specimen.content">
         <interleave>
             <element name="procedures">
                 <interleave>
-                    <ref name="baseContent"/>
+                    <ref name="standard.content"/>
                     <zeroOrMore>
                         <element name="procedure">
-                            <ref name="baseContent"/>
-                            <ref name="procedure-content"/>
+                            <ref name="standard.content"/>
+                            <ref name="procedure.content"/>
                         </element>
                     </zeroOrMore>
                 </interleave>
             </element>
             <element name="sites">
                 <interleave>
-                    <ref name="baseContent"/>
+                    <ref name="standard.content"/>
                     <zeroOrMore>
                         <element name="site">
-                            <ref name="baseContent"/>
-                            <ref name="site-content"/>
+                            <ref name="standard.content"/>
+                            <ref name="site.content"/>
                         </element>
                     </zeroOrMore>
                 </interleave>
             </element>
             <element name="tumorLocations">
                 <interleave>
-                    <ref name="baseContent"/>
+                    <ref name="standard.content"/>
                     <zeroOrMore>
                         <element name="tumorLocation">
-                            <ref name="baseContent"/>
-                            <ref name="tumorLocation-content"/>
+                            <ref name="standard.content"/>
+                            <ref name="tumorLocation.content"/>
                         </element>
                     </zeroOrMore>
                 </interleave>
             </element>
             <optional>
                 <element name="integrity">
-                    <ref name="baseContent"/>
-                    <optional><element name="value">
-                        <ref name="integrityValues"/>
-                    </element></optional>
+                    <ref name="standard.content"/>
+                    <optional>
+                        <element name="value">
+                            <ref name="integrityValues"/>
+                        </element>
+                    </optional>
                 </element>
             </optional>
             <optional>
                 <element name="tumorSize">
-                    <ref name="tumorSize-content"/>
+                    <ref name="tumorSize.content"/>
                 </element>
             </optional>
             <optional>
                 <element name="weight">
-                    <ref name="baseContent"/>
+                    <ref name="standard.content"/>
                     <attribute name="unit">
                         <choice>
                             <value>g</value>
@@ -104,9 +106,11 @@
                             <value>other</value>
                         </choice>
                     </attribute>
-                    <optional><element name="value">
-                        <data type="float"/>
-                    </element></optional>
+                    <optional>
+                        <element name="value">
+                            <data type="float"/>
+                        </element>
+                    </optional>
                 </element>
             </optional>
         </interleave>
@@ -150,25 +154,31 @@
     <define combine="choice" name="procedures">
         <data type="token"/>
     </define>
-    <define combine="interleave" name="site-content">
-        <optional><element name="value">
-            <ref name="sites"/>
-        </element></optional>
+    <define combine="interleave" name="site.content">
+        <optional>
+            <element name="value">
+                <ref name="sites"/>
+            </element>
+        </optional>
     </define>
-    <define combine="interleave" name="procedure-content">
-        <optional><element name="value">
-            <ref name="procedures"/>
-        </element></optional>
+    <define combine="interleave" name="procedure.content">
+        <optional>
+            <element name="value">
+                <ref name="procedures"/>
+            </element>
+        </optional>
     </define>
-    <define name="tumorLocation-content">
-        <optional><element name="value">
-            <ref name="sites"/>
-        </element></optional>
+    <define name="tumorLocation.content">
+        <optional>
+            <element name="value">
+                <ref name="sites"/>
+            </element>
+        </optional>
     </define>
     <define name="integrityValues">
         <externalRef href="../../common/extendedBoolean.rng"/>
     </define>
-    <define combine="choice" name="tumorSize-content">
+    <define combine="choice" name="tumorSize.content">
         <externalRef href="../../common/size.rng"/>
     </define>
 </grammar>

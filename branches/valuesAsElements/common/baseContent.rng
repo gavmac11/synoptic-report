@@ -5,7 +5,7 @@
     (c) Copyright 2008 College of American Pathologists
     ===========================================================================
     Component name:
-    baseContent.rng
+    standard.content.rng
     
     Component type:
     schema fragment for inclusion
@@ -62,43 +62,35 @@
     
     ">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <define name="baseContent">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <define name="standard.content">
         <ref name="comment"/>
         <ref name="label"/>
     </define>
-    <define name="customContent">
-        <zeroOrMore>
-            <ref name="anyUserAttribute"/>
-        </zeroOrMore>
+    <define name="custom.content">
         <interleave>
             <zeroOrMore>
                 <choice>
                     <ref name="anyForeignElement"/>
-                    <ref name="text"/>
+                    <ref name="anyUserAttribute"/>
+                    <ref name="unstructuredText"/>
                 </choice>
             </zeroOrMore>
         </interleave>
+    </define>
+    <define name="comment">
+        <element name="comment">
+            <text/>
+            <ref name="standard.content"/>
+        </element>
     </define>
     <define name="label">
         <element name="label">
             <a:documentation>String indicating the label on the pathologist's input
                 form</a:documentation>
             <text/>
-            <ref name="baseContent"/>
-        </element>
-    </define>
-    <define name="comment">
-        <element name="comment">
-            <text/>
-            <ref name="baseContent"/>
-        </element>
-    </define>
-    <define name="text">
-        <element name="text">
-            <text/>
+            <ref name="standard.content"/>
         </element>
     </define>
     <define name="anyUserAttribute">
@@ -138,6 +130,11 @@
                     </choice>
                 </zeroOrMore>
             </mixed>
+        </element>
+    </define>
+    <define name="unstructuredText">
+        <element name="text">
+            <text/>
         </element>
     </define>
 </grammar>

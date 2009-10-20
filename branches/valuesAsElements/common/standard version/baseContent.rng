@@ -5,7 +5,7 @@
     (c) Copyright 2008 College of American Pathologists
     ===========================================================================
     Component name:
-    baseContent.rng
+    standard.content.rng
     
     Component type:
     schema fragment for inclusion
@@ -58,7 +58,7 @@
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0">
-    <define name="baseContent">
+    <define name="standard.content">
         <zeroOrMore>
             <attribute>
                 <anyName>
@@ -175,7 +175,7 @@
             </zeroOrMore>
         </element>
     </define>
-    <define name="lang-attribute">
+    <define name="lang.attribute">
         <optional>
             <attribute name="xml:lang">
                 <choice>

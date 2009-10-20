@@ -44,18 +44,16 @@
     If not, see <http://www.gnu.org/licenses/>. 
     ========================================================================
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <define combine="interleave" name="additional-content">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <define combine="interleave" name="additional.content">
         <optional>
             <element name="findings">
                 <interleave>
-                    <ref name="baseContent"/>
+                    <ref name="standard.content"/>
                     <oneOrMore>
                         <element name="finding">
-                            <ref name="baseContent"/>
+                            <ref name="standard.content"/>
                             <optional>
                                 <element name="value">
                                     <ref name="findings"/>

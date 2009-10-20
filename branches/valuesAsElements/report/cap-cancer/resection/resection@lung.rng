@@ -73,15 +73,15 @@
         <a:documentation>Include the sectional architecture of a generic resection report. No structured content is defined.</a:documentation>
     </include>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <include href="&cap-cancer;clinical-content.rng">
+    <include href="&cap-cancer;clinical.content.rng">
         <a:documentation>Include the generic structured content of a Clinical section.</a:documentation>
     </include>
-    <define combine="interleave" name="clinical-content">
+    <define combine="interleave" name="clinical.content">
         <a:documentation>Interleave new lung-specific additional content for the Clinical section.</a:documentation>
         <externalRef href="&add;clinical-smokingHistory.rng"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <include href="&cap-cancer;specimen-content.rng">
+    <include href="&cap-cancer;specimen.content.rng">
         <a:documentation>Include the generic structured content of a Specimen section.</a:documentation>
         <define combine="choice" name="procedures">
             <a:documentation>Force lung-specific redefinition of the "sites" pattern of the generic Specimen section.</a:documentation>
@@ -92,12 +92,12 @@
             <externalRef href="&redefine;specimen-sites-resection.rng"/>
         </define>
     </include>
-    <define combine="interleave" name="specimen-content" ns="&lung;">
+    <define combine="interleave" name="specimen.content" ns="&lung;">
         <a:documentation>Interleave new lung-specific additional content for the Specimen section.</a:documentation>
         <empty/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <include href="&cap-cancer;tumor-content.rng">
+    <include href="&cap-cancer;tumor.content.rng">
         <a:documentation>Include the generic structured content of a Tumor section.</a:documentation>
         <define name="histologicTypes">
             <a:documentation>Force lung-specific redefinition of the "histologicTypes" pattern of the generic Specimen section.</a:documentation>
@@ -113,10 +113,10 @@
         </define>
     </include>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <include href="&cap-cancer;extent-content.rng">
+    <include href="&cap-cancer;extent.content.rng">
         <a:documentation>Include the generic structured content of an Extent section.</a:documentation>
     </include>
-    <define combine="interleave" name="extent-content">
+    <define combine="interleave" name="extent.content">
         <a:documentation>Interleave new lung-specific additional content for the Specimen section.</a:documentation>
         <interleave>
             <externalRef href="&add;extent-adjacentStructure.rng"/>
@@ -129,7 +129,7 @@
         </interleave>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <include href="&cap-cancer;margin-content.rng">
+    <include href="&cap-cancer;margin.content.rng">
         <a:documentation>Include the generic structured content of a Margin section.</a:documentation>
         <define name="marginLocations">
             <a:documentation>Force lung-resection-specific redefinition of the "locations" pattern of the generic Margin section.</a:documentation>
@@ -143,29 +143,29 @@
         </define>
     </include>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <include href="&cap-cancer;accessory-content.rng">
+    <include href="&cap-cancer;accessory.content.rng">
         <a:documentation>Include the generic structured content of an Accessory section.</a:documentation>
         <define name="treatmentEffectValues">
             <externalRef href="&redefine;accessory-treatmentEffectValues.rng"/>
         </define>
     </include>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <include href="&cap-cancer;nodes-content.rng">
+    <include href="&cap-cancer;nodes.content.rng">
         <define name="nodeGroups">
             <externalRef href="&redefine;nodes-nodeGroups.rng"/>
         </define>
     </include>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <include href="&cap-cancer;mets-content.rng"/>
+    <include href="&cap-cancer;mets.content.rng"/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <include href="&cap-cancer;studies-content.rng"/>
-    <define name="studies-content">
+    <include href="&cap-cancer;studies.content.rng"/>
+    <define name="studies.content">
         <externalRef href="&add;studies-egfr.rng"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <include href="&cap-cancer;stage-content.rng"/>
+    <include href="&cap-cancer;stage.content.rng"/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <include href="&cap-cancer;additional-content.rng">
+    <include href="&cap-cancer;additional.content.rng">
         <define name="findings">
             <externalRef href="&redefine;additional-findings.rng"/>
         </define>

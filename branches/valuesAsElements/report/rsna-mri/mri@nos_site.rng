@@ -70,10 +70,10 @@
         </define>
     </include>
     <include href="&method;mri.rng"/>
-    <include href="&rsna-mri;comparisons-content.rng"/>
-    <include href="&rsna-mri;indications-content.rng"/>
-    <include href="&rsna-mri;techniques-content.rng"/>
-    <include href="&rsna-mri;findings-content.rng"/>
-    <include href="&rsna-mri;impressions-content.rng"/>
+    <include href="&rsna-mri;comparisons.content.rng"/>
+    <include href="&rsna-mri;indications.content.rng"/>
+    <include href="&rsna-mri;techniques.content.rng"/>
+    <include href="&rsna-mri;findings.content.rng"/>
+    <include href="&rsna-mri;impressions.content.rng"/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>

@@ -68,7 +68,7 @@
     </define>
     <define name="tumorPerforation-addition">
       <element name="tumorPerforation">
-        <ref name="baseContent"/>
+        <ref name="standard.content"/>
         <optional><element name="value">
           <externalRef href="extendedBoolean.rng"/>
         </element></optional>

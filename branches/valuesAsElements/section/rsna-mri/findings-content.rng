@@ -46,17 +46,17 @@
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.rsna.org/reporting/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <define combine="interleave" name="findings-content">
+    <define combine="interleave" name="findings.content">
         <zeroOrMore>
             <element name="finding">
                 <interleave>
-                    <ref name="baseContent"/>
-                    <ref name="finding-content"/>
+                    <ref name="standard.content"/>
+                    <ref name="finding.content"/>
                 </interleave>
             </element>
         </zeroOrMore>
     </define>
-    <define combine="choice" name="finding-content">
+    <define combine="choice" name="finding.content">
         <empty/>
     </define>
 </grammar>

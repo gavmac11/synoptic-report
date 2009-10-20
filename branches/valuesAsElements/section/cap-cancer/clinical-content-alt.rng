@@ -49,15 +49,15 @@
     xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:iso="http://purl.oclc.org/dsdl/schematron">
-    <define combine="interleave" name="clinical-content">
+    <define combine="interleave" name="clinical.content">
         <interleave>
             <optional>
                 <element name="priorTherapies">
                     <interleave>
-                        <ref name="baseContent"/>
+                        <ref name="standard.content"/>
                         <zeroOrMore>
                             <element name="priorTherapy">
-                                <ref name="baseContent"/>
+                                <ref name="standard.content"/>
                                 <attribute name="description"/>
                                 <optional>
                                     <attribute name="date">
@@ -75,10 +75,10 @@
             </optional>
             <optional>
                 <element name="clinicalFindings">
-                    <ref name="baseContent"/>
+                    <ref name="standard.content"/>
                     <zeroOrMore>
                         <element name="clinicalFinding">
-                            <ref name="baseContent"/>
+                            <ref name="standard.content"/>
                             <optional>
                                 <element name="value">
                                     <ref name="clinicalFindingValues"/>
@@ -90,10 +90,10 @@
             </optional>
             <optional>
                 <element name="radiologicFindings">
-                    <ref name="baseContent"/>
+                    <ref name="standard.content"/>
                     <zeroOrMore>
                         <element name="radiologicFinding">
-                            <ref name="baseContent"/>
+                            <ref name="standard.content"/>
                             <optional>
                                 <element name="value">
                                     <ref name="radiologicFindingValues"/>

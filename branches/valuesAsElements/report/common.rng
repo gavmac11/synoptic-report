@@ -55,20 +55,20 @@
   xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/">
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <include href="../common/baseContent.rng"/>
+  <include href="../common/standard.content.rng"/>
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <start combine="interleave">
     <element name="synopsis">
       <a:documentation>The root element for all synoptic reports</a:documentation>
-      <ref name="synopsis-attrib"/>
+      <ref name="synopsis.attrib"/>
       <interleave>
-        <ref name="baseContent"/>
-        <ref name="synopsis-content"/>
+        <ref name="standard.content"/>
+        <ref name="synopsis.content"/>
       </interleave>
     </element>
   </start>
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <define combine="interleave" name="synopsis-attrib">
+  <define combine="interleave" name="synopsis.attrib">
     <a:documentation>Standard attribute set for synopsis element</a:documentation>
     <attribute name="pert:schemaLocation">
       <ref name="schemaLocation"/>
@@ -86,7 +86,7 @@
     <data type="string"/>
   </define>
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <define combine="interleave" name="synopsis-content">
+  <define combine="interleave" name="synopsis.content">
     <empty/>
   </define>
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
