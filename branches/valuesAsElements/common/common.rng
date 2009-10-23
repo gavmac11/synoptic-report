@@ -22,119 +22,9 @@
     limitations under the License.
     ===========================================================================
 -->
-
-<!DOCTYPE grammar [
-<!ENTITY localNames "
-
-    <nsName ns='http://www.cap.org/pert/2009/01/'/>
-    <nsName ns='http://www.cap.org/pert/2009/01/breast/'/>
-    <nsName ns='http://www.cap.org/pert/2009/01/colon/'/>
-    <nsName ns='http://www.cap.org/pert/2009/01/lung/'/>
-    <nsName ns='http://www.cap.org/pert/2009/01/prostate/'/>
-    <nsName ns='http://www.cap.org/pert/2009/01/pancreas/'/>
-    <nsName ns='http://www.cap.org/pert/2009/01/stomach/'/>
-    <nsName ns='http://www.cap.org/pert/2009/01/endometrium/'/>
-    <nsName ns='http://www.w3.org/2003/g/data-view#'/>
-    <nsName ns='http://www.rsna.org/reporting/2009/01/'/>
-    
-    ">
-]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <div>
-        <define name="standard.content">
-            <interleave>
-                <optional>
-                    <ref name="comment"/>
-                </optional>
-                <optional>
-                    <ref name="label"/>
-                </optional>
-                <zeroOrMore>
-                    <ref name="unstructuredText"/>
-                </zeroOrMore>
-            </interleave>
-        </define>
-        <define name="custom.content">
-            <interleave>
-                <zeroOrMore>
-                    <choice>
-                        <ref name="anyForeignElement"/>
-                        <ref name="anyUserAttribute"/>
-                    </choice>
-                </zeroOrMore>
-            </interleave>
-        </define>
-        <define name="base.content">
-            <interleave>
-                <ref name="standard.content"/>
-                <ref name="custom.content"/>
-            </interleave>
-        </define>
-        <define name="comment">
-            <element name="comment">
-                <text/>
-                <ref name="custom.content"/>
-            </element>
-        </define>
-        <define name="label">
-            <element name="label">
-                <text/>
-                <ref name="custom.content"/>
-            </element>
-        </define>
-        <define name="anyUserAttribute">
-            <a:documentation>Any attribute in a non-null namespace other than the CAP eCC
-            namespaces</a:documentation>
-            <attribute>
-                <anyName>
-                    <except>
-                    <nsName ns=""/> 
-                    &localNames; 
-                </except>
-                </anyName>
-            </attribute>
-        </define>
-        <define name="anyForeignAttribute">
-            <attribute>
-                <anyName>
-                    <except>
-                    &localNames;
-                </except>
-                </anyName>
-            </attribute>
-        </define>
-        <define name="anyForeignElement">
-            <element>
-                <anyName>
-                    <except>
-                    <nsName ns=""/>
-                    &localNames;
-                </except>
-                </anyName>
-                <interleave>
-                    <zeroOrMore>
-                        <choice>
-                            <ref name="anyForeignAttribute"/>
-                            <ref name="anyForeignElement"/>
-                        </choice>
-                    </zeroOrMore>
-                </interleave>
-            </element>
-        </define>
-        <define name="unstructuredText">
-            <element name="unstructuredText">
-                <mixed>
-                    <zeroOrMore>
-                        <choice>
-                            <ref name="anyForeignAttribute"/>
-                            <ref name="anyForeignElement"/>
-                        </choice>
-                    </zeroOrMore>
-                </mixed>
-            </element>
-        </define>
-    </div>
+    <include href="value.rng"/>
     <div>
         <a:documentation>Common value types</a:documentation>
         <define name="extendedBoolean">
@@ -167,26 +57,22 @@
                 <value>chronic</value>
                 <value>other</value>
             </choice>
-            <optional>
-                <ref name="otherValue"/>
-            </optional>
+        </define>
+        <define name="laterality.value">
+            <choice>
+                <value>right</value>
+                <value>left</value>
+                <value>other</value>
+            </choice>
         </define>
         <define name="laterality">
-            <element name="laterality">
-                <interleave>
-                    <element name="value">
-                        <attribute name="is">
-                            <choice>
-                                <value>right</value>
-                                <value>left</value>
-                                <value>other</value>
-                            </choice>
-                        </attribute>
-                    </element>
-                    <ref name="otherValue"/>
-                    <ref name="base.content"/>
-                </interleave>
-            </element>
+            <grammar>
+                <include href="value.rng">
+                    <define name="valueset">
+                        <parentRef name="laterality.value"/>
+                    </define>
+                </include>
+            </grammar>
         </define>
         <define name="date.content">
             <choice>
@@ -197,35 +83,20 @@
         </define>
     </div>
     <div>
-        <define name="otherValue">
-            <optional>
-                <element name="otherValue">
-                    <text/>
-                    <ref name="standard.content"/>
-                    <ref name="custom.content"/>
-                </element>
-            </optional>
-        </define>
-    </div>
-    <div>
         <define name="length.content">
             <interleave>
                 <element name="unit">
-                    <attribute name="is">
-                        <ref name="lengthUnit.value"/>
-                    </attribute>
-                    <ref name="base.content"/>
+                    <ref name="lengthUnit.value"/>
                 </element>
-                <element name="value">
-                    <optional>
-                        <attribute name="is">
+                <grammar>
+                    <include href="value.rng">
+                        <define name="valueset">
                             <data type="decimal">
                                 <param name="minExclusive">0.0</param>
                             </data>
-                        </attribute>
-                    </optional>
-                    <ref name="base.content"/>
-                </element>
+                        </define>
+                    </include>
+                </grammar>
             </interleave>
         </define>
         <define name="dimension">
@@ -244,16 +115,18 @@
                 </interleave>
             </element>
         </define>
-        <define name="size">
+        <define name="common.size">
             <element name="size">
                 <interleave>
-                    <ref name="dimension"/>
-                    <optional>
+                    <group>
                         <ref name="dimension"/>
                         <optional>
                             <ref name="dimension"/>
+                            <optional>
+                                <ref name="dimension"/>
+                            </optional>
                         </optional>
-                    </optional>
+                    </group>
                     <ref name="base.content"/>
                 </interleave>
             </element>
