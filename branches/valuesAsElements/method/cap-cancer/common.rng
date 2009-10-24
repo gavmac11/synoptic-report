@@ -25,8 +25,9 @@
 <!DOCTYPE grammar [
 <!ENTITY value "../../common/value.rng">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <!--  -->
     <include href="../../common/base.rng"/>
     <start>
@@ -35,6 +36,7 @@
             <ref name="specimen"/>
             <ref name="accessory"/>
             <ref name="additional"/>
+            <ref name="margins"/>
         </element>
     </start>
     <!--  -->
@@ -103,11 +105,11 @@
                 </interleave>
             </element>
         </define>
-        <define combine="interleave" name="mets">
+        <define combine="interleave" name="metastases">
             <element name="metastases">
-                <ref name="mets.attrib"/>
+                <ref name="metastases.attrib"/>
                 <interleave>
-                    <ref name="mets.content"/>
+                    <ref name="metastases.content"/>
                     <ref name="base.content"/>
                 </interleave>
             </element>
@@ -145,13 +147,40 @@
         <div>
             <a:documentation>-- SECTION CONTENT --</a:documentation>
             <define combine="interleave" name="additional.content">
-                <empty/>
+                <zeroOrMore>
+                    <element name="item">
+                        <ref name="additional.item.attrib"/>
+                        <interleave>
+                            <ref name="additional.item.content"/>
+                            <ref name="base.content"/>
+                        </interleave>
+                    </element>
+                </zeroOrMore>
             </define>
         </div>
         <div>
             <a:documentation>-- ATTRIBUTES --</a:documentation>
             <define combine="interleave" name="additional.attrib">
                 <empty/>
+            </define>
+            <define combine="interleave" name="additional.item.attrib">
+                <attribute name="name">
+                    <ref name="additional.item.name.values"/>
+                </attribute>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- ELEMENTS --</a:documentation>
+            <define name="additional.item.content">
+                <grammar>
+                    <include href="&value;"/>
+                </grammar>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- VALUESETS --</a:documentation>
+            <define name="additional.item.name.values">
+                <data type="token"/>
             </define>
         </div>
     </div>
@@ -385,7 +414,7 @@
             <define combine="choice" name="specimen.tumorSize.content">
                 <ref name="common.size"/>
             </define>
-            <define name="specimen.weight.content">
+            <define combine="choice" name="specimen.weight.content">
                 <grammar>
                     <include href="&value;">
                         <define name="valueset">
@@ -397,7 +426,7 @@
                     <include href="&value;">
                         <start>
                             <element name="unit">
-                                <ref name="value.content"/>
+                                <ref name="result.content"/>
                             </element>
                         </start>
                         <define name="valueset">
@@ -442,20 +471,8 @@
                 <interleave>
                     <grammar>
                         <include href="&value;">
-                            <start>
-                                <element name="name">
-                                    <ref name="value.content"/>
-                                </element>
-                            </start>
                             <define name="valueset">
-                                <parentRef name="studies.study.name.values"/>
-                            </define>
-                        </include>
-                    </grammar>
-                    <grammar>
-                        <include href="&value;">
-                            <define name="valueset">
-                                <parentRef name="studies.study.values"/>
+                                <parentRef name="studies.study.value.values"/>
                             </define>
                         </include>
                     </grammar>
@@ -464,7 +481,7 @@
                             <include href="&value;">
                                 <start>
                                     <element name="method">
-                                        <ref name="value.content"/>
+                                        <ref name="result.content"/>
                                     </element>
                                 </start>
                                 <define name="valueset">
@@ -479,18 +496,22 @@
         <div>
             <a:documentation>-- ATTRIBUTES --</a:documentation>
             <define combine="interleave" name="studies.attrib">
-                <empty/>
+                <attribute name="name">
+                    <ref name="studies.study.name.values"/>
+                </attribute>
             </define>
             <define combine="interleave" name="studies.study.attrib">
-                <empty/>
+                <attribute name="name">
+                    <data type="token"/>
+                </attribute>
             </define>
         </div>
         <div>
             <a:documentation>-- VALUESETS --</a:documentation>
-            <define name="studies.study.values">
+            <define name="studies.study.name.values">
                 <data type="token"/>
             </define>
-            <define name="studies.study.name.values">
+            <define name="studies.study.value.values">
                 <data type="token"/>
             </define>
             <define name="studies.study.method.values">
@@ -624,36 +645,243 @@
         </div>
     </div>
     <div>
-        <define combine="interleave" name="extent.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="extent.content">
-            <empty/>
-        </define>
+        <a:documentation>== EXTENT SECTION ==</a:documentation>
+        <div>
+            <a:documentation>-- CONTENT MODEL --</a:documentation>
+            <define combine="interleave" name="extent.content">
+                <ref name="common.size"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="extent.attrib">
+                <empty/>
+            </define>
+        </div>
     </div>
     <div>
-        <define combine="interleave" name="margins.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="margins.content">
-            <empty/>
-        </define>
+        <a:documentation>== MARGINS SECTION ==</a:documentation>
+        <div>
+            <a:documentation>-- CONTENT MODEL --</a:documentation>
+            <define combine="interleave" name="margins.content">
+                <zeroOrMore>
+                    <element name="margin">
+                        <ref name="margins.margin.attrib"/>
+                        <interleave>
+                            <ref name="margins.margin.content"/>
+                            <ref name="standard.content"/>
+                        </interleave>
+                    </element>
+                </zeroOrMore>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="margins.attrib">
+                <empty/>
+            </define>
+            <define name="margins.margin.attrib">
+                <empty/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- ELEMENTS --</a:documentation>
+            <define combine="interleave" name="margins.margin.content">
+                <interleave>
+                    <grammar>
+                        <include href="&value;">
+                            <start>
+                                <element name="location">
+                                    <ref name="result.content"/>
+                                </element>
+                            </start>
+                            <define name="valueset">
+                                <parentRef name="margins.margin.location.values"/>
+                            </define>
+                        </include>
+                    </grammar>
+                    <grammar>
+                        <include href="&value;">
+                            <define name="valueset">
+                                <parentRef name="margins.margin.value.values"/>
+                            </define>
+                        </include>
+                    </grammar>
+                    <optional>
+                        <grammar>
+                            <include href="&value;">
+                                <start>
+                                    <element name="closest">
+                                        <ref name="result.content"/>
+                                    </element>
+                                </start>
+                                <define name="valueset">
+                                    <parentRef name="margins.margin.closest.values"/>
+                                </define>
+                            </include>
+                        </grammar>
+                    </optional>
+                    <optional>
+                        <grammar>
+                            <include href="&value;">
+                                <start>
+                                    <element name="distance">
+                                        <ref name="result.content"/>
+                                    </element>
+                                </start>
+                                <define name="valueset">
+                                    <parentRef name="margins.margin.distance.values"/>
+                                </define>
+                            </include>
+                        </grammar>
+                    </optional>
+                </interleave>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- VALUESETS --</a:documentation>
+            <define combine="choice" name="margins.margin.location.values">
+                <data type="token"/>
+            </define>
+            <define name="margins.margin.value.values">
+                <ref name="extendedBoolean"/>
+            </define>
+            <define name="margins.margin.closest.values">
+                <ref name="extendedBoolean"/>
+            </define>
+            <define name="margins.margin.distance.values">
+                <ref name="length.content"/>
+            </define>
+        </div>
     </div>
     <div>
-        <define combine="interleave" name="mets.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="mets.content">
-            <empty/>
-        </define>
+        <a:documentation>== METASTASES SECTION ==</a:documentation>
+        <div>
+            <a:documentation>-- CONTENT MODEL --</a:documentation>
+            <define combine="interleave" name="metastases.content">
+                <zeroOrMore>
+                    <element name="metastasis">
+                        <ref name="metastases.metastasis.attrib"/>
+                        <interleave>
+                            <ref name="margins.margin.content"/>
+                            <ref name="base.content"/>
+                        </interleave>
+                    </element>
+                </zeroOrMore>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="metastases.attrib">
+                <empty/>
+            </define>
+            <define name="metastases.metastasis.attrib">
+                <empty/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- ELEMENTS --</a:documentation>
+            <define name="metastases.metastasis.content">
+                <grammar>
+                    <include href="&value;">
+                        <start>
+                            <element name="site">
+                                <ref name="result.content"/>
+                            </element>
+                        </start>
+                        <define name="valueset">
+                            <parentRef name="metastases.metastasis.site.values"/>
+                        </define>
+                    </include>
+                </grammar>
+                <grammar>
+                    <include href="&value;">
+                        <start>
+                            <element name="howDiagnosed">
+                                <ref name="result.content"/>
+                            </element>
+                        </start>
+                        <define name="valueset">
+                            <parentRef name="metastases.metastasis.howDiagnosed.values"/>
+                        </define>
+                    </include>
+                </grammar>
+                <ref name="common.size"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- VALUESETS --</a:documentation>
+            <define name="metastases.metastasis.site.values">
+                <data type="token"/>
+            </define>
+            <define name="metastases.metastasis.howDiagnosed.values">
+                <choice>
+                    <value>this accesion</value>
+                    <value>prior accession</value>
+                    <value>outside report</value>
+                    <value>clinical history</value>
+                    <value>other</value>
+                </choice>
+            </define>
+        </div>
     </div>
     <div>
-        <define combine="interleave" name="nodes.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="nodes.content">
-            <empty/>
-        </define>
+        <a:documentation>== NODES SECTION ==</a:documentation>
+        <div>
+            <a:documentation>-- CONTENT MODEL --</a:documentation>
+            <define combine="interleave" name="nodes.content">
+                <zeroOrMore>
+                    <element name="group">
+                        <ref name="nodes.group.attrib"/>
+                        <interleave>
+                            <ref name="nodes.group.content"/>
+                            <ref name="base.content"/>
+                        </interleave>
+                    </element>
+                </zeroOrMore>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="nodes.attrib">
+                <empty/>
+            </define>
+            <define name="nodes.group.attrib">
+                <empty/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- ELEMENTS --</a:documentation>
+            <define name="nodes.group.content">
+                <interleave>
+                    <grammar>
+                        <include href="&value;">
+                            <start>
+                                <element name="laterality">
+                                    <ref name="result.content"/>
+                                </element>
+                            </start>
+                            <define name="valueset">
+                                <parentRef name="laterality.values"/>
+                            </define>
+                        </include>
+                    </grammar>
+                    
+                </interleave>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- VALUESETS --</a:documentation>
+            <define combine="choice" name="nodes.group.status.values">
+                <choice>
+                    <value>total</value>
+                    <value>negative</value>
+                    <value>positive</value>
+                    <value>regressed</value>
+                    <value>other</value>
+                </choice>
+            </define>
+        </div>
     </div>
     <div>
         <define combine="interleave" name="stage.attrib">

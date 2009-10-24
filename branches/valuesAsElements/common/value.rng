@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <start>
-        <element name="value">
-            <ref name="value.attrib"/>
-            <ref name="value.content"/>
+        <element name="result">
+            <ref name="result.attrib"/>
+            <ref name="result.content"/>
         </element>
     </start>
-    <define name="value.attrib">
+    <define name="result.attrib">
         <empty/>
     </define>
-    <define name="value.content">
+    <define name="result.content">
         <interleave>
-            <element name="result">
+            <element name="value">
                 <ref name="valueset"/>
             </element>
             <optional>
@@ -20,10 +21,10 @@
                     <data type="token"/>
                 </element>
             </optional>
-            <parentRef name="standard.content"/>
+            <parentRef name="base.content"/>
         </interleave>
     </define>
     <define combine="choice" name="valueset">
-        <text/>
+        <data type="token"/>
     </define>
 </grammar>
