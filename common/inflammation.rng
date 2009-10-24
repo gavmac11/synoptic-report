@@ -21,7 +21,6 @@ limitations under the License.
 ===========================================================================
 
 -->
-
 <attribute name="inflammation" xmlns="http://relaxng.org/ns/structure/1.0">
     <choice>
         <value>acute</value>

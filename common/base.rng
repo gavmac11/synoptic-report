@@ -15,7 +15,8 @@
 
 ">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <define name="standard.content" ns="http://www.cap.org/pert/2009/01/">
         <interleave>
@@ -48,11 +49,13 @@
     </define>
     <define name="comment">
         <element name="comment">
+            <text/>
             <ref name="custom.content"/>
         </element>
     </define>
     <define name="label">
         <element name="label">
+            <text/>
             <ref name="custom.content"/>
         </element>
     </define>
@@ -98,12 +101,7 @@
     <define name="text">
         <element name="text">
             <mixed>
-                <zeroOrMore>
-                    <choice>
-                        <ref name="anyForeignAttribute"/>
-                        <ref name="anyForeignElement"/>
-                    </choice>
-                </zeroOrMore>
+                <ref name="base.content"/>
             </mixed>
         </element>
     </define>
@@ -132,7 +130,7 @@
                 <value>other</value>
             </choice>
         </define>
-        <define name="laterality.value">
+        <define name="laterality.values">
             <choice>
                 <value>right</value>
                 <value>left</value>
@@ -166,7 +164,7 @@
         <grammar>
             <include href="value.rng">
                 <define name="valueset">
-                    <parentRef name="laterality.value"/>
+                    <parentRef name="laterality.values"/>
                 </define>
             </include>
         </grammar>

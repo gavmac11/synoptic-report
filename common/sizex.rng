@@ -41,11 +41,9 @@
     
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0">
+    ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0">
     <define name="size">
         <element name="size">
-            <ref name="standard.content"/>
             <ref name="dimension"/>
             <optional>
                 <ref name="dimension"/>
@@ -53,6 +51,7 @@
                     <ref name="dimension"/>
                 </optional>
             </optional>
+            <ref name="baseContent"/>
         </element>
     </define>
     <define name="dimension">
@@ -60,7 +59,7 @@
             <attribute name="unit">
                 <externalRef href="lengthUnits.rng"/>
             </attribute>
-            <ref name="standard.content"/>
+            <ref name="baseContent"/>
             <optional>
                 <element name="value">
                     <data type="decimal">
