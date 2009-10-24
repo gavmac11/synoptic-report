@@ -24,101 +24,304 @@ default namespace = "http://www.cap.org/pert/2009/01/"
 namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
 
 #
-include "common1.rnc"
-start = notAllowed
+include "base.rnc"
+start = clinical | specimen
 #
-additional &= element additional { additional-attrib & additional-content & baseContent & customContent }
-clinical &= element clinical { clinical-attrib & clinical-content & baseContent & customContent }
-specimen &= element specimen { specimen-attrib & specimen-content & baseContent & customContent }
-studies &= element studies { studies-attrib & studies-content & baseContent & customContent }
-accessory &= element accessory { accessory-attrib & accessory-content & baseContent & customContent }
-extent &= element extent { extent-attrib & extent-content & baseContent & customContent }
-margins &= element margins { margins-attrib & margins-content & baseContent & customContent }
-mets &= element metastases { mets-attrib & mets-content & baseContent & customContent }
-nodes &= element nodes { nodes-attrib & nodes-content & baseContent & customContent }
-stage &= element stage { stage-attrib & stage-content & baseContent & customContent }
-tumor &= element tumor { tumor-attrib & tumor-content & baseContent & customContent }
+additional &= element additional { additional.attrib, (additional.content & base.content) }
+clinical &= element clinical { clinical.attrib, (clinical.content & base.content) }
+specimen &= element specimen { specimen.attrib, (specimen.content & base.content) }
+studies &= element studies { studies.attrib, (studies.content & base.content) }
+accessory &= element accessory { accessory.attrib, (accessory.content & base.content) }
+extent &= element extent { extent.attrib, (extent.content & base.content) }
+margins &= element margins { margins.attrib, (margins.content & base.content) }
+mets &= element metastases { mets.attrib, (mets.content & base.content) }
+nodes &= element nodes { nodes.attrib, (nodes.content & base.content) }
+stage &= element stage { stage.attrib, (stage.content & base.content) }
+tumor &= element tumor { tumor.attrib, (tumor.content & base.content) }
 #
+
+## ========================
+
+## == ADDITIONAL SECTION ==
+
+## ========================
 div {
-    additional-attrib &= empty
-    additional-content &= empty
+    div {
+        additional.content &= empty
+    }
+    div {
+        additional.attrib &= empty
+    }
 }
 
-## Clinical section default content
+## ======================
+
+## == CLINICAL SECTION ==
+
+## ======================
 div {
-    clinical-attrib &= empty
-    clinical-content &=
-        (element priorTherapy {
-             baseContent,
-             customContent,
-             element value { baseContent, customContent, text },
-             [ a:defaultValue = "unspecified" ]
-             attribute date { "unspecified" | xsd:date | xsd:gYear | xsd:gYearMonth }?
-         }
-         | element clinicalFinding {
-               baseContent,
-               element value { clinicalFindingValues }?
-           }
-         | element radiologicFinding {
-               baseContent,
-               element value { radiologicFindingValues }?
-           })*
-    clinicalFindingValues = text
-    radiologicFindingValues = text
+    
+    ## -------------------
+    
+    ## -- CONTENT MODEL --
+    
+    ## -------------------
+    div {
+        clinical.content &=
+            element priorTherapy { clinical.priorTherapy.attrib, (clinical.priorTherapy.content & base.content) }*
+            & element clinicalFinding {
+                  clinical.clinicalFinding.attrib, (clinical.clinicalFinding.content & base.content)
+              }*
+            & element radiologicFinding {
+                  clinical.radiologicFinding.attrib, (clinical.radiologicFinding.content & base.content)
+              }*
+    }
+    
+    ## ----------------
+    
+    ## -- ATTRIBUTES --
+    
+    ## ----------------
+    div {
+        clinical.attrib &= empty
+        clinical.priorTherapy.attrib = empty
+        clinical.clinicalFinding.attrib = empty
+        clinical.radiologicFinding.attrib = empty
+    }
+    
+    ## --------------
+    
+    ## -- ELEMENTS --
+    
+    ## --------------
+    div {
+        clinical.priorTherapy.content &=
+            grammar {
+                include "value.rnc" {
+                    valueset = parent priorTherapy.values
+                }
+            }
+            & element date { date.content }?
+        clinical.clinicalFinding.content &=
+            grammar {
+                include "value.rnc" {
+                    valueset = parent clinical.clinicalFinding.values
+                }
+            }
+        clinical.radiologicFinding.content &=
+            grammar {
+                include "value.rnc" {
+                    valueset = parent clinical.radiologicFinding.values
+                }
+            }
+    }
+    
+    ## --------------
+    
+    ## -- ELEMENTS --
+    
+    ## --------------
+    div {
+        priorTherapy.values |= xsd:token
+        clinical.clinicalFinding.values |= xsd:token
+        clinical.radiologicFinding.values |= xsd:token
+    }
 }
+
+## =======================
+
+## == PROCEDURE SECTION ==
+
+## =======================
 div {
-    specimen-attrib &= empty
-    specimen-content &=
-        element procedure { baseContent, procedure-content }*
-        & element site { baseContent, site-content }*
-        & element tumorLocation { baseContent, tumorLocation-content }*
-        & element integrity {
-              baseContent,
-              element value { integrityValues }?
+    
+    ## -------------------
+    
+    ## -- CONTENT MODEL --
+    
+    ## -------------------
+    div {
+        specimen.content &=
+            specimen.attrib,
+            (element procedure { specimen.procedure.attrib, (specimen.procedure.content & base.content) }+
+             & element site { specimen.site.attrib, (specimen.site.content & base.content) }+
+             & element tumorLocation { specimen.tumorLocation.attrib, (specimen.tumorLocation.content & base.content) }+
+             & element integrity { specimen.integrity.attrib, (specimen.integrity.content & base.content) }?
+             & element tumorSize { specimen.tumorSize.attrib, (specimen.tumorSize.content & base.content) }?
+             & element weight { specimen.weight.attrib, (specimen.weight.content & base.content) }?)
+    }
+    
+    ## ----------------
+    
+    ## -- ATTRIBUTES --
+    
+    ## ----------------
+    div {
+        specimen.attrib &= empty
+        specimen.procedure.attrib &= empty
+        specimen.site.attrib &= empty
+        specimen.tumorLocation.attrib &= empty
+        specimen.integrity.attrib &= empty
+        specimen.tumorSize.attrib &= empty
+        specimen.weight.attrib &= empty
+    }
+    
+    ## --------------
+    
+    ## -- ELEMENTS --
+    
+    ## --------------
+    div {
+        specimen.site.content &=
+            grammar {
+                include "value.rnc" {
+                    valueset = parent specimen.site.values
+                }
+            }
+        specimen.procedure.content &=
+            grammar {
+                include "value.rnc" {
+                    valueset = parent specimen.procedure.values
+                }
+            }
+        specimen.tumorLocation.content &=
+            grammar {
+                include "value.rnc" {
+                    valueset = parent specimen.site.values
+                }
+            }
+        specimen.integrity.content &=
+            grammar {
+                include "value.rnc" {
+                    valueset = parent specimen.integrity.values
+                }
+            }
+        specimen.weight.content =
+            grammar {
+                include "value.rnc" {
+                    valueset = xsd:float
+                }
+            },
+            grammar {
+                include "value.rnc" {
+                    start = element unit { value.content }
+                    valueset = parent weightUnit.value
+                }
+            }
+    }
+    
+    ## --------------
+    
+    ## -- ELEMENTS --
+    
+    ## --------------
+    div {
+        specimen.site.values |= xsd:token
+        specimen.procedure.values |= xsd:token
+        specimen.integrity.values |= extendedBoolean
+        specimen.tumorSize.content |= common.size
+    }
+}
+
+## =====================
+
+## == STUDIES SECTION ==
+
+## =====================
+div {
+    studies.content &=
+        studies.attrib,
+        element study { study.content & base.content }*
+    studies.attrib &= empty
+    study.content =
+        grammar {
+            include "value.rnc" {
+                valueset = xsd:token
+            }
+        }
+        & grammar {
+              include "value.rnc" {
+                  valueset = xsd:token
+              }
+          }
+        & element method {
+              attribute is { xsd:token },
+              base.content
           }?
-        & element tumorSize { tumorSize-content }?
-        & element weight {
-              baseContent,
-              attribute unit { "g" | "kg" | "other" },
-              element value { xsd:float }?
+}
+
+## =================
+
+## ACCESSORY SECTION
+
+## =================
+div {
+    accessory.content &=
+        element venousInvasion {
+            grammar {
+                include "value.rnc" {
+                    valueset = parent venousInvasion.values
+                }
+            }
+        }?
+        & element lymphovascularInvasion {
+              grammar {
+                  include "value.rnc" {
+                      valueset = parent lymphaticInvasion.values
+                  }
+              }
           }?
-    sites |= xsd:token
-    procedures |= xsd:token
-    site-content &= element value { sites }?
-    procedure-content &= element value { procedures }?
-    tumorLocation-content = element value { sites }?
-    integrityValues = external "extendedBoolean.rnc"
-    tumorSize-content |= external "size.rnc"
+        & element perineuralInvasion {
+              grammar {
+                  include "value.rnc" {
+                      valueset = parent perineuralInvasion.values
+                  }
+              }
+          }?
+        & element treatmentEffect {
+              grammar {
+                  include "value.rnc" {
+                      valueset = parent treatmentEffect.values
+                  }
+              }
+          }?
+    
+    ## ATTRIBUTES
+    div {
+        accessory.attrib &= empty
+    }
+    
+    ## VALUESETS
+    div {
+        venousInvasion.values |= external "extendedBoolean.rnc"
+        lymphaticInvasion.values |= external "extendedBoolean.rnc"
+        perineuralInvasion.values |= external "extendedBoolean.rnc"
+        treatmentEffect.values |=
+            ("inapplicable" | "noResponse" | "slightResponse" | "markedResponse" | "completeResponse" | "other"),
+            element otherValue { xsd:string }?
+    }
 }
 div {
-    studies-attrib &= empty
-    studies-content &= empty
+    extent.attrib &= empty
+    extent.content &= empty
 }
 div {
-    accessory-attrib &= empty
-    accessory-content &= empty
+    margins.attrib &= empty
+    margins.content &= empty
 }
 div {
-    extent-attrib &= empty
-    extent-content &= empty
+    mets.attrib &= empty
+    mets.content &= empty
 }
 div {
-    margins-attrib &= empty
-    margins-content &= empty
+    nodes.attrib &= empty
+    nodes.content &= empty
 }
 div {
-    mets-attrib &= empty
-    mets-content &= empty
+    stage.attrib &= empty
+    stage.content &= empty
 }
 div {
-    nodes-attrib &= empty
-    nodes-content &= empty
-}
-div {
-    stage-attrib &= empty
-    stage-content &= empty
-}
-div {
-    tumor-attrib &= empty
-    tumor-content &= empty
+    tumor.attrib &= empty
+    tumor.content &= empty
 }

@@ -24,46 +24,32 @@
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <include href="value.rng"/>
+    <start>
+        <notAllowed/>
+    </start>
     <div>
         <a:documentation>Common value types</a:documentation>
-        <define name="extendedBoolean">
-            <choice>
-                <value>positive</value>
-                <value>negative</value>
-                <value>equivocal</value>
-                <value>not applicable</value>
-            </choice>
-        </define>
         <define name="severity">
-            <choice>
-                <value>none</value>
-                <value>mild</value>
-                <value>moderate</value>
-                <value>marked</value>
-            </choice>
+            <value>none</value>
+            <value>mild</value>
+            <value>moderate</value>
+            <value>marked</value>
         </define>
         <define name="lengthUnit.value">
-            <choice>
-                <value>mm</value>
-                <value>cm</value>
-                <value>in</value>
-            </choice>
+            <value>mm</value>
+            <value>cm</value>
+            <value>in</value>
         </define>
         <define name="inflammation.value">
-            <choice>
-                <value>acute</value>
-                <value>acute and chronic</value>
-                <value>chronic</value>
-                <value>other</value>
-            </choice>
+            <value>acute</value>
+            <value>acute and chronic</value>
+            <value>chronic</value>
+            <value>other</value>
         </define>
         <define name="laterality.value">
-            <choice>
-                <value>right</value>
-                <value>left</value>
-                <value>other</value>
-            </choice>
+            <value>right</value>
+            <value>left</value>
+            <value>other</value>
         </define>
         <define name="laterality">
             <grammar>
@@ -75,61 +61,9 @@
             </grammar>
         </define>
         <define name="date.content">
-            <choice>
-                <data type="date"/>
-                <data type="gYear"/>
-                <data type="gYearMonth"/>
-            </choice>
-        </define>
-    </div>
-    <div>
-        <define name="length.content">
-            <interleave>
-                <element name="unit">
-                    <ref name="lengthUnit.value"/>
-                </element>
-                <grammar>
-                    <include href="value.rng">
-                        <define name="valueset">
-                            <data type="decimal">
-                                <param name="minExclusive">0.0</param>
-                            </data>
-                        </define>
-                    </include>
-                </grammar>
-            </interleave>
-        </define>
-        <define name="dimension">
-            <element name="dimension">
-                <interleave>
-                    <ref name="length.content"/>
-                    <ref name="base.content"/>
-                </interleave>
-            </element>
-        </define>
-        <define name="length">
-            <element name="length">
-                <interleave>
-                    <ref name="length.content"/>
-                    <ref name="base.content"/>
-                </interleave>
-            </element>
-        </define>
-        <define name="common.size">
-            <element name="size">
-                <interleave>
-                    <group>
-                        <ref name="dimension"/>
-                        <optional>
-                            <ref name="dimension"/>
-                            <optional>
-                                <ref name="dimension"/>
-                            </optional>
-                        </optional>
-                    </group>
-                    <ref name="base.content"/>
-                </interleave>
-            </element>
+            <data type="date"/>
+            <data type="gYear"/>
+            <data type="gYearMonth"/>
         </define>
     </div>
 </grammar>

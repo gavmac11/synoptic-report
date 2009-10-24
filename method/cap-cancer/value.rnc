@@ -1,0 +1,10 @@
+default namespace = "http://www.cap.org/pert/2009/01/"
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+start = element value { value.attrib, value.content }
+value.attrib = empty
+value.content =
+  element result { valueset }
+  & element otherValue { xsd:token }?
+  & parent standard.content
+valueset |= text
