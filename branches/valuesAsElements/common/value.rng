@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <start>
+        <element name="value">
+            <ref name="value.attrib"/>
+            <ref name="value.content"/>
+        </element>
+    </start>
+    <define name="value.attrib">
+        <empty/>
+    </define>
+    <define name="value.content">
+        <interleave>
+            <element name="result">
+                <ref name="valueset"/>
+            </element>
+            <optional>
+                <element name="otherValue">
+                    <data type="token"/>
+                </element>
+            </optional>
+            <parentRef name="standard.content"/>
+        </interleave>
+    </define>
+    <define combine="choice" name="valueset">
+        <text/>
+    </define>
+</grammar>

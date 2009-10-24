@@ -1,0 +1,93 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace local = ""
+namespace ns1 = "http://www.cap.org/pert/2009/01/"
+namespace ns10 = "http://www.cap.org/pert/2009/01/colon/"
+namespace ns2 = "http://www.rsna.org/reporting/2009/01/"
+namespace ns3 = "http://www.cap.org/pert/2009/01/stomach/"
+namespace ns4 = "http://www.cap.org/pert/2009/01/pancreas/"
+namespace ns5 = "http://www.cap.org/pert/2009/01/endometrium/"
+namespace ns6 = "http://www.cap.org/pert/2009/01/breast/"
+namespace ns7 = "http://www.cap.org/pert/2009/01/prostate/"
+namespace ns8 = "http://www.w3.org/2003/g/data-view#"
+namespace ns9 = "http://www.cap.org/pert/2009/01/lung/"
+
+standard.content = comment? & label? & \text*
+custom.content = (anyForeignElement | anyUserAttribute)*
+base.content = standard.content & custom.content
+comment = element comment { custom.content }
+label = element label { custom.content }
+
+## Any attribute in a non-null namespace other than the CAP eCC
+##             namespaces
+anyUserAttribute =
+  attribute * - (local:*
+                 | ns1:*
+                 | ns6:*
+                 | ns10:*
+                 | ns9:*
+                 | ns7:*
+                 | ns4:*
+                 | ns3:*
+                 | ns5:*
+                 | ns8:*
+                 | ns2:*) { text }
+anyForeignAttribute =
+  attribute * - (ns1:*
+                 | ns6:*
+                 | ns10:*
+                 | ns9:*
+                 | ns7:*
+                 | ns4:*
+                 | ns3:*
+                 | ns5:*
+                 | ns8:*
+                 | ns2:*) { text }
+anyForeignElement =
+  element * - (local:*
+               | ns1:*
+               | ns6:*
+               | ns10:*
+               | ns9:*
+               | ns7:*
+               | ns4:*
+               | ns3:*
+               | ns5:*
+               | ns8:*
+               | ns2:*) { (anyForeignAttribute | anyForeignElement)* }
+\text =
+  element text {
+    mixed { (anyForeignAttribute | anyForeignElement)* }
+  }
+
+## Common value types
+div {
+  severity = "none" | "mild" | "moderate" | "marked"
+  lengthUnit.value = "mm" | "cm" | "in"
+  inflammation.value =
+    "acute" | "acute and chronic" | "chronic" | "other"
+  laterality.value = "right" | "left" | "other"
+  date.content = xsd:date | xsd:gYear | xsd:gYearMonth
+  extendedBoolean =
+    "positive" | "negative" | "equivocal" | "not applicable"
+  weightUnit.value = "g" | "kg" | "other"
+}
+laterality =
+  grammar {
+    include "value.rnc" {
+      valueset = parent laterality.value
+    }
+  }
+length.content =
+  element unit { lengthUnit.value }
+  & grammar {
+      include "value.rnc" {
+        valueset = xsd:decimal { minExclusive = "0.0" }
+      }
+    }
+dimension = element dimension { length.content & base.content }
+length = element length { length.content & base.content }
+common.size =
+  element size {
+    (dimension, (dimension, dimension?)?)
+    & base.content
+  }
