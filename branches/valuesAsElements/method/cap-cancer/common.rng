@@ -487,10 +487,10 @@
         </div>
         <div>
             <a:documentation>-- VALUESETS --</a:documentation>
-            <define name="studies.study.name.values">
+            <define name="studies.study.values">
                 <data type="token"/>
             </define>
-            <define name="studies.study.values">
+            <define name="studies.study.name.values">
                 <data type="token"/>
             </define>
             <define name="studies.study.method.values">
