@@ -44,8 +44,6 @@
     ===========================================================================
 
 -->
-
-
 <!DOCTYPE grammar [
 <!ENTITY localNames "
 
@@ -65,8 +63,13 @@
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <define name="standard.content">
-        <ref name="comment"/>
-        <ref name="label"/>
+        <interleave>
+            <ref name="comment"/>
+            <ref name="label"/>
+            <zeroOrMore>
+                <ref name="unstructuredText"/>
+            </zeroOrMore>
+        </interleave>
     </define>
     <define name="custom.content">
         <interleave>
@@ -74,15 +77,15 @@
                 <choice>
                     <ref name="anyForeignElement"/>
                     <ref name="anyUserAttribute"/>
-                    <ref name="unstructuredText"/>
                 </choice>
             </zeroOrMore>
         </interleave>
     </define>
     <define name="comment">
         <element name="comment">
-            <text/>
-            <ref name="standard.content"/>
+            <mixed>
+                <ref name="standard.content"/>
+            </mixed>
         </element>
     </define>
     <define name="label">
