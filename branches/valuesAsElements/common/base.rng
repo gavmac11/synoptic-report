@@ -204,17 +204,20 @@
     <define name="common.size">
         <element name="size">
             <interleave>
-                <group>
-                    <ref name="dimension"/>
-                    <optional>
-                        <ref name="dimension"/>
-                        <optional>
-                            <ref name="dimension"/>
-                        </optional>
-                    </optional>
-                </group>
+                <ref name="common.sizeContent"/>
                 <ref name="base.content"/>
             </interleave>
         </element>
+    </define>
+    <define name="common.sizeContent">
+        <group>
+            <ref name="dimension"/>
+            <optional>
+                <ref name="dimension"/>
+                <optional>
+                    <ref name="dimension"/>
+                </optional>
+            </optional>
+        </group>
     </define>
 </grammar>
