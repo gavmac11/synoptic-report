@@ -53,7 +53,8 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="therapy-description-not-allowed">
         <rule context="//hasPriorTherapy">
-            <assert test="@value &gt;= count(@description)"> Description is not allowed unless value is true. </assert>
+            <assert test="@value &gt;= count(@description)"> Description is not allowed unless
+                value is true. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -66,18 +67,18 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="total-nodes-must-be-specified-for-each-nodeGroup">
         <rule context="//pert:nodeGroup">
-            <assert test="exists(pert:nodeStatus[@value = 'total'])"
-                    > At a minimum, the total number of nodes in every group must
-                be specified (missing for "<value-of
-                    select="@location"/>"). </assert>
+            <assert test="exists(pert:nodeStatus[@value = 'total'])"> At a minimum, the total number
+                of nodes in every group must be specified (missing for "<value-of select="@location"
+                />"). </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern>
         <rule context="//*">
-            <assert test="if (@value = 'other') then exists(@otherValue) else not(exists(@otherValue))"
-                > In <name/>, a value of
-                'other" requires a specified 'otherValue', and vice versa. </assert>
+            <assert
+                test="if (@value = 'other') then exists(@otherValue) else not(exists(@otherValue))">
+                In <name/>, a value of 'other" requires a specified 'otherValue', and vice versa.
+            </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -101,26 +102,24 @@
                 then xs:integer(pert:nodeStatus[@value = 'total']/@count) 
                 else -1
                 "/>
-            <assert test="$regressed le $total"> Nodes positive for regressed tumor (<value-of select="$regressed"
-                    />) must not
+            <assert test="$regressed le $total"> Nodes positive for regressed tumor (<value-of
+                    select="$regressed"/>) must not exceed total nodes (<value-of select="$total"/>)
+                in the "<value-of select="@location"/>" lymph node group. </assert>
+            <assert test="$pos le $total"> Nodes positive (<value-of select="$pos"/>) must not
                 exceed total nodes (<value-of select="$total"/>) in the "<value-of
                     select="@location"/>" lymph node group. </assert>
-            <assert test="$pos le $total"> Nodes positive (<value-of select="$pos"/>) must not exceed total nodes (<value-of
-                    select="$total"/>) in the "<value-of select="@location"/>" lymph node group. </assert>
-            <assert test="$regressed + $pos le $total"> Sum (<value-of select="$regressed + $pos"
-                    />) of nodes with regressed tumor
-                    (<value-of select="$regressed"
-                    />) and positive (<value-of select="$pos"/>) must not exceed total nodes
-                    (<value-of
-                    select="$total"/>) in the "<value-of select="@location"/>" lymph node group. </assert>
+            <assert test="$regressed + $pos le $total"> Sum (<value-of select="$regressed + $pos"/>)
+                of nodes with regressed tumor (<value-of select="$regressed"/>) and positive
+                    (<value-of select="$pos"/>) must not exceed total nodes (<value-of
+                    select="$total"/>) in the "<value-of select="@location"/>" lymph node group.
+            </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="mucinous-percentage-only-if-present">
         <rule context="//colon:mucinousComponent">
-            <assert test="if (@value ne 'positive') then empty (@percentage) else $skip"
-                > Mucinous component must be positive to
-                specify a percentage. </assert>
+            <assert test="if (@value ne 'positive') then empty (@percentage) else $skip"> Mucinous
+                component must be positive to specify a percentage. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -144,21 +143,22 @@
                 else if ($proc = 'transanal disk excision')    
                     then @value = ('sigmoid colon', 'rectum', 'anus')
                 else $skip    "
-                    > Specimen site "<value-of select="@value"/>" must match a corresponding procedure. </assert>
+                > Specimen site "<value-of select="@value"/>" must match a corresponding procedure.
+            </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="colon-tumor-site-subsets-specimen-site">
         <rule context="//pert:tumorLocation">
-            <assert test="@value = //pert:site/@value"> The tumor site "<value-of select="@value"
-                />" must be among the sites
-                comprising specimen. </assert>
+            <assert test="@value = //pert:site/@value"> The tumor site "<value-of select="@value"/>"
+                must be among the sites comprising specimen. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="colon-calculate-N-stage">
         <rule context="//pert:N">
-            <let name="posNodes" value="sum(pert:nodeStatus[@value='positive']/@count) cast as
+            <let name="posNodes"
+                value="sum(pert:nodeStatus[@value='positive']/@count) cast as
                 xs:integer"/>
             <let name="N" value="@value cast as xs:integer"/>
             <assert
@@ -166,7 +166,7 @@
                      if ($posNodes eq 0) then $N eq 0 
                 else if ($posNodes lt 4) then $N eq 1 
                 else                          $N eq 2"
-                    > Reported N-stage (<value-of select="$N"/>) does not match calculated (<value-of
+                > Reported N-stage (<value-of select="$N"/>) does not match calculated (<value-of
                     select="
                      if ($posNodes eq 0) then '0' 
                 else if ($posNodes lt 4) then '1' 
@@ -191,7 +191,7 @@
                 else if ($depth = 'intraepithelial carcinoma') then $T = 'is'                  
                 else if ($depth = 'no evidence of tumor')      then $T = '0'                  
                 else                                                $T = 'X'    "
-                    > Reported T-stage (T<value-of select="$T"/>) does not match calculated (T<value-of
+                > Reported T-stage (T<value-of select="$T"/>) does not match calculated (T<value-of
                     select="
                     if ($depth = 'adjacent structure')         then '4'                   
                 else if ($depth = 'serosal surface')           then '3'                  
@@ -209,24 +209,25 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="adjacent-structure-involvement">
         <rule context="//pert:invasion">
-            <assert test="if (colon:deepestInvasion/@value eq 'adjacent structure') then colon:adjacentStructure else $skip"
-                >
-                Deepest invasion of adjacent structure(s) requires specifying which structure(s) and extent. </assert>
-            <assert test="if (colon:adjacentStructure) then colon:deepestInvasion eq 'adjacent structure' else $skip"
-                > Adjacent
-                structure(s) must be specified only if deepest invasion is of adjacent structure. </assert>
+            <assert
+                test="if (colon:deepestInvasion/@value eq 'adjacent structure') then colon:adjacentStructure else $skip"
+                > Deepest invasion of adjacent structure(s) requires specifying which structure(s)
+                and extent. </assert>
+            <assert
+                test="if (colon:adjacentStructure) then colon:deepestInvasion eq 'adjacent structure' else $skip"
+                > Adjacent structure(s) must be specified only if deepest invasion is of adjacent
+                structure. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="treatment-effect-implies-prior-therapy">
         <rule context="//pert:treatmentEffect">
             <let name="RxEffect" value="exists(.) and @value ne 'inapplicable'"/>
-            <report test="$RxEffect and not(//pert:priorTherapy)"
-                > If reporting tumor treatment effect, you must also specify
-                prior therapy in the clinical section. </report>
-            <report test="$RxEffect and not(contains(//pert:stage/pert:prefix/@value, 'y'))"
-                > Treatment effect must be noted in
-                the stage descriptor using the 'y' prefix. </report>
+            <report test="$RxEffect and not(//pert:priorTherapy)"> If reporting tumor treatment
+                effect, you must also specify prior therapy in the clinical section. </report>
+            <report test="$RxEffect and not(contains(//pert:stage/pert:prefix/@value, 'y'))">
+                Treatment effect must be noted in the stage descriptor using the 'y' prefix.
+            </report>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -235,15 +236,14 @@
             <let name="status" value="pert:margin/@status"/>
             <let name="closest" value="pert:margin[@closest = 'true']"/>
             <let name="closestLocation" value="$closest/@location"/>
-            <assert test="if (exists($status) and $status = 'positive') then not(exists($closest)) else $skip"
-                > Closest margin is
-                not reportable if any margin is frankly positive. </assert>
-            <assert test="if (exists($status) and not($status = 'positive')) then exists($closest) else $skip"
-                > "Closest margin"
-                must be reported if all margins are negative. </assert>
-            <assert test="if (exists($closest)) then $closest/@status = 'negative' else $skip"
-                > Closest margin must be negative
-                margin. </assert>
+            <assert
+                test="if (exists($status) and $status = 'positive') then not(exists($closest)) else $skip"
+                > Closest margin is not reportable if any margin is frankly positive. </assert>
+            <assert
+                test="if (exists($status) and not($status = 'positive')) then exists($closest) else $skip"
+                > "Closest margin" must be reported if all margins are negative. </assert>
+            <assert test="if (exists($closest)) then $closest/@status = 'negative' else $skip">
+                Closest margin must be negative margin. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -258,7 +258,7 @@
                 if ($met) then $M = '1' 
                 else $M = '0' 
                 else $M = 'X'"
-                    > Reported M-stage (M<value-of select="$M"/>) does not match calculated (M<value-of
+                > Reported M-stage (M<value-of select="$M"/>) does not match calculated (M<value-of
                     select=" 
                     if ($report) then 
                         if ($met) then '1' 
@@ -267,12 +267,13 @@
                 />). </assert>
         </rule>
     </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--
     <pattern>
         <rule context="//pert:specimen">
-            <assert test="exists(colon:polyp) = (procedures/procedure/@value eq 'polypectomy')"
-                > Polyp is reportable in the
-                specimen section if and only if the procedure is polypectomy. </assert>
+            <assert test="exists(colon:polyp) = (procedures/procedure/@value eq 'polypectomy')">
+                Polyp is reportable in the specimen section if and only if the procedure is
+                polypectomy. </assert>
         </rule>
     </pattern>
+    -->
 </schema>

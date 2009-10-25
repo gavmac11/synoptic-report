@@ -54,8 +54,10 @@
     ===========================================================================
     
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:colon="&pert;colon/" xmlns:pert="&pert;">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:colon="&pert;colon/"
+    xmlns:pert="&pert;">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <div>
         <include href="&report;common.rng">
