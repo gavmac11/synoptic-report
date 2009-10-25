@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:/Users/me/Desktop/PERT/branches/valuesAsElements/method/cap-cancer/common.rng" type="xml"?>
+<synoptic xmlns="http://www.cap.org/pert/2009/01/" xmlns:cco="http://www.cco.org.ca/vocabulary/">
+    <additional cco:date="naljs">
+        <text>remermrmrewmrek</text>
+        <item name="something">
+            <text>referoirik irgiooirefr </text>
+            <result>
+                <text>rtjtrigoig rjmrji rjrioorigr</text>
+                <value>rfjr0fkwer</value>
+                <text>efwfr</text>
+                <label>ferfre</label>
+                <otherValue/>
+                <comment>ferirefmmfr</comment>
+            </result>
+        </item>
+        <item name="ferer">
+            <result>
+                <value>rertgtr</value>
+            </result>
+        </item>
+    </additional>
+    <clinical>
+        <clinicalFinding>
+            <date>1999</date>
+            <result>
+                <value>fever</value>
+            </result>
+        </clinicalFinding>
+        <priorTherapy>
+            <date>2002</date>
+            <result>
+                <value>stepfather</value>
+                <comment>he's an asshole</comment>
+            </result>
+        </priorTherapy>
+    </clinical>
+    <specimen>
+        <procedure>
+            <result>
+                <value/>
+            </result>
+        </procedure>
+        <site>
+            <result>
+                <value/>
+            </result>
+        </site>
+        <tumorLocation>
+            <result>
+                <value/>
+            </result>
+        </tumorLocation>
+    </specimen>
+    <studies>
+        <study name="">
+            <result>
+                <value/>
+            </result>
+        </study>
+    </studies>
+    <accessory>
+        <treatmentEffect>
+            <result>
+                <value/>
+            </result>
+        </treatmentEffect>
+    </accessory>
+    <extent>
+        <size>
+            <dimension>
+                <unit/>
+                <result>
+                    <value/>
+                </result>
+            </dimension>
+        </size>
+    </extent>
+    <margins>
+        <margin>
+            <location>
+                <value/>
+            </location>
+            <result>
+                <value/>
+                <otherValue/>
+            </result>
+        </margin>
+    </margins>
+    <metastases/>
+    <nodes/>
+    <stage>
+        <classification>
+            <result>
+                <value/>
+            </result>
+        </classification>
+        <T>
+            <result>
+                <value/>
+            </result>
+        </T>
+        <N>
+            <result>
+                <value/>
+            </result>
+        </N>
+        <M>
+            <result>
+                <value/>
+            </result>
+        </M>
+    </stage>
+    <tumor>
+        <histologicType>
+            <result>
+                <value/>
+            </result>
+        </histologicType>
+        <grade>
+            <result>
+                <value/>
+            </result>
+        </grade>
+    </tumor>
+</synoptic>
