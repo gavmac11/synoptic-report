@@ -70,8 +70,7 @@
     ===========================================================================
     
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    xmlns="http://relaxng.org/ns/structure/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <include href="&report;common.rng">
@@ -84,17 +83,5 @@
             <value>&version;</value>
         </define>
     </include>
-    <include href="&method;resection.rng"/>
-    <include href="&cap-cancer;clinical.content.rng"/>
-    <include href="&cap-cancer;specimen.content.rng"/>
-    <include href="&cap-cancer;tumor.content.rng"/>
-    <include href="&cap-cancer;extent.content.rng"/>
-    <include href="&cap-cancer;margin.content.rng"/>
-    <include href="&cap-cancer;accessory.content.rng"/>
-    <include href="&cap-cancer;nodes.content.rng"/>
-    <include href="&cap-cancer;mets.content.rng"/>
-    <include href="&cap-cancer;studies.content.rng"/>
-    <include href="&cap-cancer;stage.content.rng"/>
-    <include href="&cap-cancer;additional.content.rng"/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>
