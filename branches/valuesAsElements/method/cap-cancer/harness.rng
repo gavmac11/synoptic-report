@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <include href="common.rng"/>
+    <start>
+        <a:documentation>== TEST HARNESS ==</a:documentation>
+        <a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>=============== TEST HARNESS ===============</a:documentation>
+            <a:documentation>============================================</a:documentation>
+        </a:documentation>
+        <element name="synopsis">
+            <interleave>
+                <ref name="accessory"/>
+                <ref name="additional"/>
+                <ref name="clinical"/>
+                <ref name="extent"/>
+                <ref name="margins"/>
+                <ref name="metastases"/>
+                <ref name="nodes"/>
+                <ref name="specimen"/>
+                <ref name="stage"/>
+                <ref name="studies"/>
+                <ref name="tumor"/>
+            </interleave>
+        </element>
+    </start>
+</grammar>

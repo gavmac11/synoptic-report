@@ -24,13 +24,13 @@
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <start>
+    <start combine="choice">
         <element name="result">
             <ref name="result.attrib"/>
             <ref name="result.content"/>
         </element>
     </start>
-    <define name="result.attrib">
+    <define combine="interleave" name="result.attrib">
         <empty/>
     </define>
     <define name="result.content">
@@ -48,12 +48,12 @@
             <parentRef name="base.content"/>
         </interleave>
     </define>
-    <define name="value.attrib">
+    <define combine="interleave" name="value.attrib">
         <zeroOrMore>
             <parentRef name="anyUserAttribute"/>
         </zeroOrMore>
     </define>
-    <define name="otherValue.attrib">
+    <define combine="interleave" name="otherValue.attrib">
         <zeroOrMore>
             <parentRef name="anyUserAttribute"/>
         </zeroOrMore>
