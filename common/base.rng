@@ -24,7 +24,6 @@
 -->
 <!DOCTYPE grammar [
 <!ENTITY localNames "
-
 <nsName ns='http://www.cap.org/pert/2009/01/'/>
 <nsName ns='http://www.cap.org/pert/2009/01/breast/'/>
 <nsName ns='http://www.cap.org/pert/2009/01/colon/'/>
@@ -35,10 +34,10 @@
 <nsName ns='http://www.cap.org/pert/2009/01/endometrium/'/>
 <nsName ns='http://www.w3.org/2003/g/data-view#'/>
 <nsName ns='http://www.rsna.org/reporting/2009/01/'/>
-
 ">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <div>
         <a:documentation>== BASE CONTENT ==</a:documentation>
@@ -75,9 +74,18 @@
             <element>
                 <anyName>
                     <except>
-                    <nsName ns=""/>
-                    &localNames;
-                </except>
+                        <nsName ns=""/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+                        <nsName ns="http://www.w3.org/2003/g/data-view#"/>
+                        <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+                    </except>
                 </anyName>
                 <interleave>
                     <zeroOrMore>
@@ -93,20 +101,38 @@
             <attribute>
                 <anyName>
                     <except>
-                    &localNames;
-                </except>
+                        <nsName ns="http://www.cap.org/pert/2009/01/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+                        <nsName ns="http://www.w3.org/2003/g/data-view#"/>
+                        <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+                    </except>
                 </anyName>
             </attribute>
         </define>
         <define name="anyUserAttribute">
             <a:documentation>Any attribute in a non-null namespace other than the CAP eCC
-            namespaces</a:documentation>
+                namespaces</a:documentation>
             <attribute>
                 <anyName>
                     <except>
-                    <nsName ns=""/> 
-                    &localNames; 
-                </except>
+                        <nsName ns=""/> 
+                        <nsName ns="http://www.cap.org/pert/2009/01/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+                        <nsName ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+                        <nsName ns="http://www.w3.org/2003/g/data-view#"/>
+                        <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+                    </except>
                 </anyName>
             </attribute>
         </define>
@@ -176,8 +202,10 @@
             <choice>
                 <value>positive</value>
                 <value>negative</value>
+                <value>indeterminate</value>
                 <value>equivocal</value>
-                <value>not applicable</value>
+                <value>inapplicable</value>
+                <value>not reported</value>
             </choice>
         </define>
         <define name="weightUnit.value">

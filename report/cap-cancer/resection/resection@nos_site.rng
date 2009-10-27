@@ -70,7 +70,8 @@
     ===========================================================================
     
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <include href="&report;common.rng">
@@ -78,8 +79,8 @@
             <value>&repository;</value>
         </define>
         <define name="version">
-            <a:documentation>Instances claim conformance to this schema by
-                referencing the version of the schema immediately below. </a:documentation>
+            <a:documentation>Instances claim conformance to this schema by referencing the version
+                of the schema immediately below. </a:documentation>
             <value>&version;</value>
         </define>
     </include>

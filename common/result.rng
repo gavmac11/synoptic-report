@@ -22,8 +22,9 @@
     limitations under the License.
     ===========================================================================
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <start combine="choice">
         <element name="result">
             <ref name="result.attrib"/>
@@ -35,10 +36,12 @@
     </define>
     <define name="result.content">
         <interleave>
-            <element name="value">
-                <ref name="value.attrib"/>
-                <ref name="valueset"/>
-            </element>
+            <choice>
+                <element name="value">
+                    <ref name="value.attrib"/>
+                    <ref name="valueset"/>
+                </element>
+            </choice>
             <optional>
                 <element name="otherValue">
                     <ref name="otherValue.attrib"/>
@@ -49,6 +52,17 @@
         </interleave>
     </define>
     <define combine="interleave" name="value.attrib">
+        <optional>
+            <attribute name="modifier">
+                <choice>
+                    <value>equal</value>
+                    <value>lessThan</value>
+                    <value>lessThanOrEqual</value>
+                    <value>greaterThanOrEqual</value>
+                    <value>greaterThan</value>
+                </choice>
+            </attribute>
+        </optional>
         <zeroOrMore>
             <parentRef name="anyUserAttribute"/>
         </zeroOrMore>
