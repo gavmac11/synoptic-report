@@ -147,63 +147,6 @@
       </define>
    </div>
    <div>
-      <a:documentation>== COMMON VALUE TYPES ==</a:documentation>
-      <define name="common.severity.values">
-         <choice>
-            <value>none</value>
-            <value>mild</value>
-            <value>moderate</value>
-            <value>marked</value>
-         </choice>
-      </define>
-      <define name="common.lengthUnit.values">
-         <choice>
-            <value>mm</value>
-            <value>cm</value>
-            <value>in</value>
-         </choice>
-      </define>
-      <define name="common.inflammation.values">
-         <choice>
-            <value>acute</value>
-            <value>acute and chronic</value>
-            <value>chronic</value>
-            <value>other</value>
-         </choice>
-      </define>
-      <define name="common.laterality.values">
-         <choice>
-            <value>right</value>
-            <value>left</value>
-            <value>other</value>
-         </choice>
-      </define>
-      <define name="common.date.values">
-         <choice>
-            <data type="date"/>
-            <data type="gYear"/>
-            <data type="gYearMonth"/>
-         </choice>
-      </define>
-      <define name="common.extendedBoolean.values">
-         <choice>
-            <value>positive</value>
-            <value>negative</value>
-            <value>indeterminate</value>
-            <value>equivocal</value>
-            <value>inapplicable</value>
-            <value>not reported</value>
-         </choice>
-      </define>
-      <define name="common.weightUnit.values">
-         <choice>
-            <value>g</value>
-            <value>kg</value>
-            <value>other</value>
-         </choice>
-      </define>
-   </div>
-   <div>
       <a:documentation>== COMMON ELEMENTS ==</a:documentation>
       <define name="laterality">
          <grammar>
