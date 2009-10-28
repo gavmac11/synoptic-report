@@ -21,9 +21,9 @@
     See the License for the specific language governing permissions and
     limitations under the License.
     ===========================================================================
+
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    xmlns="http://relaxng.org/ns/structure/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <include href="common.rng"/>
     <define combine="interleave" name="synopsis.content">
@@ -42,7 +42,7 @@
                 <ref name="nodes"/>
             </optional>
             <optional>
-                <ref name="mets"/>
+                <ref name="metastases"/>
             </optional>
             <optional>
                 <ref name="studies"/>

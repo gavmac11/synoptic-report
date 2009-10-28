@@ -21,10 +21,10 @@
     See the License for the specific language governing permissions and
     limitations under the License.
     ===========================================================================
+
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <start>
         <element name="result">
             <ref name="result.attrib"/>
@@ -46,7 +46,7 @@
                     <data type="token"/>
                 </element>
             </optional>
-            <parentRef name="base.content"/>
+            <parentRef name="common.content"/>
         </interleave>
     </define>
     <define name="value.attrib">

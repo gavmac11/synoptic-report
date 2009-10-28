@@ -21,7 +21,9 @@
     See the License for the specific language governing permissions and
     limitations under the License.
     ===========================================================================
+
 -->
+
 <!DOCTYPE grammar [
 <!ENTITY localNames "
 <nsName ns='http://www.cap.org/pert/2009/01/'/>
@@ -36,18 +38,17 @@
 <nsName ns='http://www.rsna.org/reporting/2009/01/'/>
 ">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    xmlns="http://relaxng.org/ns/structure/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <div>
         <a:documentation>== BASE CONTENT ==</a:documentation>
-        <define name="base.content">
+        <define name="common.content">
             <interleave>
-                <ref name="standard.content"/>
-                <ref name="custom.content"/>
+                <ref name="common.standard.content"/>
+                <ref name="common.custom.content"/>
             </interleave>
         </define>
-        <define name="standard.content" ns="http://www.cap.org/pert/2009/01/">
+        <define name="common.standard.content" ns="http://www.cap.org/pert/2009/01/">
             <interleave>
                 <optional>
                     <ref name="comment"/>
@@ -60,7 +61,7 @@
                 </zeroOrMore>
             </interleave>
         </define>
-        <define name="custom.content">
+        <define name="common.custom.content">
             <interleave>
                 <zeroOrMore>
                     <choice>
@@ -121,7 +122,7 @@
             <attribute>
                 <anyName>
                     <except>
-                        <nsName ns=""/> 
+                        <nsName ns=""/>
                         <nsName ns="http://www.cap.org/pert/2009/01/"/>
                         <nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
                         <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
@@ -142,26 +143,26 @@
         <define name="comment">
             <element name="comment">
                 <text/>
-                <ref name="custom.content"/>
+                <ref name="common.custom.content"/>
             </element>
         </define>
         <define name="label">
             <element name="label">
                 <text/>
-                <ref name="custom.content"/>
+                <ref name="common.custom.content"/>
             </element>
         </define>
         <define name="text">
             <element name="text">
                 <mixed>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </mixed>
             </element>
         </define>
     </div>
     <div>
         <a:documentation>== COMMON VALUE TYPES ==</a:documentation>
-        <define name="severity">
+        <define name="common.severity.values">
             <choice>
                 <value>none</value>
                 <value>mild</value>
@@ -169,14 +170,14 @@
                 <value>marked</value>
             </choice>
         </define>
-        <define name="lengthUnit.value">
+        <define name="common.lengthUnit.values">
             <choice>
                 <value>mm</value>
                 <value>cm</value>
                 <value>in</value>
             </choice>
         </define>
-        <define name="inflammation.value">
+        <define name="common.inflammation.values">
             <choice>
                 <value>acute</value>
                 <value>acute and chronic</value>
@@ -184,21 +185,21 @@
                 <value>other</value>
             </choice>
         </define>
-        <define name="laterality.values">
+        <define name="common.laterality.values">
             <choice>
                 <value>right</value>
                 <value>left</value>
                 <value>other</value>
             </choice>
         </define>
-        <define name="date.content">
+        <define name="common.date.values">
             <choice>
                 <data type="date"/>
                 <data type="gYear"/>
                 <data type="gYearMonth"/>
             </choice>
         </define>
-        <define name="extendedBoolean">
+        <define name="common.extendedBoolean.values">
             <choice>
                 <value>positive</value>
                 <value>negative</value>
@@ -208,7 +209,7 @@
                 <value>not reported</value>
             </choice>
         </define>
-        <define name="weightUnit.value">
+        <define name="common.weightUnit.values">
             <choice>
                 <value>g</value>
                 <value>kg</value>
@@ -220,9 +221,9 @@
         <a:documentation>== DIMENSIONAL ELEMENTS ==</a:documentation>
         <define name="laterality">
             <grammar>
-                <include href="value.rng">
+                <include href="result.rng">
                     <define name="valueset">
-                        <parentRef name="laterality.values"/>
+                        <parentRef name="common.laterality.values"/>
                     </define>
                 </include>
             </grammar>
@@ -230,7 +231,7 @@
         <define name="length.content">
             <interleave>
                 <element name="unit">
-                    <ref name="lengthUnit.value"/>
+                    <ref name="common.lengthUnit.values"/>
                 </element>
                 <grammar>
                     <include href="value.rng">
@@ -247,7 +248,7 @@
             <element name="dimension">
                 <interleave>
                     <ref name="length.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
@@ -255,7 +256,7 @@
             <element name="length">
                 <interleave>
                     <ref name="length.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
@@ -263,7 +264,7 @@
             <element name="size">
                 <interleave>
                     <ref name="common.sizeContent"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
