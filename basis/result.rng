@@ -23,8 +23,9 @@
     ===========================================================================
 
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <start combine="choice">
         <element name="result">
             <ref name="result.attrib"/>
@@ -52,13 +53,7 @@
     <define combine="interleave" name="value.attrib">
         <optional>
             <attribute name="modifier">
-                <choice>
-                    <value>equal</value>
-                    <value>lessThan</value>
-                    <value>lessThanOrEqual</value>
-                    <value>greaterThanOrEqual</value>
-                    <value>greaterThan</value>
-                </choice>
+                <parentRef name="modifier.values"/>
             </attribute>
         </optional>
         <zeroOrMore>
