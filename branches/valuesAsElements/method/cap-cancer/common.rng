@@ -21,29 +21,74 @@
     See the License for the specific language governing permissions and
     limitations under the License.
     ===========================================================================
+    
 -->
 <!DOCTYPE grammar [
 <!ENTITY result "../../common/result.rng">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <!--  -->
-    <include href="../../common/base.rng"/>
+    <include href="../../common/common.rng"/>
     <div>
-        <define name="synopsis.content">
-            <ref name="accessory"/>
-            <ref name="additional"/>
-            <ref name="clinical"/>
-            <ref name="extent"/>
-            <ref name="margins"/>
-            <ref name="metastases"/>
-            <ref name="nodes"/>
-            <ref name="specimen"/>
-            <ref name="stage"/>
-            <ref name="studies"/>
-            <ref name="tumor"/>
-        </define>
+        <a:documentation>== ROOT MODEL ==</a:documentation>
+        <a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>================ ROOT MODEL ================</a:documentation>
+            <a:documentation>============================================</a:documentation>
+        </a:documentation>
+        <div>
+            <a:documentation>-- ROOT ITEM --</a:documentation>
+            <start combine="interleave">
+                <element name="synopsis">
+                    <a:documentation>.. synopsis ELEMENT ..</a:documentation>
+                    <ref name="synopsis.attrib"/>
+                    <interleave>
+                        <ref name="synopsis.content"/>
+                        <ref name="common.standard.content"/>
+                    </interleave>
+                </element>
+            </start>
+        </div>
+        <div>
+            <a:documentation>-- ROOT CONTENT --</a:documentation>
+            <define name="synopsis.content">
+                <ref name="accessory"/>
+                <ref name="additional"/>
+                <ref name="clinical"/>
+                <ref name="extent"/>
+                <ref name="margins"/>
+                <ref name="metastases"/>
+                <ref name="nodes"/>
+                <ref name="specimen"/>
+                <ref name="stage"/>
+                <ref name="studies"/>
+                <ref name="tumor"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- ROOT ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="synopsis.attrib">
+                <a:documentation>-- synopsis ATTRIBUTES --</a:documentation>
+                <attribute name="schemaLocation">
+                    <ref name="schemaLocation"/>
+                </attribute>
+                <attribute name="version">
+                    <ref name="version"/>
+                </attribute>
+                <attribute name="transformation" ns="http://www.w3.org/2003/g/data-view#"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- ROOT VALUESETS --</a:documentation>
+            <define combine="choice" name="schemaLocation">
+                <data type="anyURI"/>
+            </define>
+            <define combine="choice" name="version">
+                <data type="string"/>
+            </define>
+        </div>
     </div>
     <div>
         <a:documentation>== SECTION MODELS ==</a:documentation>
@@ -59,7 +104,7 @@
                 <ref name="accessory.attrib"/>
                 <interleave>
                     <ref name="accessory.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
@@ -69,7 +114,7 @@
                 <ref name="additional.attrib"/>
                 <interleave>
                     <ref name="additional.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
@@ -79,7 +124,7 @@
                 <ref name="clinical.attrib"/>
                 <interleave>
                     <ref name="clinical.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
@@ -89,7 +134,7 @@
                 <ref name="extent.attrib"/>
                 <interleave>
                     <ref name="extent.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
@@ -99,7 +144,7 @@
                 <ref name="margins.attrib"/>
                 <interleave>
                     <ref name="margins.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
@@ -109,7 +154,7 @@
                 <ref name="metastases.attrib"/>
                 <interleave>
                     <ref name="metastases.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
@@ -119,7 +164,7 @@
                 <ref name="nodes.attrib"/>
                 <interleave>
                     <ref name="nodes.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
@@ -129,7 +174,7 @@
                 <ref name="specimen.attrib"/>
                 <interleave>
                     <ref name="specimen.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
@@ -139,7 +184,7 @@
                 <ref name="stage.attrib"/>
                 <interleave>
                     <ref name="stage.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
@@ -149,7 +194,7 @@
                 <ref name="studies.attrib"/>
                 <interleave>
                     <ref name="studies.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
@@ -159,7 +204,7 @@
                 <ref name="tumor.attrib"/>
                 <interleave>
                     <ref name="tumor.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
@@ -181,7 +226,7 @@
                         <ref name="accessory.venousInvasion.attrib"/>
                         <interleave>
                             <ref name="accessory.venousInvasion.content"/>
-                            <ref name="base.content"/>
+                            <ref name="common.content"/>
                         </interleave>
                     </element>
                 </optional>
@@ -191,7 +236,7 @@
                         <ref name="accessory.lymphovascularInvasion.attrib"/>
                         <interleave>
                             <ref name="accessory.lymphovascularInvasion.content"/>
-                            <ref name="base.content"/>
+                            <ref name="common.content"/>
                         </interleave>
                     </element>
                 </optional>
@@ -201,7 +246,7 @@
                         <ref name="accessory.perineuralInvasion.attrib"/>
                         <interleave>
                             <ref name="accessory.perineuralInvasion.content"/>
-                            <ref name="base.content"/>
+                            <ref name="common.content"/>
                         </interleave>
                     </element>
                 </optional>
@@ -211,7 +256,7 @@
                         <ref name="accessory.treatmentEffect.attrib"/>
                         <interleave>
                             <ref name="accessory.treatmentEffect.content"/>
-                            <ref name="base.content"/>
+                            <ref name="common.content"/>
                         </interleave>
                     </element>
                 </optional>
@@ -225,7 +270,7 @@
                     <ref name="additional.item.attrib"/>
                     <interleave>
                         <ref name="additional.item.content"/>
-                        <ref name="base.content"/>
+                        <ref name="common.content"/>
                     </interleave>
                 </element>
             </zeroOrMore>
@@ -239,7 +284,7 @@
                         <ref name="clinical.priorTherapy.attrib"/>
                         <interleave>
                             <ref name="clinical.priorTherapy.content"/>
-                            <ref name="base.content"/>
+                            <ref name="common.content"/>
                         </interleave>
                     </element>
                 </zeroOrMore>
@@ -249,7 +294,7 @@
                         <ref name="clinical.clinicalFinding.attrib"/>
                         <interleave>
                             <ref name="clinical.clinicalFinding.content"/>
-                            <ref name="base.content"/>
+                            <ref name="common.content"/>
                         </interleave>
                     </element>
                 </zeroOrMore>
@@ -259,7 +304,7 @@
                         <ref name="clinical.radiologicFinding.attrib"/>
                         <interleave>
                             <ref name="clinical.radiologicFinding.content"/>
-                            <ref name="base.content"/>
+                            <ref name="common.content"/>
                         </interleave>
                     </element>
                 </zeroOrMore>
@@ -271,7 +316,7 @@
                 <ref name="extent.size.attrib"/>
                 <interleave>
                     <ref name="extent.size.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
             <ref name="common.size">
@@ -286,7 +331,7 @@
                     <ref name="margins.margin.attrib"/>
                     <interleave>
                         <ref name="margins.margin.content"/>
-                        <ref name="standard.content"/>
+                        <ref name="common.standard.content"/>
                     </interleave>
                 </element>
             </zeroOrMore>
@@ -299,7 +344,7 @@
                     <ref name="metastases.metastasis.attrib"/>
                     <interleave>
                         <ref name="margins.margin.content"/>
-                        <ref name="base.content"/>
+                        <ref name="common.content"/>
                     </interleave>
                 </element>
             </zeroOrMore>
@@ -312,7 +357,7 @@
                     <ref name="nodes.group.attrib"/>
                     <interleave>
                         <ref name="nodes.group.content"/>
-                        <ref name="base.content"/>
+                        <ref name="common.content"/>
                     </interleave>
                 </element>
             </zeroOrMore>
@@ -327,7 +372,7 @@
                         <ref name="specimen.procedure.attrib"/>
                         <interleave>
                             <ref name="specimen.procedure.content"/>
-                            <ref name="base.content"/>
+                            <ref name="common.content"/>
                         </interleave>
                     </element>
                 </oneOrMore>
@@ -337,7 +382,7 @@
                         <ref name="specimen.site.attrib"/>
                         <interleave>
                             <ref name="specimen.site.content"/>
-                            <ref name="base.content"/>
+                            <ref name="common.content"/>
                         </interleave>
                     </element>
                 </oneOrMore>
@@ -347,7 +392,7 @@
                         <ref name="specimen.tumorLocation.attrib"/>
                         <interleave>
                             <ref name="specimen.tumorLocation.content"/>
-                            <ref name="base.content"/>
+                            <ref name="common.content"/>
                         </interleave>
                     </element>
                 </oneOrMore>
@@ -357,7 +402,7 @@
                         <ref name="specimen.integrity.attrib"/>
                         <interleave>
                             <ref name="specimen.integrity.content"/>
-                            <ref name="base.content"/>
+                            <ref name="common.content"/>
                         </interleave>
                     </element>
                 </optional>
@@ -367,7 +412,7 @@
                         <ref name="specimen.grossSize.attrib"/>
                         <interleave>
                             <ref name="specimen.grossSize.content"/>
-                            <ref name="base.content"/>
+                            <ref name="common.content"/>
                         </interleave>
                     </element>
                 </optional>
@@ -377,7 +422,7 @@
                         <ref name="specimen.weight.attrib"/>
                         <interleave>
                             <ref name="specimen.weight.content"/>
-                            <ref name="base.content"/>
+                            <ref name="common.content"/>
                         </interleave>
                     </element>
                 </optional>
@@ -400,7 +445,7 @@
                 <ref name="stage.classification.attrib"/>
                 <interleave>
                     <ref name="stage.classification.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
             <element name="T">
@@ -408,7 +453,7 @@
                 <ref name="stage.T.attrib"/>
                 <interleave>
                     <ref name="stage.T.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
             <element name="N">
@@ -416,7 +461,7 @@
                 <ref name="stage.N.attrib"/>
                 <interleave>
                     <ref name="stage.N.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
             <element name="M">
@@ -424,7 +469,7 @@
                 <ref name="stage.M.attrib"/>
                 <interleave>
                     <ref name="stage.M.content"/>
-                    <ref name="base.content"/>
+                    <ref name="common.content"/>
                 </interleave>
             </element>
         </define>
@@ -436,7 +481,7 @@
                     <ref name="studies.study.attrib"/>
                     <interleave>
                         <ref name="studies.study.content"/>
-                        <ref name="base.content"/>
+                        <ref name="common.content"/>
                     </interleave>
                 </element>
             </zeroOrMore>
@@ -450,7 +495,7 @@
                         <ref name="tumor.histologicType.attrib"/>
                         <interleave>
                             <ref name="tumor.histologicType.content"/>
-                            <ref name="base.content"/>
+                            <ref name="common.content"/>
                         </interleave>
                     </element>
                 </oneOrMore>
@@ -459,7 +504,7 @@
                     <ref name="tumor.grade.attrib"/>
                     <interleave>
                         <ref name="tumor.grade.content"/>
-                        <ref name="standard.content"/>
+                        <ref name="common.standard.content"/>
                     </interleave>
                     <optional>
                         <a:documentation>.. System ELEMENT ..</a:documentation>
@@ -467,7 +512,7 @@
                             <ref name="tumor.grade.system.attrib"/>
                             <interleave>
                                 <ref name="tumor.grade.system.content"/>
-                                <ref name="base.content"/>
+                                <ref name="common.content"/>
                             </interleave>
                         </element>
                     </optional>
@@ -549,7 +594,7 @@
                     </grammar>
                     <optional>
                         <element name="date">
-                            <ref name="date.content"/>
+                            <ref name="common.date.values"/>
                         </element>
                     </optional>
                 </interleave>
@@ -566,7 +611,7 @@
                     </grammar>
                     <optional>
                         <element name="date">
-                            <ref name="date.content"/>
+                            <ref name="common.date.values"/>
                         </element>
                     </optional>
                 </interleave>
@@ -583,7 +628,7 @@
                     </grammar>
                     <optional>
                         <element name="date">
-                            <ref name="date.content"/>
+                            <ref name="common.date.values"/>
                         </element>
                     </optional>
                 </interleave>
@@ -697,7 +742,7 @@
                                 </element>
                             </start>
                             <define name="valueset">
-                                <parentRef name="laterality.values"/>
+                                <parentRef name="common.laterality.values"/>
                             </define>
                         </include>
                     </grammar>
@@ -762,7 +807,7 @@
                             </element>
                         </start>
                         <define name="valueset">
-                            <parentRef name="weightUnit.value"/>
+                            <parentRef name="common.weightUnit.values"/>
                         </define>
                     </include>
                 </grammar>
@@ -775,7 +820,7 @@
                     <ref name="stage.prefix.attrib"/>
                     <interleave>
                         <ref name="stage.prefix.content"/>
-                        <ref name="base.content"/>
+                        <ref name="common.content"/>
                     </interleave>
                 </element>
             </define>
@@ -1082,13 +1127,13 @@
         <div>
             <a:documentation>== accessory VALUESETS ==</a:documentation>
             <define combine="choice" name="venousInvasion.values">
-                <ref name="extendedBoolean"/>
+                <ref name="common.extendedBoolean.values"/>
             </define>
             <define combine="choice" name="lymphovascularInvasion.values">
-                <ref name="extendedBoolean"/>
+                <ref name="common.extendedBoolean.values"/>
             </define>
             <define combine="choice" name="perineuralInvasion.values">
-                <ref name="extendedBoolean"/>
+                <ref name="common.extendedBoolean.values"/>
             </define>
             <define combine="choice" name="treatmentEffect.values">
                 <choice>
@@ -1129,10 +1174,10 @@
                 <data type="token"/>
             </define>
             <define name="margins.margin.value.values">
-                <ref name="extendedBoolean"/>
+                <ref name="common.extendedBoolean.values"/>
             </define>
             <define name="margins.margin.closest.values">
-                <ref name="extendedBoolean"/>
+                <ref name="common.extendedBoolean.values"/>
             </define>
             <define name="margins.margin.distance.values">
                 <ref name="length.content"/>
@@ -1174,7 +1219,7 @@
                 <data type="token"/>
             </define>
             <define combine="choice" name="specimen.integrity.values">
-                <ref name="extendedBoolean"/>
+                <ref name="common.extendedBoolean.values"/>
             </define>
         </div>
         <div>
