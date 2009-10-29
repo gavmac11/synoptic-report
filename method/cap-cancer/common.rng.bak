@@ -24,14 +24,12 @@
     
 -->
 <!DOCTYPE grammar [
-<!ENTITY result "result.rng">
+<!ENTITY result "../../common/result.rng">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <!--  -->
-    <include href="common-common.rng"/>
-    <include href="common-valuesets.rng"/>
+    <include href="../../common/base.rng"/>
     <div>
         <a:documentation>== ROOT MODEL ==</a:documentation>
         <a:documentation>
@@ -692,7 +690,7 @@
                                     </element>
                                 </start>
                                 <define name="valueset">
-                                    <parentRef name="length.content"/>
+                                    <parentRef name="margins.margin.distance.values"/>
                                 </define>
                             </include>
                         </grammar>
@@ -809,7 +807,7 @@
                             </element>
                         </start>
                         <define name="valueset">
-                            <parentRef name="common.weightUnit.values"/>
+                            <parentRef name="weightUnit.value"/>
                         </define>
                     </include>
                 </grammar>
@@ -1115,6 +1113,218 @@
             </define>
             <define name="tumor.grade.system.attrib">
                 <empty/>
+            </define>
+        </div>
+    </div>
+    <div>
+        <a:documentation>== VALUESETS ==</a:documentation>
+        <a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>================ VALUESETS =================</a:documentation>
+            <a:documentation>============================================</a:documentation>
+        </a:documentation>
+        <div>
+            <a:documentation>== accessory VALUESETS ==</a:documentation>
+            <define combine="choice" name="venousInvasion.values">
+                <ref name="common.extendedBoolean.values"/>
+            </define>
+            <define combine="choice" name="lymphovascularInvasion.values">
+                <ref name="common.extendedBoolean.values"/>
+            </define>
+            <define combine="choice" name="perineuralInvasion.values">
+                <ref name="common.extendedBoolean.values"/>
+            </define>
+            <define combine="choice" name="treatmentEffect.values">
+                <choice>
+                    <value>inapplicable</value>
+                    <value>noResponse</value>
+                    <value>slightResponse</value>
+                    <value>markedResponse</value>
+                    <value>completeResponse</value>
+                    <value>other</value>
+                </choice>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== additional VALUESETS ==</a:documentation>
+            <define name="additional.item.name.values">
+                <data type="token"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== clinical VALUESETS ==</a:documentation>
+            <define combine="choice" name="clinical.priorTherapy.values">
+                <data type="token"/>
+            </define>
+            <define combine="choice" name="clinical.clinicalFinding.values">
+                <data type="token"/>
+            </define>
+            <define combine="choice" name="clinical.radiologicFinding.values">
+                <data type="token"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== extent VALUESETS ==</a:documentation>
+            <!-- None -->
+        </div>
+        <div>
+            <a:documentation>== margins VALUESETS ==</a:documentation>
+            <define combine="choice" name="margins.margin.location.values">
+                <data type="token"/>
+            </define>
+            <define name="margins.margin.value.values">
+                <ref name="common.extendedBoolean.values"/>
+            </define>
+            <define name="margins.margin.closest.values">
+                <ref name="common.extendedBoolean.values"/>
+            </define>
+            <define name="margins.margin.distance.values">
+                <ref name="length.content"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== metastases VALUESETS ==</a:documentation>
+            <define name="metastases.metastasis.site.values">
+                <data type="token"/>
+            </define>
+            <define name="metastases.metastasis.howDiagnosed.values">
+                <choice>
+                    <value>this accesion</value>
+                    <value>prior accession</value>
+                    <value>outside report</value>
+                    <value>clinical history</value>
+                    <value>other</value>
+                </choice>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== nodes VALUESETS ==</a:documentation>
+            <define combine="choice" name="nodes.group.status.values">
+                <choice>
+                    <value>total</value>
+                    <value>negative</value>
+                    <value>positive</value>
+                    <value>regressed</value>
+                    <value>other</value>
+                </choice>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== specimen VALUESETS ==</a:documentation>
+            <define combine="choice" name="specimen.procedure.values">
+                <data type="token"/>
+            </define>
+            <define combine="choice" name="specimen.site.values">
+                <data type="token"/>
+            </define>
+            <define combine="choice" name="specimen.integrity.values">
+                <ref name="common.extendedBoolean.values"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== stage VALUESETS ==</a:documentation>
+            <define name="stage.T.values">
+                <choice>
+                    <value>X</value>
+                    <value>0</value>
+                    <value>is</value>
+                    <value>1</value>
+                    <value>1a</value>
+                    <value>1b</value>
+                    <value>1c</value>
+                    <value>1a1</value>
+                    <value>1a2</value>
+                    <value>1b1</value>
+                    <value>1b2</value>
+                    <value>1c</value>
+                    <value>1mi</value>
+                    <value>2</value>
+                    <value>2a</value>
+                    <value>2b</value>
+                    <value>2c</value>
+                    <value>2d</value>
+                    <value>2a1</value>
+                    <value>2a2</value>
+                    <value>2b</value>
+                    <value>3</value>
+                    <value>3a</value>
+                    <value>3b</value>
+                    <value>3c</value>
+                    <value>4</value>
+                    <value>4a</value>
+                    <value>4b</value>
+                    <value>4c</value>
+                    <value>4d</value>
+                </choice>
+            </define>
+            <define name="stage.N.values">
+                <choice>
+                    <value>X</value>
+                    <value>0</value>
+                    <value>1</value>
+                    <value>other</value>
+                </choice>
+            </define>
+            <define name="stage.M.values">
+                <choice>
+                    <value>X</value>
+                    <value>0</value>
+                    <value>1</value>
+                    <value>other</value>
+                </choice>
+            </define>
+            <define name="stage.classification.values">
+                <value>p</value>
+            </define>
+            <define name="stage.prefix.values">
+                <choice>
+                    <value>y</value>
+                    <value>r</value>
+                    <value>a</value>
+                    <value>other</value>
+                </choice>
+            </define>
+            <define name="suffix-values">
+                <choice>
+                    <value>m</value>
+                </choice>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== studies VALUESETS ==</a:documentation>
+            <define name="studies.study.name.values">
+                <data type="token"/>
+            </define>
+            <define name="studies.study.value.values">
+                <data type="token"/>
+            </define>
+            <define name="studies.study.method.values">
+                <data type="token"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== tumor VALUESETS ==</a:documentation>
+            <define name="tumor.histologicType.value.values">
+                <data type="token"/>
+            </define>
+            <define combine="choice" name="tumor.grade.values">
+                <choice>
+                    <value>not applicable</value>
+                    <value>1</value>
+                    <value>2</value>
+                    <value>3</value>
+                    <value>4</value>
+                    <value>X</value>
+                    <value>other</value>
+                </choice>
+            </define>
+            <define combine="choice" name="tumor.grade.system.values">
+                <choice>
+                    <value>WHO</value>
+                    <value>not specified</value>
+                    <value>other</value>
+                </choice>
             </define>
         </div>
     </div>

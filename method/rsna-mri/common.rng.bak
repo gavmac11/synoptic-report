@@ -49,7 +49,7 @@
         <element name="comparisons">
             <ref name="comparisons.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
+                <ref name="base.standard.content"/>
                 <ref name="comparisons.content"/>
             </interleave>
         </element>
@@ -58,7 +58,7 @@
         <element name="indications">
             <ref name="indications.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
+                <ref name="base.standard.content"/>
                 <ref name="indications.content"/>
             </interleave>
         </element>
@@ -67,7 +67,7 @@
         <element name="techniques">
             <ref name="techniques.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
+                <ref name="base.standard.content"/>
                 <ref name="techniques.content"/>
             </interleave>
         </element>
@@ -76,7 +76,7 @@
         <element name="findings">
             <ref name="findings.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
+                <ref name="base.standard.content"/>
                 <ref name="findings.content"/>
             </interleave>
         </element>
@@ -85,7 +85,7 @@
         <element name="impressions">
             <ref name="impressions.attrib"/>
             <interleave>
-                <ref name="baseContent"/>
+                <ref name="base.standard.content"/>
                 <ref name="impressions.content"/>
             </interleave>
         </element>

@@ -52,10 +52,10 @@
             <optional>
                 <element name="priorTherapies">
                     <interleave>
-                        <ref name="baseContent"/>
+                        <ref name="base.standard.content"/>
                         <zeroOrMore>
                             <element name="priorTherapy">
-                                <ref name="baseContent"/>
+                                <ref name="base.standard.content"/>
                                 <attribute name="description"/>
                                 <optional>
                                     <attribute name="date">
@@ -73,10 +73,10 @@
             </optional>
             <optional>
                 <element name="clinicalFindings">
-                    <ref name="baseContent"/>
+                    <ref name="base.standard.content"/>
                     <zeroOrMore>
                         <element name="clinicalFinding">
-                            <ref name="baseContent"/>
+                            <ref name="base.standard.content"/>
                             <optional><element name="value">
                                 <ref name="clinicalFindingValues"/>
                             </element></optional>
@@ -86,10 +86,10 @@
             </optional>
             <optional>
                 <element name="radiologicFindings">
-                    <ref name="baseContent"/>
+                    <ref name="base.standard.content"/>
                     <zeroOrMore>
                         <element name="radiologicFinding">
-                            <ref name="baseContent"/>
+                            <ref name="base.standard.content"/>
                             <optional><element name="value">
                                 <ref name="radiologicFindingValues"/>
                             </element></optional>

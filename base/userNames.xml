@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<anyName xmlns="http://relaxng.org/ns/structure/1.0">
+   <except>
+      <nsName ns="http://www.cap.org/pert/2009/01/"/>
+      <nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+      <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+      <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+      <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
+      <nsName ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+      <nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+      <nsName ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+      <nsName ns="http://www.w3.org/2003/g/data-view#"/>
+      <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+   </except>
+</anyName>

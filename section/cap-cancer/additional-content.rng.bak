@@ -50,10 +50,10 @@
         <optional>
             <element name="findings">
                 <interleave>
-                    <ref name="baseContent"/>
+                    <ref name="base.standard.content"/>
                     <oneOrMore>
                         <element name="finding">
-                            <ref name="baseContent"/>
+                            <ref name="base.standard.content"/>
                             <optional>
                                 <element name="value">
                                     <ref name="findings"/>

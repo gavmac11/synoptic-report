@@ -3,10 +3,10 @@
     xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <interleave>
-        <ref name="standard.content"/>
+        <ref name="common.standard.content"/>
         <element name="deepestInvasion"
             ns="http://www.cap.org/pert/2009/01/stomach/">
-            <ref name="standard.content"/>
+            <ref name="common.standard.content"/>
             <optional>
                 <element name="value">
                     <choice>
@@ -25,7 +25,7 @@
             <zeroOrMore>
                 <element name="adjacentStructure"
                     ns="http://www.cap.org/pert/2009/01/colon/">
-                    <ref name=" standard.content"/>
+                    <ref name=" common.standard.content"/>
                     <attribute name="value"/>
                     <attribute name="extent">
                         <choice>

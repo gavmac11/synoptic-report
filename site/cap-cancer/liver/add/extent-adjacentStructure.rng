@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <element name="adjacentStructureInvasion" ns="http://www.cap.org/pert/2009/01/lung/"
     xmlns="http://relaxng.org/ns/structure/1.0">
-    <ref name="standard.content"/>
+    <ref name="common.standard.content"/>
     <zeroOrMore>
         <element name="structure">
             <optional><element name="value">
@@ -20,7 +20,7 @@
                     <value>other</value>
                 </choice>
             </element></optional>
-            <ref name="standard.content"/>
+            <ref name="common.standard.content"/>
         </element>
     </zeroOrMore>
 </element>

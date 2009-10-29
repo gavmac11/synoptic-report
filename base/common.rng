@@ -22,12 +22,10 @@
     limitations under the License.
     ===========================================================================
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-   xmlns="http://relaxng.org/ns/structure/1.0"
-   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-   xmlns:xi="http://www.w3.org/2001/XInclude">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
    <div>
-      <a:documentation>== COMMON CONTENT ==</a:documentation>
+      <a:documentation>== BASE CONTENT ==</a:documentation>
       <define name="common.content">
          <interleave>
             <ref name="common.standard.content"/>
@@ -59,21 +57,7 @@
       </define>
       <define name="anyForeignElement">
          <element>
-            <anyName>
-               <except>
-                  <nsName ns=""/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/pancreas/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/endometrium/"/>
-                  <nsName ns="http://www.w3.org/2003/g/data-view#"/>
-                  <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
-               </except>
-            </anyName>
+            <xi:include href="localNames.xml"/>
             <interleave>
                <zeroOrMore>
                   <choice>
@@ -86,41 +70,14 @@
       </define>
       <define name="anyForeignAttribute">
          <attribute>
-            <anyName>
-               <except>
-                  <nsName ns="http://www.cap.org/pert/2009/01/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/pancreas/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/endometrium/"/>
-                  <nsName ns="http://www.w3.org/2003/g/data-view#"/>
-                  <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
-               </except>
-            </anyName>
+            <xi:include href="userNames.xml"/>
          </attribute>
       </define>
       <define name="anyUserAttribute">
          <a:documentation>Any attribute in a non-null namespace other than the CAP eCC
-            namespaces</a:documentation>
+                namespaces</a:documentation>
          <attribute>
-            <anyName>
-               <except>
-                  <nsName ns=""/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/pancreas/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
-                  <nsName ns="http://www.cap.org/pert/2009/01/endometrium/"/>
-                  <nsName ns="http://www.w3.org/2003/g/data-view#"/>
-                  <nsName ns="http://www.rsna.org/reporting/2009/01/"/>
-               </except>
-            </anyName>
+            <xi:include href="localNames.xml"/>
          </attribute>
       </define>
    </div>
@@ -147,7 +104,64 @@
       </define>
    </div>
    <div>
-      <a:documentation>== COMMON ELEMENTS ==</a:documentation>
+      <a:documentation>== COMMON VALUE TYPES ==</a:documentation>
+      <define name="common.severity.values">
+         <choice>
+            <value>none</value>
+            <value>mild</value>
+            <value>moderate</value>
+            <value>marked</value>
+         </choice>
+      </define>
+      <define name="common.lengthUnit.values">
+         <choice>
+            <value>mm</value>
+            <value>cm</value>
+            <value>in</value>
+         </choice>
+      </define>
+      <define name="common.inflammation.values">
+         <choice>
+            <value>acute</value>
+            <value>acute and chronic</value>
+            <value>chronic</value>
+            <value>other</value>
+         </choice>
+      </define>
+      <define name="common.laterality.values">
+         <choice>
+            <value>right</value>
+            <value>left</value>
+            <value>other</value>
+         </choice>
+      </define>
+      <define name="common.date.values">
+         <choice>
+            <data type="date"/>
+            <data type="gYear"/>
+            <data type="gYearMonth"/>
+         </choice>
+      </define>
+      <define name="common.extendedBoolean.values">
+         <choice>
+            <value>positive</value>
+            <value>negative</value>
+            <value>indeterminate</value>
+            <value>equivocal</value>
+            <value>inapplicable</value>
+            <value>not reported</value>
+         </choice>
+      </define>
+      <define name="common.weightUnit.values">
+         <choice>
+            <value>g</value>
+            <value>kg</value>
+            <value>other</value>
+         </choice>
+      </define>
+   </div>
+   <div>
+      <a:documentation>== DIMENSIONAL ELEMENTS ==</a:documentation>
       <define name="laterality">
          <grammar>
             <include href="result.rng">

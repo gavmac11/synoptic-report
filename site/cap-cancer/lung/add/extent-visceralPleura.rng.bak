@@ -2,7 +2,7 @@
 <element name="visceralPleuraInvasion"
     ns="http://www.cap.org/pert/2009/01/lung/"
     xmlns="http://relaxng.org/ns/structure/1.0">
-    <ref name="baseContent"/>
+    <ref name="common.standard.content"/>
     <optional>
         <element name="value">
             <externalRef href="../../../../common/extendedBoolean.rng"/>

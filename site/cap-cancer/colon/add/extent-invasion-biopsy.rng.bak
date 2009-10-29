@@ -2,9 +2,9 @@
 <element name="invasion" ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <interleave>
-        <ref name="baseContent"/>
+        <ref name="base.standard.content"/>
         <element name="deepestInvasion" ns="http://www.cap.org/pert/2009/01/colon/">
-            <ref name="baseContent"/>
+            <ref name="base.standard.content"/>
             <optional><element name="value">
                 <choice>
                     <value>no evidence of tumor</value>

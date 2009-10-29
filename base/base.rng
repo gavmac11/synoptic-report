@@ -1,0 +1,1331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    
+    ===========================================================================
+    Copyright 2009 College of American Pathologists (CAP)
+    
+    This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+    
+    The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================
+    
+-->
+<!DOCTYPE grammar [
+<!ENTITY result "result.rng">
+]>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <!--  -->
+    <include href="common.rng"/>
+    <div>
+        <a:documentation>== ROOT MODEL ==</a:documentation>
+        <a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>================ ROOT MODEL ================</a:documentation>
+            <a:documentation>============================================</a:documentation>
+        </a:documentation>
+        <div>
+            <a:documentation>-- ROOT ITEM --</a:documentation>
+            <start combine="interleave">
+                <element name="synopsis">
+                    <a:documentation>.. synopsis ELEMENT ..</a:documentation>
+                    <ref name="synopsis.attrib"/>
+                    <interleave>
+                        <ref name="synopsis.content"/>
+                        <ref name="common.standard.content"/>
+                    </interleave>
+                </element>
+            </start>
+        </div>
+        <div>
+            <a:documentation>-- ROOT CONTENT --</a:documentation>
+            <define name="synopsis.content">
+                <ref name="accessory"/>
+                <ref name="additional"/>
+                <ref name="clinical"/>
+                <ref name="extent"/>
+                <ref name="margins"/>
+                <ref name="metastases"/>
+                <ref name="nodes"/>
+                <ref name="specimen"/>
+                <ref name="stage"/>
+                <ref name="studies"/>
+                <ref name="tumor"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- ROOT ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="synopsis.attrib">
+                <a:documentation>-- synopsis ATTRIBUTES --</a:documentation>
+                <attribute name="schemaLocation">
+                    <ref name="schemaLocation"/>
+                </attribute>
+                <attribute name="version">
+                    <ref name="version"/>
+                </attribute>
+                <attribute name="transformation" ns="http://www.w3.org/2003/g/data-view#"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- ROOT VALUESETS --</a:documentation>
+            <define combine="choice" name="schemaLocation">
+                <data type="anyURI"/>
+            </define>
+            <define combine="choice" name="version">
+                <data type="string"/>
+            </define>
+        </div>
+    </div>
+    <div>
+        <a:documentation>== SECTION MODELS ==</a:documentation>
+        <a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>============== SECTION MODELS ==============</a:documentation>
+            <a:documentation>============================================</a:documentation>
+        </a:documentation>
+        <define combine="interleave" name="accessory">
+            <a:documentation>-- accessory SECTION --</a:documentation>
+            <element name="accessory">
+                <ref name="accessory.attrib"/>
+                <interleave>
+                    <ref name="accessory.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+        </define>
+        <define combine="interleave" name="additional">
+            <a:documentation>-- additional SECTION --</a:documentation>
+            <element name="additional">
+                <ref name="additional.attrib"/>
+                <interleave>
+                    <ref name="additional.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+        </define>
+        <define combine="interleave" name="clinical">
+            <a:documentation>-- clinical SECTION --</a:documentation>
+            <element name="clinical">
+                <ref name="clinical.attrib"/>
+                <interleave>
+                    <ref name="clinical.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+        </define>
+        <define combine="interleave" name="extent">
+            <a:documentation>-- extent SECTION --</a:documentation>
+            <element name="extent">
+                <ref name="extent.attrib"/>
+                <interleave>
+                    <ref name="extent.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+        </define>
+        <define combine="interleave" name="margins">
+            <a:documentation>-- margins SECTION --</a:documentation>
+            <element name="margins">
+                <ref name="margins.attrib"/>
+                <interleave>
+                    <ref name="margins.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+        </define>
+        <define combine="interleave" name="metastases">
+            <a:documentation>-- metastases SECTION --</a:documentation>
+            <element name="metastases">
+                <ref name="metastases.attrib"/>
+                <interleave>
+                    <ref name="metastases.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+        </define>
+        <define combine="interleave" name="nodes">
+            <a:documentation>-- nodes SECTION --</a:documentation>
+            <element name="nodes">
+                <ref name="nodes.attrib"/>
+                <interleave>
+                    <ref name="nodes.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+        </define>
+        <define combine="interleave" name="specimen">
+            <a:documentation>-- specimen SECTION --</a:documentation>
+            <element name="specimen">
+                <ref name="specimen.attrib"/>
+                <interleave>
+                    <ref name="specimen.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+        </define>
+        <define combine="interleave" name="stage">
+            <a:documentation>-- stage SECTION --</a:documentation>
+            <element name="stage">
+                <ref name="stage.attrib"/>
+                <interleave>
+                    <ref name="stage.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+        </define>
+        <define combine="interleave" name="studies">
+            <a:documentation>-- studies SECTION --</a:documentation>
+            <element name="studies">
+                <ref name="studies.attrib"/>
+                <interleave>
+                    <ref name="studies.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+        </define>
+        <define combine="interleave" name="tumor">
+            <a:documentation>-- tumor SECTION --</a:documentation>
+            <element name="tumor">
+                <ref name="tumor.attrib"/>
+                <interleave>
+                    <ref name="tumor.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+        </define>
+    </div>
+    <div>
+        <a:documentation>== SUB-SECTION (ITEM) MODELS ==</a:documentation>
+        <a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>======== SUB-SECTION (ITEM) MODELS =========</a:documentation>
+            <a:documentation>============================================</a:documentation>
+        </a:documentation>
+        <define combine="interleave" name="accessory.content">
+            <a:documentation>-- accessory ITEMS --</a:documentation>
+            <interleave>
+                <optional>
+                    <a:documentation>.. venousInvasion ELEMENT ..</a:documentation>
+                    <element name="venousInvasion">
+                        <ref name="accessory.venousInvasion.attrib"/>
+                        <interleave>
+                            <ref name="accessory.venousInvasion.content"/>
+                            <ref name="common.content"/>
+                        </interleave>
+                    </element>
+                </optional>
+                <optional>
+                    <a:documentation>.. lymphovascularInvasion ELEMENT ..</a:documentation>
+                    <element name="lymphovascularInvasion">
+                        <ref name="accessory.lymphovascularInvasion.attrib"/>
+                        <interleave>
+                            <ref name="accessory.lymphovascularInvasion.content"/>
+                            <ref name="common.content"/>
+                        </interleave>
+                    </element>
+                </optional>
+                <optional>
+                    <a:documentation>.. perineuralInvasion ELEMENT ..</a:documentation>
+                    <element name="perineuralInvasion">
+                        <ref name="accessory.perineuralInvasion.attrib"/>
+                        <interleave>
+                            <ref name="accessory.perineuralInvasion.content"/>
+                            <ref name="common.content"/>
+                        </interleave>
+                    </element>
+                </optional>
+                <optional>
+                    <a:documentation>.. treatmentEffect ELEMENT ..</a:documentation>
+                    <element name="treatmentEffect">
+                        <ref name="accessory.treatmentEffect.attrib"/>
+                        <interleave>
+                            <ref name="accessory.treatmentEffect.content"/>
+                            <ref name="common.content"/>
+                        </interleave>
+                    </element>
+                </optional>
+            </interleave>
+        </define>
+        <define combine="interleave" name="additional.content">
+            <a:documentation>-- additional ITEMS --</a:documentation>
+            <zeroOrMore>
+                <a:documentation>.. item ELEMENT ..</a:documentation>
+                <element name="item">
+                    <ref name="additional.item.attrib"/>
+                    <interleave>
+                        <ref name="additional.item.content"/>
+                        <ref name="common.content"/>
+                    </interleave>
+                </element>
+            </zeroOrMore>
+        </define>
+        <define combine="interleave" name="clinical.content">
+            <a:documentation>-- clinical ITEMS --</a:documentation>
+            <interleave>
+                <zeroOrMore>
+                    <a:documentation>.. priorTherapy ELEMENT ..</a:documentation>
+                    <element name="priorTherapy">
+                        <ref name="clinical.priorTherapy.attrib"/>
+                        <interleave>
+                            <ref name="clinical.priorTherapy.content"/>
+                            <ref name="common.content"/>
+                        </interleave>
+                    </element>
+                </zeroOrMore>
+                <zeroOrMore>
+                    <a:documentation>.. clinicalFinding ELEMENT ..</a:documentation>
+                    <element name="clinicalFinding">
+                        <ref name="clinical.clinicalFinding.attrib"/>
+                        <interleave>
+                            <ref name="clinical.clinicalFinding.content"/>
+                            <ref name="common.content"/>
+                        </interleave>
+                    </element>
+                </zeroOrMore>
+                <zeroOrMore>
+                    <a:documentation>.. radiologicFinding ELEMENT ..</a:documentation>
+                    <element name="radiologicFinding">
+                        <ref name="clinical.radiologicFinding.attrib"/>
+                        <interleave>
+                            <ref name="clinical.radiologicFinding.content"/>
+                            <ref name="common.content"/>
+                        </interleave>
+                    </element>
+                </zeroOrMore>
+            </interleave>
+        </define>
+        <define combine="interleave" name="extent.content">
+            <a:documentation>-- extent ITEMS --</a:documentation>
+            <element name="size">
+                <ref name="extent.size.attrib"/>
+                <interleave>
+                    <ref name="extent.size.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+            <ref name="common.size">
+                <a:documentation>.. size ELEMENT ..</a:documentation>
+            </ref>
+        </define>
+        <define combine="interleave" name="margins.content">
+            <a:documentation>-- margins ITEMS --</a:documentation>
+            <zeroOrMore>
+                <a:documentation>.. margin ELEMENT ..</a:documentation>
+                <element name="margin">
+                    <ref name="margins.margin.attrib"/>
+                    <interleave>
+                        <ref name="margins.margin.content"/>
+                        <ref name="common.standard.content"/>
+                    </interleave>
+                </element>
+            </zeroOrMore>
+        </define>
+        <define combine="interleave" name="metastases.content">
+            <a:documentation>-- metastases ITEMS --</a:documentation>
+            <zeroOrMore>
+                <a:documentation>.. metastasis ELEMENT ..</a:documentation>
+                <element name="metastasis">
+                    <ref name="metastases.metastasis.attrib"/>
+                    <interleave>
+                        <ref name="margins.margin.content"/>
+                        <ref name="common.content"/>
+                    </interleave>
+                </element>
+            </zeroOrMore>
+        </define>
+        <define combine="interleave" name="nodes.content">
+            <a:documentation>-- nodes ITEMS --</a:documentation>
+            <zeroOrMore>
+                <a:documentation>.. group ELEMENT ..</a:documentation>
+                <element name="group">
+                    <ref name="nodes.group.attrib"/>
+                    <interleave>
+                        <ref name="nodes.group.content"/>
+                        <ref name="common.content"/>
+                    </interleave>
+                </element>
+            </zeroOrMore>
+        </define>
+        <define combine="interleave" name="specimen.content">
+            <a:documentation>-- specimen ITEMS --</a:documentation>
+            <ref name="specimen.attrib"/>
+            <interleave>
+                <oneOrMore>
+                    <a:documentation>.. procedure ELEMENT ..</a:documentation>
+                    <element name="procedure">
+                        <ref name="specimen.procedure.attrib"/>
+                        <interleave>
+                            <ref name="specimen.procedure.content"/>
+                            <ref name="common.content"/>
+                        </interleave>
+                    </element>
+                </oneOrMore>
+                <oneOrMore>
+                    <a:documentation>.. site ELEMENT ..</a:documentation>
+                    <element name="site">
+                        <ref name="specimen.site.attrib"/>
+                        <interleave>
+                            <ref name="specimen.site.content"/>
+                            <ref name="common.content"/>
+                        </interleave>
+                    </element>
+                </oneOrMore>
+                <oneOrMore>
+                    <a:documentation>.. tumor location ELEMENT ..</a:documentation>
+                    <element name="tumorLocation">
+                        <ref name="specimen.tumorLocation.attrib"/>
+                        <interleave>
+                            <ref name="specimen.tumorLocation.content"/>
+                            <ref name="common.content"/>
+                        </interleave>
+                    </element>
+                </oneOrMore>
+                <optional>
+                    <a:documentation>.. integrity ELEMENT ..</a:documentation>
+                    <element name="integrity">
+                        <ref name="specimen.integrity.attrib"/>
+                        <interleave>
+                            <ref name="specimen.integrity.content"/>
+                            <ref name="common.content"/>
+                        </interleave>
+                    </element>
+                </optional>
+                <optional>
+                    <a:documentation>.. grossSize ELEMENT ..</a:documentation>
+                    <element name="grossSize">
+                        <ref name="specimen.grossSize.attrib"/>
+                        <interleave>
+                            <ref name="specimen.grossSize.content"/>
+                            <ref name="common.content"/>
+                        </interleave>
+                    </element>
+                </optional>
+                <optional>
+                    <a:documentation>.. weight ELEMENT ..</a:documentation>
+                    <element name="weight">
+                        <ref name="specimen.weight.attrib"/>
+                        <interleave>
+                            <ref name="specimen.weight.content"/>
+                            <ref name="common.content"/>
+                        </interleave>
+                    </element>
+                </optional>
+            </interleave>
+        </define>
+        <define combine="interleave" name="stage.content">
+            <a:documentation>-- stage ITEMS --</a:documentation>
+            <optional>
+                <a:documentation>.. stage prefix ELEMENT(s) ..</a:documentation>
+                <ref name="stage.prefix"/>
+                <optional>
+                    <ref name="stage.prefix"/>
+                    <optional>
+                        <ref name="stage.prefix"/>
+                    </optional>
+                </optional>
+            </optional>
+            <element name="classification">
+                <a:documentation>.. classification ELEMENT ..</a:documentation>
+                <ref name="stage.classification.attrib"/>
+                <interleave>
+                    <ref name="stage.classification.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+            <element name="T">
+                <a:documentation>.. T ELEMENT ..</a:documentation>
+                <ref name="stage.T.attrib"/>
+                <interleave>
+                    <ref name="stage.T.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+            <element name="N">
+                <a:documentation>.. N ELEMENT ..</a:documentation>
+                <ref name="stage.N.attrib"/>
+                <interleave>
+                    <ref name="stage.N.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+            <element name="M">
+                <a:documentation>.. M ELEMENT ..</a:documentation>
+                <ref name="stage.M.attrib"/>
+                <interleave>
+                    <ref name="stage.M.content"/>
+                    <ref name="common.content"/>
+                </interleave>
+            </element>
+        </define>
+        <define combine="interleave" name="studies.content">
+            <a:documentation>-- studies ITEMS --</a:documentation>
+            <zeroOrMore>
+                <a:documentation>.. study ELEMENT ..</a:documentation>
+                <element name="study">
+                    <ref name="studies.study.attrib"/>
+                    <interleave>
+                        <ref name="studies.study.content"/>
+                        <ref name="common.content"/>
+                    </interleave>
+                </element>
+            </zeroOrMore>
+        </define>
+        <define combine="interleave" name="tumor.content">
+            <a:documentation>-- tumor ITEMS --</a:documentation>
+            <interleave>
+                <oneOrMore>
+                    <a:documentation>.. HistologicType ELEMENT ..</a:documentation>
+                    <element name="histologicType">
+                        <ref name="tumor.histologicType.attrib"/>
+                        <interleave>
+                            <ref name="tumor.histologicType.content"/>
+                            <ref name="common.content"/>
+                        </interleave>
+                    </element>
+                </oneOrMore>
+                <element name="grade">
+                    <a:documentation>.. Grade ELEMENT ..</a:documentation>
+                    <ref name="tumor.grade.attrib"/>
+                    <interleave>
+                        <ref name="tumor.grade.content"/>
+                        <ref name="common.standard.content"/>
+                    </interleave>
+                    <optional>
+                        <a:documentation>.. System ELEMENT ..</a:documentation>
+                        <element name="system">
+                            <ref name="tumor.grade.system.attrib"/>
+                            <interleave>
+                                <ref name="tumor.grade.system.content"/>
+                                <ref name="common.content"/>
+                            </interleave>
+                        </element>
+                    </optional>
+                </element>
+            </interleave>
+        </define>
+    </div>
+    <div>
+        <a:documentation>== ITEM-CONTENT MODELS ==</a:documentation>
+        <a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>=========== ITEM-CONTENT MODELS ============</a:documentation>
+            <a:documentation>============================================</a:documentation>
+        </a:documentation>
+        <div>
+            <a:documentation>-- accessory CONTENT --</a:documentation>
+            <define combine="interleave" name="accessory.venousInvasion.content">
+                <a:documentation>.. venousInvasion CONTENT ..</a:documentation>
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="venousInvasion.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+            <define combine="interleave" name="accessory.lymphovascularInvasion.content">
+                <a:documentation>.. lymphovascularInvasion CONTENT ..</a:documentation>
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="lymphovascularInvasion.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+            <define combine="interleave" name="accessory.perineuralInvasion.content">
+                <a:documentation>.. perineuralInvasion CONTENT ..</a:documentation>
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="perineuralInvasion.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+            <define name="accessory.treatmentEffect.content">
+                <a:documentation>.. treatmentEffect CONTENT ..</a:documentation>
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="treatmentEffect.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- additional CONTENT</a:documentation>
+            <define name="additional.item.content">
+                <a:documentation>.. item CONTENT ..</a:documentation>
+                <grammar>
+                    <include href="&result;"/>
+                </grammar>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- clinical CONTENT --</a:documentation>
+            <define combine="interleave" name="clinical.priorTherapy.content">
+                <a:documentation>.. priorTherapy CONTENT..</a:documentation>
+                <interleave>
+                    <grammar>
+                        <include href="&result;">
+                            <define name="valueset">
+                                <parentRef name="clinical.priorTherapy.values"/>
+                            </define>
+                        </include>
+                    </grammar>
+                    <optional>
+                        <element name="date">
+                            <ref name="common.date.values"/>
+                        </element>
+                    </optional>
+                </interleave>
+            </define>
+            <define combine="interleave" name="clinical.clinicalFinding.content">
+                <a:documentation>.. clinicalFinding CONTENT ..</a:documentation>
+                <interleave>
+                    <grammar>
+                        <include href="&result;">
+                            <define name="valueset">
+                                <parentRef name="clinical.clinicalFinding.values"/>
+                            </define>
+                        </include>
+                    </grammar>
+                    <optional>
+                        <element name="date">
+                            <ref name="common.date.values"/>
+                        </element>
+                    </optional>
+                </interleave>
+            </define>
+            <define combine="interleave" name="clinical.radiologicFinding.content">
+                <a:documentation>.. radiologicFinding CONTENT ..</a:documentation>
+                <interleave>
+                    <grammar>
+                        <include href="&result;">
+                            <define name="valueset">
+                                <parentRef name="clinical.radiologicFinding.values"/>
+                            </define>
+                        </include>
+                    </grammar>
+                    <optional>
+                        <element name="date">
+                            <ref name="common.date.values"/>
+                        </element>
+                    </optional>
+                </interleave>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- extent CONTENT --</a:documentation>
+            <define name="extent.size.content">
+                <a:documentation>.. size CONTENT ..</a:documentation>
+                <ref name="common.sizeContent"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- margins SECTION --</a:documentation>
+            <define combine="interleave" name="margins.margin.content">
+                <interleave>
+                    <grammar>
+                        <include href="&result;">
+                            <start>
+                                <element name="location">
+                                    <parentRef name="margins.margin.location.attrib"/>
+                                    <ref name="result.content"/>
+                                </element>
+                            </start>
+                            <define name="valueset">
+                                <parentRef name="margins.margin.location.values"/>
+                            </define>
+                        </include>
+                    </grammar>
+                    <grammar>
+                        <include href="&result;">
+                            <define name="valueset">
+                                <parentRef name="margins.margin.value.values"/>
+                            </define>
+                        </include>
+                    </grammar>
+                    <optional>
+                        <grammar>
+                            <include href="&result;">
+                                <start>
+                                    <element name="closest">
+                                        <parentRef name="margins.margin.closest.attrib"/>
+                                        <ref name="result.content"/>
+                                    </element>
+                                </start>
+                                <define name="valueset">
+                                    <parentRef name="margins.margin.closest.values"/>
+                                </define>
+                            </include>
+                        </grammar>
+                    </optional>
+                    <optional>
+                        <grammar>
+                            <include href="&result;">
+                                <start>
+                                    <element name="distance">
+                                        <parentRef name="margins.margin.distance.attrib"/>
+                                        <ref name="result.content"/>
+                                    </element>
+                                </start>
+                                <define name="valueset">
+                                    <parentRef name="margins.margin.distance.values"/>
+                                </define>
+                            </include>
+                        </grammar>
+                    </optional>
+                </interleave>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- metastases CONTENT --</a:documentation>
+            <define name="metastases.metastasis.content">
+                <grammar>
+                    <include href="&result;">
+                        <start>
+                            <element name="site">
+                                <parentRef name="metastases.metastasis.site.attrib"/>
+                                <ref name="result.content"/>
+                            </element>
+                        </start>
+                        <define name="valueset">
+                            <parentRef name="metastases.metastasis.site.values"/>
+                        </define>
+                    </include>
+                </grammar>
+                <grammar>
+                    <include href="&result;">
+                        <start>
+                            <element name="howDiagnosed">
+                                <parentRef name="metastases.metastasis.howDiagnosed.attrib"/>
+                                <ref name="result.content"/>
+                            </element>
+                        </start>
+                        <define name="valueset">
+                            <parentRef name="metastases.metastasis.howDiagnosed.values"/>
+                        </define>
+                    </include>
+                </grammar>
+                <ref name="common.size"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- nodes CONTENT --</a:documentation>
+            <define name="nodes.group.content">
+                <interleave>
+                    <grammar>
+                        <include href="&result;">
+                            <start>
+                                <element name="laterality">
+                                    <ref name="result.content"/>
+                                </element>
+                            </start>
+                            <define name="valueset">
+                                <parentRef name="common.laterality.values"/>
+                            </define>
+                        </include>
+                    </grammar>
+                </interleave>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- specimen CONTENT --</a:documentation>
+            <define combine="interleave" name="specimen.procedure.content">
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="specimen.procedure.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+            <define combine="interleave" name="specimen.site.content">
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="specimen.site.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+            <define combine="interleave" name="specimen.tumorLocation.content">
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="specimen.site.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+            <define combine="interleave" name="specimen.integrity.content">
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="specimen.integrity.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+            <define combine="choice" name="specimen.grossSize.content">
+                <ref name="common.size"/>
+            </define>
+            <define combine="choice" name="specimen.weight.content">
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <data type="float"/>
+                        </define>
+                    </include>
+                </grammar>
+                <grammar>
+                    <include href="&result;">
+                        <start>
+                            <element name="unit">
+                                <parentRef name="specimen.weight.unit.attrib"/>
+                                <ref name="result.content"/>
+                            </element>
+                        </start>
+                        <define name="valueset">
+                            <parentRef name="common.weightUnit.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- stage CONTENT --</a:documentation>
+            <define name="stage.prefix">
+                <element name="prefix">
+                    <ref name="stage.prefix.attrib"/>
+                    <interleave>
+                        <ref name="stage.prefix.content"/>
+                        <ref name="common.content"/>
+                    </interleave>
+                </element>
+            </define>
+            <define name="stage.prefix.content">
+                <grammar>
+                    <include href="&result;">
+                        <start>
+                            <element name="prefix">
+                                <ref name="result.content"/>
+                            </element>
+                        </start>
+                        <define name="valueset">
+                            <parentRef name="stage.prefix.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+            <define name="stage.T.content">
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="stage.T.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+            <define name="stage.M.content">
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="stage.M.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+            <define name="stage.N.content">
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="stage.N.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+            <define name="stage.classification.content">
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="stage.classification.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- studies CONTENT --</a:documentation>
+            <define name="studies.study.content">
+                <interleave>
+                    <grammar>
+                        <include href="&result;">
+                            <define name="valueset">
+                                <parentRef name="studies.study.value.values"/>
+                            </define>
+                        </include>
+                    </grammar>
+                    <optional>
+                        <grammar>
+                            <include href="&result;">
+                                <start>
+                                    <element name="method">
+                                        <parentRef name="studies.study.method.attrib"/>
+                                        <ref name="result.content"/>
+                                    </element>
+                                </start>
+                                <define name="valueset">
+                                    <parentRef name="studies.study.method.values"/>
+                                </define>
+                            </include>
+                        </grammar>
+                    </optional>
+                </interleave>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- tumor CONTENT --</a:documentation>
+            <define combine="choice" name="tumor.histologicType.content">
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="tumor.histologicType.value.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+            <define combine="choice" name="tumor.grade.content">
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="tumor.grade.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+            <define name="tumor.grade.system.content">
+                <grammar>
+                    <include href="&result;">
+                        <define name="valueset">
+                            <parentRef name="tumor.grade.system.values"/>
+                        </define>
+                    </include>
+                </grammar>
+            </define>
+        </div>
+    </div>
+    <div>
+        <a:documentation>== ATTRIBUTE MODELS ==</a:documentation>
+        <a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>============= ATTRIBUTE MODELS =============</a:documentation>
+            <a:documentation>============================================</a:documentation>
+        </a:documentation>
+        <div>
+            <a:documentation>-- accessory ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="accessory.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="accessory.treatmentEffect.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="accessory.venousInvasion.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="accessory.perineuralInvasion.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="accessory.lymphovascularInvasion.attrib">
+                <empty/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- additional ATTRIBUTES</a:documentation>
+            <define combine="interleave" name="additional.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="additional.item.attrib">
+                <attribute name="name">
+                    <ref name="additional.item.name.values"/>
+                </attribute>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- clinical ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="clinical.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="clinical.priorTherapy.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="clinical.clinicalFinding.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="clinical.radiologicFinding.attrib">
+                <empty/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- extent ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="extent.attrib">
+                <empty/>
+            </define>
+            <define name="extent.size.attrib">
+                <empty/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- margins ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="margins.attrib">
+                <empty/>
+            </define>
+            <define name="margins.margin.attrib">
+                <empty/>
+            </define>
+            <define name="margins.margin.location.attrib">
+                <empty/>
+            </define>
+            <define name="margins.margin.closest.attrib">
+                <empty/>
+            </define>
+            <define name="margins.margin.distance.attrib">
+                <empty/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- metastases ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="metastases.attrib">
+                <empty/>
+            </define>
+            <define name="metastases.metastasis.attrib">
+                <empty/>
+            </define>
+            <define name="metastases.metastasis.site.attrib">
+                <empty/>
+            </define>
+            <define name="metastases.metastasis.howDiagnosed.attrib">
+                <empty/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- nodes ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="nodes.attrib">
+                <empty/>
+            </define>
+            <define name="nodes.group.attrib">
+                <empty/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- specimen ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="specimen.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="specimen.procedure.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="specimen.site.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="specimen.tumorLocation.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="specimen.integrity.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="specimen.grossSize.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="specimen.weight.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="specimen.weight.unit.attrib">
+                <empty/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- stage ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="stage.attrib">
+                <empty/>
+            </define>
+            <define name="stage.prefix.attrib">
+                <empty/>
+            </define>
+            <define name="stage.T.attrib">
+                <empty/>
+            </define>
+            <define name="stage.N.attrib">
+                <empty/>
+            </define>
+            <define name="stage.M.attrib">
+                <empty/>
+            </define>
+            <define name="stage.classification.attrib">
+                <empty/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- studies ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="studies.attrib">
+                <empty/>
+            </define>
+            <define combine="interleave" name="studies.study.attrib">
+                <attribute name="name">
+                    <ref name="studies.study.name.values"/>
+                </attribute>
+            </define>
+            <define name="studies.study.method.attrib">
+                <empty/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>-- tumor ATTRIBUTES --</a:documentation>
+            <define combine="interleave" name="tumor.attrib">
+                <empty/>
+            </define>
+            <define name="tumor.grade.attrib">
+                <empty/>
+            </define>
+            <define name="tumor.histologicType.attrib">
+                <empty/>
+            </define>
+            <define name="tumor.grade.system.attrib">
+                <empty/>
+            </define>
+        </div>
+    </div>
+    <div>
+        <a:documentation>== VALUESETS ==</a:documentation>
+        <a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>============================================</a:documentation>
+            <a:documentation>================ VALUESETS =================</a:documentation>
+            <a:documentation>============================================</a:documentation>
+        </a:documentation>
+        <div>
+            <a:documentation>== accessory VALUESETS ==</a:documentation>
+            <define combine="choice" name="venousInvasion.values">
+                <ref name="common.extendedBoolean.values"/>
+            </define>
+            <define combine="choice" name="lymphovascularInvasion.values">
+                <ref name="common.extendedBoolean.values"/>
+            </define>
+            <define combine="choice" name="perineuralInvasion.values">
+                <ref name="common.extendedBoolean.values"/>
+            </define>
+            <define combine="choice" name="treatmentEffect.values">
+                <choice>
+                    <value>inapplicable</value>
+                    <value>noResponse</value>
+                    <value>slightResponse</value>
+                    <value>markedResponse</value>
+                    <value>completeResponse</value>
+                    <value>other</value>
+                </choice>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== additional VALUESETS ==</a:documentation>
+            <define name="additional.item.name.values">
+                <data type="token"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== clinical VALUESETS ==</a:documentation>
+            <define combine="choice" name="clinical.priorTherapy.values">
+                <data type="token"/>
+            </define>
+            <define combine="choice" name="clinical.clinicalFinding.values">
+                <data type="token"/>
+            </define>
+            <define combine="choice" name="clinical.radiologicFinding.values">
+                <data type="token"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== extent VALUESETS ==</a:documentation>
+            <!-- None -->
+        </div>
+        <div>
+            <a:documentation>== margins VALUESETS ==</a:documentation>
+            <define combine="choice" name="margins.margin.location.values">
+                <data type="token"/>
+            </define>
+            <define name="margins.margin.value.values">
+                <ref name="common.extendedBoolean.values"/>
+            </define>
+            <define name="margins.margin.closest.values">
+                <ref name="common.extendedBoolean.values"/>
+            </define>
+            <define name="margins.margin.distance.values">
+                <ref name="length.content"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== metastases VALUESETS ==</a:documentation>
+            <define name="metastases.metastasis.site.values">
+                <data type="token"/>
+            </define>
+            <define name="metastases.metastasis.howDiagnosed.values">
+                <choice>
+                    <value>this accesion</value>
+                    <value>prior accession</value>
+                    <value>outside report</value>
+                    <value>clinical history</value>
+                    <value>other</value>
+                </choice>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== nodes VALUESETS ==</a:documentation>
+            <define combine="choice" name="nodes.group.status.values">
+                <choice>
+                    <value>total</value>
+                    <value>negative</value>
+                    <value>positive</value>
+                    <value>regressed</value>
+                    <value>other</value>
+                </choice>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== specimen VALUESETS ==</a:documentation>
+            <define combine="choice" name="specimen.procedure.values">
+                <data type="token"/>
+            </define>
+            <define combine="choice" name="specimen.site.values">
+                <data type="token"/>
+            </define>
+            <define combine="choice" name="specimen.integrity.values">
+                <ref name="common.extendedBoolean.values"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== stage VALUESETS ==</a:documentation>
+            <define name="stage.T.values">
+                <choice>
+                    <value>X</value>
+                    <value>0</value>
+                    <value>is</value>
+                    <value>1</value>
+                    <value>1a</value>
+                    <value>1b</value>
+                    <value>1c</value>
+                    <value>1a1</value>
+                    <value>1a2</value>
+                    <value>1b1</value>
+                    <value>1b2</value>
+                    <value>1c</value>
+                    <value>1mi</value>
+                    <value>2</value>
+                    <value>2a</value>
+                    <value>2b</value>
+                    <value>2c</value>
+                    <value>2d</value>
+                    <value>2a1</value>
+                    <value>2a2</value>
+                    <value>2b</value>
+                    <value>3</value>
+                    <value>3a</value>
+                    <value>3b</value>
+                    <value>3c</value>
+                    <value>4</value>
+                    <value>4a</value>
+                    <value>4b</value>
+                    <value>4c</value>
+                    <value>4d</value>
+                </choice>
+            </define>
+            <define name="stage.N.values">
+                <choice>
+                    <value>X</value>
+                    <value>0</value>
+                    <value>1</value>
+                    <value>other</value>
+                </choice>
+            </define>
+            <define name="stage.M.values">
+                <choice>
+                    <value>X</value>
+                    <value>0</value>
+                    <value>1</value>
+                    <value>other</value>
+                </choice>
+            </define>
+            <define name="stage.classification.values">
+                <value>p</value>
+            </define>
+            <define name="stage.prefix.values">
+                <choice>
+                    <value>y</value>
+                    <value>r</value>
+                    <value>a</value>
+                    <value>other</value>
+                </choice>
+            </define>
+            <define name="suffix-values">
+                <choice>
+                    <value>m</value>
+                </choice>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== studies VALUESETS ==</a:documentation>
+            <define name="studies.study.name.values">
+                <data type="token"/>
+            </define>
+            <define name="studies.study.value.values">
+                <data type="token"/>
+            </define>
+            <define name="studies.study.method.values">
+                <data type="token"/>
+            </define>
+        </div>
+        <div>
+            <a:documentation>== tumor VALUESETS ==</a:documentation>
+            <define name="tumor.histologicType.value.values">
+                <data type="token"/>
+            </define>
+            <define combine="choice" name="tumor.grade.values">
+                <choice>
+                    <value>not applicable</value>
+                    <value>1</value>
+                    <value>2</value>
+                    <value>3</value>
+                    <value>4</value>
+                    <value>X</value>
+                    <value>other</value>
+                </choice>
+            </define>
+            <define combine="choice" name="tumor.grade.system.values">
+                <choice>
+                    <value>WHO</value>
+                    <value>not specified</value>
+                    <value>other</value>
+                </choice>
+            </define>
+        </div>
+    </div>
+</grammar>

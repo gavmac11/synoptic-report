@@ -55,7 +55,7 @@
                             <ref name="venousInvasionValues"/>
                         </element>
                     </optional>
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                 </element>
             </optional>
             <optional>
@@ -65,7 +65,7 @@
                             <ref name="lymphaticInvasionValues"/>
                         </element>
                     </optional>
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                 </element>
             </optional>
             <optional>
@@ -75,7 +75,7 @@
                             <ref name="perineuralInvasionValues"/>
                         </element>
                     </optional>
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                 </element>
             </optional>
             <optional>
@@ -85,19 +85,19 @@
                             <ref name="treatmentEffectValues"/>
                         </element>
                     </optional>
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                 </element>
             </optional>
         </interleave>
     </define>
     <define combine="choice" name="venousInvasionValues">
-        <externalRef href="../../common/extendedBoolean.rng"/>
+        <externalRef href="../../common/common.extendedBoolean.values.rng"/>
     </define>
     <define combine="choice" name="lymphaticInvasionValues">
-        <externalRef href="../../common/extendedBoolean.rng"/>
+        <externalRef href="../../common/common.extendedBoolean.values.rng"/>
     </define>
     <define combine="choice" name="perineuralInvasionValues">
-        <externalRef href="../../common/extendedBoolean.rng"/>
+        <externalRef href="../../common/common.extendedBoolean.values.rng"/>
     </define>
     <define combine="choice" name="treatmentEffectValues">
         <choice>

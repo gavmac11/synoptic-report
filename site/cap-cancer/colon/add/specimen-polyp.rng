@@ -3,13 +3,13 @@
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <element name="polyp">
         <interleave>
-            <ref name="standard.content"/>
+            <ref name="common.standard.content"/>
             <optional>
                 <externalRef href="../../../../common/size.rng"/>
             </optional>
             <optional>
                 <element name="configuration">
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                     <optional><element name="value">
                         <choice>
                             <value>pedunculated</value>

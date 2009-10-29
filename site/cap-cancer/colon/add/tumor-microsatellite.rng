@@ -4,12 +4,12 @@
     xmlns:iso="http://purl.oclc.org/dsdl/schematron">
     <element name="suggestMicrosatelliteInstability">
         <interleave>
-            <ref name="standard.content"/>
+            <ref name="common.standard.content"/>
             <optional>
                 <element name="mucinousComponent">
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                     <optional><element name="value">
-                        <externalRef href="../../../../common/extendedBoolean.rng"/>
+                        <externalRef href="../../../../common/common.extendedBoolean.values.rng"/>
                     </element></optional>
                     <optional>
                         <attribute name="percentage">
@@ -26,17 +26,17 @@
             </optional>
             <optional>
                 <element name="medullaryComponent">
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                     <optional><element name="value">
-                        <externalRef href="../../../../common/extendedBoolean.rng"/>
+                        <externalRef href="../../../../common/common.extendedBoolean.values.rng"/>
                     </element></optional>
                 </element>
             </optional>
             <optional>
                 <element name="highGrade">
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                     <optional><element name="value">
-                        <externalRef href="../../../../common/extendedBoolean.rng"/>
+                        <externalRef href="../../../../common/common.extendedBoolean.values.rng"/>
                     </element></optional>
                 </element>
             </optional>

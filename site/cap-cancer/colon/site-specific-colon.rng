@@ -4,7 +4,7 @@
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:dc="http://purl.org/dc/elements/1.1/">
     <include href="../../../common/extendedBooleanx.rng"/>
-    <include href="../../../common/standard.content.rng"/>
+    <include href="../../../common/common.standard.content.rng"/>
     <include href="../../../common/sizex.rng"/>
     <start>
         <notAllowed/>
@@ -47,10 +47,10 @@
             <define name="tumorPerforation">
                 <element name="tumorPerforation"
                     ns="http://www.cap.org/pert/2009/01/colon/">
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                     <optional>
                         <element name="value">
-                            <ref name="extendedBoolean"/>
+                            <ref name="common.extendedBoolean.values"/>
                         </element>
                     </optional>
                 </element>
@@ -59,13 +59,13 @@
                 <optional>
                     <element name="polyp">
                         <interleave>
-                            <ref name="standard.content"/>
+                            <ref name="common.standard.content"/>
                             <optional>
                                 <ref name="size"/>
                             </optional>
                             <optional>
                                 <element name="configuration">
-                                    <ref name="standard.content"/>
+                                    <ref name="common.standard.content"/>
                                     <optional>
                                         <element name="value">
                                         <choice>
@@ -116,10 +116,10 @@
         <define name="tumorPerforation-addition">
             <element name="tumorPerforation"
                 ns="http://www.cap.org/pert/2009/01/colon/">
-                <ref name="standard.content"/>
+                <ref name="common.standard.content"/>
                 <optional>
                     <element name="value">
-                        <ref name="extendedBoolean"/>
+                        <ref name="common.extendedBoolean.values"/>
                     </element>
                 </optional>
             </element>
@@ -129,13 +129,13 @@
             <optional>
                 <element name="suggestMicrosatelliteInstability">
                     <interleave>
-                        <ref name="standard.content"/>
+                        <ref name="common.standard.content"/>
                         <optional>
                             <element name="mucinousComponent">
-                                <ref name="standard.content"/>
+                                <ref name="common.standard.content"/>
                                 <optional>
                                     <element name="value">
-                                        <ref name="extendedBoolean"/>
+                                        <ref name="common.extendedBoolean.values"/>
                                     </element>
                                 </optional>
                                 <optional>
@@ -149,20 +149,20 @@
                         </optional>
                         <optional>
                             <element name="medullaryComponent">
-                                <ref name="standard.content"/>
+                                <ref name="common.standard.content"/>
                                 <optional>
                                     <element name="value">
-                                        <ref name="extendedBoolean"/>
+                                        <ref name="common.extendedBoolean.values"/>
                                     </element>
                                 </optional>
                             </element>
                         </optional>
                         <optional>
                             <element name="highGrade">
-                                <ref name="standard.content"/>
+                                <ref name="common.standard.content"/>
                                 <optional>
                                     <element name="value">
-                                        <ref name="extendedBoolean"/>
+                                        <ref name="common.extendedBoolean.values"/>
                                     </element>
                                 </optional>
                             </element>
@@ -253,10 +253,10 @@
         <define name="invasion">
             <element name="invasion">
                 <interleave>
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                     <element name="deepestInvasion"
                         ns="http://www.cap.org/pert/2009/01/colon/">
-                        <ref name="standard.content"/>
+                        <ref name="common.standard.content"/>
                         <optional>
                             <element name="value">
                                 <choice>
@@ -280,7 +280,7 @@
                         <zeroOrMore>
                             <element name="adjacentStructure"
                                 ns="http://www.cap.org/pert/2009/01/colon/">
-                                <ref name=" standard.content"/>
+                                <ref name=" common.standard.content"/>
                                 <element name="value">
                                     <text/>
                                 </element>

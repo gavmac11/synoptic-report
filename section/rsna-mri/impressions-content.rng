@@ -49,7 +49,7 @@
     <define combine="interleave" name="impressions.content">
         <zeroOrMore>
             <element name="impression">
-                <ref name="standard.content"/>
+                <ref name="common.standard.content"/>
                 <ref name="impression.content"/>
             </element>
         </zeroOrMore>

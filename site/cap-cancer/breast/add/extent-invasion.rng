@@ -3,10 +3,10 @@
     ns="http://www.cap.org/pert/2009/01/breast/" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <interleave>
-        <ref name="standard.content"/>
+        <ref name="common.standard.content"/>
         <zeroOrMore>
             <element name="invasionFinding">
-                <ref name="standard.content"/>
+                <ref name="common.standard.content"/>
                 <attribute name="location">
                     <choice>
                         <value>extension to pectoralis muscle</value>
@@ -19,7 +19,7 @@
                     </choice>
                 </attribute>
                 <optional><element name="value">
-                    <externalRef href="../../../../common/extendedBoolean.rng"/>
+                    <externalRef href="../../../../common/common.extendedBoolean.values.rng"/>
                 </element></optional>
             </element>
         </zeroOrMore>

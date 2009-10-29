@@ -1,7 +1,7 @@
 <optional datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/lung/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <element name="smokingHistory">
-        <ref name="standard.content"/>
+        <ref name="common.standard.content"/>
         <attribute name="packYears">
             <data type="nonNegativeInteger"/>
         </attribute>
