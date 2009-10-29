@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes>
+   <group locatiop="interaortocaval">
+      <label>Inter-aortocaval</label>
+      <comment>Noted by surgeon to be incomplete resection</comment>
+      <category status="">
+         <label>examined</label>
+         <result>
+            <value>63</value>
+         </result>
+      </category>
+      <positive>
+         <label>involved</label>
+         <result>
+            <value modifier="equalOrGreater">42</value>
+            <label>forty-two</label>
+         </result>
+      </positive>
+   </group>
+</nodes>
