@@ -50,7 +50,7 @@
         <zeroOrMore>
             <element name="finding">
                 <interleave>
-                    <ref name="baseContent"/>
+                    <ref name="base.standard.content"/>
                     <ref name="finding.content"/>
                 </interleave>
             </element>

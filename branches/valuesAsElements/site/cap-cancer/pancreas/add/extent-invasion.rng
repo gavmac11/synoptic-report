@@ -4,10 +4,10 @@
     xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <interleave>
-        <ref name="standard.content"/>
+        <ref name="common.standard.content"/>
         <zeroOrMore>
             <element name="invasionFinding">
-                <ref name="standard.content"/>
+                <ref name="common.standard.content"/>
                 <attribute name="location">
                     <choice>
                         <value>ampulla of Vater</value>
@@ -24,7 +24,7 @@
                 <optional>
                     <element name="value">
                         <externalRef
-                            href="../../../../common/extendedBoolean.rng"/>
+                            href="../../../../common/common.extendedBoolean.values.rng"/>
                     </element>
                 </optional>
                 <optional>
@@ -32,7 +32,7 @@
                         and/or "adjacent organs or structures", need to be able
                         to specify which</a:documentation>
                     <element name="specify">
-                        <ref name=" standard.content"/>
+                        <ref name=" common.standard.content"/>
                         <attribute name="value"/>
                         <optional>
                             <attribute name="extent">

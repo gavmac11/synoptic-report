@@ -4,7 +4,7 @@
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
   <optional><element name="value">
     <choice>
-      <externalRef href="../../../../common/extendedBoolean.rng"/>
+      <externalRef href="../../../../common/common.extendedBoolean.values.rng"/>
     </choice>
   </element></optional>
   <attribute name="antibody"/>

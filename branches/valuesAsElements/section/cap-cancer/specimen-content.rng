@@ -50,10 +50,10 @@
         <interleave>
             <element name="procedures">
                 <interleave>
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                     <zeroOrMore>
                         <element name="procedure">
-                            <ref name="standard.content"/>
+                            <ref name="common.standard.content"/>
                             <ref name="procedure.content"/>
                         </element>
                     </zeroOrMore>
@@ -61,10 +61,10 @@
             </element>
             <element name="sites">
                 <interleave>
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                     <zeroOrMore>
                         <element name="site">
-                            <ref name="standard.content"/>
+                            <ref name="common.standard.content"/>
                             <ref name="site.content"/>
                         </element>
                     </zeroOrMore>
@@ -72,10 +72,10 @@
             </element>
             <element name="tumorLocations">
                 <interleave>
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                     <zeroOrMore>
                         <element name="tumorLocation">
-                            <ref name="standard.content"/>
+                            <ref name="common.standard.content"/>
                             <ref name="tumorLocation.content"/>
                         </element>
                     </zeroOrMore>
@@ -83,7 +83,7 @@
             </element>
             <optional>
                 <element name="integrity">
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                     <optional>
                         <element name="value">
                             <ref name="integrityValues"/>
@@ -98,7 +98,7 @@
             </optional>
             <optional>
                 <element name="weight">
-                    <ref name="standard.content"/>
+                    <ref name="common.standard.content"/>
                     <attribute name="unit">
                         <choice>
                             <value>g</value>
@@ -176,7 +176,7 @@
         </optional>
     </define>
     <define name="integrityValues">
-        <externalRef href="../../common/extendedBoolean.rng"/>
+        <externalRef href="../../common/common.extendedBoolean.values.rng"/>
     </define>
     <define combine="choice" name="tumorSize.content">
         <externalRef href="../../common/size.rng"/>

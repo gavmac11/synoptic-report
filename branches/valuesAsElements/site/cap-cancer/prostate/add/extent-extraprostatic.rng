@@ -3,7 +3,7 @@
   xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   xmlns:iso="http://purl.oclc.org/dsdl/schematron">
-  <ref name="standard.content"/>
+  <ref name="common.standard.content"/>
   <attribute name="location">
     <choice>
       <value>right side</value>
@@ -15,7 +15,7 @@
   </attribute>
   <optional>
     <element name="value">
-      <externalRef href="../../../../common/extendedBoolean.rng"/>
+      <externalRef href="../../../../common/common.extendedBoolean.values.rng"/>
     </element>
   </optional>
 </element>

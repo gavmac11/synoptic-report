@@ -49,7 +49,7 @@
     <define combine="interleave" name="mets.content">
         <zeroOrMore>
             <element name="metastasis">
-                <ref name="standard.content"/>
+                <ref name="common.standard.content"/>
                 <attribute name="site">
                     <ref name="metastaticSites"/>
                 </attribute>

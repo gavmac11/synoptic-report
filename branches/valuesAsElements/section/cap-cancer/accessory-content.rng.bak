@@ -55,7 +55,7 @@
                             <ref name="venousInvasionValues"/>
                         </element>
                     </optional>
-                    <ref name="baseContent"/>
+                    <ref name="common.standard.content"/>
                 </element>
             </optional>
             <optional>
@@ -65,7 +65,7 @@
                             <ref name="lymphaticInvasionValues"/>
                         </element>
                     </optional>
-                    <ref name="baseContent"/>
+                    <ref name="common.standard.content"/>
                 </element>
             </optional>
             <optional>
@@ -75,7 +75,7 @@
                             <ref name="perineuralInvasionValues"/>
                         </element>
                     </optional>
-                    <ref name="baseContent"/>
+                    <ref name="common.standard.content"/>
                 </element>
             </optional>
             <optional>
@@ -85,7 +85,7 @@
                             <ref name="treatmentEffectValues"/>
                         </element>
                     </optional>
-                    <ref name="baseContent"/>
+                    <ref name="common.standard.content"/>
                 </element>
             </optional>
         </interleave>

@@ -4,10 +4,10 @@
     xmlns:iso="http://purl.oclc.org/dsdl/schematron">
     <element name="suggestMicrosatelliteInstability">
         <interleave>
-            <ref name="baseContent"/>
+            <ref name="common.standard.content"/>
             <optional>
                 <element name="mucinousComponent">
-                    <ref name="baseContent"/>
+                    <ref name="common.standard.content"/>
                     <optional><element name="value">
                         <externalRef href="../../../../common/extendedBoolean.rng"/>
                     </element></optional>
@@ -26,7 +26,7 @@
             </optional>
             <optional>
                 <element name="medullaryComponent">
-                    <ref name="baseContent"/>
+                    <ref name="common.standard.content"/>
                     <optional><element name="value">
                         <externalRef href="../../../../common/extendedBoolean.rng"/>
                     </element></optional>
@@ -34,7 +34,7 @@
             </optional>
             <optional>
                 <element name="highGrade">
-                    <ref name="baseContent"/>
+                    <ref name="common.standard.content"/>
                     <optional><element name="value">
                         <externalRef href="../../../../common/extendedBoolean.rng"/>
                     </element></optional>

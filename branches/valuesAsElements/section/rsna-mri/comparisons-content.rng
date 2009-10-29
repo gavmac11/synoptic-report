@@ -49,7 +49,7 @@
     <define combine="interleave" name="comparisons.content">
         <zeroOrMore>
             <element name="comparison">
-                <ref name="standard.content"/>
+                <ref name="common.standard.content"/>
                 <ref name="comparison.content"/>
             </element>
         </zeroOrMore>

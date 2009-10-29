@@ -49,7 +49,7 @@
     <define combine="interleave" name="margins.content">
         <zeroOrMore>
             <element name="margin">
-                <ref name="baseContent"/>
+                <ref name="common.standard.content"/>
                 <ref name="margin.content"/>
             </element>
         </zeroOrMore>
@@ -70,7 +70,7 @@
         </optional>
         <optional>
             <element name="distance">
-                <ref name="baseContent"/>
+                <ref name="common.standard.content"/>
                 <attribute name="unit">
                     <externalRef href="../../common/lengthUnits.rng"/>
                 </attribute>

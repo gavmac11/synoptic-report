@@ -50,7 +50,7 @@
         <interleave>
             <optional>
                 <element name="prefix">
-                    <ref name="baseContent"/>
+                    <ref name="base.standard.content"/>
                     <optional>
                         <element name="value">
                             <list>
@@ -67,7 +67,7 @@
                 </element>
             </optional>
             <element name="classification">
-                <ref name="baseContent"/>
+                <ref name="base.standard.content"/>
                 <optional>
                     <element name="value">
                         <ref name="classification-values"/>
@@ -75,7 +75,7 @@
                 </optional>
             </element>
             <element name="T">
-                <ref name="baseContent"/>
+                <ref name="base.standard.content"/>
                 <optional>
                     <attribute name="suffix">
                         <ref name="suffix-values"/>
@@ -88,7 +88,7 @@
                 </optional>
             </element>
             <element name="N">
-                <ref name="baseContent"/>
+                <ref name="base.standard.content"/>
                 <optional>
                     <element name="value">
                         <ref name="N-values"/>
@@ -96,7 +96,7 @@
                 </optional>
             </element>
             <element name="M">
-                <ref name="baseContent"/>
+                <ref name="base.standard.content"/>
                 <optional>
                     <element name="value">
                         <ref name="M-values"/>

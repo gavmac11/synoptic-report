@@ -52,7 +52,7 @@
                 <optional><element name="value">
                     <ref name="techniqueValues"/>
                 </element></optional>
-                <ref name="baseContent"/>
+                <ref name="base.standard.content"/>
             </element>
         </zeroOrMore>
     </define>

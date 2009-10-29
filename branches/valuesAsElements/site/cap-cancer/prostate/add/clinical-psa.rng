@@ -3,7 +3,7 @@
   ns="http://www.cap.org/pert/2009/01/prostate/"
   xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-  <ref name="standard.content"/>
+  <ref name="common.standard.content"/>
   <optional>
     <element name="value">
       <data type="float"/>
