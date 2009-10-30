@@ -1,0 +1,141 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+a:documentation [
+   "\x{a}" ~
+   "      "
+   a:documentation [ "============================================" ]
+   "\x{a}" ~
+   "      "
+   a:documentation [ "============================================" ]
+   "\x{a}" ~
+   "      "
+   a:documentation [ "============= BASE SECTION value.contentS =========+=====" ]
+   "\x{a}" ~
+   "      "
+   a:documentation [ "============================================" ]
+   "\x{a}" ~
+   "   "
+]
+
+## == COMMON value.contentS ==
+div {
+   common.severity.values = "none" | "mild" | "moderate" | "marked"
+   common.lengthUnit.values = "mm" | "cm" | "in" | "other"
+   common.inflammation.values = "acute" | "acute and chronic" | "chronic" | "other"
+   common.laterality.values = "right" | "left" | "other"
+   common.date.values = xsd:date | xsd:gYear | xsd:gYearMonth
+   common.extendedBoolean.values =
+      "positive" | "negative" | "indeterminate" | "equivocal" | "inapplicable" | "not reported"
+   common.weightUnit.values = "g" | "kg" | "other"
+   modifier.values = "equal" | "lessThan" | "lessThanOrEqual" | "greaterThanOrEqual" | "greaterThan"
+}
+
+## == accessory SECTION value.contentS ==
+div {
+   venousInvasion.values |= common.extendedBoolean.values
+   lymphovascularInvasion.values |= common.extendedBoolean.values
+   perineuralInvasion.values |= common.extendedBoolean.values
+   treatmentEffect.values |=
+      "inapplicable" | "noResponse" | "slightResponse" | "markedResponse" | "completeResponse" | "other"
+}
+
+## == additional SECTION value.contentS ==
+div {
+   additional.item.name.values = xsd:token
+}
+
+## == clinical SECTION value.contentS ==
+div {
+   clinical.priorTherapy.values |= xsd:token
+   clinical.clinicalFinding.values |= xsd:token
+   clinical.radiologicFinding.values |= xsd:token
+}
+
+## == extent SECTION value.contentS ==
+[
+   # None
+   
+]
+div { }
+
+## == margins SECTION value.contentS ==
+div {
+   margins.margin.location.values |= xsd:token
+   margins.margin.value.values = common.extendedBoolean.values
+   margins.margin.closest.values = common.extendedBoolean.values
+   a:documentation [ "This needs to be looked at -- seems to be in the wrong\x{a}" ~ "         place" ]
+   a:documentation [ "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" ]
+}
+
+## == metastases SECTION value.contentS ==
+div {
+   metastases.metastasis.site.values = xsd:token
+   metastases.metastasis.howDiagnosed.values =
+      "this accesion" | "prior accession" | "outside report" | "clinical history" | "other"
+}
+
+## == nodes SECTION value.contentS ==
+div {
+   nodes.group.status.values |= "total" | "negative" | "positive" | "regressed" | "other"
+}
+
+## == specimen SECTION value.contentS ==
+div {
+   specimen.procedure.values |= xsd:token
+   specimen.site.values |= xsd:token
+   specimen.integrity.values |= common.extendedBoolean.values
+}
+
+## == stage SECTION value.contentS ==
+div {
+   stage.T.values =
+      "X"
+      | "0"
+      | "is"
+      | "1"
+      | "1a"
+      | "1b"
+      | "1c"
+      | "1a1"
+      | "1a2"
+      | "1b1"
+      | "1b2"
+      | "1c"
+      | "1mi"
+      | "2"
+      | "2a"
+      | "2b"
+      | "2c"
+      | "2d"
+      | "2a1"
+      | "2a2"
+      | "2b"
+      | "3"
+      | "3a"
+      | "3b"
+      | "3c"
+      | "4"
+      | "4a"
+      | "4b"
+      | "4c"
+      | "4d"
+   stage.N.values = "X" | "0" | "1" | "other"
+   stage.M.values = "X" | "1" | "other"
+   stage.classification.values = "p"
+   stage.prefix.values = "y" | "r" | "a" | "other"
+   suffix-values = "m"
+}
+
+## == studies SECTION value.contentS ==
+div {
+   studies.study.name.values = xsd:token
+   studies.study.value.values = xsd:token
+   studies.study.method.values = xsd:token
+}
+
+## == tumor SECTION value.contentS ==
+div {
+   tumor.histologicType.value.values = xsd:token
+   tumor.grade.values |= "not applicable" | "1" | "2" | "3" | "4" | "X" | "other"
+   tumor.grade.system.values |= "WHO" | "not specified" | "other"
+}

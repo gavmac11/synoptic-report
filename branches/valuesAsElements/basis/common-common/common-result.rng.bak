@@ -30,7 +30,6 @@
       <element name="result">
          <ref name="result.attrib"/>
          <ref name="result.content"/>
-         <ref name="result.siteSpecific.content"/>
       </element>
    </start>
    <define combine="interleave" name="result.attrib">
@@ -55,7 +54,14 @@
       <data type="token"/>
    </define>
    <define combine="interleave" name="result.value.attrib">
-      <empty/>
+      <optional>
+         <attribute name="modifier">
+            <parentRef name="result.value.modifier.value"/>
+         </attribute>
+      </optional>
+      <zeroOrMore>
+         <parentRef name="anyUserAttribute"/>
+      </zeroOrMore>
    </define>
    <define name="result.otherValue.content">
       <data type="token"/>
@@ -64,8 +70,5 @@
       <zeroOrMore>
          <parentRef name="anyUserAttribute"/>
       </zeroOrMore>
-   </define>
-   <define name="result.siteSpecific.content">
-      <empty/>
    </define>
 </grammar>

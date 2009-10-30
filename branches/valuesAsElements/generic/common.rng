@@ -21,9 +21,10 @@
     See the License for the specific language governing permissions and
     limitations under the License.
     ===========================================================================
+    
 -->
 <!DOCTYPE grammar [
-<!ENTITY result "common-result.rng">
+<!ENTITY result "result.rng">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
    xmlns="http://relaxng.org/ns/structure/1.0"

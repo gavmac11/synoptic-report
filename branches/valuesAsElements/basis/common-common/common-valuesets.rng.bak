@@ -10,29 +10,24 @@
    </a:documentation>
    <div>
       <a:documentation>== COMMON VALUES ==</a:documentation>
-      <define name="result.value.comparison.values">
-         <a:documentation>for modifier applied to result.value elements that accept a numeric
-            value</a:documentation>
+      <define name="result.value.modifier.value">
          <choice>
             <value>less than</value>
-            <value>less than or equal</value>
-            <value>equal</value>
-            <value>greater than or equal</value>
+            <value>less than or equals</value>
+            <value>equals</value>
+            <value>greater than or equals</value>
             <value>greater than</value>
          </choice>
       </define>
-      <define name="common.severity.values">
-         <a:documentation>For observations quantified on a four-value severity scale</a:documentation>
-         <a:documentation>Maps to scales of {0, 1, 2, 3}, {negative, slight, intermediate, marked}, etc.</a:documentation>
+      <define name="common.severity.value">
          <choice>
             <value>none</value>
             <value>mild</value>
             <value>moderate</value>
-            <value>severe</value>
+            <value>marked</value>
          </choice>
       </define>
-      <define name="common.lengthUnit.values">
-         <a:documentation>Units for length values</a:documentation>
+      <define name="common.lengthUnit.value">
          <choice>
             <value>mm</value>
             <value>cm</value>
@@ -40,9 +35,7 @@
             <value>other</value>
          </choice>
       </define>
-      <define name="common.inflammation.values">
-         <a:documentation>types of inflammation, used primarily for "additional"
-            section</a:documentation>
+      <define name="common.inflammation.value">
          <choice>
             <value>acute</value>
             <value>acute and chronic</value>
@@ -50,78 +43,31 @@
             <value>other</value>
          </choice>
       </define>
-      <define name="common.laterality.values">
-         <a:documentation>for observations requiring qualification by
-            laterality</a:documentation>
+      <define name="common.laterality.value">
          <choice>
             <value>right</value>
             <value>left</value>
-            <value>midline</value>
-            <value>bilateral</value>
             <value>other</value>
          </choice>
       </define>
-      <define name="common.date.values">
-         <a:documentation>date formats, expressed as a union of XML Schema date
-            types</a:documentation>
-         <a:documentation>"date" format is YYYY-MM-DD, e.g. 2009-12-31</a:documentation>
-         <a:documentation>"gYearMonth" is YYYY-MM, e.g. 2009-12</a:documentation>
-         <a:documentation>"gYear" format is YYYY, e.g. 2009</a:documentation>
+      <define name="common.date.value">
          <choice>
             <data type="date"/>
-            <data type="gYearMonth"/>
             <data type="gYear"/>
+            <data type="gYearMonth"/>
          </choice>
       </define>
-      <define name="common.extendedBoolean.values">
-         <a:documentation>Values for "yes/no" data items</a:documentation>
-         <a:documentation>
-            ==============
-            == positive ==
-            ==============
-            synonyms: "yes", "present", "is observed", "is seen", "there is evidence of", etc.
-         </a:documentation>
-         <a:documentation>
-            ==============
-            == negative ==
-            ==============
-            synonyms: "no", "absent", "is not observed", "is not seen", "there is no evidence of", etc.
-         </a:documentation>
-         <a:documentation>
-            ===============
-            == equivocal ==
-            ===============
-            synonyms: "suspicious", "atypical, not diagnostic", "worrisome for", "possibly positive", "favor negative, cannot exclude positive", "favor positive, cannot exclude negative", "on the fence", "borderline finding of", etc.
-         </a:documentation>
-         <a:documentation>
-            ===================
-            == indeterminate ==
-            ===================
-            synonyms: "(technically) uninterpretable", "cannot be (successfully) assessed (for technical reasons)", "obscured by", "artifact interferes with assessment", "assessment attempted, but could not be carried out due to X", etc.
-         </a:documentation>
-         <a:documentation>
-            ==================
-            == inapplicable ==
-            ==================
-            synonyms: "question does not apply", "cannot be assessed (because not represented for evaluation)", "X absent, hence X status cannot be assessed", "wrong specimen type for this assessment", "relevant tissue not present in this specimen", etc.
-         </a:documentation>
-         <a:documentation>
-            ================
-            == unreported ==
-            ================
-            synonyms: "no response", "unanswered", "no answer", "skipped", etc.
-         </a:documentation>
+      <define name="common.extendedBoolean.value">
          <choice>
             <value>positive</value>
             <value>negative</value>
-            <value>equivocal</value>
             <value>indeterminate</value>
+            <value>equivocal</value>
             <value>inapplicable</value>
             <value>not reported</value>
          </choice>
       </define>
-      <define name="common.weightUnit.values">
-         <a:documentation>for weight values</a:documentation>
+      <define name="common.weightUnit.value">
          <choice>
             <value>g</value>
             <value>kg</value>
@@ -131,54 +77,50 @@
    </div>
    <div>
       <a:documentation>== synopsis (ROOT) VALUES ==</a:documentation>
-      <define combine="choice" name="schemaLocation.values">
-         <a:documentation>URI at which schema applicable to this instance can be obtained</a:documentation>
+      <define combine="choice" name="schemaLocation.value">
          <data type="anyURI"/>
       </define>
-      <define combine="choice" name="version.values">
-         <a:documentation>Human-readable schema versioning information</a:documentation>
+      <define combine="choice" name="version.value">
          <data type="string"/>
       </define>
    </div>
    <div>
       <a:documentation>== accessory SECTION VALUES ==</a:documentation>
-      <define combine="choice" name="venousInvasion.values">
-         <ref name="common.extendedBoolean.values"/>
+      <define combine="choice" name="venousInvasion.value">
+         <ref name="common.extendedBoolean.value"/>
       </define>
-      <define combine="choice" name="lymphovascularInvasion.values">
-         <ref name="common.extendedBoolean.values"/>
+      <define combine="choice" name="lymphovascularInvasion.value">
+         <ref name="common.extendedBoolean.value"/>
       </define>
-      <define combine="choice" name="perineuralInvasion.values">
-         <ref name="common.extendedBoolean.values"/>
+      <define combine="choice" name="perineuralInvasion.value">
+         <ref name="common.extendedBoolean.value"/>
       </define>
-      <define combine="choice" name="treatmentEffect.values">
-         <a:documentation>Tumor response to (e.g. neoadjuvant) treatment</a:documentation>
+      <define combine="choice" name="treatmentEffect.value">
          <choice>
             <value>inapplicable</value>
-            <value>no response</value>
-            <value>slight response</value>
-            <value>marked response</value>
-            <value>complete response</value>
+            <value>noResponse</value>
+            <value>slightResponse</value>
+            <value>markedResponse</value>
+            <value>completeResponse</value>
             <value>other</value>
          </choice>
       </define>
    </div>
    <div>
       <a:documentation>== additional SECTION VALUES ==</a:documentation>
-      <define name="additional.item.name.values">
-         <a:documentation></a:documentation>
+      <define name="additional.item.name.value">
          <data type="token"/>
       </define>
    </div>
    <div>
       <a:documentation>== clinical SECTION VALUES ==</a:documentation>
-      <define combine="choice" name="clinical.priorTherapy.values">
+      <define combine="choice" name="clinical.priorTherapy.value">
          <data type="token"/>
       </define>
-      <define combine="choice" name="clinical.clinicalFinding.values">
+      <define combine="choice" name="clinical.clinicalFinding.value">
          <data type="token"/>
       </define>
-      <define combine="choice" name="clinical.radiologicFinding.values">
+      <define combine="choice" name="clinical.radiologicFinding.value">
          <data type="token"/>
       </define>
    </div>
@@ -188,14 +130,14 @@
    </div>
    <div>
       <a:documentation>== margins SECTION VALUES ==</a:documentation>
-      <define combine="choice" name="margins.margin.location.values">
+      <define combine="choice" name="margins.margin.location.value">
          <data type="token"/>
       </define>
-      <define name="margins.margin.value.values">
-         <ref name="common.extendedBoolean.values"/>
+      <define name="margins.margin.value.value">
+         <ref name="common.extendedBoolean.value"/>
       </define>
-      <define name="margins.margin.closest.values">
-         <ref name="common.extendedBoolean.values"/>
+      <define name="margins.margin.closest.value">
+         <ref name="common.extendedBoolean.value"/>
       </define>
       <a:documentation>This needs to be looked at -- seems to be in the wrong
          place</a:documentation>
@@ -203,10 +145,10 @@
    </div>
    <div>
       <a:documentation>== metastases SECTION VALUES ==</a:documentation>
-      <define name="metastases.metastasis.site.values">
+      <define name="metastases.metastasis.site.value">
          <data type="token"/>
       </define>
-      <define name="metastases.metastasis.howDiagnosed.values">
+      <define name="metastases.metastasis.howDiagnosed.value">
          <choice>
             <value>this accesion</value>
             <value>prior accession</value>
@@ -218,7 +160,7 @@
    </div>
    <div>
       <a:documentation>== nodes SECTION VALUES ==</a:documentation>
-      <define combine="choice" name="nodes.group.status.values">
+      <define combine="choice" name="nodes.group.status.value">
          <choice>
             <value>total</value>
             <value>negative</value>
@@ -230,19 +172,19 @@
    </div>
    <div>
       <a:documentation>== specimen SECTION VALUES ==</a:documentation>
-      <define combine="choice" name="specimen.procedure.values">
+      <define combine="choice" name="specimen.procedure.value">
          <data type="token"/>
       </define>
-      <define combine="choice" name="specimen.site.values">
+      <define combine="choice" name="specimen.site.value">
          <data type="token"/>
       </define>
-      <define combine="choice" name="specimen.integrity.values">
-         <ref name="common.extendedBoolean.values"/>
+      <define combine="choice" name="specimen.integrity.value">
+         <ref name="common.extendedBoolean.value"/>
       </define>
    </div>
    <div>
       <a:documentation>== stage SECTION VALUES ==</a:documentation>
-      <define name="stage.T.values">
+      <define name="stage.T.value">
          <choice>
             <value>X</value>
             <value>0</value>
@@ -276,7 +218,7 @@
             <value>4d</value>
          </choice>
       </define>
-      <define name="stage.N.values">
+      <define name="stage.N.value">
          <choice>
             <value>X</value>
             <value>0</value>
@@ -284,17 +226,17 @@
             <value>other</value>
          </choice>
       </define>
-      <define name="stage.M.values">
+      <define name="stage.M.value">
          <choice>
             <value>X</value>
             <value>1</value>
             <value>other</value>
          </choice>
       </define>
-      <define name="stage.classification.values">
+      <define name="stage.classification.value">
          <value>p</value>
       </define>
-      <define name="stage.prefix.values">
+      <define name="stage.prefix.value">
          <choice>
             <value>y</value>
             <value>r</value>
@@ -310,22 +252,22 @@
    </div>
    <div>
       <a:documentation>== studies SECTION VALUES ==</a:documentation>
-      <define name="studies.study.name.values">
+      <define name="studies.study.name.value">
          <data type="token"/>
       </define>
-      <define name="studies.study.value.values">
+      <define name="studies.study.value.value">
          <data type="token"/>
       </define>
-      <define name="studies.study.method.values">
+      <define name="studies.study.method.value">
          <data type="token"/>
       </define>
    </div>
    <div>
       <a:documentation>== tumor SECTION VALUES ==</a:documentation>
-      <define name="tumor.histologicType.value.values">
+      <define name="tumor.histologicType.value.value">
          <data type="token"/>
       </define>
-      <define combine="choice" name="tumor.grade.values">
+      <define combine="choice" name="tumor.grade.value">
          <choice>
             <value>not applicable</value>
             <value>1</value>
@@ -336,7 +278,7 @@
             <value>other</value>
          </choice>
       </define>
-      <define combine="choice" name="tumor.grade.system.values">
+      <define combine="choice" name="tumor.grade.system.value">
          <choice>
             <value>WHO</value>
             <value>not specified</value>

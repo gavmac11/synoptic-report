@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+   xmlns="http://relaxng.org/ns/structure/1.0"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+   <define name="nodes.group.category">
+      <element name="category">
+         <ref name="category.attrib"/>
+         <interleave>
+            <ref name="category.content"/>
+            <parentRef name="common.standard.content"/>
+         </interleave>
+      </element>
+   </define>
+   <define name="category.attrib">
+      <attribute name="status">
+         <ref name="status.values"/>
+      </attribute>
+   </define>
+   <define name="status.values">
+      <choice>
+         <value>total</value>
+         <value>positive</value>
+         <value>negative</value>
+         <value>regressed</value>
+         <value>other</value>
+      </choice>
+   </define>
+   <define name="category.content">
+      <grammar>
+         <include href="common-result.rng">
+            <define name="result.value.content">
+               <data type="integer">
+                  <param name="minInclusive">0</param>
+               </data>
+            </define>
+         </include>
+      </grammar>
+   </define>
+</grammar>

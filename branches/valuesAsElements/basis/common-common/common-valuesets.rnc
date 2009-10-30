@@ -1,0 +1,149 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+a:documentation [
+    "\x{a}" ~
+    "      "
+    a:documentation [ "============================================" ]
+    "\x{a}" ~
+    "      "
+    a:documentation [ "============================================" ]
+    "\x{a}" ~
+    "      "
+    a:documentation [ "============= BASE SECTION value.contentS =========+=====" ]
+    "\x{a}" ~
+    "      "
+    a:documentation [ "============================================" ]
+    "\x{a}" ~
+    "   "
+]
+
+## == COMMON value.contentS ==
+div {
+    common.severity.value = "none" | "mild" | "moderate" | "marked"
+    common.lengthUnit.value = "mm" | "cm" | "in" | "other"
+    common.inflammation.value = "acute" | "acute and chronic" | "chronic" | "other"
+    common.laterality.value = "right" | "left" | "other"
+    common.date.value = xsd:date | xsd:gYear | xsd:gYearMonth
+    common.extendedBoolean.value =
+        "positive" | "negative" | "indeterminate" | "equivocal" | "inapplicable" | "not reported"
+    common.weightUnit.value = "g" | "kg" | "other"
+    modifier.value = "equal" | "lessThan" | "lessThanOrEqual" | "greaterThanOrEqual" | "greaterThan"
+}
+
+## == accessory SECTION value.contentS ==
+div {
+    venousInvasion.value |= common.extendedBoolean.value
+    lymphovascularInvasion.value |= common.extendedBoolean.value
+    perineuralInvasion.value |= common.extendedBoolean.value
+    treatmentEffect.value |=
+        "inapplicable"
+        | "noResponse"
+        | "slightResponse"
+        | "markedResponse"
+        | "completeResponse"
+        | "other"
+}
+
+## == additional SECTION value.contentS ==
+div {
+    additional.item.name.value = xsd:token
+}
+
+## == clinical SECTION value.contentS ==
+div {
+    clinical.priorTherapy.value |= xsd:token
+    clinical.clinicalFinding.value |= xsd:token
+    clinical.radiologicFinding.value |= xsd:token
+}
+
+## == extent SECTION value.contentS ==
+[
+    # None
+    
+]
+div { }
+
+## == margins SECTION value.contentS ==
+div {
+    margins.margin.location.value |= xsd:token
+    margins.margin.value.value = common.extendedBoolean.value
+    margins.margin.closest.value = common.extendedBoolean.value
+    a:documentation [
+        "This needs to be looked at -- seems to be in the wrong\x{a}" ~
+        "         place"
+    ]
+    a:documentation [ "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" ]
+}
+
+## == metastases SECTION value.contentS ==
+div {
+    metastases.metastasis.site.value = xsd:token
+    metastases.metastasis.howDiagnosed.value =
+        "this accesion" | "prior accession" | "outside report" | "clinical history" | "other"
+}
+
+## == nodes SECTION value.contentS ==
+div {
+    nodes.group.status.value |= "total" | "negative" | "positive" | "regressed" | "other"
+}
+
+## == specimen SECTION value.contentS ==
+div {
+    specimen.procedure.value |= xsd:token
+    specimen.site.value |= xsd:token
+    specimen.integrity.value |= common.extendedBoolean.value
+}
+
+## == stage SECTION value.contentS ==
+div {
+    stage.T.value =
+        "X"
+        | "0"
+        | "is"
+        | "1"
+        | "1a"
+        | "1b"
+        | "1c"
+        | "1a1"
+        | "1a2"
+        | "1b1"
+        | "1b2"
+        | "1c"
+        | "1mi"
+        | "2"
+        | "2a"
+        | "2b"
+        | "2c"
+        | "2d"
+        | "2a1"
+        | "2a2"
+        | "2b"
+        | "3"
+        | "3a"
+        | "3b"
+        | "3c"
+        | "4"
+        | "4a"
+        | "4b"
+        | "4c"
+        | "4d"
+    stage.N.value = "X" | "0" | "1" | "other"
+    stage.M.value = "X" | "1" | "other"
+    stage.classification.value = "p"
+    stage.prefix.value = "y" | "r" | "a" | "other"
+    suffix-values = "m"
+}
+
+## == studies SECTION value.contentS ==
+div {
+    studies.study.name.value = xsd:token
+    studies.study.value.value = xsd:token
+    studies.study.method.value = xsd:token
+}
+
+## == tumor SECTION value.contentS ==
+div {
+    tumor.histologicType.value.value = xsd:token
+    tumor.grade.value |= "not applicable" | "1" | "2" | "3" | "4" | "X" | "other"
+    tumor.grade.system.value |= "WHO" | "not specified" | "other"
+}
