@@ -1,0 +1,732 @@
+# 
+# ===========================================================================
+# Copyright 2009 College of American Pathologists (CAP)
+# 
+# This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+# 
+# The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+# License, Version 2.0 (the "License"); you may not use this file except in 
+# compliance with the License.
+# 
+# You may obtain a copy of the License at:
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software 
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# 
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ===========================================================================
+#
+
+default namespace = "http://www.cap.org/pert/2009/01/"
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace ns1 = "http://www.w3.org/2003/g/data-view#"
+
+#
+include "common-common.rnc"
+include "common-valuesets.rnc"
+
+## == ROOT MODEL ==
+[
+   a:documentation [
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "================ ROOT MODEL ================" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "      "
+   ]
+]
+div {
+   
+   ## -- ROOT ITEM --
+   div {
+      start |=
+         
+         ## .. synopsis ELEMENT ..
+         element synopsis { synopsis.attrib, (synopsis.content & common.standard.content) }
+   }
+   
+   ## -- ROOT CONTENT --
+   div {
+      synopsis.content =
+         accessory, additional, clinical, extent, margins, metastases, nodes, specimen, stage, studies, tumor
+   }
+   
+   ## -- ROOT ATTRIBUTES --
+   div {
+      
+      ## -- synopsis ATTRIBUTES --
+      synopsis.attrib &=
+         attribute schemaLocation { schemaLocation },
+         attribute version { version },
+         attribute ns1:transformation { text }
+   }
+   
+   ## -- ROOT VALUESETS --
+   div {
+      schemaLocation |= xsd:anyURI
+      version |= xsd:string
+   }
+}
+
+## == SECTION MODELS ==
+[
+   a:documentation [
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============== SECTION MODELS ==============" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "      "
+   ]
+]
+div {
+   
+   ## -- accessory SECTION --
+   accessory &= element accessory { accessory.attrib, (accessory.content & common.content) }
+   
+   ## -- additional SECTION --
+   additional &= element additional { additional.attrib, (additional.content & common.content) }
+   
+   ## -- clinical SECTION --
+   clinical &= element clinical { clinical.attrib, (clinical.content & common.content) }
+   
+   ## -- extent SECTION --
+   extent &= element extent { extent.attrib, (extent.content & common.content) }
+   
+   ## -- margins SECTION --
+   margins &= element margins { margins.attrib, (margins.content & common.content) }
+   
+   ## -- metastases SECTION --
+   metastases &= element metastases { metastases.attrib, (metastases.content & common.content) }
+   
+   ## -- nodes SECTION --
+   nodes &= element nodes { nodes.attrib, (nodes.content & common.content) }
+   
+   ## -- specimen SECTION --
+   specimen &= element specimen { specimen.attrib, (specimen.content & common.content) }
+   
+   ## -- stage SECTION --
+   stage &= element stage { stage.attrib, (stage.content & common.content) }
+   
+   ## -- studies SECTION --
+   studies &= element studies { studies.attrib, (studies.content & common.content) }
+   
+   ## -- tumor SECTION --
+   tumor &= element tumor { tumor.attrib, (tumor.content & common.content) }
+}
+
+## == SUB-SECTION (ITEM) MODELS ==
+[
+   a:documentation [
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "======== SUB-SECTION (ITEM) MODELS =========" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "      "
+   ]
+]
+div {
+   
+   ## -- accessory ITEMS --
+   accessory.content &=
+      
+      ## .. venousInvasion ELEMENT ..
+      (element venousInvasion { accessory.venousInvasion.attrib, (accessory.venousInvasion.content & common.content) }?)
+      & 
+        ## .. lymphovascularInvasion ELEMENT ..
+        (element lymphovascularInvasion {
+            accessory.lymphovascularInvasion.attrib, (accessory.lymphovascularInvasion.content & common.content)
+         }?)
+      & 
+        ## .. perineuralInvasion ELEMENT ..
+        (element perineuralInvasion {
+            accessory.perineuralInvasion.attrib, (accessory.perineuralInvasion.content & common.content)
+         }?)
+      & 
+        ## .. treatmentEffect ELEMENT ..
+        (element treatmentEffect {
+            accessory.treatmentEffect.attrib, (accessory.treatmentEffect.content & common.content)
+         }?)
+   
+   ## -- additional ITEMS --
+   additional.content &=
+      
+      ## .. item ELEMENT ..
+      (element item { additional.item.attrib, (additional.item.content & common.content) }*)
+   
+   ## -- clinical ITEMS --
+   clinical.content &=
+      
+      ## .. priorTherapy ELEMENT ..
+      (element priorTherapy { clinical.priorTherapy.attrib, (clinical.priorTherapy.content & common.content) }*)
+      & 
+        ## .. clinicalFinding ELEMENT ..
+        (element clinicalFinding {
+            clinical.clinicalFinding.attrib, (clinical.clinicalFinding.content & common.content)
+         }*)
+      & 
+        ## .. radiologicFinding ELEMENT ..
+        (element radiologicFinding {
+            clinical.radiologicFinding.attrib, (clinical.radiologicFinding.content & common.content)
+         }*)
+   
+   ## -- extent ITEMS --
+   extent.content &=
+      
+      ## .. size ELEMENT ..
+      common.size
+   
+   ## -- margins ITEMS --
+   margins.content &=
+      
+      ## .. margin ELEMENT ..
+      (element margin { margins.margin.attrib, (margins.margin.content & common.content) }*)
+   
+   ## -- metastases ITEMS --
+   metastases.content &=
+      
+      ## .. metastasis ELEMENT ..
+      (element metastasis { metastases.metastasis.attrib, (metastases.metastasis.content & common.content) }*)
+   
+   ## -- nodes ITEMS --
+   nodes.content &=
+      
+      ## .. group ELEMENT ..
+      (element group { nodes.group.attrib, (nodes.group.content & common.content) }*)
+   
+   ## -- specimen ITEMS --
+   specimen.content &=
+      specimen.attrib,
+      (
+       ## .. procedure ELEMENT ..
+       (element procedure { specimen.procedure.attrib, (specimen.procedure.content & common.content) }+)
+       & 
+         ## .. site ELEMENT ..
+         (element site { specimen.site.attrib, (specimen.site.content & common.content) }+)
+       & 
+         ## .. tumor location ELEMENT ..
+         (element tumorLocation { specimen.tumorLocation.attrib, (specimen.tumorLocation.content & common.content) }+)
+       & 
+         ## .. integrity ELEMENT ..
+         (element integrity { specimen.integrity.attrib, (specimen.integrity.content & common.content) }?)
+       & 
+         ## .. grossSize ELEMENT ..
+         (element grossSize { specimen.grossSize.attrib, (specimen.grossSize.content & common.content) }?)
+       & 
+         ## .. weight ELEMENT ..
+         (element weight { specimen.weight.attrib, (specimen.weight.content & common.content) }?))
+   
+   ## -- stage ITEMS --
+   stage.content &=
+      
+      ## .. stage prefix ELEMENT(s) ..
+      ((stage.prefix, (stage.prefix, stage.prefix?)?)?),
+      
+      ## .. classification ELEMENT ..
+      element classification { stage.classification.attrib, (stage.classification.content & common.content) },
+      
+      ## .. T ELEMENT ..
+      element T { stage.T.attrib, (stage.T.content & common.content) },
+      
+      ## .. N ELEMENT ..
+      element N { stage.N.attrib, (stage.N.content & common.content) },
+      
+      ## .. M ELEMENT ..
+      element M { stage.M.attrib, (stage.M.content & common.content) }
+   
+   ## -- studies ITEMS --
+   studies.content &=
+      
+      ## .. study ELEMENT ..
+      (element study { studies.study.attrib, (studies.study.content & common.content) }*)
+   
+   ## -- tumor ITEMS --
+   tumor.content &=
+      
+      ## .. HistologicType ELEMENT ..
+      (element histologicType { tumor.histologicType.attrib, (tumor.histologicType.content & common.content) }+)
+      & 
+        ## .. Grade ELEMENT ..
+        element grade {
+           tumor.grade.attrib,
+           (tumor.grade.content & common.standard.content),
+           
+           ## .. System ELEMENT ..
+           (element system { tumor.grade.system.attrib, (tumor.grade.system.content & common.content) }?)
+        }
+}
+
+## == ITEM-CONTENT MODELS ==
+[
+   a:documentation [
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "=========== ITEM-CONTENT MODELS ============" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "      "
+   ]
+]
+div {
+   
+   ## -- accessory CONTENT --
+   div {
+      
+      ## .. venousInvasion CONTENT ..
+      accessory.venousInvasion.content &=
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent venousInvasion.values
+            }
+         }
+      
+      ## .. lymphovascularInvasion CONTENT ..
+      accessory.lymphovascularInvasion.content &=
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent lymphovascularInvasion.values
+            }
+         }
+      
+      ## .. perineuralInvasion CONTENT ..
+      accessory.perineuralInvasion.content &=
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent perineuralInvasion.values
+            }
+         }
+      
+      ## .. treatmentEffect CONTENT ..
+      accessory.treatmentEffect.content =
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent treatmentEffect.values
+            }
+         }
+   }
+   
+   ## -- additional CONTENT
+   div {
+      
+      ## .. item CONTENT ..
+      additional.item.content =
+         grammar {
+            include "common-result.rnc"
+         }
+   }
+   
+   ## -- clinical CONTENT --
+   div {
+      
+      ## .. priorTherapy CONTENT..
+      clinical.priorTherapy.content &=
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent clinical.priorTherapy.values
+            }
+         }
+         & element date { common.date.values }?
+      
+      ## .. clinicalFinding CONTENT ..
+      clinical.clinicalFinding.content &=
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent clinical.clinicalFinding.values
+            }
+         }
+         & element date { common.date.values }?
+      
+      ## .. radiologicFinding CONTENT ..
+      clinical.radiologicFinding.content &=
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent clinical.radiologicFinding.values
+            }
+         }
+         & element date { common.date.values }?
+   }
+   
+   ## -- extent CONTENT --
+   div {
+      
+      ## .. size CONTENT ..
+      extent.size.content = common.sizeContent
+   }
+   
+   ## -- margins SECTION --
+   div {
+      margins.margin.content &=
+         element location {
+            margins.margin.location.attrib,
+            grammar {
+               include "common-result.rnc" {
+                  valueset = parent margins.margin.location.values
+               }
+            }
+         }
+         & grammar {
+              include "common-result.rnc" {
+                 valueset = parent margins.margin.value.values
+              }
+           }
+         & grammar {
+              include "common-result.rnc" {
+                 start = element closest { parent margins.margin.closest.attrib, result.content }
+                 valueset = parent margins.margin.closest.values
+              }
+           }?
+         & grammar {
+              include "common-result.rnc" {
+                 start = element distance { parent margins.margin.distance.attrib, result.content }
+                 valueset = parent length.content
+              }
+           }?
+   }
+   
+   ## -- metastases CONTENT --
+   div {
+      metastases.metastasis.content =
+         grammar {
+            include "common-result.rnc" {
+               start = element site { parent metastases.metastasis.site.attrib, result.content }
+               valueset = parent metastases.metastasis.site.values
+            }
+         },
+         grammar {
+            include "common-result.rnc" {
+               start = element howDiagnosed { parent metastases.metastasis.howDiagnosed.attrib, result.content }
+               valueset = parent metastases.metastasis.howDiagnosed.values
+            }
+         },
+         common.size
+   }
+   
+   ## -- nodes CONTENT --
+   div {
+      nodes.group.content =
+         element location {
+            nodes.group.location.attrib,
+            (grammar {
+                include "common-result.rnc" {
+                   valueset = parent nodes.group.location.value
+                }
+             }
+             & common.standard.content)
+         }
+         & element total {
+              nodes.group.category.attrib,
+              grammar {
+                 include "common-result.rnc" {
+                    valueset = xsd:integer { minInclusive = "0" }
+                 }
+              }
+           }
+         & (element positive {
+               nodes.group.category.attrib,
+               grammar {
+                  include "common-result.rnc" {
+                     valueset = xsd:integer { minInclusive = "0" }
+                  }
+               }
+            }
+            & element largest { common.sizeContent }
+            & element extracapsular {
+                 grammar {
+                    include "common-result.rnc" {
+                       valueset = parent common.extendedBoolean.values
+                    }
+                 }
+              })?
+         & element negative {
+              nodes.group.category.attrib,
+              grammar {
+                 include "common-result.rnc" {
+                    valueset = xsd:integer { minInclusive = "0" }
+                 }
+              }
+           }?
+         & element regressed {
+              nodes.group.category.attrib,
+              grammar {
+                 include "common-result.rnc" {
+                    valueset = xsd:integer { minInclusive = "0" }
+                 }
+              }
+           }?
+         & element other {
+              nodes.group.category.attrib,
+              grammar {
+                 include "common-result.rnc" {
+                    valueset = xsd:integer { minInclusive = "0" }
+                 }
+              }
+           }?
+      nodes.group.location.attrib = empty
+      nodes.group.location.value = xsd:token
+      nodes.group.category.attrib = empty
+   }
+   
+   ## -- specimen CONTENT --
+   div {
+      specimen.procedure.content &=
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent specimen.procedure.values
+            }
+         }
+      specimen.site.content &=
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent specimen.site.values
+            }
+         }
+      specimen.tumorLocation.content &=
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent specimen.site.values
+            }
+         }
+      specimen.integrity.content &=
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent specimen.integrity.values
+            }
+         }
+      specimen.grossSize.content |= common.size
+      specimen.weight.content |=
+         grammar {
+            include "common-result.rnc" {
+               valueset = xsd:float
+            }
+         },
+         grammar {
+            include "common-result.rnc" {
+               start = element unit { parent specimen.weight.unit.attrib, result.content }
+               valueset = parent common.weightUnit.values
+            }
+         }
+   }
+   
+   ## -- stage CONTENT --
+   div {
+      stage.prefix = element prefix { stage.prefix.attrib, (stage.prefix.content & common.content) }
+      stage.prefix.content =
+         grammar {
+            include "common-result.rnc" {
+               start = element prefix { result.content }
+               valueset = parent stage.prefix.values
+            }
+         }
+      stage.T.content =
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent stage.T.values
+            }
+         }
+      stage.M.content =
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent stage.M.values
+            }
+         }
+      stage.N.content =
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent stage.N.values
+            }
+         }
+      stage.classification.content =
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent stage.classification.values
+            }
+         }
+   }
+   
+   ## -- studies CONTENT --
+   div {
+      studies.study.content =
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent studies.study.value.values
+            }
+         }
+         & grammar {
+              include "common-result.rnc" {
+                 start = element method { parent studies.study.method.attrib, result.content }
+                 valueset = parent studies.study.method.values
+              }
+           }?
+   }
+   
+   ## -- tumor CONTENT --
+   div {
+      tumor.histologicType.content |=
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent tumor.histologicType.value.values
+            }
+         }
+      tumor.grade.content |=
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent tumor.grade.values
+            }
+         }
+      tumor.grade.system.content =
+         grammar {
+            include "common-result.rnc" {
+               valueset = parent tumor.grade.system.values
+            }
+         }
+   }
+}
+
+## == ATTRIBUTE MODELS ==
+[
+   a:documentation [
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============= ATTRIBUTE MODELS =============" ]
+      "\x{a}" ~
+      "         "
+      a:documentation [ "============================================" ]
+      "\x{a}" ~
+      "      "
+   ]
+]
+div {
+   
+   ## -- accessory ATTRIBUTES --
+   div {
+      accessory.attrib &= empty
+      accessory.treatmentEffect.attrib &= empty
+      accessory.venousInvasion.attrib &= empty
+      accessory.perineuralInvasion.attrib &= empty
+      accessory.lymphovascularInvasion.attrib &= empty
+   }
+   
+   ## -- additional ATTRIBUTES
+   div {
+      additional.attrib &= empty
+      additional.item.attrib &= attribute name { additional.item.name.values }
+   }
+   
+   ## -- clinical ATTRIBUTES --
+   div {
+      clinical.attrib &= empty
+      clinical.priorTherapy.attrib &= empty
+      clinical.clinicalFinding.attrib &= empty
+      clinical.radiologicFinding.attrib &= empty
+   }
+   
+   ## -- extent ATTRIBUTES --
+   div {
+      extent.attrib &= empty
+      extent.size.attrib = empty
+   }
+   
+   ## -- margins ATTRIBUTES --
+   div {
+      margins.attrib &= empty
+      margins.margin.attrib = empty
+      margins.margin.location.attrib = empty
+      margins.margin.closest.attrib = empty
+      margins.margin.distance.attrib = empty
+   }
+   
+   ## -- metastases ATTRIBUTES --
+   div {
+      metastases.attrib &= empty
+      metastases.metastasis.attrib = empty
+      metastases.metastasis.site.attrib = empty
+      metastases.metastasis.howDiagnosed.attrib = empty
+   }
+   
+   ## -- nodes ATTRIBUTES --
+   div {
+      nodes.attrib &= empty
+      nodes.group.attrib = empty
+   }
+   
+   ## -- specimen ATTRIBUTES --
+   div {
+      specimen.attrib &= empty
+      specimen.procedure.attrib &= empty
+      specimen.site.attrib &= empty
+      specimen.tumorLocation.attrib &= empty
+      specimen.integrity.attrib &= empty
+      specimen.grossSize.attrib &= empty
+      specimen.weight.attrib &= empty
+      specimen.weight.unit.attrib &= empty
+   }
+   
+   ## -- stage ATTRIBUTES --
+   div {
+      stage.attrib &= empty
+      stage.prefix.attrib = empty
+      stage.T.attrib = empty
+      stage.N.attrib = empty
+      stage.M.attrib = empty
+      stage.classification.attrib = empty
+   }
+   
+   ## -- studies ATTRIBUTES --
+   div {
+      studies.attrib &= empty
+      studies.study.attrib &= attribute name { studies.study.name.values }
+      studies.study.method.attrib = empty
+   }
+   
+   ## -- tumor ATTRIBUTES --
+   div {
+      tumor.attrib &= empty
+      tumor.grade.attrib = empty
+      tumor.histologicType.attrib = empty
+      tumor.grade.system.attrib = empty
+   }
+}

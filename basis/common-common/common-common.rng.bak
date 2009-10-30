@@ -155,7 +155,7 @@
          <grammar>
             <include href="&result;">
                <define name="result.value.content">
-                  <parentRef name="common.laterality.values"/>
+                  <parentRef name="common.laterality.value"/>
                </define>
             </include>
          </grammar>
@@ -163,7 +163,7 @@
       <define name="length.content">
          <interleave>
             <element name="unit">
-               <ref name="common.lengthUnit.values"/>
+               <ref name="common.lengthUnit.value"/>
             </element>
             <grammar>
                <include href="&result;">
