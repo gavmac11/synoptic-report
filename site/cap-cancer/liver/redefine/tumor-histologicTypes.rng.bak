@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>hepatocellular carcinoma</value>
+    <value>fibrolamellar hepatocellular carcinoma</value>
+    <value>undifferentiated carcinoma</value>
+    <value>specify…</value>
+    <value>carcinoma, type cannot be determined</value>
+</choice>

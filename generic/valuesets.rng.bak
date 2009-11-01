@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   
+   ===========================================================================
+   Copyright 2009 College of American Pathologists (CAP)
+   
+   This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+   
+   The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+   License, Version 2.0 (the "License"); you may not use this file except in 
+   compliance with the License.
+   
+   You may obtain a copy of the License at:
+   
+   http://www.apache.org/licenses/LICENSE-2.0
+   
+   Unless required by applicable law or agreed to in writing, software 
+   distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   ===========================================================================
+   
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+   <a:documentation>============================================</a:documentation>
+   <a:documentation>============= BASE SECTION VALUES ==========</a:documentation>
+   <a:documentation>============================================</a:documentation>
+   <div>
+      <a:documentation>== COMMON VALUES ==</a:documentation>
+      <define combine="choice" name="value.result.comparison.values">
+         <a:documentation>for modifier applied to result.value elements that accept a numeric
+            value</a:documentation>
+         <choice>
+            <value>less than</value>
+            <value>less than or equal</value>
+            <value>equal</value>
+            <value>greater than or equal</value>
+            <value>greater than</value>
+         </choice>
+      </define>
+      <define combine="choice" name="common.severity.values">
+         <a:documentation>For observations quantified on a four-value severity scale</a:documentation>
+         <a:documentation>Maps to scales of {0, 1, 2, 3}, {negative, slight, intermediate, marked}, etc.</a:documentation>
+         <choice>
+            <value>none</value>
+            <value>mild</value>
+            <value>moderate</value>
+            <value>severe</value>
+         </choice>
+      </define>
+      <define combine="choice" name="common.lengthUnit.values">
+         <a:documentation>Units for length values</a:documentation>
+         <choice>
+            <value>mm</value>
+            <value>cm</value>
+            <value>in</value>
+            <value>specify…</value>
+         </choice>
+      </define>
+      <define combine="choice" name="common.inflammation.values">
+         <a:documentation>types of inflammation, used primarily for "additional"
+            section</a:documentation>
+         <choice>
+            <value>acute</value>
+            <value>acute and chronic</value>
+            <value>chronic</value>
+            <value>specify…</value>
+         </choice>
+      </define>
+      <define combine="choice" name="common.laterality.values">
+         <a:documentation>for observations requiring qualification by
+            laterality</a:documentation>
+         <choice>
+            <value>right</value>
+            <value>left</value>
+            <value>midline</value>
+            <value>bilateral</value>
+            <value>specify…</value>
+         </choice>
+      </define>
+      <define combine="choice" name="common.date.values">
+         <a:documentation>date formats, expressed as a union of XML Schema date
+            types</a:documentation>
+         <a:documentation>"date" format is YYYY-MM-DD, e.g. 2009-12-31</a:documentation>
+         <a:documentation>"gYearMonth" is YYYY-MM, e.g. 2009-12</a:documentation>
+         <a:documentation>"gYear" format is YYYY, e.g. 2009</a:documentation>
+         <choice>
+            <data type="date"/>
+            <data type="gYearMonth"/>
+            <data type="gYear"/>
+         </choice>
+      </define>
+      <define combine="choice" name="common.extendedBoolean.values">
+         <a:documentation>Values for "yes/no" data items</a:documentation>
+         <a:documentation>
+            ==============
+            == positive ==
+            ==============
+            synonyms: "yes", "present", "is observed", "is seen", "there is evidence of", etc.
+         </a:documentation>
+         <a:documentation>
+            ==============
+            == negative ==
+            ==============
+            synonyms: "no", "absent", "is not observed", "is not seen", "there is no evidence of", etc.
+         </a:documentation>
+         <a:documentation>
+            ===============
+            == equivocal ==
+            ===============
+            synonyms: "suspicious", "atypical, not diagnostic", "worrisome for", "possibly positive", "favor negative, cannot exclude positive", "favor positive, cannot exclude negative", "on the fence", "borderline finding of", etc.
+         </a:documentation>
+         <a:documentation>
+            ===================
+            == indeterminate ==
+            ===================
+            synonyms: "(technically) uninterpretable", "cannot be (successfully) assessed (for technical reasons)", "obscured by", "artifact interferes with assessment", "assessment attempted, but could not be carried out due to X", etc.
+         </a:documentation>
+         <a:documentation>
+            ==================
+            == inapplicable ==
+            ==================
+            synonyms: "question does not apply", "cannot be assessed (because not represented for evaluation)", "X absent, hence X status cannot be assessed", "wrong specimen type for this assessment", "relevant tissue not present in this specimen", etc.
+         </a:documentation>
+         <a:documentation>
+            ================
+            == unreported ==
+            ================
+            synonyms: "no response", "unanswered", "no answer", "skipped", etc.
+         </a:documentation>
+         <choice>
+            <value>positive</value>
+            <value>negative</value>
+            <value>equivocal</value>
+            <value>indeterminate</value>
+            <value>inapplicable</value>
+            <value>unreported</value>
+         </choice>
+      </define>
+      <define combine="choice" name="common.weightUnit.values">
+         <a:documentation>for weight values</a:documentation>
+         <choice>
+            <value>g</value>
+            <value>kg</value>
+            <value>specify…</value>
+         </choice>
+      </define>
+   </div>
+   <div>
+      <a:documentation>== synopsis (ROOT) VALUES ==</a:documentation>
+      <define combine="choice" name="schemaLocation.values">
+         <a:documentation>URI at which schema applicable to this instance can be obtained</a:documentation>
+         <data type="anyURI"/>
+      </define>
+      <define combine="choice" name="version.values">
+         <a:documentation>Human-readable schema versioning information</a:documentation>
+         <data type="string"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>== accessory SECTION VALUES ==</a:documentation>
+      <define combine="choice" name="accessory.venousInvasion.values">
+         <ref name="common.extendedBoolean.values"/>
+      </define>
+      <define combine="choice" name="accessory.lymphovascularInvasion.values">
+         <ref name="common.extendedBoolean.values"/>
+      </define>
+      <define combine="choice" name="accessory.perineuralInvasion.values">
+         <ref name="common.extendedBoolean.values"/>
+      </define>
+      <define combine="choice" name="accessory.treatmentEffect.values">
+         <a:documentation>Tumor response to (e.g. neoadjuvant) treatment</a:documentation>
+         <choice>
+            <value>inapplicable</value>
+            <value>no response</value>
+            <value>slight response</value>
+            <value>marked response</value>
+            <value>complete response</value>
+            <value>specify…</value>
+         </choice>
+      </define>
+   </div>
+   <div>
+      <a:documentation>== additional SECTION VALUES ==</a:documentation>
+      <define combine="choice" name="additional.item.name.values">
+         <a:documentation/>
+         <value>specify…</value>
+      </define>
+   </div>
+   <div>
+      <a:documentation>== clinical SECTION VALUES ==</a:documentation>
+      <define combine="choice" name="clinical.priorTherapy.values">
+         <value>specify…</value>
+      </define>
+      <define combine="choice" name="clinical.clinicalFinding.values">
+         <value>specify…</value>
+      </define>
+      <define combine="choice" name="clinical.radiologicFinding.values">
+         <value>specify…</value>
+      </define>
+   </div>
+   <div>
+      <a:documentation>== extent SECTION VALUES ==</a:documentation>
+      <!-- None -->
+   </div>
+   <div>
+      <a:documentation>== margins SECTION VALUES ==</a:documentation>
+      <define combine="choice" name="margins.margin.location.values">
+         <value>specify…</value>
+      </define>
+      <define combine="choice" name="margins.margin.value.values">
+         <ref name="common.extendedBoolean.values"/>
+      </define>
+      <define combine="choice" name="margins.margin.closest.values">
+         <ref name="common.extendedBoolean.values"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>== metastases SECTION VALUES ==</a:documentation>
+      <define combine="choice" name="metastases.metastasis.site.values">
+         <value>specify…</value>
+      </define>
+      <define combine="choice" name="metastases.metastasis.howDiagnosed.values">
+         <choice>
+            <value>this accesion</value>
+            <value>prior accession</value>
+            <value>outside report</value>
+            <value>clinical history</value>
+            <value>specify…</value>
+         </choice>
+      </define>
+   </div>
+   <div>
+      <a:documentation>== nodes SECTION VALUES ==</a:documentation>
+      <define combine="choice" name="nodes.group.status.values">
+         <choice>
+            <value>total</value>
+            <value>negative</value>
+            <value>positive</value>
+            <value>regressed</value>
+            <value>specify…</value>
+         </choice>
+      </define>
+   </div>
+   <div>
+      <a:documentation>== specimen SECTION VALUES ==</a:documentation>
+      <define combine="choice" name="specimen.procedure.values">
+         <choice>
+            <value>specify…</value>
+         </choice>
+      </define>
+      <define combine="choice" name="specimen.site.values">
+         <value>specify…</value>
+      </define>
+      <define combine="choice" name="specimen.integrity.values">
+         <ref name="common.extendedBoolean.values"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>== stage SECTION VALUES ==</a:documentation>
+      <define combine="choice" name="stage.T.values">
+         <choice>
+            <value>X</value>
+            <value>0</value>
+            <value>is</value>
+            <value>1</value>
+            <value>1a</value>
+            <value>1b</value>
+            <value>1c</value>
+            <value>1a1</value>
+            <value>1a2</value>
+            <value>1b1</value>
+            <value>1b2</value>
+            <value>1c</value>
+            <value>1mi</value>
+            <value>2</value>
+            <value>2a</value>
+            <value>2b</value>
+            <value>2c</value>
+            <value>2d</value>
+            <value>2a1</value>
+            <value>2a2</value>
+            <value>2b</value>
+            <value>3</value>
+            <value>3a</value>
+            <value>3b</value>
+            <value>3c</value>
+            <value>4</value>
+            <value>4a</value>
+            <value>4b</value>
+            <value>4c</value>
+            <value>4d</value>
+         </choice>
+      </define>
+      <define combine="choice" name="stage.N.values">
+         <choice>
+            <value>X</value>
+            <value>0</value>
+            <value>1</value>
+         </choice>
+      </define>
+      <define combine="choice" name="stage.M.values">
+         <choice>
+            <value>unreported</value>
+            <value>1</value>
+         </choice>
+      </define>
+      <define name="stage.classification.values">
+         <value>p</value>
+      </define>
+      <define combine="choice" name="stage.prefix.values">
+         <choice>
+            <value>y</value>
+            <value>r</value>
+            <value>a</value>
+         </choice>
+      </define>
+      <define combine="choice" name="suffix-values">
+         <choice>
+            <value>m</value>
+         </choice>
+      </define>
+   </div>
+   <div>
+      <a:documentation>== studies SECTION VALUES ==</a:documentation>
+      <define combine="choice" name="studies.study.name.values">
+         <value>specify…</value>
+      </define>
+      <define combine="choice" name="studies.study.value.values">
+         <value>specify…</value>
+      </define>
+      <define combine="choice" name="studies.study.method.values">
+         <value>specify…</value>
+      </define>
+   </div>
+   <div>
+      <a:documentation>== tumor SECTION VALUES ==</a:documentation>
+      <define combine="choice" name="tumor.histologicType.value.values">
+         <value>specify…</value>
+      </define>
+      <define combine="choice" name="tumor.grade.values">
+         <choice>
+            <value>not applicable</value>
+            <value>specify…</value>
+         </choice>
+      </define>
+      <define combine="choice" name="tumor.grade.system.values">
+         <choice>
+            <value>WHO</value>
+            <value>unreported</value>
+            <value>specify…</value>
+         </choice>
+      </define>
+   </div>
+</grammar>

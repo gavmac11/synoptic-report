@@ -127,14 +127,14 @@
             <value>3</value>
             <value>4</value>
             <value>X</value>
-            <value>other</value>
+            <value>specify</value>
         </choice>
     </define>
     <define combine="choice" name="gradingSystems">
         <choice>
             <value>WHO</value>
             <value>not specified</value>
-            <value>other</value>
+            <value>specify</value>
         </choice>
     </define>
 </grammar>

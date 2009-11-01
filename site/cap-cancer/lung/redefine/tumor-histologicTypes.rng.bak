@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>carcinoma nos</value>
+    <value>non-small cell carcinoma nos</value>
+    <value>small cell carcinoma</value>
+    <value>squamous cell carcinoma</value>
+    <value>papillary squamous cell carcinoma</value>
+    <value>clear cell squamous cell carcinoma</value>
+    <value>small cell squamous cell carcinoma</value>
+    <value>basaloid squamous cell carcinoma</value>
+    <value>adenocarcinoma</value>
+    <value>acinar adenocarcinoma</value>
+    <value>papillary adenocarcinoma</value>
+    <value>bronchioloalveolar carcinoma</value>
+    <value>nonmucinous bronchioloalveolar carcinoma</value>
+    <value>mucinous bronchioloalveolar carcinoma</value>
+    <value>fetal adenocarcinoma</value>
+    <value>mucinous adenocarcinoma</value>
+    <value>mucinous cystadenocarcinoma</value>
+    <value>signet ring cell adenocarcinoma</value>
+    <value>clear cell adenocarcinoma</value>
+    <value>large cell adenocarcinoma</value>
+    <value>large cell neuroendocrine carcinoma</value>
+    <value>basaloid carcinoma</value>
+    <value>lymphoepitheial-like carcinoma</value>
+    <value>rhabdoid large cell carcinoma</value>
+    <value>adenosquamous carcinoma</value>
+    <value>sarcomatoid carcinoma</value>
+    <value>pleomorphic carcinoma</value>
+    <value>spindle cell carcinoma</value>
+    <value>giant cell carcinoma</value>
+    <value>carcinosarcoma</value>
+    <value>pulmonary blastoma</value>
+    <value>typical carcinoid</value>
+    <value>atypical carcinoid</value>
+    <value>mucoepidermoid carcinoma</value>
+    <value>adenoid cystic carcinoma</value>
+    <value>epitheilial myoepithelial carcinoma</value>
+    <value>specify…</value>
+</choice>

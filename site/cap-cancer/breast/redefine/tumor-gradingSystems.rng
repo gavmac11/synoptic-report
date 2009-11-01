@@ -2,5 +2,5 @@
 <choice xmlns="http://relaxng.org/ns/structure/1.0">
     <value>Nottingham</value>
     <value>WHO</value>
-    <value>other</value>
+    <value>specify</value>
 </choice>

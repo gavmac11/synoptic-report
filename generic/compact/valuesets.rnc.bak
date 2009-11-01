@@ -1,0 +1,261 @@
+# 
+# ===========================================================================
+# Copyright 2009 College of American Pathologists (CAP)
+# 
+# This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+# 
+# The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+# License, Version 2.0 (the "License"); you may not use this file except in 
+# compliance with the License.
+# 
+# You may obtain a copy of the License at:
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software 
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# 
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ===========================================================================
+#
+
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+a:documentation [ "============================================" ]
+a:documentation [ "============= BASE SECTION VALUES ==========" ]
+a:documentation [ "============================================" ]
+
+## == COMMON VALUES ==
+div {
+  
+  ## for modifier applied to result.value elements that accept a numeric
+  ##             value
+  result.value.comparison.values =
+    "less than"
+    | "less than or equal"
+    | "equal"
+    | "greater than or equal"
+    | "greater than"
+  
+  ## For observations quantified on a four-value severity scale
+  
+  ## Maps to scales of {0, 1, 2, 3}, {negative, slight, intermediate, marked}, etc.
+  common.severity.values = "none" | "mild" | "moderate" | "severe"
+  
+  ## Units for length values
+  common.lengthUnit.values = "mm" | "cm" | "in" | "other"
+  
+  ## types of inflammation, used primarily for "additional"
+  ##             section
+  common.inflammation.values =
+    "acute" | "acute and chronic" | "chronic" | "other"
+  
+  ## for observations requiring qualification by
+  ##             laterality
+  common.laterality.values =
+    "right" | "left" | "midline" | "bilateral" | "other"
+  
+  ## date formats, expressed as a union of XML Schema date
+  ##             types
+  
+  ## "date" format is YYYY-MM-DD, e.g. 2009-12-31
+  
+  ## "gYearMonth" is YYYY-MM, e.g. 2009-12
+  
+  ## "gYear" format is YYYY, e.g. 2009
+  common.date.values = xsd:date | xsd:gYearMonth | xsd:gYear
+  
+  ## Values for "yes/no" data items
+  
+  ## 
+  ##             ==============
+  ##             == positive ==
+  ##             ==============
+  ##             synonyms: "yes", "present", "is observed", "is seen", "there is evidence of", etc.
+  ##          
+  
+  ## 
+  ##             ==============
+  ##             == negative ==
+  ##             ==============
+  ##             synonyms: "no", "absent", "is not observed", "is not seen", "there is no evidence of", etc.
+  ##          
+  
+  ## 
+  ##             ===============
+  ##             == equivocal ==
+  ##             ===============
+  ##             synonyms: "suspicious", "atypical, not diagnostic", "worrisome for", "possibly positive", "favor negative, cannot exclude positive", "favor positive, cannot exclude negative", "on the fence", "borderline finding of", etc.
+  ##          
+  
+  ## 
+  ##             ===================
+  ##             == indeterminate ==
+  ##             ===================
+  ##             synonyms: "(technically) uninterpretable", "cannot be (successfully) assessed (for technical reasons)", "obscured by", "artifact interferes with assessment", "assessment attempted, but could not be carried out due to X", etc.
+  ##          
+  
+  ## 
+  ##             ==================
+  ##             == inapplicable ==
+  ##             ==================
+  ##             synonyms: "question does not apply", "cannot be assessed (because not represented for evaluation)", "X absent, hence X status cannot be assessed", "wrong specimen type for this assessment", "relevant tissue not present in this specimen", etc.
+  ##          
+  
+  ## 
+  ##             ================
+  ##             == unreported ==
+  ##             ================
+  ##             synonyms: "no response", "unanswered", "no answer", "skipped", etc.
+  ##          
+  common.extendedBoolean.values =
+    "positive"
+    | "negative"
+    | "equivocal"
+    | "indeterminate"
+    | "inapplicable"
+    | "not reported"
+  
+  ## for weight values
+  common.weightUnit.values = "g" | "kg" | "other"
+}
+
+## == synopsis (ROOT) VALUES ==
+div {
+  
+  ## URI at which schema applicable to this instance can be obtained
+  schemaLocation.values |= xsd:anyURI
+  
+  ## Human-readable schema versioning information
+  version.values |= xsd:string
+}
+
+## == accessory SECTION VALUES ==
+div {
+  accessory.venousInvasion.values |= common.extendedBoolean.values
+  accessory.lymphovascularInvasion.values |= common.extendedBoolean.values
+  accessory.perineuralInvasion.values |= common.extendedBoolean.values
+  
+  ## Tumor response to (e.g. neoadjuvant) treatment
+  treatmentEffect.values |=
+    "inapplicable"
+    | "no response"
+    | "slight response"
+    | "marked response"
+    | "complete response"
+    | "other"
+}
+
+## == additional SECTION VALUES ==
+div {
+  
+  ##
+  additional.item.name.values = xsd:token
+}
+
+## == clinical SECTION VALUES ==
+div {
+  clinical.priorTherapy.values |= xsd:token
+  clinical.clinicalFinding.values |= xsd:token
+  clinical.radiologicFinding.values |= xsd:token
+}
+
+## == extent SECTION VALUES ==
+[
+  # None
+  
+]
+div { }
+
+## == margins SECTION VALUES ==
+div {
+  margins.margin.location.values |= xsd:token
+  margins.margin.value.values = common.extendedBoolean.values
+  margins.margin.closest.values = common.extendedBoolean.values
+  a:documentation [
+    "This needs to be looked at -- seems to be in the wrong\x{a}" ~
+    "         place"
+  ]
+  a:documentation [ "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" ]
+}
+
+## == metastases SECTION VALUES ==
+div {
+  metastases.metastasis.site.values = xsd:token
+  metastases.metastasis.howDiagnosed.values =
+    "this accesion"
+    | "prior accession"
+    | "outside report"
+    | "clinical history"
+    | "other"
+}
+
+## == nodes SECTION VALUES ==
+div {
+  nodes.group.status.values |=
+    "total" | "negative" | "positive" | "regressed" | "other"
+}
+
+## == specimen SECTION VALUES ==
+div {
+  specimen.procedure.values |= xsd:token
+  specimen.site.values |= xsd:token
+  specimen.integrity.values |= common.extendedBoolean.values
+}
+
+## == stage SECTION VALUES ==
+div {
+  stage.T.values =
+    "X"
+    | "0"
+    | "is"
+    | "1"
+    | "1a"
+    | "1b"
+    | "1c"
+    | "1a1"
+    | "1a2"
+    | "1b1"
+    | "1b2"
+    | "1c"
+    | "1mi"
+    | "2"
+    | "2a"
+    | "2b"
+    | "2c"
+    | "2d"
+    | "2a1"
+    | "2a2"
+    | "2b"
+    | "3"
+    | "3a"
+    | "3b"
+    | "3c"
+    | "4"
+    | "4a"
+    | "4b"
+    | "4c"
+    | "4d"
+  stage.N.values = "X" | "0" | "1" | "other"
+  stage.M.values = "X" | "1" | "other"
+  stage.classification.values = "p"
+  stage.prefix.values = "y" | "r" | "a" | "other"
+  suffix-values = "m"
+}
+
+## == studies SECTION VALUES ==
+div {
+  studies.study.name.values = xsd:token
+  studies.study.value.values = xsd:token
+  studies.study.method.values = xsd:token
+}
+
+## == tumor SECTION VALUES ==
+div {
+  tumor.histologicType.value.values = xsd:token
+  tumor.grade.values |=
+    "not applicable" | "1" | "2" | "3" | "4" | "X" | "other"
+  tumor.grade.system.values |= "WHO" | "not specified" | "other"
+}

@@ -17,7 +17,7 @@
                             <choice>
                                 <value>pedunculated</value>
                                 <value>sessile</value>
-                                <value>other</value>
+                                <value>specify</value>
                             </choice>
                         </element>
                     </optional>

@@ -4,6 +4,6 @@
     <value>iron overload</value>
     <!-- may need to specify etiology for hepatitis-->
     <value>chronic hepatitis</value>
-    <value>other</value>
+    <value>specify</value>
     <!-- not evaluated -->
 </choice>

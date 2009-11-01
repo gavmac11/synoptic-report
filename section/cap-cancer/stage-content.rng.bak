@@ -50,7 +50,7 @@
         <interleave>
             <optional>
                 <element name="prefix">
-                    <ref name="base.standard.content"/>
+                    <ref name="common.standard.content"/>
                     <optional>
                         <element name="value">
                             <list>
@@ -67,7 +67,7 @@
                 </element>
             </optional>
             <element name="classification">
-                <ref name="base.standard.content"/>
+                <ref name="common.standard.content"/>
                 <optional>
                     <element name="value">
                         <ref name="classification-values"/>
@@ -75,7 +75,7 @@
                 </optional>
             </element>
             <element name="T">
-                <ref name="base.standard.content"/>
+                <ref name="common.standard.content"/>
                 <optional>
                     <attribute name="suffix">
                         <ref name="suffix-values"/>
@@ -88,7 +88,7 @@
                 </optional>
             </element>
             <element name="N">
-                <ref name="base.standard.content"/>
+                <ref name="common.standard.content"/>
                 <optional>
                     <element name="value">
                         <ref name="N-values"/>
@@ -96,7 +96,7 @@
                 </optional>
             </element>
             <element name="M">
-                <ref name="base.standard.content"/>
+                <ref name="common.standard.content"/>
                 <optional>
                     <element name="value">
                         <ref name="M-values"/>
@@ -113,7 +113,7 @@
             <value>2</value>
             <value>3</value>
             <value>4</value>
-            <value>other</value>
+            <value>specify…</value>
         </choice>
     </define>
     <define name="N-values">
@@ -121,7 +121,7 @@
             <value>X</value>
             <value>0</value>
             <value>1</value>
-            <value>other</value>
+            <value>specify…</value>
         </choice>
     </define>
     <define name="M-values">
@@ -129,7 +129,7 @@
             <value>X</value>
             <value>0</value>
             <value>1</value>
-            <value>other</value>
+            <value>specify…</value>
         </choice>
     </define>
     <define name="classification-values">
@@ -140,7 +140,7 @@
             <value>y</value>
             <value>r</value>
             <value>a</value>
-            <value>other</value>
+            <value>specify…</value>
         </choice>
     </define>
     <define name="suffix-values">

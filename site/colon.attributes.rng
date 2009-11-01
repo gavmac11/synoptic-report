@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   
+   ===========================================================================
+   Copyright 2009 College of American Pathologists (CAP)
+   
+   This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+   
+   The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+   License, Version 2.0 (the "License"); you may not use this file except in 
+   compliance with the License.
+   
+   You may obtain a copy of the License at:
+   
+   http://www.apache.org/licenses/LICENSE-2.0
+   
+   Unless required by applicable law or agreed to in writing, software 
+   distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   ===========================================================================
+   
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+   <a:documentation>============================================</a:documentation>
+   <a:documentation>============ ATTRIBUTE MODELS ==============</a:documentation>
+   <a:documentation>============================================</a:documentation>
+   <div>
+      <a:documentation>-- accessory ATTRIBUTES --</a:documentation>
+      <define
+         name="colon.accessory.discontinuousExtramuralExtension.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="colon.accessory.preexistingPolyp.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>-- additional ATTRIBUTES --</a:documentation>
+      <!-- empty -->
+   </div>
+   <div>
+      <a:documentation>-- clinical ATTRIBUTES --</a:documentation>
+      <!-- empty -->
+   </div>
+   <div>
+      <a:documentation>-- extent ATTRIBUTES --</a:documentation>
+      <define
+         name="colon.extent.invasion.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="colon.extent.adjacentStructure.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>-- specimen ATTRIBUTES --</a:documentation>
+      <define
+         name="colon.specimen.polyp.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>-- margins ATTRIBUTES --</a:documentation>
+      <!-- empty -->
+   </div>
+   <div>
+      <a:documentation>-- metastases ATTRIBUTES --</a:documentation>
+      <!-- empty -->
+   </div>
+   <div>
+      <a:documentation>-- nodes ATTRIBUTES --</a:documentation>
+      <!-- empty -->
+   </div>
+   <div>
+      <a:documentation>-- specimen ATTRIBUTES --</a:documentation>
+      <!-- empty -->
+   </div>
+   <div>
+      <a:documentation>-- studies ATTRIBUTES --</a:documentation>
+      <!-- empty -->
+   </div>
+   <div>
+      <a:documentation>-- tumor ATTRIBUTES --</a:documentation>
+      <define
+         name="colon.tumor.immuneResponse.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="colon.tumor.immuneResponse.intratumoral.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="colon.tumor.immuneResponse.peritumoral.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="colon.tumor.mucinousComponent.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="colon.tumor.medullaryComponent.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="colon.tumor.highGrade.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="colon.tumor.perforation.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
+</grammar>

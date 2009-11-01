@@ -23,62 +23,60 @@
     ===========================================================================
     
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <!--  -->
-    <include href="common.rng"/>
-    <include href="sections.rng"/>
-    <include href="items.rng"/>
-    <include href="itemContents.rng"/>
-    <include href="attributes.rng"/>
-    <include href="valuesets.rng"/>
-    <a:documentation>============================================</a:documentation>
-    <a:documentation>============================================</a:documentation>
-    <a:documentation>================ ROOT MODEL ================</a:documentation>
-    <a:documentation>============================================</a:documentation>
-    <div>
-        <a:documentation>-- ROOT ITEM --</a:documentation>
-        <start>
-            <element name="synopsis">
-                <a:documentation>.. synopsis ELEMENT ..</a:documentation>
-                <ref name="synopsis.attrib"/>
-                <interleave>
-                    <ref name="synopsis.content"/>
-                    <ref name="common.standard.content"/>
-                </interleave>
-            </element>
-        </start>
-    </div>
-    <div>
-        <a:documentation>-- ROOT CONTENT --</a:documentation>
-        <a:documentation>To represent a particular method (e.g. resection, biopsy, FNA), the selection and optionality of the sections should be redefined</a:documentation>
-        <a:documentation>This listing is simply an alphabetical list of all available sections.</a:documentation>
-        <define combine="choice" name="synopsis.content">
-            <ref name="accessory"/>
-            <ref name="additional"/>
-            <ref name="clinical"/>
-            <ref name="extent"/>
-            <ref name="margins"/>
-            <ref name="metastases"/>
-            <ref name="nodes"/>
-            <ref name="specimen"/>
-            <ref name="stage"/>
-            <ref name="studies"/>
-            <ref name="tumor"/>
-        </define>
-    </div>
-    <div>
-        <a:documentation>-- ROOT ATTRIBUTES --</a:documentation>
-        <define combine="interleave" name="synopsis.attrib">
-            <a:documentation>-- synopsis ATTRIBUTES --</a:documentation>
-            <attribute name="schemaLocation">
-                <ref name="schemaLocation.values"/>
-            </attribute>
-            <attribute name="version">
-                <ref name="version.values"/>
-            </attribute>
-            <attribute name="transformation" ns="http://www.w3.org/2003/g/data-view#"/>
-        </define>
-    </div>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+   xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+   <!--  -->
+   <include href="common.rng"/>
+   <include href="sections.rng"/>
+   <include href="items.rng"/>
+   <include href="itemContents.rng"/>
+   <include href="attributes.rng"/>
+   <include href="valuesets.rng"/>
+   <a:documentation>============================================</a:documentation>
+   <a:documentation>================ ROOT MODEL ================</a:documentation>
+   <a:documentation>============================================</a:documentation>
+   <div>
+      <a:documentation>-- ROOT ITEM --</a:documentation>
+      <start>
+         <element name="synopsis">
+            <a:documentation>.. synopsis ELEMENT ..</a:documentation>
+            <ref name="synopsis.attrib"/>
+            <interleave>
+               <ref name="synopsis.content"/>
+               <ref name="common.native.content"/>
+            </interleave>
+         </element>
+      </start>
+   </div>
+   <div>
+      <a:documentation>-- ROOT CONTENT --</a:documentation>
+      <a:documentation>To represent a particular method (e.g. resection, biopsy, FNA), the selection and optionality of the sections should be redefined</a:documentation>
+      <a:documentation>This listing is simply an alphabetical list of all available sections.</a:documentation>
+      <define combine="choice" name="synopsis.content">
+         <ref name="accessory"/>
+         <ref name="additional"/>
+         <ref name="clinical"/>
+         <ref name="extent"/>
+         <ref name="margins"/>
+         <ref name="metastases"/>
+         <ref name="nodes"/>
+         <ref name="specimen"/>
+         <ref name="stage"/>
+         <ref name="studies"/>
+         <ref name="tumor"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>-- ROOT ATTRIBUTES --</a:documentation>
+      <define combine="interleave" name="synopsis.attrib">
+         <a:documentation>-- synopsis ATTRIBUTES --</a:documentation>
+         <attribute name="schemaLocation">
+            <ref name="schemaLocation.values"/>
+         </attribute>
+         <attribute name="version">
+            <ref name="version.values"/>
+         </attribute>
+         <attribute name="transformation" ns="http://www.w3.org/2003/g/data-view#"/>
+      </define>
+   </div>
 </grammar>

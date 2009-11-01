@@ -6,14 +6,14 @@
   <externalRef href="../../../../common/laterality.rng"/>
   <optional>
     <element name="value">
-      <externalRef href="../../../../common/extendedBoolean.rng"/>
+      <externalRef href="../../../../common/common.extendedBoolean.values.rng"/>
     </element>
   </optional>
   <attribute name="extent">
     <choice>
       <value>extensive</value>
       <value>focal</value>
-      <value>other</value>
+      <value>specify…</value>
     </choice>
   </attribute>
 </element>

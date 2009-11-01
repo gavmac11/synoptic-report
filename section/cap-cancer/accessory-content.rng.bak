@@ -91,13 +91,13 @@
         </interleave>
     </define>
     <define combine="choice" name="venousInvasionValues">
-        <externalRef href="../../common/extendedBoolean.rng"/>
+        <externalRef href="../../common/common.extendedBoolean.values.rng"/>
     </define>
     <define combine="choice" name="lymphaticInvasionValues">
-        <externalRef href="../../common/extendedBoolean.rng"/>
+        <externalRef href="../../common/common.extendedBoolean.values.rng"/>
     </define>
     <define combine="choice" name="perineuralInvasionValues">
-        <externalRef href="../../common/extendedBoolean.rng"/>
+        <externalRef href="../../common/common.extendedBoolean.values.rng"/>
     </define>
     <define combine="choice" name="treatmentEffectValues">
         <choice>
@@ -106,7 +106,7 @@
             <value>slightResponse</value>
             <value>markedResponse</value>
             <value>completeResponse</value>
-            <value>other</value>
+            <value>specify…</value>
         </choice>
     </define>
 </grammar>

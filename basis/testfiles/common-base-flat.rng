@@ -667,7 +667,7 @@
     <define name="venousInvasion">
         <element name="venousInvasion" ns="http://www.cap.org/pert/2009/01/">
             <group>
-                <ref name="result"/>
+                <ref name="resultx"/>
                 <optional>
                     <ref name="comment"/>
                 </optional>
@@ -1834,12 +1834,12 @@
             </group>
         </element>
     </define>
-    <define name="result">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+    <define name="resultx">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value"/>
                 <optional>
-                    <ref name="otherValue"/>
+                    <ref name="specify"/>
                 </optional>
                 <optional>
                     <ref name="comment"/>
@@ -1879,7 +1879,7 @@
         </element>
     </define>
     <define name="result_2">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_2"/>
                 <optional>
@@ -1923,7 +1923,7 @@
         </element>
     </define>
     <define name="result_3">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_3"/>
                 <optional>
@@ -1967,7 +1967,7 @@
         </element>
     </define>
     <define name="result_4">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_4"/>
                 <optional>
@@ -2011,7 +2011,7 @@
         </element>
     </define>
     <define name="result_5">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_5"/>
                 <optional>
@@ -2055,7 +2055,7 @@
         </element>
     </define>
     <define name="result_6">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_6"/>
                 <optional>
@@ -2109,7 +2109,7 @@
         </element>
     </define>
     <define name="result_7">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_7"/>
                 <optional>
@@ -2153,7 +2153,7 @@
         </element>
     </define>
     <define name="result_8">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_8"/>
                 <optional>
@@ -2283,7 +2283,7 @@
         </element>
     </define>
     <define name="result_9">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_10"/>
                 <optional>
@@ -2459,7 +2459,7 @@
         </element>
     </define>
     <define name="result_10">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_14"/>
                 <optional>
@@ -2503,7 +2503,7 @@
         </element>
     </define>
     <define name="result_11">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_15"/>
                 <optional>
@@ -2547,7 +2547,7 @@
         </element>
     </define>
     <define name="result_12">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_16"/>
                 <optional>
@@ -2591,7 +2591,7 @@
         </element>
     </define>
     <define name="result_13">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_17"/>
                 <optional>
@@ -2635,7 +2635,7 @@
         </element>
     </define>
     <define name="result_14">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_18"/>
                 <optional>
@@ -2767,7 +2767,7 @@
         </element>
     </define>
     <define name="result_15">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_21"/>
                 <optional>
@@ -2811,7 +2811,7 @@
         </element>
     </define>
     <define name="result_16">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_22"/>
                 <optional>
@@ -2855,7 +2855,7 @@
         </element>
     </define>
     <define name="result_17">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_23"/>
                 <optional>
@@ -2899,7 +2899,7 @@
         </element>
     </define>
     <define name="result_18">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_24"/>
                 <optional>
@@ -2943,7 +2943,7 @@
         </element>
     </define>
     <define name="result_19">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_25"/>
                 <optional>
@@ -3031,7 +3031,7 @@
         </element>
     </define>
     <define name="result_20">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_27"/>
                 <optional>
@@ -3075,7 +3075,7 @@
         </element>
     </define>
     <define name="result_21">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_28"/>
                 <optional>
@@ -3206,8 +3206,8 @@
             </group>
         </element>
     </define>
-    <define name="otherValue">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+    <define name="specify">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -3283,7 +3283,7 @@
         </element>
     </define>
     <define name="otherValue_2">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -3359,7 +3359,7 @@
         </element>
     </define>
     <define name="otherValue_3">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -3435,7 +3435,7 @@
         </element>
     </define>
     <define name="otherValue_4">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -3504,7 +3504,7 @@
         </element>
     </define>
     <define name="otherValue_5">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -3573,7 +3573,7 @@
         </element>
     </define>
     <define name="otherValue_6">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -3642,7 +3642,7 @@
         </element>
     </define>
     <define name="otherValue_7">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -3711,7 +3711,7 @@
         </element>
     </define>
     <define name="otherValue_8">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -3750,7 +3750,7 @@
         </element>
     </define>
     <define name="result_22">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_29"/>
                 <optional>
@@ -3834,7 +3834,7 @@
         </element>
     </define>
     <define name="otherValue_9">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -3910,7 +3910,7 @@
         </element>
     </define>
     <define name="otherValue_10">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -3986,7 +3986,7 @@
         </element>
     </define>
     <define name="otherValue_11">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -4058,7 +4058,7 @@
         </element>
     </define>
     <define name="otherValue_12">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -4131,7 +4131,7 @@
         </element>
     </define>
     <define name="otherValue_13">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -4200,7 +4200,7 @@
         </element>
     </define>
     <define name="otherValue_14">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -4269,7 +4269,7 @@
         </element>
     </define>
     <define name="otherValue_15">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -4338,7 +4338,7 @@
         </element>
     </define>
     <define name="otherValue_16">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -4414,7 +4414,7 @@
         </element>
     </define>
     <define name="otherValue_17">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -4483,7 +4483,7 @@
         </element>
     </define>
     <define name="otherValue_18">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -4556,7 +4556,7 @@
         </element>
     </define>
     <define name="otherValue_19">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -4630,7 +4630,7 @@
         </element>
     </define>
     <define name="otherValue_20">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -4699,7 +4699,7 @@
         </element>
     </define>
     <define name="otherValue_21">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -4799,7 +4799,7 @@
         </element>
     </define>
     <define name="otherValue_22">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -4873,7 +4873,7 @@
         </element>
     </define>
     <define name="otherValue_23">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -4946,7 +4946,7 @@
         </element>
     </define>
     <define name="otherValue_24">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -5015,7 +5015,7 @@
         </element>
     </define>
     <define name="otherValue_25">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -5084,7 +5084,7 @@
         </element>
     </define>
     <define name="otherValue_26">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -5153,7 +5153,7 @@
         </element>
     </define>
     <define name="otherValue_27">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -5230,7 +5230,7 @@
         </element>
     </define>
     <define name="otherValue_28">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -5259,7 +5259,7 @@
         </element>
     </define>
     <define name="result_23">
-        <element name="result" ns="http://www.cap.org/pert/2009/01/">
+        <element name="resultx" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <ref name="value_30"/>
                 <optional>
@@ -5345,7 +5345,7 @@
         </element>
     </define>
     <define name="otherValue_29">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>
@@ -5418,7 +5418,7 @@
         </element>
     </define>
     <define name="otherValue_30">
-        <element name="otherValue" ns="http://www.cap.org/pert/2009/01/">
+        <element name="specify" ns="http://www.cap.org/pert/2009/01/">
             <group>
                 <zeroOrMore>
                     <attribute>

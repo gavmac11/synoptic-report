@@ -10,12 +10,12 @@
       <value>rectum</value>
       <value>levator muscles</value>
       <value>pelvic wall</value>
-      <value>other</value>
+      <value>specify…</value>
     </choice>
   </attribute>
   <optional>
     <element name="value">
-      <externalRef href="../../../../common/extendedBoolean.rng"/>
+      <externalRef href="../../../../common/common.extendedBoolean.values.rng"/>
     </element>
   </optional>
 </element>

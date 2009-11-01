@@ -9,7 +9,7 @@
             <value>3+</value>
             <value>pending</value>
             <value>not performed</value>
-            <value>other</value>
+            <value>specify</value>
         </choice>
     </element></optional>
     <attribute name="antibody"/>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attribute datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" name="score"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <choice>
+        <value>1</value>
+        <value>2</value>
+        <value>3</value>
+        <value>microinvasion only</value>
+        <value>indeterminate</value>
+        <value>specify…</value>
+    </choice>
+</attribute>

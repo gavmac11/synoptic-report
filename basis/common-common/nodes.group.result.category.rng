@@ -22,13 +22,13 @@
          <value>positive</value>
          <value>negative</value>
          <value>regressed</value>
-         <value>other</value>
+         <value>specify</value>
       </choice>
    </define>
    <define name="category.content">
       <grammar>
          <include href="common-result.rng">
-            <define name="result.value.content">
+            <define name="value.result.content">
                <data type="integer">
                   <param name="minInclusive">0</param>
                </data>

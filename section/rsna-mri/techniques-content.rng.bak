@@ -52,7 +52,7 @@
                 <optional><element name="value">
                     <ref name="techniqueValues"/>
                 </element></optional>
-                <ref name="base.standard.content"/>
+                <ref name="common.standard.content"/>
             </element>
         </zeroOrMore>
     </define>
@@ -62,7 +62,7 @@
             <value>angiography abdomen</value>
             <value>with enhancement</value>
             <value>without enhancement</value>
-            <value>other</value>
+            <value>specify…</value>
         </choice>
     </define>
 </grammar>

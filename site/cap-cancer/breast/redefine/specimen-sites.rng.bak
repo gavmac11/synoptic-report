@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>upper outer quadrant</value>
+    <value>lower outer quadrant</value>
+    <value>upper inner quadrant</value>
+    <value>lower inner quadrant</value>
+    <value>entire breast</value>
+    <value>central</value>
+    <value>nipple</value>
+    <choice>
+        <value>12:00</value>
+        <value>1:00</value>
+        <value>2:00</value>
+        <value>3:00</value>
+        <value>4:00</value>
+        <value>5:00</value>
+        <value>6:00</value>
+        <value>7:00</value>
+        <value>8:00</value>
+        <value>9:00</value>
+        <value>10:00</value>
+        <value>11:00</value>
+        <value>specify…</value>
+    </choice>
+</choice>

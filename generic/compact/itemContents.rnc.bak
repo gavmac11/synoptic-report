@@ -1,0 +1,382 @@
+# 
+# ===========================================================================
+# Copyright 2009 College of American Pathologists (CAP)
+# 
+# This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+# 
+# The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+# License, Version 2.0 (the "License"); you may not use this file except in 
+# compliance with the License.
+# 
+# You may obtain a copy of the License at:
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software 
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# 
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ===========================================================================
+#
+
+default namespace = "http://www.cap.org/pert/2009/01/"
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+a:documentation [ "============================================" ]
+a:documentation [ "=========== ITEM-CONTENT MODELS ============" ]
+a:documentation [ "============================================" ]
+
+## -- accessory CONTENT --
+div {
+  
+  ## .. venousInvasion CONTENT ..
+  accessory.venousInvasion.content &=
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent accessory.venousInvasion.values
+      }
+    }
+  
+  ## .. lymphovascularInvasion CONTENT ..
+  accessory.lymphovascularInvasion.content &=
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent accessory.lymphovascularInvasion.values
+      }
+    }
+  
+  ## .. perineuralInvasion CONTENT ..
+  accessory.perineuralInvasion.content &=
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent accessory.perineuralInvasion.values
+      }
+    }
+  
+  ## .. treatmentEffect CONTENT ..
+  accessory.treatmentEffect.content =
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent treatmentEffect.values
+      }
+    }
+  accessory.siteSpecific.content = empty
+}
+
+## -- additional CONTENT
+div {
+  
+  ## .. item CONTENT ..
+  additional.item.content =
+    grammar {
+      include "result.rnc"
+    }
+  additional.siteSpecific.content = empty
+}
+
+## -- clinical CONTENT --
+div {
+  
+  ## .. priorTherapy CONTENT..
+  clinical.priorTherapy.content &=
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent clinical.priorTherapy.values
+      }
+    }
+    & element date { common.date.values }?
+  
+  ## .. clinicalFinding CONTENT ..
+  clinical.clinicalFinding.content &=
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent clinical.clinicalFinding.values
+      }
+    }
+    & element date { common.date.values }?
+  
+  ## .. radiologicFinding CONTENT ..
+  clinical.radiologicFinding.content &=
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent clinical.radiologicFinding.values
+      }
+    }
+    & element date { common.date.values }?
+  clinical.siteSpecific.content = empty
+}
+
+## -- extent CONTENT --
+div {
+  
+  ## .. size CONTENT ..
+  extent.size.content = common.sizeContent
+  extent.siteSpecific.content = empty
+}
+
+## -- margins SECTION --
+div {
+  margins.margin.content &=
+    element location {
+      margins.margin.location.attrib,
+      grammar {
+        include "result.rnc" {
+          result.value.content = parent margins.margin.location.values
+        }
+      }
+    }
+    & grammar {
+        include "result.rnc" {
+          result.value.content = parent margins.margin.value.values
+        }
+      }
+    & grammar {
+        include "result.rnc" {
+          start =
+            element closest {
+              parent margins.margin.closest.attrib, result.content
+            }
+          result.value.content = parent margins.margin.closest.values
+        }
+      }?
+    & grammar {
+        include "result.rnc" {
+          start =
+            element distance {
+              parent margins.margin.distance.attrib, result.content
+            }
+          result.value.content = parent length.content
+          result.value.attrib =
+            attribute comparison {
+              parent result.value.comparison.values
+            }
+        }
+      }?
+  margins.siteSpecific.content = empty
+}
+
+## -- metastases CONTENT --
+div {
+  metastases.metastasis.content =
+    grammar {
+      include "result.rnc" {
+        start =
+          element site {
+            parent metastases.metastasis.site.attrib, result.content
+          }
+        result.value.content = parent metastases.metastasis.site.values
+      }
+    },
+    grammar {
+      include "result.rnc" {
+        start =
+          element howDiagnosed {
+            parent metastases.metastasis.howDiagnosed.attrib,
+            result.content
+          }
+        result.value.content =
+          parent metastases.metastasis.howDiagnosed.values
+      }
+    },
+    common.size
+  metastases.siteSpecific.content = empty
+}
+
+## -- nodes CONTENT --
+div {
+  nodes.group.content =
+    element location {
+      nodes.group.location.attrib,
+      (grammar {
+         include "result.rnc" {
+           result.value.content = parent nodes.group.location.values
+         }
+       }
+       & common.native.content)
+    }
+    & element total {
+        nodes.group.category.attrib,
+        grammar {
+          include "result.rnc" {
+            result.value.content = xsd:integer { minInclusive = "0" }
+          }
+        }
+      }
+    & (element positive {
+         nodes.group.category.attrib,
+         grammar {
+           include "result.rnc" {
+             result.value.content = xsd:integer { minInclusive = "0" }
+           }
+         }
+       }
+       & element largest { common.sizeContent }
+       & element extracapsular {
+           grammar {
+             include "result.rnc" {
+               result.value.content =
+                 parent common.extendedBoolean.values
+             }
+           }
+         })?
+    & element negative {
+        nodes.group.category.attrib,
+        grammar {
+          include "result.rnc" {
+            result.value.content = xsd:integer { minInclusive = "0" }
+          }
+        }
+      }?
+    & element regressed {
+        nodes.group.category.attrib,
+        grammar {
+          include "result.rnc" {
+            result.value.content = xsd:integer { minInclusive = "0" }
+          }
+        }
+      }?
+    & element other {
+        nodes.group.category.attrib,
+        grammar {
+          include "result.rnc" {
+            result.value.content = xsd:integer { minInclusive = "0" }
+          }
+        }
+      }?
+  nodes.group.location.attrib = empty
+  nodes.group.location.values = xsd:token
+  nodes.group.category.attrib = empty
+  nodes.siteSpecific.content = empty
+}
+
+## -- specimen CONTENT --
+div {
+  specimen.procedure.content &=
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent specimen.procedure.values
+      }
+    }
+  specimen.site.content &=
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent specimen.site.values
+      }
+    }
+  specimen.tumorLocation.content &=
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent specimen.site.values
+      }
+    }
+  specimen.integrity.content &=
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent specimen.integrity.values
+      }
+    }
+  specimen.grossSize.content |= common.size
+  specimen.weight.content |=
+    grammar {
+      include "result.rnc" {
+        result.value.content = xsd:float
+        result.value.attrib =
+          attribute comparison { parent result.value.comparison.values }
+      }
+    },
+    grammar {
+      include "result.rnc" {
+        start =
+          element unit {
+            parent specimen.weight.unit.attrib, result.content
+          }
+        result.value.content = parent common.weightUnit.values
+      }
+    }
+  specimen.siteSpecific.content = empty
+}
+
+## -- stage CONTENT --
+div {
+  stage.prefix =
+    element prefix {
+      stage.prefix.attrib, (stage.prefix.content & common.content)
+    }
+  stage.prefix.content =
+    grammar {
+      include "result.rnc" {
+        start = element prefix { result.content }
+        result.value.content = parent stage.prefix.values
+      }
+    }
+  stage.T.content =
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent stage.T.values
+      }
+    }
+  stage.M.content =
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent stage.M.values
+      }
+    }
+  stage.N.content =
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent stage.N.values
+      }
+    }
+  stage.classification.content =
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent stage.classification.values
+      }
+    }
+  stage.siteSpecific.content = empty
+}
+
+## -- studies CONTENT --
+div {
+  studies.study.content =
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent studies.study.value.values
+      }
+    }
+    & grammar {
+        include "result.rnc" {
+          start =
+            element method {
+              parent studies.study.method.attrib, result.content
+            }
+          result.value.content = parent studies.study.method.values
+        }
+      }?
+  studies.siteSpecific.content = empty
+}
+
+## -- tumor CONTENT --
+div {
+  tumor.histologicType.content |=
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent tumor.histologicType.value.values
+      }
+    }
+  tumor.grade.content |=
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent tumor.grade.values
+      }
+    }
+  tumor.grade.system.content =
+    grammar {
+      include "result.rnc" {
+        result.value.content = parent tumor.grade.system.values
+      }
+    }
+  tumor.siteSpecific.content = empty
+}

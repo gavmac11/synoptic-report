@@ -19,7 +19,7 @@
                         <value>trachea</value>
                         <value>esophagus</value>
                         <value>vertebral body</value>
-                        <value>other</value>
+                        <value>specify</value>
                     </choice>
                 </element>
             </optional>

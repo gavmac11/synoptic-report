@@ -10,7 +10,7 @@
    </a:documentation>
    <div>
       <a:documentation>== COMMON VALUES ==</a:documentation>
-      <define name="result.value.comparison.values">
+      <define name="value.result.comparison.values">
          <a:documentation>for modifier applied to result.value elements that accept a numeric
             value</a:documentation>
          <choice>
@@ -37,7 +37,7 @@
             <value>mm</value>
             <value>cm</value>
             <value>in</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
       <define name="common.inflammation.values">
@@ -47,7 +47,7 @@
             <value>acute</value>
             <value>acute and chronic</value>
             <value>chronic</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
       <define name="common.laterality.values">
@@ -58,7 +58,7 @@
             <value>left</value>
             <value>midline</value>
             <value>bilateral</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
       <define name="common.date.values">
@@ -125,7 +125,7 @@
          <choice>
             <value>g</value>
             <value>kg</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
    </div>
@@ -159,7 +159,7 @@
             <value>slight response</value>
             <value>marked response</value>
             <value>complete response</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
    </div>
@@ -212,7 +212,7 @@
             <value>prior accession</value>
             <value>outside report</value>
             <value>clinical history</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
    </div>
@@ -224,7 +224,7 @@
             <value>negative</value>
             <value>positive</value>
             <value>regressed</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
    </div>
@@ -281,14 +281,14 @@
             <value>X</value>
             <value>0</value>
             <value>1</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
       <define name="stage.M.values">
          <choice>
             <value>X</value>
             <value>1</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
       <define name="stage.classification.values">
@@ -299,7 +299,7 @@
             <value>y</value>
             <value>r</value>
             <value>a</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
       <define name="suffix-values">
@@ -333,14 +333,14 @@
             <value>3</value>
             <value>4</value>
             <value>X</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
       <define combine="choice" name="tumor.grade.system.values">
          <choice>
             <value>WHO</value>
             <value>not specified</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
    </div>

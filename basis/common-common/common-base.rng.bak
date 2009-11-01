@@ -42,7 +42,7 @@
       </a:documentation>
       <div>
          <a:documentation>-- ROOT ITEM --</a:documentation>
-         <start combine="choice">
+         <start>
             <element name="synopsis">
                <a:documentation>.. synopsis ELEMENT ..</a:documentation>
                <ref name="synopsis.attrib"/>
@@ -55,7 +55,9 @@
       </div>
       <div>
          <a:documentation>-- ROOT CONTENT --</a:documentation>
-         <define name="synopsis.content">
+         <a:documentation>To represent a particular method (e.g. resection, biopsy, FNA), the selection and optionality of the sections should be redefined</a:documentation>
+         <a:documentation>This listing is simply an alphabetical list of all available sections.</a:documentation>
+         <define combine="choice" name="synopsis.content">
             <ref name="accessory"/>
             <ref name="additional"/>
             <ref name="clinical"/>
@@ -74,10 +76,10 @@
          <define combine="interleave" name="synopsis.attrib">
             <a:documentation>-- synopsis ATTRIBUTES --</a:documentation>
             <attribute name="schemaLocation">
-               <ref name="schemaLocation.value"/>
+               <ref name="schemaLocation.values"/>
             </attribute>
             <attribute name="version">
-               <ref name="version.value"/>
+               <ref name="version.values"/>
             </attribute>
             <attribute name="transformation" ns="http://www.w3.org/2003/g/data-view#"/>
          </define>
@@ -253,20 +255,24 @@
                   </interleave>
                </element>
             </optional>
+            <ref name="accessory.siteSpecific.content"/>
          </interleave>
       </define>
       <define combine="interleave" name="additional.content">
          <a:documentation>-- additional ITEMS --</a:documentation>
-         <zeroOrMore>
-            <a:documentation>.. item ELEMENT ..</a:documentation>
-            <element name="item">
-               <ref name="additional.item.attrib"/>
-               <interleave>
-                  <ref name="additional.item.content"/>
-                  <ref name="common.content"/>
-               </interleave>
-            </element>
-         </zeroOrMore>
+         <interleave>
+            <zeroOrMore>
+               <a:documentation>.. item ELEMENT ..</a:documentation>
+               <element name="item">
+                  <ref name="additional.item.attrib"/>
+                  <interleave>
+                     <ref name="additional.item.content"/>
+                     <ref name="common.content"/>
+                  </interleave>
+               </element>
+            </zeroOrMore>
+            <ref name="additional.siteSpecific.content"/>
+         </interleave>
       </define>
       <define combine="interleave" name="clinical.content">
          <a:documentation>-- clinical ITEMS --</a:documentation>
@@ -301,52 +307,65 @@
                   </interleave>
                </element>
             </zeroOrMore>
+            <ref name="clinical.siteSpecific.content"/>
          </interleave>
       </define>
       <define combine="interleave" name="extent.content">
          <a:documentation>-- extent ITEMS --</a:documentation>
-         <ref name="common.size">
-            <a:documentation>.. size ELEMENT ..</a:documentation>
-         </ref>
+         <interleave>
+            <ref name="common.size">
+               <a:documentation>.. size ELEMENT ..</a:documentation>
+            </ref>
+            <ref name="extent.siteSpecific.content"/>
+         </interleave>
       </define>
       <define combine="interleave" name="margins.content">
          <a:documentation>-- margins ITEMS --</a:documentation>
-         <zeroOrMore>
-            <a:documentation>.. margin ELEMENT ..</a:documentation>
-            <element name="margin">
-               <ref name="margins.margin.attrib"/>
-               <interleave>
-                  <ref name="margins.margin.content"/>
-                  <ref name="common.content"/>
-               </interleave>
-            </element>
-         </zeroOrMore>
+         <interleave>
+            <zeroOrMore>
+               <a:documentation>.. margin ELEMENT ..</a:documentation>
+               <element name="margin">
+                  <ref name="margins.margin.attrib"/>
+                  <interleave>
+                     <ref name="margins.margin.content"/>
+                     <ref name="common.content"/>
+                  </interleave>
+               </element>
+            </zeroOrMore>
+            <ref name="extent.siteSpecific.content"/>
+         </interleave>
       </define>
       <define combine="interleave" name="metastases.content">
          <a:documentation>-- metastases ITEMS --</a:documentation>
-         <zeroOrMore>
-            <a:documentation>.. metastasis ELEMENT ..</a:documentation>
-            <element name="metastasis">
-               <ref name="metastases.metastasis.attrib"/>
-               <interleave>
-                  <ref name="metastases.metastasis.content"/>
-                  <ref name="common.content"/>
-               </interleave>
-            </element>
-         </zeroOrMore>
+         <interleave>
+            <zeroOrMore>
+               <a:documentation>.. metastasis ELEMENT ..</a:documentation>
+               <element name="metastasis">
+                  <ref name="metastases.metastasis.attrib"/>
+                  <interleave>
+                     <ref name="metastases.metastasis.content"/>
+                     <ref name="common.content"/>
+                  </interleave>
+               </element>
+            </zeroOrMore>
+            <ref name="metastases.siteSpecific.content"/>
+         </interleave>
       </define>
       <define combine="interleave" name="nodes.content">
          <a:documentation>-- nodes ITEMS --</a:documentation>
-         <zeroOrMore>
-            <a:documentation>.. group ELEMENT ..</a:documentation>
-            <element name="group">
-               <ref name="nodes.group.attrib"/>
-               <interleave>
-                  <ref name="nodes.group.content"/>
-                  <ref name="common.content"/>
-               </interleave>
-            </element>
-         </zeroOrMore>
+         <interleave>
+            <zeroOrMore>
+               <a:documentation>.. group ELEMENT ..</a:documentation>
+               <element name="group">
+                  <ref name="nodes.group.attrib"/>
+                  <interleave>
+                     <ref name="nodes.group.content"/>
+                     <ref name="common.content"/>
+                  </interleave>
+               </element>
+            </zeroOrMore>
+            <ref name="nodes.siteSpecific.content"/>
+         </interleave>
       </define>
       <define combine="interleave" name="specimen.content">
          <a:documentation>-- specimen ITEMS --</a:documentation>
@@ -412,65 +431,72 @@
                   </interleave>
                </element>
             </optional>
+            <ref name="specimen.siteSpecific.content"/>
          </interleave>
       </define>
       <define combine="interleave" name="stage.content">
          <a:documentation>-- stage ITEMS --</a:documentation>
-         <optional>
-            <a:documentation>.. stage prefix ELEMENT(s) ..</a:documentation>
-            <ref name="stage.prefix"/>
+         <interleave>
             <optional>
+               <a:documentation>.. stage prefix ELEMENT(s) ..</a:documentation>
                <ref name="stage.prefix"/>
                <optional>
                   <ref name="stage.prefix"/>
+                  <optional>
+                     <ref name="stage.prefix"/>
+                  </optional>
                </optional>
             </optional>
-         </optional>
-         <element name="classification">
-            <a:documentation>.. classification ELEMENT ..</a:documentation>
-            <ref name="stage.classification.attrib"/>
-            <interleave>
-               <ref name="stage.classification.content"/>
-               <ref name="common.content"/>
-            </interleave>
-         </element>
-         <element name="T">
-            <a:documentation>.. T ELEMENT ..</a:documentation>
-            <ref name="stage.T.attrib"/>
-            <interleave>
-               <ref name="stage.T.content"/>
-               <ref name="common.content"/>
-            </interleave>
-         </element>
-         <element name="N">
-            <a:documentation>.. N ELEMENT ..</a:documentation>
-            <ref name="stage.N.attrib"/>
-            <interleave>
-               <ref name="stage.N.content"/>
-               <ref name="common.content"/>
-            </interleave>
-         </element>
-         <element name="M">
-            <a:documentation>.. M ELEMENT ..</a:documentation>
-            <ref name="stage.M.attrib"/>
-            <interleave>
-               <ref name="stage.M.content"/>
-               <ref name="common.content"/>
-            </interleave>
-         </element>
-      </define>
-      <define combine="interleave" name="studies.content">
-         <a:documentation>-- studies ITEMS --</a:documentation>
-         <zeroOrMore>
-            <a:documentation>.. study ELEMENT ..</a:documentation>
-            <element name="study">
-               <ref name="studies.study.attrib"/>
+            <element name="classification">
+               <a:documentation>.. classification ELEMENT ..</a:documentation>
+               <ref name="stage.classification.attrib"/>
                <interleave>
-                  <ref name="studies.study.content"/>
+                  <ref name="stage.classification.content"/>
                   <ref name="common.content"/>
                </interleave>
             </element>
-         </zeroOrMore>
+            <element name="T">
+               <a:documentation>.. T ELEMENT ..</a:documentation>
+               <ref name="stage.T.attrib"/>
+               <interleave>
+                  <ref name="stage.T.content"/>
+                  <ref name="common.content"/>
+               </interleave>
+            </element>
+            <element name="N">
+               <a:documentation>.. N ELEMENT ..</a:documentation>
+               <ref name="stage.N.attrib"/>
+               <interleave>
+                  <ref name="stage.N.content"/>
+                  <ref name="common.content"/>
+               </interleave>
+            </element>
+            <element name="M">
+               <a:documentation>.. M ELEMENT ..</a:documentation>
+               <ref name="stage.M.attrib"/>
+               <interleave>
+                  <ref name="stage.M.content"/>
+                  <ref name="common.content"/>
+               </interleave>
+            </element>
+            <ref name="stage.siteSpecific.content"/>
+         </interleave>
+      </define>
+      <define combine="interleave" name="studies.content">
+         <a:documentation>-- studies ITEMS --</a:documentation>
+         <interleave>
+            <zeroOrMore>
+               <a:documentation>.. study ELEMENT ..</a:documentation>
+               <element name="study">
+                  <ref name="studies.study.attrib"/>
+                  <interleave>
+                     <ref name="studies.study.content"/>
+                     <ref name="common.content"/>
+                  </interleave>
+               </element>
+            </zeroOrMore>
+            <ref name="studies.siteSpecific.content"/>
+         </interleave>
       </define>
       <define combine="interleave" name="tumor.content">
          <a:documentation>-- tumor ITEMS --</a:documentation>
@@ -503,6 +529,7 @@
                   </element>
                </optional>
             </element>
+            <ref name="tumor.siteSpecific.content"/>
          </interleave>
       </define>
    </div>
@@ -520,8 +547,8 @@
             <a:documentation>.. venousInvasion CONTENT ..</a:documentation>
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="venousInvasion.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="venousInvasion.values"/>
                   </define>
                </include>
             </grammar>
@@ -530,8 +557,8 @@
             <a:documentation>.. lymphovascularInvasion CONTENT ..</a:documentation>
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="lymphovascularInvasion.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="lymphovascularInvasion.values"/>
                   </define>
                </include>
             </grammar>
@@ -540,8 +567,8 @@
             <a:documentation>.. perineuralInvasion CONTENT ..</a:documentation>
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="perineuralInvasion.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="perineuralInvasion.values"/>
                   </define>
                </include>
             </grammar>
@@ -550,11 +577,14 @@
             <a:documentation>.. treatmentEffect CONTENT ..</a:documentation>
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="treatmentEffect.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="treatmentEffect.values"/>
                   </define>
                </include>
             </grammar>
+         </define>
+         <define name="accessory.siteSpecific.content">
+            <empty/>
          </define>
       </div>
       <div>
@@ -565,6 +595,9 @@
                <include href="&result;"/>
             </grammar>
          </define>
+         <define name="additional.siteSpecific.content">
+            <empty/>
+         </define>
       </div>
       <div>
          <a:documentation>-- clinical CONTENT --</a:documentation>
@@ -573,14 +606,14 @@
             <interleave>
                <grammar>
                   <include href="&result;">
-                     <define name="result.value.content">
-                        <parentRef name="clinical.priorTherapy.value"/>
+                     <define name="value.result.content">
+                        <parentRef name="clinical.priorTherapy.values"/>
                      </define>
                   </include>
                </grammar>
                <optional>
                   <element name="date">
-                     <ref name="common.date.value"/>
+                     <ref name="common.date.values"/>
                   </element>
                </optional>
             </interleave>
@@ -590,14 +623,14 @@
             <interleave>
                <grammar>
                   <include href="&result;">
-                     <define name="result.value.content">
-                        <parentRef name="clinical.clinicalFinding.value"/>
+                     <define name="value.result.content">
+                        <parentRef name="clinical.clinicalFinding.values"/>
                      </define>
                   </include>
                </grammar>
                <optional>
                   <element name="date">
-                     <ref name="common.date.value"/>
+                     <ref name="common.date.values"/>
                   </element>
                </optional>
             </interleave>
@@ -607,17 +640,20 @@
             <interleave>
                <grammar>
                   <include href="&result;">
-                     <define name="result.value.content">
-                        <parentRef name="clinical.radiologicFinding.value"/>
+                     <define name="value.result.content">
+                        <parentRef name="clinical.radiologicFinding.values"/>
                      </define>
                   </include>
                </grammar>
                <optional>
                   <element name="date">
-                     <ref name="common.date.value"/>
+                     <ref name="common.date.values"/>
                   </element>
                </optional>
             </interleave>
+         </define>
+         <define name="clinical.siteSpecific.content">
+            <empty/>
          </define>
       </div>
       <div>
@@ -625,6 +661,9 @@
          <define name="extent.size.content">
             <a:documentation>.. size CONTENT ..</a:documentation>
             <ref name="common.sizeContent"/>
+         </define>
+         <define name="extent.siteSpecific.content">
+            <empty/>
          </define>
       </div>
       <div>
@@ -635,16 +674,16 @@
                   <ref name="margins.margin.location.attrib"/>
                   <grammar>
                      <include href="&result;">
-                        <define name="result.value.content">
-                           <parentRef name="margins.margin.location.value"/>
+                        <define name="value.result.content">
+                           <parentRef name="margins.margin.location.values"/>
                         </define>
                      </include>
                   </grammar>
                </element>
                <grammar>
                   <include href="&result;">
-                     <define name="result.value.content">
-                        <parentRef name="margins.margin.value.value"/>
+                     <define name="value.result.content">
+                        <parentRef name="margins.margin.value.values"/>
                      </define>
                   </include>
                </grammar>
@@ -654,11 +693,11 @@
                         <start>
                            <element name="closest">
                               <parentRef name="margins.margin.closest.attrib"/>
-                              <ref name="result.content"/>
+                              <ref name="resultx.content"/>
                            </element>
                         </start>
-                        <define name="result.value.content">
-                           <parentRef name="margins.margin.closest.value"/>
+                        <define name="value.result.content">
+                           <parentRef name="margins.margin.closest.values"/>
                         </define>
                      </include>
                   </grammar>
@@ -669,16 +708,24 @@
                         <start>
                            <element name="distance">
                               <parentRef name="margins.margin.distance.attrib"/>
-                              <ref name="result.content"/>
+                              <ref name="resultx.content"/>
                            </element>
                         </start>
-                        <define name="result.value.content">
+                        <define name="value.result.content">
                            <parentRef name="length.content"/>
+                        </define>
+                        <define name="value.result.attrib">
+                           <attribute name="comparison">
+                              <parentRef name="value.result.comparison.values"/>
+                           </attribute>
                         </define>
                      </include>
                   </grammar>
                </optional>
             </interleave>
+         </define>
+         <define name="margins.siteSpecific.content">
+            <empty/>
          </define>
       </div>
       <div>
@@ -689,11 +736,11 @@
                   <start>
                      <element name="site">
                         <parentRef name="metastases.metastasis.site.attrib"/>
-                        <ref name="result.content"/>
+                        <ref name="resultx.content"/>
                      </element>
                   </start>
-                  <define name="result.value.content">
-                     <parentRef name="metastases.metastasis.site.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="metastases.metastasis.site.values"/>
                   </define>
                </include>
             </grammar>
@@ -702,15 +749,18 @@
                   <start>
                      <element name="howDiagnosed">
                         <parentRef name="metastases.metastasis.howDiagnosed.attrib"/>
-                        <ref name="result.content"/>
+                        <ref name="resultx.content"/>
                      </element>
                   </start>
-                  <define name="result.value.content">
-                     <parentRef name="metastases.metastasis.howDiagnosed.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="metastases.metastasis.howDiagnosed.values"/>
                   </define>
                </include>
             </grammar>
             <ref name="common.size"/>
+         </define>
+         <define name="metastases.siteSpecific.content">
+            <empty/>
          </define>
       </div>
       <div>
@@ -722,8 +772,8 @@
                   <interleave>
                      <grammar>
                         <include href="common-result.rng">
-                           <define name="result.value.content">
-                              <parentRef name="nodes.group.location.value"/>
+                           <define name="value.result.content">
+                              <parentRef name="nodes.group.location.values"/>
                            </define>
                         </include>
                      </grammar>
@@ -734,7 +784,7 @@
                   <ref name="nodes.group.category.attrib"/>
                   <grammar>
                      <include href="common-result.rng">
-                        <define name="result.value.content">
+                        <define name="value.result.content">
                            <data type="integer">
                               <param name="minInclusive">0</param>
                            </data>
@@ -748,7 +798,7 @@
                         <ref name="nodes.group.category.attrib"/>
                         <grammar>
                            <include href="common-result.rng">
-                              <define name="result.value.content">
+                              <define name="value.result.content">
                                  <data type="integer">
                                     <param name="minInclusive">0</param>
                                  </data>
@@ -762,8 +812,8 @@
                      <element name="extracapsular">
                         <grammar>
                            <include href="common-result.rng">
-                              <define name="result.value.content">
-                                 <parentRef name="common.extendedBoolean.value"/>
+                              <define name="value.result.content">
+                                 <parentRef name="common.extendedBoolean.values"/>
                               </define>
                            </include>
                         </grammar>
@@ -775,7 +825,7 @@
                      <ref name="nodes.group.category.attrib"/>
                      <grammar>
                         <include href="common-result.rng">
-                           <define name="result.value.content">
+                           <define name="value.result.content">
                               <data type="integer">
                                  <param name="minInclusive">0</param>
                               </data>
@@ -789,7 +839,7 @@
                      <ref name="nodes.group.category.attrib"/>
                      <grammar>
                         <include href="common-result.rng">
-                           <define name="result.value.content">
+                           <define name="value.result.content">
                               <data type="integer">
                                  <param name="minInclusive">0</param>
                               </data>
@@ -803,7 +853,7 @@
                      <ref name="nodes.group.category.attrib"/>
                      <grammar>
                         <include href="common-result.rng">
-                           <define name="result.value.content">
+                           <define name="value.result.content">
                               <data type="integer">
                                  <param name="minInclusive">0</param>
                               </data>
@@ -817,10 +867,13 @@
          <define name="nodes.group.location.attrib">
             <empty/>
          </define>
-         <define name="nodes.group.location.value">
+         <define name="nodes.group.location.values">
             <data type="token"/>
          </define>
          <define name="nodes.group.category.attrib">
+            <empty/>
+         </define>
+         <define name="nodes.siteSpecific.content">
             <empty/>
          </define>
       </div>
@@ -829,8 +882,8 @@
          <define combine="interleave" name="specimen.procedure.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="specimen.procedure.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="specimen.procedure.values"/>
                   </define>
                </include>
             </grammar>
@@ -838,8 +891,8 @@
          <define combine="interleave" name="specimen.site.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="specimen.site.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="specimen.site.values"/>
                   </define>
                </include>
             </grammar>
@@ -847,8 +900,8 @@
          <define combine="interleave" name="specimen.tumorLocation.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="specimen.site.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="specimen.site.values"/>
                   </define>
                </include>
             </grammar>
@@ -856,8 +909,8 @@
          <define combine="interleave" name="specimen.integrity.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="specimen.integrity.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="specimen.integrity.values"/>
                   </define>
                </include>
             </grammar>
@@ -868,8 +921,13 @@
          <define combine="choice" name="specimen.weight.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <data type="float"/>
+                  </define>
+                  <define name="value.result.attrib">
+                     <attribute name="comparison">
+                        <parentRef name="value.result.comparison.values"/>
+                     </attribute>
                   </define>
                </include>
             </grammar>
@@ -878,14 +936,17 @@
                   <start>
                      <element name="unit">
                         <parentRef name="specimen.weight.unit.attrib"/>
-                        <ref name="result.content"/>
+                        <ref name="resultx.content"/>
                      </element>
                   </start>
-                  <define name="result.value.content">
-                     <parentRef name="common.weightUnit.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="common.weightUnit.values"/>
                   </define>
                </include>
             </grammar>
+         </define>
+         <define name="specimen.siteSpecific.content">
+            <empty/>
          </define>
       </div>
       <div>
@@ -904,11 +965,11 @@
                <include href="&result;">
                   <start>
                      <element name="prefix">
-                        <ref name="result.content"/>
+                        <ref name="resultx.content"/>
                      </element>
                   </start>
-                  <define name="result.value.content">
-                     <parentRef name="stage.prefix.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="stage.prefix.values"/>
                   </define>
                </include>
             </grammar>
@@ -916,8 +977,8 @@
          <define name="stage.T.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="stage.T.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="stage.T.values"/>
                   </define>
                </include>
             </grammar>
@@ -925,8 +986,8 @@
          <define name="stage.M.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="stage.M.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="stage.M.values"/>
                   </define>
                </include>
             </grammar>
@@ -934,8 +995,8 @@
          <define name="stage.N.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="stage.N.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="stage.N.values"/>
                   </define>
                </include>
             </grammar>
@@ -943,11 +1004,14 @@
          <define name="stage.classification.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="stage.classification.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="stage.classification.values"/>
                   </define>
                </include>
             </grammar>
+         </define>
+         <define name="stage.siteSpecific.content">
+            <empty/>
          </define>
       </div>
       <div>
@@ -956,8 +1020,8 @@
             <interleave>
                <grammar>
                   <include href="&result;">
-                     <define name="result.value.content">
-                        <parentRef name="studies.study.value.value"/>
+                     <define name="value.result.content">
+                        <parentRef name="studies.study.value.values"/>
                      </define>
                   </include>
                </grammar>
@@ -967,16 +1031,19 @@
                         <start>
                            <element name="method">
                               <parentRef name="studies.study.method.attrib"/>
-                              <ref name="result.content"/>
+                              <ref name="resultx.content"/>
                            </element>
                         </start>
-                        <define name="result.value.content">
-                           <parentRef name="studies.study.method.value"/>
+                        <define name="value.result.content">
+                           <parentRef name="studies.study.method.values"/>
                         </define>
                      </include>
                   </grammar>
                </optional>
             </interleave>
+         </define>
+         <define name="studies.siteSpecific.content">
+            <empty/>
          </define>
       </div>
       <div>
@@ -984,8 +1051,8 @@
          <define combine="choice" name="tumor.histologicType.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="tumor.histologicType.value.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="tumor.histologicType.value.values"/>
                   </define>
                </include>
             </grammar>
@@ -993,8 +1060,8 @@
          <define combine="choice" name="tumor.grade.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="tumor.grade.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="tumor.grade.values"/>
                   </define>
                </include>
             </grammar>
@@ -1002,11 +1069,14 @@
          <define name="tumor.grade.system.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
-                     <parentRef name="tumor.grade.system.value"/>
+                  <define name="value.result.content">
+                     <parentRef name="tumor.grade.system.values"/>
                   </define>
                </include>
             </grammar>
+         </define>
+         <define name="tumor.siteSpecific.content">
+            <empty/>
          </define>
       </div>
    </div>
@@ -1043,7 +1113,7 @@
          </define>
          <define combine="interleave" name="additional.item.attrib">
             <attribute name="name">
-               <ref name="additional.item.name.value"/>
+               <ref name="additional.item.name.values"/>
             </attribute>
          </define>
       </div>
@@ -1168,7 +1238,7 @@
          </define>
          <define combine="interleave" name="studies.study.attrib">
             <attribute name="name">
-               <ref name="studies.study.name.value"/>
+               <ref name="studies.study.name.values"/>
             </attribute>
          </define>
          <define name="studies.study.method.attrib">

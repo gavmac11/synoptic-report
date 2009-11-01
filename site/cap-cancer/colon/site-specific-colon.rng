@@ -71,7 +71,7 @@
                                         <choice>
                                         <value>pedunculated</value>
                                         <value>sessile</value>
-                                        <value>other</value>
+                                        <value>specify</value>
                                         </choice>
                                         </element>
                                     </optional>
@@ -96,7 +96,7 @@
                 <value>medullary carcinoma</value>
                 <value>undifferentiated carcinoma</value>
                 <value>carcinoma indeterminate type</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </define>
         <define name="gradingSystem-values">
@@ -204,7 +204,7 @@
                 <value>10:00</value>
                 <value>11:00</value>
                 <value>12:00</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </define>
         <define name="marginStatus-values">
@@ -273,7 +273,7 @@
                                     <value>inapplicable</value>
                                     <value>inconclusive</value>
                                     <value>indeterminate</value>
-                                    <value>other</value>
+                                    <value>specify</value>
                                 </choice>
                             </element>
                         </optional>
@@ -288,7 +288,7 @@
                                     <choice>
                                         <value>adheres</value>
                                         <value>invades</value>
-                                        <value>other</value>
+                                        <value>specify</value>
                                     </choice>
                                 </attribute>
                             </element>

@@ -23,44 +23,43 @@
     ===========================================================================
 
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <start>
-        <element name="result">
-            <ref name="result.attrib"/>
-            <ref name="result.content"/>
-        </element>
-    </start>
-    <define name="result.attrib">
-        <empty/>
-    </define>
-    <define name="result.content">
-        <interleave>
-            <element name="value">
-                <ref name="value.attrib"/>
-                <ref name="valueset"/>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+   xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+   <start>
+      <element name="resultx">
+         <ref name="resultx.attrib"/>
+         <ref name="resultx.content"/>
+      </element>
+   </start>
+   <define name="resultx.attrib">
+      <empty/>
+   </define>
+   <define name="resultx.content">
+      <interleave>
+         <element name="value">
+            <ref name="value.attrib"/>
+            <ref name="valueset"/>
+         </element>
+         <optional>
+            <element name="specify">
+               <data type="token"/>
+               <ref name="specify.attrib"/>
             </element>
-            <optional>
-                <element name="otherValue">
-                    <ref name="otherValue.attrib"/>
-                    <data type="token"/>
-                </element>
-            </optional>
-            <parentRef name="base.content"/>
-        </interleave>
-    </define>
-    <define name="value.attrib">
-        <zeroOrMore>
-            <parentRef name="anyUserAttribute"/>
-        </zeroOrMore>
-    </define>
-    <define name="otherValue.attrib">
-        <zeroOrMore>
-            <parentRef name="anyUserAttribute"/>
-        </zeroOrMore>
-    </define>
-    <define combine="choice" name="valueset">
-        <data type="token"/>
-    </define>
+         </optional>
+         <parentRef name="common.content"/>
+      </interleave>
+   </define>
+   <define name="value.attrib">
+      <zeroOrMore>
+         <parentRef name="anyUserAttribute"/>
+      </zeroOrMore>
+   </define>
+   <define name="specify.attrib">
+      <zeroOrMore>
+         <parentRef name="anyUserAttribute"/>
+      </zeroOrMore>
+   </define>
+   <define combine="choice" name="valueset">
+      <data type="token"/>
+   </define>
 </grammar>

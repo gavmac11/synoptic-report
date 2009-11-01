@@ -168,14 +168,14 @@
             <value>acute</value>
             <value>acute and chronic</value>
             <value>chronic</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
       <define name="common.laterality.values">
          <choice>
             <value>right</value>
             <value>left</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
       <define name="common.date.values">
@@ -199,7 +199,7 @@
          <choice>
             <value>g</value>
             <value>kg</value>
-            <value>other</value>
+            <value>specify</value>
          </choice>
       </define>
    </div>
@@ -207,7 +207,7 @@
       <a:documentation>== COMMON ELEMENTS ==</a:documentation>
       <define name="laterality">
          <grammar>
-            <include href="result.rng">
+            <include href="resultx.rng">
                <define name="valueset">
                   <parentRef name="common.laterality.values"/>
                </define>
@@ -220,7 +220,7 @@
                <ref name="common.lengthUnit.values"/>
             </element>
             <grammar>
-               <include href="result.rng">
+               <include href="resultx.rng">
                   <define name="valueset">
                      <data type="decimal">
                         <param name="minExclusive">0.0</param>

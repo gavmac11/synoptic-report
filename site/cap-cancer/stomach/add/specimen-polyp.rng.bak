@@ -5,19 +5,19 @@
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <element name="polyp">
         <interleave>
-            <ref name="base.standard.content"/>
+            <ref name="common.standard.content"/>
             <optional>
                 <externalRef href="../../../../common/size.rng"/>
             </optional>
             <optional>
                 <element name="configuration">
-                    <ref name="base.standard.content"/>
+                    <ref name="common.standard.content"/>
                     <optional>
                         <element name="value">
                             <choice>
                                 <value>pedunculated</value>
                                 <value>sessile</value>
-                                <value>other</value>
+                                <value>specify…</value>
                             </choice>
                         </element>
                     </optional>
