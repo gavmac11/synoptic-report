@@ -2,6 +2,6 @@
 <choice xmlns="http://relaxng.org/ns/structure/1.0">
     <value>liver</value>
     <value>gallbladder</value>
-    <value>other</value>
+    <value>specify</value>
     <value>not specified</value>
 </choice>

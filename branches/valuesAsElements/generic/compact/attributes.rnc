@@ -1,0 +1,117 @@
+# 
+# ===========================================================================
+# Copyright 2009 College of American Pathologists (CAP)
+# 
+# This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+# 
+# The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+# License, Version 2.0 (the "License"); you may not use this file except in 
+# compliance with the License.
+# 
+# You may obtain a copy of the License at:
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software 
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# 
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ===========================================================================
+#
+
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+a:documentation [ "============================================" ]
+a:documentation [ "============= ATTRIBUTE MODELS =============" ]
+a:documentation [ "============================================" ]
+
+## -- accessory ATTRIBUTES --
+div {
+   accessory.attrib &= empty
+   accessory.treatmentEffect.attrib &= empty
+   accessory.venousInvasion.attrib &= empty
+   accessory.perineuralInvasion.attrib &= empty
+   accessory.lymphovascularInvasion.attrib &= empty
+}
+
+## -- additional ATTRIBUTES
+div {
+   additional.attrib &= empty
+   additional.item.attrib &= attribute name { additional.item.name.values }
+}
+
+## -- clinical ATTRIBUTES --
+div {
+   clinical.attrib &= empty
+   clinical.priorTherapy.attrib &= empty
+   clinical.clinicalFinding.attrib &= empty
+   clinical.radiologicFinding.attrib &= empty
+}
+
+## -- extent ATTRIBUTES --
+div {
+   extent.attrib &= empty
+   extent.size.attrib = empty
+}
+
+## -- margins ATTRIBUTES --
+div {
+   margins.attrib &= empty
+   margins.margin.attrib = empty
+   margins.margin.location.attrib = empty
+   margins.margin.closest.attrib = empty
+   margins.margin.distance.attrib = empty
+}
+
+## -- metastases ATTRIBUTES --
+div {
+   metastases.attrib &= empty
+   metastases.metastasis.attrib = empty
+   metastases.metastasis.site.attrib = empty
+   metastases.metastasis.howDiagnosed.attrib = empty
+}
+
+## -- nodes ATTRIBUTES --
+div {
+   nodes.attrib &= empty
+   nodes.group.attrib = empty
+}
+
+## -- specimen ATTRIBUTES --
+div {
+   specimen.attrib &= empty
+   specimen.procedure.attrib &= empty
+   specimen.site.attrib &= empty
+   specimen.tumorLocation.attrib &= empty
+   specimen.integrity.attrib &= empty
+   specimen.grossSize.attrib &= empty
+   specimen.weight.attrib &= empty
+   specimen.weight.unit.attrib &= empty
+}
+
+## -- stage ATTRIBUTES --
+div {
+   stage.attrib &= empty
+   stage.prefix.attrib = empty
+   stage.T.attrib = empty
+   stage.N.attrib = empty
+   stage.M.attrib = empty
+   stage.classification.attrib = empty
+}
+
+## -- studies ATTRIBUTES --
+div {
+   studies.attrib &= empty
+   studies.study.attrib &= attribute name { studies.study.name.values }
+   studies.study.method.attrib = empty
+}
+
+## -- tumor ATTRIBUTES --
+div {
+   tumor.attrib &= empty
+   tumor.grade.attrib = empty
+   tumor.histologicType.attrib = empty
+   tumor.grade.system.attrib = empty
+}

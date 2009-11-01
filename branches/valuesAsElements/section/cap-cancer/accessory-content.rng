@@ -106,7 +106,7 @@
             <value>slightResponse</value>
             <value>markedResponse</value>
             <value>completeResponse</value>
-            <value>other</value>
+            <value>specify</value>
         </choice>
     </define>
 </grammar>

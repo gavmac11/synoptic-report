@@ -24,21 +24,19 @@
     
 -->
 <!DOCTYPE grammar [
-<!ENTITY result "result.rng">
+<!ENTITY value "value.rng">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-   xmlns="http://relaxng.org/ns/structure/1.0"
-   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-   xmlns:xi="http://www.w3.org/2001/XInclude">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+   xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
    <div>
       <a:documentation>== COMMON CONTENT ==</a:documentation>
       <define name="common.content">
          <interleave>
-            <ref name="common.standard.content"/>
+            <ref name="common.native.content"/>
             <ref name="common.custom.content"/>
          </interleave>
       </define>
-      <define name="common.standard.content" ns="http://www.cap.org/pert/2009/01/">
+      <define name="common.native.content">
          <interleave>
             <optional>
                <ref name="comment"/>
@@ -52,14 +50,7 @@
          </interleave>
       </define>
       <define name="common.custom.content">
-         <interleave>
-            <zeroOrMore>
-               <choice>
-                  <ref name="anyForeignElement"/>
-                  <ref name="anyUserAttribute"/>
-               </choice>
-            </zeroOrMore>
-         </interleave>
+         <ref name="anyForeignElement"/>
       </define>
       <define name="anyForeignElement">
          <element>
@@ -127,6 +118,11 @@
             </anyName>
          </attribute>
       </define>
+      <define name="anyUserAttributes">
+         <zeroOrMore>
+            <ref name="anyUserAttribute"/>
+         </zeroOrMore>
+      </define>
    </div>
    <div>
       <a:documentation>== BASE ELEMENTS ==</a:documentation>
@@ -154,8 +150,8 @@
       <a:documentation>== COMMON ELEMENTS ==</a:documentation>
       <define name="laterality">
          <grammar>
-            <include href="&result;">
-               <define name="result.value.content">
+            <include href="&value;">
+               <define name="value.result.content">
                   <parentRef name="common.laterality.values"/>
                </define>
             </include>
@@ -167,8 +163,8 @@
                <ref name="common.lengthUnit.values"/>
             </element>
             <grammar>
-               <include href="&result;">
-                  <define name="result.value.content">
+               <include href="&value;">
+                  <define name="value.result.content">
                      <data type="decimal">
                         <param name="minExclusive">0.0</param>
                      </data>

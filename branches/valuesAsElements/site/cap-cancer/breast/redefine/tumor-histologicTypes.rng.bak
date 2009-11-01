@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>ductal carcinoma-in-situ with microinvasion</value>
+    <value>lobular carcinoma-in-situ with microinvasion</value>
+    <value>Paget disease with microinvasion</value>
+    <value>ductal carcinoma</value>
+    <value>lobular carcinoma</value>
+    <value>mixed type carcinoma</value>
+    <value>mucinous carcinoma</value>
+    <value>medullary carcinoma</value>
+    <value>papillary carcinoma</value>
+    <value>micropapillary carcinoma</value>
+    <value>tubular carcinoma</value>
+    <value>cribriform carcinoma</value>
+    <value>indeterminate type carcinoma</value>
+    <value>specify…</value>
+</choice>

@@ -62,7 +62,7 @@
             <value>angiography abdomen</value>
             <value>with enhancement</value>
             <value>without enhancement</value>
-            <value>other</value>
+            <value>specify</value>
         </choice>
     </define>
 </grammar>

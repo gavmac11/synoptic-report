@@ -27,48 +27,45 @@
    ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
    <start combine="choice">
-      <element name="result">
-         <ref name="result.attrib"/>
-         <ref name="result.content"/>
+      <element name="resultx">
+         <ref name="resultx.attrib"/>
+         <ref name="resultx.content"/>
+         <ref name="resultx.siteSpecific.content"/>
       </element>
    </start>
-   <define combine="interleave" name="result.attrib">
+   <define combine="interleave" name="resultx.attrib">
       <empty/>
    </define>
-   <define combine="interleave" name="result.content">
+   <define combine="interleave" name="resultx.content">
       <interleave>
          <element name="value">
-            <ref name="result.value.content"/>
-            <ref name="result.value.attrib"/>
+            <ref name="value.result.content"/>
+            <ref name="value.result.attrib"/>
          </element>
          <optional>
-            <element name="otherValue">
-               <ref name="result.otherValue.content"/>
-               <ref name="result.otherValue.attrib"/>
+            <element name="specify">
+               <ref name="resultx.specify.content"/>
+               <ref name="resultx.specify.attrib"/>
             </element>
          </optional>
          <parentRef name="common.content"/>
       </interleave>
    </define>
-   <define combine="choice" name="result.value.content">
+   <define combine="choice" name="value.result.content">
       <data type="token"/>
    </define>
-   <define combine="interleave" name="result.value.attrib">
-      <optional>
-         <attribute name="modifier">
-            <parentRef name="result.value.modifier.value"/>
-         </attribute>
-      </optional>
+   <define combine="interleave" name="value.result.attrib">
+      <empty/>
+   </define>
+   <define name="resultx.specify.content">
+      <data type="token"/>
+   </define>
+   <define combine="interleave" name="resultx.specify.attrib">
       <zeroOrMore>
          <parentRef name="anyUserAttribute"/>
       </zeroOrMore>
    </define>
-   <define name="result.otherValue.content">
-      <data type="token"/>
-   </define>
-   <define combine="interleave" name="result.otherValue.attrib">
-      <zeroOrMore>
-         <parentRef name="anyUserAttribute"/>
-      </zeroOrMore>
+   <define name="resultx.siteSpecific.content">
+      <empty/>
    </define>
 </grammar>

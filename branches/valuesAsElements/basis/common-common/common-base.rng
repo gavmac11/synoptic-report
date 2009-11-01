@@ -547,7 +547,7 @@
             <a:documentation>.. venousInvasion CONTENT ..</a:documentation>
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="venousInvasion.values"/>
                   </define>
                </include>
@@ -557,7 +557,7 @@
             <a:documentation>.. lymphovascularInvasion CONTENT ..</a:documentation>
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="lymphovascularInvasion.values"/>
                   </define>
                </include>
@@ -567,7 +567,7 @@
             <a:documentation>.. perineuralInvasion CONTENT ..</a:documentation>
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="perineuralInvasion.values"/>
                   </define>
                </include>
@@ -577,7 +577,7 @@
             <a:documentation>.. treatmentEffect CONTENT ..</a:documentation>
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="treatmentEffect.values"/>
                   </define>
                </include>
@@ -606,7 +606,7 @@
             <interleave>
                <grammar>
                   <include href="&result;">
-                     <define name="result.value.content">
+                     <define name="value.result.content">
                         <parentRef name="clinical.priorTherapy.values"/>
                      </define>
                   </include>
@@ -623,7 +623,7 @@
             <interleave>
                <grammar>
                   <include href="&result;">
-                     <define name="result.value.content">
+                     <define name="value.result.content">
                         <parentRef name="clinical.clinicalFinding.values"/>
                      </define>
                   </include>
@@ -640,7 +640,7 @@
             <interleave>
                <grammar>
                   <include href="&result;">
-                     <define name="result.value.content">
+                     <define name="value.result.content">
                         <parentRef name="clinical.radiologicFinding.values"/>
                      </define>
                   </include>
@@ -674,7 +674,7 @@
                   <ref name="margins.margin.location.attrib"/>
                   <grammar>
                      <include href="&result;">
-                        <define name="result.value.content">
+                        <define name="value.result.content">
                            <parentRef name="margins.margin.location.values"/>
                         </define>
                      </include>
@@ -682,7 +682,7 @@
                </element>
                <grammar>
                   <include href="&result;">
-                     <define name="result.value.content">
+                     <define name="value.result.content">
                         <parentRef name="margins.margin.value.values"/>
                      </define>
                   </include>
@@ -693,10 +693,10 @@
                         <start>
                            <element name="closest">
                               <parentRef name="margins.margin.closest.attrib"/>
-                              <ref name="result.content"/>
+                              <ref name="value.content"/>
                            </element>
                         </start>
-                        <define name="result.value.content">
+                        <define name="value.result.content">
                            <parentRef name="margins.margin.closest.values"/>
                         </define>
                      </include>
@@ -708,15 +708,15 @@
                         <start>
                            <element name="distance">
                               <parentRef name="margins.margin.distance.attrib"/>
-                              <ref name="result.content"/>
+                              <ref name="value.content"/>
                            </element>
                         </start>
-                        <define name="result.value.content">
+                        <define name="value.result.content">
                            <parentRef name="length.content"/>
                         </define>
-                        <define name="result.value.attrib">
+                        <define name="value.result.attrib">
                            <attribute name="comparison">
-                              <parentRef name="result.value.comparison.values"/>
+                              <parentRef name="value.result.comparison.values"/>
                            </attribute>
                         </define>
                      </include>
@@ -736,10 +736,10 @@
                   <start>
                      <element name="site">
                         <parentRef name="metastases.metastasis.site.attrib"/>
-                        <ref name="result.content"/>
+                        <ref name="value.content"/>
                      </element>
                   </start>
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="metastases.metastasis.site.values"/>
                   </define>
                </include>
@@ -749,10 +749,10 @@
                   <start>
                      <element name="howDiagnosed">
                         <parentRef name="metastases.metastasis.howDiagnosed.attrib"/>
-                        <ref name="result.content"/>
+                        <ref name="value.content"/>
                      </element>
                   </start>
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="metastases.metastasis.howDiagnosed.values"/>
                   </define>
                </include>
@@ -772,7 +772,7 @@
                   <interleave>
                      <grammar>
                         <include href="common-result.rng">
-                           <define name="result.value.content">
+                           <define name="value.result.content">
                               <parentRef name="nodes.group.location.values"/>
                            </define>
                         </include>
@@ -784,7 +784,7 @@
                   <ref name="nodes.group.category.attrib"/>
                   <grammar>
                      <include href="common-result.rng">
-                        <define name="result.value.content">
+                        <define name="value.result.content">
                            <data type="integer">
                               <param name="minInclusive">0</param>
                            </data>
@@ -798,7 +798,7 @@
                         <ref name="nodes.group.category.attrib"/>
                         <grammar>
                            <include href="common-result.rng">
-                              <define name="result.value.content">
+                              <define name="value.result.content">
                                  <data type="integer">
                                     <param name="minInclusive">0</param>
                                  </data>
@@ -812,7 +812,7 @@
                      <element name="extracapsular">
                         <grammar>
                            <include href="common-result.rng">
-                              <define name="result.value.content">
+                              <define name="value.result.content">
                                  <parentRef name="common.extendedBoolean.values"/>
                               </define>
                            </include>
@@ -825,7 +825,7 @@
                      <ref name="nodes.group.category.attrib"/>
                      <grammar>
                         <include href="common-result.rng">
-                           <define name="result.value.content">
+                           <define name="value.result.content">
                               <data type="integer">
                                  <param name="minInclusive">0</param>
                               </data>
@@ -839,7 +839,7 @@
                      <ref name="nodes.group.category.attrib"/>
                      <grammar>
                         <include href="common-result.rng">
-                           <define name="result.value.content">
+                           <define name="value.result.content">
                               <data type="integer">
                                  <param name="minInclusive">0</param>
                               </data>
@@ -853,7 +853,7 @@
                      <ref name="nodes.group.category.attrib"/>
                      <grammar>
                         <include href="common-result.rng">
-                           <define name="result.value.content">
+                           <define name="value.result.content">
                               <data type="integer">
                                  <param name="minInclusive">0</param>
                               </data>
@@ -882,7 +882,7 @@
          <define combine="interleave" name="specimen.procedure.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="specimen.procedure.values"/>
                   </define>
                </include>
@@ -891,7 +891,7 @@
          <define combine="interleave" name="specimen.site.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="specimen.site.values"/>
                   </define>
                </include>
@@ -900,7 +900,7 @@
          <define combine="interleave" name="specimen.tumorLocation.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="specimen.site.values"/>
                   </define>
                </include>
@@ -909,7 +909,7 @@
          <define combine="interleave" name="specimen.integrity.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="specimen.integrity.values"/>
                   </define>
                </include>
@@ -921,12 +921,12 @@
          <define combine="choice" name="specimen.weight.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <data type="float"/>
                   </define>
-                  <define name="result.value.attrib">
+                  <define name="value.result.attrib">
                      <attribute name="comparison">
-                        <parentRef name="result.value.comparison.values"/>
+                        <parentRef name="value.result.comparison.values"/>
                      </attribute>
                   </define>
                </include>
@@ -936,10 +936,10 @@
                   <start>
                      <element name="unit">
                         <parentRef name="specimen.weight.unit.attrib"/>
-                        <ref name="result.content"/>
+                        <ref name="value.content"/>
                      </element>
                   </start>
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="common.weightUnit.values"/>
                   </define>
                </include>
@@ -965,10 +965,10 @@
                <include href="&result;">
                   <start>
                      <element name="prefix">
-                        <ref name="result.content"/>
+                        <ref name="value.content"/>
                      </element>
                   </start>
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="stage.prefix.values"/>
                   </define>
                </include>
@@ -977,7 +977,7 @@
          <define name="stage.T.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="stage.T.values"/>
                   </define>
                </include>
@@ -986,7 +986,7 @@
          <define name="stage.M.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="stage.M.values"/>
                   </define>
                </include>
@@ -995,7 +995,7 @@
          <define name="stage.N.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="stage.N.values"/>
                   </define>
                </include>
@@ -1004,7 +1004,7 @@
          <define name="stage.classification.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="stage.classification.values"/>
                   </define>
                </include>
@@ -1020,7 +1020,7 @@
             <interleave>
                <grammar>
                   <include href="&result;">
-                     <define name="result.value.content">
+                     <define name="value.result.content">
                         <parentRef name="studies.study.value.values"/>
                      </define>
                   </include>
@@ -1031,10 +1031,10 @@
                         <start>
                            <element name="method">
                               <parentRef name="studies.study.method.attrib"/>
-                              <ref name="result.content"/>
+                              <ref name="value.content"/>
                            </element>
                         </start>
-                        <define name="result.value.content">
+                        <define name="value.result.content">
                            <parentRef name="studies.study.method.values"/>
                         </define>
                      </include>
@@ -1051,7 +1051,7 @@
          <define combine="choice" name="tumor.histologicType.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="tumor.histologicType.value.values"/>
                   </define>
                </include>
@@ -1060,7 +1060,7 @@
          <define combine="choice" name="tumor.grade.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="tumor.grade.values"/>
                   </define>
                </include>
@@ -1069,7 +1069,7 @@
          <define name="tumor.grade.system.content">
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <parentRef name="tumor.grade.system.values"/>
                   </define>
                </include>

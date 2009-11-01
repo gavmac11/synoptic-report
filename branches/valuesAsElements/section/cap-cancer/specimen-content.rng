@@ -103,7 +103,7 @@
                         <choice>
                             <value>g</value>
                             <value>kg</value>
-                            <value>other</value>
+                            <value>specify</value>
                         </choice>
                     </attribute>
                     <optional>

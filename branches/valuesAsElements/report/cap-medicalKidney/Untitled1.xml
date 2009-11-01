@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:/Users/me/Dropbox/PERT/branches/valuesAsElements/report/cap-medicalKidney/resection@colon.rng" type="xml"?>
+<synopsis ns1:transformation="" schemaLocation="" version="" xmlns="http://www.cap.org/pert/2009/01/"
+   xmlns:ns1="http://www.w3.org/2003/g/data-view#">
+   <clinical/>
+   <specimen>
+      <procedure>
+         <result>
+            <value/>
+         </result>
+      </procedure>
+      <site>
+         <result>
+            <value/>
+         </result>
+      </site>
+      <tumorLocation>
+         <result>
+            <value/>
+         </result>
+      </tumorLocation>
+   </specimen>
+   <tumor>
+      <histologicType>
+         <result>
+            <value/>
+         </result>
+      </histologicType>
+      <grade>
+         <result>
+            <value/>
+         </result>
+      </grade>
+   </tumor>
+   <extent>
+      <size>
+         <dimension>
+            <unit/>
+            <result>
+               <value/>
+            </result>
+         </dimension>
+      </size>
+      <invasion xmlns="http://www.cap.org/pert/2009/01/colon/">
+         <result xmlns="http://www.cap.org/pert/2009/01/">
+            <value/>
+         </result>
+      </invasion>
+   </extent>
+   <margins>
+      <invasion xmlns="http://www.cap.org/pert/2009/01/colon/">
+         <result xmlns="http://www.cap.org/pert/2009/01/">
+            <value/>
+         </result>
+      </invasion>
+   </margins>
+   <stage>
+      <classification>
+         <result>
+            <value/>
+         </result>
+      </classification>
+      <T>
+         <result>
+            <value/>
+         </result>
+      </T>
+      <N>
+         <result>
+            <value/>
+         </result>
+      </N>
+      <M>
+         <result>
+            <value/>
+         </result>
+      </M>
+   </stage>
+</synopsis>

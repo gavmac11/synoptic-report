@@ -154,7 +154,7 @@
       <define name="laterality">
          <grammar>
             <include href="&result;">
-               <define name="result.value.content">
+               <define name="value.result.content">
                   <parentRef name="common.laterality.values"/>
                </define>
             </include>
@@ -167,7 +167,7 @@
             </element>
             <grammar>
                <include href="&result;">
-                  <define name="result.value.content">
+                  <define name="value.result.content">
                      <data type="decimal">
                         <param name="minExclusive">0.0</param>
                      </data>

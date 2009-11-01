@@ -27,23 +27,23 @@
     ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <start combine="choice">
-        <element name="result">
-            <ref name="result.attrib"/>
-            <ref name="result.content"/>
+        <element name="resultx">
+            <ref name="resultx.attrib"/>
+            <ref name="value.content"/>
         </element>
     </start>
-    <define combine="interleave" name="result.attrib">
+    <define combine="interleave" name="resultx.attrib">
         <empty/>
     </define>
-    <define combine="interleave" name="result.content">
+    <define combine="interleave" name="value.content">
         <interleave>
             <element name="value">
                 <ref name="value.attrib"/>
                 <ref name="valueset"/>
             </element>
             <optional>
-                <element name="otherValue">
-                    <ref name="otherValue.attrib"/>
+                <element name="specify">
+                    <ref name="specify.attrib"/>
                     <data type="token"/>
                 </element>
             </optional>
@@ -60,7 +60,7 @@
             <parentRef name="anyUserAttribute"/>
         </zeroOrMore>
     </define>
-    <define combine="interleave" name="otherValue.attrib">
+    <define combine="interleave" name="specify.attrib">
         <zeroOrMore>
             <parentRef name="anyUserAttribute"/>
         </zeroOrMore>

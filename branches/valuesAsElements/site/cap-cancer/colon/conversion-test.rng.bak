@@ -49,7 +49,7 @@
         <value>medullary carcinoma</value>
         <value>undifferentiated carcinoma</value>
         <value>carcinoma indeterminate type</value>
-        <value>other</value>
+        <value>specify…</value>
       </choice>
     </define>
     <define name="gradingSystem-values">
@@ -70,7 +70,7 @@
       <element name="tumorPerforation">
         <ref name="common.standard.content"/>
         <optional><element name="value">
-          <externalRef href="extendedBoolean.rng"/>
+          <externalRef href="common.extendedBoolean.values.rng"/>
         </element></optional>
       </element>
     </define>
@@ -107,7 +107,7 @@
         <value>10:00</value>
         <value>11:00</value>
         <value>12:00</value>
-        <value>other</value>
+        <value>specify…</value>
       </choice>
     </define>
     <define name="marginStatus-values">

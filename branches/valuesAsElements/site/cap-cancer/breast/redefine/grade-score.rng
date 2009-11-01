@@ -7,6 +7,6 @@
         <value>3</value>
         <value>microinvasion only</value>
         <value>indeterminate</value>
-        <value>other</value>
+        <value>specify</value>
     </choice>
 </attribute>

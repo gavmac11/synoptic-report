@@ -1,0 +1,65 @@
+# 
+# ===========================================================================
+# Copyright 2009 College of American Pathologists (CAP)
+# 
+# This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+# 
+# The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+# License, Version 2.0 (the "License"); you may not use this file except in 
+# compliance with the License.
+# 
+# You may obtain a copy of the License at:
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software 
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# 
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ===========================================================================
+#
+
+default namespace = "http://www.cap.org/pert/2009/01/"
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace ns1 = "http://www.w3.org/2003/g/data-view#"
+
+#
+include "common.rnc"
+include "sections.rnc"
+include "items.rnc"
+include "itemContents.rnc"
+include "attributes.rnc"
+include "valuesets.rnc"
+a:documentation [ "============================================" ]
+a:documentation [ "================ ROOT MODEL ================" ]
+a:documentation [ "============================================" ]
+
+## -- ROOT ITEM --
+div {
+   start =
+      
+      ## .. synopsis ELEMENT ..
+      element synopsis { synopsis.attrib, (synopsis.content & common.native.content) }
+}
+
+## -- ROOT CONTENT --
+
+## To represent a particular method (e.g. resection, biopsy, FNA), the selection and optionality of the sections should be redefined
+
+## This listing is simply an alphabetical list of all available sections.
+div {
+   synopsis.content |=
+      accessory, additional, clinical, extent, margins, metastases, nodes, specimen, stage, studies, tumor
+}
+
+## -- ROOT ATTRIBUTES --
+div {
+   
+   ## -- synopsis ATTRIBUTES --
+   synopsis.attrib &=
+      attribute schemaLocation { schemaLocation.values },
+      attribute version { version.values },
+      attribute ns1:transformation { text }
+}

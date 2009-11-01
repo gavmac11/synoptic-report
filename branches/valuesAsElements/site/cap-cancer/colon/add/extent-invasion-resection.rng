@@ -22,7 +22,7 @@
                     <value>inapplicable</value>
                     <value>inconclusive</value>
                     <value>indeterminate</value>
-                    <value>other</value>
+                    <value>specify</value>
                 </choice>
             </element></optional>
             <zeroOrMore>
@@ -34,7 +34,7 @@
                         <choice>
                             <value>adheres</value>
                             <value>invades</value>
-                            <value>other</value>
+                            <value>specify</value>
                         </choice>
                     </attribute>
                 </element>

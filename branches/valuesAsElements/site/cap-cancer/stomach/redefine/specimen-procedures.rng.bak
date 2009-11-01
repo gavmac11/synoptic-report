@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>endoscopic resection</value>
+    <!-- depending on procedure choice, will need some schematron rules to validate site selections -->
+    <value>partial gastrectomy, proximal</value>
+    <value>partial gastrectomy, other</value>
+    <value>total gastrectomy</value>
+    <value>specify…</value>
+</choice>

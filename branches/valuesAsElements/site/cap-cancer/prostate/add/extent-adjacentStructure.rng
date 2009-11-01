@@ -10,7 +10,7 @@
       <value>rectum</value>
       <value>levator muscles</value>
       <value>pelvic wall</value>
-      <value>other</value>
+      <value>specify</value>
     </choice>
   </attribute>
   <optional>

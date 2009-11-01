@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <element datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" name="her2neu"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" ns="http://www.cap.org/pert/2009/01/breast/">
-    <attribute name="value">
+    <optional><element name="value">
         <choice>
             <value>0</value>
             <value>1+</value>
@@ -9,9 +9,9 @@
             <value>3+</value>
             <value>pending</value>
             <value>not performed</value>
-            <value>other</value>
+            <value>specify…</value>
         </choice>
-    </attribute>
+    </element></optional>
     <attribute name="antibody"/>
     <attribute name="vendor"/>
     <attribute name="fixative"/>

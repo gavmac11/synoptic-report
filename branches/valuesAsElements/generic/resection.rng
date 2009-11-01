@@ -23,22 +23,31 @@
     ===========================================================================
     
 -->
-<grammar xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
-    <include href="synopsis.rng">
-        <define name="synopsis.content">
-            <ref name="clinical"/>
-            <ref name="specimen"/>
-            <ref name="tumor"/>
-            <ref name="margins"/>
-            <optional>
-                <ref name="nodes"/>
-            </optional>
-            <ref name="stage"/>
-            <optional>
-                <ref name="studies"/>
-            </optional>
-        </define>
-    </include>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+   <include href="synopsis.rng">
+      <define name="synopsis.content">
+         <ref name="clinical"/>
+         <ref name="specimen"/>
+         <ref name="tumor"/>
+         <ref name="extent"/>
+         <ref name="margins"/>
+         <optional>
+            <ref name="accessory"/>
+         </optional>
+         <optional>
+            <ref name="nodes"/>
+         </optional>
+         <optional>
+            <ref name="metastases"/>
+         </optional>
+         <optional>
+            <ref name="studies"/>
+         </optional>
+         <ref name="stage"/>
+         <optional>
+            <ref name="additional"/>
+         </optional>
+      </define>
+   </include>
 </grammar>

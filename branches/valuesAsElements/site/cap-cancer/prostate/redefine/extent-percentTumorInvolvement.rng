@@ -14,7 +14,7 @@
                 <value>right</value>
                 <value>left</value>
                 <value>both sides</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </attribute>
         <optional>

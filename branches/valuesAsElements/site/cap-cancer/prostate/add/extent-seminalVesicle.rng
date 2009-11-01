@@ -13,7 +13,7 @@
     <choice>
       <value>extensive</value>
       <value>focal</value>
-      <value>other</value>
+      <value>specify</value>
     </choice>
   </attribute>
 </element>

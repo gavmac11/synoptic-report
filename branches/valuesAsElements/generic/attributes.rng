@@ -23,184 +23,189 @@
     ===========================================================================
     
 -->
-<grammar xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://www.cap.org/pert/2009/01/">
-    <a:documentation>============================================</a:documentation>
-    <a:documentation>============================================</a:documentation>
-    <a:documentation>============= ATTRIBUTE MODELS =============</a:documentation>
-    <a:documentation>============================================</a:documentation>
-    <div>
-        <a:documentation>-- accessory ATTRIBUTES --</a:documentation>
-        <define combine="interleave" name="accessory.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="accessory.treatmentEffect.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="accessory.venousInvasion.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="accessory.perineuralInvasion.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="accessory.lymphovascularInvasion.attrib">
-            <empty/>
-        </define>
-    </div>
-    <div>
-        <a:documentation>-- additional ATTRIBUTES</a:documentation>
-        <define combine="interleave" name="additional.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="additional.item.attrib">
-            <attribute name="name">
-                <ref name="additional.item.name.values"/>
-            </attribute>
-        </define>
-    </div>
-    <div>
-        <a:documentation>-- clinical ATTRIBUTES --</a:documentation>
-        <define combine="interleave" name="clinical.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="clinical.priorTherapy.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="clinical.clinicalFinding.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="clinical.radiologicFinding.attrib">
-            <empty/>
-        </define>
-    </div>
-    <div>
-        <a:documentation>-- extent ATTRIBUTES --</a:documentation>
-        <define combine="interleave" name="extent.attrib">
-            <empty/>
-        </define>
-        <define name="extent.size.attrib">
-            <empty/>
-        </define>
-    </div>
-    <div>
-        <a:documentation>-- margins ATTRIBUTES --</a:documentation>
-        <define combine="interleave" name="margins.attrib">
-            <empty/>
-        </define>
-        <define name="margins.margin.attrib">
-            <empty/>
-        </define>
-        <define name="margins.margin.location.attrib">
-            <empty/>
-        </define>
-        <define name="margins.margin.closest.attrib">
-            <empty/>
-        </define>
-        <define name="margins.margin.distance.attrib">
-            <empty/>
-        </define>
-    </div>
-    <div>
-        <a:documentation>-- metastases ATTRIBUTES --</a:documentation>
-        <define combine="interleave" name="metastases.attrib">
-            <empty/>
-        </define>
-        <define name="metastases.metastasis.attrib">
-            <empty/>
-        </define>
-        <define name="metastases.metastasis.site.attrib">
-            <empty/>
-        </define>
-        <define name="metastases.metastasis.howDiagnosed.attrib">
-            <empty/>
-        </define>
-    </div>
-    <div>
-        <a:documentation>-- nodes ATTRIBUTES --</a:documentation>
-        <define combine="interleave" name="nodes.attrib">
-            <empty/>
-        </define>
-        <define name="nodes.group.attrib">
-            <empty/>
-        </define>
-    </div>
-    <div>
-        <a:documentation>-- specimen ATTRIBUTES --</a:documentation>
-        <define combine="interleave" name="specimen.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="specimen.procedure.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="specimen.site.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="specimen.tumorLocation.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="specimen.integrity.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="specimen.grossSize.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="specimen.weight.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="specimen.weight.unit.attrib">
-            <empty/>
-        </define>
-    </div>
-    <div>
-        <a:documentation>-- stage ATTRIBUTES --</a:documentation>
-        <define combine="interleave" name="stage.attrib">
-            <empty/>
-        </define>
-        <define name="stage.prefix.attrib">
-            <empty/>
-        </define>
-        <define name="stage.T.attrib">
-            <empty/>
-        </define>
-        <define name="stage.N.attrib">
-            <empty/>
-        </define>
-        <define name="stage.M.attrib">
-            <empty/>
-        </define>
-        <define name="stage.classification.attrib">
-            <empty/>
-        </define>
-    </div>
-    <div>
-        <a:documentation>-- studies ATTRIBUTES --</a:documentation>
-        <define combine="interleave" name="studies.attrib">
-            <empty/>
-        </define>
-        <define combine="interleave" name="studies.study.attrib">
-            <attribute name="name">
-                <ref name="studies.study.name.values"/>
-            </attribute>
-        </define>
-        <define name="studies.study.method.attrib">
-            <empty/>
-        </define>
-    </div>
-    <div>
-        <a:documentation>-- tumor ATTRIBUTES --</a:documentation>
-        <define combine="interleave" name="tumor.attrib">
-            <empty/>
-        </define>
-        <define name="tumor.grade.attrib">
-            <empty/>
-        </define>
-        <define name="tumor.histologicType.attrib">
-            <empty/>
-        </define>
-        <define name="tumor.grade.system.attrib">
-            <empty/>
-        </define>
-    </div>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+   xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+   <a:documentation>============================================</a:documentation>
+   <a:documentation>============= ATTRIBUTE MODELS =============</a:documentation>
+   <a:documentation>============================================</a:documentation>
+   <div>
+      <a:documentation>-- accessory ATTRIBUTES --</a:documentation>
+      <define combine="interleave" name="accessory.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="accessory.treatmentEffect.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="accessory.venousInvasion.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="accessory.perineuralInvasion.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="accessory.lymphovascularInvasion.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>-- additional ATTRIBUTES</a:documentation>
+      <define combine="interleave" name="additional.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="additional.item.attrib">
+         <attribute name="name">
+            <ref name="additional.item.name.values"/>
+         </attribute>
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>-- clinical ATTRIBUTES --</a:documentation>
+      <define combine="interleave" name="clinical.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="clinical.priorTherapy.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="clinical.clinicalFinding.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="clinical.radiologicFinding.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>-- extent ATTRIBUTES --</a:documentation>
+      <define combine="interleave" name="extent.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="extent.size.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>-- margins ATTRIBUTES --</a:documentation>
+      <define combine="interleave" name="margins.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="margins.margin.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="margins.margin.location.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="margins.margin.closest.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="margins.margin.distance.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>-- metastases ATTRIBUTES --</a:documentation>
+      <define combine="interleave" name="metastases.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="metastases.metastasis.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="metastases.metastasis.site.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="metastases.metastasis.howDiagnosed.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>-- nodes ATTRIBUTES --</a:documentation>
+      <define combine="interleave" name="nodes.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="nodes.group.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="nodes.group.largest.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="nodes.group.extracapsular.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>-- specimen ATTRIBUTES --</a:documentation>
+      <define combine="interleave" name="specimen.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="specimen.procedure.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="specimen.site.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="specimen.tumorLocation.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="specimen.integrity.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="specimen.grossSize.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="specimen.weight.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="specimen.weight.unit.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>-- stage ATTRIBUTES --</a:documentation>
+      <define combine="interleave" name="stage.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="stage.prefix.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="stage.T.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="stage.N.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="stage.M.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="stage.classification.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>-- studies ATTRIBUTES --</a:documentation>
+      <define combine="interleave" name="studies.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define combine="interleave" name="studies.study.attrib">
+         <attribute name="name">
+            <ref name="studies.study.name.values"/>
+         </attribute>
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="studies.study.method.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
+   <div>
+      <a:documentation>-- tumor ATTRIBUTES --</a:documentation>
+      <define combine="interleave" name="tumor.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="tumor.grade.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="tumor.histologicType.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+      <define name="tumor.grade.system.attrib">
+         <ref name="anyUserAttributes"/>
+      </define>
+   </div>
 </grammar>

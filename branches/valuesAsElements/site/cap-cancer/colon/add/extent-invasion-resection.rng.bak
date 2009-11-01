@@ -3,10 +3,10 @@
     xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <interleave>
-        <ref name="base.standard.content"/>
+        <ref name="common.standard.content"/>
         <element name="deepestInvasion"
             ns="http://www.cap.org/pert/2009/01/colon/">
-            <ref name="base.standard.content"/>
+            <ref name="common.standard.content"/>
             <optional><element name="value">
                 <choice>
                     <value>lamina propria</value>
@@ -22,19 +22,19 @@
                     <value>inapplicable</value>
                     <value>inconclusive</value>
                     <value>indeterminate</value>
-                    <value>other</value>
+                    <value>specify…</value>
                 </choice>
             </element></optional>
             <zeroOrMore>
                 <element name="adjacentStructure"
                     ns="http://www.cap.org/pert/2009/01/colon/">
-                    <ref name=" base.standard.content"/>
+                    <ref name=" common.standard.content"/>
                     <attribute name="value"/>
                     <attribute name="extent">
                         <choice>
                             <value>adheres</value>
                             <value>invades</value>
-                            <value>other</value>
+                            <value>specify…</value>
                         </choice>
                     </attribute>
                 </element>

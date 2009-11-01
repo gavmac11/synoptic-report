@@ -1,0 +1,62 @@
+# 
+# ===========================================================================
+# Copyright 2009 College of American Pathologists (CAP)
+# 
+# This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+# 
+# The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+# License, Version 2.0 (the "License"); you may not use this file except in 
+# compliance with the License.
+# 
+# You may obtain a copy of the License at:
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software 
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# 
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ===========================================================================
+#
+
+default namespace = "http://www.cap.org/pert/2009/01/"
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+a:documentation [ "============================================" ]
+a:documentation [ "============== SECTION MODELS ==============" ]
+a:documentation [ "============================================" ]
+
+## -- accessory SECTION --
+accessory &= element accessory { accessory.attrib, (accessory.content & common.content) }
+
+## -- additional SECTION --
+additional &= element additional { additional.attrib, (additional.content & common.content) }
+
+## -- clinical SECTION --
+clinical &= element clinical { clinical.attrib, (clinical.content & common.content) }
+
+## -- extent SECTION --
+extent &= element extent { extent.attrib, (extent.content & common.content) }
+
+## -- margins SECTION --
+margins &= element margins { margins.attrib, (margins.content & common.content) }
+
+## -- metastases SECTION --
+metastases &= element metastases { metastases.attrib, (metastases.content & common.content) }
+
+## -- nodes SECTION --
+nodes &= element nodes { nodes.attrib, (nodes.content & common.content) }
+
+## -- specimen SECTION --
+specimen &= element specimen { specimen.attrib, (specimen.content & common.content) }
+
+## -- stage SECTION --
+stage &= element stage { stage.attrib, (stage.content & common.content) }
+
+## -- studies SECTION --
+studies &= element studies { studies.attrib, (studies.content & common.content) }
+
+## -- tumor SECTION --
+tumor &= element tumor { tumor.attrib, (tumor.content & common.content) }

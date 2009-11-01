@@ -98,7 +98,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -200,7 +200,7 @@
                 <choice>
                     <value>label</value>
                     <value>value</value>
-                    <value>other</value>
+                    <value>specify</value>
                 </choice>
             </attribute>
             <empty/>
@@ -378,7 +378,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -492,7 +492,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -624,7 +624,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -744,7 +744,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -850,7 +850,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -950,7 +950,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -1082,7 +1082,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -1182,7 +1182,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -1273,7 +1273,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -1361,7 +1361,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -1475,7 +1475,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -1572,7 +1572,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -1663,7 +1663,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -1752,7 +1752,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -1850,7 +1850,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -1950,7 +1950,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -2049,7 +2049,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -2140,7 +2140,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -2226,7 +2226,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -2333,7 +2333,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -2345,7 +2345,7 @@
             <choice>
                 <value>g</value>
                 <value>kg</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </attribute>
         <attribute>
@@ -2433,7 +2433,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -2539,7 +2539,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -2636,7 +2636,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -2659,7 +2659,7 @@
                 <choice>
                     <value>WHO</value>
                     <value>not specified</value>
-                    <value>other</value>
+                    <value>specify</value>
                 </choice>
             </attribute>
             <empty/>
@@ -2745,7 +2745,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -2851,7 +2851,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -2956,7 +2956,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -3054,7 +3054,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -3174,7 +3174,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -3260,7 +3260,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -3286,7 +3286,7 @@
                 <value>10:00</value>
                 <value>11:00</value>
                 <value>12:00</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </attribute>
         <attribute>
@@ -3395,7 +3395,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -3412,7 +3412,7 @@
                 <value>slightResponse</value>
                 <value>markedResponse</value>
                 <value>completeResponse</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </attribute>
         <choice>
@@ -3485,7 +3485,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -3564,7 +3564,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -3581,7 +3581,7 @@
                 <value>sessile serrated adenoma</value>
                 <value>hamartomatous polyp</value>
                 <value>indeterminate type</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </attribute>
     </define>
@@ -3591,7 +3591,7 @@
             <choice>
                 <value>right</value>
                 <value>left</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </attribute>
         <attribute>
@@ -3703,7 +3703,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -3794,7 +3794,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -3812,7 +3812,7 @@
                 <value>prior accession</value>
                 <value>outside report</value>
                 <value>clinical examination</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </attribute>
         <choice>
@@ -3894,7 +3894,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -3908,7 +3908,7 @@
                     <value>y</value>
                     <value>r</value>
                     <value>a</value>
-                    <value>other</value>
+                    <value>specify</value>
                 </choice>
                 <choice>
                     <group>
@@ -3916,13 +3916,13 @@
                             <value>y</value>
                             <value>r</value>
                             <value>a</value>
-                            <value>other</value>
+                            <value>specify</value>
                         </choice>
                         <choice>
                             <value>y</value>
                             <value>r</value>
                             <value>a</value>
-                            <value>other</value>
+                            <value>specify</value>
                             <empty/>
                         </choice>
                     </group>
@@ -4002,7 +4002,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -4085,7 +4085,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -4183,7 +4183,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -4271,7 +4271,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -4367,7 +4367,7 @@
                     </choice>
                     <choice>
                         <attribute>
-                            <name ns="">otherValue</name>
+                            <name ns="">specify</name>
                             <text/>
                         </attribute>
                         <empty/>
@@ -4454,7 +4454,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -4548,7 +4548,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -4631,7 +4631,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -4722,7 +4722,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -4815,7 +4815,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -4915,7 +4915,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -4927,7 +4927,7 @@
             <choice>
                 <value>pedunculated</value>
                 <value>sessile</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </attribute>
     </define>
@@ -5002,7 +5002,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -5021,7 +5021,7 @@
                 <value>medullary carcinoma</value>
                 <value>undifferentiated carcinoma</value>
                 <value>carcinoma indeterminate type</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </attribute>
     </define>
@@ -5096,7 +5096,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -5183,7 +5183,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -5279,7 +5279,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -5300,7 +5300,7 @@
                 <value>inapplicable</value>
                 <value>inconclusive</value>
                 <value>indeterminate</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </attribute>
         <choice>
@@ -5385,7 +5385,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -5476,7 +5476,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -5489,7 +5489,7 @@
                 <value>total</value>
                 <value>positive</value>
                 <value>regressed</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </attribute>
         <attribute>
@@ -5586,7 +5586,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -5677,7 +5677,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>
@@ -5693,7 +5693,7 @@
             <choice>
                 <value>adheres</value>
                 <value>invades</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </attribute>
     </define>
@@ -5768,7 +5768,7 @@
             </choice>
             <choice>
                 <attribute>
-                    <name ns="">otherValue</name>
+                    <name ns="">specify</name>
                     <text/>
                 </attribute>
                 <empty/>

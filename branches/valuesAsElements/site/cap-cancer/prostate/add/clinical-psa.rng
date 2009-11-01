@@ -12,7 +12,7 @@
   <attribute name="unit">
     <choice>
       <value>ng/ml</value>
-      <value>other</value>
+      <value>specify</value>
     </choice>
   </attribute>
   <attribute name="date">

@@ -23,7 +23,7 @@
                 <interleave>
                     <grammar>
                         <include href="common-result.rng">
-                            <define name="result.value.content">
+                            <define name="value.result.content">
                                 <parentRef name="nodes.group.location.values"/>
                             </define>
                         </include>
@@ -31,7 +31,7 @@
                     <ref name="common.standard.content"/>
                 </interleave>
             </element>
-            <element name="result">
+            <element name="resultx">
                 <ref name="nodes.group.result.attrib"/>
                 <interleave>
                     <ref name="nodes.group.result.content"/>

@@ -15,7 +15,7 @@
                         <value>skin ulceration</value>
                         <value>skin satellite nodules</value>
                         <value>inflammatory carcinoma (clinical finding)</value>
-                        <value>other</value>
+                        <value>specify</value>
                     </choice>
                 </attribute>
                 <optional><element name="value">

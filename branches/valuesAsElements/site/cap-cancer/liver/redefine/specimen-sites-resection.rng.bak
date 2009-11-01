@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>liver</value>
+    <value>gallbladder</value>
+    <value>specify…</value>
+    <value>not specified</value>
+</choice>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>mass</value>
+    <value>architectural distortion</value>
+    <value>calcifications</value>
+    <value>specify…</value>
+</choice>

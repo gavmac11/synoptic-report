@@ -31,7 +31,7 @@
                         <choice>
                             <value>adheres</value>
                             <value>invades</value>
-                            <value>other</value>
+                            <value>specify</value>
                         </choice>
                     </attribute>
                 </element>

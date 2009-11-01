@@ -12,7 +12,7 @@
                 <value>indeterminate</value>
                 <value>inapplicable</value>
                 <value>inconcllusive</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </element>
     </optional>

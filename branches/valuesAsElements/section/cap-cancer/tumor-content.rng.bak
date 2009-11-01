@@ -50,10 +50,10 @@
         <interleave>
             <element name="histologicTypes">
                 <interleave>
-                    <ref name="base.standard.content"/>
+                    <ref name="common.standard.content"/>
                     <oneOrMore>
                         <element name="histologicType">
-                            <ref name="base.standard.content"/>
+                            <ref name="common.standard.content"/>
                             <optional>
                                 <element name="value">
                                     <ref name="histologicTypes"/>
@@ -65,7 +65,7 @@
             </element>
             <element name="grade">
                 <interleave>
-                    <ref name="base.standard.content"/>
+                    <ref name="common.standard.content"/>
                     <ref name="gradeContent"/>
                 </interleave>
                 <optional>
@@ -127,14 +127,14 @@
             <value>3</value>
             <value>4</value>
             <value>X</value>
-            <value>other</value>
+            <value>specify…</value>
         </choice>
     </define>
     <define combine="choice" name="gradingSystems">
         <choice>
             <value>WHO</value>
             <value>not specified</value>
-            <value>other</value>
+            <value>specify…</value>
         </choice>
     </define>
 </grammar>

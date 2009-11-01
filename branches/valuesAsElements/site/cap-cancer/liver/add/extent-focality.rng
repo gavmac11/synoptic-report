@@ -10,7 +10,7 @@
                 <value>multifocal different lobes</value>
                 <value>synchronous tumors</value>
                 <value>indeterminate</value>
-                <value>other</value>
+                <value>specify</value>
             </choice>
         </element>
     </optional>

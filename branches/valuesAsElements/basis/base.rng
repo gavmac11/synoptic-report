@@ -24,7 +24,7 @@
     
 -->
 <!DOCTYPE grammar [
-<!ENTITY result "result.rng">
+<!ENTITY result "resultx.rng">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
     ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
@@ -651,7 +651,7 @@
                             <start>
                                 <element name="location">
                                     <parentRef name="margins.margin.location.attrib"/>
-                                    <ref name="result.content"/>
+                                    <ref name="value.content"/>
                                 </element>
                             </start>
                             <define name="valueset">
@@ -672,7 +672,7 @@
                                 <start>
                                     <element name="closest">
                                         <parentRef name="margins.margin.closest.attrib"/>
-                                        <ref name="result.content"/>
+                                        <ref name="value.content"/>
                                     </element>
                                 </start>
                                 <define name="valueset">
@@ -687,7 +687,7 @@
                                 <start>
                                     <element name="distance">
                                         <parentRef name="margins.margin.distance.attrib"/>
-                                        <ref name="result.content"/>
+                                        <ref name="value.content"/>
                                     </element>
                                 </start>
                                 <define name="valueset">
@@ -707,7 +707,7 @@
                         <start>
                             <element name="site">
                                 <parentRef name="metastases.metastasis.site.attrib"/>
-                                <ref name="result.content"/>
+                                <ref name="value.content"/>
                             </element>
                         </start>
                         <define name="valueset">
@@ -720,7 +720,7 @@
                         <start>
                             <element name="howDiagnosed">
                                 <parentRef name="metastases.metastasis.howDiagnosed.attrib"/>
-                                <ref name="result.content"/>
+                                <ref name="value.content"/>
                             </element>
                         </start>
                         <define name="valueset">
@@ -739,7 +739,7 @@
                         <include href="&result;">
                             <start>
                                 <element name="laterality">
-                                    <ref name="result.content"/>
+                                    <ref name="value.content"/>
                                 </element>
                             </start>
                             <define name="valueset">
@@ -804,7 +804,7 @@
                         <start>
                             <element name="unit">
                                 <parentRef name="specimen.weight.unit.attrib"/>
-                                <ref name="result.content"/>
+                                <ref name="value.content"/>
                             </element>
                         </start>
                         <define name="valueset">
@@ -830,7 +830,7 @@
                     <include href="&result;">
                         <start>
                             <element name="prefix">
-                                <ref name="result.content"/>
+                                <ref name="value.content"/>
                             </element>
                         </start>
                         <define name="valueset">
@@ -893,7 +893,7 @@
                                 <start>
                                     <element name="method">
                                         <parentRef name="studies.study.method.attrib"/>
-                                        <ref name="result.content"/>
+                                        <ref name="value.content"/>
                                     </element>
                                 </start>
                                 <define name="valueset">
@@ -1143,7 +1143,7 @@
                     <value>slightResponse</value>
                     <value>markedResponse</value>
                     <value>completeResponse</value>
-                    <value>other</value>
+                    <value>specify</value>
                 </choice>
             </define>
         </div>
@@ -1195,7 +1195,7 @@
                     <value>prior accession</value>
                     <value>outside report</value>
                     <value>clinical history</value>
-                    <value>other</value>
+                    <value>specify</value>
                 </choice>
             </define>
         </div>
@@ -1207,7 +1207,7 @@
                     <value>negative</value>
                     <value>positive</value>
                     <value>regressed</value>
-                    <value>other</value>
+                    <value>specify</value>
                 </choice>
             </define>
         </div>
@@ -1264,7 +1264,7 @@
                     <value>X</value>
                     <value>0</value>
                     <value>1</value>
-                    <value>other</value>
+                    <value>specify</value>
                 </choice>
             </define>
             <define name="stage.M.values">
@@ -1272,7 +1272,7 @@
                     <value>X</value>
                     <value>0</value>
                     <value>1</value>
-                    <value>other</value>
+                    <value>specify</value>
                 </choice>
             </define>
             <define name="stage.classification.values">
@@ -1283,7 +1283,7 @@
                     <value>y</value>
                     <value>r</value>
                     <value>a</value>
-                    <value>other</value>
+                    <value>specify</value>
                 </choice>
             </define>
             <define name="suffix-values">
@@ -1317,14 +1317,14 @@
                     <value>3</value>
                     <value>4</value>
                     <value>X</value>
-                    <value>other</value>
+                    <value>specify</value>
                 </choice>
             </define>
             <define combine="choice" name="tumor.grade.system.values">
                 <choice>
                     <value>WHO</value>
                     <value>not specified</value>
-                    <value>other</value>
+                    <value>specify</value>
                 </choice>
             </define>
         </div>

@@ -103,7 +103,7 @@
                         <choice>
                             <value>g</value>
                             <value>kg</value>
-                            <value>other</value>
+                            <value>specify…</value>
                         </choice>
                     </attribute>
                     <optional>
@@ -176,7 +176,7 @@
         </optional>
     </define>
     <define name="integrityValues">
-        <externalRef href="../../common/extendedBoolean.rng"/>
+        <externalRef href="../../common/common.extendedBoolean.values.rng"/>
     </define>
     <define combine="choice" name="tumorSize.content">
         <externalRef href="../../common/size.rng"/>

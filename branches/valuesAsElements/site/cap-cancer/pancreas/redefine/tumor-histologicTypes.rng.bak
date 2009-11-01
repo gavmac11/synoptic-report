@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>ductal adenocarcinoma</value>
+    <value>mucinous noncystic carcinoma</value>
+    <value>signet ring cell carcinoma</value>
+    <value>adenosquamous carcinoma</value>
+    <value>undifferentiated (anaplastic) carcinoma</value>
+    <value>undifferentiated carcinoma with osteoclast-like giant cells</value>
+    <value>mixed ductal-endocrine carcinoma</value>
+    <value>serous cystadenocarcinoma</value>
+    <value>mucinous cystic neoplasm, non-invasive</value>
+    <value>mucinous cystic neoplasm, invasive</value>
+    <value>intraductal papillary-mucinous carcinoma, non-invasive</value>
+    <value>intraductal papillary-mucinous carcinoma, invasive</value>
+    <value>acinar cell carcinoma</value>
+    <value>acinar cell cystadenocarcinoma</value>
+    <value>mixed acinar-endocrine carcinoma</value>
+    <value>indeterminate type carcinoma</value>
+    <value>specify…</value>
+</choice>

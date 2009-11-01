@@ -2,7 +2,7 @@
 <element name="preexistingPolyp" ns="http://www.cap.org/pert/2009/01/colon/"
     xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <ref name="base.standard.content"/>
+    <ref name="common.standard.content"/>
     <optional>
         <element name="value">
             <choice>
@@ -13,7 +13,7 @@
                 <value>sessile serrated adenoma</value>
                 <value>hamartomatous polyp</value>
                 <value>indeterminate type</value>
-                <value>other</value>
+                <value>specify…</value>
             </choice>
         </element>
     </optional>

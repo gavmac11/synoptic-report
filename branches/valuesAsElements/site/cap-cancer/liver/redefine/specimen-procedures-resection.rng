@@ -4,6 +4,6 @@
     <value>partial hepatectomy, major</value>
     <value>partial hepatectomy, minor</value>
     <value>total hepatectomy</value>
-    <value>other</value>
+    <value>specify</value>
     <value>not specified</value>
 </choice>
