@@ -610,7 +610,7 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <interleave>
           <ref name="tumor.grade.elements"/>
-          <ref name="common.core.elements"/>
+          <ref name="common.ecc.elements"/>
           <ref name="tumor.grade.attrib"/>
           <ref name="common.attrib"/>
         </interleave>

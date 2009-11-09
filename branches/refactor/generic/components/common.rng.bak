@@ -50,12 +50,12 @@
 				(user-defined) element.</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<interleave>
-				<ref name="common.core.elements"/>
+				<ref name="common.ecc.elements"/>
 				<ref name="common.extension.elements"/>
 			</interleave>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="common.core.elements">
+		<define name="common.ecc.elements">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<a:documentation>The eCC-native common elements can appear on (nearly) any element in the eCC schema.
 				There are three such elements.</a:documentation>
@@ -142,12 +142,12 @@
 				(user-defined) attribute.</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<interleave>
-				<ref name="common.core.attrib"/>
+				<ref name="common.ecc.attrib"/>
 				<ref name="common.extension.attrib"/>
 			</interleave>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="common.core.attrib">
+		<define name="common.ecc.attrib">
 			<a:documentation>We encourage the use of xml:ID as the preferred form of id elements on our content. This
 				type definition ensures that ID uniqueness checking will be performed on these
 				id's.</a:documentation>

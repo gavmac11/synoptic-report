@@ -3,7 +3,7 @@
   xmlns="http://relaxng.org/ns/structure/1.0"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   xmlns:xi="http://www.w3.org/2001/XInclude">
-  <define combine="choice" name="common.core.elements">
+  <define combine="choice" name="common.ecc.elements">
     <zeroOrMore>
       <element>
         <choice xmlns="http://relaxng.org/ns/structure/1.0">
@@ -24,7 +24,7 @@
             <choice>
               <ref name="common.extension.attrib"/>
               <ref name="common.elements"/>
-              <ref name="common.core.elements"/>
+              <ref name="common.ecc.elements"/>
               <zeroOrMore>
                 <element ns="http://www.cap.org/pert/2009/01/">
                   <anyName></anyName>
