@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   
+   ===========================================================================
+   Copyright 2009 College of American Pathologists (CAP)
+   
+   This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+   
+   The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+   License, Version 2.0 (the "License"); you may not use this file except in 
+   compliance with the License.
+   
+   You may obtain a copy of the License at:
+   
+   http://www.apache.org/licenses/LICENSE-2.0
+   
+   Unless required by applicable law or agreed to in writing, software 
+   distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   ===========================================================================
+   
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  ns="http://www.cap.org/pert/2009/01/"
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <a:documentation>This file creates a TEST HARNESS SCHEMA for
+    any-site.</a:documentation>
+  <a:documentation>It incorporates the generic resection report schema
+    ("resection.rng") by means of inclusion, and extends it by inclusion of
+    definitions of non-site specific content.</a:documentation>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <include href="../generic/test-harness.rng">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <a:documentation>This includes the generic test harness
+      schema.</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  </include>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <include href="components/valuesets.rng">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <a:documentation>This includes a file that defines all the non-site-specific
+      valuesets.</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  </include>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <include href="components/common.rng">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <a:documentation>This includes a file that defines all the non-site-specific
+      valuesets.</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  </include>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</grammar>
