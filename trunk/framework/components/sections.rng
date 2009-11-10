@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    
+    ===========================================================================
+    Copyright 2009 College of American Pathologists (CAP)
+    
+    This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+    
+    The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================
+    
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+   ns="http://www.cap.org/pert/2009/01/"
+   xmlns="http://relaxng.org/ns/structure/1.0"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <a:documentation>This file defines the names and abstract model for each of
+      the eleven possible sections of synopsis document. The eleven possible
+      sections are: "accessory", "additional", "clinical", "extent", "margins",
+      "metastases", "nodes", "specimen", "stage", "studies", and "tumor". The
+      abstract model for each of these eleven sections is
+      identical.</a:documentation>
+   <a:documentation>: The section wrapper is an element whose name identifies
+      the section. The content of this wrapper element in each case is an
+      interleave of four abstract components: (1) a set of section-specific
+      elements; (2) a set of elements common to all sections; (3) a set of
+      section-specific attributes; and (4) a set of attributes common to all
+      sections.</a:documentation>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="interleave" name="accessory">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>The "accessory" section wraps information about the tumor
+         that is typically not part of the information essential for staging but
+         that may have secondary prognostic significance. Examples include
+         lymph-vascular invasion, immune response, etc.</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <element name="accessory">
+         <interleave>
+            <ref name="accessory.elements"/>
+            <ref name="common.elements"/>
+            <ref name="accessory.attrib"/>
+            <ref name="common.attrib"/>
+         </interleave>
+      </element>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="interleave" name="additional">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>The "additional" section wraps observations about the
+         specimen that are unrelated or only indirectly related to the tumor
+         itself. Examples include incidental benign findings, pre-existing
+         disease findings, etc.</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <element name="additional">
+         <interleave>
+            <ref name="additional.elements"/>
+            <ref name="common.elements"/>
+            <ref name="additional.attrib"/>
+            <ref name="common.attrib"/>
+         </interleave>
+      </element>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="interleave" name="clinical">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>The "clinical" section wraps information (often obtained
+         second-hand from notes on the specimen accession slip, but possibly
+         obtained from other records) about the patient's clinical presentation.
+         These are rarely if ever direct observations of the
+         pathologist.</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <element name="clinical">
+         <interleave>
+            <ref name="clinical.elements"/>
+            <ref name="common.elements"/>
+            <ref name="clinical.attrib"/>
+            <ref name="common.attrib"/>
+         </interleave>
+      </element>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="interleave" name="extent">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>The "extent" section wraps information about the anatomic
+         extent of contiguous invasion of the tumor. This information is
+         classically the most important input for the determination of
+         stage.</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <element name="extent">
+         <interleave>
+            <ref name="extent.elements"/>
+            <ref name="common.elements"/>
+            <ref name="extent.attrib"/>
+            <ref name="common.attrib"/>
+         </interleave>
+      </element>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="interleave" name="margins">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>The "margins" section wraps information about the absence
+         or presence of involvement by tumor at the surgical margins of the
+         specimen i.e. information about the completeness of the tumor
+         excision.</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <element name="margins">
+         <interleave>
+            <ref name="margins.elements"/>
+            <ref name="common.elements"/>
+            <ref name="margins.attrib"/>
+            <ref name="common.attrib"/>
+         </interleave>
+      </element>
+   </define>
+   <define combine="interleave" name="metastases">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>The "metastases" section wraps information (if known) of
+         distant (metastatic) involvement by tumor. This information is
+         sometimes the result of direct observation by the reporting pathologist
+         (e.g. when a biopsy of a distant site is submitted as part of the
+         accession), but may also come second-hand from other
+         reports.</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <element name="metastases">
+         <interleave>
+            <ref name="metastases.elements"/>
+            <ref name="common.elements"/>
+            <ref name="metastases.attrib"/>
+            <ref name="common.attrib"/>
+         </interleave>
+      </element>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="interleave" name="nodes">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>The "nodes" section wraps information about the location
+         and status of lymph nodes.</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <element name="nodes">
+         <interleave>
+            <ref name="nodes.elements"/>
+            <ref name="common.elements"/>
+            <ref name="nodes.attrib"/>
+            <ref name="common.attrib"/>
+         </interleave>
+      </element>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="interleave" name="specimen">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>The "specimen" section wraps information about the nature
+         of the specimen: its size, weight, organs included, etc. It also
+         includes information about the macroscopic appearance of the tumor,
+         including macroscopically observed evidence of location and extent of
+         involvment. This information is part of the preliminary input to the
+         final determination of tumor extent (which is reported in the "extent"
+         section, following microscopic examination).</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <element name="specimen">
+         <interleave>
+            <ref name="specimen.elements"/>
+            <ref name="common.elements"/>
+            <ref name="specimen.attrib"/>
+            <ref name="common.attrib"/>
+         </interleave>
+      </element>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="interleave" name="stage">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>The "stage" section contains the AJCC 7th edition staging
+         assignments for the tumor. Input to the determinations reported in the
+         section come from a number of other sections, including the "tumor"
+         section, the "extent" section and others.</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <element name="stage">
+         <interleave>
+            <ref name="stage.elements"/>
+            <ref name="common.elements"/>
+            <ref name="stage.attrib"/>
+            <ref name="common.attrib"/>
+         </interleave>
+      </element>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="interleave" name="studies">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>The "studies" section wraps information about "special
+         studies" performed on the tissue that contribute to the pathologic
+         diagnosis. "Special studies" (also known as "non-anatomic factors")
+         include molecular genetic studies, cyto-histometric studies,
+         immunochemical studies, etc. </a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <element name="studies">
+         <interleave>
+            <ref name="studies.elements"/>
+            <ref name="common.elements"/>
+            <ref name="studies.attrib"/>
+            <ref name="common.attrib"/>
+         </interleave>
+      </element>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="interleave" name="tumor">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>The "tumor" sections wraps information about the tumor
+         type, its histologic grade, and macro- and microscopic observations
+         that contribute to its biologic classification.</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <element name="tumor">
+         <interleave>
+            <ref name="tumor.elements"/>
+            <ref name="common.elements"/>
+            <ref name="tumor.attrib"/>
+            <ref name="common.attrib"/>
+         </interleave>
+      </element>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</grammar>

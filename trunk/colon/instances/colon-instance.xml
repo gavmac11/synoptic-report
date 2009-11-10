@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="../../colon/resection@colon.rng" type="xml"?>
+<?oxygen SCHSchema="../../generic/rules/common.sch"?>
+<synopsis ecc:schemaLocation="http://www.cap.org/pert/2009/01/colon/" ecc:version="1.0a"
+	grddl:transformation="http://www.cap.org/pert/2009/01/colon/snomedct/
+	http://www.cap.org/pert/2009/01/colon/radlex/" xmlns="http://www.cap.org/pert/2009/01/"
+	xmlns:colon="http://www.cap.org/pert/2009/01/colon/" xmlns:custom="http://www.example.com/custom/"
+	xmlns:ecc="http://www.cap.org/pert/2009/01/" xmlns:grddl="http://www.w3.org/2003/g/data-view#">
+	<clinical>
+		<priorTherapy date="2009" duration="P6M">
+			<response value="specify">
+				<specify>radiotherapy</specify>
+			</response>
+			<label>Prior therapy administered:</label>
+			<text/>
+		</priorTherapy>
+		<clinicalFinding date="2009">
+			<response value="specify">
+				<specify>fever</specify>
+			</response>
+		</clinicalFinding>
+		<radiologicFinding date="2009">
+			<response value="specify">
+				<specify>mass</specify>
+			</response>
+		</radiologicFinding>
+	</clinical>
+	<specimen>
+		<procedure>
+			<response value="left hemicolectomy"/>
+			<response value="transverse colectomy"/>
+		</procedure>
+		<specimenSite>
+			<response value="splenic flexure"/>
+			<response value="left colon"/>
+			<response value="transverse colon"/>
+		</specimenSite>
+		<tumorSite>
+			<response value="splenic flexure"/>
+		</tumorSite>
+		<integrity>
+			<response value="intact"/>
+		</integrity>
+		<specimenSize>
+			<dimension>
+				<response unit="cm" value="19"/>
+			</dimension>
+			<dimension>
+				<response unit="cm" value="4"/>
+			</dimension>
+		</specimenSize>
+		<specimenWeight>
+			<response unit="g" value="300"/>
+		</specimenWeight>
+		<colon:polyp>
+			<size>
+				<dimension>
+					<response unit="cm" value="3"/>
+				</dimension>
+			</size>
+			<colon:configuration>
+				<response value="pedunculated"/>
+			</colon:configuration>
+		</colon:polyp>
+	</specimen>
+	<tumor>
+		<histologicType>
+			<response value="adenocarcinoma">
+				<comment>this is a comment</comment>
+			</response>
+		</histologicType>
+		<grade>
+			<response value="high"/>
+		</grade>
+		<colon:immuneResponse>
+			<colon:intratumoral>
+				<response value="mild"/>
+			</colon:intratumoral>
+			<colon:peritumoral>
+				<response value="mild"/>
+			</colon:peritumoral>
+		</colon:immuneResponse>
+		<colon:mucinousComponent>
+			<response relation="lessThan" unit="percent" value="50"/>
+		</colon:mucinousComponent>
+		<colon:medullaryComponent>
+			<response value="negative"/>
+		</colon:medullaryComponent>
+		<colon:highGrade>
+			<response value="positive"/>
+		</colon:highGrade>
+		<colon:perforation>
+			<response value="negative"/>
+		</colon:perforation>
+	</tumor>
+	<extent>
+		<tumorSize>
+			<dimension>
+				<response unit="cm" value="3"/>
+			</dimension>
+		</tumorSize>
+		<colon:invasion>
+			<response value="adjacent structure">
+				<colon:adjacentStructure>
+					<response value="uterus"/>
+				</colon:adjacentStructure>
+			</response>
+		</colon:invasion>
+		<comment/>
+	</extent>
+	<margins>
+		<margin location="radial">
+			<response closest="positive" value="negative">
+				<distance>
+					<response unit="cm" value="2"/>
+				</distance>
+			</response>
+		</margin>
+		<margin location="proximal">
+			<response value="negative"/>
+		</margin>
+		<margin location="distal">
+			<response value="negative"/>
+		</margin>
+	</margins>
+	<accessory>
+		<venousInvasion>
+			<response value="negative"/>
+		</venousInvasion>
+		<lymphovascularInvasion>
+			<response value="negative"/>
+		</lymphovascularInvasion>
+		<perineuralInvasion>
+			<response value="negative"/>
+		</perineuralInvasion>
+		<treatmentEffect>
+			<response value="inapplicable"/>
+		</treatmentEffect>
+		<colon:discontinuousExtramuralExtension>
+			<response value="negative"/>
+		</colon:discontinuousExtramuralExtension>
+		<colon:preexistingPolyp>
+			<response value="tubular adenoma"/>
+		</colon:preexistingPolyp>
+	</accessory>
+	<nodes>
+		<nodeGroup location="inferior mesenteric">
+			<count status="total">
+				<response value="34"/>
+			</count>
+			<count status="positive">
+				<response value="0"/>
+			</count>
+		</nodeGroup>
+	</nodes>
+	<metastases>
+		<metastasis location="specify">
+			<specify>liver</specify>
+			<size>
+				<dimension>
+					<response unit="cm" value="2"/>
+				</dimension>
+			</size>
+			<howDiagnosed>
+				<response value="prior accession"/>
+			</howDiagnosed>
+		</metastasis>
+	</metastases>
+	<studies>
+		<study name="specify">
+			<specify>serum folate</specify>
+			<response value="pending"/>
+			<method>
+				<response value="specify">
+					<specify>something</specify>
+				</response>
+			</method>
+		</study>
+	</studies>
+	<stage>
+		<prefix>
+			<response value="y"/>
+		</prefix>
+		<classification>
+			<response value="p"/>
+		</classification>
+		<T>
+			<response value="3"/>
+		</T>
+		<N>
+			<response value="1"/>
+		</N>
+		<M>
+			<response value="1"/>
+		</M>
+	</stage>
+	<additional>
+		<item name="dysplasia with IBD">
+			<response value="negative"/>
+		</item>
+	</additional>
+</synopsis>
