@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?oxygen RNGSchema="file:/Users/me/Dropbox/PERT/branches/refactor/generic/test-harness.rng" type="xml"?>
 <?oxygen SCHSchema="../rules/common.sch"?>
+<?oxygen RNGSchema="../test-harness.rng" type="xml"?>
 <synopsis ecc:schemaLocation="" ecc:version="" grddl:transformation="" xmlns="http://www.cap.org/pert/2009/01/"
 	xmlns:ecc="http://www.cap.org/pert/2009/01/" xmlns:grddl="http://www.w3.org/2003/g/data-view#">
 	<accessory>
