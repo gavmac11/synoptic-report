@@ -190,8 +190,9 @@
 				<specify>blah blah blah</specify>
 			</response>
 		</histologicType>
-		<grade>
-			<response system="WHO" value="specify">
+		<grade system="specify">
+			<specify>some user-defined grading system</specify>
+			<response value="specify">
 				<specify>ejrijoiergoj</specify>
 			</response>
 		</grade>
