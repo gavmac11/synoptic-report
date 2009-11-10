@@ -24,7 +24,7 @@
     
 -->
 <!DOCTYPE grammar [
-<!ENTITY value "../../generic/components/value.rng">
+<!ENTITY value "../../framework/components/value.rng">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
   ns="http://www.cap.org/pert/2009/01/colon/"
