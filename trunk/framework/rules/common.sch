@@ -55,39 +55,36 @@
 	<xsl:function name="ecc:to-mm">
 		<xsl:param name="value"/>
 		<xsl:param name="unit"/>
-		<xsl:value-of select="if ($value castable as xs:double) then (if ($unit eq 'mm') then xs:double($value)
-			else if ($unit eq 'cm') then $value*10.0 else if ($unit eq 'in') then $value*25.4 else 0.0) else
-			'unreported'"/>
+		<xsl:value-of
+			select="
+			if ($value castable as xs:double) then 
+				if ($unit eq 'mm') then xs:double($value)
+				else if ($unit eq 'cm') then $value*10.0 
+				else if ($unit eq 'in') then $value*25.4 
+				else 'unreported' 
+			else 'unreported'"
+		/>
 	</xsl:function>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<p>This is a rule that ensures that if a response value to an item is 'specify', then there has to be a child
+	<p>This is a pattern that ensures that if a response value to an item is 'specify', then there has to be a child
 		{specify} element present where the user's specify string is reported. The idea is, you can't respond to an
 		item by saying you're going to specify a different response from any of the available options, then fail to
 		make such a specification. </p>
-	<p>The pattern has three rules, one for each type of context in which a 'specify' response is possible in the
-		framework. Case 1 is the most common case: {ecc:response/} elements can have a @value of 'specify'. Case 2 is
-		for elements like {ecc:item} that can have a @name attribute which can take a value of 'specify'. Case 3 is a
-		number of elements like {margin/} or {metastasis/} that have a @location attribute that can take a value of
-		'specify'. </p>
+	<p>The pattern has two rules. The first ensures that if any attribute has a value of 'specify', its parent must
+		have a child {specify} element. The second rule is the inverse; it ensures that for any {specify} element, the
+		parent has an attribute with a value of 'specify'.</p>
 	<pattern id="specify-element-iff-value-of-specify">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<p/>
-		<rule context="ecc:response">
-			<assert test="if(@value='specify') then exists(./ecc:specify) else not(exists(./ecc:specify))">
-				A response value of "specify" requires a child {specify} element, and vice versa.
+		<rule context="//*[attribute::node() = 'specify']">
+			<assert test="exists(../*/ecc:specify)">
+				An item name of "specify" requires a child {specify} element.
 			</assert>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<rule context="*[@name]">
-			<assert test="if(@name='specify') then exists(./ecc:specify) else not(exists(./ecc:specify))">
-				An item name of "specify" requires a child {specify} element, and vice versa.
-			</assert>
-		</rule>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<rule context="*[@location]">
-			<assert test="if(@location='specify') then exists(./ecc:specify) else not(exists(./ecc:specify))">
-				An item location of "specify" requires a child {specify} element, and vice versa.
+		<rule context="ecc:specify">
+			<assert test="../attribute::node() = 'specify'">
+				A {specify} element requires an attribute with the value 'specify' on the parent element.
 			</assert>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -95,10 +92,11 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<p>This pattern emits a VALIDATION WARNING (=schematron {report} (not a VALIDATION FAILURE (=schematron {assert})
-		when a size is specified in which a different length unit is used for different dimensions. This is allowed in
-		the framework, but is considered poor practice.</p>
+		when a size is specified in which a different length unit is used for different dimensions. The framework
+		permits this, but it is poor practice and is discouraged.</p>
 	<p>The first rules check the second dimension's unit against that of the first dimension. The second rule checks
 		the third dimension's unit against that of the first dimension.</p>
+	<!-- TODO: a rewrite of the xpath could surely compress these into a single rule -->
 	<pattern id="dimensions-have-same-unit">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="ecc:dimension[2]/ecc:response">
@@ -116,8 +114,9 @@
 	</pattern>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<p>This pattern issues a validation warning when the first dimension of a size is not the largest dimension. This
-		is allowed, but is considered poor practice.</p>
+	<p>This pattern issues a validation warning when the first dimension of a size is not the largest dimension. The
+		framework permits this, but it is poor practice and is discouraged. Normally, input validation in a user
+		interface should ensure that this doesn't happen.</p>
 	<p>This pattern makes use of the xsl:to-mm() function defined up at the beginning of this file, in order to ensure
 		that all dimensions are converted to millimeters before the comparisons are made.</p>
 	<p>There are two rules: the first compares the second dimension against the first. The other one compares the third
@@ -125,22 +124,28 @@
 	<pattern id="largest-dimension-comes-first">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="ecc:dimension[2]/ecc:response">
-			<let name="dim-1" value="ecc:to-mm(../../ecc:dimension[1]/ecc:response/@value,
+			<let name="dim-1"
+				value="ecc:to-mm(../../ecc:dimension[1]/ecc:response/@value,
 				../../ecc:dimension[1]/ecc:response/@unit)[1]"/>
 			<let name="dim-2" value="ecc:to-mm(@value, @unit)[1]"/>
-			<report test="($dim-2 castable as xs:double) and ($dim-1 castable as xs:double) and (xs:double($dim-1) lt
-				xs:double($dim-2))"> Larger dimension (<value-of select="max((xs:double($dim-1),xs:double($dim-2)))"
-				/> mm) should be reported first. </report>
+			<report
+				test="($dim-2 castable as xs:double) and ($dim-1 castable as xs:double) and (xs:double($dim-1) lt
+				xs:double($dim-2))"
+				> Larger dimension (<value-of select="max((xs:double($dim-1),xs:double($dim-2)))"/> mm) should be
+				reported first. </report>
 			<!---->
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="ecc:dimension[3]/ecc:response">
-			<let name="dim-1" value="ecc:to-mm(../../ecc:dimension[1]/ecc:response/@value,
+			<let name="dim-1"
+				value="ecc:to-mm(../../ecc:dimension[1]/ecc:response/@value,
 				../../ecc:dimension[1]/ecc:response/@unit)[1]"/>
 			<let name="dim-3" value="ecc:to-mm(@value, @unit)[1]"/>
-			<report test="($dim-3 castable as xs:double) and ($dim-1 castable as xs:double) and (xs:double($dim-1) lt
-				xs:double($dim-3))"> Larger dimension (<value-of select="max((xs:double($dim-1),xs:double($dim-3)))"
-				/> mm) should be reported first. </report>
+			<report
+				test="($dim-3 castable as xs:double) and ($dim-1 castable as xs:double) and (xs:double($dim-1) lt
+				xs:double($dim-3))"
+				> Larger dimension (<value-of select="max((xs:double($dim-1),xs:double($dim-3)))"/> mm) should be
+				reported first. </report>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -217,7 +222,8 @@
 		<rule context="/ecc:synopsis/ecc:nodes/ecc:nodeGroup">
 			<let name="total" value="ecc:count[@status eq 'total']/ecc:response/@value[. castable as xs:double]"/>
 			<let name="other" value="ecc:count[@status ne 'total']/ecc:response/@value[. castable as xs:double]"/>
-			<let name="location" value="if (@location = 'specify') then ecc:specify else if (@location =
+			<let name="location"
+				value="if (@location = 'specify') then ecc:specify else if (@location =
 				'unreported') then 'unreported location' else @location"/>
 			<assert test="if (exists($total)) then number($total) ge sum($other) else $skip">
 				In the "<value-of select="$location"/>" group, you report fewer total nodes (<value-of select="$total"/>) than the sum of the individually enumerated node status categories (<value-of select="sum($other)"/>).
