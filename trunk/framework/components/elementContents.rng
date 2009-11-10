@@ -24,7 +24,7 @@
     
 -->
 <!DOCTYPE grammar [
-<!ENTITY value "value.rng">
+<!ENTITY response "response.rng">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
 	xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
@@ -43,7 +43,7 @@
 		<define combine="interleave" name="accessory.venousInvasion.elements">
 			<a:documentation>.. venousInvasion CONTENT ..</a:documentation>
 			<grammar>
-				<include href="&value;">
+				<include href="&response;">
 					<define name="value.attrib">
 						<ref name="value.text.attrib"/>
 					</define>
@@ -57,7 +57,7 @@
 		<define combine="interleave" name="accessory.lymphovascularInvasion.elements">
 			<a:documentation>.. lymphovascularInvasion CONTENT ..</a:documentation>
 			<grammar>
-				<include href="&value;">
+				<include href="&response;">
 					<define name="value.attrib">
 						<ref name="value.text.attrib"/>
 					</define>
@@ -71,7 +71,7 @@
 		<define combine="interleave" name="accessory.perineuralInvasion.elements">
 			<a:documentation>.. perineuralInvasion CONTENT ..</a:documentation>
 			<grammar>
-				<include href="&value;">
+				<include href="&response;">
 					<define name="value.attrib">
 						<ref name="value.text.attrib"/>
 					</define>
@@ -85,7 +85,7 @@
 		<define name="accessory.treatmentEffect.elements">
 			<a:documentation>.. treatmentEffect CONTENT ..</a:documentation>
 			<grammar>
-				<include href="&value;">
+				<include href="&response;">
 					<define name="value.attrib">
 						<ref name="value.text.attrib"/>
 					</define>
@@ -113,7 +113,7 @@
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<interleave>
 				<grammar>
-					<include href="&value;">
+					<include href="&response;">
 						<define name="value.attrib">
 							<ref name="value.text.attrib"/>
 						</define>
@@ -145,7 +145,7 @@
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<interleave>
 				<grammar>
-					<include href="&value;">
+					<include href="&response;">
 						<define name="value.attrib">
 							<ref name="value.text.attrib"/>
 						</define>
@@ -163,7 +163,7 @@
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<interleave>
 				<grammar>
-					<include href="&value;">
+					<include href="&response;">
 						<define name="value.attrib">
 							<ref name="value.text.attrib"/>
 						</define>
@@ -181,7 +181,7 @@
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<interleave>
 				<grammar>
-					<include href="&value;">
+					<include href="&response;">
 						<define name="value.attrib">
 							<ref name="value.text.attrib"/>
 						</define>
@@ -225,7 +225,7 @@
 		<define combine="interleave" name="margins.margin.elements">
 			<interleave>
 				<grammar>
-					<include href="&value;">
+					<include href="&response;">
 						<define name="value.attrib">
 							<ref name="value.text.attrib"/>
 							<optional>
@@ -270,7 +270,7 @@
 					<ref name="common.size"/>
 				</optional>
 				<!--<grammar>
-          <include href="&value;">
+          <include href="&response;">
             <define name="value.attrib">
               <ref name="value.text.attrib"/>
             </define>
@@ -288,7 +288,7 @@
 				<optional>
 					<element name="howDiagnosed">
 						<grammar>
-							<include href="&value;">
+							<include href="&response;">
 								<define name="value.attrib">
 									<ref name="value.text.attrib"/>
 								</define>
@@ -328,7 +328,7 @@
 						</attribute>
 						<interleave>
 							<grammar>
-								<include href="&value;">
+								<include href="&response;">
 									<define name="value.attrib">
 										<ref name="value.dimensionless.attrib"/>
 									</define>
@@ -348,7 +348,7 @@
 							</attribute>
 							<interleave>
 								<grammar>
-									<include href="&value;">
+									<include href="&response;">
 										<define name="value.attrib">
 											<ref name="value.dimensionless.attrib"/>
 										</define>
@@ -368,13 +368,13 @@
 									<element name="extracapsular">
 										<interleave>
 											<grammar>
-												<include href="&value;">
-												<define name="value.attrib">
-												<ref name="value.text.attrib"/>
-												</define>
-												<define name="value.text.result">
-												<parentRef name="common.extendedBoolean.values"/>
-												</define>
+												<include href="&response;">
+													<define name="value.attrib">
+														<ref name="value.text.attrib"/>
+													</define>
+													<define name="value.text.result">
+														<parentRef name="common.extendedBoolean.values"/>
+													</define>
 												</include>
 											</grammar>
 											<ref name="common.elements"/>
@@ -393,7 +393,7 @@
 							</attribute>
 							<interleave>
 								<grammar>
-									<include href="&value;">
+									<include href="&response;">
 										<define name="value.attrib">
 											<ref name="value.dimensionless.attrib"/>
 										</define>
@@ -414,7 +414,7 @@
 							</attribute>
 							<interleave>
 								<grammar>
-									<include href="&value;">
+									<include href="&response;">
 										<define name="value.attrib">
 											<ref name="value.dimensionless.attrib"/>
 										</define>
@@ -454,7 +454,7 @@
 		<define combine="interleave" name="specimen.procedure.elements">
 			<oneOrMore>
 				<grammar>
-					<include href="&value;">
+					<include href="&response;">
 						<define name="value.attrib">
 							<ref name="value.text.attrib"/>
 						</define>
@@ -469,7 +469,7 @@
 		<define combine="interleave" name="specimen.site.elements">
 			<oneOrMore>
 				<grammar>
-					<include href="&value;">
+					<include href="&response;">
 						<define name="value.attrib">
 							<ref name="value.text.attrib"/>
 						</define>
@@ -484,7 +484,7 @@
 		<define combine="interleave" name="specimen.tumorLocation.elements">
 			<oneOrMore>
 				<grammar>
-					<include href="&value;">
+					<include href="&response;">
 						<define name="value.attrib">
 							<ref name="value.text.attrib"/>
 						</define>
@@ -498,7 +498,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="interleave" name="specimen.integrity.elements">
 			<grammar>
-				<include href="&value;">
+				<include href="&response;">
 					<define name="value.attrib">
 						<ref name="value.text.attrib"/>
 					</define>
@@ -515,7 +515,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice" name="specimen.weight.elements">
 			<grammar>
-				<include href="&value;">
+				<include href="&response;">
 					<define name="value.attrib">
 						<ref name="value.dimensional.attrib"/>
 					</define>
@@ -544,7 +544,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="stage.prefix.elements">
 			<grammar>
-				<include href="&value;">
+				<include href="&response;">
 					<define name="value.attrib">
 						<ref name="value.text.attrib"/>
 					</define>
@@ -557,7 +557,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="stage.T.elements">
 			<grammar>
-				<include href="&value;">
+				<include href="&response;">
 					<define name="value.attrib">
 						<ref name="value.text.attrib"/>
 					</define>
@@ -570,7 +570,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="stage.M.elements">
 			<grammar>
-				<include href="&value;">
+				<include href="&response;">
 					<define name="value.attrib">
 						<ref name="value.text.attrib"/>
 					</define>
@@ -583,7 +583,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="stage.N.elements">
 			<grammar>
-				<include href="&value;">
+				<include href="&response;">
 					<define name="value.attrib">
 						<ref name="value.text.attrib"/>
 					</define>
@@ -596,7 +596,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="stage.classification.elements">
 			<grammar>
-				<include href="&value;">
+				<include href="&response;">
 					<define name="value.attrib">
 						<ref name="value.text.attrib"/>
 					</define>
@@ -621,7 +621,7 @@
 		<define name="studies.study.elements">
 			<interleave>
 				<grammar>
-					<include href="&value;">
+					<include href="&response;">
 						<define name="value.attrib">
 							<ref name="value.text.attrib"/>
 						</define>
@@ -634,7 +634,7 @@
 					<element name="method">
 						<interleave>
 							<grammar>
-								<include href="&value;">
+								<include href="&response;">
 									<define name="value.attrib">
 										<ref name="value.text.attrib"/>
 									</define>
@@ -667,7 +667,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice" name="tumor.histologicType.elements">
 			<grammar>
-				<include href="&value;">
+				<include href="&response;">
 					<define name="value.attrib">
 						<ref name="value.text.attrib"/>
 					</define>
@@ -681,7 +681,7 @@
 		<define combine="choice" name="tumor.grade.elements">
 			<interleave>
 				<grammar>
-					<include href="&value;">
+					<include href="&response;">
 						<define name="value.attrib">
 							<ref name="value.text.attrib"/>
 						</define>

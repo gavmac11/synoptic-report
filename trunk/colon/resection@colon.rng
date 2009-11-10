@@ -28,9 +28,9 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<a:documentation>This file creates a COLON RESECTION REPORT schema.</a:documentation>
-	<a:documentation>It incorporates the framework (non-site-specific) resection report schema ("resection.rng") by
-		means of inclusion, and extends it by inclusion of definitions from four additional colon-specific schema
-		files that, together, provide all the necessary colon-specific content.</a:documentation>
+	<a:documentation>It incorporates the framework (non-site-specific) resection report schema ("resection.rng") by means
+		of inclusion, and extends it by inclusion of definitions from four additional colon-specific schema files that,
+		together, provide all the necessary colon-specific content.</a:documentation>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<include href="../framework/resection.rng">
@@ -42,16 +42,16 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<include href="components/elements.rng">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>This includes a file that contains the definitions of the colon site-specific elements that
-			must be added to the framework report schema.</a:documentation>
+		<a:documentation>This includes a file that contains the definitions of the colon site-specific elements that must
+			be added to the framework report schema.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</include>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<include href="components/elementContents.rng">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>This includes a file that contains the internal structures of the colon site-specific
-			elements included in the previous file.</a:documentation>
+		<a:documentation>This includes a file that contains the internal structures of the colon site-specific elements
+			included in the previous file.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</include>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

@@ -24,7 +24,7 @@
     
 -->
 <!DOCTYPE grammar [
-<!ENTITY value "value.rng">
+<!ENTITY response "response.rng">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
 	xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
@@ -32,22 +32,22 @@
 	xmlns:xi="http://www.w3.org/2001/XInclude">
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<a:documentation>This file contains definitions for a number of recurring patterns that are referenced throughout
-		the project.</a:documentation>
+	<a:documentation>This file contains definitions for a number of recurring patterns that are referenced throughout the
+		project.</a:documentation>
 	<a:documentation>This IS NOT a freestanding schema. It is used by inclusion in the "synopsis.rng" file, and the
 		definitions it contains are referenced by several components.</a:documentation>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>This division contains definitions for common patterns that are either (a) eCC-native
-			elements allowed to appear as children of (nearly) every element in the project; (b) "hooks" for user
+		<a:documentation>This division contains definitions for common patterns that are either (a) eCC-native elements
+			allowed to appear as children of (nearly) every element in the project; (b) "hooks" for user
 			customization.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="common.elements">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>A common element is defined as either an eCC-native common element, or a custom
-				(user-defined) element.</a:documentation>
+			<a:documentation>A common element is defined as either an eCC-native common element, or a custom (user-defined)
+				element.</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<interleave>
 				<ref name="common.core.elements"/>
@@ -57,18 +57,18 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="common.core.elements">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>The eCC-native common elements can appear on (nearly) any element in the eCC schema.
-				There are three such elements.</a:documentation>
-			<a:documentation>The "comment" pattern allows for free-text comments, optionally interspersed with
-				user-defined xml markup, to be attached to (nearly) any eCC element.</a:documentation>
+			<a:documentation>The eCC-native common elements can appear on (nearly) any element in the eCC schema. There are
+				three such elements.</a:documentation>
+			<a:documentation>The "comment" pattern allows for free-text comments, optionally interspersed with user-defined
+				xml markup, to be attached to (nearly) any eCC element.</a:documentation>
 			<a:documentation>The "label" pattern allows for the label that appeared in the pathologist's GUI to be
-				preserved, even though that label may have been different from the "official" eCC datastring
-				designating that name or value. It allows for free-text, optionally interspersed with user-defined
-				xml markup.</a:documentation>
-			<a:documentation>The "text" pattern allows report text that is not part of the eCC schema to be, as it
-				were, "commented out". This is intended to assist users who wish to use the eCC schemas to mark up
-				existing text reports in-line. It allows for free-text, optionally interspersed with user-defined
-				xml markup.</a:documentation>
+				preserved, even though that label may have been different from the "official" eCC datastring designating
+				that name or value. It allows for free-text, optionally interspersed with user-defined xml
+				markup.</a:documentation>
+			<a:documentation>The "text" pattern allows report text that is not part of the eCC schema to be, as it were,
+				"commented out". This is intended to assist users who wish to use the eCC schemas to mark up existing text
+				reports in-line. It allows for free-text, optionally interspersed with user-defined xml
+				markup.</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<interleave>
 				<optional>
@@ -97,11 +97,11 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="common.extension.elements">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>This defines a pattern that supports inclusion in an instance of user-defined elements
-				without "breaking" validation.</a:documentation>
+			<a:documentation>This defines a pattern that supports inclusion in an instance of user-defined elements without
+				"breaking" validation.</a:documentation>
 			<a:documentation>The condition on these elements is that neither these elements, their attributes, their
-				descendant elements and their descendant elements' attributes must all be in namespaces other than
-				the eCC-reserved namespaces. They may have local names.</a:documentation>
+				descendant elements and their descendant elements' attributes must all be in namespaces other than the
+				eCC-reserved namespaces. They may have local names.</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<zeroOrMore>
 				<element>
@@ -148,9 +148,8 @@
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="common.core.attrib">
-			<a:documentation>We encourage the use of xml:ID as the preferred form of id elements on our content. This
-				type definition ensures that ID uniqueness checking will be performed on these
-				id's.</a:documentation>
+			<a:documentation>We encourage the use of xml:ID as the preferred form of id elements on our content. This type
+				definition ensures that ID uniqueness checking will be performed on these id's.</a:documentation>
 			<optional>
 				<attribute name="xml:id">
 					<data type="ID"/>
@@ -193,8 +192,8 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>This division defines several common patterns that are reused in multiple locations
-			throughout the project. This includes patterns for laterality, weight, length and size.</a:documentation>
+		<a:documentation>This division defines several common patterns that are reused in multiple locations throughout
+			the project. This includes patterns for laterality, weight, length and size.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="common.specify">
 			<optional>
@@ -211,7 +210,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="laterality">
 			<grammar>
-				<include href="&value;">
+				<include href="&response;">
 					<define name="value.attrib">
 						<ref name="value.text.attrib"/>
 					</define>
@@ -228,14 +227,14 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="common.size">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>Patterns related to size and length are defined in chinese-box fashion, in such a way as
-				to facilitate several levels of reuse.</a:documentation>
+			<a:documentation>Patterns related to size and length are defined in chinese-box fashion, in such a way as to
+				facilitate several levels of reuse.</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<element name="size">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-				<a:documentation>We define a reusable pattern presenting as an element named "size". This element
-					name may not be appropriate in all circumstances, e.g. in one context it may be preferable to
-					reuse the same content model, but rename the element "tumorSize".</a:documentation>
+				<a:documentation>We define a reusable pattern presenting as an element named "size". This element name may
+					not be appropriate in all circumstances, e.g. in one context it may be preferable to reuse the same
+					content model, but rename the element "tumorSize".</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<interleave>
 					<ref name="common.sizeContent"/>
@@ -297,9 +296,9 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="length">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>The element named "length" is just another name that can be applied to the same content
-				as is inside the element named "dimension". (When part of a "size", we refer to it as a "dimension".
-				When standing alone, we refer to it as a "length".)</a:documentation>
+			<a:documentation>The element named "length" is just another name that can be applied to the same content as is
+				inside the element named "dimension". (When part of a "size", we refer to it as a "dimension". When standing
+				alone, we refer to it as a "length".)</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<element name="length">
 				<interleave>
@@ -312,11 +311,11 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="length.content">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>Here is the pattern for "length/dimension" contents. It allows for specification of (1)
-				a "unit" and (2) a numerical "result".</a:documentation>
+			<a:documentation>Here is the pattern for "length/dimension" contents. It allows for specification of (1) a
+				"unit" and (2) a numerical "result".</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<grammar>
-				<include href="&value;">
+				<include href="&response;">
 					<define name="value.attrib">
 						<ref name="value.dimensional.attrib"/>
 					</define>

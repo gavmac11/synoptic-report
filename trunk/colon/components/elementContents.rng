@@ -24,7 +24,7 @@
     
 -->
 <!DOCTYPE grammar [
-<!ENTITY value "../../framework/components/value.rng">
+<!ENTITY response "../../framework/components/response.rng">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
   ns="http://www.cap.org/pert/2009/01/colon/"
@@ -46,7 +46,7 @@
         ..</a:documentation>
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
       <grammar>
-        <include href="&value;">
+        <include href="&response;">
           <define name="value.attrib">
             <ref name="value.text.attrib"/>
           </define>
@@ -64,7 +64,7 @@
       <a:documentation>.. preexistingPolyp CONTENT ..</a:documentation>
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
       <grammar>
-        <include href="&value;">
+        <include href="&response;">
           <define name="value.attrib">
             <ref name="value.text.attrib"/>
           </define>
@@ -105,7 +105,7 @@
       <a:documentation>.. invasion CONTENT ..</a:documentation>
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
       <grammar>
-        <include href="&value;">
+        <include href="&response;">
           <define name="value.attrib">
             <ref name="value.text.attrib"/>
           </define>
@@ -131,7 +131,7 @@
     <define name="colon.extent.adjacentStructure.elements">
       <a:documentation>.. adjacentStructure CONTENT ..</a:documentation>
       <grammar>
-        <include href="&value;">
+        <include href="&response;">
           <define name="value.attrib">
             <ref name="value.text.attrib"/>
           </define>
@@ -181,7 +181,7 @@
         <ref name="common.size"/>
         <element name="configuration">
           <grammar>
-            <include href="&value;">
+            <include href="&response;">
               <define name="value.attrib">
                 <ref name="value.text.attrib"/>
               </define>
@@ -224,7 +224,7 @@
         <element name="intratumoral">
           <interleave>
             <grammar>
-              <include href="&value;">
+              <include href="&response;">
                 <define name="value.attrib">
                   <ref name="value.text.attrib"/>
                 </define>
@@ -240,7 +240,7 @@
         <element name="peritumoral">
           <interleave>
             <grammar>
-              <include href="&value;">
+              <include href="&response;">
                 <define name="value.attrib">
                   <ref name="value.text.attrib"/>
                 </define>
@@ -258,7 +258,7 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="colon.tumor.medullaryComponent.elements">
       <grammar>
-        <include href="&value;">
+        <include href="&response;">
           <define name="value.attrib">
             <ref name="value.text.attrib"/>
           </define>
@@ -271,7 +271,7 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="colon.tumor.highGrade.elements">
       <grammar>
-        <include href="&value;">
+        <include href="&response;">
           <define name="value.attrib">
             <ref name="value.text.attrib"/>
           </define>
@@ -284,7 +284,7 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="colon.tumor.mucinousComponent.elements">
       <grammar>
-        <include href="&value;">
+        <include href="&response;">
           <define name="value.attrib">
             <ref name="value.dimensional.attrib"/>
           </define>
@@ -300,7 +300,7 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="colon.tumor.perforation.elements">
       <grammar>
-        <include href="&value;">
+        <include href="&response;">
           <define name="value.attrib">
             <ref name="value.text.attrib"/>
           </define>
