@@ -36,12 +36,22 @@
   -->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>This sets the prefix "ecc' to the pert namespace.</p>
 	<ns prefix="ecc" uri="http://www.cap.org/pert/2009/01/"/>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>This creates a variable named $skip that is available throughout the schema, and sets it equal to true(). This
+		is used to make {assert}if-then-else{/assert} assertions more readable. Usually, it is in the idiom of "if (x)
+		then y else $skip.</p>
 	<let name="skip" value="true()"/>
+	<p>This does a similar thing, but creates one named $no-report to use in {report}if-then-else{/report} report
+		clauses.</p>
 	<let name="no-report" value="false()"/>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>In this schema, there are multiple occasions when I need to convert a value expressed in centimeters or inches
+		into millimeters. This is an xslt2 function that does this. The operative formula is just a cascade of if-then
+		statements that applies the appropriate conversion factor. If the input is cannot be handled, the fallback is
+		to report the result as 'unreported'.</p>
 	<xsl:function name="ecc:to-mm">
 		<xsl:param name="value"/>
 		<xsl:param name="unit"/>
@@ -51,8 +61,18 @@
 	</xsl:function>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>This is a rule that ensures that if a response value to an item is 'specify', then there has to be a child
+		{specify} element present where the user's specify string is reported. The idea is, you can't respond to an
+		item by saying you're going to specify a different response from any of the available options, then fail to
+		make such a specification. </p>
+	<p>The pattern has three rules, one for each type of context in which a 'specify' response is possible in the
+		framework. Case 1 is the most common case: {ecc:response/} elements can have a @value of 'specify'. Case 2 is
+		for elements like {ecc:item} that can have a @name attribute which can take a value of 'specify'. Case 3 is a
+		number of elements like {margin/} or {metastasis/} that have a @location attribute that can take a value of
+		'specify'. </p>
 	<pattern id="specify-element-iff-value-of-specify">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<p/>
 		<rule context="ecc:response">
 			<assert test="if(@value='specify') then exists(./ecc:specify) else not(exists(./ecc:specify))">
 				A response value of "specify" requires a child {specify} element, and vice versa.
@@ -74,6 +94,11 @@
 	</pattern>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>This pattern emits a VALIDATION WARNING (=schematron {report} (not a VALIDATION FAILURE (=schematron {assert})
+		when a size is specified in which a different length unit is used for different dimensions. This is allowed in
+		the framework, but is considered poor practice.</p>
+	<p>The first rules check the second dimension's unit against that of the first dimension. The second rule checks
+		the third dimension's unit against that of the first dimension.</p>
 	<pattern id="dimensions-have-same-unit">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="ecc:dimension[2]/ecc:response">
@@ -91,6 +116,12 @@
 	</pattern>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>This pattern issues a validation warning when the first dimension of a size is not the largest dimension. This
+		is allowed, but is considered poor practice.</p>
+	<p>This pattern makes use of the xsl:to-mm() function defined up at the beginning of this file, in order to ensure
+		that all dimensions are converted to millimeters before the comparisons are made.</p>
+	<p>There are two rules: the first compares the second dimension against the first. The other one compares the third
+		dimension against the first.</p>
 	<pattern id="largest-dimension-comes-first">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="ecc:dimension[2]/ecc:response">
@@ -116,6 +147,9 @@
 	</pattern>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>This checks to make sure that you don't specify a closest margin if there is any positive margin, as this
+		wouldn't make any sense. Closest margin is only defined if all margins are negative. (Otherwise the "closest"
+		margin is obviously the positive margin -- which is not a usage that pathologists employ.)</p>
 	<pattern id="closest-margin-negative">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="/ecc:synopsis/ecc:margins">
@@ -129,6 +163,8 @@
 	</pattern>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>This checks that you don't report a distance from the margin if the margin is positive. Distance from margin is
+		only meaningful if the margin is negative.</p>
 	<pattern id="margin-distance-only-if-negative">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="/ecc:synopsis/ecc:margins/ecc:margin/ecc:response/ecc:distance">
@@ -140,6 +176,9 @@
 	</pattern>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>This checks that every site that you specify as being involved by tumor is actually a site that you also have
+		specified as being contained in the specimen. It would make no sense to say that tumor involves the left ear,
+		if the left ear is not listed as part of the specimen.</p>
 	<pattern id="tumorSite-subsets-specimenSite">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="/ecc:synopsis/ecc:specimen/ecc:tumorSite/ecc:response">
@@ -152,6 +191,8 @@
 	</pattern>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>This checks that you don't say the tumor is larger than the specimen. It makes no sense to say the tumor has a
+		largest dimension of 15 cm if the largest dimension of the specimen is only 10 cm.</p>
 	<pattern id="tumor-largest-dimension-cannot-exceed-specimen-largest-dimension">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="/ecc:synopsis/ecc:specimen">
@@ -169,12 +210,15 @@
 	</pattern>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>This checks that the total number of nodes you report is not less than the sum of the positive+regressed+specify
+		count of nodes. It makes no sense e.g. to say that you have a total of 10 nodes, of which 20 are positive.</p>
 	<pattern id="total-nodes-cannot-exceed-non-negative-nodes">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="/ecc:synopsis/ecc:nodes/ecc:nodeGroup">
 			<let name="total" value="ecc:count[@status eq 'total']/ecc:response/@value[. castable as xs:double]"/>
 			<let name="other" value="ecc:count[@status ne 'total']/ecc:response/@value[. castable as xs:double]"/>
-			<let name="location" value="if (@location = 'specify') then ecc:specify else if (@location = 'unreported') then 'unreported location' else @location"/>
+			<let name="location" value="if (@location = 'specify') then ecc:specify else if (@location =
+				'unreported') then 'unreported location' else @location"/>
 			<assert test="if (exists($total)) then number($total) ge sum($other) else $skip">
 				In the "<value-of select="$location"/>" group, you report fewer total nodes (<value-of select="$total"/>) than the sum of the individually enumerated node status categories (<value-of select="sum($other)"/>).
 			</assert>
@@ -183,14 +227,17 @@
 	</pattern>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>This issues a warning if you indicate there is pathologic evidence of treatment effect, but in the clinical
+		history section you have not given any indication that tumor was previously treated, and how. This is allowed,
+		but it is obviously bad practice.</p>
 	<pattern id="clinical-treatment-and-pathologic-effect-consonant">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="/ecc:synopsis">
 			<let name="pathologic" value="ecc:accessory/ecc:treatmentEffect/ecc:response/@value"/>
 			<let name="clinical" value="ecc:clinical/ecc:priorTherapy/ecc:response/@value"/>
 			<report test="exists($pathologic) and $pathologic != ('inapplicable','unreported') and empty($clinical)">
-				You report treatment effect among the accessory findings, but there is no prior therapy report in the clinical section.
-			</report>
+				You report treatment effect among the accessory findings, but there is no prior therapy report in
+				the clinical section. </report>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</pattern>
