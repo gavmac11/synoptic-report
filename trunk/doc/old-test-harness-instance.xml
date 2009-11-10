@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:/Users/me/Dropbox/PERT/branches/refactor/generic/test-harness.rng" type="xml"?>
+<synopsis ecc:schemaLocation="" ecc:version="" grddl:transformation="" xmlns="http://www.cap.org/pert/2009/01/"
+	xmlns:ecc="http://www.cap.org/pert/2009/01/" xmlns:grddl="http://www.w3.org/2003/g/data-view#">
+	<accessory>
+		<label/>
+		<venousInvasion>
+			<value ecc:equal="negative"/>
+		</venousInvasion>
+		<lymphovascularInvasion>
+			<value ecc:equal="negative"/>
+		</lymphovascularInvasion>
+		<perineuralInvasion>
+			<value ecc:equal="negative"/>
+		</perineuralInvasion>
+		<treatmentEffect>
+			<value ecc:equal="marked response"/>
+		</treatmentEffect>
+	</accessory>
+	<additional>
+		<item ecc:name="specify">
+			<!-- TODO: need to allow text other than "specify" above -->
+			<value ecc:equal="specify">
+				<specify>limited to the region of the tumor</specify>
+				<text/>
+			</value>
+		</item>
+	</additional>
+	<clinical>
+		<priorTherapy>
+			<value ecc:equal="specify">
+				<specify>vincristine and methotrexate</specify>
+			</value>
+			<date>2008-06</date>
+		</priorTherapy>
+		<clinicalFinding>
+			<label>Clinical Examination Result:</label>
+			<value ecc:equal="specify">
+				<specify>fever</specify>
+			</value>
+			<date>2009-10-21</date>
+			<comment>no laboratory confirmation</comment>
+		</clinicalFinding>
+		<clinicalFinding>
+			<value ecc:equal="specify">
+				<specify>halitosis</specify>
+			</value>
+		</clinicalFinding>
+		<radiologicFinding>
+			<value ecc:equal="specify">
+				<specify>mass</specify>
+			</value>
+		</radiologicFinding>
+	</clinical>
+	<extent>
+		<size>
+			<dimension ecc:largestDimension="true">
+				<value ecc:unit="cm" ecc:equal="5.5"/>
+			</dimension>
+			<dimension ecc:largestDimension="false">
+				<value ecc:unit="cm" ecc:lessThan="5.5"/>
+			</dimension>
+			<dimension ecc:largestDimension="false">
+				<value ecc:unit="cm" ecc:lessThan="1"/>
+			</dimension>
+		</size>
+	</extent>
+	<margins>
+		<margin>
+			<location>
+				<value ecc:equal="specify"> </value>
+			</location>
+			<value ecc:equal="specify">
+				<!-- TODO: lack of <specify> element does not cause validation failure -->
+			</value>
+			<closest>
+				<!-- TODO: need to put distance inside this? -->
+				<value ecc:equal="negative"/>
+			</closest>
+			<distance>
+				<value ecc:greaterThanOrEqual="0.2" ecc:unit="cm"/>
+			</distance>
+		</margin>
+	</margins>
+	<metastases>
+		<metastasis>
+			<site>
+				<value ecc:equal="specify"/>
+			</site>
+			<howDiagnosed>
+				<value ecc:equal="outside report"/>
+			</howDiagnosed>
+			<size>
+				<dimension>
+					<value ecc:greaterThan="6" ecc:unit="cm"/>
+				</dimension>
+				<dimension>
+					<value ecc:equal="4" ecc:unit="cm"/>
+				</dimension>
+				<dimension>
+					<value ecc:equal="2.1" ecc:unit="cm"/>
+				</dimension>
+			</size>
+		</metastasis>
+	</metastases>
+	<nodes>
+		<group>
+			<location>
+				<value ecc:equal=""/>
+			</location>
+			<largest>
+				<dimension ecc:largestDimension="true">
+					<value ecc:unit="cm" ecc:equal="2.2"/>
+				</dimension>
+			</largest>
+			<total>
+				<value ecc:equal="34"/>
+			</total>
+			<positive>
+				<value ecc:equal="16"/>
+			</positive>
+		</group>
+	</nodes>
+	<specimen>
+		<procedure>
+			<value ecc:equal="specify">
+				<specify>excision</specify>
+				<label>lumpectomy</label>
+				<comment>the label is not the conventional term used for this</comment>
+			</value>
+		</procedure>
+		<site>
+			<value ecc:equal="specify">
+				<specify>tip of nose</specify>
+			</value>
+		</site>
+		<tumorLocation>
+			<value ecc:equal="specify">
+				<specify>tip of nose</specify>
+			</value>
+		</tumorLocation>
+		<integrity>
+			<value ecc:equal="indeterminate"
+				><!-- TODO: need to fix default selection on this in the generic template. It's giving the e-boolean set. Need the native set. --></value>
+		</integrity>
+		<grossSize>
+			<dimension>
+				<value ecc:unit="cm" ecc:equal="5.5"/>
+			</dimension>
+		</grossSize>
+		<weight>
+			<value ecc:equal="200" ecc:unit="g"/>
+		</weight>
+	</specimen>
+	<stage>
+		<prefix>
+			<value ecc:equal="ym"/>
+		</prefix>
+		<classification>
+			<value ecc:equal="p"/>
+		</classification>
+		<T>
+			<value ecc:equal="1a1"><!-- TODO: for the generic case, need to make this blacn  --></value>
+		</T>
+		<N>
+			<value ecc:equal="1"><!-- TODO: Need to collect all possible N values --></value>
+		</N>
+		<M>
+			<value ecc:equal="1"/>
+		</M>
+	</stage>
+	<studies>
+		<study ecc:name="">
+			<!-- TODO: need to allow name content other than specify -->
+			<value ecc:equal="specify">
+				<!-- TODO: need to allow name content other than specify -->
+			</value>
+		</study>
+	</studies>
+	<tumor>
+		<histologicType>
+			<value ecc:equal="specify">
+				<specify>blah blah balh</specify>
+			</value>
+		</histologicType>
+		<grade>
+			<value ecc:equal="specify">
+				<!-- TODO: need to move system as an optional to here -->
+			</value>
+			<system>
+				<value ecc:equal="WHO"/>
+			</system>
+		</grade>
+	</tumor>
+</synopsis>
