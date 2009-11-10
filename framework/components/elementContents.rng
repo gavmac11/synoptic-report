@@ -679,21 +679,19 @@
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice" name="tumor.grade.elements">
-			<grammar>
-				<include href="&value;">
-					<define name="value.attrib">
-						<ref name="value.text.attrib"/>
-						<optional>
-							<attribute name="system">
-								<parentRef name="tumor.grade.system.values"/>
-							</attribute>
-						</optional>
-					</define>
-					<define name="value.text.result">
-						<parentRef name="tumor.grade.values"/>
-					</define>
-				</include>
-			</grammar>
+			<interleave>
+				<grammar>
+					<include href="&value;">
+						<define name="value.attrib">
+							<ref name="value.text.attrib"/>
+						</define>
+						<define name="value.text.result">
+							<parentRef name="tumor.grade.values"/>
+						</define>
+					</include>
+				</grammar>
+				<ref name="common.specify"/>
+			</interleave>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="interleave" name="tumor.siteSpecific.elements">

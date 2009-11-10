@@ -23,44 +23,49 @@
    ===========================================================================
    
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
-	xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<a:documentation>This file does two things:</a:documentation>
-	<a:documentation>(1) This file imports "synopsis.rng", which contains the definitions of all the attributes and
-		elements necessary to construct a skeleton eCC report. (Note that "synopsis.rng" does not define any specific
-		report type; in particular, it does not specify which of the available sections are required, which are
-		optional, and which are not to be used.)</a:documentation>
-	<a:documentation>(2) This file defines a report type that consists of one of each of the eleven possible report
-		sections, in alphabetical order. This report type is not clinically relevant, but is useful for testing during
-		schema development, since (unlike most clinically relevant report types) it incorporates every possible
-		section.</a:documentation>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<include href="components/synopsis.rng">
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>This line includes (imports) "synopsis.rng".</a:documentation>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	</include>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="choice" name="synopsis.elements">
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>This definition specifies the choice, order and optionality of sections that constitute a
-			TEST HARNESS REPORT.</a:documentation>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<ref name="accessory"/>
-		<ref name="additional"/>
-		<ref name="clinical"/>
-		<ref name="extent"/>
-		<ref name="margins"/>
-		<ref name="metastases"/>
-		<ref name="nodes"/>
-		<ref name="specimen"/>
-		<ref name="stage"/>
-		<ref name="studies"/>
-		<ref name="tumor"/>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <a:documentation>This file does two things:</a:documentation>
+  <a:documentation>(1) This file imports "synopsis.rng", which contains the
+    definitions of all the attributes and elements necessary to construct a
+    skeleton eCC report. (Note that "synopsis.rng" does not define any specific
+    report type; in particular, it does not specify which of the available
+    sections are required, which are optional, and which are not to be
+    used.)</a:documentation>
+  <a:documentation>(2) This file defines a report type that consists of one of
+    each of the eleven possible report sections, in alphabetical order. This
+    report type is not clinically relevant, but is useful for testing during
+    schema development, since (unlike most clinically relevant report types) it
+    incorporates every possible section.</a:documentation>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <include href="components/synopsis.rng">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <a:documentation>This line includes (imports)
+      "synopsis.rng".</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  </include>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <define combine="choice" name="synopsis.elements">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <a:documentation>This definition specifies the choice, order and optionality
+      of sections that constitute a TEST HARNESS REPORT.</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <ref name="accessory"/>
+    <ref name="additional"/>
+    <ref name="clinical"/>
+    <ref name="extent"/>
+    <ref name="margins"/>
+    <ref name="metastases"/>
+    <ref name="nodes"/>
+    <ref name="specimen"/>
+    <ref name="stage"/>
+    <ref name="studies"/>
+    <ref name="tumor"/>
+  </define>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>
