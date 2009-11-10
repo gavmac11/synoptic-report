@@ -29,9 +29,9 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<a:documentation>This file does two things:</a:documentation>
 	<a:documentation>(1) This file imports "synopsis.rng", which contains the definitions of all the attributes and
-		elements necessary to construct a skeleton eCC report. (Note that "synopsis.rng" does not define any
-		specific report type; in particular, it does not specify which of the available sections are required, which
-		are optional, and which are not to be used.)</a:documentation>
+		elements necessary to construct a skeleton eCC report. (Note that "synopsis.rng" does not define any specific
+		report type; in particular, it does not specify which of the available sections are required, which are
+		optional, and which are not to be used.)</a:documentation>
 	<a:documentation>(2) This file defines a report type that consists of one of each of the eleven possible report
 		sections, in alphabetical order. This report type is not clinically relevant, but is useful for testing during
 		schema development, since (unlike most clinically relevant report types) it incorporates every possible
