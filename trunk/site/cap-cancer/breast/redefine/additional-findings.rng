@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<choice xmlns="http://relaxng.org/ns/structure/1.0">
-    <value>fibrocystic changes</value>
-    <value>ordinary hyperplasia</value>
-    <value>atypical hyperplasia</value>
-</choice>

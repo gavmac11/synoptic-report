@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<optional ns="http://www.cap.org/pert/2009/01/lung/" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-    <element name="egfr">
-        <ref name="baseContent"/>
-        <attribute name="method"/>
-        <attribute name="value"/>
-    </element>
-</optional>

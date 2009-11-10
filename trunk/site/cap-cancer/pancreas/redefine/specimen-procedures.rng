@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<choice xmlns="http://relaxng.org/ns/structure/1.0">
-    <value>pancreaticoduodenectomy, partial pancreatectomy</value>
-    <value>pancreaticoduodenectomy, total pancreatectomy</value>
-    <value>partial pancreatectomy, pancreatic body</value>
-    <value>partial pancreatectomy, pancreatic tail</value>
-</choice>

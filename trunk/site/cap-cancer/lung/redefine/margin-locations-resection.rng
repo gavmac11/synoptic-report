@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<choice xmlns="http://relaxng.org/ns/structure/1.0">
-  <value>bronchial</value>
-  <value>vascular</value>
-  <value>parenchymal</value>
-  <value>parietal pleural</value>
-  <value>chest wall</value>
-  <value>other</value>
-</choice>
