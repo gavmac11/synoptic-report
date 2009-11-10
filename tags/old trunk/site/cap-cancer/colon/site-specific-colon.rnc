@@ -1,0 +1,124 @@
+default namespace = "http://www.cap.org/pert/2009/01/colon/"
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+start = notAllowed
+
+## Procedure section values
+div {
+    procedure-values =
+          "total colectomy"
+        | "right hemicolectomy"
+        | "transverse colectomy"
+        | "left hemicolectomy"
+        | "segmental colectomy"
+        | "abdominoperineal resection"
+        | "proctocolectomy"
+    site-values =
+          "cecum"
+        | "right colon"
+        | "hepatic flexure"
+        | "transverse colon"
+        | "splenic flexure"
+        | "left colon"
+        | "sigmoid colon"
+        | "rectum"
+        | "anus"
+    fragmentation-values = "intact" | "fragmented"
+}
+
+## Tumor section values
+div {
+    histologicType-values =
+          "adenocarcinoma"
+        | "mucinous adenocarcinoma"
+        | "signet-ring cell carcinoma"
+        | "small cell carcinoma"
+        | "squamous cell carcinoma"
+        | "adenosquamous carcinoma"
+        | "medullary carcinoma"
+        | "undifferentiated carcinoma"
+        | "carcinoma indeterminate type"
+        | "other"
+    gradingSystem-values = "WHO" | "CAP" | "two-grade system"
+    grade-values = "low" | "high" | "indeterminate"
+    tumorPerforation-addition =
+        element tumorPerforation {
+            baseContent,
+            attribute value { external "extendedBoolean.rnc" }
+        }
+}
+
+## Tumor section values
+div {
+    additionalFindings-values =
+          ""
+        | "adenoma"
+        | "ulcerative colitis"
+        | "Crohn's disease"
+        | "dysplasia with IBD"
+        | "sessile serrated adenoma"
+        | "other polyp"
+}
+
+## Tumor section values
+div {
+    marginLocation-values =
+          "deep"
+        | "mucosalLateral"
+        | "1:00"
+        | "2:00"
+        | "3:00"
+        | "4:00"
+        | "5:00"
+        | "6:00"
+        | "7:00"
+        | "8:00"
+        | "9:00"
+        | "10:00"
+        | "11:00"
+        | "12:00"
+        | "other"
+    marginStatus-values =
+          "negative"
+        | "indeterminate"
+        | "inapplicable"
+        | "positive for adenoma"
+        | "positive for carcinoma"
+}
+
+## Tumor section values
+div {
+    nodeGroup-values =
+          "pericolic"
+        | "ileocolic"
+        | "anterior cecal"
+        | "posterior cecal"
+        | "right colic"
+        | "middle colic"
+        | "left colic"
+        | "inferior mesenteric"
+        | "sigmoid"
+        | "superior rectal"
+        | "superior hemorrhoidal"
+        | "sigmoidal"
+        | "sigmoid mesenteric"
+        | "middle hemorrhoidal"
+        | "lateral sacral"
+        | "presacral"
+        | "internal iliac"
+        | "sacral promontory (Gerota's)"
+        | "inferior hemorrhoidal"
+        | "anorectal"
+        | "superficial inguinal"
+        | "internal iliac"
+        | "hypogastric"
+        | "femoral"
+        | "lateral sacral"
+}
+
+## Tumor section values
+div {
+    T-values = "X" | "0" | "is" | "1" | "2" | "3" | "4"
+    N-values = "X" | "0" | "1" | "2"
+    M-values = "X" | "0" | "1"
+}

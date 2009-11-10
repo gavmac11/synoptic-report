@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grammar [
+<!ENTITY pert "http://www.cap.org/pert/2009/01/">
+<!ENTITY redefine "../../../site/cap-cancer/colon/redefine/">
+<!ENTITY add "../../../site/cap-cancer/colon/add/">
+<!ENTITY cap-cancer "../../../section/cap-cancer/">
+<!ENTITY method "../../../method/cap-cancer/">
+<!ENTITY report "../../">
+<!ENTITY repository "http://purl.oclc.org/medical/reporting/report/cap-cancer/resection/resection@colon.rng">
+<!ENTITY version "0.1">
+]>
+<!--
+    
+    CAP Schema for Synoptic Reports
+    (c) Copyright 2008 College of American Pathologists
+    ===========================================================================
+    Component name:
+    resection@colon.rng
+    
+    Component type:
+    schema
+    
+    Version date:
+    2008.12.02
+    
+    Defines:
+    semistructured report schema for a resection at colon
+    
+    Purpose:
+    
+    
+    
+    Dependencies:      
+    direct <externalRef> to anyForeignContent.rng; must be in same folder
+    direct <externalRef> to anyForeignAttributes.rng; must be in same folder
+    indirect <externalRef> to anyForeignAttributes.rng; must be in same folder
+    ===========================================================================
+    This file is part of the "CAP Schema for Synoptic Reports".
+    
+    The "CAP Schema for Synoptic Reports" is free software: 
+    you can redistribute it and/or modify it under the terms of the 
+    GNU General Public License as published by the Free Software Foundation, 
+    either version 3 of the License, or (at your option) any later version.
+    
+    The "CAP Schema for Synoptic Reports" is distributed 
+    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or 
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+    for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with the "CAP Schema for Synoptic Reports".  
+    If not, see <http://www.gnu.org/licenses/>. 
+    ===========================================================================
+    
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:colon="&pert;colon/"
+    xmlns:pert="&pert;">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div>
+        <include href="&report;common.rng">
+            <define combine="choice" name="schemaLocation">
+                <value>&repository;</value>
+            </define>
+            <define name="version">
+                <value>&version;</value>
+            </define>
+        </include>
+        <include href="&method;resection.rng"/>
+    </div>
+    <div>
+        <include href="&cap-cancer;clinical-content.rng"/>
+    </div>
+    <div>
+        <a:documentation>Specimen section</a:documentation>
+        <include href="&cap-cancer;specimen-content.rng">
+            <a:documentation>Site-specific redefines</a:documentation>
+            <define combine="choice" name="procedures">
+                <externalRef href="&redefine;specimen-procedures.rng"/>
+            </define>
+            <define combine="choice" name="sites">
+                <externalRef href="&redefine;specimen-sites.rng"/>
+            </define>
+            <define name="integrityValues">
+                <externalRef href="&redefine;specimen-integrityValues.rng"/>
+            </define>
+        </include>
+        <define combine="interleave" name="specimen-content">
+            <a:documentation>Site-specific new content</a:documentation>
+            <interleave>
+                <externalRef href="&add;specimen-polyp.rng"/>
+            </interleave>
+        </define>
+    </div>
+    <div>
+        <a:documentation>Tumor section</a:documentation>
+        <include href="&cap-cancer;tumor-content.rng">
+            <a:documentation>Site-specific redefines</a:documentation>
+            <define name="histologicTypes">
+                <externalRef href="&redefine;tumor-histologicTypes.rng"/>
+            </define>
+            <define name="grades">
+                <externalRef href="&redefine;tumor-grades.rng"/>
+            </define>
+        </include>
+        <define combine="interleave" name="tumor-content">
+            <a:documentation>Site-specific new content</a:documentation>
+            <interleave>
+                <externalRef href="&add;tumor-immuneResponse.rng"/>
+                <externalRef href="&add;tumor-microsatellite.rng"/>
+                <externalRef href="&add;tumor-perforation.rng"/>
+            </interleave>
+        </define>
+    </div>
+    <div>
+        <a:documentation>Extent section</a:documentation>
+        <include href="&cap-cancer;extent-content.rng"/>
+        <define combine="interleave" name="extent-content">
+            <a:documentation>Site-specific new content</a:documentation>
+            <externalRef href="&add;extent-invasion-resection.rng"/>
+        </define>
+    </div>
+    <div>
+        <a:documentation>Margin section</a:documentation>
+        <include href="&cap-cancer;margin-content.rng">
+            <a:documentation>Site-specific redefines</a:documentation>
+            <define name="marginLocations">
+                <externalRef href="&redefine;margin-locations-resection.rng"/>
+            </define>
+            <define name="marginStatuses">
+                <externalRef href="&redefine;margin-statuses.rng"/>
+            </define>
+        </include>
+    </div>
+    <div>
+        <a:documentation>Accessory content section</a:documentation>
+        <include href="&cap-cancer;accessory-content.rng"/>
+        <define combine="interleave" name="accessory-content">
+            <interleave>
+                <externalRef href="&add;accessory-discontinuousExtension.rng"/>
+                <externalRef href="&add;accessory-preexistingPolyp.rng"/>
+            </interleave>
+        </define>
+    </div>
+    <div>
+        <a:documentation>Nodes section</a:documentation>
+        <include href="&cap-cancer;nodes-content.rng">
+            <define name="nodeGroups">
+                <externalRef href="&redefine;nodes-nodeGroups.rng"/>
+            </define>
+        </include>
+    </div>
+    <div>
+        <a:documentation>Metastasis section</a:documentation>
+        <include href="&cap-cancer;mets-content.rng"/>
+    </div>
+    <div>
+        <a:documentation>Special studies section</a:documentation>
+        <include href="&cap-cancer;studies-content.rng"/>
+    </div>
+    <div>
+        <a:documentation>Stage section</a:documentation>
+        <include href="&cap-cancer;stage-content.rng">
+            <define name="T-values">
+                <externalRef href="&redefine;stage-T-values.rng"/>
+            </define>
+            <define name="N-values">
+                <externalRef href="&redefine;stage-N-values.rng"/>
+            </define>
+            <define name="M-values">
+                <externalRef href="&redefine;stage-M-values.rng"/>
+            </define>
+        </include>
+    </div>
+    <div>
+        <a:documentation>Additional content section</a:documentation>
+        <include href="&cap-cancer;additional-content.rng">
+            <define name="findings">
+                <externalRef href="&redefine;additional-findings.rng"/>
+            </define>
+        </include>
+    </div>
+</grammar>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grammar [
+<!ENTITY pert "http://www.cap.org/pert/2009/01/">
+<!ENTITY lung "http://www.cap.org/pert/2009/01/lung/">
+<!ENTITY redefine "../../../site/cap-cancer/lung/redefine/">
+<!ENTITY add "../../../site/cap-cancer/lung/add/">
+<!ENTITY cap-cancer "../../../section/cap-cancer/">
+<!ENTITY version "0.1">
+]>
+<!--
+    
+    CAP Schema for Synoptic Reports
+    (c) Copyright 2008 College of American Pathologists
+    ===========================================================================
+    Component name:
+    resection@lung.rng
+    
+    Component type:
+    schema
+    
+    Version date:
+    2008.12.02
+    
+    Defines:
+    semistructured report schema for a resection at lung
+    
+    Purpose:
+    
+    
+    
+    Dependencies:      
+    direct <externalRef> to anyForeignContent.rng; must be in same folder
+    direct <externalRef> to anyForeignAttributes.rng; must be in same folder
+    indirect <externalRef> to anyForeignAttributes.rng; must be in same folder
+    ===========================================================================
+    This file is part of the "CAP Schema for Synoptic Reports".
+    
+    The "CAP Schema for Synoptic Reports" is free software: 
+    you can redistribute it and/or modify it under the terms of the 
+    GNU General Public License as published by the Free Software Foundation, 
+    either version 3 of the License, or (at your option) any later version.
+    
+    The "CAP Schema for Synoptic Reports" is distributed 
+    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+    without even the implied warranty of MERCHANTABILITY or 
+    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+    for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with the "CAP Schema for Synoptic Reports".  
+    If not, see <http://www.gnu.org/licenses/>. 
+    ===========================================================================
+    
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:lung="&pert;lung" xmlns:pert="&pert;"
+    xmlns:rng="http://relaxng.org/ns/structure/1.0">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="../../common.rng">
+        <a:documentation>Include the <synopsis/> element and associated base content.</a:documentation>
+        <define combine="choice" name="schemaLocation">
+            <a:documentation>Redefine the @schemaLocation to point to this schema.</a:documentation>
+            <value>&pert;biopsy@lung.rng</value>
+        </define>
+        <define combine="choice" name="version">
+            <a:documentation>Version of this schema</a:documentation>
+            <value>&version;</value>
+        </define>
+    </include>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="../../../method/cap-cancer/biopsy.rng">
+        <a:documentation>Include the sectional architecture of a generic resection report. No structured content is defined.</a:documentation>
+    </include>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;clinical-content.rng">
+        <a:documentation>Include the generic structured content of a Clinical section.</a:documentation>
+    </include>
+    <define combine="interleave" name="clinical-content">
+        <a:documentation>Interleave new lung-specific additional content for the Clinical section.</a:documentation>
+        <externalRef href="&add;clinical-smokingHistory.rng"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;specimen-content.rng">
+        <a:documentation>Include the generic structured content of a Specimen section.</a:documentation>
+        <define combine="choice" name="procedures">
+            <a:documentation>Force lung-specific redefinition of the "sites" pattern of the generic Specimen section.</a:documentation>
+            <externalRef href="&redefine;specimen-procedures-biopsy.rng"/>
+        </define>
+        <define combine="choice" name="sites">
+            <a:documentation>Force lung-specific redefinition of the "sites" pattern of the generic Specimen section.</a:documentation>
+            <externalRef href="&redefine;specimen-sites-biopsy.rng"/>
+        </define>
+    </include>
+    <define combine="interleave" name="specimen-content" ns="&lung;">
+        <a:documentation>Interleave new lung-specific additional content for the Specimen section.</a:documentation>
+        <empty/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;tumor-content.rng">
+        <a:documentation>Include the generic structured content of a Tumor section.</a:documentation>
+        <define name="histologicTypes">
+            <a:documentation>Force lung-specific redefinition of the "histologicTypes" pattern of the generic Specimen section.</a:documentation>
+            <externalRef href="&redefine;tumor-histologicTypes.rng"/>
+        </define>
+        <define name="grades">
+            <a:documentation>Force lung-specific redefinition of the "grades" pattern of the generic Specimen section.</a:documentation>
+            <externalRef href="&redefine;tumor-grades.rng"/>
+        </define>
+        <define name="gradingSystems">
+            <a:documentation>Force lung-specific redefinition of the "gradingSystems" pattern of the generic Specimen section.</a:documentation>
+            <externalRef href="&redefine;tumor-gradingSystems.rng"/>
+        </define>
+    </include>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;extent-content.rng">
+        <a:documentation>Include the generic structured content of an Extent section.</a:documentation>
+    </include>
+    <define combine="interleave" name="extent-content">
+        <a:documentation>Interleave new lung-specific additional content for the Specimen section.</a:documentation>
+        <interleave>
+            <externalRef href="&add;extent-visceralPleura.rng">
+                <a:documentation>Interleave lung-resection-specific invasion content.</a:documentation>
+            </externalRef>
+        </interleave>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;margin-content.rng">
+        <a:documentation>Include the generic structured content of a Margin section.</a:documentation>
+        <define name="marginLocations">
+            <a:documentation>Force lung-resection-specific redefinition of the "locations" pattern of the generic Margin section.</a:documentation>
+            <externalRef href="&redefine;margin-locations-biopsy.rng">
+                <a:documentation/>
+            </externalRef>
+        </define>
+        <define name="marginStatuses">
+            <a:documentation>Force lung-resection-specific redefinition of the "statuses" pattern of the generic Margin section.</a:documentation>
+            <externalRef href="&redefine;margin-statuses.rng"/>
+        </define>
+    </include>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;accessory-content.rng">
+        <a:documentation>Include the generic structured content of an Accessory section.</a:documentation>
+    </include>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;nodes-content.rng"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;mets-content.rng"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;studies-content.rng"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&cap-cancer;additional-content.rng">
+        <define name="findings">
+            <externalRef href="&redefine;additional-findings.rng"/>
+        </define>
+    </include>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</grammar>

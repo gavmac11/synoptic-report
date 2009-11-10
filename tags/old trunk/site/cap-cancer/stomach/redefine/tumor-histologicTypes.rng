@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <value>adenocarcinoma, intestinal type</value>
+    <value>adenocarcinoma, diffuse type</value>
+    <value>papillary adenocarcinoma</value>
+    <value>tubular adenocarcinoma</value>
+    <value>mucinous adencarcinoma</value>
+    <value>signet-ring cell carcinoma</value>
+    <value>carcinoma, NOS</value>
+    <value>other</value>
+</choice>

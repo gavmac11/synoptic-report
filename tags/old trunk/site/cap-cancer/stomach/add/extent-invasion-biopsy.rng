@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element name="invasion" ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <interleave>
+        <ref name="baseContent"/>
+        <element name="deepestInvasion" ns="http://www.cap.org/pert/2009/01/colon/">
+            <ref name="baseContent"/>
+            <attribute name="value">
+                <choice>
+                    <value>no evidence of tumor</value>
+                    <value>intraepithelial carcinoma</value>
+                    <value>lamina propria</value>
+                    <value>submucosa</value>
+                    <value>muscularis propria</value>
+                    <value>inapplicable</value>
+                    <value>inconclusive</value>
+                    <value>indeterminate</value>
+                    <value>other</value>
+                </choice>
+            </attribute>
+        </element>
+    </interleave>
+</element>

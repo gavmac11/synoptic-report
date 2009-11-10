@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element name="preexistingPolyp" ns="http://www.cap.org/pert/2009/01/colon/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <ref name="baseContent"/>
+    <attribute name="value">
+        <choice>
+            <value>tubular adenoma</value>
+            <value>villous adenoma</value>
+            <value>tubulovillous adenoma</value>
+            <value>serrated adenoma</value>
+            <value>sessile serrated adenoma</value>
+            <value>hamartomatous polyp</value>
+            <value>indeterminate type</value>
+            <value>other</value>
+        </choice>
+    </attribute>
+</element>
