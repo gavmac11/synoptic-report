@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<choice xmlns="http://relaxng.org/ns/structure/1.0">
-    <value>familial pancreatitis</value>
-    <value>familial panncreatic cancer syndrome</value>
-    <value>personal history of breast cancer</value>
-    <data type="string"/>
-</choice>

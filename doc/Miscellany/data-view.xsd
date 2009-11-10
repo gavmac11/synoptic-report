@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2003/g/data-view#" xmlns:pert="http://www.cap.org/pert/2009/01/" xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:colon="http://www.cap.org/pert/2009/01/colon/">
-  <xs:import namespace="http://www.cap.org/pert/2009/01/" schemaLocation="resection@colon.xsd"/>
-  <xs:import namespace="http://www.cap.org/pert/2009/01/colon/" schemaLocation="colon.xsd"/>
-  <xs:attribute name="transformation"/>
-</xs:schema>

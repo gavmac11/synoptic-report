@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:/Users/me/Dropbox/PERT/branches/refactor/any-site/test-harness@any-site.rng" type="xml"?>
+<?oxygen SCHSchema="../../generic/rules/common.sch"?>
+<synopsis ecc:schemaLocation="" ecc:version="" grddl:transformation="" xmlns="http://www.cap.org/pert/2009/01/"
+	xmlns:ecc="http://www.cap.org/pert/2009/01/" xmlns:grddl="http://www.w3.org/2003/g/data-view#">
+	<accessory>
+		<venousInvasion>
+			<response value="negative"/>
+		</venousInvasion>
+		<lymphovascularInvasion>
+			<response value="negative"/>
+		</lymphovascularInvasion>
+		<perineuralInvasion>
+			<response value="negative"/>
+		</perineuralInvasion>
+		<treatmentEffect>
+			<response value="no response"/>
+		</treatmentEffect>
+	</accessory>
+	<additional>
+		<item name="specify">
+			<specify>some sort of finding</specify>
+			<response value="specify">
+				<specify>something</specify>
+			</response>
+		</item>
+	</additional>
+	<clinical>
+		<priorTherapy>
+			<response value="specify">
+				<specify>nasal irrigation</specify>
+			</response>
+		</priorTherapy>
+		<clinicalFinding>
+			<response value="specify">
+				<specify>myopia</specify>
+			</response>
+		</clinicalFinding>
+		<radiologicFinding>
+			<response value="specify">
+				<specify>situs inversus</specify>
+			</response>
+		</radiologicFinding>
+	</clinical>
+	<extent>
+		<tumorSize>
+			<dimension>
+				<response unit="cm" value="3"/>
+			</dimension>
+			<dimension>
+				<response unit="cm" value="3"/>
+			</dimension>
+			<dimension>
+				<response unit="cm" value="3"/>
+			</dimension>
+		</tumorSize>
+	</extent>
+	<margins>
+		<margin location="someplace">
+			<response value="negative">
+				<distance>
+					<response unit="mm" value="4"/>
+				</distance>
+			</response>
+		</margin>
+	</margins>
+	<metastases>
+		<metastasis location="specify">
+			<specify>brainstem</specify>
+			<size>
+				<dimension largest="true">
+					<response unit="cm" value="3"/>
+				</dimension>
+			</size>
+			<howDiagnosed>
+				<response value="clinical history"/>
+			</howDiagnosed>
+		</metastasis>
+	</metastases>
+	<nodes>
+		<nodeGroup location="somewhere">
+			<count status="total">
+				<response value="30"/>
+			</count>
+			<count status="positive">
+				<response value="10"/>
+				<largest>
+					<dimension>
+						<response unit="cm" value="3.1"/>
+					</dimension>
+				</largest>
+				<extracapsular>
+					<response value="positive"/>
+				</extracapsular>
+			</count>
+			<count status="regressed">
+				<response value="2"/>
+			</count>
+		</nodeGroup>
+	</nodes>
+	<specimen>
+		<procedure>
+			<response value="some procedure"/>
+		</procedure>
+		<specimenSite>
+			<response value="left knee"/>
+			<response value="right ankle"/>
+		</specimenSite>
+		<tumorSite>
+			<response value="left knee"/>
+		</tumorSite>
+		<tumorSite>
+			<response value="right ankle"/>
+		</tumorSite>
+		<integrity>
+			<response value="fragmented"/>
+		</integrity>
+		<tumorGrossSize>
+			<dimension>
+				<response unit="cm" value="18"/>
+			</dimension>
+		</tumorGrossSize>
+		<specimenWeight>
+			<response unit="kg" value="4"/>
+		</specimenWeight>
+	</specimen>
+	<stage>
+		<prefix>
+			<response value="y"> </response>
+		</prefix>
+		<classification>
+			<response value="p"/>
+		</classification>
+		<T>
+			<response value="2a2"/>
+		</T>
+		<N>
+			<response value="1"/>
+		</N>
+		<M>
+			<response value="1"/>
+		</M>
+	</stage>
+	<studies>
+		<study name="specify">
+			<specify>neutron activation analysis</specify>
+			<response value="pending"/>
+		</study>
+		<study name="serum porcelain">
+			<response value="specify">
+				<specify>outrageously high</specify>
+			</response>
+			<method>
+				<response value="specify">
+					<specify>autotitration with Friedmann's reagent</specify>
+				</response>
+			</method>
+		</study>
+	</studies>
+	<tumor>
+		<histologicType>
+			<response value="razzmatazz"/>
+		</histologicType>
+		<grade>
+			<response value="incredible"/>
+		</grade>
+	</tumor>
+</synopsis>

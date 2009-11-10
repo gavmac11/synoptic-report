@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<choice xmlns="http://relaxng.org/ns/structure/1.0">
-    <value>steatosis</value>
-    <value>iron overload</value>
-    <!-- may need to specify etiology for hepatitis-->
-    <value>chronic hepatitis</value>
-    <value>other</value>
-    <!-- not evaluated -->
-</choice>

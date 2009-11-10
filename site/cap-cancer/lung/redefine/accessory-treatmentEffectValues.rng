@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<choice xmlns="http://relaxng.org/ns/structure/1.0">
-    <value>inapplicable</value>
-    <value>indeterminate</value>
-    <value>&lt;10% viable</value>
-    <value>&gt;10% viable</value>
-</choice>

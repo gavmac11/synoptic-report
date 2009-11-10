@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<choice xmlns="http://relaxng.org/ns/structure/1.0">
-    <value>pneumonectomy</value>
-    <value>segmentectomy</value>
-    <value>lobectomy</value>
-    <value>bilobectomy</value>
-    <value>major airway resection</value>
-</choice>

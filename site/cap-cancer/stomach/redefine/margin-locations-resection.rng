@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<choice datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-  <value>proximal</value>
-  <value>distal</value>
-  <value>lesser omental</value>
-  <value>greater omental</value>
-  <value>deep</value>
-</choice>
