@@ -33,11 +33,11 @@
 		i.e. there are no default attributes in most cases. But the definition names here also serve a "hooks" for any
 		subsequent site-specific attribute additions/redefinitions that may be required.</a:documentation>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<a:documentation>Note that the definitions here are for the official eCC-sanctioned attributes ONLY. In addition,
-		the schema allows for user-defined attributes by validating any attributes in an instance that are (a) not in
-		a PERT namespace and (b) not in the "" namespace (i.e. the "no-namespace-namespace". Users should not add
-		definitions of their user attributes to this file, but should pipeline an additional validation layer (using
-		either NVDL, XProc, or any other dispatching mechanism).</a:documentation>
+	<a:documentation>Note that the definitions here are for the official eCC-sanctioned attributes ONLY. In addition, the
+		schema allows for user-defined attributes by validating any attributes in an instance that are (a) not in a PERT
+		namespace and (b) not in the "" namespace (i.e. the "no-namespace-namespace". Users should not add definitions of
+		their user attributes to this file, but should pipeline an additional validation layer (using either NVDL, XProc,
+		or any other dispatching mechanism).</a:documentation>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<a:documentation>This is NOT a freestanding schema. It is a schema fragment intended for inclusion in the file
 		"synopsis.rng", which bundles the attribute definitions in this file together with the element definitions to
@@ -48,49 +48,45 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="interleave" name="synopsis.attrib">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>The attributes pertinent to the root element "synopsis" are defined
-				here.</a:documentation>
+			<a:documentation>The attributes pertinent to the root element "synopsis" are defined here.</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<attribute name="schemaLocation" ns="http://www.cap.org/pert/2009/01/">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-				<a:documentation>The "pert:schemaLocation" attribute is required on the "synopsis" element of all
-					compliant instances. This value of this attribute is a URI list that identifies the particular
-					PERT schema(s) to which the instance claims compliance. Ideally, this URI should be
-					dereferencable, and should yield a download of the schema.</a:documentation>
-				<a:documentation>Normally, the value of schemaLocation should be (a) URI(s) in the
-					http://www.cap.org/pert/ or in the http://purl.oclc.org/cap/pert/ namespace. However, if users
-					wish to use locally modified versions of the schema(s), the location might be
-					other.</a:documentation>
-				<a:documentation>The list can include not only .rng schemas, but also .sch schemas. However, if
-					multiple schemas are to be applied, it is preferable to provide a link to an .nvdl file that
-					specifies the order and other details of the validation.</a:documentation>
+				<a:documentation>The "pert:schemaLocation" attribute is required on the "synopsis" element of all compliant
+					instances. This value of this attribute is a URI list that identifies the particular PERT schema(s) to
+					which the instance claims compliance. Ideally, this URI should be dereferencable, and should yield a
+					download of the schema.</a:documentation>
+				<a:documentation>Normally, the value of schemaLocation should be (a) URI(s) in the http://www.cap.org/pert/
+					or in the http://purl.oclc.org/cap/pert/ namespace. However, if users wish to use locally modified
+					versions of the schema(s), the location might be other.</a:documentation>
+				<a:documentation>The list can include not only .rng schemas, but also .sch schemas. However, if multiple
+					schemas are to be applied, it is preferable to provide a link to an .nvdl file that specifies the order
+					and other details of the validation.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<ref name="synopsis.schemaLocation.content"/>
 			</attribute>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<attribute name="version" ns="http://www.cap.org/pert/2009/01/">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-				<a:documentation>This attribute is a human-readable string that gives versioning information about
-					the *schema* to which the instance claims compliance.</a:documentation>
-				<a:documentation>N.B. (1) This value of this attribute IS NOT a document (instance) version, but
-					rather a schema version--the version of the schema(s) to which the instance claims
-					compliance.</a:documentation>
+				<a:documentation>This attribute is a human-readable string that gives versioning information about the
+					*schema* to which the instance claims compliance.</a:documentation>
+				<a:documentation>N.B. (1) This value of this attribute IS NOT a document (instance) version, but rather a
+					schema version--the version of the schema(s) to which the instance claims compliance.</a:documentation>
 				<a:documentation>N.B. (2) This standard DOES NOT provide any model for versioning (e.g. correcting,
-					revision, etc) an instance of an eCC report. Such versioning is application
-					dependent.</a:documentation>
-				<a:documentation>N.B. (3) This standard DOES provide support for XML Signature, which is an
-					XML-standard security and provenance standard that can assist in versioning. </a:documentation>
+					revision, etc) an instance of an eCC report. Such versioning is application dependent.</a:documentation>
+				<a:documentation>N.B. (3) This standard DOES provide support for XML Signature, which is an XML-standard
+					security and provenance standard that can assist in versioning. </a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<ref name="synopsis.version.content"/>
 			</attribute>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<attribute name="transformation" ns="http://www.w3.org/2003/g/data-view#">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-				<a:documentation>The value of this attribute is a space-separated list of tokens (which will
-					typically be URIs) that identify transformations associated with this instance for the purpose
-					of semantic extraction, in accordance with the W3C GRDDL specification.</a:documentation>
-				<a:documentation>For more information, refer to the W3C GRDDL specification, which can be obtained
-					at: http://www.w3.org/TR/grddl/ .</a:documentation>
+				<a:documentation>The value of this attribute is a space-separated list of tokens (which will typically be
+					URIs) that identify transformations associated with this instance for the purpose of semantic extraction,
+					in accordance with the W3C GRDDL specification.</a:documentation>
+				<a:documentation>For more information, refer to the W3C GRDDL specification, which can be obtained at:
+					http://www.w3.org/TR/grddl/ .</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<ref name="synopsis.transformation.content"/>
 			</attribute>
@@ -188,8 +184,7 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>This division contains attribute definitions relevant to the "extent"
-			section.</a:documentation>
+		<a:documentation>This division contains attribute definitions relevant to the "extent" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="interleave" name="extent.attrib">
 			<empty/>
@@ -203,8 +198,7 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>This division contains attribute definitions relevant to the "margins"
-			section.</a:documentation>
+		<a:documentation>This division contains attribute definitions relevant to the "margins" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="interleave" name="margins.attrib">
 			<empty/>
@@ -218,14 +212,6 @@
 					<value>unreported</value>
 				</choice>
 			</attribute>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="margins.margin.location.attrib">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="margins.margin.closest.attrib">
-			<empty/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="margins.margin.distance.attrib">
@@ -261,8 +247,7 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>This division contains attribute definitions relevant to the "nodes"
-			section.</a:documentation>
+		<a:documentation>This division contains attribute definitions relevant to the "nodes" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="interleave" name="nodes.attrib">
 			<empty/>
@@ -283,14 +268,6 @@
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="nodes.group.extracapsular.attrib">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="nodes.group.location.laterality.attrib">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="nodes.group.location.attrib">
 			<empty/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -333,10 +310,6 @@
 			<empty/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="specimen.weight.unit.attrib">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="interleave" name="specimen.tumorGrossSize.attrib">
 			<empty/>
 		</define>
@@ -346,8 +319,7 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>This division contains attribute definitions relevant to the "stage"
-			section.</a:documentation>
+		<a:documentation>This division contains attribute definitions relevant to the "stage" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="interleave" name="stage.attrib">
 			<empty/>
@@ -377,8 +349,7 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>This division contains attribute definitions relevant to the "studies"
-			section.</a:documentation>
+		<a:documentation>This division contains attribute definitions relevant to the "studies" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="interleave" name="studies.attrib">
 			<empty/>
@@ -398,8 +369,7 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>This division contains attribute definitions relevant to the "tumor"
-			section.</a:documentation>
+		<a:documentation>This division contains attribute definitions relevant to the "tumor" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="interleave" name="tumor.attrib">
 			<empty/>
@@ -417,9 +387,6 @@
 			<empty/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="tumor.grade.system.attrib">
-			<empty/>
-		</define>
 	</div>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

@@ -28,9 +28,9 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<p>This Schematron schema contains integrity rules that apply to the generic contents of any schema. Some of these
-		rules apply structural constraints that are inconvenient to express in Relax NG (for example, a result value
-		of "specify" mandates a {specify} element to contain the specified result). Others are "sanity" rules (for
-		example, total nodes must be greater than or equal to sum of all the non-negative nodes).</p>
+		rules apply structural constraints that are inconvenient to express in Relax NG (for example, a result value of
+		"specify" mandates a {specify} element to contain the specified result). Others are "sanity" rules (for example,
+		total nodes must be greater than or equal to sum of all the non-negative nodes).</p>
 	<!-- TODO: rules that apply to all generic schemas
     - if exists(/synopsis/accessory/treatmentEffect/response/@value) and  != "inapplicable" then exists(/synopsis/clinical/priorTherapy/response/@value) and it != "unreported"
   -->
@@ -39,9 +39,9 @@
 	<p>This sets the prefix "ecc' to the pert namespace.</p>
 	<ns prefix="ecc" uri="http://www.cap.org/pert/2009/01/"/>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<p>This creates a variable named $skip that is available throughout the schema, and sets it equal to true(). This
-		is used to make {assert}if-then-else{/assert} assertions more readable. Usually, it is in the idiom of "if (x)
-		then y else $skip.</p>
+	<p>This creates a variable named $skip that is available throughout the schema, and sets it equal to true(). This is
+		used to make {assert}if-then-else{/assert} assertions more readable. Usually, it is in the idiom of "if (x) then y
+		else $skip.</p>
 	<let name="skip" value="true()"/>
 	<p>This does a similar thing, but creates one named $no-report to use in {report}if-then-else{/report} report
 		clauses.</p>
@@ -50,8 +50,8 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<p>In this schema, there are multiple occasions when I need to convert a value expressed in centimeters or inches
 		into millimeters. This is an xslt2 function that does this. The operative formula is just a cascade of if-then
-		statements that applies the appropriate conversion factor. If the input is cannot be handled, the fallback is
-		to report the result as 'unreported'.</p>
+		statements that applies the appropriate conversion factor. If the input is cannot be handled, the fallback is to
+		report the result as 'unreported'.</p>
 	<xsl:function name="ecc:to-mm">
 		<xsl:param name="value"/>
 		<xsl:param name="unit"/>
@@ -68,12 +68,12 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<p>This is a pattern that ensures that if a response value to an item is 'specify', then there has to be a child
-		{specify} element present where the user's specify string is reported. The idea is, you can't respond to an
-		item by saying you're going to specify a different response from any of the available options, then fail to
-		make such a specification. </p>
-	<p>The pattern has two rules. The first ensures that if any attribute has a value of 'specify', its parent must
-		have a child {specify} element. The second rule is the inverse; it ensures that for any {specify} element, the
-		parent has an attribute with a value of 'specify'.</p>
+		{specify} element present where the user's specify string is reported. The idea is, you can't respond to an item
+		by saying you're going to specify a different response from any of the available options, then fail to make such a
+		specification. </p>
+	<p>The pattern has two rules. The first ensures that if any attribute has a value of 'specify', its parent must have
+		a child {specify} element. The second rule is the inverse; it ensures that for any {specify} element, the parent
+		has an attribute with a value of 'specify'.</p>
 	<pattern id="specify-element-iff-value-of-specify">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="//*[attribute::node() = 'specify']">
@@ -92,10 +92,10 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<p>This pattern emits a VALIDATION WARNING (=schematron {report} (not a VALIDATION FAILURE (=schematron {assert})
-		when a size is specified in which a different length unit is used for different dimensions. The framework
-		permits this, but it is poor practice and is discouraged.</p>
-	<p>The first rules check the second dimension's unit against that of the first dimension. The second rule checks
-		the third dimension's unit against that of the first dimension.</p>
+		when a size is specified in which a different length unit is used for different dimensions. The framework permits
+		this, but it is poor practice and is discouraged.</p>
+	<p>The first rules check the second dimension's unit against that of the first dimension. The second rule checks the
+		third dimension's unit against that of the first dimension.</p>
 	<!-- TODO: a rewrite of the xpath could surely compress these into a single rule -->
 	<pattern id="dimensions-have-same-unit">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -115,8 +115,8 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<p>This pattern issues a validation warning when the first dimension of a size is not the largest dimension. The
-		framework permits this, but it is poor practice and is discouraged. Normally, input validation in a user
-		interface should ensure that this doesn't happen.</p>
+		framework permits this, but it is poor practice and is discouraged. Normally, input validation in a user interface
+		should ensure that this doesn't happen.</p>
 	<p>This pattern makes use of the xsl:to-mm() function defined up at the beginning of this file, in order to ensure
 		that all dimensions are converted to millimeters before the comparisons are made.</p>
 	<p>There are two rules: the first compares the second dimension against the first. The other one compares the third
@@ -131,8 +131,8 @@
 			<report
 				test="($dim-2 castable as xs:double) and ($dim-1 castable as xs:double) and (xs:double($dim-1) lt
 				xs:double($dim-2))"
-				> Larger dimension (<value-of select="max((xs:double($dim-1),xs:double($dim-2)))"/> mm) should be
-				reported first. </report>
+				> Larger dimension (<value-of select="max((xs:double($dim-1),xs:double($dim-2)))"/> mm) should be reported
+				first. </report>
 			<!---->
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -144,17 +144,17 @@
 			<report
 				test="($dim-3 castable as xs:double) and ($dim-1 castable as xs:double) and (xs:double($dim-1) lt
 				xs:double($dim-3))"
-				> Larger dimension (<value-of select="max((xs:double($dim-1),xs:double($dim-3)))"/> mm) should be
-				reported first. </report>
+				> Larger dimension (<value-of select="max((xs:double($dim-1),xs:double($dim-3)))"/> mm) should be reported
+				first. </report>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</pattern>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<p>This checks to make sure that you don't specify a closest margin if there is any positive margin, as this
-		wouldn't make any sense. Closest margin is only defined if all margins are negative. (Otherwise the "closest"
-		margin is obviously the positive margin -- which is not a usage that pathologists employ.)</p>
+	<p>This checks to make sure that you don't specify a closest margin if there is any positive margin, as this wouldn't
+		make any sense. Closest margin is only defined if all margins are negative. (Otherwise the "closest" margin is
+		obviously the positive margin -- which is not a usage that pathologists employ.)</p>
 	<pattern id="closest-margin-negative">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="/ecc:synopsis/ecc:margins">
@@ -182,8 +182,8 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<p>This checks that every site that you specify as being involved by tumor is actually a site that you also have
-		specified as being contained in the specimen. It would make no sense to say that tumor involves the left ear,
-		if the left ear is not listed as part of the specimen.</p>
+		specified as being contained in the specimen. It would make no sense to say that tumor involves the left ear, if
+		the left ear is not listed as part of the specimen.</p>
 	<pattern id="tumorSite-subsets-specimenSite">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="/ecc:synopsis/ecc:specimen/ecc:tumorSite/ecc:response">
@@ -234,16 +234,16 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<p>This issues a warning if you indicate there is pathologic evidence of treatment effect, but in the clinical
-		history section you have not given any indication that tumor was previously treated, and how. This is allowed,
-		but it is obviously bad practice.</p>
+		history section you have not given any indication that tumor was previously treated, and how. This is allowed, but
+		it is obviously bad practice.</p>
 	<pattern id="clinical-treatment-and-pathologic-effect-consonant">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="/ecc:synopsis">
 			<let name="pathologic" value="ecc:accessory/ecc:treatmentEffect/ecc:response/@value"/>
 			<let name="clinical" value="ecc:clinical/ecc:priorTherapy/ecc:response/@value"/>
-			<report test="exists($pathologic) and $pathologic != ('inapplicable','unreported') and empty($clinical)">
-				You report treatment effect among the accessory findings, but there is no prior therapy report in
-				the clinical section. </report>
+			<report test="exists($pathologic) and $pathologic != ('inapplicable','unreported') and empty($clinical)"> You
+				report treatment effect among the accessory findings, but there is no prior therapy report in the clinical
+				section. </report>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</pattern>

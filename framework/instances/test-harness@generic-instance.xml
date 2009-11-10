@@ -3,13 +3,16 @@
 <?oxygen RNGSchema="../test-harness.rng" type="xml"?>
 <synopsis ecc:schemaLocation="" ecc:version="" grddl:transformation="" xmlns="http://www.cap.org/pert/2009/01/"
 	xmlns:ecc="http://www.cap.org/pert/2009/01/" xmlns:grddl="http://www.w3.org/2003/g/data-view#">
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<accessory>
-		<label/>
+		<label>Additional tumor-related findings</label>
 		<venousInvasion>
-			<response value="unreported"/>
+			<response value="negative"/>
 		</venousInvasion>
 		<lymphovascularInvasion>
-			<response value="negative"/>
+			<response value="negative">
+				<label>no evidence of lymphatic invasion</label>
+			</response>
 		</lymphovascularInvasion>
 		<perineuralInvasion>
 			<response value="negative"/>
@@ -18,17 +21,18 @@
 			<response value="complete response"/>
 		</treatmentEffect>
 	</accessory>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<additional>
 		<item name="specify">
-			<specify/>
-			<response value="specify">
-				<specify>serc</specify>
-				<text/>
+			<specify>scar and chronic inflammation</specify>
+			<response value="positive">
+				<comment>This probably represents evidence of prior surgery.</comment>
 			</response>
 		</item>
 	</additional>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<clinical>
-		<priorTherapy date="2008-06">
+		<priorTherapy date="2008-06" duration="P1M">
 			<response value="specify">
 				<specify>vincristine and methotrexate</specify>
 			</response>
@@ -38,19 +42,20 @@
 			<response value="specify">
 				<specify>fever</specify>
 			</response>
-			<comment>no laboratory confirmation</comment>
+			<comment>taken in office</comment>
 		</clinicalFinding>
 		<clinicalFinding>
 			<response value="specify">
-				<specify>halitosis</specify>
+				<specify>dizziness</specify>
 			</response>
 		</clinicalFinding>
-		<radiologicFinding>
+		<radiologicFinding date="2009-11-03">
 			<response value="specify">
-				<specify>mass</specify>
+				<specify>pelvic mass on CT</specify>
 			</response>
 		</radiologicFinding>
 	</clinical>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<extent>
 		<tumorSize>
 			<dimension>
@@ -60,13 +65,14 @@
 				<response relation="lessThan" unit="mm" value="20"/>
 			</dimension>
 			<dimension>
-				<response relation="lessThanOrEqual" unit="mm" value="1"/>
+				<response relation="lessThanOrEqual" unit="mm" value="13"/>
 			</dimension>
 		</tumorSize>
 	</extent>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<margins>
 		<margin location="specify">
-			<specify>erwre</specify>
+			<specify>soft tissue</specify>
 			<response closest="positive" value="negative">
 				<distance>
 					<response unit="cm" value="3.2"/>
@@ -74,14 +80,16 @@
 			</response>
 		</margin>
 		<margin location="specify">
-			<specify>eferre</specify>
+			<specify>skin</specify>
 			<response value="negative"/>
 		</margin>
 	</margins>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<metastases>
-		<metastasis location="unreported">
+		<metastasis location="specify">
+			<specify>liver</specify>
 			<howDiagnosed>
-				<response value="clinical history"> </response>
+				<response value="clinical history"/>
 			</howDiagnosed>
 			<size>
 				<dimension>
@@ -90,9 +98,10 @@
 			</size>
 		</metastasis>
 	</metastases>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<nodes>
 		<nodeGroup location="specify">
-			<specify>bellybutton</specify>
+			<specify>iliac</specify>
 			<count status="total">
 				<response value="45"/>
 			</count>
@@ -110,20 +119,15 @@
 			<count status="regressed">
 				<response value="23"> </response>
 			</count>
-			<count status="specify">
-				<specify/>
-				<response value="specify">
-					<specify/>
-				</response>
-			</count>
 		</nodeGroup>
 	</nodes>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<specimen>
 		<procedure>
 			<response value="specify">
 				<specify>excision</specify>
 				<label>lumpectomy</label>
-				<comment>the label is not the conventional term used for this</comment>
+				<comment>performed endoscopically, with conversion to open procedure</comment>
 			</response>
 		</procedure>
 		<specimenSize>
@@ -138,7 +142,7 @@
 		</specimenSite>
 		<tumorSite>
 			<response value="specify">
-				<specify>tip of nose</specify>
+				<specify>pelvic soft tissues</specify>
 			</response>
 		</tumorSite>
 		<integrity>
@@ -146,13 +150,14 @@
 		</integrity>
 		<tumorGrossSize>
 			<dimension>
-				<response unit="mm" value="5.5"/>
+				<response unit="cm" value="3"/>
 			</dimension>
 		</tumorGrossSize>
 		<specimenWeight>
 			<response unit="g" value="200"/>
 		</specimenWeight>
 	</specimen>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<stage>
 		<prefix>
 			<response value="ym"/>
@@ -162,39 +167,35 @@
 		</classification>
 		<T>
 			<response value="specify">
-				<specify>something</specify>
+				<specify>not stageable as site uncertain</specify>
 			</response>
 		</T>
 		<N>
 			<response value="specify">
-				<specify>something</specify>
+				<specify>not stageable as site uncertain</specify>
 			</response>
 		</N>
 		<M>
-			<response value="specify">
-				<specify>wrferer</specify>
-			</response>
+			<response value="1"/>
 		</M>
 	</stage>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<studies>
 		<study name="specify">
-			<specify>sahuwefhui</specify>
-			<response value="specify">
-				<specify>dasferw</specify>
-			</response>
+			<specify>FISH for 12p13 deletion</specify>
+			<response value="pending"/>
 		</study>
 	</studies>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<tumor>
 		<histologicType>
 			<response value="specify">
-				<specify>blah blah blah</specify>
+				<specify>unclassifiable type</specify>
 			</response>
 		</histologicType>
-		<grade system="specify">
-			<specify>some user-defined grading system</specify>
-			<response value="specify">
-				<specify>ejrijoiergoj</specify>
-			</response>
+		<grade system="4-grade">
+			<response value="G3"/>
 		</grade>
 	</tumor>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </synopsis>

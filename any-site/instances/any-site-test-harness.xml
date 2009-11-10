@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?oxygen RNGSchema="file:/Users/me/Dropbox/PERT/branches/refactor/any-site/test-harness@any-site.rng" type="xml"?>
-<?oxygen SCHSchema="../../generic/rules/common.sch"?>
+<?oxygen RNGSchema="../test-harness@any-site.rng" type="xml"?>
+<?oxygen SCHSchema="../../framework/rules/common.sch"?>
 <synopsis ecc:schemaLocation="" ecc:version="" grddl:transformation="" xmlns="http://www.cap.org/pert/2009/01/"
 	xmlns:ecc="http://www.cap.org/pert/2009/01/" xmlns:grddl="http://www.w3.org/2003/g/data-view#">
 	<accessory>
@@ -19,10 +19,8 @@
 	</accessory>
 	<additional>
 		<item name="specify">
-			<specify>some sort of finding</specify>
-			<response value="specify">
-				<specify>something</specify>
-			</response>
+			<specify>fibromatosis</specify>
+			<response value="positive"/>
 		</item>
 	</additional>
 	<clinical>
@@ -48,7 +46,7 @@
 				<response unit="cm" value="3"/>
 			</dimension>
 			<dimension>
-				<response unit="cm" value="3"/>
+				<response unit="cm" value="2"/>
 			</dimension>
 			<dimension>
 				<response unit="cm" value="3"/>
@@ -132,13 +130,13 @@
 			<response value="p"/>
 		</classification>
 		<T>
-			<response value="2a2"/>
+			<response value="2d"/>
 		</T>
 		<N>
-			<response value="1"/>
+			<response value="2c"/>
 		</N>
 		<M>
-			<response value="1"/>
+			<response value="1e"/>
 		</M>
 	</stage>
 	<studies>
@@ -159,10 +157,10 @@
 	</studies>
 	<tumor>
 		<histologicType>
-			<response value="razzmatazz"/>
+			<response value="razzmatazzoma"/>
 		</histologicType>
-		<grade>
-			<response value="incredible"/>
+		<grade system="4-grade">
+			<response value="G3"/>
 		</grade>
 	</tumor>
 </synopsis>
