@@ -44,28 +44,43 @@
 	<start>
 		<element name="response">
 			<interleave>
-				<ref name="value.extension.elements"/>
-				<ref name="value.elements"/>
+				<ref name="response.extensions"/>
+				<ref name="response.content"/>
 				<parentRef name="common.attrib"/>
-				<ref name="value.attrib"/>
+				<ref name="response.attrib"/>
 			</interleave>
 		</element>
 	</start>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="value.elements">
-		<parentRef name="common.elements"/>
+	<define combine="interleave" name="response.content">
+		<parentRef name="common.content"/>
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define name="value.extension.elements">
+	<define name="response.extensions">
 		<empty/>
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="choice" name="value.attrib">
+	<define combine="choice" name="response.attrib">
 		<empty/>
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define name="value.dimensional.attrib">
+	<define name="dimensional-response.attrib">
+		<attribute name="value">
+			<choice>
+				<ref name="response.numeric-value.valueset"/>
+				<value>specify</value>
+				<value>unreported</value>
+			</choice>
+		</attribute>
+		<attribute name="unit">
+			<choice>
+				<parentRef name="response.unit.valueset"/>
+				<ref name="response.unit.valueset"/>
+				<value>specify</value>
+				<value>unreported</value>
+			</choice>
+		</attribute>
 		<optional>
 			<attribute name="relation">
 				<choice>
@@ -77,81 +92,52 @@
 				</choice>
 			</attribute>
 		</optional>
+		<parentRef name="common.specify"/>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="dimensionless-response.attrib">
 		<attribute name="value">
 			<choice>
-				<ref name="value.numeric.result"/>
+				<ref name="response.numeric-value.valueset"/>
 				<value>specify</value>
 				<value>unreported</value>
 			</choice>
 		</attribute>
-		<attribute name="unit">
+		<optional>
+			<attribute name="relation">
+				<choice>
+					<value>lessThan</value>
+					<value>lessThanOrEqual</value>
+					<value>equal</value>
+					<value>greaterThanOrEqual</value>
+					<value>greaterThan</value>
+				</choice>
+			</attribute>
+		</optional>
+		<parentRef name="common.specify"/>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define combine="interleave" name="response.numeric-value.valueset">
+		<empty/>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define combine="interleave" name="response.unit.valueset">
+		<parentRef name="response.unit.valueset"/>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define combine="interleave" name="response.text-value.valueset">
+		<empty/>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="text-response.attrib">
+		<attribute name="value">
 			<choice>
-				<parentRef name="value.unit.result"/>
-				<ref name="value.unit.result"/>
+				<ref name="response.text-value.valueset"/>
 				<value>specify</value>
 				<value>unreported</value>
 			</choice>
 		</attribute>
 		<parentRef name="common.specify"/>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define name="value.dimensionless.attrib">
-		<optional>
-			<attribute>
-				<choice>
-					<name>lessThan</name>
-					<name>lessThanOrEqual</name>
-					<name>equal</name>
-					<name>greaterThanOrEqual</name>
-					<name>greaterThan</name>
-				</choice>
-			</attribute>
-		</optional>
-		<attribute name="value">
-			<choice>
-				<ref name="value.numeric.result"/>
-				<value>specify</value>
-				<value>unreported</value>
-			</choice>
-		</attribute>
-		<optional>
-			<element name="specify">
-				<text/>
-				<parentRef name="common.specify.attrib"/>
-			</element>
-		</optional>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="value.numeric.result">
-		<empty/>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="value.unit.result">
-		<parentRef name="value.unit.result"/>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="value.text.result">
-		<empty/>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define name="value.text.attrib">
-		<attribute name="value">
-			<choice>
-				<ref name="value.text.result"/>
-				<value>specify</value>
-				<value>unreported</value>
-			</choice>
-		</attribute>
-		<optional>
-			<element name="specify">
-				<text/>
-				<parentRef name="common.specify.attrib"/>
-			</element>
-		</optional>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define name="value.extension.attrib">
-		<empty/>
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>

@@ -44,18 +44,18 @@
 			allowed to appear as children of (nearly) every element in the project; (b) "hooks" for user
 			customization.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="common.elements">
+		<define name="common.content">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<a:documentation>A common element is defined as either an eCC-native common element, or a custom (user-defined)
 				element.</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<interleave>
-				<ref name="common.core.elements"/>
-				<ref name="common.extension.elements"/>
+				<ref name="common.core.content"/>
+				<ref name="common.extension.content"/>
 			</interleave>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="common.core.elements">
+		<define name="common.core.content">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<a:documentation>The eCC-native common elements can appear on (nearly) any element in the eCC schema. There are
 				three such elements.</a:documentation>
@@ -74,28 +74,28 @@
 				<optional>
 					<element name="comment">
 						<mixed>
-							<ref name="common.extension.elements"/>
+							<ref name="common.extension.content"/>
 						</mixed>
 					</element>
 				</optional>
 				<optional>
 					<element name="label">
 						<mixed>
-							<ref name="common.extension.elements"/>
+							<ref name="common.extension.content"/>
 						</mixed>
 					</element>
 				</optional>
 				<zeroOrMore>
 					<element name="text">
 						<mixed>
-							<ref name="common.extension.elements"/>
+							<ref name="common.extension.content"/>
 						</mixed>
 					</element>
 				</zeroOrMore>
 			</interleave>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="common.extension.elements">
+		<define name="common.extension.content">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<a:documentation>This defines a pattern that supports inclusion in an instance of user-defined elements without
 				"breaking" validation.</a:documentation>
@@ -128,7 +128,7 @@
 						<zeroOrMore>
 							<choice>
 								<ref name="common.extension.attrib"/>
-								<ref name="common.extension.elements"/>
+								<ref name="common.extension.content"/>
 							</choice>
 						</zeroOrMore>
 					</interleave>
@@ -211,11 +211,11 @@
 		<define name="laterality">
 			<grammar>
 				<include href="&response;">
-					<define name="value.attrib">
-						<ref name="value.text.attrib"/>
+					<define name="response.attrib">
+						<ref name="text-response.attrib"/>
 					</define>
-					<define name="value.text.result">
-						<parentRef name="common.laterality.values"/>
+					<define name="response.text-value.valueset">
+						<parentRef name="common.laterality.valueset"/>
 					</define>
 				</include>
 			</grammar>
@@ -237,14 +237,14 @@
 					content model, but rename the element "tumorSize".</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<interleave>
-					<ref name="common.sizeContent"/>
-					<ref name="common.elements"/>
+					<ref name="common.size.content"/>
+					<ref name="common.content"/>
 					<ref name="common.attrib"/>
 				</interleave>
 			</element>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="common.sizeContent">
+		<define name="common.size.content">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<a:documentation>For cases such as described above, we allow reuse of the content in other
 				wrappers.</a:documentation>
@@ -273,7 +273,7 @@
 						</attribute>
 					</optional>
 					<ref name="length.content"/>
-					<ref name="common.elements"/>
+					<ref name="common.content"/>
 					<ref name="common.attrib"/>
 				</interleave>
 			</element>
@@ -288,7 +288,7 @@
 						</attribute>
 					</optional>
 					<ref name="length.content"/>
-					<ref name="common.elements"/>
+					<ref name="common.content"/>
 					<ref name="common.attrib"/>
 				</interleave>
 			</element>
@@ -303,7 +303,7 @@
 			<element name="length">
 				<interleave>
 					<ref name="length.content"/>
-					<ref name="common.elements"/>
+					<ref name="common.content"/>
 					<ref name="common.attrib"/>
 				</interleave>
 			</element>
@@ -316,16 +316,16 @@
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<grammar>
 				<include href="&response;">
-					<define name="value.attrib">
-						<ref name="value.dimensional.attrib"/>
+					<define name="response.attrib">
+						<ref name="dimensional-response.attrib"/>
 					</define>
-					<define name="value.numeric.result">
+					<define name="response.numeric-value.valueset">
 						<data type="decimal">
 							<param name="minExclusive">0.0</param>
 						</data>
 					</define>
-					<define name="value.unit.result">
-						<parentRef name="common.lengthUnit.values"/>
+					<define name="response.unit.valueset">
+						<parentRef name="common.lengthUnit.valueset"/>
 					</define>
 				</include>
 			</grammar>

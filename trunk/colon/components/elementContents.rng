@@ -26,292 +26,286 @@
 <!DOCTYPE grammar [
 <!ENTITY response "../../framework/components/response.rng">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-  ns="http://www.cap.org/pert/2009/01/colon/"
-  xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <a:documentation> </a:documentation>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <div>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- accessory CONTENT --</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="interleave"
-      name="colon.accessory.discontinuousExtramuralExtension.elements">
-      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-      <a:documentation>.. discontinuousExtramuralExtension CONTENT
-        ..</a:documentation>
-      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-      <grammar>
-        <include href="&response;">
-          <define name="value.attrib">
-            <ref name="value.text.attrib"/>
-          </define>
-          <define name="value.text.result">
-            <parentRef
-              name="colon.accessory.discontinuousExtramuralExtension.values"/>
-          </define>
-        </include>
-      </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="interleave"
-      name="colon.accessory.preexistingPolyp.elements">
-      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-      <a:documentation>.. preexistingPolyp CONTENT ..</a:documentation>
-      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-      <grammar>
-        <include href="&response;">
-          <define name="value.attrib">
-            <ref name="value.text.attrib"/>
-          </define>
-          <define name="value.text.result">
-            <parentRef name="colon.accessory.preexistingPolyp.values"/>
-          </define>
-        </include>
-      </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </div>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <div>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- additional CONTENT</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <!-- empty -->
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </div>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <div>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- clinical CONTENT --</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <!-- empty -->
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </div>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <div>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- extent CONTENT --</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="colon.extent.invasion.elements">
-      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-      <a:documentation>.. invasion CONTENT ..</a:documentation>
-      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-      <grammar>
-        <include href="&response;">
-          <define name="value.attrib">
-            <ref name="value.text.attrib"/>
-          </define>
-          <define name="value.text.result">
-            <parentRef name="colon.extent.invasion.result.values"/>
-          </define>
-          <define name="value.extension.elements">
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <optional>
-              <element name="adjacentStructure">
-                <parentRef name="colon.extent.adjacentStructure.attrib"/>
-                <interleave>
-                  <parentRef name="colon.extent.adjacentStructure.elements"/>
-                  <parentRef name="common.elements"/>
-                </interleave>
-              </element>
-            </optional>
-          </define>
-        </include>
-      </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="colon.extent.adjacentStructure.elements">
-      <a:documentation>.. adjacentStructure CONTENT ..</a:documentation>
-      <grammar>
-        <include href="&response;">
-          <define name="value.attrib">
-            <ref name="value.text.attrib"/>
-          </define>
-          <define name="value.text.result">
-            <parentRef name="colon.extent.adjacentStructure.values"/>
-          </define>
-        </include>
-      </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </div>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <div>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- margins SECTION --</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <!-- empty -->
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </div>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <div>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- metastases CONTENT --</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <!-- empty -->
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </div>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <div>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- nodes CONTENT --</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <!-- empty -->
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </div>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <div>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- specimen CONTENT --</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="colon.specimen.polyp.elements">
-      <interleave>
-        <ref name="common.size"/>
-        <element name="configuration">
-          <grammar>
-            <include href="&response;">
-              <define name="value.attrib">
-                <ref name="value.text.attrib"/>
-              </define>
-              <define name="value.text.result">
-                <parentRef name="colon.specimen.polyp.configuration.values"/>
-              </define>
-            </include>
-          </grammar>
-        </element>
-      </interleave>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </div>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <div>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- stage CONTENT --</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <!-- empty -->
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </div>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <div>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- studies CONTENT --</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <!-- empty -->
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </div>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <div>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- tumor CONTENT --</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="colon.tumor.immuneResponse.elements">
-      <interleave>
-        <element name="intratumoral">
-          <interleave>
-            <grammar>
-              <include href="&response;">
-                <define name="value.attrib">
-                  <ref name="value.text.attrib"/>
-                </define>
-                <define name="value.text.result">
-                  <parentRef name="colon.tumor.immuneResponse.values"/>
-                </define>
-              </include>
-            </grammar>
-            <ref name="common.elements"/>
-          </interleave>
-          <ref name="colon.tumor.immuneResponse.intratumoral.attrib"/>
-        </element>
-        <element name="peritumoral">
-          <interleave>
-            <grammar>
-              <include href="&response;">
-                <define name="value.attrib">
-                  <ref name="value.text.attrib"/>
-                </define>
-                <define name="value.text.result">
-                  <parentRef name="colon.tumor.immuneResponse.values"/>
-                </define>
-              </include>
-            </grammar>
-            <ref name="colon.tumor.immuneResponse.peritumoral.attrib"/>
-          </interleave>
-          <ref name="common.elements"/>
-        </element>
-      </interleave>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="colon.tumor.medullaryComponent.elements">
-      <grammar>
-        <include href="&response;">
-          <define name="value.attrib">
-            <ref name="value.text.attrib"/>
-          </define>
-          <define name="value.text.result">
-            <parentRef name="colon.tumor.medullaryComponent.values"/>
-          </define>
-        </include>
-      </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="colon.tumor.highGrade.elements">
-      <grammar>
-        <include href="&response;">
-          <define name="value.attrib">
-            <ref name="value.text.attrib"/>
-          </define>
-          <define name="value.text.result">
-            <parentRef name="colon.tumor.highGrade.values"/>
-          </define>
-        </include>
-      </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="colon.tumor.mucinousComponent.elements">
-      <grammar>
-        <include href="&response;">
-          <define name="value.attrib">
-            <ref name="value.dimensional.attrib"/>
-          </define>
-          <define name="value.numeric.result">
-            <parentRef name="colon.tumor.mucinousComponent.values"/>
-          </define>
-          <define name="value.unit.result">
-            <value>percent</value>
-          </define>
-        </include>
-      </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="colon.tumor.perforation.elements">
-      <grammar>
-        <include href="&response;">
-          <define name="value.attrib">
-            <ref name="value.text.attrib"/>
-          </define>
-          <define name="value.text.result">
-            <parentRef name="colon.tumor.perforation.values"/>
-          </define>
-        </include>
-      </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </div>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/colon/"
+	xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<a:documentation> </a:documentation>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<div>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- accessory CONTENT --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define combine="interleave" name="colon.accessory.discontinuousExtramuralExtension.content">
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<a:documentation>.. discontinuousExtramuralExtension CONTENT ..</a:documentation>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<grammar>
+				<include href="&response;">
+					<define name="response.attrib">
+						<ref name="text-response.attrib"/>
+					</define>
+					<define name="response.text-value.valueset">
+						<parentRef name="colon.accessory.discontinuousExtramuralExtension.values"/>
+					</define>
+				</include>
+			</grammar>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define combine="interleave" name="colon.accessory.preexistingPolyp.content">
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<a:documentation>.. preexistingPolyp CONTENT ..</a:documentation>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<grammar>
+				<include href="&response;">
+					<define name="response.attrib">
+						<ref name="text-response.attrib"/>
+					</define>
+					<define name="response.text-value.valueset">
+						<parentRef name="colon.accessory.preexistingPolyp.values"/>
+					</define>
+				</include>
+			</grammar>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</div>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<div>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- additional CONTENT</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<!-- empty -->
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</div>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<div>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- clinical CONTENT --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<!-- empty -->
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</div>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<div>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- extent CONTENT --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define name="colon.extent.invasion.content">
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<a:documentation>.. invasion CONTENT ..</a:documentation>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<grammar>
+				<include href="&response;">
+					<define name="response.attrib">
+						<ref name="text-response.attrib"/>
+					</define>
+					<define name="response.text-value.valueset">
+						<parentRef name="colon.extent.invasion.result.values"/>
+					</define>
+					<define name="response.extensions">
+						<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+						<optional>
+							<element name="adjacentStructure">
+								<parentRef name="colon.extent.adjacentStructure.attrib"/>
+								<interleave>
+									<parentRef name="colon.extent.adjacentStructure.content"/>
+									<parentRef name="common.content"/>
+								</interleave>
+							</element>
+						</optional>
+					</define>
+				</include>
+			</grammar>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define name="colon.extent.adjacentStructure.content">
+			<a:documentation>.. adjacentStructure CONTENT ..</a:documentation>
+			<grammar>
+				<include href="&response;">
+					<define name="response.attrib">
+						<ref name="text-response.attrib"/>
+					</define>
+					<define name="response.text-value.valueset">
+						<parentRef name="colon.extent.adjacentStructure.values"/>
+					</define>
+				</include>
+			</grammar>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</div>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<div>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- margins SECTION --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<!-- empty -->
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</div>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<div>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- metastases CONTENT --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<!-- empty -->
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</div>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<div>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- nodes CONTENT --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<!-- empty -->
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</div>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<div>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- specimen CONTENT --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define name="colon.specimen.polyp.content">
+			<interleave>
+				<ref name="common.size"/>
+				<element name="configuration">
+					<grammar>
+						<include href="&response;">
+							<define name="response.attrib">
+								<ref name="text-response.attrib"/>
+							</define>
+							<define name="response.text-value.valueset">
+								<parentRef name="colon.specimen.polyp.configuration.values"/>
+							</define>
+						</include>
+					</grammar>
+				</element>
+			</interleave>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</div>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<div>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- stage CONTENT --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<!-- empty -->
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</div>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<div>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- studies CONTENT --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<!-- empty -->
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</div>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<div>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- tumor CONTENT --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define name="colon.tumor.immuneResponse.content">
+			<interleave>
+				<element name="intratumoral">
+					<interleave>
+						<grammar>
+							<include href="&response;">
+								<define name="response.attrib">
+									<ref name="text-response.attrib"/>
+								</define>
+								<define name="response.text-value.valueset">
+									<parentRef name="colon.tumor.immuneResponse.values"/>
+								</define>
+							</include>
+						</grammar>
+						<ref name="common.content"/>
+					</interleave>
+					<ref name="colon.tumor.immuneResponse.intratumoral.attrib"/>
+				</element>
+				<element name="peritumoral">
+					<interleave>
+						<grammar>
+							<include href="&response;">
+								<define name="response.attrib">
+									<ref name="text-response.attrib"/>
+								</define>
+								<define name="response.text-value.valueset">
+									<parentRef name="colon.tumor.immuneResponse.values"/>
+								</define>
+							</include>
+						</grammar>
+						<ref name="colon.tumor.immuneResponse.peritumoral.attrib"/>
+					</interleave>
+					<ref name="common.content"/>
+				</element>
+			</interleave>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define name="colon.tumor.medullaryComponent.content">
+			<grammar>
+				<include href="&response;">
+					<define name="response.attrib">
+						<ref name="text-response.attrib"/>
+					</define>
+					<define name="response.text-value.valueset">
+						<parentRef name="colon.tumor.medullaryComponent.values"/>
+					</define>
+				</include>
+			</grammar>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define name="colon.tumor.highGrade.content">
+			<grammar>
+				<include href="&response;">
+					<define name="response.attrib">
+						<ref name="text-response.attrib"/>
+					</define>
+					<define name="response.text-value.valueset">
+						<parentRef name="colon.tumor.highGrade.values"/>
+					</define>
+				</include>
+			</grammar>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define name="colon.tumor.mucinousComponent.content">
+			<grammar>
+				<include href="&response;">
+					<define name="response.attrib">
+						<ref name="dimensional-response.attrib"/>
+					</define>
+					<define name="response.numeric-value.valueset">
+						<parentRef name="colon.tumor.mucinousComponent.values"/>
+					</define>
+					<define name="response.unit.valueset">
+						<value>percent</value>
+					</define>
+				</include>
+			</grammar>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define name="colon.tumor.perforation.content">
+			<grammar>
+				<include href="&response;">
+					<define name="response.attrib">
+						<ref name="text-response.attrib"/>
+					</define>
+					<define name="response.text-value.valueset">
+						<parentRef name="colon.tumor.perforation.values"/>
+					</define>
+				</include>
+			</grammar>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</div>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>

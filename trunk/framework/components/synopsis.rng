@@ -43,8 +43,8 @@
 		"test-harness.rng".</a:documentation>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<a:documentation>This file introduces a naming convention used throughout the project. All definitions of the form
-		"common.attrib" and "common.elements" can be found in the project file located at "./includes/common.rng". All
-		definitions of the form "*.elements" can be found in the project file located at "./includes/items.rng". All
+		"common.attrib" and "common.content" can be found in the project file located at "./includes/common.rng". All
+		definitions of the form "*.content" can be found in the project file located at "./includes/items.rng". All
 		definitions of the form "*.attrib" can be found in the project file at
 		"./includes.attributes.rng".</a:documentation>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -54,7 +54,7 @@
 		<a:documentation>INCLUDES</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<include href="common.rng">
-			<a:documentation>This file contains all definitions of the form "common.elements" and
+			<a:documentation>This file contains all definitions of the form "common.content" and
 				"common.attrib".</a:documentation>
 		</include>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -94,9 +94,9 @@
 		<start>
 			<element name="synopsis">
 				<interleave>
-					<ref name="synopsis.elements"/>
+					<ref name="synopsis.content"/>
 					<ref name="synopsis.attrib"/>
-					<ref name="common.elements"/>
+					<ref name="common.content"/>
 					<ref name="common.attrib"/>
 				</interleave>
 			</element>

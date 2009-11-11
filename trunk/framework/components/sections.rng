@@ -45,8 +45,8 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<element name="accessory">
 			<interleave>
-				<ref name="accessory.elements"/>
-				<ref name="common.elements"/>
+				<ref name="accessory.content"/>
+				<ref name="common.content"/>
 				<ref name="accessory.attrib"/>
 				<ref name="common.attrib"/>
 			</interleave>
@@ -61,8 +61,8 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<element name="additional">
 			<interleave>
-				<ref name="additional.elements"/>
-				<ref name="common.elements"/>
+				<ref name="additional.content"/>
+				<ref name="common.content"/>
 				<ref name="additional.attrib"/>
 				<ref name="common.attrib"/>
 			</interleave>
@@ -77,8 +77,8 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<element name="clinical">
 			<interleave>
-				<ref name="clinical.elements"/>
-				<ref name="common.elements"/>
+				<ref name="clinical.content"/>
+				<ref name="common.content"/>
 				<ref name="clinical.attrib"/>
 				<ref name="common.attrib"/>
 			</interleave>
@@ -93,8 +93,8 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<element name="extent">
 			<interleave>
-				<ref name="extent.elements"/>
-				<ref name="common.elements"/>
+				<ref name="extent.content"/>
+				<ref name="common.content"/>
 				<ref name="extent.attrib"/>
 				<ref name="common.attrib"/>
 			</interleave>
@@ -109,8 +109,8 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<element name="margins">
 			<interleave>
-				<ref name="margins.elements"/>
-				<ref name="common.elements"/>
+				<ref name="margins.content"/>
+				<ref name="common.content"/>
 				<ref name="margins.attrib"/>
 				<ref name="common.attrib"/>
 			</interleave>
@@ -125,8 +125,8 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<element name="metastases">
 			<interleave>
-				<ref name="metastases.elements"/>
-				<ref name="common.elements"/>
+				<ref name="metastases.content"/>
+				<ref name="common.content"/>
 				<ref name="metastases.attrib"/>
 				<ref name="common.attrib"/>
 			</interleave>
@@ -140,8 +140,8 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<element name="nodes">
 			<interleave>
-				<ref name="nodes.elements"/>
-				<ref name="common.elements"/>
+				<ref name="nodes.content"/>
+				<ref name="common.content"/>
 				<ref name="nodes.attrib"/>
 				<ref name="common.attrib"/>
 			</interleave>
@@ -158,8 +158,8 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<element name="specimen">
 			<interleave>
-				<ref name="specimen.elements"/>
-				<ref name="common.elements"/>
+				<ref name="specimen.content"/>
+				<ref name="common.content"/>
 				<ref name="specimen.attrib"/>
 				<ref name="common.attrib"/>
 			</interleave>
@@ -174,8 +174,8 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<element name="stage">
 			<interleave>
-				<ref name="stage.elements"/>
-				<ref name="common.elements"/>
+				<ref name="stage.content"/>
+				<ref name="common.content"/>
 				<ref name="stage.attrib"/>
 				<ref name="common.attrib"/>
 			</interleave>
@@ -190,8 +190,8 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<element name="studies">
 			<interleave>
-				<ref name="studies.elements"/>
-				<ref name="common.elements"/>
+				<ref name="studies.content"/>
+				<ref name="common.content"/>
 				<ref name="studies.attrib"/>
 				<ref name="common.attrib"/>
 			</interleave>
@@ -205,8 +205,8 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<element name="tumor">
 			<interleave>
-				<ref name="tumor.elements"/>
-				<ref name="common.elements"/>
+				<ref name="tumor.content"/>
+				<ref name="common.content"/>
 				<ref name="tumor.attrib"/>
 				<ref name="common.attrib"/>
 			</interleave>

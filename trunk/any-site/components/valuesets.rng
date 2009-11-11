@@ -32,7 +32,7 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="synopsis.schemaLocation.content">
+		<define combine="choice" name="synopsis.schemaLocation.valueset">
 			<optional>
 				<list>
 					<data type="anyURI"/>
@@ -40,11 +40,11 @@
 			</optional>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="synopsis.version.content">
+		<define combine="choice" name="synopsis.version.valueset">
 			<data type="string"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="synopsis.transformation.content">
+		<define combine="choice" name="synopsis.transformation.valueset">
 			<optional>
 				<list>
 					<data type="token"/>
@@ -56,7 +56,7 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
-		<define name="value.unit.result">
+		<define name="response.unit.valueset">
 			<text/>
 		</define>
 	</div>
@@ -66,7 +66,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Non-site-specific valuesets used on in the "additional" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="additional.item.name.values">
+		<define combine="choice" name="additional.item.name.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -77,15 +77,15 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Non-site-specific valuesets used on in the "clinical" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="clinical.priorTherapy.values">
+		<define combine="choice" name="clinical.priorTherapy.response.value.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="clinical.clinicalFinding.values">
+		<define combine="choice" name="clinical.clinicalFinding.response.value.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="clinical.radiologicFinding.values">
+		<define combine="choice" name="clinical.radiologicFinding.response.value.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -98,7 +98,7 @@
 			<a:documentation>Non-site-specific valuesets used on in the "margins" section.</a:documentation>
 		</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="margins.margin.location.values">
+		<define combine="choice" name="margins.margin.location.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -109,7 +109,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Non-site-specific valuesets used on in the "metastases" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="metastases.metastasis.site.values">
+		<define combine="choice" name="metastases.metastasis.location.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -131,11 +131,11 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Non-site-specific valuesets used in the "specimen" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="specimen.procedure.values">
+		<define combine="choice" name="specimen.procedure.response.value.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="specimen.site.values">
+		<define combine="choice" name="specimen.site.response.value.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -146,7 +146,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Non-site-specific valuesets used in the "stage" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="stage.T.values">
+		<define name="stage.T.response.value.valueset">
 			<choice>
 				<value>X</value>
 				<value>0</value>
@@ -181,7 +181,7 @@
 			</choice>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="stage.N.values">
+		<define name="stage.N.response.value.valueset">
 			<choice>
 				<value>X</value>
 				<value>0</value>
@@ -205,7 +205,7 @@
 			</choice>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="stage.M.values">
+		<define name="stage.M.response.value.valueset">
 			<choice>
 				<value>0</value>
 				<value>1</value>
@@ -224,15 +224,15 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Non-site-specific valuesets used in the "studies" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="studies.study.name.values">
+		<define combine="choice" name="studies.study.name.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="studies.study.value.values">
+		<define combine="choice" name="studies.study.response.value.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="studies.study.method.values">
+		<define combine="choice" name="studies.study.method.response.value.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -243,15 +243,15 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Non-site-specific valuesets used in the "tumor" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="tumor.histologicType.value.values">
+		<define combine="choice" name="tumor.histologicType.response.value.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="tumor.grade.values">
+		<define combine="choice" name="tumor.grade.response.value.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="tumor.grade.system.values">
+		<define combine="choice" name="tumor.grade.system.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

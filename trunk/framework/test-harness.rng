@@ -45,7 +45,7 @@
 	</include>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="choice" name="synopsis.elements">
+	<define combine="choice" name="synopsis.content">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>This definition specifies the choice, order and optionality of sections that constitute a TEST
 			HARNESS REPORT.</a:documentation>
