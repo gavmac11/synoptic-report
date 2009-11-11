@@ -63,7 +63,7 @@
 					schemas are to be applied, it is preferable to provide a link to an .nvdl file that specifies the order
 					and other details of the validation.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-				<ref name="synopsis.schemaLocation.content"/>
+				<ref name="synopsis.schemaLocation.valueset"/>
 			</attribute>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<attribute name="version" ns="http://www.cap.org/pert/2009/01/">
@@ -77,7 +77,7 @@
 				<a:documentation>N.B. (3) This standard DOES provide support for XML Signature, which is an XML-standard
 					security and provenance standard that can assist in versioning. </a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-				<ref name="synopsis.version.content"/>
+				<ref name="synopsis.version.valueset"/>
 			</attribute>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<attribute name="transformation" ns="http://www.w3.org/2003/g/data-view#">
@@ -88,7 +88,7 @@
 				<a:documentation>For more information, refer to the W3C GRDDL specification, which can be obtained at:
 					http://www.w3.org/TR/grddl/ .</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-				<ref name="synopsis.transformation.content"/>
+				<ref name="synopsis.transformation.valueset"/>
 			</attribute>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -135,7 +135,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="interleave" name="additional.item.attrib">
 			<attribute name="name">
-				<ref name="additional.item.name.values"/>
+				<ref name="additional.item.name.valueset"/>
 			</attribute>
 		</define>
 	</div>
@@ -153,12 +153,12 @@
 		<define name="clinical.allChildren.attrib">
 			<optional>
 				<attribute name="date">
-					<ref name="common.date.values"/>
+					<ref name="common.date.valueset"/>
 				</attribute>
 				<optional>
 					<choice>
 						<attribute name="until">
-							<ref name="common.date.values"/>
+							<ref name="common.date.valueset"/>
 						</attribute>
 						<attribute name="duration">
 							<data type="duration"/>
@@ -207,7 +207,7 @@
 		<define name="margins.margin.attrib">
 			<attribute name="location">
 				<choice>
-					<ref name="margins.margin.location.values"/>
+					<ref name="margins.margin.location.valueset"/>
 					<value>specify</value>
 					<value>unreported</value>
 				</choice>
@@ -232,7 +232,7 @@
 		<define name="metastases.metastasis.attrib">
 			<attribute name="location">
 				<choice>
-					<ref name="metastases.metastasis.site.values"/>
+					<ref name="metastases.metastasis.location.valueset"/>
 					<value>specify</value>
 					<value>unreported</value>
 				</choice>
@@ -357,7 +357,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="interleave" name="studies.study.attrib">
 			<attribute name="name">
-				<ref name="studies.study.name.values"/>
+				<ref name="studies.study.name.valueset"/>
 			</attribute>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -378,7 +378,7 @@
 		<define name="tumor.grade.attrib">
 			<optional>
 				<attribute name="system">
-					<ref name="tumor.grade.system.values"/>
+					<ref name="tumor.grade.system.valueset"/>
 				</attribute>
 			</optional>
 		</define>

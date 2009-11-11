@@ -33,15 +33,15 @@
   <a:documentation> </a:documentation>
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <define name="accessory.siteSpecific.elements">
+  <define name="accessory.extensions">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <a:documentation>-- accessory SECTION --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <element name="discontinuousExtramuralExtension">
       <ref name="colon.accessory.discontinuousExtramuralExtension.attrib"/>
       <interleave>
-        <ref name="colon.accessory.discontinuousExtramuralExtension.elements"/>
-        <ref name="common.elements"/>
+        <ref name="colon.accessory.discontinuousExtramuralExtension.content"/>
+        <ref name="common.content"/>
       </interleave>
     </element>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -49,8 +49,8 @@
       <element name="preexistingPolyp">
         <ref name="colon.accessory.preexistingPolyp.attrib"/>
         <interleave>
-          <ref name="colon.accessory.preexistingPolyp.elements"/>
-          <ref name="common.elements"/>
+          <ref name="colon.accessory.preexistingPolyp.content"/>
+          <ref name="common.content"/>
         </interleave>
       </element>
     </optional>
@@ -58,22 +58,22 @@
   </define>
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <define name="extent.siteSpecific.elements">
+  <define name="extent.extensions">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <a:documentation>-- extent SECTION --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <element name="invasion">
       <ref name="colon.extent.invasion.attrib"/>
       <interleave>
-        <ref name="colon.extent.invasion.elements"/>
-        <ref name="common.elements"/>
+        <ref name="colon.extent.invasion.content"/>
+        <ref name="common.content"/>
       </interleave>
     </element>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   </define>
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <define name="specimen.siteSpecific.elements">
+  <define name="specimen.extensions">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <a:documentation>-- specimen SECTION --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -81,8 +81,8 @@
       <element name="polyp">
         <ref name="colon.specimen.polyp.attrib"/>
         <interleave>
-          <ref name="colon.specimen.polyp.elements"/>
-          <ref name="common.elements"/>
+          <ref name="colon.specimen.polyp.content"/>
+          <ref name="common.content"/>
         </interleave>
       </element>
     </optional>
@@ -90,7 +90,7 @@
   </define>
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <define name="tumor.siteSpecific.elements">
+  <define name="tumor.extensions">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <a:documentation>-- tumor SECTION --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -98,8 +98,8 @@
       <element name="immuneResponse">
         <ref name="colon.tumor.immuneResponse.attrib"/>
         <interleave>
-          <ref name="colon.tumor.immuneResponse.elements"/>
-          <ref name="common.elements"/>
+          <ref name="colon.tumor.immuneResponse.content"/>
+          <ref name="common.content"/>
         </interleave>
       </element>
     </optional>
@@ -108,8 +108,8 @@
       <element name="mucinousComponent">
         <ref name="colon.tumor.mucinousComponent.attrib"/>
         <interleave>
-          <ref name="colon.tumor.mucinousComponent.elements"/>
-          <ref name="common.elements"/>
+          <ref name="colon.tumor.mucinousComponent.content"/>
+          <ref name="common.content"/>
         </interleave>
       </element>
     </optional>
@@ -118,8 +118,8 @@
       <element name="medullaryComponent">
         <ref name="colon.tumor.medullaryComponent.attrib"/>
         <interleave>
-          <ref name="colon.tumor.medullaryComponent.elements"/>
-          <ref name="common.elements"/>
+          <ref name="colon.tumor.medullaryComponent.content"/>
+          <ref name="common.content"/>
         </interleave>
       </element>
     </optional>
@@ -128,8 +128,8 @@
       <element name="highGrade">
         <ref name="colon.tumor.highGrade.attrib"/>
         <interleave>
-          <ref name="colon.tumor.highGrade.elements"/>
-          <ref name="common.elements"/>
+          <ref name="colon.tumor.highGrade.content"/>
+          <ref name="common.content"/>
         </interleave>
       </element>
     </optional>
@@ -138,8 +138,8 @@
       <element name="perforation">
         <ref name="colon.tumor.perforation.attrib"/>
         <interleave>
-          <ref name="colon.tumor.perforation.elements"/>
-          <ref name="common.elements"/>
+          <ref name="colon.tumor.perforation.content"/>
+          <ref name="common.content"/>
         </interleave>
       </element>
     </optional>

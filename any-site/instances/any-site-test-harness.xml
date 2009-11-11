@@ -46,7 +46,7 @@
 				<response unit="cm" value="3"/>
 			</dimension>
 			<dimension>
-				<response unit="cm" value="2"/>
+				<response relation="greaterThan" unit="cm" value="2"/>
 			</dimension>
 			<dimension>
 				<response unit="cm" value="3"/>

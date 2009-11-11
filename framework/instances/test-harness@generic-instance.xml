@@ -93,7 +93,7 @@
 			</howDiagnosed>
 			<size>
 				<dimension>
-					<response unit="mm" value="5.5"/>
+					<response relation="greaterThanOrEqual" unit="mm" value="5.5"/>
 				</dimension>
 			</size>
 		</metastasis>
@@ -112,7 +112,7 @@
 				</extracapsular>
 				<largest>
 					<dimension>
-						<response unit="cm" value="5.5"/>
+						<response relation="equal" unit="cm" value="5.5"/>
 					</dimension>
 				</largest>
 			</count>
@@ -160,13 +160,13 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<stage>
 		<prefix>
-			<response value="ym"/>
+			<response value="y"/>
 		</prefix>
 		<classification>
 			<response value="p"/>
 		</classification>
 		<T>
-			<response value="specify">
+			<response multiplicity="3" value="specify">
 				<specify>not stageable as site uncertain</specify>
 			</response>
 		</T>
@@ -182,8 +182,13 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<studies>
 		<study name="specify">
-			<specify>FISH for 12p13 deletion</specify>
-			<response value="pending"/>
+			<specify>12p13 deletion</specify>
+			<response value="pending"> </response>
+			<method>
+				<response value="specify">
+					<specify>FISH</specify>
+				</response>
+			</method>
 		</study>
 	</studies>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

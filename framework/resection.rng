@@ -28,11 +28,10 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<a:documentation>This file does two things: (1) This file imports "synopsis.rng", which contains the definitions of
-		all the attributes and elements necessary to construct a skeleton eCC report. (Note that
-		"synopsis.rng" does not define any specific report type; in particular, it does not specify which of the
-		available sections are required, which are optional, and which are not to be used.) (2) This file defines
-		which sections should be combined to construct a TUMOR RESECTION REPORT; with what optionality; and in what
-		order.</a:documentation>
+		all the attributes and elements necessary to construct a skeleton eCC report. (Note that "synopsis.rng" does not
+		define any specific report type; in particular, it does not specify which of the available sections are required,
+		which are optional, and which are not to be used.) (2) This file defines which sections should be combined to
+		construct a TUMOR RESECTION REPORT; with what optionality; and in what order.</a:documentation>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<include href="components/synopsis.rng">
@@ -41,10 +40,10 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</include>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define name="synopsis.elements">
+	<define name="synopsis.content">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>This definition specifies the choice, order and optionality of sections that constitute a
-			TUMOR RESECTION REPORT.</a:documentation>
+		<a:documentation>This definition specifies the choice, order and optionality of sections that constitute a TUMOR
+			RESECTION REPORT.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<ref name="clinical"/>
 		<ref name="specimen"/>

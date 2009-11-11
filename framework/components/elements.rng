@@ -36,7 +36,7 @@
 		elements.</a:documentation>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="accessory.elements">
+	<define combine="interleave" name="accessory.content">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Top-level elements from the "accessory" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -49,8 +49,8 @@
 					<a:documentation>Venous invasion.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="accessory.venousInvasion.elements"/>
-						<ref name="common.elements"/>
+						<ref name="accessory.venousInvasion.content"/>
+						<ref name="common.content"/>
 						<ref name="accessory.venousInvasion.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
@@ -63,8 +63,8 @@
 					<a:documentation>Lymphovascular invasion.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="accessory.lymphovascularInvasion.elements"/>
-						<ref name="common.elements"/>
+						<ref name="accessory.lymphovascularInvasion.content"/>
+						<ref name="common.content"/>
 						<ref name="accessory.lymphovascularInvasion.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
@@ -77,8 +77,8 @@
 					<a:documentation>Perineural invasion.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="accessory.perineuralInvasion.elements"/>
-						<ref name="common.elements"/>
+						<ref name="accessory.perineuralInvasion.content"/>
+						<ref name="common.content"/>
 						<ref name="accessory.perineuralInvasion.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
@@ -91,15 +91,15 @@
 					<a:documentation>Grading of treatment effect (e.g. neoadjuvant effect) on tumor.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="accessory.treatmentEffect.elements"/>
-						<ref name="common.elements"/>
+						<ref name="accessory.treatmentEffect.content"/>
+						<ref name="common.content"/>
 						<ref name="accessory.treatmentEffect.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
 				</element>
 			</optional>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<ref name="accessory.siteSpecific.elements">
+			<ref name="accessory.extensions">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<a:documentation>Placeholder for site-specific content in the "accessory" section.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -110,7 +110,7 @@
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="additional.elements">
+	<define combine="interleave" name="additional.content">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Top-level elements from the "additional" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -122,15 +122,15 @@
 					<a:documentation>One additional finding item.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="additional.item.elements"/>
-						<ref name="common.elements"/>
+						<ref name="additional.item.content"/>
+						<ref name="common.content"/>
 						<ref name="additional.item.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
 				</element>
 			</zeroOrMore>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<ref name="additional.siteSpecific.elements">
+			<ref name="additional.extensions">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<a:documentation>Placeholder for site-specific content in the "additional" section.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -141,7 +141,7 @@
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="clinical.elements">
+	<define combine="interleave" name="clinical.content">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Top-level elements from the "clinical" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -154,8 +154,8 @@
 					<a:documentation>A prior therapy event.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="clinical.priorTherapy.elements"/>
-						<ref name="common.elements"/>
+						<ref name="clinical.priorTherapy.content"/>
+						<ref name="common.content"/>
 						<ref name="clinical.priorTherapy.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
@@ -168,8 +168,8 @@
 					<a:documentation>A clinical finding.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="clinical.clinicalFinding.elements"/>
-						<ref name="common.elements"/>
+						<ref name="clinical.clinicalFinding.content"/>
+						<ref name="common.content"/>
 						<ref name="clinical.clinicalFinding.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
@@ -182,15 +182,15 @@
 					<a:documentation>A radiologic finding.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="clinical.radiologicFinding.elements"/>
-						<ref name="common.elements"/>
+						<ref name="clinical.radiologicFinding.content"/>
+						<ref name="common.content"/>
 						<ref name="clinical.radiologicFinding.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
 				</element>
 			</zeroOrMore>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<ref name="clinical.siteSpecific.elements">
+			<ref name="clinical.extensions">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<a:documentation>Placeholder for site-specific content in the "clinical" section.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -201,7 +201,7 @@
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="extent.elements">
+	<define combine="interleave" name="extent.content">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Top-level elements from the "extent" section.</a:documentation>
@@ -213,13 +213,13 @@
 				<a:documentation>Tumor size.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<interleave>
-					<ref name="common.sizeContent"/>
-					<ref name="common.elements"/>
+					<ref name="common.size.content"/>
+					<ref name="common.content"/>
 					<ref name="common.attrib"/>
 				</interleave>
 			</element>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<ref name="extent.siteSpecific.elements">
+			<ref name="extent.extensions">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<a:documentation>Placeholder for site-specific content in the "extent" section.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -228,7 +228,7 @@
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="margins.elements">
+	<define combine="interleave" name="margins.content">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Top-level elements from the "margins" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -241,15 +241,15 @@
 					<a:documentation>One named margin.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="margins.margin.elements"/>
-						<ref name="common.elements"/>
+						<ref name="margins.margin.content"/>
+						<ref name="common.content"/>
 						<ref name="margins.margin.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
 				</element>
 			</zeroOrMore>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<ref name="margins.siteSpecific.elements">
+			<ref name="margins.extensions">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<a:documentation>Placeholder for site-specific content in the "margins" section.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -260,7 +260,7 @@
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="metastases.elements">
+	<define combine="interleave" name="metastases.content">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Top-level elements from the "metastases" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -273,15 +273,15 @@
 					<a:documentation>One metastatic deposit.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="metastases.metastasis.elements"/>
-						<ref name="common.elements"/>
+						<ref name="metastases.metastasis.content"/>
+						<ref name="common.content"/>
 						<ref name="metastases.metastasis.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
 				</element>
 			</zeroOrMore>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<ref name="metastases.siteSpecific.elements">
+			<ref name="metastases.extensions">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<a:documentation>Placeholder for site-specific content in the "metastases" section.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -292,7 +292,7 @@
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="nodes.elements">
+	<define combine="interleave" name="nodes.content">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Top-level elements from the "nodes" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -305,15 +305,15 @@
 					<a:documentation>Status report on one named node group.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="nodes.group.elements"/>
-						<ref name="common.elements"/>
+						<ref name="nodes.group.content"/>
+						<ref name="common.content"/>
 						<ref name="nodes.group.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
 				</element>
 			</zeroOrMore>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<ref name="nodes.siteSpecific.elements">
+			<ref name="nodes.extensions">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<a:documentation>Placeholder for site-specific content in the "nodes" section.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -324,7 +324,7 @@
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="specimen.elements">
+	<define combine="interleave" name="specimen.content">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Top-level elements from the "specimen" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -337,8 +337,8 @@
 					<a:documentation>Procedures.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="specimen.procedure.elements"/>
-						<ref name="common.elements"/>
+						<ref name="specimen.procedure.content"/>
+						<ref name="common.content"/>
 						<ref name="specimen.procedure.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
@@ -351,8 +351,8 @@
 					<a:documentation>Specimen site(s) (i.e. site(s) included within specimen).</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="specimen.site.elements"/>
-						<ref name="common.elements"/>
+						<ref name="specimen.site.content"/>
+						<ref name="common.content"/>
 						<ref name="specimen.site.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
@@ -365,8 +365,8 @@
 					<a:documentation>Tumor site(s) (i.e. site(s) involved by tumor).</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="specimen.tumorLocation.elements"/>
-						<ref name="common.elements"/>
+						<ref name="specimen.tumorLocation.content"/>
+						<ref name="common.content"/>
 						<ref name="specimen.tumorLocation.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
@@ -379,8 +379,8 @@
 					<a:documentation>Specimen integrity/fragmentation.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="specimen.integrity.elements"/>
-						<ref name="common.elements"/>
+						<ref name="specimen.integrity.content"/>
+						<ref name="common.content"/>
 						<ref name="specimen.integrity.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
@@ -393,8 +393,8 @@
 					<a:documentation>Gross specimen size.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="common.sizeContent"/>
-						<ref name="common.elements"/>
+						<ref name="common.size.content"/>
+						<ref name="common.content"/>
 						<ref name="specimen.grossSize.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
@@ -407,8 +407,8 @@
 					<a:documentation>Gross specimen size.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="common.sizeContent"/>
-						<ref name="common.elements"/>
+						<ref name="common.size.content"/>
+						<ref name="common.content"/>
 						<ref name="specimen.tumorGrossSize.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
@@ -421,15 +421,15 @@
 					<a:documentation>Specimen weight.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="specimen.weight.elements"/>
-						<ref name="common.elements"/>
+						<ref name="specimen.weight.content"/>
+						<ref name="common.content"/>
 						<ref name="specimen.weight.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
 				</element>
 			</optional>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<ref name="specimen.siteSpecific.elements">
+			<ref name="specimen.extensions">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<a:documentation>Placeholder for site-specific content in the "specimen" section.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -440,7 +440,7 @@
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="stage.elements">
+	<define combine="interleave" name="stage.content">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Top-level elements from the "stage" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -453,8 +453,8 @@
 					<a:documentation>stage prefix ELEMENT(s)</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="stage.prefix.elements"/>
-						<ref name="common.elements"/>
+						<ref name="stage.prefix.content"/>
+						<ref name="common.content"/>
 						<ref name="stage.prefix.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
@@ -467,8 +467,8 @@
 					elsewhere).</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<interleave>
-					<ref name="stage.classification.elements"/>
-					<ref name="common.elements"/>
+					<ref name="stage.classification.content"/>
+					<ref name="common.content"/>
 					<ref name="stage.classification.attrib"/>
 					<ref name="common.attrib"/>
 				</interleave>
@@ -479,8 +479,8 @@
 				<a:documentation>T stage component.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<interleave>
-					<ref name="stage.T.elements"/>
-					<ref name="common.elements"/>
+					<ref name="stage.T.content"/>
+					<ref name="common.content"/>
 					<ref name="stage.T.attrib"/>
 					<ref name="common.attrib"/>
 				</interleave>
@@ -491,8 +491,8 @@
 				<a:documentation>N stage component.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<interleave>
-					<ref name="stage.N.elements"/>
-					<ref name="common.elements"/>
+					<ref name="stage.N.content"/>
+					<ref name="common.content"/>
 					<ref name="stage.N.attrib"/>
 					<ref name="common.attrib"/>
 				</interleave>
@@ -503,14 +503,14 @@
 				<a:documentation>M stage component.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<interleave>
-					<ref name="stage.M.elements"/>
-					<ref name="common.elements"/>
+					<ref name="stage.M.content"/>
+					<ref name="common.content"/>
 					<ref name="stage.M.attrib"/>
 					<ref name="common.attrib"/>
 				</interleave>
 			</element>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<ref name="stage.siteSpecific.elements">
+			<ref name="stage.extensions">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<a:documentation>Placeholder for site-specific content in the "stage" section.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -521,7 +521,7 @@
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="studies.elements">
+	<define combine="interleave" name="studies.content">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Top-level elements from the "studies" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -534,15 +534,15 @@
 					<a:documentation>One ancillary ("non-anatomic") study.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="studies.study.elements"/>
-						<ref name="common.elements"/>
+						<ref name="studies.study.content"/>
+						<ref name="common.content"/>
 						<ref name="studies.study.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
 				</element>
 			</zeroOrMore>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<ref name="studies.siteSpecific.elements">
+			<ref name="studies.extensions">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<a:documentation>Placeholder for site-specific content in the "studies" section.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -553,7 +553,7 @@
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="tumor.elements">
+	<define combine="interleave" name="tumor.content">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Top-level elements from the "tumor" section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -566,8 +566,8 @@
 					<a:documentation>Tumor histologic type.</a:documentation>
 					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 					<interleave>
-						<ref name="tumor.histologicType.elements"/>
-						<ref name="common.elements"/>
+						<ref name="tumor.histologicType.content"/>
+						<ref name="common.content"/>
 						<ref name="tumor.histologicType.attrib"/>
 						<ref name="common.attrib"/>
 					</interleave>
@@ -579,14 +579,14 @@
 				<a:documentation>Tumor grade.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<interleave>
-					<ref name="tumor.grade.elements"/>
-					<ref name="common.core.elements"/>
+					<ref name="tumor.grade.content"/>
+					<ref name="common.core.content"/>
 					<ref name="tumor.grade.attrib"/>
 					<ref name="common.attrib"/>
 				</interleave>
 			</element>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<ref name="tumor.siteSpecific.elements">
+			<ref name="tumor.extensions">
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<a:documentation>Placeholder for site-specific content in the "tumor" section.</a:documentation>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
