@@ -59,13 +59,13 @@
 	<extent>
 		<tumorSize>
 			<dimension>
-				<response unit="mm" value="20"/>
+				<response unit="mm" value="250"/>
 			</dimension>
 			<dimension>
-				<response relation="lessThan" unit="mm" value="20"/>
+				<response relation="lessThan" unit="mm" value="250"/>
 			</dimension>
 			<dimension>
-				<response relation="lessThanOrEqual" unit="mm" value="13"/>
+				<response relation="lessThanOrEqual" unit="mm" value="2"/>
 			</dimension>
 		</tumorSize>
 	</extent>
@@ -132,7 +132,10 @@
 		</procedure>
 		<specimenSize>
 			<dimension>
-				<response unit="cm" value="4"/>
+				<response unit="cm" value="40"/>
+			</dimension>
+			<dimension>
+				<response unit="mm" value="200"/>
 			</dimension>
 		</specimenSize>
 		<specimenSite>
@@ -150,7 +153,13 @@
 		</integrity>
 		<tumorGrossSize>
 			<dimension>
-				<response unit="cm" value="3"/>
+				<response unit="cm" value="300"/>
+			</dimension>
+			<dimension>
+				<response unit="cm" value="200"/>
+			</dimension>
+			<dimension>
+				<response unit="cm" value="1"/>
 			</dimension>
 		</tumorGrossSize>
 		<specimenWeight>
