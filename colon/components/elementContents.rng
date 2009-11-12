@@ -26,8 +26,10 @@
 <!DOCTYPE grammar [
 <!ENTITY response "../../framework/components/response.rng">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/colon/"
-	xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+	ns="http://www.cap.org/pert/2009/01/colon/"
+	xmlns="http://relaxng.org/ns/structure/1.0"
+	xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<a:documentation> </a:documentation>
@@ -37,9 +39,11 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>-- accessory CONTENT --</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="colon.accessory.discontinuousExtramuralExtension.content">
+		<define combine="interleave"
+			name="colon.accessory.discontinuousExtramuralExtension.content">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>.. discontinuousExtramuralExtension CONTENT ..</a:documentation>
+			<a:documentation>.. discontinuousExtramuralExtension CONTENT
+				..</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<grammar>
 				<include href="&response;">
@@ -47,13 +51,16 @@
 						<ref name="text-response.attrib"/>
 					</define>
 					<define name="response.text-value.valueset">
-						<parentRef name="colon.accessory.discontinuousExtramuralExtension.values"/>
+						<parentRef
+							name="colon.accessory.discontinuousExtramuralExtension.values"
+						/>
 					</define>
 				</include>
 			</grammar>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="colon.accessory.preexistingPolyp.content">
+		<define combine="interleave"
+			name="colon.accessory.preexistingPolyp.content">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<a:documentation>.. preexistingPolyp CONTENT ..</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -112,7 +119,8 @@
 							<element name="adjacentStructure">
 								<parentRef name="colon.extent.adjacentStructure.attrib"/>
 								<interleave>
-									<parentRef name="colon.extent.adjacentStructure.content"/>
+									<parentRef
+										name="colon.extent.adjacentStructure.content"/>
 									<parentRef name="common.content"/>
 								</interleave>
 							</element>
@@ -180,7 +188,8 @@
 								<ref name="text-response.attrib"/>
 							</define>
 							<define name="response.text-value.valueset">
-								<parentRef name="colon.specimen.polyp.configuration.values"/>
+								<parentRef
+									name="colon.specimen.polyp.configuration.values"/>
 							</define>
 						</include>
 					</grammar>

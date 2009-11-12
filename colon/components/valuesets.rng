@@ -23,8 +23,10 @@
    ===========================================================================
    
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/colon/"
-	xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+	ns="http://www.cap.org/pert/2009/01/colon/"
+	xmlns="http://relaxng.org/ns/structure/1.0"
+	xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<a:documentation> </a:documentation>
@@ -41,7 +43,8 @@
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice" name="synopsis.transformation.valueset">
-			<value>http://www.cap.org/pert/2009/01/colon/snomedct/ http://www.cap.org/pert/2009/01/colon/radlex/</value>
+			<value>http://www.cap.org/pert/2009/01/colon/snomedct/
+				http://www.cap.org/pert/2009/01/colon/radlex/</value>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</div>
@@ -239,12 +242,13 @@
 		<define name="specimen.site.response.value.valueset">
 			<choice>
 				<value>cecum</value>
-				<value>right colon</value>
+				<value>ascending colon</value>
 				<value>hepatic flexure</value>
 				<value>transverse colon</value>
 				<value>splenic flexure</value>
-				<value>left colon</value>
+				<value>descending colon</value>
 				<value>sigmoid colon</value>
+				<value>rectosigmoid junction</value>
 				<value>rectum</value>
 				<value>anus</value>
 			</choice>
@@ -281,6 +285,8 @@
 				<value>2</value>
 				<value>3</value>
 				<value>4</value>
+				<value>4a</value>
+				<value>4b</value>
 			</choice>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -289,7 +295,21 @@
 				<value>X</value>
 				<value>0</value>
 				<value>1</value>
+				<value>1a</value>
+				<value>1b</value>
+				<value>1c</value>
 				<value>2</value>
+				<value>2a</value>
+				<value>2b</value>
+			</choice>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define combine="choice" name="stage.M.response.value.valueset">
+			<choice>
+				<value>0</value>
+				<value>1</value>
+				<value>1a</value>
+				<value>1b</value>
 			</choice>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
