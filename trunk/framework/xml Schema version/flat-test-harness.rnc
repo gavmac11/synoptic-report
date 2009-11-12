@@ -1,0 +1,1942 @@
+namespace local = ""
+namespace ns1 = "http://www.rsna.org/reporting/2009/01/"
+namespace ns10 = "http://www.cap.org/pert/2009/01/lung/"
+namespace ns11 = "http://www.cap.org/pert/2009/01/colon/"
+namespace ns2 = "http://www.cap.org/pert/2009/01/pancreas/"
+namespace ns3 = "http://www.cap.org/pert/2009/01/endometrium/"
+namespace ns4 = "http://www.w3.org/2003/g/data-view#"
+default namespace ns5 = "http://www.cap.org/pert/2009/01/"
+namespace ns6 = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+namespace ns7 = "http://www.cap.org/pert/2009/01/stomach/"
+namespace ns8 = "http://www.cap.org/pert/2009/01/breast/"
+namespace ns9 = "http://www.cap.org/pert/2009/01/prostate/"
+
+start = synopsis
+synopsis =
+	element synopsis {
+		(accessory,
+		 additional,
+		 clinical,
+		 extent,
+		 margins,
+		 metastases,
+		 nodes,
+		 specimen,
+		 stage,
+		 studies,
+		 tumor)
+		& (attribute ns5:schemaLocation { empty },
+			attribute ns5:version { empty },
+			attribute ns4:transformation { empty })
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+accessory =
+	element accessory {
+		venousInvasion?
+		& lymphovascularInvasion?
+		& perineuralInvasion?
+		& treatmentEffect?
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+additional =
+	element additional {
+		item*
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+clinical =
+	element clinical {
+		priorTherapy*
+		& clinicalFinding*
+		& radiologicFinding*
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+extent =
+	element extent {
+		tumorSize
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+margins =
+	element margins {
+		margin*
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+metastases =
+	element metastases {
+		metastasis*
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+nodes =
+	element nodes {
+		nodeGroup*
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+specimen =
+	element specimen {
+		procedure+
+		& specimenSite+
+		& tumorSite+
+		& integrity?
+		& specimenSize?
+		& tumorGrossSize?
+		& specimenWeight?
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+stage =
+	element stage {
+		prefix?
+		& classification
+		& T
+		& N
+		& M
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+studies =
+	element studies {
+		study*
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+tumor =
+	element tumor {
+		histologicType+
+		& grade
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+comment = element comment { text & _1* }
+label = element label { text & _1* }
+\text = element text { text & _1* }
+_1 =
+	element * - (ns5:*
+					 | ns8:*
+					 | ns11:*
+					 | ns10:*
+					 | ns9:*
+					 | ns2:*
+					 | ns7:*
+					 | ns3:*
+					 | ns4:*
+					 | ns1:*
+					 | ns6:*
+					 | xml:*) {
+		(attribute * - (local:*
+							 | ns5:*
+							 | ns8:*
+							 | ns11:*
+							 | ns10:*
+							 | ns9:*
+							 | ns2:*
+							 | ns7:*
+							 | ns3:*
+							 | ns4:*
+							 | ns1:*
+							 | ns6:*
+							 | xml:*) { text }*
+		 | _1*)+
+	}
+venousInvasion =
+	element venousInvasion {
+		response
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+lymphovascularInvasion =
+	element lymphovascularInvasion {
+		response_2
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+perineuralInvasion =
+	element perineuralInvasion {
+		response_3
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+treatmentEffect =
+	element treatmentEffect {
+		response_4
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+item =
+	element item {
+		response_5
+		& specify?
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute name { "specify" }
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+priorTherapy =
+	element priorTherapy {
+		response_6
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& (attribute date { xsd:date | xsd:gYearMonth | xsd:gYear },
+			(attribute until { xsd:date | xsd:gYearMonth | xsd:gYear }
+			 | attribute duration { xsd:duration })?)?
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+clinicalFinding =
+	element clinicalFinding {
+		response_7
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& (attribute date { xsd:date | xsd:gYearMonth | xsd:gYear },
+			(attribute until { xsd:date | xsd:gYearMonth | xsd:gYear }
+			 | attribute duration { xsd:duration })?)?
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+radiologicFinding =
+	element radiologicFinding {
+		response_8
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& (attribute date { xsd:date | xsd:gYearMonth | xsd:gYear },
+			(attribute until { xsd:date | xsd:gYearMonth | xsd:gYear }
+			 | attribute duration { xsd:duration })?)?
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+tumorSize =
+	element tumorSize {
+		(dimension, (dimension_2, dimension_2?)?)
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+margin =
+	element margin {
+		response_9
+		& specify?
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute location {
+			  "specify" | "unreported" | "specify" | "unreported"
+		  }
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+metastasis =
+	element metastasis {
+		size?
+		& specify?
+		& howDiagnosed?
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute location {
+			  "specify" | "unreported" | "specify" | "unreported"
+		  }
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+nodeGroup =
+	element nodeGroup {
+		specify?
+		& (count, count_2?, count_3?, count_4?)
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute location { "specify"? | "unreported" }
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+procedure =
+	element procedure {
+		response_10+
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+specimenSite =
+	element specimenSite {
+		response_11+
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+tumorSite =
+	element tumorSite {
+		response_12+
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+integrity =
+	element integrity {
+		response_13
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+specimenSize =
+	element specimenSize {
+		(dimension, (dimension_2, dimension_2?)?)
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+tumorGrossSize =
+	element tumorGrossSize {
+		(dimension, (dimension_2, dimension_2?)?)
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+specimenWeight =
+	element specimenWeight {
+		response_14
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+prefix =
+	element prefix {
+		response_15
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+classification =
+	element classification {
+		response_16
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+T =
+	element T {
+		response_17
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+N =
+	element N {
+		response_18
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+M =
+	element M {
+		response_19
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+study =
+	element study {
+		response_20
+		& method?
+		& specify?
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute name { "specify" }
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+histologicType =
+	element histologicType {
+		response_21
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+grade =
+	element grade {
+		response_22
+		& specify?
+		& comment?
+		& label?
+		& \text*
+		& attribute system {
+			  "4-grade" | "3-grade" | "2-grade" | "specify" | "unreported"
+		  }?
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+response =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"positive"
+				| "negative"
+				| "equivocal"
+				| "indeterminate"
+				| "inapplicable"
+				| "specify"
+				| "unreported"
+				| "specify"
+				| "unreported"
+			},
+			specify?)
+	}
+response_2 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"positive"
+				| "negative"
+				| "equivocal"
+				| "indeterminate"
+				| "inapplicable"
+				| "specify"
+				| "unreported"
+				| "specify"
+				| "unreported"
+			},
+			specify?)
+	}
+response_3 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"positive"
+				| "negative"
+				| "equivocal"
+				| "indeterminate"
+				| "inapplicable"
+				| "specify"
+				| "unreported"
+				| "specify"
+				| "unreported"
+			},
+			specify?)
+	}
+response_4 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"inapplicable"
+				| "no response"
+				| "slight response"
+				| "marked response"
+				| "complete response"
+				| "specify"
+				| "unreported"
+				| "specify"
+				| "unreported"
+			},
+			specify?)
+	}
+response_5 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"positive"
+				| "negative"
+				| "equivocal"
+				| "indeterminate"
+				| "inapplicable"
+				| "specify"
+				| "unreported"
+				| "specify"
+				| "unreported"
+			},
+			specify?)
+	}
+specify = element specify { text }
+response_6 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"specify" | "unreported" | "specify" | "unreported"
+			},
+			specify?)
+	}
+response_7 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"specify" | "unreported" | "specify" | "unreported"
+			},
+			specify?)
+	}
+response_8 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"specify" | "unreported" | "specify" | "unreported"
+			},
+			specify?)
+	}
+dimension =
+	element dimension {
+		attribute largest { "true" }?
+		& response_23
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+dimension_2 =
+	element dimension {
+		attribute largest { "false" }?
+		& response_23
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+response_9 =
+	element response {
+		distance?
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"positive"
+				| "negative"
+				| "equivocal"
+				| "indeterminate"
+				| "inapplicable"
+				| "specify"
+				| "unreported"
+				| "specify"
+				| "unreported"
+			},
+			specify?,
+			attribute closest {
+				"positive"
+				| "negative"
+				| "equivocal"
+				| "indeterminate"
+				| "inapplicable"
+				| "specify"
+				| "unreported"
+			}?)
+	}
+size =
+	element size {
+		(dimension, (dimension_2, dimension_2?)?)
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+	}
+howDiagnosed = element howDiagnosed { response_24 }
+count =
+	element count {
+		attribute status { "total" },
+		(response_25 & comment? & label? & \text* & _1*)
+	}
+count_2 =
+	element count {
+		attribute status { "positive" },
+		(response_26
+		 & comment?
+		 & label?
+		 & \text*
+		 & _1*
+		 & largest?
+		 & extracapsular?)
+	}
+count_3 =
+	element count {
+		attribute status { "regressed" },
+		(response_27 & comment? & label? & \text* & _1*)
+	}
+count_4 =
+	element count {
+		attribute status { "specify" },
+		(response_28 & comment? & label? & \text* & _1* & specify)
+	}
+response_10 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"specify" | "unreported" | "specify" | "unreported"
+			},
+			specify?)
+	}
+response_11 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"specify" | "unreported" | "specify" | "unreported"
+			},
+			specify?)
+	}
+response_12 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"specify" | "unreported" | "specify" | "unreported"
+			},
+			specify?)
+	}
+response_13 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"intact"
+				| "fragmented"
+				| "inapplicable"
+				| "unreported"
+				| "specify"
+				| "unreported"
+				| "specify"
+				| "unreported"
+			},
+			specify?)
+	}
+response_14 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				xsd:decimal { minExclusive = "0.0" }
+				| "specify"
+				| "unreported"
+			},
+			attribute unit {
+				("g" | "kg" | "specify" | "unreported")? | "specify" | "unreported"
+			},
+			attribute relation {
+				"lessThan"
+				| "lessThanOrEqual"
+				| "equal"
+				| "greaterThanOrEqual"
+				| "greaterThan"
+			}?,
+			specify?)
+	}
+response_15 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value { "y" | "r" | "a" | "specify" | "unreported" },
+			specify?)
+	}
+response_16 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value { "p" | "specify" | "unreported" },
+			specify?)
+	}
+response_17 =
+	element response {
+		attribute multiplicity { "2" | "3" | "4" | "5" | "m" }?
+		& comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"specify" | "unreported" | "specify" | "unreported"
+			},
+			specify?)
+	}
+response_18 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"specify" | "unreported" | "specify" | "unreported"
+			},
+			specify?)
+	}
+response_19 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"1" | "specify" | "unreported" | "specify" | "unreported"
+			},
+			specify?)
+	}
+response_20 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"pending" | "specify" | "unreported" | "specify" | "unreported"
+			},
+			specify?)
+	}
+method = element method { response_29 & comment? & label? & \text* & _1* }
+response_21 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"specify" | "unreported" | "specify" | "unreported"
+			},
+			specify?)
+	}
+response_22 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"GX"
+				| "G1"
+				| "G2"
+				| "G3"
+				| "G4"
+				| "specify"
+				| "unreported"
+				| "specify"
+				| "unreported"
+			},
+			specify?)
+	}
+response_23 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				xsd:decimal { minExclusive = "0.0" }
+				| "specify"
+				| "unreported"
+			},
+			attribute unit {
+				("mm" | "cm" | "in" | "specify" | "unreported")?
+				| "specify"
+				| "unreported"
+			},
+			attribute relation {
+				"lessThan"
+				| "lessThanOrEqual"
+				| "equal"
+				| "greaterThanOrEqual"
+				| "greaterThan"
+			}?,
+			specify?)
+	}
+distance = element distance { response_23 }
+response_24 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"this accesion"
+				| "prior accession"
+				| "outside report"
+				| "clinical history"
+				| "specify"
+				| "unreported"
+				| "specify"
+				| "unreported"
+			},
+			specify?)
+	}
+response_25 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value { xsd:nonNegativeInteger | "specify" | "unreported" },
+			attribute relation {
+				"lessThan"
+				| "lessThanOrEqual"
+				| "equal"
+				| "greaterThanOrEqual"
+				| "greaterThan"
+			}?,
+			specify?)
+	}
+response_26 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value { xsd:nonNegativeInteger | "specify" | "unreported" },
+			attribute relation {
+				"lessThan"
+				| "lessThanOrEqual"
+				| "equal"
+				| "greaterThanOrEqual"
+				| "greaterThan"
+			}?,
+			specify?)
+	}
+largest = element largest { dimension, (dimension_2, dimension_2?)? }
+extracapsular =
+	element extracapsular { response_30 & comment? & label? & \text* & _1* }
+response_27 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value { xsd:nonNegativeInteger | "specify" | "unreported" },
+			attribute relation {
+				"lessThan"
+				| "lessThanOrEqual"
+				| "equal"
+				| "greaterThanOrEqual"
+				| "greaterThan"
+			}?,
+			specify?)
+	}
+response_28 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value { xsd:nonNegativeInteger | "specify" | "unreported" },
+			attribute relation {
+				"lessThan"
+				| "lessThanOrEqual"
+				| "equal"
+				| "greaterThanOrEqual"
+				| "greaterThan"
+			}?,
+			specify?)
+	}
+response_29 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"specify" | "unreported" | "specify" | "unreported"
+			},
+			specify?)
+	}
+response_30 =
+	element response {
+		comment?
+		& label?
+		& \text*
+		& _1*
+		& attribute xml:id { xsd:ID }?
+		& attribute * - (local:*
+							  | ns5:*
+							  | ns8:*
+							  | ns11:*
+							  | ns10:*
+							  | ns9:*
+							  | ns2:*
+							  | ns7:*
+							  | ns3:*
+							  | ns4:*
+							  | ns1:*
+							  | ns6:*
+							  | xml:*) { text }*
+		& (attribute value {
+				"positive"
+				| "negative"
+				| "equivocal"
+				| "indeterminate"
+				| "inapplicable"
+				| "specify"
+				| "unreported"
+				| "specify"
+				| "unreported"
+			},
+			specify?)
+	}
