@@ -62,22 +62,18 @@
 	<xsl:function name="ecc:to-mm">
 		<xsl:param name="value"/>
 		<xsl:param name="unit"/>
-		<xsl:value-of
-			select="
-			if ($value castable as xs:double) then 
-				if ($unit eq 'mm') then xs:double($value)
-				else if ($unit eq 'cm') then $value*10.0 
-				else if ($unit eq 'in') then $value*25.4 
-				else () 
-			else ()"
-		/>
+		<xsl:param name="relation"/>
+		<xsl:variable name="correction">
+			<xsl:value-of select="if ($relation eq 'lessThan') then -1.0 else if ($relation eq 'greaterThan') then 1.0 else 0.0"/>
+		</xsl:variable>
+		<xsl:value-of select="if ($value castable as xs:decimal) then if ($unit eq 'mm') then (xs:decimal($value) + $correction) else if ($unit eq 'cm') then ($value*10.0 + $correction) else if ($unit eq 'in') then ($value*25.4 + $correction) else () else ()"/>
 	</xsl:function>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<p>This is an xslt2 function that returns a descending sort of a supplied
 		sequence.</p>
 	<xsl:function name="ecc:sort">
-		<xsl:param as="xs:double*" name="input"/>
+		<xsl:param as="xs:decimal*" name="input"/>
 		<xsl:variable name="output">
 			<xsl:perform-sort select="$input">
 				<xsl:sort order="descending" select="."/>
@@ -101,14 +97,16 @@
 			element, the parent has an attribute with a value of 'specify'.</p>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="//*[attribute::node() = 'specify']">
-			<assert test="exists(../*/ecc:specify)"> An item name of "specify"
-            requires a child {specify} element. </assert>
+			<assert test="exists (./ecc:specify)"> Response value of "specify" on a
+					"<name path="."/>" element requires a child {specify} element.
+			</assert>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="ecc:specify">
-			<assert test="../attribute::node() = 'specify'"> A {specify} element
-            requires an attribute with the value 'specify' on the parent
-            element. </assert>
+			<assert test="../attribute::node() = 'specify'"> A "<name path=".."/>"
+				element has a child "specify" element, even though its "<name
+					path="../attribute::node()"/>" attribute value is not "specify".
+			</assert>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</pattern>
@@ -128,7 +126,7 @@
 		<rule context="ecc:dimension[2]">
 			<let name="units" value="../ecc:dimension/ecc:response/@unit"/>
 			<report test="count(distinct-values($units)) gt 1"> You should use the
-				same unit for all dimensions of a size in the "<name path=".."/>" element. </report>
+				same unit for all dimensions of the "<name path=".."/>". </report>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</pattern>
@@ -150,10 +148,14 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="//*[child::node() = ecc:dimension]">
 			<let name="unsorted"
-				value="for $x in ecc:dimension return ecc:to-mm($x/ecc:response/@value,$x/ecc:response/@unit)"/>
+				value="for $x in ecc:dimension return
+				ecc:to-mm($x/ecc:response/@value,$x/ecc:response/@unit,$x/ecc:response/@relation)"/>
 			<let name="sorted" value="tokenize(ecc:sort($unsorted), ' ')"/>
-			<report test="not(every $x in (1 to count($sorted)) satisfies xs:double($sorted[$x]) eq xs:double($unsorted[$x]))"> Dimensions should be
-				in descending order in the {<name path="."/>} element."/></report>
+			<report
+				test="not(every $x in (1 to count($sorted)) satisfies
+				xs:decimal($sorted[$x]) eq xs:decimal($unsorted[$x]))"
+				> Dimensions should be in descending order in the {<name path="."/>}
+				element."/></report>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -172,7 +174,10 @@
 		<rule context="/ecc:synopsis/ecc:margins">
 			<let name="closest" value="ecc:margin/ecc:response/@closest"/>
 			<let name="value" value="ecc:margin/ecc:response/@value"/>
-			<assert test="if ($closest = 'positive') then not($value = 'positive') else $skip"> A margin-positive case may not have a closest margin. </assert>
+			<assert
+				test="if ($closest = 'positive') then not($value = 'positive')
+				else $skip"
+				> A margin-positive case may not have a closest margin. </assert>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</pattern>
@@ -188,8 +193,8 @@
 		<rule
 			context="/ecc:synopsis/ecc:margins/ecc:margin/ecc:response/ecc:distance">
 			<assert test="../@value = ('negative', 'equivocal')"> Distance from
-            margin may not be specified for "<value-of select="../@value"/>"
-            margins. </assert>
+				margin may not be specified for "<value-of select="../@value"/>"
+				margins. </assert>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</pattern>
@@ -206,8 +211,12 @@
 		<rule context="/ecc:synopsis/ecc:specimen/ecc:tumorSite/ecc:response">
 			<let name="specimenSite"
 				value="/ecc:synopsis/ecc:specimen/ecc:specimenSite/ecc:response/@value"/>
-			<assert test="false() != (for $tumorSite in @value return $tumorSite = ($specimenSite,'specify','unreported'))"> You report tumor at a site ("<value-of select="@value except $specimenSite"/>") that is not part of the
-            specimen. </assert>
+			<assert
+				test="false() != (for $tumorSite in @value return $tumorSite =
+				($specimenSite,'specify','unreported'))"
+				> You report tumor at a site ("<value-of
+					select="@value except $specimenSite"/>") that is not part of the
+				specimen. </assert>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</pattern>
@@ -222,13 +231,21 @@
 			the largest dimension of the specimen is only 10 cm.</p>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="/ecc:synopsis/ecc:specimen/ecc:tumorGrossSize">
-			<!--<let name="tumorSize" value="ecc:tumorGrossSize/ecc:dimension/ecc:response/@value"/>-->
 			<let name="tumorDimensions"
-				value="for $x in ../ecc:tumorGrossSize/ecc:dimension return ecc:to-mm($x/ecc:response/@value, $x/ecc:response/@unit)"/>
+				value="for $x in
+				../ecc:tumorGrossSize/ecc:dimension return
+				ecc:to-mm($x/ecc:response/@value, $x/ecc:response/@unit,
+				$x/ecc:response/@relation)"/>
 			<let name="specimenDimensions"
-				value="for $x in ../ecc:specimenSize/ecc:dimension return ecc:to-mm($x/ecc:response/@value, $x/ecc:response/@unit)"/>
-			<!--<report test="$tumorSize &gt; $specimenSize"> Tumor largest dimension (<value-of select="max($tumorSize)"/> mm) may not exceed specimen largest dimension (<value-of select="max($specimenSize)"/> mm). </report>-->
-			<assert test="not($tumorDimensions &gt; max($specimenDimensions))"> Tumor largest dimension (<value-of select="max($tumorDimensions)"/> mm) may not exceed specimen largest dimension (<value-of select="max($specimenDimensions)"/> mm). </assert>
+				value="for $x in
+				../ecc:specimenSize/ecc:dimension return
+				ecc:to-mm($x/ecc:response/@value, $x/ecc:response/@unit,
+				$x/ecc:response/@relation)"/>
+			<assert test="not($tumorDimensions &gt; max($specimenDimensions))">
+				Largest gross tumor dimension (<value-of
+					select="max($tumorDimensions)"/> mm) exceeds specimen largest
+				dimension (<value-of select="max($specimenDimensions)"/> mm).
+			</assert>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</pattern>
@@ -244,15 +261,22 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="/ecc:synopsis/ecc:nodes/ecc:nodeGroup">
 			<let name="total"
-				value="ecc:count[@status eq 'total']/ecc:response/@value[. castable as xs:double]"/>
+				value="ecc:count[@status eq
+				'total']/ecc:response/@value[. castable as xs:decimal]"/>
 			<let name="other"
-				value="ecc:count[@status ne 'total']/ecc:response/@value[. castable as xs:double]"/>
+				value="ecc:count[@status ne
+				'total']/ecc:response/@value[. castable as xs:decimal]"/>
 			<let name="location"
-				value="if (@location = 'specify') then ecc:specify else if (@location =
-				'unreported') then 'unreported location' else @location"/>
-			<assert test="if (exists($total)) then number($total) ge sum($other) else $skip"> In the "<value-of select="$location"/>" group, you report fewer
-            total nodes (<value-of select="$total"/>) than the sum of the
-            enumerated node status categories (<value-of select="sum($other)"/>). </assert>
+				value="if (@location = 'specify') then ecc:specify
+				else if (@location =     'unreported') then 'unreported location'
+				else @location"/>
+			<assert
+				test="if (exists($total)) then number($total) ge sum($other)
+				else $skip"
+				> In the "<value-of select="$location"/>" group, you report fewer
+				total nodes (<value-of select="$total"/>) than the sum of the
+				enumerated node status categories (<value-of select="sum($other)"
+				/>). </assert>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</pattern>
@@ -272,7 +296,8 @@
 			<let name="clinical"
 				value="ecc:clinical/ecc:priorTherapy/ecc:response/@value"/>
 			<report
-				test="exists($pathologic) and $pathologic != ('inapplicable','unreported') and empty($clinical)"
+				test="exists($pathologic) and $pathologic !=
+				('inapplicable','unreported') and empty($clinical)"
 				> You report treatment effect among the accessory findings, but
 				there is no prior therapy report in the clinical section. </report>
 		</rule>
@@ -280,4 +305,30 @@
 	</pattern>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<pattern id="grade-comports-with-grade-system">
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<p>This pattern checks that a grade value is compatible with the grade
+			system chosen. For example, if the grade system is "2-grade" then a
+			grade of "G4" would be incompatible.</p>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<rule context="/ecc:synopsis/ecc:tumor/ecc:grade">
+			<let name="G" value="ecc:response/@value"/>
+			<assert
+				test="if (@system eq '2-grade') then not($G = ('G3','G4'))
+				else if (@system eq '3-grade') then $G ne 'G4'     else $skip"
+				>A grade of "<value-of select="$G"/>" is incompatible with a
+					"<value-of select="@system"/>" system.</assert>
+		</rule>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</pattern>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<pattern id="colon-site-matches-procedure">
+		<rule context="/ecc:synopsis/ecc:specimen/ecc:procedure/ecc:response">
+			<let name="procedure" value="./@value"/>
+			<let name="site" value="../../ecc:specimenSite/ecc:response/@value"/>
+			<report test="true()">Specimen site "<value-of select="$site"/>" must
+				match a corresponding procedure.</report>
+		</rule>
+	</pattern>
 </schema>
