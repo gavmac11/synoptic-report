@@ -23,7 +23,8 @@
    ===========================================================================
    
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+	xmlns="http://relaxng.org/ns/structure/1.0"
 	xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -49,13 +50,15 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>Non-site-specific valuesets used in commonly throughout multiple sections.</a:documentation>
+		<a:documentation>Non-site-specific valuesets used in commonly throughout
+			multiple sections.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice" name="common.severity.valueset">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>For observations quantified on a four-value severity scale</a:documentation>
-			<a:documentation>Maps to scales of {0, 1, 2, 3}, {negative, slight, intermediate, marked},
-				etc.</a:documentation>
+			<a:documentation>For observations quantified on a four-value severity
+				scale</a:documentation>
+			<a:documentation>Maps to scales of {0, 1, 2, 3}, {negative, slight,
+				intermediate, marked}, etc.</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<choice>
 				<value>none</value>
@@ -82,7 +85,8 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice" name="common.laterality.valueset">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>for observations requiring qualification by laterality</a:documentation>
+			<a:documentation>for observations requiring qualification by
+				laterality</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<choice>
 				<value>right</value>
@@ -96,9 +100,12 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice" name="common.date.valueset">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>date formats, expressed as a union of XML Schema date types</a:documentation>
-			<a:documentation>"date" format is YYYY-MM-DD, e.g. 2009-12-31</a:documentation>
-			<a:documentation>"gYearMonth" is YYYY-MM, e.g. 2009-12</a:documentation>
+			<a:documentation>date formats, expressed as a union of XML Schema date
+				types</a:documentation>
+			<a:documentation>"date" format is YYYY-MM-DD, e.g.
+				2009-12-31</a:documentation>
+			<a:documentation>"gYearMonth" is YYYY-MM, e.g.
+				2009-12</a:documentation>
 			<a:documentation>"gYear" format is YYYY, e.g. 2009</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<choice>
@@ -117,26 +124,36 @@
 		<define combine="choice" name="common.result.valueset">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<a:documentation>Values for "yes/no" data items</a:documentation>
-			<a:documentation> "positive" (synonyms: "yes", "present", "is observed", "is seen", "there is evidence of",
+			<a:documentation> "positive" (synonyms: "yes", "present", "is
+				observed", "is seen", "there is evidence of",
 				etc.)</a:documentation>
-			<a:documentation>"negative" (synonyms: "no", "absent", "is not observed", "is not seen", "not present", "there
-				is no evidence of", etc.)</a:documentation>
-			<a:documentation>"equivocal" (synonyms: "suspicious", "atypical, not diagnostic", "worrisome for", "concerning
-				for", "possibly positive", "possibly negative", "favor negative, cannot exclude positive", "favor positive,
-				cannot exclude negative", "on the fence", "borderline finding of", "concerning for", "less than fully
+			<a:documentation>"negative" (synonyms: "no", "absent", "is not
+				observed", "is not seen", "not present", "there is no evidence of",
+				etc.)</a:documentation>
+			<a:documentation>"equivocal" (synonyms: "suspicious", "atypical, not
+				diagnostic", "worrisome for", "concerning for", "possibly positive",
+				"possibly negative", "favor negative, cannot exclude positive",
+				"favor positive, cannot exclude negative", "on the fence",
+				"borderline finding of", "concerning for", "less than fully
 				diagnostic for", etc.)</a:documentation>
-			<a:documentation>"indeterminate" (synonyms: "(technically) uninterpretable", "cannot be (successfully) assessed
-				(for technical reasons" "assessment was attempted but could not reach a firm conclusion due to artifact,
-				poor specimen quality, preparative issues, poor orientation, correct tissue present but in insufficient
-				quantity, etc." "obscured by", "artifact interferes with assessment", "assessment could not be completed due
-				to X", "cautery artifact makes assessment impossible", etc.)</a:documentation>
-			<a:documentation>"inapplicable" (synonyms: "question does not apply", "cannot be assessed (because wrong
-				specimen type for requested evaluation)", "patient is status post appendectomy, so there is no appendix
-				present for assessment", "wrong specimen type for this assessment", "relevant tissue not present in this
-				specimen", "lymph node status not reported because no lymph nodes present in specimen",
+			<a:documentation>"indeterminate" (synonyms: "(technically)
+				uninterpretable", "cannot be (successfully) assessed (for technical
+				reasons" "assessment was attempted but could not reach a firm
+				conclusion due to artifact, poor specimen quality, preparative
+				issues, poor orientation, correct tissue present but in insufficient
+				quantity, etc." "obscured by", "artifact interferes with
+				assessment", "assessment could not be completed due to X", "cautery
+				artifact makes assessment impossible", etc.)</a:documentation>
+			<a:documentation>"inapplicable" (synonyms: "question does not apply",
+				"cannot be assessed (because wrong specimen type for requested
+				evaluation)", "patient is status post appendectomy, so there is no
+				appendix present for assessment", "wrong specimen type for this
+				assessment", "relevant tissue not present in this specimen", "lymph
+				node status not reported because no lymph nodes present in
+				specimen", etc.)</a:documentation>
+			<a:documentation>"unreported" (synonyms: "no response", "unanswered",
+				"no answer", "skipped", "no reply, no reason given"
 				etc.)</a:documentation>
-			<a:documentation>"unreported" (synonyms: "no response", "unanswered", "no answer", "skipped", "no reply, no
-				reason given" etc.)</a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<choice>
 				<value>positive</value>
@@ -168,7 +185,8 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>Non-site-specific valuesets used on on the "synopsis" element.</a:documentation>
+		<a:documentation>Non-site-specific valuesets used on on the "synopsis"
+			element.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<!-- empty -->
 	</div>
@@ -176,22 +194,28 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>Non-site-specific valuesets used on in the "accessory" section.</a:documentation>
+		<a:documentation>Non-site-specific valuesets used on in the "accessory"
+			section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="accessory.venousInvasion.response.value.valueset">
+		<define combine="choice"
+			name="accessory.venousInvasion.response.value.valueset">
 			<ref name="common.result.valueset"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="accessory.lymphovascularInvasion.response.value.valueset">
+		<define combine="choice"
+			name="accessory.lymphovascularInvasion.response.value.valueset">
 			<ref name="common.result.valueset"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="accessory.perineuralInvasion.response.value.valueset">
+		<define combine="choice"
+			name="accessory.perineuralInvasion.response.value.valueset">
 			<ref name="common.result.valueset"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="accessory.treatmentEffect.response.value.valueset">
-			<a:documentation>Tumor response to (e.g. neoadjuvant) treatment</a:documentation>
+		<define combine="choice"
+			name="accessory.treatmentEffect.response.value.valueset">
+			<a:documentation>Tumor response to (e.g. neoadjuvant)
+				treatment</a:documentation>
 			<choice>
 				<value>inapplicable</value>
 				<value>no response</value>
@@ -208,7 +232,8 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>Non-site-specific valuesets used on in the "additional" section.</a:documentation>
+		<a:documentation>Non-site-specific valuesets used on in the "additional"
+			section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice" name="additional.item.name.valueset">
 			<a:documentation/>
@@ -224,23 +249,27 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>Non-site-specific valuesets used on in the "clinical" section.</a:documentation>
+		<a:documentation>Non-site-specific valuesets used on in the "clinical"
+			section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="clinical.priorTherapy.response.value.valueset">
+		<define combine="choice"
+			name="clinical.priorTherapy.response.value.valueset">
 			<choice>
 				<value>specify</value>
 				<value>unreported</value>
 			</choice>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="clinical.clinicalFinding.response.value.valueset">
+		<define combine="choice"
+			name="clinical.clinicalFinding.response.value.valueset">
 			<choice>
 				<value>specify</value>
 				<value>unreported</value>
 			</choice>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="clinical.radiologicFinding.response.value.valueset">
+		<define combine="choice"
+			name="clinical.radiologicFinding.response.value.valueset">
 			<choice>
 				<value>specify</value>
 				<value>unreported</value>
@@ -252,7 +281,8 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>Non-site-specific valuesets used on in the "extent" section.</a:documentation>
+		<a:documentation>Non-site-specific valuesets used on in the "extent"
+			section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<!-- empty -->
 	</div>
@@ -261,7 +291,8 @@
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>
-			<a:documentation>Non-site-specific valuesets used on in the "margins" section.</a:documentation>
+			<a:documentation>Non-site-specific valuesets used on in the "margins"
+				section.</a:documentation>
 		</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice" name="margins.margin.location.valueset">
@@ -284,7 +315,8 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>Non-site-specific valuesets used on in the "metastases" section.</a:documentation>
+		<a:documentation>Non-site-specific valuesets used on in the "metastases"
+			section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice" name="metastases.metastasis.location.valueset">
 			<choice>
@@ -293,7 +325,8 @@
 			</choice>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="metastases.metastasis.howDiagnosed.valueset">
+		<define combine="choice"
+			name="metastases.metastasis.howDiagnosed.valueset">
 			<choice>
 				<value>this accesion</value>
 				<value>prior accession</value>
@@ -309,7 +342,8 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>Non-site-specific valuesets used on in the "nodes" section.</a:documentation>
+		<a:documentation>Non-site-specific valuesets used on in the "nodes"
+			section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<!-- empty -->
 	</div>
@@ -317,7 +351,8 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>Non-site-specific valuesets used in the "specimen" section.</a:documentation>
+		<a:documentation>Non-site-specific valuesets used in the "specimen"
+			section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice" name="specimen.procedure.response.value.valueset">
 			<choice>
@@ -349,7 +384,8 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>Non-site-specific valuesets used in the "stage" section.</a:documentation>
+		<a:documentation>Non-site-specific valuesets used in the "stage"
+			section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice" name="stage.T.response.value.valueset">
 			<choice>
@@ -400,7 +436,8 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>Non-site-specific valuesets used in the "studies" section.</a:documentation>
+		<a:documentation>Non-site-specific valuesets used in the "studies"
+			section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice" name="studies.study.name.valueset">
 			<value>specify</value>
@@ -414,7 +451,8 @@
 			</choice>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="studies.study.method.response.value.valueset">
+		<define combine="choice"
+			name="studies.study.method.response.value.valueset">
 			<choice>
 				<value>specify</value>
 				<value>unreported</value>
@@ -426,9 +464,11 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>Non-site-specific valuesets used in the "tumor" section.</a:documentation>
+		<a:documentation>Non-site-specific valuesets used in the "tumor"
+			section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="tumor.histologicType.response.value.valueset">
+		<define combine="choice"
+			name="tumor.histologicType.response.value.valueset">
 			<choice>
 				<value>specify</value>
 				<value>unreported</value>
