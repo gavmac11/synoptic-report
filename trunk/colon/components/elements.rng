@@ -23,128 +23,173 @@
    ===========================================================================
    
 -->
+<!DOCTYPE grammar [
+<!ENTITY response "../../framework/components/response.rng">
+]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-  ns="http://www.cap.org/pert/2009/01/colon/"
-  xmlns="http://relaxng.org/ns/structure/1.0"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-  xmlns:dc="http://purl.org/dc/elements/1.1/">
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <a:documentation> </a:documentation>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <define name="accessory.extensions">
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- accessory SECTION --</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <element name="discontinuousExtramuralExtension">
-      <ref name="colon.accessory.discontinuousExtramuralExtension.attrib"/>
-      <interleave>
-        <ref name="colon.accessory.discontinuousExtramuralExtension.content"/>
-        <ref name="common.content"/>
-      </interleave>
-    </element>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <optional>
-      <element name="preexistingPolyp">
-        <ref name="colon.accessory.preexistingPolyp.attrib"/>
-        <interleave>
-          <ref name="colon.accessory.preexistingPolyp.content"/>
-          <ref name="common.content"/>
-        </interleave>
-      </element>
-    </optional>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </define>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <define name="extent.extensions">
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- extent SECTION --</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <element name="invasion">
-      <ref name="colon.extent.invasion.attrib"/>
-      <interleave>
-        <ref name="colon.extent.invasion.content"/>
-        <ref name="common.content"/>
-      </interleave>
-    </element>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </define>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <define name="specimen.extensions">
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- specimen SECTION --</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <optional>
-      <element name="polyp">
-        <ref name="colon.specimen.polyp.attrib"/>
-        <interleave>
-          <ref name="colon.specimen.polyp.content"/>
-          <ref name="common.content"/>
-        </interleave>
-      </element>
-    </optional>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </define>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <define name="tumor.extensions">
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>-- tumor SECTION --</a:documentation>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <optional>
-      <element name="immuneResponse">
-        <ref name="colon.tumor.immuneResponse.attrib"/>
-        <interleave>
-          <ref name="colon.tumor.immuneResponse.content"/>
-          <ref name="common.content"/>
-        </interleave>
-      </element>
-    </optional>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <optional>
-      <element name="mucinousComponent">
-        <ref name="colon.tumor.mucinousComponent.attrib"/>
-        <interleave>
-          <ref name="colon.tumor.mucinousComponent.content"/>
-          <ref name="common.content"/>
-        </interleave>
-      </element>
-    </optional>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <optional>
-      <element name="medullaryComponent">
-        <ref name="colon.tumor.medullaryComponent.attrib"/>
-        <interleave>
-          <ref name="colon.tumor.medullaryComponent.content"/>
-          <ref name="common.content"/>
-        </interleave>
-      </element>
-    </optional>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <optional>
-      <element name="highGrade">
-        <ref name="colon.tumor.highGrade.attrib"/>
-        <interleave>
-          <ref name="colon.tumor.highGrade.content"/>
-          <ref name="common.content"/>
-        </interleave>
-      </element>
-    </optional>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <optional>
-      <element name="perforation">
-        <ref name="colon.tumor.perforation.attrib"/>
-        <interleave>
-          <ref name="colon.tumor.perforation.content"/>
-          <ref name="common.content"/>
-        </interleave>
-      </element>
-    </optional>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  </define>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	ns="http://www.cap.org/pert/2009/01/colon/"
+	xmlns="http://relaxng.org/ns/structure/1.0"
+	xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+	xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<a:documentation> </a:documentation>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="accessory.extensions">
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- accessory SECTION --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<element name="discontinuousExtramuralExtension">
+			<ref name="colon.accessory.discontinuousExtramuralExtension.attrib"/>
+			<interleave>
+				<ref name="colon.accessory.discontinuousExtramuralExtension.content"/>
+				<ref name="common.content"/>
+			</interleave>
+		</element>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<element name="preexistingPolyp">
+				<ref name="colon.accessory.preexistingPolyp.attrib"/>
+				<interleave>
+					<ref name="colon.accessory.preexistingPolyp.content"/>
+					<ref name="common.content"/>
+				</interleave>
+			</element>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="extent.extensions">
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- extent SECTION --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<element name="invasion">
+			<ref name="colon.extent.invasion.attrib"/>
+			<interleave>
+				<ref name="colon.extent.invasion.content"/>
+				<ref name="common.content"/>
+			</interleave>
+		</element>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="nodes.extensions">
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- nodes SECTION --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<element name="tumorDeposits">
+				<ref name="colon.nodes.tumorDeposits.attrib"/>
+				<attribute name="status">
+					<ref name="common.result.valueset"/>
+				</attribute>
+				<interleave>
+					<optional>
+						<element name="count" ns="http://www.cap.org/pert/2009/01/">
+							<interleave>
+								<grammar>
+									<include href="&response;">
+										<define name="response.attrib">
+											<ref name="dimensionless-response.attrib"/>
+										</define>
+										<define name="response.numeric-value.valueset">
+											<data type="nonNegativeInteger"/>
+										</define>
+									</include>
+								</grammar>
+								<ref name="common.content"/>
+								<optional>
+									<element name="largest">
+										<ref name="common.size.content"/>
+										<ref name="nodes.group.largest.attrib"/>
+									</element>
+								</optional>
+							</interleave>
+						</element>
+					</optional>
+					<ref name="common.content"/>
+				</interleave>
+			</element>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="specimen.extensions">
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- specimen SECTION --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<element name="polyp">
+				<ref name="colon.specimen.polyp.attrib"/>
+				<interleave>
+					<ref name="colon.specimen.polyp.content"/>
+					<ref name="common.content"/>
+				</interleave>
+			</element>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="tumor.extensions">
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>-- tumor SECTION --</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<element name="immuneResponse">
+				<ref name="colon.tumor.immuneResponse.attrib"/>
+				<interleave>
+					<ref name="colon.tumor.immuneResponse.content"/>
+					<ref name="common.content"/>
+				</interleave>
+			</element>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<element name="mucinousComponent">
+				<ref name="colon.tumor.mucinousComponent.attrib"/>
+				<interleave>
+					<ref name="colon.tumor.mucinousComponent.content"/>
+					<ref name="common.content"/>
+				</interleave>
+			</element>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<element name="medullaryComponent">
+				<ref name="colon.tumor.medullaryComponent.attrib"/>
+				<interleave>
+					<ref name="colon.tumor.medullaryComponent.content"/>
+					<ref name="common.content"/>
+				</interleave>
+			</element>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<element name="highGrade">
+				<ref name="colon.tumor.highGrade.attrib"/>
+				<interleave>
+					<ref name="colon.tumor.highGrade.content"/>
+					<ref name="common.content"/>
+				</interleave>
+			</element>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<element name="perforation">
+				<ref name="colon.tumor.perforation.attrib"/>
+				<interleave>
+					<ref name="colon.tumor.perforation.content"/>
+					<ref name="common.content"/>
+				</interleave>
+			</element>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>
