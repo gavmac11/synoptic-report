@@ -28,14 +28,126 @@
 	xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<a:documentation> TEMPLATE USER: This is the file you will use to specify
-		valueset customizations for your site. To understand how to use it, let's
-		first get some simple terminology straight. Any synopsis from any site
-		consists of three kinds of things: (i) sections, which group together (ii)
-		queries (= "questions", "items"), to which the person filling out the
-		synopsis provides (iii) responses (="answers", "values", etc.). 
-		When you cust
+	<a:documentation>TEMPLATE USER: This is the file you will use to specify
+		valueset customizations for your site.</a:documentation>
+	<a:documentation/>
+	<a:documentation>To understand how to use it, let's first get some simple
+		terminology straight. Any synopsis from any site consists of three kinds
+		of things: (i) sections, which group together (ii) queries (= "questions",
+		"items"), to which the person filling out the synopsis will select (iii)
+		responses (="answers", "values", etc.) from a set of acceptable choices,
+		called a valueset. </a:documentation>
+	<a:documentation/>
+	<a:documentation>To make this concrete, an eCC synopsis has (up to) eleven
+		**sections** ('accessory', 'additional', 'clinical', 'extent', 'margins',
+		'metastases', 'nodes', 'specimen', 'stage', 'studies', 'tumor'). The
+		choice of sections and their optionality varies depending on the type of
+		report (resection, biopsy, FNA -- what we call the "method") but if you
+		are creating a new site (rather than a new method), this will not affect
+		you, i.e. you will not need to create custom sections, or alter their
+		basic model. So we can dispense with any further discussion of sections
+		here.</a:documentation>
+	<a:documentation/>
+	<a:documentation>With respect to **queries**, these are the items like
+		"histologic type", "tumor grade", "specimen size" and so forth. There are
+		many queries that are common across all (or virtually all) eCC sites --
+		indeed the three I have just given are examples of common (or what we call
+		"framework") queries. When you set about to create a new site, you will
+		not need to worry about creating any framework queries -- these are
+		already modeled for you, and your site-specific template will inherit all
+		of these framework queries from the framework schemas with no further
+		effort on your part. A list of the framework queries is included in the
+		"elements.rng" file in this folder. </a:documentation>
+	<a:documentation/>
+	<a:documentation>You will probably, however, want to create some
+		site-specific queries that do NOT appear as framework items. For example,
+		in the colon, the extent section needs to include a query about depth of
+		invasion. This is not part of the framework: most tumors don't have a
+		"depth of invasion", as colon (and other gastrointesinal sites) do. So a
+		query for "depth of invasion" needs to be added to the framework queries
+		as part of the development of the colon site-specific schema. To do this
+		requires a little bit of knowledge about Relax NG, and you can get more
+		details about this in the "elements.rng" and "elementContents.rng" files
+		in this folder.</a:documentation>
+	<a:documentation/>
+	<a:documentation>Finally--and most relevant to this particular file-- there
+		is the issue of **valuesets**. Valuesets are the set of acceptable
+		"answers" (or as we call them "responses") to a given query. For example,
+		the valueset for the "lymphovascular invasion" query is the set
+		('positive', 'negative', 'equivocal'. 'indeterminate', 'inapplicable" and
+		'unreported'). This is an example of an enumerated valueset. To give
+		another example, the valueset for T-stage query is the set of T-stages
+		that are appropriate for the site in question. For colon, this is ('X',
+		'is', '1', '2', '3', '4a' and '4b'); for any query, we also generally
+		allow at least two standard additional response values ('specify' and
+		'unreported'). To give a third example, the valueset for "date" is the set
+		of any string that complies with the standard XML date formats, which are
+		YYYY-MM-DD or YYYY-MM or YYYY. (This is an example of a non-enumerated
+		valueset; we won't talk more about this just yet.)</a:documentation>
+	<a:documentation/>
+	<a:documentation>Much of the work involved in creating a new site-specific
+		schema is identifying and formulating the (site-specific) valuesets for
+		each possible query. That is what you will do in this
+		file!</a:documentation>
+	<a:documentation/>
+	<a:documentation>In creating these valuesets, you will come across two
+		situations. In the first--and simpler--case, the query is a framework
+		query, but its valueset needs to be customized. An example of this is the
+		valueset for "histologic type". Histologic type is a framework query, but
+		its valueset is site-specific. So the query is ready-made, but the
+		valueset needs to be specified by you.</a:documentation>
+	<a:documentation/>
+	<a:documentation>The second case occurs when the query is a site-specific
+		(non-framework) query. Obviously, these also need their valueset
+		specified. We'll come back to this shortly.</a:documentation>
+	<a:documentation/>
+	<a:documentation>For now, let's consider the first case. This file already
+		contains **all the default (non-site-specific) valueset definition for
+		every framework query**, in alphabetical order by section. If you scroll
+		down to about line 300 or so, you will see a line that looks something
+		like this: </a:documentation>
+	<a:documentation/>
+	<a:documentation>
+		<define combine="choice"
+			name="accessory.treatmentEffect.response.value.valueset"/>
 	</a:documentation>
+	<a:documentation/>
+	<a:documentation>Note the name of this definition. The name tells you that
+		this is the where we are going to define our site-specific customizations
+		(if any) for the valueset pertinent to the reponse values to the
+		"treatmentEffect" framework query in the "accessory" section. Note that
+		because this is a framework query, the valueset already contains some
+		choices (you can call these "framework choices" or the "framework
+		valueset" for this query). Look for the green listing with the header
+		"DEFAULT VALUES WILL BE RETAINED". This is the valueset for
+		treatmentEffect that comes "for free" with the framework. Note that your
+		customizations can *add* items to this valueset, but there is no way for
+		you to *remove* items from the default! (Actually, there is a way, but
+		it's not recommended; if you want to do it anyway, that's the subject of
+		an advanced tutorial.</a:documentation>
+	<a:documentation/>
+	<a:documentation>To add site-specific values to this framework valueset for
+		the treatmentEffect query is easy. Just replace the line that says
+		"<empty/>" with one or more lines that say
+			"<value>whatever-your-value-is</value>" and that's all there is to it!
+		Your've done your first customization.</a:documentation>
+	<a:documentation>Let's work another example. Scroll down to the end of the
+		file. This is where the valuesets for the 'tumor" section are found.
+		Scroll up until you come across a definition that looks like this: <define
+			combine="choice" name="tumor.histologicType.response.value.valueset"/>.
+		This is where we define all the choices for histologic type. Notice in the
+		green comment area the list of default values for this valueset is short:
+		it includes only two choices, 'specify' and 'unreported'. You are going to
+		need to add all the choices beyond these that are appropriate for your
+		site. Again, do this by replacing the <empty/> line with lines that have
+		the form of <value>whatever-your-value-is</value>. You might, for example,
+		replace it with this: <value>adenocarcinoma</value>
+		<value>squamous cell carcinoma</value>
+		<value>adenosquamous carcinoma</value>
+		<value>small cell carcinoma</value> and so on. Note that nested values are
+		not supported here. (Actually, again, they are supported, but just as
+		above nesting is NOT recommended, and how to do it is a subject for and
+		advanced tutorial.)</a:documentation>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<div>
