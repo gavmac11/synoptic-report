@@ -136,10 +136,10 @@
 		</procedure>
 		<specimenSize>
 			<dimension>
-				<response unit="cm" value="40"/>
+				<response unit="cm" value="100"/>
 			</dimension>
 			<dimension>
-				<response unit="cm" value="20"/>
+				<response unit="cm" value="1"/>
 			</dimension>
 		</specimenSize>
 		<specimenSite>
