@@ -1,0 +1,5196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<start>
+		<ref name="synopsis"/>
+	</start>
+	<define name="synopsis">
+		<element name="synopsis" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<group>
+					<ref name="accessory"/>
+					<ref name="additional"/>
+					<ref name="clinical"/>
+					<ref name="extent"/>
+					<ref name="margins"/>
+					<ref name="metastases"/>
+					<ref name="nodes"/>
+					<ref name="specimen"/>
+					<ref name="stage"/>
+					<ref name="studies"/>
+					<ref name="tumor"/>
+				</group>
+				<group>
+					<attribute name="schemaLocation"
+						ns="http://www.cap.org/pert/2009/01/">
+						<empty/>
+					</attribute>
+					<attribute name="version" ns="http://www.cap.org/pert/2009/01/">
+						<empty/>
+					</attribute>
+					<attribute name="transformation"
+						ns="http://www.w3.org/2003/g/data-view#">
+						<empty/>
+					</attribute>
+				</group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="accessory">
+		<element name="accessory" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="venousInvasion"/>
+				</optional>
+				<optional>
+					<ref name="lymphovascularInvasion"/>
+				</optional>
+				<optional>
+					<ref name="perineuralInvasion"/>
+				</optional>
+				<optional>
+					<ref name="treatmentEffect"/>
+				</optional>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="additional">
+		<element name="additional" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<zeroOrMore>
+					<ref name="item"/>
+				</zeroOrMore>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="clinical">
+		<element name="clinical" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<zeroOrMore>
+					<ref name="priorTherapy"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="clinicalFinding"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="radiologicFinding"/>
+				</zeroOrMore>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="extent">
+		<element name="extent" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="tumorSize"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="margins">
+		<element name="margins" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<zeroOrMore>
+					<ref name="margin"/>
+				</zeroOrMore>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="metastases">
+		<element name="metastases" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<zeroOrMore>
+					<ref name="metastasis"/>
+				</zeroOrMore>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="nodes">
+		<element name="nodes" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<zeroOrMore>
+					<ref name="nodeGroup"/>
+				</zeroOrMore>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="specimen">
+		<element name="specimen" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<oneOrMore>
+					<ref name="procedure"/>
+				</oneOrMore>
+				<oneOrMore>
+					<ref name="specimenSite"/>
+				</oneOrMore>
+				<oneOrMore>
+					<ref name="tumorSite"/>
+				</oneOrMore>
+				<optional>
+					<ref name="integrity"/>
+				</optional>
+				<optional>
+					<ref name="specimenSize"/>
+				</optional>
+				<optional>
+					<ref name="tumorGrossSize"/>
+				</optional>
+				<optional>
+					<ref name="specimenWeight"/>
+				</optional>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="stage">
+		<element name="stage" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="prefix"/>
+				</optional>
+				<ref name="classification"/>
+				<ref name="T"/>
+				<ref name="N"/>
+				<ref name="M"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="studies">
+		<element name="studies" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<zeroOrMore>
+					<ref name="study"/>
+				</zeroOrMore>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="tumor">
+		<element name="tumor" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<oneOrMore>
+					<ref name="histologicType"/>
+				</oneOrMore>
+				<ref name="grade"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="comment">
+		<element name="comment" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<text/>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="label">
+		<element name="label" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<text/>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="text">
+		<element name="text" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<text/>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="_1">
+		<element>
+			<anyName>
+				<except>
+					<choice>
+						<nsName ns="http://www.cap.org/pert/2009/01/"/>
+						<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+						<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+						<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+						<nsName ns="http://www.cap.org/pert/2009/01/prostate/"/>
+						<nsName ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+						<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+						<nsName ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+						<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+						<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+						<nsName ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+						<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+					</choice>
+				</except>
+			</anyName>
+			<oneOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+			</oneOrMore>
+		</element>
+	</define>
+	<define name="venousInvasion">
+		<element name="venousInvasion" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="lymphovascularInvasion">
+		<element name="lymphovascularInvasion"
+			ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_2"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="perineuralInvasion">
+		<element name="perineuralInvasion" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_3"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="treatmentEffect">
+		<element name="treatmentEffect" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_4"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="item">
+		<element name="item" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_5"/>
+				<optional>
+					<ref name="specify"/>
+				</optional>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<attribute name="name" ns="">
+					<value datatypeLibrary="" ns="" type="token">specify</value>
+				</attribute>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="priorTherapy">
+		<element name="priorTherapy" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_6"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<attribute name="date" ns="">
+					<choice>
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="date"/>
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="gYearMonth"/>
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="gYear"/>
+					</choice>
+				</attribute>
+				<optional>
+					<attribute name="until" ns="">
+						<choice>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="date"/>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="gYearMonth"/>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="gYear"/>
+						</choice>
+					</attribute>
+				</optional>
+				<optional>
+					<attribute name="duration" ns="">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="duration"/>
+					</attribute>
+				</optional>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="clinicalFinding">
+		<element name="clinicalFinding" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_7"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="date" ns="">
+						<choice>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="date"/>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="gYearMonth"/>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="gYear"/>
+						</choice>
+					</attribute>
+				</optional>
+				<optional>
+					<choice>
+						<attribute name="until" ns="">
+							<choice>
+								<data
+									datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+									type="date"/>
+								<data
+									datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+									type="gYearMonth"/>
+								<data
+									datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+									type="gYear"/>
+							</choice>
+						</attribute>
+						<attribute name="duration" ns="">
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="duration"/>
+						</attribute>
+					</choice>
+				</optional>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="radiologicFinding">
+		<element name="radiologicFinding" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_8"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="date" ns="">
+						<choice>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="date"/>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="gYearMonth"/>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="gYear"/>
+						</choice>
+					</attribute>
+				</optional>
+				<optional>
+					<choice>
+						<attribute name="until" ns="">
+							<choice>
+								<data
+									datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+									type="date"/>
+								<data
+									datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+									type="gYearMonth"/>
+								<data
+									datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+									type="gYear"/>
+							</choice>
+						</attribute>
+						<attribute name="duration" ns="">
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="duration"/>
+						</attribute>
+					</choice>
+				</optional>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="tumorSize">
+		<element name="tumorSize" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<group>
+					<ref name="dimension"/>
+					<optional>
+						<group>
+							<ref name="dimension_2"/>
+							<optional>
+								<ref name="dimension_2"/>
+							</optional>
+						</group>
+					</optional>
+				</group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="margin">
+		<element name="margin" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_9"/>
+				<optional>
+					<ref name="specify"/>
+				</optional>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<attribute name="location" ns="">
+					<choice>
+						<value datatypeLibrary="" ns="" type="token">specify</value>
+						<value datatypeLibrary="" ns="" type="token"
+							>unreported</value>
+						<value datatypeLibrary="" ns="" type="token">specify</value>
+						<value datatypeLibrary="" ns="" type="token"
+							>unreported</value>
+					</choice>
+				</attribute>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="metastasis">
+		<element name="metastasis" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="size"/>
+				</optional>
+				<optional>
+					<ref name="specify"/>
+				</optional>
+				<optional>
+					<ref name="howDiagnosed"/>
+				</optional>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<attribute name="location" ns="">
+					<choice>
+						<value datatypeLibrary="" ns="" type="token">specify</value>
+						<value datatypeLibrary="" ns="" type="token"
+							>unreported</value>
+						<value datatypeLibrary="" ns="" type="token">specify</value>
+						<value datatypeLibrary="" ns="" type="token"
+							>unreported</value>
+					</choice>
+				</attribute>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="nodeGroup">
+		<element name="nodeGroup" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="specify"/>
+				</optional>
+				<group>
+					<ref name="count"/>
+					<optional>
+						<ref name="count_2"/>
+					</optional>
+					<optional>
+						<ref name="count_3"/>
+					</optional>
+					<optional>
+						<ref name="count_4"/>
+					</optional>
+				</group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<attribute name="location" ns="">
+					<choice>
+						<optional>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+						</optional>
+						<value datatypeLibrary="" ns="" type="token"
+							>unreported</value>
+					</choice>
+				</attribute>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="procedure">
+		<element name="procedure" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<oneOrMore>
+					<ref name="response_10"/>
+				</oneOrMore>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="specimenSite">
+		<element name="specimenSite" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<oneOrMore>
+					<ref name="response_11"/>
+				</oneOrMore>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="tumorSite">
+		<element name="tumorSite" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<oneOrMore>
+					<ref name="response_12"/>
+				</oneOrMore>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="integrity">
+		<element name="integrity" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_13"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="specimenSize">
+		<element name="specimenSize" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<group>
+					<ref name="dimension"/>
+					<optional>
+						<group>
+							<ref name="dimension_2"/>
+							<optional>
+								<ref name="dimension_2"/>
+							</optional>
+						</group>
+					</optional>
+				</group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="tumorGrossSize">
+		<element name="tumorGrossSize" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<group>
+					<ref name="dimension"/>
+					<optional>
+						<group>
+							<ref name="dimension_2"/>
+							<optional>
+								<ref name="dimension_2"/>
+							</optional>
+						</group>
+					</optional>
+				</group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="specimenWeight">
+		<element name="specimenWeight" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_14"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="prefix">
+		<element name="prefix" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_15"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="classification">
+		<element name="classification" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_16"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="T">
+		<element name="T" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_17"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="N">
+		<element name="N" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_18"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="M">
+		<element name="M" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_19"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="study">
+		<element name="study" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_20"/>
+				<optional>
+					<ref name="method"/>
+				</optional>
+				<optional>
+					<ref name="specify"/>
+				</optional>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<attribute name="name" ns="">
+					<value datatypeLibrary="" ns="" type="token">specify</value>
+				</attribute>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="histologicType">
+		<element name="histologicType" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_21"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="grade">
+		<element name="grade" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_22"/>
+				<optional>
+					<ref name="specify"/>
+				</optional>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="system" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>4-grade</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>3-grade</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>2-grade</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+				</optional>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="response">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>positive</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>negative</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>equivocal</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>indeterminate</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>inapplicable</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_2">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>positive</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>negative</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>equivocal</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>indeterminate</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>inapplicable</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_3">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>positive</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>negative</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>equivocal</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>indeterminate</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>inapplicable</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_4">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>inapplicable</value>
+							<value datatypeLibrary="" ns="" type="token">no
+								response</value>
+							<value datatypeLibrary="" ns="" type="token">slight
+								response</value>
+							<value datatypeLibrary="" ns="" type="token">marked
+								response</value>
+							<value datatypeLibrary="" ns="" type="token">complete
+								response</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_5">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>positive</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>negative</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>equivocal</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>indeterminate</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>inapplicable</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="specify">
+		<element name="specify" ns="http://www.cap.org/pert/2009/01/">
+			<text/>
+		</element>
+	</define>
+	<define name="response_6">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_7">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_8">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="dimension">
+		<element name="dimension" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<attribute name="largest" ns="">
+						<value datatypeLibrary="" ns="" type="token">true</value>
+					</attribute>
+				</optional>
+				<ref name="response_23"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="dimension_2">
+		<element name="dimension" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<attribute name="largest" ns="">
+						<value datatypeLibrary="" ns="" type="token">false</value>
+					</attribute>
+				</optional>
+				<ref name="response_23"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="response_9">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="distance"/>
+				</optional>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>positive</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>negative</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>equivocal</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>indeterminate</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>inapplicable</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+					<optional>
+						<attribute name="closest" ns="">
+							<choice>
+								<value datatypeLibrary="" ns="" type="token"
+									>positive</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>negative</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>equivocal</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>indeterminate</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>inapplicable</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>specify</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>unreported</value>
+							</choice>
+						</attribute>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="size">
+		<element name="size" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<group>
+					<ref name="dimension"/>
+					<optional>
+						<group>
+							<ref name="dimension_2"/>
+							<optional>
+								<ref name="dimension_2"/>
+							</optional>
+						</group>
+					</optional>
+				</group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="howDiagnosed">
+		<element name="howDiagnosed" ns="http://www.cap.org/pert/2009/01/">
+			<ref name="response_24"/>
+		</element>
+	</define>
+	<define name="count">
+		<element name="count" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<attribute name="status" ns="">
+					<value datatypeLibrary="" ns="" type="token">total</value>
+				</attribute>
+				<group>
+					<ref name="response_25"/>
+					<optional>
+						<ref name="comment"/>
+					</optional>
+					<optional>
+						<ref name="label"/>
+					</optional>
+					<zeroOrMore>
+						<ref name="text"/>
+					</zeroOrMore>
+					<zeroOrMore>
+						<ref name="_1"/>
+					</zeroOrMore>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="count_2">
+		<element name="count" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<attribute name="status" ns="">
+					<value datatypeLibrary="" ns="" type="token">positive</value>
+				</attribute>
+				<group>
+					<ref name="response_26"/>
+					<optional>
+						<ref name="comment"/>
+					</optional>
+					<optional>
+						<ref name="label"/>
+					</optional>
+					<zeroOrMore>
+						<ref name="text"/>
+					</zeroOrMore>
+					<zeroOrMore>
+						<ref name="_1"/>
+					</zeroOrMore>
+					<optional>
+						<ref name="largest"/>
+					</optional>
+					<optional>
+						<ref name="extracapsular"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="count_3">
+		<element name="count" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<attribute name="status" ns="">
+					<value datatypeLibrary="" ns="" type="token">regressed</value>
+				</attribute>
+				<group>
+					<ref name="response_27"/>
+					<optional>
+						<ref name="comment"/>
+					</optional>
+					<optional>
+						<ref name="label"/>
+					</optional>
+					<zeroOrMore>
+						<ref name="text"/>
+					</zeroOrMore>
+					<zeroOrMore>
+						<ref name="_1"/>
+					</zeroOrMore>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="count_4">
+		<element name="count" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<attribute name="status" ns="">
+					<value datatypeLibrary="" ns="" type="token">specify</value>
+				</attribute>
+				<group>
+					<ref name="response_28"/>
+					<optional>
+						<ref name="comment"/>
+					</optional>
+					<optional>
+						<ref name="label"/>
+					</optional>
+					<zeroOrMore>
+						<ref name="text"/>
+					</zeroOrMore>
+					<zeroOrMore>
+						<ref name="_1"/>
+					</zeroOrMore>
+					<ref name="specify"/>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_10">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_11">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_12">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_13">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token">intact</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>fragmented</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>inapplicable</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_14">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="decimal">
+								<param name="minExclusive">0.0</param>
+							</data>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<attribute name="unit" ns="">
+						<choice>
+							<optional>
+								<choice>
+									<value datatypeLibrary="" ns="" type="token"
+										>g</value>
+									<value datatypeLibrary="" ns="" type="token"
+										>kg</value>
+									<value datatypeLibrary="" ns="" type="token"
+										>specify</value>
+									<value datatypeLibrary="" ns="" type="token"
+										>unreported</value>
+								</choice>
+							</optional>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<attribute name="relation" ns="">
+							<choice>
+								<value datatypeLibrary="" ns="" type="token"
+									>lessThan</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>lessThanOrEqual</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>equal</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>greaterThanOrEqual</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>greaterThan</value>
+							</choice>
+						</attribute>
+					</optional>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_15">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token">y</value>
+							<value datatypeLibrary="" ns="" type="token">r</value>
+							<value datatypeLibrary="" ns="" type="token">a</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_16">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token">p</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_17">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<attribute name="multiplicity" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token">2</value>
+							<value datatypeLibrary="" ns="" type="token">3</value>
+							<value datatypeLibrary="" ns="" type="token">4</value>
+							<value datatypeLibrary="" ns="" type="token">5</value>
+							<value datatypeLibrary="" ns="" type="token">m</value>
+						</choice>
+					</attribute>
+				</optional>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_18">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_19">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token">1</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_20">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>pending</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="method">
+		<element name="method" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_29"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="response_21">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_22">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token">GX</value>
+							<value datatypeLibrary="" ns="" type="token">G1</value>
+							<value datatypeLibrary="" ns="" type="token">G2</value>
+							<value datatypeLibrary="" ns="" type="token">G3</value>
+							<value datatypeLibrary="" ns="" type="token">G4</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_23">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="decimal">
+								<param name="minExclusive">0.0</param>
+							</data>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<attribute name="unit" ns="">
+						<choice>
+							<optional>
+								<choice>
+									<value datatypeLibrary="" ns="" type="token"
+										>mm</value>
+									<value datatypeLibrary="" ns="" type="token"
+										>cm</value>
+									<value datatypeLibrary="" ns="" type="token"
+										>in</value>
+									<value datatypeLibrary="" ns="" type="token"
+										>specify</value>
+									<value datatypeLibrary="" ns="" type="token"
+										>unreported</value>
+								</choice>
+							</optional>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<attribute name="relation" ns="">
+							<choice>
+								<value datatypeLibrary="" ns="" type="token"
+									>lessThan</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>lessThanOrEqual</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>equal</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>greaterThanOrEqual</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>greaterThan</value>
+							</choice>
+						</attribute>
+					</optional>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="distance">
+		<element name="distance" ns="http://www.cap.org/pert/2009/01/">
+			<ref name="response_23"/>
+		</element>
+	</define>
+	<define name="response_24">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token">this
+								accesion</value>
+							<value datatypeLibrary="" ns="" type="token">prior
+								accession</value>
+							<value datatypeLibrary="" ns="" type="token">outside
+								report</value>
+							<value datatypeLibrary="" ns="" type="token">clinical
+								history</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_25">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="nonNegativeInteger"/>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<attribute name="relation" ns="">
+							<choice>
+								<value datatypeLibrary="" ns="" type="token"
+									>lessThan</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>lessThanOrEqual</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>equal</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>greaterThanOrEqual</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>greaterThan</value>
+							</choice>
+						</attribute>
+					</optional>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_26">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="nonNegativeInteger"/>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<attribute name="relation" ns="">
+							<choice>
+								<value datatypeLibrary="" ns="" type="token"
+									>lessThan</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>lessThanOrEqual</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>equal</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>greaterThanOrEqual</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>greaterThan</value>
+							</choice>
+						</attribute>
+					</optional>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="largest">
+		<element name="largest" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="dimension"/>
+				<optional>
+					<group>
+						<ref name="dimension_2"/>
+						<optional>
+							<ref name="dimension_2"/>
+						</optional>
+					</group>
+				</optional>
+			</group>
+		</element>
+	</define>
+	<define name="extracapsular">
+		<element name="extracapsular" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<ref name="response_30"/>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+			</group>
+		</element>
+	</define>
+	<define name="response_27">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="nonNegativeInteger"/>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<attribute name="relation" ns="">
+							<choice>
+								<value datatypeLibrary="" ns="" type="token"
+									>lessThan</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>lessThanOrEqual</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>equal</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>greaterThanOrEqual</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>greaterThan</value>
+							</choice>
+						</attribute>
+					</optional>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_28">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<data
+								datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+								type="nonNegativeInteger"/>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<attribute name="relation" ns="">
+							<choice>
+								<value datatypeLibrary="" ns="" type="token"
+									>lessThan</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>lessThanOrEqual</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>equal</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>greaterThanOrEqual</value>
+								<value datatypeLibrary="" ns="" type="token"
+									>greaterThan</value>
+							</choice>
+						</attribute>
+					</optional>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_29">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+	<define name="response_30">
+		<element name="response" ns="http://www.cap.org/pert/2009/01/">
+			<group>
+				<optional>
+					<ref name="comment"/>
+				</optional>
+				<optional>
+					<ref name="label"/>
+				</optional>
+				<zeroOrMore>
+					<ref name="text"/>
+				</zeroOrMore>
+				<zeroOrMore>
+					<ref name="_1"/>
+				</zeroOrMore>
+				<optional>
+					<attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+						<data
+							datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+							type="ID"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<attribute>
+						<anyName>
+							<except>
+								<choice>
+									<nsName ns=""/>
+									<nsName ns="http://www.cap.org/pert/2009/01/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/breast/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/colon/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/lung/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/prostate/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/pancreas/"/>
+									<nsName ns="http://www.cap.org/pert/2009/01/stomach/"/>
+									<nsName
+										ns="http://www.cap.org/pert/2009/01/endometrium/"/>
+									<nsName ns="http://www.w3.org/2003/g/data-view#"/>
+									<nsName ns="http://www.rsna.org/reporting/2009/01/"/>
+									<nsName
+										ns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+									<nsName ns="http://www.w3.org/XML/1998/namespace"/>
+								</choice>
+							</except>
+						</anyName>
+						<text/>
+					</attribute>
+				</zeroOrMore>
+				<group>
+					<attribute name="value" ns="">
+						<choice>
+							<value datatypeLibrary="" ns="" type="token"
+								>positive</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>negative</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>equivocal</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>indeterminate</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>inapplicable</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>specify</value>
+							<value datatypeLibrary="" ns="" type="token"
+								>unreported</value>
+						</choice>
+					</attribute>
+					<optional>
+						<ref name="specify"/>
+					</optional>
+				</group>
+			</group>
+		</element>
+	</define>
+</grammar>
