@@ -9,5 +9,6 @@
         <folder path="any-site/"/>
         <folder path="colon/"/>
         <folder path="framework/"/>
+        <folder path="template/"/>
     </projectTree>
 </project>

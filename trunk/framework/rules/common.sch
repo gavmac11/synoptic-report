@@ -36,6 +36,50 @@
 		result). Others are "sanity" rules (for example, total nodes must be
 		greater than or equal to sum of all the non-negative nodes).</p>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>The following rules are supplied herewith:</p>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>1. If a response value is "specify", then a value MUST be specified in a
+		child {specify} element (otherwise ERROR).</p>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>2. If a child {specify} element is present, then the response to the
+		parent query MUST be "specify" (otherwise ERROR).</p>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>3. All dimensional units for a given size SHOULD be the same unit (e.g.
+		all in cm), (otherwise WARNING).</p>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>4. Dimensions SHOULD be presented in decreasing order by absolute size
+		(otherwise WARNING).</p>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>5. If a "closest" margin is specified, then all margins MUST be negative
+		(otherwise ERROR).</p>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>6. If all margins are negative, then a "closest" margin SHOULD be
+		specified (otherwise WARNING).</p>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>7. You MUST not report a "distance from margin" for any margin that is
+		other than negative or equivocal (otherwise ERROR).</p>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>8. You MUST not report a site as being involved by tumor unless that site
+		is also reported as present in the specimen (ptherwise ERROR).</p>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>9. The tumor greatest dimension SHOULD not exceed the specimen greatest
+		dimenson (otherwise WARNING).</p>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>10. The number of non-negative nodes for any node group MUST not exceed
+		the total number of nodes for that group (otherwise ERROR).</p>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>11. If treatment effect is present pathologically, the there SHOULD be a
+		specification of the prior therapy in the clinical section (otherwise
+		WARNING).</p>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<p>12. The assigned grade MUST occur in the assigned grading system, e.g.
+		cannot assign G3 if a 2-grade system is specified (otherwise ERROR). (Note
+		that this works for the default grade specification system of 'G1'-'G4'.
+		If you override this with a custom system, you must write your own
+		rule.)</p>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<p>This sets the prefix "ecc' to the pert namespace.</p>
@@ -173,10 +217,16 @@
 		<rule context="/ecc:synopsis/ecc:margins">
 			<let name="closest" value="ecc:margin/ecc:response/@closest"/>
 			<let name="value" value="ecc:margin/ecc:response/@value"/>
+			<let name="anyNonNegative"
+				value="ecc:margin/ecc:response/@value != 'negative'"/>
 			<assert
 				test="if ($closest = 'positive') then not($value = 'positive')
 				else $skip"
 				> A margin-positive case may not have a closest margin. </assert>
+			<report
+				test="if (not($anyNonNegative)) then not(exists($closest)) else $skip"
+				>You should report a closest margin, because all margins are
+				negative.</report>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</pattern>
@@ -223,7 +273,7 @@
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<pattern
-		id="tumor-largest-dimension-cannot-exceed-specimen-largest-dimension">
+		id="tumor-largest-dimension-should-not-exceed-specimen-largest-dimension">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<p>This checks that you don't say the tumor is larger than the specimen.
 			It makes no sense to say the tumor has a largest dimension of 15 cm if
@@ -240,18 +290,20 @@
 				../ecc:specimenSize/ecc:dimension return
 				ecc:to-mm($x/ecc:response/@value, $x/ecc:response/@unit,
 				$x/ecc:response/@relation)"/>
-			<assert test="not($tumorDimensions &gt; max($specimenDimensions))">
+			<let name="maxTumorDimension" value="max($tumorDimensions)"/>
+			<let name="maxSpecimenDimension" value="max($specimenDimensions)"/>
+			<report test="$maxTumorDimension gt $maxSpecimenDimension">
 				Largest gross tumor dimension (<value-of
-					select="max($tumorDimensions)"/> mm) exceeds specimen largest
-				dimension (<value-of select="max($specimenDimensions)"/> mm).
-			</assert>
+					select="$maxTumorDimension"/> mm) exceeds specimen largest
+				dimension (<value-of select="$maxSpecimenDimension"/> mm).
+			</report>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</pattern>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<pattern id="total-nodes-cannot-exceed-non-negative-nodes">
+	<pattern id="non-negative-nodes-cannot-exceed-total-nodes">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<p>This checks that the total number of nodes you report is not less than
 			the sum of the positive+regressed+specify count of nodes. It makes no
