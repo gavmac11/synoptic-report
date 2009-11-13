@@ -8,7 +8,6 @@
     <projectTree name="eCC.xpr">
         <folder path="any-site/"/>
         <folder path="colon/"/>
-        <folder path="doc/"/>
         <folder path="framework/"/>
     </projectTree>
 </project>
