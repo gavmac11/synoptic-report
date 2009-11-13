@@ -104,9 +104,8 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="ecc:specify">
 			<assert test="../attribute::node() = 'specify'"> A "<name path=".."/>"
-				element has a child "specify" element, even though its "<name
-					path="../attribute::node()"/>" attribute value is not "specify".
-			</assert>
+				element has a child "specify" element, even though it has no
+				attribute value of "specify". </assert>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</pattern>
@@ -323,12 +322,4 @@
 	</pattern>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<pattern id="colon-site-matches-procedure">
-		<rule context="/ecc:synopsis/ecc:specimen/ecc:procedure/ecc:response">
-			<let name="procedure" value="./@value"/>
-			<let name="site" value="../../ecc:specimenSite/ecc:response/@value"/>
-			<report test="true()">Specimen site "<value-of select="$site"/>" must
-				match a corresponding procedure.</report>
-		</rule>
-	</pattern>
 </schema>

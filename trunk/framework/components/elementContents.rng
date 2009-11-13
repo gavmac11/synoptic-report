@@ -263,9 +263,7 @@
 						</define>
 					</include>
 				</grammar>
-				<optional>
-					<ref name="common.specify"/>
-				</optional>
+				<ref name="common.specify"/>
 			</interleave>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -285,9 +283,7 @@
 				<optional>
 					<ref name="common.size"/>
 				</optional>
-				<optional>
-					<ref name="common.specify"/>
-				</optional>
+				<ref name="common.specify"/>
 				<optional>
 					<element name="howDiagnosed">
 						<grammar>
@@ -323,9 +319,7 @@
 			<a:documentation> </a:documentation>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<interleave>
-				<optional>
-					<ref name="common.specify"/>
-				</optional>
+				<ref name="common.specify"/>
 				<group>
 					<element name="count">
 						<attribute name="status">
@@ -389,7 +383,6 @@
 									</element>
 								</optional>
 							</interleave>
-							
 						</element>
 					</optional>
 					<optional>
@@ -410,7 +403,6 @@
 								</grammar>
 								<ref name="common.content"/>
 							</interleave>
-							
 						</element>
 					</optional>
 					<optional>
@@ -435,7 +427,6 @@
 									<ref name="common.specify.attrib"/>
 								</element>
 							</interleave>
-							
 						</element>
 					</optional>
 				</group>
@@ -666,9 +657,7 @@
 						<ref name="studies.study.method.attrib"/>
 					</element>
 				</optional>
-				<optional>
-					<ref name="common.specify"/>
-				</optional>
+				<ref name="common.specify"/>
 			</interleave>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
