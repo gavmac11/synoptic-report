@@ -307,12 +307,12 @@
    <pattern id="adjacent-structure-involvement">
       <rule context="/ecc:synopsis/ecc:extent/colon:invasion/ecc:response">
          <assert
-            test="if (@value eq 'adjacent structure') then colon:adjacentStructure else $skip"
+            test="if (@value eq 'adjacent structure') then colon:adjacent else $skip"
             > You report invasion of an adjacent structure, but you do not
-            specify which structure is involved. (Use an {adjacentStructure}
+            specify which structure is involved and to what degree. (Use a {colon:adjacent}
             child element for this.) </assert>
          <assert
-            test="if (colon:adjacentStructure) then @value eq 'adjacent structure' else $skip"
+            test="if (colon:adjacent) then @value eq 'adjacent structure' else $skip"
             > {adjacentStructure} element can be used only if deepest invasion
             is to adjacent structure. </assert>
       </rule>
