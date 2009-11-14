@@ -63,12 +63,12 @@
 				report.</a:documentation>
 		</include>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<include href="elements.rng">
+		<include href="queries.rng">
 			<a:documentation>This file contains definitions of the default (non-site-specific) elements contained within
 				each section. Within the file, the definitions are grouped by section.</a:documentation>
 		</include>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<include href="elementContents.rng">
+		<include href="queryContents.rng">
 			<a:documentation>This file contains definitions of the internal structure of elements introduced in
 				"items.rng".</a:documentation>
 		</include>

@@ -166,7 +166,6 @@
    </nodes>
    <metastases>
       <metastasis location="peritoneum">
-         <specify>liver</specify>
          <size>
             <dimension>
                <response relation="lessThan" unit="cm" value="2"/>
@@ -196,13 +195,13 @@
          <response value="p"/>
       </classification>
       <T>
-         <response value="3"/>
+         <response value="4b"/>
       </T>
       <N>
-         <response value="1"/>
+         <response value="1b"/>
       </N>
       <M>
-         <response value="1"/>
+         <response value="1b"/>
       </M>
    </stage>
    <additional>

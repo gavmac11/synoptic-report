@@ -112,16 +112,16 @@
          <let name="hep-procs" value="$tox, $sex, $trx, $rhx"/>
          <let name="asc-procs" value="$tox, $sex, $rhx, $asx"/>
          <let name="cec-procs" value="$tox, $sex, $rhx, $asx"/>
-         <let name="ter-procs" value="$rhx, $asx"/>
+         <let name="ter-procs" value="$tox, $rhx, $asx"/>
          <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
          <!--lists of sites matching each procedure-->
          <!--e.g. $prx-sites is **necessarily matching** sites yielded by a proctocolectomy procedure-->
          <!--in this sense, these are "minimal" lists-->
          <!--put another way, these are sites that are **required matches** to each procedure-->
          <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-         <!--<let name="tox-sites" value=""/> any site is fine-->
-         <!--<let name="sex-sites" value=""/> any site is fine-->
-         <!--<let name="pox-sites" value=""/> any site is fine-->
+         <let name="tox-sites" value="$des, $spl, $tra, $hep, $hep, $asc, $cec"/>
+         <!--<let name="sex-sites" value=""/>-->
+         <!--<let name="pox-sites" value=""/>-->
          <let name="prx-sites" value="$anu, $rec"/>
          <let name="apx-sites" value="$rec"/>
          <let name="lax-sites" value="$rec"/>
@@ -138,42 +138,83 @@
          <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
          <!--This assertions tests that for every reported site, at least one possibly matching procedure is reported-->
          <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-         <assert
-            test="
-				(if ($anu = $sites) then $procs = $anu-procs else $skip) and
-				(if ($rec = $sites) then $procs = $rec-procs else $skip) and
-				(if ($rsj = $sites) then $procs = $rsj-procs else $skip) and
-				(if ($sig = $sites) then $procs = $sig-procs else $skip) and
-				(if ($des = $sites) then $procs = $des-procs else $skip) and
-				(if ($spl = $sites) then $procs = $spl-procs else $skip) and
-				(if ($tra = $sites) then $procs = $tra-procs else $skip) and
-				(if ($hep = $sites) then $procs = $hep-procs else $skip) and
-				(if ($asc = $sites) then $procs = $asc-procs else $skip) and
-				(if ($cec = $sites) then $procs = $cec-procs else $skip) and
-				(if ($ter = $sites) then $procs = $ter-procs else $skip)"
-            >Specimen site(s) are claimed (claimed = <value-of
-               select="string-join($sites,', ')"/>) for which no matching
-            procedure(s) are reported (reported = <value-of
-               select="string-join($procs,', ')"/>).</assert>
+         <assert test="not($anu = $sites and not($procs = $anu-procs))">Anus is
+            among the reported sites, but no matching procedure is
+            reported.</assert>
+         <assert test="not($rec = $sites and not($procs = $rec-procs))">Rectum
+            is among the reported sites, but no matching procedure is
+            reported.</assert>
+         <assert test="not($rsj = $sites and not($procs = $rsj-procs))"
+            >Rectosigmoid junction is among the reported sites, but no matching
+            procedure is reported.</assert>
+         <assert test="not($sig = $sites and not($procs = $sig-procs))">Sigmoid
+            colon is among the reported sites, but no matching procedure is
+            reported.</assert>
+         <assert test="not($des = $sites and not($procs = $des-procs))"
+            >Descending colon is among the reported sites, but no matching
+            procedure is reported.</assert>
+         <assert test="not($spl = $sites and not($procs = $spl-procs))">Splenic
+            flexure is among the reported sites, but no matching procedure is
+            reported.</assert>
+         <assert test="not($tra = $sites and not($procs = $tra-procs))"
+            >Transverse colon is among the reported sites, but no matching
+            procedure is reported.</assert>
+         <assert test="not($hep = $sites and not($procs = $hep-procs))">Hepatic
+            flexure is among the reported sites, but no matching procedure is
+            reported.</assert>
+         <assert test="not($asc = $sites and not($procs = $asc-procs))"
+            >Ascending colon is among the reported sites, but no matching
+            procedure is reported.</assert>
+         <assert test="not($cec = $sites and not($procs = $cec-procs))">Cecum is
+            among the reported sites, but no matching procedure is
+            reported.</assert>
+         <assert test="not($ter = $sites and not($procs = $ter-procs))">Terminal
+            ileum is among the reported sites, but no matching procedure is
+            reported.</assert>
          <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
          <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
          <!--This assertion tests that for every reported procedure, at least the minimal set of necessarily matching site(s) is reported-->
          <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
          <assert
-            test="				
-				(if ($prx = $procs) then not($prx-sites != $sites) else $skip) and
-				(if ($apx = $procs) then not($apx-sites != $sites) else $skip) and
-				(if ($lax = $procs) then not($lax-sites != $sites) else $skip) and
-				(if ($tdx = $procs) then not($tdx-sites != $sites) else $skip) and
-				(if ($six = $procs) then not($six-sites != $sites) else $skip) and
-				(if ($lhx = $procs) then not($lhx-sites != $sites) else $skip) and
-				(if ($trx = $procs) then not($trx-sites != $sites) else $skip) and
-				(if ($rhx = $procs) then not($rhx-sites != $sites) else $skip) and
-				(if ($asx = $sites) then not($asx-sites != $sites) else $skip)"
-            >Procedure(s) are claimed (claimed = <value-of
-               select="string-join($procs,', ')"/>) for which no matching
-            specimen sites are reported (reported = <value-of
-               select="string-join($sites,', ')"/>).</assert>
+            test="not($tox = $procs and not(every $s in $tox-sites satisfies $s = $sites))"
+            >Total colectomy is reported, but corresponding specimen sites are
+            absent. </assert>
+         <assert
+            test="not($prx = $procs and not(every $s in $prx-sites satisfies $s = $sites))"
+            >Proctocolectomy is reported, but corresponding specimen sites are
+            absent.</assert>
+         <assert
+            test="not($apx = $procs and not(every $s in $apx-sites satisfies $s = $sites))"
+            >Abdominoperineal resection is reported, but corresponding specimen
+            sites are absent.</assert>
+         <assert
+            test="not($lax = $procs and not(every $s in $lax-sites satisfies $s = $sites))"
+            >Low anterior resection is reported, but corresponding specimen
+            sites are absent.</assert>
+         <assert
+            test="not($tdx = $procs and not(every $s in $tdx-sites satisfies $s = $sites))"
+            >Transanal disk excision is reported, but corresponding specimen
+            sites are absent.</assert>
+         <assert
+            test="not($six = $procs and not(every $s in $six-sites satisfies $s = $sites))"
+            >Sigmoidectomy is reported, but corresponding specimen sites are
+            absent.</assert>
+         <assert
+            test="not($lhx = $procs and not(every $s in $lhx-sites satisfies $s = $sites))"
+            >Left hemicolectomy is reported, but corresponding specimen sites
+            are absent.</assert>
+         <assert
+            test="not($trx = $procs and not(every $s in $trx-sites satisfies $s = $sites))"
+            >Transverse colectomy is reported, but corresponding specimen sites
+            are absent.</assert>
+         <assert
+            test="not($rhx = $procs and not(every $s in $rhx-sites satisfies $s = $sites))"
+            >Right hemicolectomy is reported, but corresponding specimen sites
+            are absent.</assert>
+         <assert
+            test="not($asx = $sites and not(every $s in $asx-sites satisfies $s = $sites))"
+            >Ascending colectomy is reported, but corresponding specimen sites
+            are absent.</assert>
       </rule>
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
    </pattern>
@@ -188,7 +229,7 @@
       <rule context="/ecc:synopsis/ecc:extent/colon:invasion/ecc:response">
          <let name="invasion" value="@value"/>
          <let name="T-reported"
-            value="/ecc:synopsis/ecc:stage/ecc:N/ecc:response/@value"/>
+            value="/ecc:synopsis/ecc:stage/ecc:T/ecc:response/@value"/>
          <let name="T-calculated"
             value="
 				     if ($invasion = 'adjacent structure')          then '4b'                   

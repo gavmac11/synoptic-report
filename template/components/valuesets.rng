@@ -57,7 +57,7 @@
 		already modeled for you, and your site-specific template will inherit all
 		of these framework queries from the framework schemas with no further
 		effort on your part. A list of the framework queries is included in the
-		"elements.rng" file in this folder. </a:documentation>
+		"queries.rng" file in this folder. </a:documentation>
 	<a:documentation/>
 	<a:documentation>You will probably, however, want to create some
 		site-specific queries that do NOT appear as framework items. For example,
@@ -67,7 +67,7 @@
 		query for "depth of invasion" needs to be added to the framework queries
 		as part of the development of the colon site-specific schema. To do this
 		requires a little bit of knowledge about Relax NG, and you can get more
-		details about this in the "elements.rng" and "elementContents.rng" files
+		details about this in the "queries.rng" and "queryContents.rng" files
 		in this folder.</a:documentation>
 	<a:documentation/>
 	<a:documentation>Finally--and most relevant to this particular file-- there
