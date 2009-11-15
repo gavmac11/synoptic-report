@@ -89,7 +89,7 @@
 					<ref name="venousInvasion"/>
 				</optional>
 				<optional>
-					<ref name="lymphovascularInvasion"/>
+					<ref name="lymph-vascularInvasion"/>
 				</optional>
 				<optional>
 					<ref name="perineuralInvasion"/>
@@ -845,8 +845,8 @@
 			</group>
 		</element>
 	</define>
-	<define name="lymphovascularInvasion">
-		<element name="lymphovascularInvasion"
+	<define name="lymph-vascularInvasion">
+		<element name="lymph-vascularInvasion"
 			ns="http://www.cap.org/pert/2009/01/">
 			<group>
 				<ref name="response_2"/>

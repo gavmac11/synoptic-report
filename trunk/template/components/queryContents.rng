@@ -27,686 +27,651 @@
 <!ENTITY response "response.rng">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-	ns="http://www.cap.org/pert/2009/01/"
-	xmlns="http://relaxng.org/ns/structure/1.0"
-	xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-	xmlns:ecc="http://www.cap.org/pert/2009/01/">
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<a:documentation>This file contains the content models for most of the
-		non-site-specific elements in the eCC.</a:documentation>
-	<a:documentation>It is organized by section, in alphabetical
-		order.</a:documentation>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<div>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>accessory CONTENT</a:documentation>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="accessory.venousInvasion.content">
-			<a:documentation>.. venousInvasion CONTENT ..</a:documentation>
-			<grammar>
-				<include href="&response;">
-					<define name="response.attrib">
-						<ref name="text-response.attrib"/>
-					</define>
-					<define name="response.text-value.valueset">
-						<parentRef
-							name="accessory.venousInvasion.response.value.valueset"/>
-					</define>
-				</include>
-			</grammar>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave"
-			name="accessory.lymphovascularInvasion.content">
-			<a:documentation>.. lymphovascularInvasion CONTENT ..</a:documentation>
-			<grammar>
-				<include href="&response;">
-					<define name="response.attrib">
-						<ref name="text-response.attrib"/>
-					</define>
-					<define name="response.text-value.valueset">
-						<parentRef
-							name="accessory.lymphovascularInvasion.response.value.valueset"
-						/>
-					</define>
-				</include>
-			</grammar>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="accessory.perineuralInvasion.content">
-			<a:documentation>.. perineuralInvasion CONTENT ..</a:documentation>
-			<grammar>
-				<include href="&response;">
-					<define name="response.attrib">
-						<ref name="text-response.attrib"/>
-					</define>
-					<define name="response.text-value.valueset">
-						<parentRef
-							name="accessory.perineuralInvasion.response.value.valueset"
-						/>
-					</define>
-				</include>
-			</grammar>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="accessory.treatmentEffect.content">
-			<a:documentation>.. treatmentEffect CONTENT ..</a:documentation>
-			<grammar>
-				<include href="&response;">
-					<define name="response.attrib">
-						<ref name="text-response.attrib"/>
-					</define>
-					<define name="response.text-value.valueset">
-						<parentRef
-							name="accessory.treatmentEffect.response.value.valueset"/>
-					</define>
-				</include>
-			</grammar>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="accessory.extensions">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	</div>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<div>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>-- additional CONTENT</a:documentation>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="additional.item.content">
-			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>.. item CONTENT ..</a:documentation>
-			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<interleave>
-				<grammar>
-					<include href="&response;">
-						<define name="response.attrib">
-							<ref name="text-response.attrib"/>
-						</define>
-						<define name="response.text-value.valueset">
-							<parentRef name="additional.item.response.value.valueset"/>
-						</define>
-					</include>
-				</grammar>
-				<ref name="common.specify"/>
-			</interleave>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="additional.extensions">
-			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	</div>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<div>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>-- clinical CONTENT --</a:documentation>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="clinical.priorTherapy.content">
-			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>.. priorTherapy CONTENT..</a:documentation>
-			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<interleave>
-				<grammar>
-					<include href="&response;">
-						<define name="response.attrib">
-							<ref name="text-response.attrib"/>
-						</define>
-						<define name="response.text-value.valueset">
-							<parentRef
-								name="clinical.priorTherapy.response.value.valueset"/>
-						</define>
-					</include>
-				</grammar>
-			</interleave>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="clinical.clinicalFinding.content">
-			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>.. clinicalFinding CONTENT ..</a:documentation>
-			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<interleave>
-				<grammar>
-					<include href="&response;">
-						<define name="response.attrib">
-							<ref name="text-response.attrib"/>
-						</define>
-						<define name="response.text-value.valueset">
-							<parentRef
-								name="clinical.clinicalFinding.response.value.valueset"
-							/>
-						</define>
-					</include>
-				</grammar>
-			</interleave>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="clinical.radiologicFinding.content">
-			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>.. radiologicFinding CONTENT ..</a:documentation>
-			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<interleave>
-				<grammar>
-					<include href="&response;">
-						<define name="response.attrib">
-							<ref name="text-response.attrib"/>
-						</define>
-						<define name="response.text-value.valueset">
-							<parentRef
-								name="clinical.radiologicFinding.response.value.valueset"
-							/>
-						</define>
-					</include>
-				</grammar>
-			</interleave>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="clinical.extensions">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	</div>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<div>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>-- extent CONTENT --</a:documentation>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="extent.size.content">
-			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation>.. size CONTENT ..</a:documentation>
-			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<ref name="common.size.content"/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="extent.extensions">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	</div>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<div>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>-- margins SECTION --</a:documentation>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="margins.margin.content">
-			<interleave>
-				<grammar>
-					<include href="&response;">
-						<define name="response.attrib">
-							<ref name="text-response.attrib"/>
-							<optional>
-								<attribute name="closest">
-									<parentRef
-										name="margins.margin.response.closest.valueset"/>
-								</attribute>
-							</optional>
-						</define>
-						<define name="response.text-value.valueset">
-							<parentRef name="margins.margin.response.value.valueset"/>
-						</define>
-						<define name="response.extensions">
-							<optional>
-								<element name="distance">
-									<parentRef name="length.content"/>
-									<parentRef name="margins.margin.distance.attrib"/>
-								</element>
-							</optional>
-						</define>
-					</include>
-				</grammar>
-				<ref name="common.specify"/>
-			</interleave>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="margins.extensions">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	</div>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<div>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>-- metastases CONTENT --</a:documentation>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="metastases.metastasis.content">
-			<interleave>
-				<optional>
-					<ref name="common.size"/>
-				</optional>
-				<ref name="common.specify"/>
-				<optional>
-					<element name="howDiagnosed">
-						<grammar>
-							<include href="&response;">
-								<define name="response.attrib">
-									<ref name="text-response.attrib"/>
-								</define>
-								<define name="response.text-value.valueset">
-									<parentRef
-										name="metastases.metastasis.howDiagnosed.valueset"
-									/>
-								</define>
-							</include>
-						</grammar>
-					</element>
-				</optional>
-			</interleave>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="metastases.extensions">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	</div>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<div>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>-- nodes CONTENT --</a:documentation>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="nodes.group.content">
-			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<a:documentation> </a:documentation>
-			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<interleave>
-				<ref name="common.specify"/>
-				<group>
-					<element name="count">
-						<attribute name="status">
-							<value>total</value>
-						</attribute>
-						<interleave>
-							<grammar>
-								<include href="&response;">
-									<define name="response.attrib">
-										<ref name="dimensionless-response.attrib"/>
-									</define>
-									<define name="response.numeric-value.valueset">
-										<data type="nonNegativeInteger"/>
-									</define>
-								</include>
-							</grammar>
-							<ref name="common.content"/>
-						</interleave>
-					</element>
-					<optional>
-						<element name="count">
-							<attribute name="status">
-								<value>positive</value>
-							</attribute>
-							<interleave>
-								<grammar>
-									<include href="&response;">
-										<define name="response.attrib">
-											<ref name="dimensionless-response.attrib"/>
-										</define>
-										<define name="response.numeric-value.valueset">
-											<data type="nonNegativeInteger"/>
-										</define>
-									</include>
-								</grammar>
-								<ref name="common.content"/>
-								<optional>
-									<element name="largest">
-										<ref name="common.size.content"/>
-										<ref name="nodes.group.largest.attrib"/>
-									</element>
-								</optional>
-								<optional>
-									<element name="extracapsular">
-										<interleave>
-											<grammar>
-												<include href="&response;">
-													<define name="response.attrib">
-													<ref name="text-response.attrib"/>
-													</define>
-													<define
-													name="response.text-value.valueset">
-													<parentRef name="common.result.valueset"
-													/>
-													</define>
-												</include>
-											</grammar>
-											<ref name="common.content"/>
-										</interleave>
-										<ref name="nodes.group.extracapsular.attrib"/>
-									</element>
-								</optional>
-							</interleave>
-						</element>
-					</optional>
-					<optional>
-						<element name="count">
-							<attribute name="status">
-								<value>regressed</value>
-							</attribute>
-							<interleave>
-								<grammar>
-									<include href="&response;">
-										<define name="response.attrib">
-											<ref name="dimensionless-response.attrib"/>
-										</define>
-										<define name="response.numeric-value.valueset">
-											<data type="nonNegativeInteger"/>
-										</define>
-									</include>
-								</grammar>
-								<ref name="common.content"/>
-							</interleave>
-						</element>
-					</optional>
-					<optional>
-						<element name="count">
-							<attribute name="status">
-								<value>specify</value>
-							</attribute>
-							<interleave>
-								<grammar>
-									<include href="&response;">
-										<define name="response.attrib">
-											<ref name="dimensionless-response.attrib"/>
-										</define>
-										<define name="response.numeric-value.valueset">
-											<data type="nonNegativeInteger"/>
-										</define>
-									</include>
-								</grammar>
-								<ref name="common.content"/>
-								<element name="specify">
-									<text/>
-									<ref name="common.specify.attrib"/>
-								</element>
-							</interleave>
-						</element>
-					</optional>
-				</group>
-			</interleave>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="nodes.group.location.values">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="nodes.extensions">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	</div>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<div>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>-- specimen CONTENT --</a:documentation>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="specimen.procedure.content">
-			<oneOrMore>
-				<grammar>
-					<include href="&response;">
-						<define name="response.attrib">
-							<ref name="text-response.attrib"/>
-						</define>
-						<define name="response.text-value.valueset">
-							<parentRef
-								name="specimen.procedure.response.value.valueset"/>
-						</define>
-					</include>
-				</grammar>
-			</oneOrMore>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="specimen.site.content">
-			<oneOrMore>
-				<grammar>
-					<include href="&response;">
-						<define name="response.attrib">
-							<ref name="text-response.attrib"/>
-						</define>
-						<define name="response.text-value.valueset">
-							<parentRef name="specimen.site.response.value.valueset"/>
-						</define>
-					</include>
-				</grammar>
-			</oneOrMore>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="specimen.tumorLocation.content">
-			<oneOrMore>
-				<grammar>
-					<include href="&response;">
-						<define name="response.attrib">
-							<ref name="text-response.attrib"/>
-						</define>
-						<define name="response.text-value.valueset">
-							<parentRef name="specimen.site.response.value.valueset"/>
-						</define>
-					</include>
-				</grammar>
-			</oneOrMore>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="specimen.integrity.content">
-			<grammar>
-				<include href="&response;">
-					<define name="response.attrib">
-						<ref name="text-response.attrib"/>
-					</define>
-					<define name="response.text-value.valueset">
-						<parentRef name="specimen.integrity.response.value.valueset"/>
-					</define>
-				</include>
-			</grammar>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="specimen.grossSize.content">
-			<ref name="common.size"/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="specimen.weight.content">
-			<grammar>
-				<include href="&response;">
-					<define name="response.attrib">
-						<ref name="dimensional-response.attrib"/>
-					</define>
-					<define name="response.numeric-value.valueset">
-						<data type="decimal">
-							<param name="minExclusive">0.0</param>
-						</data>
-					</define>
-					<define name="response.unit.valueset">
-						<parentRef name="common.weightUnit.valueset"/>
-					</define>
-				</include>
-			</grammar>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="specimen.extensions">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	</div>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<div>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>-- stage CONTENT --</a:documentation>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="stage.prefix.content">
-			<grammar>
-				<include href="&response;">
-					<define name="response.attrib">
-						<ref name="text-response.attrib"/>
-					</define>
-					<define name="response.text-value.valueset">
-						<parentRef name="stage.prefix.response.value.valueset"/>
-					</define>
-				</include>
-			</grammar>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="stage.T.content">
-			<grammar>
-				<include href="&response;">
-					<define name="response.attrib">
-						<ref name="text-response.attrib"/>
-					</define>
-					<define name="response.text-value.valueset">
-						<parentRef name="stage.T.response.value.valueset"/>
-					</define>
-					<define name="response.extensions">
-						<optional>
-							<attribute name="multiplicity">
-								<parentRef name="stage.T.response.multiplicity.valueset"
-								/>
-							</attribute>
-						</optional>
-					</define>
-				</include>
-			</grammar>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="stage.M.content">
-			<grammar>
-				<include href="&response;">
-					<define name="response.attrib">
-						<ref name="text-response.attrib"/>
-					</define>
-					<define name="response.text-value.valueset">
-						<parentRef name="stage.M.response.value.valueset"/>
-					</define>
-				</include>
-			</grammar>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="stage.N.content">
-			<grammar>
-				<include href="&response;">
-					<define name="response.attrib">
-						<ref name="text-response.attrib"/>
-					</define>
-					<define name="response.text-value.valueset">
-						<parentRef name="stage.N.response.value.valueset"/>
-					</define>
-				</include>
-			</grammar>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="stage.classification.content">
-			<grammar>
-				<include href="&response;">
-					<define name="response.attrib">
-						<ref name="text-response.attrib"/>
-					</define>
-					<define name="response.text-value.valueset">
-						<parentRef name="stage.classification.response.value.valueset"
-						/>
-					</define>
-				</include>
-			</grammar>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="stage.extensions">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	</div>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<div>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>-- studies CONTENT --</a:documentation>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="studies.study.content">
-			<interleave>
-				<grammar>
-					<include href="&response;">
-						<define name="response.attrib">
-							<ref name="text-response.attrib"/>
-						</define>
-						<define name="response.text-value.valueset">
-							<parentRef name="studies.study.response.value.valueset"/>
-						</define>
-					</include>
-				</grammar>
-				<optional>
-					<element name="method">
-						<interleave>
-							<grammar>
-								<include href="&response;">
-									<define name="response.attrib">
-										<ref name="text-response.attrib"/>
-									</define>
-									<define name="response.text-value.valueset">
-										<parentRef
-											name="studies.study.method.response.value.valueset"
-										/>
-									</define>
-								</include>
-							</grammar>
-							<ref name="common.content"/>
-						</interleave>
-						<ref name="studies.study.method.attrib"/>
-					</element>
-				</optional>
-				<ref name="common.specify"/>
-			</interleave>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="studies.extensions">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	</div>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<div>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<a:documentation>-- tumor CONTENT --</a:documentation>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="tumor.histologicType.content">
-			<grammar>
-				<include href="&response;">
-					<define name="response.attrib">
-						<ref name="text-response.attrib"/>
-					</define>
-					<define name="response.text-value.valueset">
-						<parentRef name="tumor.histologicType.response.value.valueset"
-						/>
-					</define>
-				</include>
-			</grammar>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="tumor.grade.content">
-			<interleave>
-				<grammar>
-					<include href="&response;">
-						<define name="response.attrib">
-							<ref name="text-response.attrib"/>
-						</define>
-						<define name="response.text-value.valueset">
-							<parentRef name="tumor.grade.response.value.valueset"/>
-						</define>
-					</include>
-				</grammar>
-				<ref name="common.specify"/>
-			</interleave>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="interleave" name="tumor.extensions">
-			<empty/>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	</div>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   ns="http://www.cap.org/pert/2009/01/"
+   xmlns="http://relaxng.org/ns/structure/1.0"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+   xmlns:ecc="http://www.cap.org/pert/2009/01/">
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <a:documentation>This file contains the content models for most of the
+      non-site-specific elements in the eCC.</a:documentation>
+   <a:documentation>It is organized by section, in alphabetical
+      order.</a:documentation>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>accessory CONTENT</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="interleave" name="accessory.venousInvasion.content">
+         <a:documentation>.. venousInvasion CONTENT ..</a:documentation>
+         <grammar>
+            <include href="&response;">
+               <define name="response.attrib">
+                  <ref name="text-response.attrib"/>
+               </define>
+               <define name="response.text-value.valueset">
+                  <parentRef
+                     name="accessory.venousInvasion.response.value.valueset"/>
+               </define>
+            </include>
+         </grammar>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="interleave"
+         name="accessory.lymph-vascularInvasion.content">
+         <a:documentation>.. lymph-vascularInvasion CONTENT ..</a:documentation>
+         <grammar>
+            <include href="&response;">
+               <define name="response.attrib">
+                  <ref name="text-response.attrib"/>
+               </define>
+               <define name="response.text-value.valueset">
+                  <parentRef
+                     name="accessory.lymph-vascularInvasion.response.value.valueset"
+                  />
+               </define>
+            </include>
+         </grammar>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="interleave" name="accessory.perineuralInvasion.content">
+         <a:documentation>.. perineuralInvasion CONTENT ..</a:documentation>
+         <grammar>
+            <include href="&response;">
+               <define name="response.attrib">
+                  <ref name="text-response.attrib"/>
+               </define>
+               <define name="response.text-value.valueset">
+                  <parentRef
+                     name="accessory.perineuralInvasion.response.value.valueset"
+                  />
+               </define>
+            </include>
+         </grammar>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="accessory.treatmentEffect.content">
+         <a:documentation>.. treatmentEffect CONTENT ..</a:documentation>
+         <grammar>
+            <include href="&response;">
+               <define name="response.attrib">
+                  <ref name="text-response.attrib"/>
+               </define>
+               <define name="response.text-value.valueset">
+                  <parentRef
+                     name="accessory.treatmentEffect.response.value.valueset"/>
+               </define>
+            </include>
+         </grammar>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- additional CONTENT</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="additional.item.content">
+         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+         <a:documentation>.. item CONTENT ..</a:documentation>
+         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+         <interleave>
+            <grammar>
+               <include href="&response;">
+                  <define name="response.attrib">
+                     <ref name="text-response.attrib"/>
+                  </define>
+                  <define name="response.text-value.valueset">
+                     <parentRef name="additional.item.response.value.valueset"/>
+                  </define>
+               </include>
+            </grammar>
+            <ref name="common.specify"/>
+         </interleave>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- clinical CONTENT --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="interleave" name="clinical.priorTherapy.content">
+         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+         <a:documentation>.. priorTherapy CONTENT..</a:documentation>
+         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+         <interleave>
+            <grammar>
+               <include href="&response;">
+                  <define name="response.attrib">
+                     <ref name="text-response.attrib"/>
+                  </define>
+                  <define name="response.text-value.valueset">
+                     <parentRef
+                        name="clinical.priorTherapy.response.value.valueset"/>
+                  </define>
+               </include>
+            </grammar>
+         </interleave>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="interleave" name="clinical.clinicalFinding.content">
+         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+         <a:documentation>.. clinicalFinding CONTENT ..</a:documentation>
+         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+         <interleave>
+            <grammar>
+               <include href="&response;">
+                  <define name="response.attrib">
+                     <ref name="text-response.attrib"/>
+                  </define>
+                  <define name="response.text-value.valueset">
+                     <parentRef
+                        name="clinical.clinicalFinding.response.value.valueset"
+                     />
+                  </define>
+               </include>
+            </grammar>
+         </interleave>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="interleave" name="clinical.radiologicFinding.content">
+         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+         <a:documentation>.. radiologicFinding CONTENT ..</a:documentation>
+         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+         <interleave>
+            <grammar>
+               <include href="&response;">
+                  <define name="response.attrib">
+                     <ref name="text-response.attrib"/>
+                  </define>
+                  <define name="response.text-value.valueset">
+                     <parentRef
+                        name="clinical.radiologicFinding.response.value.valueset"
+                     />
+                  </define>
+               </include>
+            </grammar>
+         </interleave>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- extent CONTENT --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="extent.size.content">
+         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+         <a:documentation>.. size CONTENT ..</a:documentation>
+         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+         <ref name="common.size.content"/>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- margins SECTION --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="interleave" name="margins.margin.content">
+         <interleave>
+            <grammar>
+               <include href="&response;">
+                  <define name="response.attrib">
+                     <ref name="text-response.attrib"/>
+                     <optional>
+                        <attribute name="closest">
+                           <parentRef
+                              name="margins.margin.response.closest.valueset"/>
+                        </attribute>
+                     </optional>
+                  </define>
+                  <define name="response.text-value.valueset">
+                     <parentRef name="margins.margin.response.value.valueset"/>
+                  </define>
+                  <define name="response.extensions">
+                     <optional>
+                        <element name="distance">
+                           <parentRef name="common.length.content"/>
+                           <parentRef name="margins.margin.distance.attrib"/>
+                        </element>
+                     </optional>
+                  </define>
+               </include>
+            </grammar>
+            <ref name="common.specify"/>
+         </interleave>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- metastases CONTENT --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="metastases.metastasis.content">
+         <interleave>
+            <optional>
+               <ref name="common.size"/>
+            </optional>
+            <ref name="common.specify"/>
+            <optional>
+               <element name="howDiagnosed">
+                  <grammar>
+                     <include href="&response;">
+                        <define name="response.attrib">
+                           <ref name="text-response.attrib"/>
+                        </define>
+                        <define name="response.text-value.valueset">
+                           <parentRef
+                              name="metastases.metastasis.howDiagnosed.response.value.valueset"
+                           />
+                        </define>
+                     </include>
+                  </grammar>
+               </element>
+            </optional>
+         </interleave>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- nodes CONTENT --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="nodes.group.content">
+         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+         <a:documentation> </a:documentation>
+         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+         <interleave>
+            <ref name="common.specify"/>
+            <group>
+               <element name="count">
+                  <attribute name="status">
+                     <value>total</value>
+                  </attribute>
+                  <interleave>
+                     <grammar>
+                        <include href="&response;">
+                           <define name="response.attrib">
+                              <ref name="dimensionless-response.attrib"/>
+                           </define>
+                           <define name="response.numeric-value.valueset">
+                              <data type="nonNegativeInteger"/>
+                           </define>
+                        </include>
+                     </grammar>
+                     <ref name="common.content"/>
+                  </interleave>
+               </element>
+               <optional>
+                  <element name="count">
+                     <attribute name="status">
+                        <value>positive</value>
+                     </attribute>
+                     <interleave>
+                        <grammar>
+                           <include href="&response;">
+                              <define name="response.attrib">
+                                 <ref name="dimensionless-response.attrib"/>
+                              </define>
+                              <define name="response.numeric-value.valueset">
+                                 <data type="nonNegativeInteger"/>
+                              </define>
+                           </include>
+                        </grammar>
+                        <ref name="common.content"/>
+                        <optional>
+                           <element name="largest">
+                              <ref name="common.size.content"/>
+                              <ref name="nodes.group.largest.attrib"/>
+                           </element>
+                        </optional>
+                        <optional>
+                           <element name="extracapsular">
+                              <interleave>
+                                 <grammar>
+                                    <include href="&response;">
+                                       <define name="response.attrib">
+                                        <ref name="text-response.attrib"/>
+                                       </define>
+                                       <define
+                                        name="response.text-value.valueset">
+                                        <parentRef
+                                        name="common.response.valueset"/>
+                                       </define>
+                                    </include>
+                                 </grammar>
+                                 <ref name="common.content"/>
+                              </interleave>
+                              <ref name="nodes.group.extracapsular.attrib"/>
+                           </element>
+                        </optional>
+                     </interleave>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="count">
+                     <attribute name="status">
+                        <value>regressed</value>
+                     </attribute>
+                     <interleave>
+                        <grammar>
+                           <include href="&response;">
+                              <define name="response.attrib">
+                                 <ref name="dimensionless-response.attrib"/>
+                              </define>
+                              <define name="response.numeric-value.valueset">
+                                 <data type="nonNegativeInteger"/>
+                              </define>
+                           </include>
+                        </grammar>
+                        <ref name="common.content"/>
+                     </interleave>
+                  </element>
+               </optional>
+               <optional>
+                  <element name="count">
+                     <attribute name="status">
+                        <value>specify</value>
+                     </attribute>
+                     <interleave>
+                        <grammar>
+                           <include href="&response;">
+                              <define name="response.attrib">
+                                 <ref name="dimensionless-response.attrib"/>
+                              </define>
+                              <define name="response.numeric-value.valueset">
+                                 <data type="nonNegativeInteger"/>
+                              </define>
+                           </include>
+                        </grammar>
+                        <ref name="common.content"/>
+                        <element name="specify">
+                           <text/>
+                           <ref name="common.specify.attrib"/>
+                        </element>
+                     </interleave>
+                  </element>
+               </optional>
+            </group>
+         </interleave>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="choice" name="nodes.nodeGroup.location.valueset">
+         <empty/>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- specimen CONTENT --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="interleave" name="specimen.procedure.content">
+         <oneOrMore>
+            <grammar>
+               <include href="&response;">
+                  <define name="response.attrib">
+                     <ref name="text-response.attrib"/>
+                  </define>
+                  <define name="response.text-value.valueset">
+                     <parentRef
+                        name="specimen.procedure.response.value.valueset"/>
+                  </define>
+               </include>
+            </grammar>
+         </oneOrMore>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="interleave" name="specimen.site.content">
+         <oneOrMore>
+            <grammar>
+               <include href="&response;">
+                  <define name="response.attrib">
+                     <ref name="text-response.attrib"/>
+                  </define>
+                  <define name="response.text-value.valueset">
+                     <parentRef name="specimen.site.response.value.valueset"/>
+                  </define>
+               </include>
+            </grammar>
+         </oneOrMore>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="interleave" name="specimen.tumorLocation.content">
+         <oneOrMore>
+            <grammar>
+               <include href="&response;">
+                  <define name="response.attrib">
+                     <ref name="text-response.attrib"/>
+                  </define>
+                  <define name="response.text-value.valueset">
+                     <parentRef name="specimen.site.response.value.valueset"/>
+                  </define>
+               </include>
+            </grammar>
+         </oneOrMore>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="interleave" name="specimen.integrity.content">
+         <grammar>
+            <include href="&response;">
+               <define name="response.attrib">
+                  <ref name="text-response.attrib"/>
+               </define>
+               <define name="response.text-value.valueset">
+                  <parentRef name="specimen.integrity.response.value.valueset"/>
+               </define>
+            </include>
+         </grammar>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="choice" name="specimen.grossSize.content">
+         <ref name="common.size"/>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="choice" name="specimen.weight.content">
+         <grammar>
+            <include href="&response;">
+               <define name="response.attrib">
+                  <ref name="dimensional-response.attrib"/>
+               </define>
+               <define name="response.numeric-value.valueset">
+                  <data type="decimal">
+                     <param name="minExclusive">0.0</param>
+                  </data>
+               </define>
+               <define name="response.unit.valueset">
+                  <parentRef name="common.weightUnit.valueset"/>
+               </define>
+            </include>
+         </grammar>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- stage CONTENT --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="stage.prefix.content">
+         <grammar>
+            <include href="&response;">
+               <define name="response.attrib">
+                  <ref name="text-response.attrib"/>
+               </define>
+               <define name="response.text-value.valueset">
+                  <parentRef name="stage.prefix.response.value.valueset"/>
+               </define>
+            </include>
+         </grammar>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="stage.T.content">
+         <grammar>
+            <include href="&response;">
+               <define name="response.attrib">
+                  <ref name="text-response.attrib"/>
+               </define>
+               <define name="response.text-value.valueset">
+                  <parentRef name="stage.T.response.value.valueset"/>
+               </define>
+               <define name="response.extensions">
+                  <optional>
+                     <attribute name="multiplicity">
+                        <parentRef name="stage.T.response.multiplicity.valueset"
+                        />
+                     </attribute>
+                  </optional>
+               </define>
+            </include>
+         </grammar>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="stage.M.content">
+         <grammar>
+            <include href="&response;">
+               <define name="response.attrib">
+                  <ref name="text-response.attrib"/>
+               </define>
+               <define name="response.text-value.valueset">
+                  <parentRef name="stage.M.response.value.valueset"/>
+               </define>
+            </include>
+         </grammar>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="stage.N.content">
+         <grammar>
+            <include href="&response;">
+               <define name="response.attrib">
+                  <ref name="text-response.attrib"/>
+               </define>
+               <define name="response.text-value.valueset">
+                  <parentRef name="stage.N.response.value.valueset"/>
+               </define>
+            </include>
+         </grammar>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="stage.classification.content">
+         <grammar>
+            <include href="&response;">
+               <define name="response.attrib">
+                  <ref name="text-response.attrib"/>
+               </define>
+               <define name="response.text-value.valueset">
+                  <parentRef name="stage.classification.response.value.valueset"
+                  />
+               </define>
+            </include>
+         </grammar>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- studies CONTENT --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="studies.study.content">
+         <interleave>
+            <grammar>
+               <include href="&response;">
+                  <define name="response.attrib">
+                     <ref name="text-response.attrib"/>
+                  </define>
+                  <define name="response.text-value.valueset">
+                     <parentRef name="studies.study.response.value.valueset"/>
+                  </define>
+               </include>
+            </grammar>
+            <optional>
+               <element name="method">
+                  <interleave>
+                     <grammar>
+                        <include href="&response;">
+                           <define name="response.attrib">
+                              <ref name="text-response.attrib"/>
+                           </define>
+                           <define name="response.text-value.valueset">
+                              <parentRef
+                                 name="studies.study.method.response.value.valueset"
+                              />
+                           </define>
+                        </include>
+                     </grammar>
+                     <ref name="common.content"/>
+                  </interleave>
+                  <ref name="studies.study.method.attrib"/>
+               </element>
+            </optional>
+            <ref name="common.specify"/>
+         </interleave>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- tumor CONTENT --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="choice" name="tumor.histologicType.content">
+         <grammar>
+            <include href="&response;">
+               <define name="response.attrib">
+                  <ref name="text-response.attrib"/>
+               </define>
+               <define name="response.text-value.valueset">
+                  <parentRef name="tumor.histologicType.response.value.valueset"
+                  />
+               </define>
+            </include>
+         </grammar>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="choice" name="tumor.grade.content">
+         <interleave>
+            <grammar>
+               <include href="&response;">
+                  <define name="response.attrib">
+                     <ref name="text-response.attrib"/>
+                  </define>
+                  <define name="response.text-value.valueset">
+                     <parentRef name="tumor.grade.response.value.valueset"/>
+                  </define>
+               </include>
+            </grammar>
+            <ref name="common.specify"/>
+         </interleave>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>

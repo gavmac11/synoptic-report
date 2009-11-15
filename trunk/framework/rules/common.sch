@@ -292,11 +292,10 @@
 				$x/ecc:response/@relation)"/>
 			<let name="maxTumorDimension" value="max($tumorDimensions)"/>
 			<let name="maxSpecimenDimension" value="max($specimenDimensions)"/>
-			<report test="$maxTumorDimension gt $maxSpecimenDimension">
-				Largest gross tumor dimension (<value-of
-					select="$maxTumorDimension"/> mm) exceeds specimen largest
-				dimension (<value-of select="$maxSpecimenDimension"/> mm).
-			</report>
+			<report test="$maxTumorDimension gt $maxSpecimenDimension"> Largest
+				gross tumor dimension (<value-of select="$maxTumorDimension"/> mm)
+				exceeds specimen largest dimension (<value-of
+					select="$maxSpecimenDimension"/> mm). </report>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	</pattern>
@@ -363,11 +362,14 @@
 			grade of "G4" would be incompatible.</p>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="/ecc:synopsis/ecc:tumor/ecc:grade">
-			<let name="G" value="ecc:response/@value"/>
+			<let name="grade" value="ecc:response/@value"/>
 			<assert
-				test="if (@system eq '2-grade') then not($G = ('G3','G4'))
-				else if (@system eq '3-grade') then $G ne 'G4'     else $skip"
-				>A grade of "<value-of select="$G"/>" is incompatible with a
+				test="
+				     if (@system eq '2-grade') then $grade = ('low-grade','high-grade')
+				else if (@system eq '3-grade') then $grade = ('well-differentiated', 'moderately-differentiated', 'poorly-differentiated') 
+				else if (@system eq '4-grade') then $grade = ('G1', 'G2', 'G3', 'G4') 
+				else                                $skip"
+				>A grade of "<value-of select="$grade"/>" is incompatible with a
 					"<value-of select="@system"/>" system.</assert>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
