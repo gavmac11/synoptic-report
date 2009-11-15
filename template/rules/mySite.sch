@@ -272,11 +272,11 @@
 			<let name="rec" value="'rectum'"/>
 			<let name="rsj" value="'rectosigmoid junction'"/>
 			<let name="sig" value="'sigmoid colon'"/>
-			<let name="des" value="'descending colon'"/>
+			<let name="des" value="'left colon'"/>
 			<let name="spl" value="'splenic flexure'"/>
 			<let name="tra" value="'transverse colon'"/>
 			<let name="hep" value="'hepatic flexure'"/>
-			<let name="asc" value="'ascending colon'"/>
+			<let name="asc" value="'right colon'"/>
 			<let name="cec" value="'cecum'"/>
 			<let name="ter" value="'terminal ileum'"/>
 			<!-\-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-\->

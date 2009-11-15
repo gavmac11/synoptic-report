@@ -73,7 +73,7 @@
 	<a:documentation>Finally--and most relevant to this particular file-- there
 		is the issue of **valuesets**. Valuesets are the set of acceptable
 		"answers" (or as we call them "responses") to a given query. For example,
-		the valueset for the "lymphovascular invasion" query is the set
+		the valueset for the "lymph-vascular invasion" query is the set
 		('positive', 'negative', 'equivocal'. 'indeterminate', 'inapplicable" and
 		'unreported'). This is an example of an enumerated valueset. To give
 		another example, the valueset for T-stage query is the set of T-stages
@@ -220,7 +220,7 @@
 				
 			DEFAULT VALUES WILL BE RETAINED:
 				
-			<ref name="common.result.valueset"/>
+			<ref name="common.response.valueset"/>
 			
 			(this is the list: positive, negative, equivocal, indeterminate, 
 			inapplicable, unreported)
@@ -232,7 +232,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice"
-			name="accessory.lymphovascularInvasion.response.value.valueset">
+			name="accessory.lymph-vascularInvasion.response.value.valueset">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 			<a:documentation> TEMPLATE USER INSTRUCTIONS: To add your site-specific
 				values to this valueset, replace the below line:
@@ -257,7 +257,7 @@
 				
 			DEFAULT VALUES WILL BE RETAINED:
 				
-			<ref name="common.result.valueset"/>
+			<ref name="common.response.valueset"/>
 			
 			(this is the list: positive, negative, equivocal, indeterminate, 
 			inapplicable, unreported)
@@ -294,7 +294,7 @@
 				
 			DEFAULT VALUES WILL BE RETAINED:
 				
-			<ref name="common.result.valueset"/>
+			<ref name="common.response.valueset"/>
 			
 			(this is the list: positive, negative, equivocal, indeterminate, 
 			inapplicable, unreported)
@@ -441,7 +441,7 @@
 				
 			DEFAULT VALUES WILL BE RETAINED:
 				
-			<ref name="common.result.valueset"/>
+			<ref name="common.response.valueset"/>
 			
 			(this is the list: positive, negative, equivocal, indeterminate, 
 			inapplicable, unreported)
@@ -679,7 +679,7 @@
 				
 			DEFAULT VALUES WILL BE RETAINED:
 				
-			<ref name="common.result.valueset"/>
+			<ref name="common.response.valueset"/>
 			
 			(this is the list: positive, negative, equivocal, indeterminate, 
 			inapplicable, unreported)
@@ -715,7 +715,7 @@
 				
 			DEFAULT VALUES WILL BE RETAINED:
 				
-			<ref name="common.result.valueset"/>
+			<ref name="common.response.valueset"/>
 			
 			(this is the list: positive, negative, equivocal, indeterminate, 
 			inapplicable, unreported)
@@ -783,7 +783,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice"
-			name="metastases.metastasis.howDiagnosed.valueset">
+			name="metastases.metastasis.howDiagnosed.response.value.valueset">
 			<choice>
 				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 				<a:documentation> TEMPLATE USER INSTRUCTIONS: To add your
