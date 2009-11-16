@@ -24,125 +24,123 @@
 
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-	ns="http://www.cap.org/pert/2009/01/"
-	xmlns="http://relaxng.org/ns/structure/1.0"
-	xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-	xmlns:ecc="http://www.cap.org/pert/2009/01/">
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<a:documentation>This file defines the standard leaf structure for an
-		observation. It is used by multiple files in the project. The stucture,
-		simplified, is as follows:</a:documentation>
-	<a:documentation>value {result, specify?, label?, comment?}</a:documentation>
-	<a:documentation>where: "{}" designates containment and "?" designates
-		optionality.</a:documentation>
-	<a:documentation>The "value" element, accordingly, serves a a container for
-		the required "result" element, which encloses</a:documentation>
-	<a:documentation>(1) the result string, that must in turn conform to an
-		enumerated or otherwise constrained datatype;</a:documentation>
-	<a:documentation>(2) the optional "specify" element, which is available to
-		enclose a user-specified value when the constraints of the prescribed
-		enumeration or datatype constraint must be overridden;</a:documentation>
-	<a:documentation>(3) </a:documentation>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<start>
-		<element name="response">
-			<interleave>
-				<ref name="response.extensions"/>
-				<ref name="response.content"/>
-				<parentRef name="common.attrib"/>
-				<ref name="response.attrib"/>
-			</interleave>
-		</element>
-	</start>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="response.content">
-		<parentRef name="common.content"/>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define name="response.extensions">
-		<empty/>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="choice" name="response.attrib">
-		<empty/>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define name="dimensional-response.attrib">
-		<attribute name="value">
-			<choice>
-				<ref name="response.numeric-value.valueset"/>
-				<value>specify</value>
-				<value>unreported</value>
-			</choice>
-		</attribute>
-		<attribute name="unit">
-			<choice>
-				<parentRef name="response.unit.valueset"/>
-				<ref name="response.unit.valueset"/>
-				<value>specify</value>
-				<value>unreported</value>
-			</choice>
-		</attribute>
-		<optional>
-			<attribute name="relation">
-				<choice>
-					<value>lessThan</value>
-					<value>lessThanOrEqual</value>
-					<value>equal</value>
-					<value>greaterThanOrEqual</value>
-					<value>greaterThan</value>
-				</choice>
-			</attribute>
-		</optional>
-		<parentRef name="common.specify"/>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define name="dimensionless-response.attrib">
-		<attribute name="value">
-			<choice>
-				<ref name="response.numeric-value.valueset"/>
-				<value>specify</value>
-				<value>unreported</value>
-			</choice>
-		</attribute>
-		<optional>
-			<attribute name="relation">
-				<choice>
-					<value>lessThan</value>
-					<value>lessThanOrEqual</value>
-					<value>equal</value>
-					<value>greaterThanOrEqual</value>
-					<value>greaterThan</value>
-				</choice>
-			</attribute>
-		</optional>
-		<parentRef name="common.specify"/>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="response.numeric-value.valueset">
-		<empty/>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="response.unit.valueset">
-		<parentRef name="response.unit.valueset"/>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define combine="interleave" name="response.text-value.valueset">
-		<empty/>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<define name="text-response.attrib">
-		<attribute name="value">
-			<choice>
-				<ref name="response.text-value.valueset"/>
-				<value>specify</value>
-				<value>unreported</value>
-			</choice>
-		</attribute>
-		<parentRef name="common.specify"/>
-	</define>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+   xmlns:ecc="http://www.cap.org/pert/2009/01/">
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <a:documentation>This file defines the standard leaf structure for an observation. It is used by
+      multiple files in the project. The stucture, simplified, is as follows:</a:documentation>
+   <a:documentation>value {result, specify?, label?, comment?}</a:documentation>
+   <a:documentation>where: "{}" designates containment and "?" designates
+      optionality.</a:documentation>
+   <a:documentation>The "value" element, accordingly, serves a a container for the required "result"
+      element, which encloses</a:documentation>
+   <a:documentation>(1) the result string, that must in turn conform to an enumerated or otherwise
+      constrained datatype;</a:documentation>
+   <a:documentation>(2) the optional "specify" element, which is available to enclose a
+      user-specified value when the constraints of the prescribed enumeration or datatype constraint
+      must be overridden;</a:documentation>
+   <a:documentation>(3) </a:documentation>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <start>
+      <element name="response">
+         <interleave>
+            <ref name="response.extensions"/>
+            <ref name="response.content"/>
+            <parentRef name="common.attrib"/>
+            <ref name="response.attrib"/>
+         </interleave>
+      </element>
+   </start>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="interleave" name="response.content">
+      <parentRef name="common.content"/>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define name="response.extensions">
+      <empty/>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="choice" name="response.attrib">
+      <empty/>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define name="dimensional-response.attrib">
+      <attribute name="value">
+         <choice>
+            <ref name="response.numeric-value.valueset"/>
+            <value>specify</value>
+            <value>unreported</value>
+         </choice>
+      </attribute>
+      <attribute name="unit">
+         <choice>
+            <parentRef name="response.unit.valueset"/>
+            <ref name="response.unit.valueset"/>
+            <value>specify</value>
+            <value>unreported</value>
+         </choice>
+      </attribute>
+      <optional>
+         <attribute name="relation">
+            <choice>
+               <value>lessThan</value>
+               <value>lessThanOrEqual</value>
+               <value>equal</value>
+               <value>greaterThanOrEqual</value>
+               <value>greaterThan</value>
+            </choice>
+         </attribute>
+      </optional>
+      <parentRef name="common.specify"/>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define name="dimensionless-response.attrib">
+      <attribute name="value">
+         <choice>
+            <ref name="response.numeric-value.valueset"/>
+            <value>specify</value>
+            <value>unreported</value>
+         </choice>
+      </attribute>
+      <optional>
+         <attribute name="relation">
+            <choice>
+               <value>lessThan</value>
+               <value>lessThanOrEqual</value>
+               <value>equal</value>
+               <value>greaterThanOrEqual</value>
+               <value>greaterThan</value>
+            </choice>
+         </attribute>
+      </optional>
+      <parentRef name="common.specify"/>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="interleave" name="response.numeric-value.valueset">
+      <empty/>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="interleave" name="response.unit.valueset">
+      <parentRef name="response.unit.valueset"/>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="interleave" name="response.text-value.valueset">
+      <empty/>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define name="text-response.attrib">
+      <attribute name="value">
+         <choice>
+            <ref name="response.text-value.valueset"/>
+            <value>specify</value>
+            <value>unreported</value>
+         </choice>
+      </attribute>
+      <parentRef name="common.specify"/>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>

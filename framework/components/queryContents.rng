@@ -27,16 +27,14 @@
 <!ENTITY response "response.rng">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-   ns="http://www.cap.org/pert/2009/01/"
-   xmlns="http://relaxng.org/ns/structure/1.0"
+   ns="http://www.cap.org/pert/2009/01/" xmlns="http://relaxng.org/ns/structure/1.0"
    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
    xmlns:ecc="http://www.cap.org/pert/2009/01/">
    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-   <a:documentation>This file contains the content models for most of the
-      non-site-specific elements in the eCC.</a:documentation>
-   <a:documentation>It is organized by section, in alphabetical
-      order.</a:documentation>
+   <a:documentation>This file contains the content models for most of the non-site-specific elements
+      in the eCC.</a:documentation>
+   <a:documentation>It is organized by section, in alphabetical order.</a:documentation>
    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
    <div>
@@ -51,15 +49,13 @@
                   <ref name="text-response.attrib"/>
                </define>
                <define name="response.text-value.valueset">
-                  <parentRef
-                     name="accessory.venousInvasion.response.value.valueset"/>
+                  <parentRef name="accessory.venousInvasion.response.value.valueset"/>
                </define>
             </include>
          </grammar>
       </define>
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-      <define combine="interleave"
-         name="accessory.lymph-vascularInvasion.content">
+      <define combine="interleave" name="accessory.lymph-vascularInvasion.content">
          <a:documentation>.. lymph-vascularInvasion CONTENT ..</a:documentation>
          <grammar>
             <include href="&response;">
@@ -67,9 +63,7 @@
                   <ref name="text-response.attrib"/>
                </define>
                <define name="response.text-value.valueset">
-                  <parentRef
-                     name="accessory.lymph-vascularInvasion.response.value.valueset"
-                  />
+                  <parentRef name="accessory.lymph-vascularInvasion.response.value.valueset"/>
                </define>
             </include>
          </grammar>
@@ -83,9 +77,7 @@
                   <ref name="text-response.attrib"/>
                </define>
                <define name="response.text-value.valueset">
-                  <parentRef
-                     name="accessory.perineuralInvasion.response.value.valueset"
-                  />
+                  <parentRef name="accessory.perineuralInvasion.response.value.valueset"/>
                </define>
             </include>
          </grammar>
@@ -99,8 +91,7 @@
                   <ref name="text-response.attrib"/>
                </define>
                <define name="response.text-value.valueset">
-                  <parentRef
-                     name="accessory.treatmentEffect.response.value.valueset"/>
+                  <parentRef name="accessory.treatmentEffect.response.value.valueset"/>
                </define>
             </include>
          </grammar>
@@ -150,8 +141,7 @@
                      <ref name="text-response.attrib"/>
                   </define>
                   <define name="response.text-value.valueset">
-                     <parentRef
-                        name="clinical.priorTherapy.response.value.valueset"/>
+                     <parentRef name="clinical.priorTherapy.response.value.valueset"/>
                   </define>
                </include>
             </grammar>
@@ -169,9 +159,7 @@
                      <ref name="text-response.attrib"/>
                   </define>
                   <define name="response.text-value.valueset">
-                     <parentRef
-                        name="clinical.clinicalFinding.response.value.valueset"
-                     />
+                     <parentRef name="clinical.clinicalFinding.response.value.valueset"/>
                   </define>
                </include>
             </grammar>
@@ -189,9 +177,7 @@
                      <ref name="text-response.attrib"/>
                   </define>
                   <define name="response.text-value.valueset">
-                     <parentRef
-                        name="clinical.radiologicFinding.response.value.valueset"
-                     />
+                     <parentRef name="clinical.radiologicFinding.response.value.valueset"/>
                   </define>
                </include>
             </grammar>
@@ -227,8 +213,7 @@
                      <ref name="text-response.attrib"/>
                      <optional>
                         <attribute name="closest">
-                           <parentRef
-                              name="margins.margin.response.closest.valueset"/>
+                           <parentRef name="margins.margin.response.closest.valueset"/>
                         </attribute>
                      </optional>
                   </define>
@@ -271,8 +256,7 @@
                         </define>
                         <define name="response.text-value.valueset">
                            <parentRef
-                              name="metastases.metastasis.howDiagnosed.response.value.valueset"
-                           />
+                              name="metastases.metastasis.howDiagnosed.response.value.valueset"/>
                         </define>
                      </include>
                   </grammar>
@@ -342,12 +326,10 @@
                                  <grammar>
                                     <include href="&response;">
                                        <define name="response.attrib">
-                                        <ref name="text-response.attrib"/>
+                                          <ref name="text-response.attrib"/>
                                        </define>
-                                       <define
-                                        name="response.text-value.valueset">
-                                        <parentRef
-                                        name="common.response.valueset"/>
+                                       <define name="response.text-value.valueset">
+                                          <parentRef name="common.response.valueset"/>
                                        </define>
                                     </include>
                                  </grammar>
@@ -426,8 +408,7 @@
                      <ref name="text-response.attrib"/>
                   </define>
                   <define name="response.text-value.valueset">
-                     <parentRef
-                        name="specimen.procedure.response.value.valueset"/>
+                     <parentRef name="specimen.procedure.response.value.valueset"/>
                   </define>
                </include>
             </grammar>
@@ -531,8 +512,7 @@
                <define name="response.extensions">
                   <optional>
                      <attribute name="multiplicity">
-                        <parentRef name="stage.T.response.multiplicity.valueset"
-                        />
+                        <parentRef name="stage.T.response.multiplicity.valueset"/>
                      </attribute>
                   </optional>
                </define>
@@ -573,8 +553,7 @@
                   <ref name="text-response.attrib"/>
                </define>
                <define name="response.text-value.valueset">
-                  <parentRef name="stage.classification.response.value.valueset"
-                  />
+                  <parentRef name="stage.classification.response.value.valueset"/>
                </define>
             </include>
          </grammar>
@@ -608,9 +587,7 @@
                               <ref name="text-response.attrib"/>
                            </define>
                            <define name="response.text-value.valueset">
-                              <parentRef
-                                 name="studies.study.method.response.value.valueset"
-                              />
+                              <parentRef name="studies.study.method.response.value.valueset"/>
                            </define>
                         </include>
                      </grammar>
@@ -631,17 +608,18 @@
       <a:documentation>-- tumor CONTENT --</a:documentation>
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
       <define combine="choice" name="tumor.histologicType.content">
-         <grammar>
-            <include href="&response;">
-               <define name="response.attrib">
-                  <ref name="text-response.attrib"/>
-               </define>
-               <define name="response.text-value.valueset">
-                  <parentRef name="tumor.histologicType.response.value.valueset"
-                  />
-               </define>
-            </include>
-         </grammar>
+         <oneOrMore>
+            <grammar>
+               <include href="&response;">
+                  <define name="response.attrib">
+                     <ref name="text-response.attrib"/>
+                  </define>
+                  <define name="response.text-value.valueset">
+                     <parentRef name="tumor.histologicType.response.value.valueset"/>
+                  </define>
+               </include>
+            </grammar>
+         </oneOrMore>
       </define>
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
       <define combine="choice" name="tumor.grade.content">
