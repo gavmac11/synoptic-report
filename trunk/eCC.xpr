@@ -7,7 +7,9 @@
     </meta>
     <projectTree name="eCC.xpr">
         <folder path="any-site/"/>
+        <folder path="breast/"/>
         <folder path="colon/"/>
+        <folder path="doc/"/>
         <folder path="framework/"/>
         <folder path="template/"/>
     </projectTree>

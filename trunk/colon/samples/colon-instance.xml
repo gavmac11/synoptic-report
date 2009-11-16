@@ -2,14 +2,11 @@
 <?oxygen RNGSchema="../resection@colon.rng" type="xml"?>
 <?oxygen SCHSchema="../../framework/rules/common.sch"?>
 <?oxygen SCHSchema="../rules/resection@colon.sch"?>
-<synopsis ecc:schemaLocation="http://www.cap.org/pert/2009/01/colon/"
-   ecc:version="1.0a"
+<synopsis ecc:schemaLocation="http://www.cap.org/pert/2009/01/colon/" ecc:version="1.0a"
    grddl:transformation="http://www.cap.org/pert/2009/01/colon/snomedct/
   http://www.cap.org/pert/2009/01/colon/radlex/"
-   xmlns="http://www.cap.org/pert/2009/01/"
-   xmlns:colon="http://www.cap.org/pert/2009/01/colon/"
-   xmlns:custom="http://www.example.com/custom/"
-   xmlns:ecc="http://www.cap.org/pert/2009/01/"
+   xmlns="http://www.cap.org/pert/2009/01/" xmlns:colon="http://www.cap.org/pert/2009/01/colon/"
+   xmlns:cco="http://www.example.com/custom/" xmlns:ecc="http://www.cap.org/pert/2009/01/"
    xmlns:grddl="http://www.w3.org/2003/g/data-view#">
    <clinical>
       <priorTherapy date="2009" duration="P6M">
@@ -21,6 +18,7 @@
       <clinicalFinding date="2009">
          <response value="specify">
             <specify>hematochezia</specify>
+            <cco:something>something</cco:something>
          </response>
       </clinicalFinding>
       <radiologicFinding date="2009">
@@ -31,10 +29,11 @@
    </clinical>
    <specimen>
       <procedure>
-         <response value="polypectomy"/>
+         <response value="left hemicolectomy"/>
       </procedure>
       <specimenSite>
          <response value="transverse colon"/>
+         <response value="left colon"></response>
       </specimenSite>
       <tumorSite>
          <response value="transverse colon"/>
@@ -166,7 +165,7 @@
          </method>
       </colon:microsatelliteInstability>
       <colon:KRAS>
-         <response value="no mutant KRAS detected"> </response>
+         <response value="no mutant KRAS detected"/>
          <mutation>
             <response value="specify">
                <specify/>

@@ -67,8 +67,8 @@
 		query for "depth of invasion" needs to be added to the framework queries
 		as part of the development of the colon site-specific schema. To do this
 		requires a little bit of knowledge about Relax NG, and you can get more
-		details about this in the "queries.rng" and "queryContents.rng" files
-		in this folder.</a:documentation>
+		details about this in the "queries.rng" and "queryContents.rng" files in
+		this folder.</a:documentation>
 	<a:documentation/>
 	<a:documentation>Finally--and most relevant to this particular file-- there
 		is the issue of **valuesets**. Valuesets are the set of acceptable
@@ -839,7 +839,17 @@
 		<a:documentation>Non-site-specific valuesets used on in the "nodes"
 			section.</a:documentation>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<!-- empty -->
+		<define name="nodes.nodeGroup.location.valueset">
+			<empty/>
+		</define>
+		
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<!--
+			
+			DEFAULT VALUES WILL BE RETAINED:
+			
+			<value>specify</value>
+			<value>unreported</value>
 	</div>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -1420,13 +1430,20 @@
 					
 				DEFAULT VALUES WILL BE RETAINED:
 					
-				<value>GX</value>
-				<value>G1</value>
-				<value>G2</value>
-				<value>G3</value>
-				<value>G4</value>
-				<value>specify</value>
-				<value>unreported</value>
+					<value>GX</value>
+					<value>G1</value>
+					<value>G2</value>
+					<value>G3</value>
+					<value>G4</value>
+					<value>low-grade</value>
+					<value>high-grade</value>
+					<value>well-differentiated</value>
+					<value>moderately-differenitated</value>
+					<value>poorly-differentiated</value>
+					<value>specify</value>
+					<value>indeterminate</value>
+					<value>inapplicable</value>
+					<value>unreported</value>
 				-->
 			</choice>
 		</define>
