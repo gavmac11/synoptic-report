@@ -251,7 +251,7 @@
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="tumor.grade.system.valueset">
+		<define combine="choice" name="tumor.grade.response.system.valueset">
 			<data type="token"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
