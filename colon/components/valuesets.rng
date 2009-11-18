@@ -432,7 +432,7 @@
          </choice>
       </define>
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-      <define name="tumor.grade.system.valueset">
+      <define name="tumor.grade.response.system.valueset">
          <choice>
             <value>CAP</value>
          </choice>
