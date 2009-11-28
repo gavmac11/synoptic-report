@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interleave datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+   ns="http://www.cap.org/pert/2009/01/breast/" xmlns="http://relaxng.org/ns/structure/1.0"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+   <attribute name="value">
+      <choice xmlns="http://relaxng.org/ns/structure/1.0">
+         <value>1</value>
+         <value>2</value>
+         <value>3</value>
+         <value>microinvasive only</value>
+         <value>indeterminate</value>
+         <value>inapplicable</value>
+         <value/>
+      </choice>
+   </attribute>
+   <element name="glandular">
+      <ref name="common.content"/>
+      <attribute datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" name="score"
+         xmlns="http://relaxng.org/ns/structure/1.0"
+         xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+         <choice>
+            <value>1</value>
+            <value>2</value>
+            <value>3</value>
+            <value>microinvasion only</value>
+            <value>indeterminate</value>
+            <value>other</value>
+         </choice>
+      </attribute>
+   </element>
+   <element name="nuclearPleomorphism">
+      <ref name="common.content"/>
+      <attribute datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" name="score"
+         xmlns="http://relaxng.org/ns/structure/1.0"
+         xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+         <choice>
+            <value>1</value>
+            <value>2</value>
+            <value>3</value>
+            <value>microinvasion only</value>
+            <value>indeterminate</value>
+            <value>other</value>
+         </choice>
+      </attribute>
+   </element>
+   <element name="mitoticCount">
+      <ref name="common.content"/>
+      <attribute datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" name="score"
+         xmlns="http://relaxng.org/ns/structure/1.0"
+         xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+         <choice>
+            <value>1</value>
+            <value>2</value>
+            <value>3</value>
+            <value>microinvasion only</value>
+            <value>indeterminate</value>
+            <value>other</value>
+         </choice>
+      </attribute>
+   </element>
+</interleave>

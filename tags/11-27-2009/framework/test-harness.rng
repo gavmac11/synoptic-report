@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   
+   ===========================================================================
+   Copyright 2009 College of American Pathologists (CAP)
+   
+   This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+   
+   The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+   License, Version 2.0 (the "License"); you may not use this file except in 
+   compliance with the License.
+   
+   You may obtain a copy of the License at:
+   
+   http://www.apache.org/licenses/LICENSE-2.0
+   
+   Unless required by applicable law or agreed to in writing, software 
+   distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   ===========================================================================
+   
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+   xmlns="http://relaxng.org/ns/structure/1.0"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <a:documentation>This file does two things:</a:documentation>
+   <a:documentation>(1) This file imports "synopsis.rng", which contains the
+      definitions of all the attributes and elements necessary to construct a
+      skeleton eCC report. (Note that "synopsis.rng" does not define any
+      specific report type; in particular, it does not specify which of the
+      available sections are required, which are optional, and which are not to
+      be used.)</a:documentation>
+   <a:documentation>(2) This file defines a report type that consists of one of
+      each of the eleven possible report sections, in alphabetical order. This
+      report type is not clinically relevant, but is useful for testing during
+      schema development, since (unlike most clinically relevant report types)
+      it incorporates every possible section.</a:documentation>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <include href="components/synopsis.rng">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>This line includes (imports)
+         "synopsis.rng".</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </include>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <define combine="choice" name="synopsis.content">
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>This definition specifies the choice, order and
+         optionality of sections that constitute a TEST HARNESS
+         REPORT.</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <ref name="accessory"/>
+      <ref name="additional"/>
+      <ref name="clinical"/>
+      <ref name="extent"/>
+      <ref name="margins"/>
+      <ref name="metastases"/>
+      <ref name="nodes"/>
+      <ref name="specimen"/>
+      <ref name="stage"/>
+      <ref name="studies"/>
+      <ref name="tumor"/>
+   </define>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</grammar>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    
+    ===========================================================================
+    Copyright 2009 College of American Pathologists (CAP)
+    
+    This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+    
+    The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================
+    
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.cap.org/pert/2009/01/"
+	xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<a:documentation>This file serves two functions. (1) By means of a series of "include" statements, it assembles
+		together six other files that together contain all the schema elements necessary to fully define all
+		*non-site-specific* elements and attributes of a CAP report. (2) It supplies the definition of the outermost
+		("root") element of all CAP synoptic reports. The name of this element is "synopsis". It wraps all the elements
+		and attributes defined in the other six files.</a:documentation>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<a:documentation> This file does not define any specific report type; that is, it does not specify which of the
+		available sections are required, which are optional, and which are not to be used. For examples of this
+		functionality, see the files "../biopsy.rng", "../resection.rng" or "../test-harness.rng", which make use of this
+		file via inclusion.</a:documentation>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<a:documentation>This is NOT a freestanding schema. It is a schema fragment intended for inclusion in a file that
+		defines a procedure-specific report type. Examples of such files are "biopsy.rng", "resection.rng" and
+		"test-harness.rng".</a:documentation>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<a:documentation>This file introduces a naming convention used throughout the project. All definitions of the form
+		"common.attrib" and "common.content" can be found in the project file located at "./includes/common.rng". All
+		definitions of the form "*.content" can be found in the project file located at "./includes/items.rng". All
+		definitions of the form "*.attrib" can be found in the project file at
+		"./includes.attributes.rng".</a:documentation>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<div>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>INCLUDES</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<include href="common.rng">
+			<a:documentation>This file contains all definitions of the form "common.content" and
+				"common.attrib".</a:documentation>
+		</include>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<include href="sections.rng">
+			<a:documentation>This file contains definitions of each of the eleven possible top-level sections of an eCC
+				report.</a:documentation>
+		</include>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<include href="queries.rng">
+			<a:documentation>This file contains definitions of the default (non-site-specific) elements contained within
+				each section. Within the file, the definitions are grouped by section.</a:documentation>
+		</include>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<include href="queryContents.rng">
+			<a:documentation>This file contains definitions of the internal structure of elements introduced in
+				"items.rng".</a:documentation>
+		</include>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<include href="attributes.rng">
+			<a:documentation>This file contains definitions of the default (eCC-defined, non-custom) attributes for all the
+				elements. (Attributes are used sparsely in this model, so most of these definitions are
+				"empty".)</a:documentation>
+		</include>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<include href="valuesets.rng">
+			<a:documentation>This file contains the "datatype" definitions and enumerations that define the value-space for
+				each of the default leaf nodes in the model.</a:documentation>
+		</include>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</div>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<div>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<a:documentation>Definition of the "synopsis" (root) element.</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<start>
+			<element name="synopsis">
+				<interleave>
+					<ref name="synopsis.content"/>
+					<ref name="synopsis.attrib"/>
+					<ref name="common.content"/>
+					<ref name="common.attrib"/>
+				</interleave>
+			</element>
+		</start>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</div>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</grammar>

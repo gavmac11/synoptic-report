@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   
+   ===========================================================================
+   Copyright 2009 College of American Pathologists (CAP)
+   
+   This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+   
+   The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+   License, Version 2.0 (the "License"); you may not use this file except in 
+   compliance with the License.
+   
+   You may obtain a copy of the License at:
+   
+   http://www.apache.org/licenses/LICENSE-2.0
+   
+   Unless required by applicable law or agreed to in writing, software 
+   distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   ===========================================================================
+   
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+   ns="http://www.cap.org/pert/2009/01/colon/"
+   xmlns="http://relaxng.org/ns/structure/1.0"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <a:documentation> </a:documentation>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="choice" name="synopsis.schemaLocation.valueset">
+         <value>http://www.cap.org/pert/2009/01/colon/</value>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="choice" name="synopsis.version.valueset">
+         <value>1.0a</value>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="choice" name="synopsis.transformation.valueset">
+         <value>http://www.cap.org/pert/2009/01/colon/snomedct/
+            http://www.cap.org/pert/2009/01/colon/radlex/</value>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- accessory SECTION VALUES --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="colon.accessory.preexistingPolyp.response.value.valueset">
+         <choice>
+            <value>tubular adenoma</value>
+            <value>villous adenoma</value>
+            <value>tubulovillous adenoma</value>
+            <value>serrated adenoma</value>
+            <value>sessile serrated adenoma</value>
+            <value>hamartomatous polyp</value>
+            <value>indeterminate type</value>
+            <value>specify</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define
+         name="colon.accessory.discontinuousExtramuralExtension.reponse.value.valueset">
+         <ref name="common.response.valueset"/>
+         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      </define>
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>== additional SECTION VALUES ==</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="additional.item.name.valueset">
+         <choice>
+            <value>adenoma</value>
+            <value>active inflammatory bowel disease</value>
+            <value>quiescent inflammatory bowel disease</value>
+            <value>ulcerative colitis</value>
+            <value>Crohn's disease</value>
+            <value>dysplasia with IBD</value>
+            <value>sessile serrated adenoma</value>
+            <value>other polyp</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- clinical SECTION VALUES --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="clinical.priorTherapy.response.value.valueset">
+         <value>neoadjuvant chemoirradiation</value>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- extent SECTION VALUES --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="colon.extent.invasion.adjacent.response.value.valueset">
+         <choice>
+            <value>adheres</value>
+            <value>invades</value>
+            <value>specify</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="colon.extent.invasion.response.value.valueset">
+         <choice>
+            <value>lamina propria</value>
+            <value>submucosa</value>
+            <value>muscularis propria</value>
+            <value>through muscularis propria</value>
+            <value>pericolorectal tissues</value>
+            <value>visceral peritoneal surface</value>
+            <value>adjacent structure</value>
+            <value>no evidence of tumor</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="colon.extent.invasion.adjacent.location.valueset">
+         <choice>
+            <value>ureter</value>
+            <value>uterus</value>
+            <value>urinary bladder</value>
+            <value>specify</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- margins SECTION VALUES --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="margins.margin.location.valueset">
+         <choice>
+            <value>proximal</value>
+            <value>distal</value>
+            <value>radial</value>
+            <value>deep</value>
+            <value>mucosal</value>
+            <value>lateral</value>
+            <value>stalk</value>
+            <value>1:00</value>
+            <value>2:00</value>
+            <value>3:00</value>
+            <value>4:00</value>
+            <value>5:00</value>
+            <value>6:00</value>
+            <value>7:00</value>
+            <value>8:00</value>
+            <value>9:00</value>
+            <value>10:00</value>
+            <value>11:00</value>
+            <value>12:00</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="margins.margin.response.value.valueset">
+         <choice>
+            <value>carcinoma negative, adenoma positive</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- metastases SECTION VALUES --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="metastases.metastasis.location.valueset">
+         <value>peritoneum</value>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- nodes SECTION VALUES --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="nodes.nodeGroup.location.valueset">
+         <choice>
+            <value>pericolic</value>
+            <value>ileocolic</value>
+            <value>anterior cecal</value>
+            <value>posterior cecal</value>
+            <value>right colic</value>
+            <value>middle colic</value>
+            <value>left colic</value>
+            <value>inferior mesenteric</value>
+            <value>sigmoid</value>
+            <value>superior rectal</value>
+            <value>superior hemorrhoidal</value>
+            <value>sigmoidal</value>
+            <value>sigmoid mesenteric</value>
+            <value>middle hemorrhoidal</value>
+            <value>lateral sacral</value>
+            <value>presacral</value>
+            <value>internal iliac</value>
+            <value>sacral promontory (Gerota's)</value>
+            <value>inferior hemorrhoidal</value>
+            <value>anorectal</value>
+            <value>superficial inguinal</value>
+            <value>internal iliac</value>
+            <value>hypogastric</value>
+            <value>femoral</value>
+            <value>lateral sacral</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- specimen SECTION VALUES --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="specimen.procedure.response.value.valueset">
+         <choice>
+            <value>total colectomy</value>
+            <value>right hemicolectomy</value>
+            <value>transverse colectomy</value>
+            <value>left hemicolectomy</value>
+            <value>segmental colectomy</value>
+            <value>abdominoperineal resection</value>
+            <value>proctocolectomy</value>
+            <value>polypectomy</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="specimen.site.response.value.valueset">
+         <choice>
+            <value>cecum</value>
+            <value>right colon</value>
+            <value>hepatic flexure</value>
+            <value>transverse colon</value>
+            <value>splenic flexure</value>
+            <value>left colon</value>
+            <value>sigmoid colon</value>
+            <value>rectosigmoid junction</value>
+            <value>rectum</value>
+            <value>anus</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="specimen.integrity.response.value.valueset">
+         <choice>
+            <value>intact</value>
+            <value>fragmented</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="colon.specimen.polyp.configuration.response.value.valueset">
+         <choice>
+            <value>pedunculated</value>
+            <value>sessile</value>
+            <value>specify</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="colon.tumor.mesorectum.response.value.valueset">
+         <choice>
+            <value>complete</value>
+            <value>near complete</value>
+            <value>incomplete</value>
+            <value>indeterminate</value>
+            <value>inapplicable</value>
+            <value>unreported</value>
+            <value>specify</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- stage SECTION VALUES --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="choice" name="stage.T.response.value.valueset">
+         <choice>
+            <value>X</value>
+            <value>0</value>
+            <value>is</value>
+            <value>1</value>
+            <value>2</value>
+            <value>3</value>
+            <value>4</value>
+            <value>4a</value>
+            <value>4b</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="choice" name="stage.N.response.value.valueset">
+         <choice>
+            <value>X</value>
+            <value>0</value>
+            <value>1</value>
+            <value>1a</value>
+            <value>1b</value>
+            <value>1c</value>
+            <value>2</value>
+            <value>2a</value>
+            <value>2b</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define combine="choice" name="stage.M.response.value.valueset">
+         <choice>
+            <value>0</value>
+            <value>1</value>
+            <value>1a</value>
+            <value>1b</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- studies SECTION VALUES --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!-- empty -->
+      <define
+         name="studies.study.microsatelliteInstability.response.value.valueset">
+         <choice>
+            <value>stable</value>
+            <value>low</value>
+            <value>high</value>
+            <value>pending</value>
+            <value>indeterminate</value>
+            <value>inapplicable</value>
+            <value>unreported</value>
+            <value>specify</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="studies.study.mismatchRepair.response.value.valueset">
+         <choice>
+            <value>intact nuclear positivity, tumor cells</value>
+            <value>loss of nuclear positivity, tumor cells</value>
+            <value>pending</value>
+            <value>equivocal</value>
+            <value>indeterminate</value>
+            <value>inapplicable</value>
+            <value>unreported</value>
+            <value>specify</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="studies.study.KRAS.response.value.valueset">
+         <choice>
+            <value>mutant KRAS detected</value>
+            <value>no mutant KRAS detected</value>
+            <value>pending</value>
+            <value>equivocal</value>
+            <value>indeterminate</value>
+            <value>inapplicable</value>
+            <value>unreported</value>
+            <value>specify</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="studies.study.BRAF-V600E.response.value.valueset">
+         <choice>
+            <value>mutant BRAF detected</value>
+            <value>no mutant BRAF detected</value>
+            <value>pending</value>
+            <value>equivocal</value>
+            <value>indeterminate</value>
+            <value>inapplicable</value>
+            <value>unreported</value>
+            <value>specify</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define
+         name="studies.study.microsatelliteInstability.method.response.value.valueset">
+         <ref name="common.minimal.valueset"/>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="studies.study.mismatchRepair.method.response.value.valueset">
+         <ref name="common.minimal.valueset"/>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define
+         name="studies.study.mutationalAnalysis.method.response.value.valueset">
+         <ref name="common.minimal.valueset"/>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define
+         name="studies.study.KRAS.response.mutation.response.value.valueset">
+         <ref name="common.minimal.valueset"/>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <div>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <a:documentation>-- tumor SECTION VALUES --</a:documentation>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="tumor.histologicType.response.value.valueset">
+         <choice>
+            <value>adenocarcinoma</value>
+            <value>mucinous adenocarcinoma</value>
+            <value>signet-ring cell carcinoma</value>
+            <value>small cell carcinoma</value>
+            <value>squamous cell carcinoma</value>
+            <value>adenosquamous carcinoma</value>
+            <value>medullary carcinoma</value>
+            <value>undifferentiated carcinoma</value>
+            <value>carcinoma indeterminate type</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="tumor.grade.response.system.valueset">
+         <choice>
+            <value>CAP</value>
+         </choice>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <!--<define name="tumor.grade.response.value.valueset">
+			<choice>
+				<value>low</value>
+				<value>high</value>
+				<value>equivocal</value>
+				<value>indeterminate</value>
+				<value>inapplicable</value>
+				<value>unreported</value>
+			</choice>
+		</define>-->
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="colon.tumor.mucinousComponent.response.value.valueset">
+         <ref name="common.percent.valueset"/>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="colon.tumor.perforation.response.value.valueset">
+         <ref name="common.response.valueset"/>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="colon.tumor.highGrade.response.value.valueset">
+         <ref name="common.response.valueset"/>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="colon.tumor.immuneResponse.reponse.value.valueset">
+         <ref name="common.severity.valueset"/>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+      <define name="colon.tumor.medullaryComponent.reponse.value.valueset">
+         <ref name="common.response.valueset"/>
+      </define>
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   </div>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</grammar>

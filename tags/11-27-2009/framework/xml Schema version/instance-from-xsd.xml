@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen SCHSchema="../rules/common.sch"?>
+<synopsis ns1:schemaLocation="" ns2:version="" ns3:transformation=""
+	xmlns="http://www.cap.org/pert/2009/01/"
+	xmlns:ns1="http://www.cap.org/pert/2009/01/"
+	xmlns:ns2="http://www.cap.org/pert/2009/01/"
+	xmlns:ns3="http://www.w3.org/2003/g/data-view#"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<accessory>
+		<venousInvasion>
+			<response value="indeterminate"> </response>
+		</venousInvasion>
+		<lymphovascularInvasion>
+			<response value="specify">
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</lymphovascularInvasion>
+		<perineuralInvasion>
+			<response value="positive">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</perineuralInvasion>
+		<treatmentEffect>
+			<response value="specify">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</treatmentEffect>
+		<comment/>
+		<label/>
+		<text/>
+	</accessory>
+	<additional>
+		<item name="specify">
+			<response value="specify">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<specify/>
+			<comment/>
+			<label/>
+			<text/>
+		</item>
+		<comment/>
+		<label/>
+		<text/>
+	</additional>
+	<clinical>
+		<priorTherapy date="2009-11-10">
+			<response value="specify">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</priorTherapy>
+		<clinicalFinding>
+			<response value="specify">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</clinicalFinding>
+		<radiologicFinding>
+			<response value="unreported">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</radiologicFinding>
+		<comment/>
+		<label/>
+		<text/>
+	</clinical>
+	<extent>
+		<tumorSize>
+			<dimension>
+				<response unit="cm" value="2">
+					<comment/>
+					<label/>
+					<text/>
+					<specify/>
+				</response>
+				<comment/>
+				<label/>
+				<text/>
+			</dimension>
+			<dimension>
+				<response unit="cm" value="2">
+					<comment/>
+					<label/>
+					<text/>
+					<specify/>
+				</response>
+				<comment/>
+				<label/>
+				<text/>
+			</dimension>
+			<dimension>
+				<response unit="cm" value="3">
+					<comment/>
+					<label/>
+					<text/>
+					<specify/>
+				</response>
+				<comment/>
+				<label/>
+				<text/>
+			</dimension>
+			<comment/>
+			<label/>
+			<text/>
+		</tumorSize>
+		<comment/>
+		<label/>
+		<text/>
+	</extent>
+	<margins>
+		<margin location="specify">
+			<response value="unreported">
+				<distance>
+					<response unit="cm" value="1">
+						<comment/>
+						<label/>
+						<text/>
+						<specify/>
+					</response>
+				</distance>
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<specify/>
+			<comment/>
+			<label/>
+			<text/>
+		</margin>
+		<comment/>
+		<label/>
+		<text/>
+	</margins>
+	<metastases>
+		<metastasis location="unreported">
+			<size>
+				<dimension>
+					<response unit="cm" value="6">
+						<comment/>
+						<label/>
+						<text/>
+						<specify/>
+					</response>
+					<comment/>
+					<label/>
+					<text/>
+				</dimension>
+				<dimension>
+					<response unit="mm" value="4">
+						<comment/>
+						<label/>
+						<text/>
+						<specify/>
+					</response>
+					<comment/>
+					<label/>
+					<text/>
+				</dimension>
+				<dimension>
+					<response unit="in" value="4">
+						<comment/>
+						<label/>
+						<text/>
+						<specify/>
+					</response>
+					<comment/>
+					<label/>
+					<text/>
+				</dimension>
+				<comment/>
+				<label/>
+				<text/>
+			</size>
+			<specify/>
+			<howDiagnosed>
+				<response value="outside report">
+					<comment/>
+					<label/>
+					<text/>
+					<specify/>
+				</response>
+			</howDiagnosed>
+			<comment/>
+			<label/>
+			<text/>
+		</metastasis>
+		<comment/>
+		<label/>
+		<text/>
+	</metastases>
+	<nodes>
+		<nodeGroup location="specify">
+			<specify/>
+			<count status="total">
+				<response value="32">
+					<comment/>
+					<label/>
+					<text/>
+					<specify/>
+				</response>
+				<comment/>
+				<label/>
+				<text/>
+			</count>
+			<count status="positive">
+				<response value="43">
+					<comment/>
+					<label/>
+					<text/>
+					<specify/>
+				</response>
+			</count>
+		</nodeGroup>
+	</nodes>
+	<specimen>
+		<procedure>
+			<response value="unreported">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</procedure>
+		<specimenSite>
+			<response value="unreported">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</specimenSite>
+		<tumorSite>
+			<response value="unreported">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</tumorSite>
+		<integrity>
+			<response value="unreported">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</integrity>
+		<specimenSize>
+			<dimension>
+				<response unit="cm" value="2">
+					<comment/>
+					<label/>
+					<text/>
+					<specify/>
+				</response>
+				<comment/>
+				<label/>
+				<text/>
+			</dimension>
+		</specimenSize>
+		<tumorGrossSize>
+			<dimension>
+				<response unit="cm" value="3">
+					<comment/>
+					<label/>
+					<text/>
+					<specify/>
+				</response>
+				<comment/>
+				<label/>
+				<text/>
+			</dimension>
+		</tumorGrossSize>
+	</specimen>
+	<stage>
+		<prefix>
+			<response value="y">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</prefix>
+		<classification>
+			<response value="p">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</classification>
+		<T>
+			<response value="specify">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</T>
+		<N>
+			<response value="specify">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</N>
+		<M>
+			<response value="1">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</M>
+		<comment/>
+		<label/>
+		<text/>
+	</stage>
+	<studies>
+		<study name="specify">
+			<response value="pending">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+		</study>
+		<comment/>
+		<label/>
+		<text/>
+	</studies>
+	<tumor>
+		<histologicType>
+			<response value="specify">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<comment/>
+			<label/>
+			<text/>
+		</histologicType>
+		<grade>
+			<response value="G2">
+				<comment/>
+				<label/>
+				<text/>
+				<specify/>
+			</response>
+			<specify/>
+			<comment/>
+			<label/>
+			<text/>
+		</grade>
+		<comment/>
+		<label/>
+		<text/>
+	</tumor>
+	<comment/>
+	<label/>
+	<text/>
+</synopsis>

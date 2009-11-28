@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <value>total</value>
+    <value>regressed</value>
+    <value>isolated tumor cells</value>
+    <value>micrometastasis</value>
+    <value>macrometastasis</value>
+</choice>
