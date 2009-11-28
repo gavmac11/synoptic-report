@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grammar [
+<!ENTITY  section   "section.rng">
+<!ENTITY  item  	"item.rng">
+<!ENTITY  values	"values.rng">
+<!ENTITY  generic	"generic.rng">
+]>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://cap#colon/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:colon="http://cap#colon/">
+    <!--=============================================================-->
+    <include href="core-sections.rng">
+        <start>
+            <ref name="resection"/>
+        </start>
+    </include>
+    <include href="colon-values.rng"/>
+    <!--=============================================================-->
+    <define name="accessory.extension">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <optional>
+            <grammar>
+                <include href="&item;">
+                    <define name="site">
+                        <value>colon</value>
+                    </define>
+                    <define name="name">
+                        <value>peritumoral deposits</value>
+                    </define>
+                    <define name="response">
+                        <ref name="selectOne"/>
+                    </define>
+                </include>
+                <define name="valueset">
+                    <parentRef name="qualitative.valueset"/>
+                </define>
+            </grammar>
+        </optional>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <optional>
+            <grammar>
+                <include href="&item;">
+                    <define name="site">
+                        <value>colon</value>
+                    </define>
+                    <define name="name">
+                        <value>precursor polyp</value>
+                    </define>
+                    <define name="response">
+                        <ref name="selectOne"/>
+                    </define>
+                </include>
+                <define name="valueset">
+                    <parentRef name="accessory.preexistingPolyp.valueset"/>
+                </define>
+            </grammar>
+        </optional>
+    </define>
+    <!--=============================================================-->
+    <define name="additional.extension">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <grammar>
+            <include href="&item;">
+                <define name="site">
+                    <value>colon</value>
+                </define>
+                <define name="name">
+                    <value>additional findings</value>
+                </define>
+                <define name="response">
+                    <ref name="selectMany"/>
+                </define>
+            </include>
+            <define name="valueset">
+                <parentRef name="additional.finding.valueset"/>
+            </define>
+        </grammar>
+    </define>
+    <!--=============================================================-->
+    <define name="extent.extension">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <grammar>
+            <include href="&item;">
+                <define name="site">
+                    <value>colon</value>
+                </define>
+                <define name="name">
+                    <value>deepest invasion</value>
+                </define>
+                <define name="response">
+                    <ref name="selectOne"/>
+                </define>
+            </include>
+            <define name="valueset">
+                <parentRef name="extent.deepestInvasion.valueset"/>
+            </define>
+        </grammar>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <optional>
+            <grammar>
+                <include href="&item;">
+                    <define name="site">
+                        <value>colon</value>
+                    </define>
+                    <define name="name">
+                        <value>adjacent structures</value>
+                    </define>
+                    <define name="response">
+                        <ref name="selectMany"/>
+                    </define>
+                    <define name="extension">
+                        <attribute name="degree">
+                            <parentRef name="extent.invasionDegree.valueset"/>
+                        </attribute>
+                    </define>
+                </include>
+                <define name="valueset">
+                    <parentRef name="extent.sites.valueset"/>
+                </define>
+            </grammar>
+        </optional>
+    </define>
+    <!--=============================================================-->
+    <define name="specimen.extension">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <grammar>
+            <include href="&section;">
+                <define name="name">
+                    <value>precursor polyp</value>
+                </define>
+                <define name="content">
+                    <parentRef name="preexistingPolyp.content"/>
+                </define>
+            </include>
+        </grammar>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <grammar>
+            <include href="&item;">
+                <define name="site">
+                    <value>colon</value>
+                </define>
+                <define name="name">
+                    <value>mesorectum intactness</value>
+                </define>
+                <define name="response">
+                    <ref name="selectOne"/>
+                </define>
+            </include>
+            <define name="valueset">
+                <parentRef name="specimen.mesorectum.valueset"/>
+            </define>
+        </grammar>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <grammar>
+            <include href="&item;">
+                <define name="site">
+                    <value>colon</value>
+                </define>
+                <define name="name">
+                    <value>tumor perforation</value>
+                </define>
+                <define name="response">
+                    <ref name="selectOne"/>
+                </define>
+            </include>
+            <define name="valueset">
+                <parentRef name="qualitative.valueset"/>
+            </define>
+        </grammar>
+    </define>
+    <!--=============================================================-->
+    <define name="preexistingPolyp.content">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <grammar>
+            <include href="&item;">
+                <define name="site">
+                    <value>colon</value>
+                </define>
+                <define name="name">
+                    <value>configuration</value>
+                </define>
+                <define name="response">
+                    <ref name="selectOne"/>
+                </define>
+            </include>
+            <define name="valueset">
+                <parentRef name="specimen.polypConfiguration.valueset"/>
+            </define>
+        </grammar>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <grammar>
+            <include href="&item;">
+                <define name="site">
+                    <value>colon</value>
+                </define>
+                <define name="name">
+                    <value>stalk length</value>
+                </define>
+                <define name="response">
+                    <ref name="length"/>
+                </define>
+            </include>
+        </grammar>
+    </define>
+    <!--=============================================================-->
+</grammar>
