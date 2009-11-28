@@ -4,254 +4,287 @@
 <!ENTITY	items  		"core-items.rng">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://cap#"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-    xmlns:ecc="http://cap#">
-    <!--=============================================================-->
-    <include href="&items;"/>
-    <!--=============================================================-->
-    <start>
-        <ref name="test-harness"/>
-    </start>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="test-harness">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>test-harness</value>
-                </define>
-                <define name="content">
-                    <parentRef name="test-harness.content"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="resection">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>resection</value>
-                </define>
-                <define name="content">
-                    <parentRef name="resection.content"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="biopsy">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>biopsy</value>
-                </define>
-                <define name="content">
-                    <parentRef name="biopsy.content"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--=============================================================-->
-    <define name="test-harness.content">
-        <ref name="accessory"/>
-        <ref name="additional"/>
-        <ref name="clinical"/>
-        <ref name="extent"/>
-        <ref name="margins"/>
-        <ref name="metastases"/>
-        <ref name="nodes"/>
-        <ref name="specimen"/>
-        <ref name="stage"/>
-        <ref name="studies"/>
-        <ref name="tumor"/>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="resection.content">
-        <optional>
-            <ref name="clinical"/>
-        </optional>
-        <ref name="specimen"/>
-        <ref name="tumor"/>
-        <ref name="extent"/>
-        <ref name="accessory"/>
-        <ref name="margins"/>
-        <optional>
-            <ref name="nodes"/>
-        </optional>
-        <optional>
-            <ref name="metastases"/>
-        </optional>
-        <optional>
-            <ref name="studies"/>
-        </optional>
-        <ref name="stage"/>
-        <optional>
-            <ref name="additional"/>
-        </optional>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="biopsy.content">
-        <ref name="clinical"/>
-        <ref name="specimen"/>
-        <ref name="tumor"/>
-        <optional>
-            <ref name="extent"/>
-        </optional>
-        <optional>
-            <ref name="accessory"/>
-        </optional>
-        <optional>
-            <ref name="nodes"/>
-        </optional>
-        <optional>
-            <ref name="studies"/>
-        </optional>
-        <optional>
-            <ref name="additional"/>
-        </optional>
-    </define>
-    <!--=============================================================-->
-    <define name="accessory">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>accessory</value>
-                </define>
-                <define name="content">
-                    <parentRef name="accessory.content"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="additional">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>additional</value>
-                </define>
-                <define name="content">
-                    <parentRef name="additional.content"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="clinical">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>clinical</value>
-                </define>
-                <define name="content">
-                    <parentRef name="clinical.content"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>extent</value>
-                </define>
-                <define name="content">
-                    <parentRef name="extent.content"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margins">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>margins</value>
-                </define>
-                <define name="content">
-                    <parentRef name="margins.content"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="metastases">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>metastases</value>
-                </define>
-                <define name="content">
-                    <parentRef name="metastases.content"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>nodes</value>
-                </define>
-                <define name="content">
-                    <parentRef name="nodes.content"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>specimen</value>
-                </define>
-                <define name="content">
-                    <parentRef name="specimen.content"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>stage</value>
-                </define>
-                <define name="content">
-                    <parentRef name="stage.content"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>studies</value>
-                </define>
-                <define name="content">
-                    <parentRef name="studies.content"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>tumor</value>
-                </define>
-                <define name="content">
-                    <parentRef name="tumor.content"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--=============================================================-->
+	xmlns="http://relaxng.org/ns/structure/1.0"
+	xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:ecc="http://cap#">
+	<!--=============================================================-->
+	<include href="&items;"/>
+	<!--=============================================================-->
+	<define combine="interleave" name="schemaLocation">
+		<empty/>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define combine="interleave" name="version">
+		<empty/>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define combine="interleave" name="semantics">
+		<empty/>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="toplevel.attrib">
+		<attribute name="schemaLocation">
+			<ref name="schemaLocation"/>
+		</attribute>
+		<attribute name="version">
+			<ref name="version"/>
+		</attribute>
+		<attribute name="transformation" ns="http://www.w3.org/2003/g/data-view#">
+			<ref name="semantics"/>
+		</attribute>
+	</define>
+	<!--=============================================================-->
+	<start>
+		<ref name="test-harness"/>
+	</start>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="test-harness">
+		<grammar>
+			<include href="&section;">
+				<define name="name">
+					<value>test-harness</value>
+				</define>
+				<define name="extension">
+					<parentRef name="toplevel.attrib"/>
+				</define>
+				<define name="content">
+					<parentRef name="test-harness.content"/>
+				</define>
+			</include>
+		</grammar>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="resection">
+		<grammar>
+			<include href="&section;">
+				<define name="name">
+					<value>resection</value>
+				</define>
+				<define name="extension">
+					<parentRef name="toplevel.attrib"/>
+				</define>
+				<define name="content">
+					<parentRef name="resection.content"/>
+				</define>
+			</include>
+		</grammar>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="biopsy">
+		<grammar>
+			<include href="&section;">
+				<define name="name">
+					<value>biopsy</value>
+				</define>
+				<define name="extension">
+					<parentRef name="toplevel.attrib"/>
+				</define>
+				<define name="content">
+					<parentRef name="biopsy.content"/>
+				</define>
+			</include>
+		</grammar>
+	</define>
+	<!--=============================================================-->
+	<define name="test-harness.content">
+		<ref name="accessory"/>
+		<ref name="additional"/>
+		<ref name="clinical"/>
+		<ref name="extent"/>
+		<ref name="margins"/>
+		<ref name="distantSites"/>
+		<ref name="nodes"/>
+		<ref name="specimen"/>
+		<ref name="stage"/>
+		<ref name="studies"/>
+		<ref name="tumor"/>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="resection.content">
+		<optional>
+			<ref name="clinical"/>
+		</optional>
+		<ref name="specimen"/>
+		<ref name="tumor"/>
+		<ref name="extent"/>
+		<ref name="accessory"/>
+		<ref name="margins"/>
+		<optional>
+			<ref name="nodes"/>
+		</optional>
+		<optional>
+			<ref name="distantSites"/>
+		</optional>
+		<optional>
+			<ref name="studies"/>
+		</optional>
+		<ref name="stage"/>
+		<optional>
+			<ref name="additional"/>
+		</optional>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="biopsy.content">
+		<ref name="clinical"/>
+		<ref name="specimen"/>
+		<ref name="tumor"/>
+		<optional>
+			<ref name="extent"/>
+		</optional>
+		<optional>
+			<ref name="accessory"/>
+		</optional>
+		<optional>
+			<ref name="nodes"/>
+		</optional>
+		<optional>
+			<ref name="studies"/>
+		</optional>
+		<optional>
+			<ref name="additional"/>
+		</optional>
+	</define>
+	<!--=============================================================-->
+	<define name="accessory">
+		<grammar>
+			<include href="&section;">
+				<define name="name">
+					<value>accessory</value>
+				</define>
+				<define name="content">
+					<parentRef name="accessory.content"/>
+				</define>
+			</include>
+		</grammar>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="additional">
+		<grammar>
+			<include href="&section;">
+				<define name="name">
+					<value>additional</value>
+				</define>
+				<define name="content">
+					<parentRef name="additional.content"/>
+				</define>
+			</include>
+		</grammar>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="clinical">
+		<grammar>
+			<include href="&section;">
+				<define name="name">
+					<value>clinical</value>
+				</define>
+				<define name="content">
+					<parentRef name="clinical.content"/>
+				</define>
+			</include>
+		</grammar>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="extent">
+		<grammar>
+			<include href="&section;">
+				<define name="name">
+					<value>extent</value>
+				</define>
+				<define name="content">
+					<parentRef name="extent.content"/>
+				</define>
+			</include>
+		</grammar>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="margins">
+		<grammar>
+			<include href="&section;">
+				<define name="name">
+					<value>margins</value>
+				</define>
+				<define name="content">
+					<parentRef name="margins.content"/>
+				</define>
+			</include>
+		</grammar>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="distantSites">
+		<grammar>
+			<include href="&section;">
+				<define name="name">
+					<value>distant sites</value>
+				</define>
+				<define name="content">
+					<parentRef name="distantSites.content"/>
+				</define>
+			</include>
+		</grammar>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="nodes">
+		<grammar>
+			<include href="&section;">
+				<define name="name">
+					<value>nodes</value>
+				</define>
+				<define name="content">
+					<parentRef name="nodes.content"/>
+				</define>
+			</include>
+		</grammar>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="specimen">
+		<grammar>
+			<include href="&section;">
+				<define name="name">
+					<value>specimen</value>
+				</define>
+				<define name="content">
+					<parentRef name="specimen.content"/>
+				</define>
+			</include>
+		</grammar>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="stage">
+		<grammar>
+			<include href="&section;">
+				<define name="name">
+					<value>stage</value>
+				</define>
+				<define name="content">
+					<parentRef name="stage.content"/>
+				</define>
+			</include>
+		</grammar>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="studies">
+		<grammar>
+			<include href="&section;">
+				<define name="name">
+					<value>studies</value>
+				</define>
+				<define name="content">
+					<parentRef name="studies.content"/>
+				</define>
+			</include>
+		</grammar>
+	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="tumor">
+		<grammar>
+			<include href="&section;">
+				<define name="name">
+					<value>tumor</value>
+				</define>
+				<define name="content">
+					<parentRef name="tumor.content"/>
+				</define>
+			</include>
+		</grammar>
+	</define>
+	<!--=============================================================-->
 </grammar>
