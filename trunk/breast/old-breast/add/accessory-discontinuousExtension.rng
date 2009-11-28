@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<element name="discontinuousExtramuralExtension" ns="http://www.cap.org/pert/2009/01/colon/"
-   xmlns="http://relaxng.org/ns/structure/1.0"
-   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
-   <ref name="baseContent"/>
-   <attribute name="value">
-      <externalRef href="../../../../common/extendedBoolean.rng"/>
-   </attribute>
-</element>
