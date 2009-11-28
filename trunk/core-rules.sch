@@ -76,7 +76,7 @@
     <p>This does a similar thing, but creates one named $no-report to use in {report}if-then-else{/report} report
         clauses.</p>
     <let name="no-report" value="false()"/>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--=============================================================-->
     <p>In this schema, there are multiple occasions when I need to convert a value expressed in centimeters or inches
         into millimeters. This is an xslt2 function that does this. The operative formula is just a cascade of if-then
         statements that applies the appropriate conversion factor. If the input is cannot be handled, the fallback is to
@@ -101,7 +101,7 @@
             <xsl:sort order="descending" select="."/>
         </xsl:perform-sort>
     </xsl:function>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--=============================================================-->
     <pattern id="specify-element-iff-value-of-specify">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <p>This pattern ensures that a response value of 'specify' is accompanied by a child {specify} element where the
@@ -127,10 +127,22 @@
         <rule context="ecc:specify">
             <assert test="ends-with(../@value, '(specify)')">In a "<value-of select="../../@name"/>" item, the response
                 contains a "specify" element, but the response value is "<value-of select="../@value"/>" rather than
-                "specify". .</assert>
+                "specify".</assert>
         </rule>
     </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--=============================================================-->
+    <pattern id="unit-inapplicable">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <p>This pattern ensures that if any measurement has either the unit of the value equal to inapplicable, then
+            both are inapplicable.</p>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <rule context="//ecc:response[@unit]">
+            <assert test="not('inapplicable' = (@unit, @value)) or not('inapplicable' != (@unit, @value))">In the
+                    "<value-of select="../@name"/>" item, an "inapplicable" response for either unit or value requires
+                the same response for both.</assert>
+        </rule>
+    </pattern>
+    <!--=============================================================-->
     <pattern id="dimensions-have-same-unit">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <p>This pattern emits a VALIDATION WARNING (=schematron {report} (not a VALIDATION FAILURE (=schematron
@@ -141,11 +153,11 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <rule context="//ecc:item[ecc:response[@unit][2]]">
             <let name="units" value="ecc:response/@unit"/>
-            <report test="count(distinct-values($units)) gt 1">You should use the same unit for all dimensions of the
-                    "<value-of select="@name"/>" item. </report>
+            <report role="warning" test="count(distinct-values($units)) gt 1">You should use the same unit for all
+                dimensions of the "<value-of select="@name"/>" item.</report>
         </rule>
     </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--=============================================================-->
     <pattern id="largest-dimension-comes-first">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <p>This pattern issues a validation warning when the first dimension of a size is not the largest dimension. The
@@ -159,12 +171,12 @@
         <rule context="//ecc:item[ecc:response[@unit][2]]">
             <let name="unsorted" value="for $x in ecc:response return ecc:to-mm($x/@value, $x/@unit, $x/@relation)"/>
             <let name="sorted" value="ecc:sort($unsorted)"/>
-            <report test="not(every $x in (1 to count($sorted)) satisfies $sorted[$x] eq $unsorted[$x])">Dimensions
-                should be in descending order in the "<value-of select="@name"/>" item.</report>
+            <report role="warning" test="not(every $x in (1 to count($sorted)) satisfies $sorted[$x] eq $unsorted[$x])"
+                >Dimensions should be in descending order in the "<value-of select="@name"/>" item.</report>
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         </rule>
     </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--=============================================================-->
     <pattern id="closest-margin-negative">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <p>This pattern checks a variety of consistency properties in the margins section. We set a a series of vectors.
@@ -172,10 +184,10 @@
             "carcinoma-in-situ", "intraepithelial carcinoma", "high grade dysplasia", etc.) Typically, only one or two
             margin types will be reported, but some protocols might report three different types. </p>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <!--				
+        <!--
 				negative margin incompatible with focality
 				closest margin should have smallest distance
- -->
+        -->
         <rule context="//ecc:section[@name eq 'margins']">
             <let name="margin" value="ecc:section/ecc:section"/>
             <let name="margin-type" value="distinct-values($margin/@name)"/>
@@ -191,19 +203,19 @@
             <let name="closest-but-not-all-negative" value="for $x in (1 to $type-count) return
                 $margin-type[$x][$negative-count[$x] lt $total-count[$x]][$closest-count[$x] gt 0]"/>
             <let name="negative-but-no-closest" value="for $x in (1 to $type-count) return
-                $margin-type[$x][$negative-count[$x] eq                 $total-count[$x]][$closest-count[$x] eq 0]"/>
+                $margin-type[$x][$negative-count[$x] eq $total-count[$x]][$closest-count[$x] eq 0]"/>
             <assert test="empty($closest-but-not-all-negative)">For margin type(s) "<value-of
                     select="string-join($closest-but-not-all-negative, '&quot; and &quot;')"/> a "closest"
                 margin is specified even though not all margins are negative.</assert>
             <assert test="empty($closest-not-unique)">For margin type(s) "<value-of
                     select="string-join($closest-not-unique, '&quot; and &quot;')"/>" more than one closest
                 margin is claimed.</assert>
-            <report test="$negative-but-no-closest">All margins are negative for "<value-of
+            <report role="warning" test="$negative-but-no-closest">All margins are negative for "<value-of
                     select="string-join($negative-but-no-closest, '&quot; and &quot;')"/>"; therefore one margin
                 should be designated as "closest".</report>
         </rule>
     </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--=============================================================-->
     <pattern id="margin-distance-only-if-negative">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <p>This checks that you don't report a distance from the margin if the margin is positive. Distance from margin
@@ -217,7 +229,7 @@
                 margin because that margin is positive.</assert>
         </rule>
     </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--=============================================================-->
     <pattern id="tumorSite-subsets-specimenSite">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <p>This checks that every site that you specify as being involved by tumor is actually a site that you also have
@@ -231,7 +243,7 @@
                 specimen.</assert>
         </rule>
     </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--=============================================================-->
     <pattern id="tumor-largest-dimension-should-not-exceed-specimen-largest-dimension">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <p>This checks that you don't say the tumor is larger than the specimen. It makes no sense to say the tumor has
@@ -246,10 +258,10 @@
             <let name="maxSpecimenDimension" value="max($specimenDimensions)"/>
             <report test="$maxTumorDimension gt $maxSpecimenDimension">Largest gross tumor dimension (<value-of
                     select="$maxTumorDimension"/> mm) exceeds specimen largest dimension (<value-of
-                    select="$maxSpecimenDimension"/> mm). </report>
+                    select="$maxSpecimenDimension"/> mm).</report>
         </rule>
     </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--=============================================================-->
     <pattern id="non-negative-nodes-cannot-exceed-total-nodes">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <p>This checks that the total number of nodes you report is not less than the sum of the
@@ -267,7 +279,7 @@
                 of the enumerated node status categories (<value-of select="sum($other)"/>).</assert>
         </rule>
     </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--=============================================================-->
     <pattern id="clinical-treatment-and-pathologic-effect-consonant">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <p>This issues a warning if you indicate there is pathologic evidence of treatment effect, but in the clinical
@@ -279,12 +291,12 @@
                 effect']/ecc:response/@value"/>
             <let name="clinical" value="ecc:section[@name eq 'clinical']/ecc:item [@name eq 'prior
                 therapies']/ecc:response/@value"/>
-            <report test="exists($pathologic) and $pathologic != ('inapplicable','unreported') and empty($clinical)">You
+            <report role="warning" test="exists($pathologic) and $pathologic != ('inapplicable','unreported') and empty($clinical)">You
                 report treatment effect among the accessory findings, but there is no prior therapy report in the
-                clinical section. </report>
+                clinical section.</report>
         </rule>
     </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--=============================================================-->
     <pattern id="grade-comports-with-grade-system">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <p>This pattern checks that a grade value is compatible with the grade system chosen. For example, if the grade
@@ -301,7 +313,7 @@
                 a "<value-of select="@system"/>" system.</assert>
         </rule>
     </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--=============================================================-->
     <pattern id="response-unique">
         <p>Some queries permit multiple responses. No repeats of the same response are allowed except in sizes.</p>
         <rule context="//ecc:item[not(ecc:response/@unit = ('m', 'cm', 'mm', 'in'))]">
@@ -309,5 +321,5 @@
                 for "<value-of select="@name"/>".</assert>
         </rule>
     </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--=============================================================-->
 </schema>
