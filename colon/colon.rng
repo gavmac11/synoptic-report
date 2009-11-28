@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE grammar [
-<!ENTITY  section   "section.rng">
-<!ENTITY  item  	"item.rng">
-<!ENTITY  values	"values.rng">
-<!ENTITY  generic	"generic.rng">
+<!ENTITY  section       "../section.rng">
+<!ENTITY  item          "../item.rng">
+<!ENTITY  values        "../values.rng">
+<!ENTITY  generic       "../generic.rng">
+<!ENTITY  colon-values  "values.rng">
+<!ENTITY  core          "../core-sections.rng">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://cap#colon/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:colon="http://cap#colon/">
     <!--=============================================================-->
-    <include href="core-sections.rng">
+    <include href="&core;">
         <start>
             <ref name="resection"/>
         </start>
     </include>
-    <include href="colon-values.rng"/>
+    <include href="&colon-values;"/>
     <!--=============================================================-->
     <define name="accessory.extension">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

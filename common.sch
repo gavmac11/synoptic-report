@@ -125,9 +125,9 @@
                 but no specification ("specify" element) is given.</assert>
         </rule>
         <rule context="ecc:specify">
-            <assert test="ends-with(../@value, '(specify)')">In a "<value-of select="../../@name"/>" item, the response contains a
-                "specify" element, but the response value is "<value-of select="../@value"/>" rather than "specify".
-                .</assert>
+            <assert test="ends-with(../@value, '(specify)')">In a "<value-of select="../../@name"/>" item, the response
+                contains a "specify" element, but the response value is "<value-of select="../@value"/>" rather than
+                "specify". .</assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
