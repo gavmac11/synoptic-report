@@ -42,6 +42,7 @@
 		<item name="specimen sites">
 			<response value="hepatic flexure"/>
 			<response value="right colon"/>
+			<response value="transverse colon"/>
 		</item>
 		<item name="integrity">
 			<response value="intact"/>
@@ -75,10 +76,12 @@
 		<item name="tumor sites">
 			<response value="hepatic flexure"/>
 			<response value="transverse colon"/>
+			<response value="left colon"/>
+			<response value="sigmoid colon"/>
 			<!-- TODO: this might be "primary tumor sites", if we have a separate adjacent sites item -->
 		</item>
 		<item name="tumor size">
-			<response unit="cm" value="5.0"/>
+			<response unit="cm" value="15.0"/>
 			<response unit="cm" value="4.0"/>
 			<response unit="cm" value="3.0"/>
 		</item>
@@ -109,6 +112,21 @@
 		</item>
 		<item name="precursor polyp">
 			<response value="tubular adenoma"/>
+		</item>
+		<item name="mucinous component">
+			<response unit="percent" value="45"/>
+		</item>
+		<item name="medullary component">
+			<response value="negative"/>
+		</item>
+		<item name="high grade">
+			<response value="positive"/>
+		</item>
+		<item name="intratumoral immune response">
+			<response value="mild-to-moderate"/>
+		</item>
+		<item name="peritumoral immune response">
+			<response value="mild-to-moderate"/>
 		</item>
 	</section>
 	<section name="margins">
@@ -178,14 +196,19 @@
 		</section>
 	</section>
 	<section name="studies">
+		<!-- TODO: need to put this back to sections with multiple responses -->
 		<item name="microsatellite instability">
-			<response method="specify" value="low"/>
+			<response method="specify" value="low">
+				<specify>some method</specify>
+			</response>
 		</item>
 		<item name="MLH1">
 			<response method="immunohistochemistry" value="intact nuclear positivity, tumor cells"/>
 		</item>
 		<item name="BRAF">
-			<response method="specify" mutation="V600E" value="mutation detected"/>
+			<response method="specify" mutation="V600E" value="mutation detected">
+				<specify>some method specification</specify>
+			</response>
 		</item>
 		<item name="KRAS">
 			<response method="unreported" mutation="specify" value="mutation detected">
@@ -201,7 +224,7 @@
 			<response value="m"/>
 		</item>
 		<item name="pT">
-			<response value="3"/>
+			<response value="2"/>
 		</item>
 		<item name="pN">
 			<response value="1"/>
