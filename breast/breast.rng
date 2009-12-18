@@ -16,17 +16,17 @@
             <ref name="resection"/>
         </start>
         <define name="schemaLocation">
-            <value>http://cap#colon/</value>
+            <value>http://cap#breast/</value>
         </define>
         <define name="version">
             <value>1.0a</value>
         </define>
         <define name="semantics">
-            <value>http://cap#colon/snomedct/ http://cap#colon/radlex/</value>
+            <value>http://cap#breast/snomedct/ http://cap#breast/radlex/</value>
         </define>
         <!--=============================================================-->
     </include>
-    <include href="&colon-values;"/>
+    <include href="&breast-values;"/>
     <!--=============================================================-->
     <define name="accessory.extension">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -197,79 +197,75 @@
         </optional>
     </define>
     <!--=============================================================-->
-    <div>
-        <a:documentation>Specimen section customizations</a:documentation>
-        <!--=============================================================-->
-        <define name="specimen.extension">
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <grammar>
-                <include href="&section;">
-                    <define name="name">
-                        <value>precursor polyp</value>
-                    </define>
-                    <define name="content">
-                        <parentRef name="preexistingPolyp.content"/>
-                    </define>
-                </include>
-            </grammar>
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>mesorectum intactness</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectOne"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="specimen.mesorectum.valueset"/>
+    <define name="specimen.extension">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <grammar>
+            <include href="&section;">
+                <define name="name">
+                    <value>precursor polyp</value>
                 </define>
-            </grammar>
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>tumor perforation</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectOne"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="qualitative.valueset"/>
+                <define name="content">
+                    <parentRef name="preexistingPolyp.content"/>
                 </define>
-            </grammar>
-        </define>
-        <!--=============================================================-->
-        <define name="preexistingPolyp.content">
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>configuration</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectOne"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="specimen.polypConfiguration.valueset"/>
+            </include>
+        </grammar>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <grammar>
+            <include href="&item;">
+                <define name="name">
+                    <value>mesorectum intactness</value>
                 </define>
-            </grammar>
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>stalk length</value>
-                    </define>
-                    <define name="response">
-                        <ref name="length"/>
-                    </define>
-                </include>
-            </grammar>
-        </define>
-    </div>
+                <define name="response">
+                    <ref name="selectOne"/>
+                </define>
+            </include>
+            <define name="valueset">
+                <parentRef name="specimen.mesorectum.valueset"/>
+            </define>
+        </grammar>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <grammar>
+            <include href="&item;">
+                <define name="name">
+                    <value>tumor perforation</value>
+                </define>
+                <define name="response">
+                    <ref name="selectOne"/>
+                </define>
+            </include>
+            <define name="valueset">
+                <parentRef name="qualitative.valueset"/>
+            </define>
+        </grammar>
+    </define>
+    <!--=============================================================-->
+    <define name="preexistingPolyp.content">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <grammar>
+            <include href="&item;">
+                <define name="name">
+                    <value>configuration</value>
+                </define>
+                <define name="response">
+                    <ref name="selectOne"/>
+                </define>
+            </include>
+            <define name="valueset">
+                <parentRef name="specimen.polypConfiguration.valueset"/>
+            </define>
+        </grammar>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <grammar>
+            <include href="&item;">
+                <define name="name">
+                    <value>stalk length</value>
+                </define>
+                <define name="response">
+                    <ref name="length"/>
+                </define>
+            </include>
+        </grammar>
+    </define>
     <!--=============================================================-->
     <define name="studies.extension">
         <optional>

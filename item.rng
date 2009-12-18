@@ -89,35 +89,33 @@
 	<div>
 		<a:documentation>Utility definitions for construction of response types.</a:documentation>
 		<define name="date">
-			<optional>
-				<choice>
-					<attribute name="date">
+			<choice>
+				<attribute name="date">
+					<choice>
+						<data type="date"/>
+						<data type="gYearMonth"/>
+						<data type="gYear"/>
+					</choice>
+				</attribute>
+				<group>
+					<attribute name="start">
 						<choice>
 							<data type="date"/>
 							<data type="gYearMonth"/>
 							<data type="gYear"/>
 						</choice>
 					</attribute>
-					<group>
-						<attribute name="start">
+					<optional>
+						<attribute name="end">
 							<choice>
 								<data type="date"/>
 								<data type="gYearMonth"/>
 								<data type="gYear"/>
 							</choice>
 						</attribute>
-						<optional>
-							<attribute name="end">
-								<choice>
-									<data type="date"/>
-									<data type="gYearMonth"/>
-									<data type="gYear"/>
-								</choice>
-							</attribute>
-						</optional>
-					</group>
-				</choice>
-			</optional>
+					</optional>
+				</group>
+			</choice>
 			<optional>
 				<attribute name="duration">
 					<data type="duration"/>
@@ -127,7 +125,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="relation">
 			<optional>
-				<attribute name="relation">
+				<attribute a:defaultValue="equal" name="relation">
 					<parentRef name="relation.valueset"/>
 				</attribute>
 			</optional>
@@ -142,6 +140,10 @@
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="choice" name="unit.valueset">
+			<parentRef name="base.valueset"/>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define combine="choice" name="method.valueset">
 			<parentRef name="base.valueset"/>
 		</define>
 	</div>
@@ -271,6 +273,20 @@
 					</attribute>
 				</optional>
 				<ref name="relation"/>
+				<ref name="response.content"/>
+			</element>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define name="study">
+			<element name="response">
+				<attribute name="value">
+					<ref name="valueset"/>
+				</attribute>
+				<optional>
+					<attribute name="method">
+						<ref name="method.valueset"/>
+					</attribute>
+				</optional>
 				<ref name="response.content"/>
 			</element>
 		</define>

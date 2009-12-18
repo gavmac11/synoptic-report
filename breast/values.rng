@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   
+   ===========================================================================
+   Copyright 2009 College of American Pathologists (CAP)
+   
+   This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+   
+   The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+   License, Version 2.0 (the "License"); you may not use this file except in 
+   compliance with the License.
+   
+   You may obtain a copy of the License at:
+   
+   http://www.apache.org/licenses/LICENSE-2.0
+   
+   Unless required by applicable law or agreed to in writing, software 
+   distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   ===========================================================================
+   
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://cap#colon/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <!--=============================================================-->
+    <a:documentation>accessory SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.treatmentEffect.valueset">
+        <choice>
+            <value>no response</value>
+            <value>slight response</value>
+            <value>marked response</value>
+            <value>complete response</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>clinical SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="clinical.clinicalFindings.valueset">
+        <notAllowed/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="clinical.priorPathologicDiagnoses.valueset">
+        <notAllowed/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="clinical.priorTherapies.valueset">
+        <notAllowed/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="clinical.radiologicFindings.valueset">
+        <notAllowed/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>extent SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.sites.valueset">
+        <notAllowed/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>margin SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="margin.focality.valueset">
+        <choice>
+            <value>unifocal</value>
+            <value>multifocal</value>
+            <value>extensive</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="margin.type.valueset">
+        <choice>
+            <value>carcinoma-in-situ</value>
+            <value>intraepithelial</value>
+            <value>intramucosal carcinoma</value>
+            <value>invasive carcinoma</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="margin.location.valueset">
+        <ref name="base.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="margin.status.valueset">
+        <ref name="qualitative.valueset"/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>distantSites SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="distantSites.howDiagnosed.valueset">
+        <choice>
+            <value>this accession</value>
+            <value>prior accession</value>
+            <value>outside report</value>
+            <value>clinical history</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="distantSites.location.valueset">
+        <choice>
+            <value>liver</value>
+            <value>bone</value>
+            <value>lung</value>
+            <value>brain</value>
+            <value>specify</value>
+            <value>unreported</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>nodes SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="nodes.extracapsularExtension.valueset">
+        <ref name="qualitative.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="nodes.location.valueset">
+        <ref name="base.valueset"/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>specimen SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="specimen.integrity.valueset">
+        <choice>
+            <value>multiple designated specimens</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="specimen.procedure.valueset">
+        <choice>
+            <value>excision without wire-guided localization</value>
+            <value>excision with wire-guided localization</value>
+            <value>total mastectomy</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="specimen.sites.valueset">
+        <value>partial breast</value>
+        <value>total breast</value>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="specimen.laterality.valueset">
+        <value>right</value>
+        <value>left</value>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="specimen.lymphNodeSites.valueset">
+        <value>no lymph nodes</value>
+        <value>sentinel lymph node(s)</value>
+        <value>partial axillary dissection</value>
+        <value>complete axillary dissection</value>
+        <value>intramammary lymph nodes</value>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>stage SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="stage.pT.valueset">
+        <notAllowed/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="stage.pN.valueset">
+        <notAllowed/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="stage.pM.valueset">
+        <notAllowed/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>tumor SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.type.valueset">
+        <ref name="base.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.grade.valueset">
+        <ref name="base.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.gradeSystem.valueset">
+        <choice>
+            <value>4-grade</value>
+            <value>3-grade</value>
+            <value>2-grade</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+</grammar>

@@ -11,13 +11,35 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="name">
+                                    <String xml:space="preserve">colon</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">text/rng</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">colon/values.rng</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
                                     <String xml:space="preserve">core</String>
                                 </field>
                                 <field name="type">
                                     <String xml:space="preserve">text/rng</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">generic.rng</String>
+                                    <String xml:space="preserve">item.rng</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
+                                    <String xml:space="preserve">core</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">text/rng</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">section.rng</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -33,222 +55,13 @@
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="name">
-                                    <String xml:space="preserve">colon</String>
+                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
                                 </field>
                                 <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
+                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">colon/colon.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">document</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components-alt/item.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">document</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components-alt/section.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">document</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components-alt/generic.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">resection@colon</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/colon/components/queryContents.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">resection@colon</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/colon/components/queries.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">resection@colon</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework/components/queries.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">resection@colon</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/colon/components/valuesets.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">test-harness</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework/components/valuesets.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">document</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components-alt/item-response.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">document</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components/valuesets.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">document</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components-alt/div.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">test-harness</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework/components/queryContents.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">test-harness-alt</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components/attributes.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">synopsis</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/attributes.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">synopsis</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/value.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">synopsis</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/itemContents.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">synopsis</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rnc</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/compact/items.rnc</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">synopsis</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rnc</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/compact/itemContents.rnc</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">synopsis</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rnc</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/compact/common.rnc</String>
+                                    <String xml:space="preserve">../PERT/trunk/framework-alt/new%20components/colon.rng</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -259,18 +72,7 @@
                                     <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">../../Desktop/PERT/branches/valuesAsElements/method/cap-cancer/base.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">resection@nos-site</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/xsd</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../../Desktop/resection@nos-site.xsd</String>
+                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components-alt/colon.rng</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -281,7 +83,18 @@
                                     <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/synopsis.rng</String>
+                                    <String xml:space="preserve">../PERT/trunk/framework/test-harness.rng</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
+                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/biopsy.rng</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -303,139 +116,18 @@
                                     <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/biopsy.rng</String>
+                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/synopsis.rng</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="name">
-                                    <String xml:space="preserve">synopsis</String>
+                                    <String xml:space="preserve">resection@nos-site</String>
                                 </field>
                                 <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
+                                    <String xml:space="preserve">text/xsd</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/items.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">synopsis</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/sections.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">colon.resection</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/site/colon.attributes.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">colon.resection</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/site/colon.items.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">colon.resection</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/site/colon.itemContents.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">colon.resection</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/site/colon.valuesets.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">synopsis</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/valuesets.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">synopsis</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/common.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">synopsis</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/result.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">resection@colon</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/template/components/queries.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">test-harness</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework/components/attributes.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">test-harness</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework/components/response.rng</String>
+                                    <String xml:space="preserve">../../Desktop/resection@nos-site.xsd</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -446,139 +138,62 @@
                                     <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework/test-harness.rng</String>
+                                    <String xml:space="preserve">../../Desktop/PERT/branches/valuesAsElements/method/cap-cancer/base.rng</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="name">
-                                    <String xml:space="preserve">test-harness-alt</String>
+                                    <String xml:space="preserve">synopsis</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">text/rnc</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/compact/common.rnc</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
+                                    <String xml:space="preserve">synopsis</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">text/rnc</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/compact/itemContents.rnc</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
+                                    <String xml:space="preserve">synopsis</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">text/rnc</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/compact/items.rnc</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
+                                    <String xml:space="preserve">colon</String>
                                 </field>
                                 <field name="type">
                                     <String xml:space="preserve">text/rng</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components/document.rng</String>
+                                    <String xml:space="preserve">colon/colon.rng</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="name">
-                                    <String xml:space="preserve">test-harness</String>
+                                    <String xml:space="preserve">core</String>
                                 </field>
                                 <field name="type">
                                     <String xml:space="preserve">text/rng</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components/sections.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">test-harness-alt</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components/queries.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">resection@colon</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework/components/common.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">core-sections</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components-alt/core-items.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">document</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components-alt/values.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">colon-values</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components-alt/colon-values.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components-alt/colon.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">core-sections</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/new%20components/colon-values.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/new%20components/colon.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">core-sections</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/new%20components/core-items.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">core-sections</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/new%20components/generic.rng</String>
+                                    <String xml:space="preserve">generic.rng</String>
                                 </field>
                             </scenarioAssociation>
                         </scenarioAssociation-array>
