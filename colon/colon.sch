@@ -4,15 +4,17 @@
 	<ns prefix="ecc" uri="http://cap#"/>
 	<let name="skip" value="true()"/>
 	<pattern id="mesorectum-iff-rectum-specimen">
-		<rule context="//ecc:item[@name eq 'mesorectum intactness']/ecc:response[@value ne
-			'unreported']">
-			<assert role="error" test="//ecc:item[@name eq 'specimen sites']/ecc:response[@value eq
-				'rectum']">You may not report on mesorectum intactness unless the specimen includes
+		<rule
+			context="//ecc:item[@name eq 'mesorectum intactness']/ecc:response[@value ne    'unreported']">
+			<assert role="error"
+				test="//ecc:item[@name eq 'specimen sites']/ecc:response[@value eq     'rectum']"
+				>You may not report on mesorectum intactness unless the specimen includes
 				rectum.</assert>
 		</rule>
 		<rule context="//ecc:item[@name eq 'specimen sites']/ecc:response[@value = 'rectum']">
-			<assert role="warning" test="//ecc:item[@name eq 'mesorectum
-				intactness']/ecc:response[@value ne                 'unreported']">Since the
+			<assert role="warning"
+				test="//ecc:item[@name eq 'mesorectum     intactness']/ecc:response[@value ne                 'unreported']"
+				>Since the
 				specimen includes rectum, you should report on mesorectum intactness.</assert>
 		</rule>
 	</pattern>
