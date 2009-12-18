@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="colon.rng" type="xml"?>
 <?oxygen SCHSchema="../core-rules.sch"?>
-<section grddl:transformation="http://cap#colon/snomedct/ http://cap#colon/radlex/" name="resection"
-	schemaLocation="http://cap#colon/" version="1.0a" xmlns="http://cap#" xmlns:ecc="http://cap#"
-	xmlns:grddl="http://www.w3.org/2003/g/data-view#">
+<section grddl:transformation="http://cap#colon/snomedct/ http://cap#colon/radlex/" name="resection" schemaLocation="http://cap#colon/"
+	version="1.0a" xmlns="http://cap#" xmlns:ecc="http://cap#" xmlns:grddl="http://www.w3.org/2003/g/data-view#">
 	<section name="clinical">
 		<item name="clinical findings">
-			<response date="2009" duration="P6M" value="specify">
+			<response date="2009" duration="P6M" value="unreported">
 				<specify>hematochezia</specify>
 			</response>
 			<response duration="P5Y" start="2005" value="specify">
@@ -76,8 +75,8 @@
 		<item name="tumor sites">
 			<response value="hepatic flexure"/>
 			<response value="transverse colon"/>
-			<response value="left colon"/>
-			<response value="sigmoid colon"/>
+			<!--<response value="left colon"/>
+            <response value="sigmoid colon"/>-->
 			<!-- TODO: this might be "primary tumor sites", if we have a separate adjacent sites item -->
 		</item>
 		<item name="tumor size">
