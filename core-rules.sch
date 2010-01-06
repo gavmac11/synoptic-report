@@ -92,14 +92,6 @@
 			select="if ($value castable as xs:decimal) then if ($unit eq 'mm') then ($value + $correction) else if ($unit eq 'cm') then ($value*10.0 + $correction) else if ($unit eq 'in') then ($value*25.4 + $correction) else () else ()"
 		/>
 	</xsl:function>
-	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<p>This is an xslt2 function that returns a descending sort of a supplied sequence of decimals.</p>
-	<xsl:function name="ecc:sort">
-		<xsl:param name="input"/>
-		<xsl:perform-sort select="$input">
-			<xsl:sort order="descending" select="."/>
-		</xsl:perform-sort>
-	</xsl:function>
 	<!--=============================================================-->
 	<pattern id="specify">
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -111,7 +103,7 @@
             'specify', its that response must have a child {specify} element. </p>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="ecc:specify" role="error">
-			<assert test="(../attribute::* = 'specify') or (some $x in ../attribute::* satisfies ends-with($x,'(specify)'))"
+			<assert test="(../attribute::* = 'specify') or (some $x in ../attribute::* satisfies ends-with($x,' (specify)'))"
 				>
                 In a "<value-of select="../../@name"/>" item, the response contains a "specify" element, but the response value is "<value-of select="../@value"/>", rather than "specify".
             </assert>
@@ -124,7 +116,7 @@
             </assert>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<rule context="//ecc:response[ends-with(@value,'(specify)')]">
+		<rule context="//ecc:response[ends-with(@value,' (specify)')]">
 			<assert test="exists (ecc:specify)"
 				>
                 Item "<value-of select="../@name"/>" has a response value of "specify", but no specification ("specify" element) is given.
@@ -196,42 +188,33 @@
 				closest margin should have smallest distance
         -->
 		<rule context="//ecc:section[@name eq 'margins']">
-			<let name="margin" value="ecc:section/ecc:section">
-				<p>This selects all the margin-type elements.</p>
-			</let>
-			<let name="margin-type" value="distinct-values($margin/@name)">
-				<p>This filters down to a vector of unique margin type names.</p>
-			</let>
-			<let name="type-count" value="count($margin-type)">
-				<p>This counts the number of unique margin types.</p>
-			</let>
-			<let name="total-count" value="for $x in $margin-type return count($margin[@name eq $x]/ecc:item[@name eq 'status'])">
-				<p>This creates a vector of the number of reports for each uniquely named margin types. Now we have a vector of names ($margin-type) and
-				a corresponding vector of counts ($total-count).</p>
-			</let>
+			<!-- This selects all the margin-type elements. -->
+			<let name="margin" value="ecc:section/ecc:section"/>
+			<!--This filters down to a vector of unique margin type names.-->
+			<let name="margin-type" value="distinct-values($margin/@name)"/>
+			<!--This counts the number of unique margin types.-->
+			<let name="type-count" value="count($margin-type)"/>
+			<!--This creates a vector of the number of reports for each uniquely named margin types. Now we have a
+                    vector of names ($margin-type) and a corresponding vector of counts ($total-count).-->
+			<let name="total-count" value="for $x in $margin-type return count($margin[@name eq $x]/ecc:item[@name eq 'status'])"/>
+			<!--This creates a vector that counts for each margin type is reported as both"closest" AND reported as
+                    positive. This vector should consist of all zeroes.-->
 			<let name="closest-count"
-				value="for $x in $margin-type return count($margin[@name eq $x]/ecc:item[@name eq 'closest']/ecc:response[@value eq 'positive'])">
-				<p>This creates a vector that counts for each margin type is reported as both"closest" AND reported as positive. This vector should
-					consist of all zeroes.</p>
-			</let>
+				value="for $x in $margin-type return count($margin[@name eq $x]/ecc:item[@name eq 'closest']/ecc:response[@value eq 'positive'])"/>
+			<!--This creates a vector of the number of times a margin of each type is reported as "negative".-->
 			<let name="negative-count"
-				value="for $x in $margin-type return count($margin[@name eq $x]/ecc:item[@name eq 'status']/ecc:response[@value eq 'negative'])">
-				<p>This creates a vector of the number of times a margin of each type is reported as "negative".</p>
-			</let>
-			<let name="closest-not-unique" value="for $x in (1 to $type-count) return $margin-type[$x][$closest-count[$x] gt 1]">
-				<p>This creates a vector of booleans that report whether any margin type violates the rule that only one margin of each type can be
-					"closest".</p>
-			</let>
+				value="for $x in $margin-type return count($margin[@name eq $x]/ecc:item[@name eq 'status']/ecc:response[@value eq 'negative'])"/>
+			<!--This creates a vector of booleans that report whether any margin type violates the rule that only one
+                    margin of each type can be "closest".-->
+			<let name="closest-not-unique" value="for $x in (1 to $type-count) return $margin-type[$x][$closest-count[$x] gt 1]"/>
+			<!--This creates a vector of booleans. The boolean is true() if the margin-type in question (i) has a
+                    "closest" margin reported and (ii) has at least one non-negative margin. -->
 			<let name="closest-but-not-all-negative"
-				value="for $x in (1 to $type-count) return $margin-type[$x][$negative-count[$x] lt $total-count[$x]][$closest-count[$x] gt 0]">
-				<p>This creates a vector of booleans. The boolean is true() if the margin-type in question (i) has a "closest" margin reported and (ii)
-					has at least one non-negative margin. </p>
-			</let>
+				value="for $x in (1 to $type-count) return $margin-type[$x][$negative-count[$x] lt $total-count[$x]][$closest-count[$x] gt 0]"/>
+			<!--This creates a vector of booleans. The boolean is true() if the margin type in question (i) has no
+                    reported "closest" margin and (ii) has only negative margins.-->
 			<let name="negative-but-no-closest"
-				value="for $x in (1 to $type-count) return $margin-type[$x][$negative-count[$x] eq $total-count[$x]][$closest-count[$x] eq 0]">
-				<p>This creates a vector of booleans. The boolean is true() if the margin type in question (i) has no reported "closest" margin and (ii)
-				has only negative margins.</p>
-			</let>
+				value="for $x in (1 to $type-count) return $margin-type[$x][$negative-count[$x] eq $total-count[$x]][$closest-count[$x] eq 0]"/>
 			<assert test="empty($closest-but-not-all-negative)"
 				>
                 For margin type(s) "<value-of select="string-join($closest-but-not-all-negative, '&quot; and &quot;')"/> a "closest" margin is specified even though not all margins are negative.
@@ -254,10 +237,10 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="//ecc:section[@name eq 'margin']/ecc:section[ecc:item[@name eq 'status'][ecc:response/@value eq 'positive']]">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<assert test="not(ecc:item[@name eq 'distance'])"
+			<report test="ecc:item[@name eq 'distance']"
 				>
                 Distance from margin may not be specified for "<value-of select="@name"/>" at the "<value-of select="../ecc:item[@name eq 'location']/ecc:response/@value"/>" margin because that margin is positive.
-            </assert>
+            </report>
 		</rule>
 	</pattern>
 	<!--=============================================================-->
@@ -290,7 +273,7 @@
 				value="for $x in ../ecc:item[@name eq 'specimen size']/ecc:response return ecc:to-mm($x/@value, $x/@unit,$x/@relation)"/>
 			<let name="maxTumorDimension" value="max($tumorDimensions)"/>
 			<let name="maxSpecimenDimension" value="max($specimenDimensions)"/>
-			<report test="$maxTumorDimension gt $maxSpecimenDimension"
+			<report role="warning" test="$maxTumorDimension gt $maxSpecimenDimension"
 				>
                 Largest gross tumor dimension (<value-of select="$maxTumorDimension"/> mm) exceeds specimen largest dimension (<value-of select="$maxSpecimenDimension"/> mm).
             </report>
@@ -351,7 +334,7 @@
 	<!--=============================================================-->
 	<pattern id="response-unique">
 		<p>Some queries permit multiple responses. No repeats of the same response are allowed except in sizes.</p>
-		<rule context="//ecc:item[not(ecc:response/@unit = ('m', 'cm', 'mm', 'in'))]" role="info">
+		<rule context="//ecc:item[not(ecc:response/@unit = ('m', 'cm', 'mm', 'in'))]" role="warning">
 			<let name="response" value="ecc:response/@value[. ne 'specify'][. ne 'inapplicable'][. ne 'unreported']"/>
 			<assert test="count($response) eq count(distinct-values($response))"
 				>

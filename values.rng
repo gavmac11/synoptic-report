@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-	xmlns="http://relaxng.org/ns/structure/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
 	xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
 	<!--=============================================================-->
 	<define combine="choice" name="base.valueset">
@@ -61,6 +60,17 @@
 			<value>inapplicable</value>
 		</choice>
 	</define>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<define name="focality.valueset">
+		<choice>
+			<value>unifocal</value>
+			<value>multifocal</value>
+			<value>extensive</value>
+			<value>specify</value>
+			<value>unreported</value>
+			<value>inapplicable</value>
+		</choice>
+	</define>
 	<!--=============================================================-->
 	<a:documentation>accessory SECTION VALUESETS</a:documentation>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -108,11 +118,7 @@
 	<a:documentation>margin SECTION VALUESETS</a:documentation>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<define combine="choice" name="margin.focality.valueset">
-		<choice>
-			<value>unifocal</value>
-			<value>multifocal</value>
-			<value>extensive</value>
-		</choice>
+		<ref name="focality.valueset"/>
 	</define>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 	<define combine="choice" name="margin.type.valueset">

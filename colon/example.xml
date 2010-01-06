@@ -5,7 +5,7 @@
 	version="1.0a" xmlns="http://cap#" xmlns:ecc="http://cap#" xmlns:grddl="http://www.w3.org/2003/g/data-view#">
 	<section name="clinical">
 		<item name="clinical findings">
-			<response date="2009" duration="P6M" value="unreported">
+			<response date="2009" duration="P6M" value="specify">
 				<specify>hematochezia</specify>
 			</response>
 			<response duration="P5Y" start="2005" value="specify">
@@ -136,6 +136,9 @@
 				</item>
 				<item name="closest">
 					<response value="positive"/>
+				</item>
+				<item name="distance">
+					<response unit="cm" value="0.3"/>
 				</item>
 			</section>
 			<section name="invasive carcinoma">
