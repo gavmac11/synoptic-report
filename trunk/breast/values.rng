@@ -73,31 +73,25 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="margin.type.valueset">
         <choice>
-            <value>carcinoma-in-situ</value>
-            <value>intraepithelial</value>
-            <value>intramucosal carcinoma</value>
+            <value>DCIS</value>
             <value>invasive carcinoma</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="margin.location.valueset">
-        <ref name="base.valueset"/>
+        <choice>
+            <value>superior</value>
+            <value>inferior</value>
+            <value>anterior</value>
+            <value>posterior</value>
+            <value>medial</value>
+            <value>lateral</value>
+        </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margin.status.valueset">
-        <ref name="qualitative.valueset"/>
-    </define>
     <!--=============================================================-->
     <a:documentation>distantSites SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="distantSites.howDiagnosed.valueset">
-        <choice>
-            <value>this accession</value>
-            <value>prior accession</value>
-            <value>outside report</value>
-            <value>clinical history</value>
-        </choice>
-    </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="distantSites.location.valueset">
         <choice>
@@ -112,12 +106,8 @@
     <!--=============================================================-->
     <a:documentation>nodes SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.extracapsularExtension.valueset">
-        <ref name="qualitative.valueset"/>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="nodes.location.valueset">
-        <ref name="base.valueset"/>
+        <empty/>
     </define>
     <!--=============================================================-->
     <a:documentation>specimen SECTION VALUESETS</a:documentation>
@@ -137,21 +127,37 @@
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="specimen.sites.valueset">
-        <value>partial breast</value>
-        <value>total breast</value>
+        <choice>
+            <value>partial breast</value>
+            <value>total breast</value>
+        </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="specimen.laterality.valueset">
-        <value>right</value>
-        <value>left</value>
+        <choice>
+            <value>right</value>
+            <value>left</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="specimen.nodeSampling.valueset">
+        <choice>
+            <value>sentinel lymph nodes</value>
+            <value>partial axillary dissection</value>
+            <value>complete axillary dissection</value>
+            <value>intramammary lymph nodes</value>
+            <value>specify</value>
+        </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="specimen.lymphNodeSites.valueset">
-        <value>no lymph nodes</value>
-        <value>sentinel lymph node(s)</value>
-        <value>partial axillary dissection</value>
-        <value>complete axillary dissection</value>
-        <value>intramammary lymph nodes</value>
+        <choice>
+            <value>no lymph nodes</value>
+            <value>sentinel lymph node(s)</value>
+            <value>partial axillary dissection</value>
+            <value>complete axillary dissection</value>
+            <value>intramammary lymph nodes</value>
+        </choice>
     </define>
     <!--=============================================================-->
     <a:documentation>stage SECTION VALUESETS</a:documentation>
@@ -171,11 +177,11 @@
     <a:documentation>tumor SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="tumor.type.valueset">
-        <ref name="base.valueset"/>
+        <empty/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="tumor.grade.valueset">
-        <ref name="base.valueset"/>
+        <empty/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="tumor.gradeSystem.valueset">
@@ -183,6 +189,41 @@
             <value>4-grade</value>
             <value>3-grade</value>
             <value>2-grade</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.focality.valueset">
+        <choice>
+            <value>single focus</value>
+            <value>3-grade</value>
+            <value>2-grade</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.sites.valueset">
+        <choice>
+            <choice>
+                <value>upper outer quadrant</value>
+                <value>lower outer quadrant</value>
+                <value>upper inner quadrant</value>
+                <value>lower inner quadrant</value>
+                <value>central</value>
+                <value>nipple</value>
+            </choice>
+            <choice>
+                <value>12:00</value>
+                <value>1:00</value>
+                <value>2:00</value>
+                <value>3:00</value>
+                <value>4:00</value>
+                <value>5:00</value>
+                <value>6:00</value>
+                <value>7:00</value>
+                <value>8:00</value>
+                <value>9:00</value>
+                <value>10:00</value>
+                <value>11:00</value>
+            </choice>
         </choice>
     </define>
     <!--=============================================================-->

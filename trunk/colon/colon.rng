@@ -7,411 +7,410 @@
 <!ENTITY  colon-values  "values.rng">
 <!ENTITY  core          "../core-sections.rng">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://cap#colon/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-    xmlns:colon="http://cap#colon/">
-    <!--=============================================================-->
-    <include href="&core;">
-        <start>
-            <ref name="resection"/>
-        </start>
-        <define name="schemaLocation">
-            <value>http://cap#colon/</value>
-        </define>
-        <define name="version">
-            <value>1.0a</value>
-        </define>
-        <define name="semantics">
-            <value>http://cap#colon/snomedct/ http://cap#colon/radlex/</value>
-        </define>
-        <!--=============================================================-->
-    </include>
-    <include href="&colon-values;"/>
-    <!--=============================================================-->
-    <define name="accessory.extension">
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>peritumoral deposits</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectOne"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="qualitative.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>precursor polyp</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectOne"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="accessory.preexistingPolyp.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>mucinous component</value>
-                    </define>
-                    <define name="response">
-                        <ref name="percent"/>
-                    </define>
-                </include>
-            </grammar>
-        </optional>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>medullary component</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectOne"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="qualitative.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>high grade</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectOne"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="qualitative.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>intratumoral immune response</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectOne"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="accessory.immuneResponse.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>peritumoral immune response</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectOne"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="accessory.immuneResponse.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    </define>
-    <!--=============================================================-->
-    <define name="additional.extension">
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>additional findings</value>
-                </define>
-                <define name="response">
-                    <ref name="selectMany"/>
-                </define>
-            </include>
-            <define name="valueset">
-                <parentRef name="additional.finding.valueset"/>
-            </define>
-        </grammar>
-    </define>
-    <!--=============================================================-->
-    <define name="extent.extension">
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>deepest invasion</value>
-                </define>
-                <define name="response">
-                    <ref name="selectOne"/>
-                </define>
-            </include>
-            <define name="valueset">
-                <parentRef name="extent.deepestInvasion.valueset"/>
-            </define>
-        </grammar>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>adjacent structures</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectMany"/>
-                    </define>
-                    <define name="extension">
-                        <attribute name="degree">
-                            <parentRef name="extent.invasionDegree.valueset"/>
-                        </attribute>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="extent.sites.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-    </define>
-    <!--=============================================================-->
-    <div>
-        <a:documentation>Specimen section customizations</a:documentation>
-        <!--=============================================================-->
-        <define name="specimen.extension">
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <grammar>
-                <include href="&section;">
-                    <define name="name">
-                        <value>precursor polyp</value>
-                    </define>
-                    <define name="content">
-                        <parentRef name="preexistingPolyp.content"/>
-                    </define>
-                </include>
-            </grammar>
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>mesorectum intactness</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectOne"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="specimen.mesorectum.valueset"/>
-                </define>
-            </grammar>
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>tumor perforation</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectOne"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="qualitative.valueset"/>
-                </define>
-            </grammar>
-        </define>
-        <!--=============================================================-->
-        <define name="preexistingPolyp.content">
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>configuration</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectOne"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="specimen.polypConfiguration.valueset"/>
-                </define>
-            </grammar>
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>stalk length</value>
-                    </define>
-                    <define name="response">
-                        <ref name="length"/>
-                    </define>
-                </include>
-            </grammar>
-        </define>
-    </div>
-    <!--=============================================================-->
-    <define name="studies.extension">
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>microsatellite instability</value>
-                    </define>
-                    <define name="response">
-                        <ref name="study"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="studies.microsatelliteInstability.valueset"/>
-                </define>
-                <define name="method.valueset">
-                    <parentRef name="studies.microsatelliteInstability.method.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>MLH1</value>
-                    </define>
-                    <define name="response">
-                        <ref name="study"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="studies.mismatchRepair.valueset"/>
-                </define>
-                <define name="method.valueset">
-                    <parentRef name="studies.mismatchRepair.method.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>MSH2</value>
-                    </define>
-                    <define name="response">
-                        <ref name="study"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="studies.mismatchRepair.valueset"/>
-                </define>
-                <define name="method.valueset">
-                    <parentRef name="studies.mismatchRepair.method.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>MSH6</value>
-                    </define>
-                    <define name="response">
-                        <ref name="study"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="studies.mismatchRepair.valueset"/>
-                </define>
-                <define name="method.valueset">
-                    <parentRef name="studies.mismatchRepair.method.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>PMS2</value>
-                    </define>
-                    <define name="response">
-                        <ref name="study"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="studies.mismatchRepair.valueset"/>
-                </define>
-                <define name="method.valueset">
-                    <parentRef name="studies.mismatchRepair.method.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>BRAF</value>
-                    </define>
-                    <define name="response">
-                        <ref name="study"/>
-                    </define>
-                    <define name="extension">
-                        <attribute name="mutation">
-                            <parentRef name="studies.BRAF.mutation.valueset"/>
-                        </attribute>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="studies.mutationalAnalysis.valueset"/>
-                </define>
-                <define name="method.valueset">
-                    <parentRef name="studies.mutationalAnalysis.method.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>KRAS</value>
-                    </define>
-                    <define name="response">
-                        <ref name="study"/>
-                    </define>
-                    <define name="extension">
-                        <attribute name="mutation">
-                            <parentRef name="studies.KRAS.mutation.valueset"/>
-                        </attribute>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="studies.mutationalAnalysis.valueset"/>
-                </define>
-                <define name="method.valueset">
-                    <parentRef name="studies.mutationalAnalysis.method.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-    </define>
-    <!--=============================================================-->
-    <define name="tumor.extension">
-        <empty/>
-    </define>
-    <!--=============================================================-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://cap#colon/" xmlns="http://relaxng.org/ns/structure/1.0"
+	xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:colon="http://cap#colon/">
+	<!--=============================================================-->
+	<include href="&core;">
+		<start>
+			<ref name="resection"/>
+		</start>
+		<define name="schemaLocation">
+			<value>http://cap#colon/</value>
+		</define>
+		<define name="version">
+			<value>1.0a</value>
+		</define>
+		<define name="semantics">
+			<value>http://cap#colon/snomedct/ http://cap#colon/radlex/</value>
+		</define>
+		<!--=============================================================-->
+	</include>
+	<include href="&colon-values;"/>
+	<!--=============================================================-->
+	<define name="accessory.extension">
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>peritumoral deposits</value>
+					</define>
+					<define name="response">
+						<ref name="selectOne"/>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="qualitative.valueset"/>
+				</define>
+			</grammar>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>precursor polyp</value>
+					</define>
+					<define name="response">
+						<ref name="selectOne"/>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="accessory.preexistingPolyp.valueset"/>
+				</define>
+			</grammar>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>mucinous component</value>
+					</define>
+					<define name="response">
+						<ref name="percent"/>
+					</define>
+				</include>
+			</grammar>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>medullary component</value>
+					</define>
+					<define name="response">
+						<ref name="selectOne"/>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="qualitative.valueset"/>
+				</define>
+			</grammar>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>high grade</value>
+					</define>
+					<define name="response">
+						<ref name="selectOne"/>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="qualitative.valueset"/>
+				</define>
+			</grammar>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>intratumoral immune response</value>
+					</define>
+					<define name="response">
+						<ref name="selectOne"/>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="accessory.immuneResponse.valueset"/>
+				</define>
+			</grammar>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>peritumoral immune response</value>
+					</define>
+					<define name="response">
+						<ref name="selectOne"/>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="accessory.immuneResponse.valueset"/>
+				</define>
+			</grammar>
+		</optional>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</define>
+	<!--=============================================================-->
+	<define name="additional.extension">
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<grammar>
+			<include href="&item;">
+				<define name="name">
+					<value>additional findings</value>
+				</define>
+				<define name="response">
+					<ref name="selectMany"/>
+				</define>
+			</include>
+			<define name="valueset">
+				<parentRef name="additional.finding.valueset"/>
+			</define>
+		</grammar>
+	</define>
+	<!--=============================================================-->
+	<define name="extent.extension">
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<grammar>
+			<include href="&item;">
+				<define name="name">
+					<value>deepest invasion</value>
+				</define>
+				<define name="response">
+					<ref name="selectOne"/>
+				</define>
+			</include>
+			<define name="valueset">
+				<parentRef name="extent.deepestInvasion.valueset"/>
+			</define>
+		</grammar>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>adjacent structures</value>
+					</define>
+					<define name="response">
+						<ref name="selectMany"/>
+					</define>
+					<define name="extension">
+						<attribute name="degree">
+							<parentRef name="extent.invasionDegree.valueset"/>
+						</attribute>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="extent.sites.valueset"/>
+				</define>
+			</grammar>
+		</optional>
+	</define>
+	<!--=============================================================-->
+	<div>
+		<a:documentation>Specimen section customizations</a:documentation>
+		<!--=============================================================-->
+		<define name="specimen.extension">
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<grammar>
+				<include href="&section;">
+					<define name="name">
+						<value>precursor polyp</value>
+					</define>
+					<define name="content">
+						<parentRef name="preexistingPolyp.content"/>
+					</define>
+				</include>
+			</grammar>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>mesorectum intactness</value>
+					</define>
+					<define name="response">
+						<ref name="selectOne"/>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="specimen.mesorectum.valueset"/>
+				</define>
+			</grammar>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>tumor perforation</value>
+					</define>
+					<define name="response">
+						<ref name="selectOne"/>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="qualitative.valueset"/>
+				</define>
+			</grammar>
+		</define>
+		<!--=============================================================-->
+		<define name="preexistingPolyp.content">
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>configuration</value>
+					</define>
+					<define name="response">
+						<ref name="selectOne"/>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="specimen.polypConfiguration.valueset"/>
+				</define>
+			</grammar>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>stalk length</value>
+					</define>
+					<define name="response">
+						<ref name="length"/>
+					</define>
+				</include>
+			</grammar>
+		</define>
+	</div>
+	<!--=============================================================-->
+	<define name="studies.extension">
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>microsatellite instability</value>
+					</define>
+					<define name="response">
+						<ref name="study"/>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="studies.microsatelliteInstability.valueset"/>
+				</define>
+				<define name="method.valueset">
+					<parentRef name="studies.microsatelliteInstability.method.valueset"/>
+				</define>
+			</grammar>
+		</optional>
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>MLH1</value>
+					</define>
+					<define name="response">
+						<ref name="study"/>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="studies.mismatchRepair.valueset"/>
+				</define>
+				<define name="method.valueset">
+					<parentRef name="studies.mismatchRepair.method.valueset"/>
+				</define>
+			</grammar>
+		</optional>
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>MSH2</value>
+					</define>
+					<define name="response">
+						<ref name="study"/>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="studies.mismatchRepair.valueset"/>
+				</define>
+				<define name="method.valueset">
+					<parentRef name="studies.mismatchRepair.method.valueset"/>
+				</define>
+			</grammar>
+		</optional>
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>MSH6</value>
+					</define>
+					<define name="response">
+						<ref name="study"/>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="studies.mismatchRepair.valueset"/>
+				</define>
+				<define name="method.valueset">
+					<parentRef name="studies.mismatchRepair.method.valueset"/>
+				</define>
+			</grammar>
+		</optional>
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>PMS2</value>
+					</define>
+					<define name="response">
+						<ref name="study"/>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="studies.mismatchRepair.valueset"/>
+				</define>
+				<define name="method.valueset">
+					<parentRef name="studies.mismatchRepair.method.valueset"/>
+				</define>
+			</grammar>
+		</optional>
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>BRAF</value>
+					</define>
+					<define name="response">
+						<ref name="study"/>
+					</define>
+					<define name="extension">
+						<attribute name="mutation">
+							<parentRef name="studies.BRAF.mutation.valueset"/>
+						</attribute>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="studies.mutationalAnalysis.valueset"/>
+				</define>
+				<define name="method.valueset">
+					<parentRef name="studies.mutationalAnalysis.method.valueset"/>
+				</define>
+			</grammar>
+		</optional>
+		<optional>
+			<grammar>
+				<include href="&item;">
+					<define name="name">
+						<value>KRAS</value>
+					</define>
+					<define name="response">
+						<ref name="study"/>
+					</define>
+					<define name="extension">
+						<attribute name="mutation">
+							<parentRef name="studies.KRAS.mutation.valueset"/>
+						</attribute>
+					</define>
+				</include>
+				<define name="valueset">
+					<parentRef name="studies.mutationalAnalysis.valueset"/>
+				</define>
+				<define name="method.valueset">
+					<parentRef name="studies.mutationalAnalysis.method.valueset"/>
+				</define>
+			</grammar>
+		</optional>
+	</define>
+	<!--=============================================================-->
+	<define name="tumor.extension">
+		<empty/>
+	</define>
+	<!--=============================================================-->
 </grammar>
