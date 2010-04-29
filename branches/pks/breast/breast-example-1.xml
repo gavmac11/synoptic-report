@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:/Users/me/Dropbox/eCC%20working/breast/breast.rng" type="xml"?>
+<?oxygen SCHSchema="breast.sch"?>
+<section name="resection" ns1:transformation="http://cap#breast/snomedct/ http://cap#breast/radlex/"
+    schemaLocation="http://cap#breast/" version="1.0a" xmlns="http://cap#"
+    xmlns:ns1="http://www.w3.org/2003/g/data-view#">
+    <section name="clinical">
+        <item name="clinical finding">
+            <response value="specify">
+                <specify>fever</specify>
+            </response>
+        </item>
+        <item name="prior therapy">
+            <response value="specify">
+                <specify>chemotherapy</specify>
+            </response>
+        </item>
+    </section>
+    <section name="specimen">
+        <item name="procedure">
+            <response value="excision with wire-guided localization"/>
+        </item>
+        <item name="size">
+            <response unit="cm" value="4"/>
+            <response unit="cm" value="3"/>
+            <response unit="cm" value="2"/>
+        </item>
+        <item name="weight">
+            <response unit="g" value="450"/>
+        </item>
+        <item name="site">
+            <response value="partial breast"/>
+        </item>
+        <item name="integrity">
+            <response value="intact"/>
+        </item>
+    </section>
+    <section name="tumor">
+        <section modifier="principal" name="focus">
+            <item name="site">
+                <response value="lower outer quadrant"/>
+            </item>
+            <item name="size">
+                <response unit="cm" value="2.2"/>
+                <response unit="cm" value="2.0"/>
+                <response unit="cm" value="1.8"/>
+            </item>
+        </section>
+        <item name="histologic types">
+            <response value="ductal carcinoma"/>
+        </item>
+        <item name="histologic grade">
+            <response modifier="3-grade" value="2"/>
+        </item>
+        <item name="Nottingham score">
+            <response modifier="glands" value="1"/>
+            <response modifier="nuclei" value="2"/>
+            <response modifier="mitoses" value="1"/>
+        </item>
+    </section>
+    <section name="extent">
+        <item name="skin invasion">
+            <response value="negative"/>
+        </item>
+        <item name="skin ulceration">
+            <response value="negative"/>
+        </item>
+        <item name="skin satellite nodules">
+            <response value="negative"/>
+        </item>
+        <item name="dermal lymphatic invasion">
+            <response value="negative"/>
+        </item>
+        <item name="underlying structures">
+            <response value="negative"/>
+        </item>
+        <item name="nipple Paget disease">
+            <response value="negative"/>
+        </item>
+    </section>
+    <section name="accessory">
+        <item name="lymph-vascular invasion">
+            <response value="positive"/>
+        </item>
+        <item name="microcalcifications">
+            <response value="in DCIS"/>
+        </item>
+        <section name="ductal carcinoma-in-situ">
+            <item name="result">
+                <response modifier="extensive intraductal component" value="positive"/>
+            </item>
+            <item name="architectural pattern">
+                <response value="papillary"/>
+                <response value="cribriform"/>
+            </item>
+        </section>
+        <section name="lobular carcinoma-in-situ">
+            <item name="extent">
+                <response value="positive"/>
+            </item>
+        </section>
+    </section>
+    <section name="margins">
+        <section location="anterior" name="margin">
+            <section modifier="in-situ" name="status">
+                <item name="result">
+                    <response modifier="closest" value="negative"/>
+                </item>
+                <item name="distance">
+                    <response unit="cm" value="0.6"/>
+                </item>
+            </section>
+            <section modifier="invasive" name="status">
+                <item name="result">
+                    <response modifier="closest" value="negative"/>
+                </item>
+                <item name="distance">
+                    <response unit="cm" value="0.6"/>
+                </item>
+            </section>
+        </section>
+        <section location="inferior" name="margin">
+            <section modifier="in-situ" name="status">
+                <item name="result">
+                    <response modifier="closest" value="negative"/>
+                </item>
+                <item name="distance">
+                    <response unit="cm" value="0.6"/>
+                </item>
+            </section>
+            <section modifier="invasive" name="status">
+                <item name="result">
+                    <response modifier="closest" value="negative"/>
+                </item>
+                <item name="distance">
+                    <response unit="cm" value="0.6"/>
+                </item>
+            </section>
+        </section>
+        <section location="lateral" name="margin">
+            <section modifier="in-situ" name="status">
+                <item name="result">
+                    <response modifier="closest" value="negative"/>
+                </item>
+                <item name="distance">
+                    <response unit="cm" value="0.6"/>
+                </item>
+            </section>
+            <section modifier="invasive" name="status">
+                <item name="result">
+                    <response modifier="closest" value="negative"/>
+                </item>
+                <item name="distance">
+                    <response unit="cm" value="0.6"/>
+                </item>
+            </section>
+        </section>
+        <section location="medial" name="margin">
+            <section modifier="in-situ" name="status">
+                <item name="result">
+                    <response modifier="closest" value="negative"/>
+                </item>
+                <item name="distance">
+                    <response unit="cm" value="0.6"/>
+                </item>
+            </section>
+            <section modifier="invasive" name="status">
+                <item name="result">
+                    <response modifier="closest" value="negative"/>
+                </item>
+                <item name="distance">
+                    <response unit="cm" value="0.6"/>
+                </item>
+            </section>
+        </section>
+        <section location="posterior" name="margin">
+            <section modifier="in-situ" name="status">
+                <item name="result">
+                    <response modifier="closest" value="negative"/>
+                </item>
+                <item name="distance">
+                    <response unit="cm" value="0.6"/>
+                </item>
+            </section>
+            <section modifier="invasive" name="status">
+                <item name="result">
+                    <response modifier="closest" value="negative"/>
+                </item>
+                <item name="distance">
+                    <response unit="cm" value="0.6"/>
+                </item>
+            </section>
+        </section>
+        <section location="superior" name="margin">
+            <section modifier="in-situ" name="status">
+                <item name="result">
+                    <response modifier="closest" value="negative"/>
+                </item>
+                <item name="distance">
+                    <response unit="cm" value="0.6"/>
+                </item>
+            </section>
+            <section modifier="invasive" name="status">
+                <item name="result">
+                    <response modifier="closest" value="negative"/>
+                </item>
+                <item name="distance">
+                    <response unit="cm" value="0.6"/>
+                </item>
+            </section>
+        </section>
+    </section>
+    <section name="nodes">
+        <section name="node group" site="sentinel">
+            <item name="total">
+                <response value="3"/>
+            </item>
+            <item name="positive">
+                <response value="0"/>
+            </item>
+            <item name="extracapsular extension">
+                <response value="unreported"/>
+            </item>
+            <item name="technique">
+                <response value="H+E one level"/>
+            </item>
+        </section>
+    </section>
+    <section name="distant">
+        <section name="status" site="brain">
+            <item name="result">
+                <response modifier="clinical history" value="negative"/>
+            </item>
+        </section>
+    </section>
+    <section name="studies">
+        <section name="estrogen receptor">
+            <item name="result">
+                <response unit="percent" value="unreported"/>
+            </item>
+            <item name="technique">
+                <response value="immunohistochemistry"/>
+            </item>
+            <item name="source">
+                <response value="this specimen"/>
+            </item>
+        </section>
+        <section name="progesterone receptor">
+            <item name="result">
+                <response unit="percent" value="unreported"/>
+            </item>
+            <item name="technique">
+                <response value="immunohistochemistry"/>
+            </item>
+            <item name="source">
+                <response value="pending"/>
+            </item>
+        </section>
+        <section name="HER2-neu">
+            <item name="result">
+                <response value="negative (score 0)"/>
+            </item>
+            <item name="technique">
+                <response value="immunohistochemistry"/>
+            </item>
+            <item name="source">
+                <response value="pending"/>
+            </item>
+            <item name="antibody">
+                <response value="specify" vendor="specify">
+                    <specify>something</specify>
+                </response>
+            </item>
+        </section>
+    </section>
+    <section name="stage">
+        <item name="prefix">
+            <response value="none"/>
+        </item>
+        <item name="multiplicity">
+            <response value="1"/>
+        </item>
+        <item name="pT">
+            <response value="1"/>
+        </item>
+        <item name="pN">
+            <response value="1"/>
+        </item>
+        <item name="pM">
+            <response value="1"/>
+        </item>
+    </section>
+    <section name="additional">
+        <item name="finding">
+            <response value=""/>
+        </item>
+    </section>
+</section>
