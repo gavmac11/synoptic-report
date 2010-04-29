@@ -11,6 +11,17 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="name">
+                                    <String xml:space="preserve">core</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">text/rng</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">values.rng</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
                                     <String xml:space="preserve">breast</String>
                                 </field>
                                 <field name="type">
@@ -18,39 +29,6 @@
                                 </field>
                                 <field name="url">
                                     <String xml:space="preserve">breast/values.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">colon</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">colon/values.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">core</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">item.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">core</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/rng</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">section.rng</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -66,90 +44,35 @@
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="name">
-                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
+                                    <String xml:space="preserve">colon</String>
                                 </field>
                                 <field name="type">
-                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
+                                    <String xml:space="preserve">text/rng</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/new%20components/colon.rng</String>
+                                    <String xml:space="preserve">colon/values.rng</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="name">
-                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
+                                    <String xml:space="preserve">colon</String>
                                 </field>
                                 <field name="type">
-                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
+                                    <String xml:space="preserve">text/rng</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components-alt/colon.rng</String>
+                                    <String xml:space="preserve">colon/colon.rng</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="name">
-                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
+                                    <String xml:space="preserve">core</String>
                                 </field>
                                 <field name="type">
-                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
+                                    <String xml:space="preserve">text/rng</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">../PERT/trunk/framework/test-harness.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/biopsy.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/resection.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/synopsis.rng</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">resection@nos-site</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/xsd</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../../Desktop/resection@nos-site.xsd</String>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="name">
-                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
-                                </field>
-                                <field name="url">
-                                    <String xml:space="preserve">../../Desktop/PERT/branches/valuesAsElements/method/cap-cancer/base.rng</String>
+                                    <String xml:space="preserve">generic.rng</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -160,7 +83,7 @@
                                     <String xml:space="preserve">text/rnc</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/compact/common.rnc</String>
+                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/compact/items.rnc</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -182,7 +105,95 @@
                                     <String xml:space="preserve">text/rnc</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/compact/items.rnc</String>
+                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/compact/common.rnc</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
+                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">../../Desktop/PERT/branches/valuesAsElements/method/cap-cancer/base.rng</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
+                                    <String xml:space="preserve">resection@nos-site</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">text/xsd</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">../../Desktop/resection@nos-site.xsd</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
+                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/synopsis.rng</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
+                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/resection.rng</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
+                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">../PERT/branches/valuesAsElements/generic/biopsy.rng</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
+                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">../PERT/trunk/framework/test-harness.rng</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
+                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">../PERT/trunk/framework-alt/components-alt/colon.rng</String>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="name">
+                                    <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">Default_engine_scenario_type_1254902349626</String>
+                                </field>
+                                <field name="url">
+                                    <String xml:space="preserve">../PERT/trunk/framework-alt/new%20components/colon.rng</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
@@ -193,18 +204,18 @@
                                     <String xml:space="preserve">text/rng</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">generic.rng</String>
+                                    <String xml:space="preserve">section.rng</String>
                                 </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="name">
-                                    <String xml:space="preserve">colon</String>
+                                    <String xml:space="preserve">core</String>
                                 </field>
                                 <field name="type">
                                     <String xml:space="preserve">text/rng</String>
                                 </field>
                                 <field name="url">
-                                    <String xml:space="preserve">colon/colon.rng</String>
+                                    <String xml:space="preserve">item.rng</String>
                                 </field>
                             </scenarioAssociation>
                         </scenarioAssociation-array>
@@ -221,51 +232,6 @@
                                 </field>
                                 <field name="name">
                                     <String xml:space="preserve">Default_engine_scenario_name_1254902349626</String>
-                                </field>
-                            </validationScenario>
-                            <validationScenario>
-                                <field name="pairs">
-                                    <list>
-                                    <validationUnit>
-                                    <field name="validationType">
-                                    <validationUnitType>
-                                    <field name="validationInputType">
-                                    <String xml:space="preserve">text/xsd</String>
-                                    </field>
-                                    </validationUnitType>
-                                    </field>
-                                    <field name="url">
-                                    <String xml:space="preserve">${currentFileURL}</String>
-                                    </field>
-                                    <field name="validationEngine">
-                                    <validationEngine>
-                                    <field name="engineType">
-                                    <String xml:space="preserve">Saxon-EE</String>
-                                    </field>
-                                    <field
-                                    name="allowsAutomaticValidation">
-                                    <Boolean xml:space="preserve">true</Boolean>
-                                    </field>
-                                    </validationEngine>
-                                    </field>
-                                    <field
-                                    name="allowAutomaticValidation">
-                                    <Boolean xml:space="preserve">true</Boolean>
-                                    </field>
-                                    <field name="extensions">
-                                    <null/>
-                                    </field>
-                                    <field name="validationSchema">
-                                    <null/>
-                                    </field>
-                                    </validationUnit>
-                                    </list>
-                                </field>
-                                <field name="type">
-                                    <String xml:space="preserve">text/xsd</String>
-                                </field>
-                                <field name="name">
-                                    <String xml:space="preserve">resection@nos-site</String>
                                 </field>
                             </validationScenario>
                             <validationScenario>
@@ -448,6 +414,51 @@
                                     <String xml:space="preserve">core</String>
                                 </field>
                             </validationScenario>
+                            <validationScenario>
+                                <field name="pairs">
+                                    <list>
+                                    <validationUnit>
+                                    <field name="validationType">
+                                    <validationUnitType>
+                                    <field name="validationInputType">
+                                    <String xml:space="preserve">text/xsd</String>
+                                    </field>
+                                    </validationUnitType>
+                                    </field>
+                                    <field name="url">
+                                    <String xml:space="preserve">${currentFileURL}</String>
+                                    </field>
+                                    <field name="validationEngine">
+                                    <validationEngine>
+                                    <field name="engineType">
+                                    <String xml:space="preserve">Saxon-EE</String>
+                                    </field>
+                                    <field
+                                    name="allowsAutomaticValidation">
+                                    <Boolean xml:space="preserve">true</Boolean>
+                                    </field>
+                                    </validationEngine>
+                                    </field>
+                                    <field
+                                    name="allowAutomaticValidation">
+                                    <Boolean xml:space="preserve">true</Boolean>
+                                    </field>
+                                    <field name="extensions">
+                                    <null/>
+                                    </field>
+                                    <field name="validationSchema">
+                                    <null/>
+                                    </field>
+                                    </validationUnit>
+                                    </list>
+                                </field>
+                                <field name="type">
+                                    <String xml:space="preserve">text/xsd</String>
+                                </field>
+                                <field name="name">
+                                    <String xml:space="preserve">resection@nos-site</String>
+                                </field>
+                            </validationScenario>
                         </validationScenario-array>
                     </entry>
                     <entry>
@@ -460,5 +471,8 @@
     </meta>
     <projectTree name="eCC.xpr">
         <folder path="."/>
+        <file
+            name="../../../../Applications/oXygen11.1/frameworks/xslt/extensions/xt.xsl"
+        />
     </projectTree>
 </project>

@@ -28,7 +28,7 @@
     <!--=============================================================-->
     <a:documentation>-- accessory SECTION VALUES --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="accessory.preexistingPolyp.valueset">
+    <define name="precursorPolyp.valueset">
         <choice>
             <value>tubular adenoma</value>
             <value>villous adenoma</value>
@@ -75,7 +75,7 @@
     <!--=============================================================-->
     <a:documentation>-- extent SECTION VALUES --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.invasionDegree.valueset">
+    <define name="extent.severity.valueset">
         <choice>
             <value>adheres</value>
             <value>invades</value>
@@ -119,6 +119,12 @@
     </define>
     <!--=============================================================-->
     <a:documentation>-- margins SECTION VALUES --</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="margin.sort.valueset">
+        <choice>
+            <value>intramucosal</value>
+        </choice>
+    </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="margin.location.valueset">
         <choice>
@@ -333,11 +339,14 @@
             <ref name="base.valueset"/>
         </choice>
     </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="studies.BRAF.mutation.valueset">
         <choice>
             <value>V600E</value>
+            <ref name="base.valueset"/>
         </choice>
     </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="studies.KRAS.mutation.valueset">
         <choice>
             <empty/>

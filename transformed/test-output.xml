@@ -1,41 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE grammar [
-<!ENTITY  item  	"item.rng">
-<!ENTITY  values	"values.rng">
-<!ENTITY  generic	"generic.rng">
-<!ENTITY  section	"section.rng">
-]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://cap#"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:ecc="http://cap#">
     <!--=============================================================-->
-    <include href="&values;"/>
-    <include href="&generic;"/>
+    <include href="values.rng"/>
+    <include href="generic.rng"/>
     <!--=============================================================-->
     <define name="accessory.content">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <optional>
             <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>treatment response</value>
+                <include href="item.rng">
+                    <define name="item">
+                        <element name="treatment_effect">
+                            <ref name="content"/>
+                        </element>
                     </define>
                     <define name="response">
                         <ref name="selectOne"/>
                     </define>
                 </include>
                 <define name="valueset">
-                    <parentRef name="accessory.treatmentResponse.valueset"/>
+                    <parentRef name="accessory.treatmentEffect.valueset"/>
                 </define>
             </grammar>
         </optional>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <optional>
             <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>lymph-vascular invasion</value>
-                    </define>
+                <include href="item.rng">
+                    <rng:element name="lymph-vascular_invasion" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
                     <define name="response">
                         <ref name="selectOne"/>
                     </define>
@@ -48,10 +44,10 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <optional>
             <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>perineural invasion</value>
-                    </define>
+                <include href="item.rng">
+                    <rng:element name="perineural_invasion" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
                     <define name="response">
                         <ref name="selectOne"/>
                     </define>
@@ -72,21 +68,7 @@
     <!--=============================================================-->
     <define name="additional.content">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <zeroOrMore>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>finding</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectOne"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="additional.finding.valueset"/>
-                </define>
-            </grammar>
-        </zeroOrMore>
+        <empty/>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <ref name="additional.extension"/>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -103,10 +85,10 @@
             <choice>
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <grammar>
-                    <include href="&item;">
-                        <define name="name">
-                            <value>clinical finding</value>
-                        </define>
+                    <include href="item.rng">
+                        <rng:element name="clinical_finding" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                            <rng:ref name="content"/>
+                        </rng:element>
                         <define name="response">
                             <ref name="selectOne"/>
                         </define>
@@ -122,10 +104,11 @@
                 </grammar>
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <grammar>
-                    <include href="&item;">
-                        <define name="name">
-                            <value>prior pathologic diagnosis</value>
-                        </define>
+                    <include href="item.rng">
+                        <rng:element name="prior_pathologic_diagnosis" xmlns=""
+                            xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                            <rng:ref name="content"/>
+                        </rng:element>
                         <define name="response">
                             <ref name="selectOne"/>
                         </define>
@@ -141,10 +124,10 @@
                 </grammar>
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <grammar>
-                    <include href="&item;">
-                        <define name="name">
-                            <value>prior therapy</value>
-                        </define>
+                    <include href="item.rng">
+                        <rng:element name="prior_therapy" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                            <rng:ref name="content"/>
+                        </rng:element>
                         <define name="response">
                             <ref name="selectOne"/>
                         </define>
@@ -160,10 +143,10 @@
                 </grammar>
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <grammar>
-                    <include href="&item;">
-                        <define name="name">
-                            <value>radiologic finding</value>
-                        </define>
+                    <include href="item.rng">
+                        <rng:element name="radiologic_finding" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                            <rng:ref name="content"/>
+                        </rng:element>
                         <define name="response">
                             <ref name="selectOne"/>
                         </define>
@@ -192,6 +175,12 @@
     <!--=============================================================-->
     <define name="extent.content">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <ref name="extent.principalFocus"/>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <zeroOrMore>
+            <ref name="extent.additionalFocus"/>
+        </zeroOrMore>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <ref name="extent.extension"/>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     </define>
@@ -199,11 +188,120 @@
     <define combine="interleave" name="extent.extension">
         <empty/>
     </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.principalFocus">
+        <grammar>
+            <include href="section.rng">
+                <define name="name">
+                    <value>principal focus</value>
+                </define>
+                <define name="content">
+                    <parentRef name="extent.principalFocus.content"/>
+                </define>
+            </include>
+        </grammar>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.additionalFocus">
+        <grammar>
+            <include href="section.rng">
+                <define name="name">
+                    <value>additional focus</value>
+                </define>
+                <define name="content">
+                    <parentRef name="extent.additionalFocus.content"/>
+                </define>
+            </include>
+        </grammar>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.principalFocus.content">
+        <optional>
+            <grammar>
+                <include href="item.rng">
+                    <rng:element name="location" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
+                    <define name="response">
+                        <ref name="selectMany"/>
+                    </define>
+                </include>
+                <define name="valueset">
+                    <parentRef name="extent.sites.valueset"/>
+                </define>
+            </grammar>
+        </optional>
+        <ref name="extent.focus.size"/>
+        <ref name="extent.principalFocus.extension"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.additionalFocus.content">
+        <optional>
+            <grammar>
+                <include href="item.rng">
+                    <rng:element name="location" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
+                    <define name="response">
+                        <ref name="selectMany"/>
+                    </define>
+                </include>
+                <define name="valueset">
+                    <parentRef name="extent.sites.valueset"/>
+                </define>
+            </grammar>
+        </optional>
+        <ref name="extent.focus.size"/>
+        <optional>
+            <ref name="extent.additionalFocus.multiplicity"/>
+        </optional>
+        <ref name="extent.additionalFocus.extension"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.additionalFocus.multiplicity">
+        <grammar>
+            <include href="item.rng">
+                <rng:element name="multiplicity" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                    <rng:ref name="content"/>
+                </rng:element>
+                <define name="response">
+                    <ref name="tally"/>
+                </define>
+            </include>
+        </grammar>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.focus.size">
+        <grammar>
+            <include href="item.rng">
+                <rng:element name="size" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                    <rng:ref name="content"/>
+                </rng:element>
+                <define name="response">
+                    <choice>
+                        <ref name="size"/>
+                        <ref name="selectOne"/>
+                    </choice>
+                </define>
+                <define name="valueset">
+                    <parentRef name="extent.size.valueset"/>
+                </define>
+            </include>
+        </grammar>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="extent.principalFocus.extension">
+        <empty/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="extent.additionalFocus.extension">
+        <empty/>
+    </define>
     <!--=============================================================-->
     <define name="margins.content">
         <oneOrMore>
             <grammar>
-                <include href="&section;">
+                <include href="section.rng">
                     <define name="name">
                         <value>margin</value>
                     </define>
@@ -228,59 +326,28 @@
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="margin.content">
-        <optional>
+        <oneOrMore>
             <grammar>
-                <include href="&section;">
+                <include href="section.rng">
                     <define name="name">
-                        <value>status</value>
-                    </define>
-                    <define name="extension">
-                        <attribute name="modifier">
-                            <value>in-situ</value>
-                        </attribute>
+                        <parentRef name="margin.type.valueset"/>
                     </define>
                 </include>
                 <define name="content">
-                    <parentRef name="margin.in-situ.content"/>
+                    <parentRef name="margin.type.content"/>
                 </define>
             </grammar>
-        </optional>
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>status</value>
-                </define>
-                <define name="extension">
-                    <attribute name="modifier">
-                        <value>invasive</value>
-                    </attribute>
-                </define>
-            </include>
-            <define name="content">
-                <parentRef name="margin.invasive.content"/>
-            </define>
-        </grammar>
+        </oneOrMore>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margin.in-situ.content">
+    <define name="margin.type.content">
         <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>result</value>
-                </define>
+            <include href="item.rng">
+                <rng:element name="status" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                    <rng:ref name="content"/>
+                </rng:element>
                 <define name="response">
                     <ref name="selectOne"/>
-                </define>
-                <define name="extension">
-                    <optional>
-                        <attribute name="modifier">
-                            <choice>
-                                <value>closest</value>
-                                <value>unifocal</value>
-                                <value>multifocal</value>
-                            </choice>
-                        </attribute>
-                    </optional>
                 </define>
             </include>
             <define name="valueset">
@@ -290,56 +357,58 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <optional>
             <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>distance</value>
-                    </define>
+                <include href="item.rng">
+                    <rng:element name="closest" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
                     <define name="response">
-                        <ref name="length"/>
+                        <ref name="selectOne"/>
                     </define>
                 </include>
+                <define name="valueset">
+                    <parentRef name="qualitative.valueset"/>
+                </define>
             </grammar>
         </optional>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margin.invasive.content">
-        <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>result</value>
-                </define>
-                <define name="response">
-                    <ref name="selectOne"/>
-                </define>
-                <define name="extension">
-                    <optional>
-                        <attribute name="modifier">
-                            <choice>
-                                <value>closest</value>
-                                <value>focal</value>
-                                <value>multifocal</value>
-                                <value>extensive</value>
-                            </choice>
-                        </attribute>
-                    </optional>
-                </define>
-            </include>
-            <define name="valueset">
-                <parentRef name="qualitative.valueset"/>
-            </define>
-        </grammar>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <optional>
             <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>distance</value>
-                    </define>
+                <include href="item.rng">
+                    <rng:element name="distance" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
                     <define name="response">
                         <ref name="length"/>
                     </define>
                 </include>
+                <define name="item.extension">
+                    <optional>
+                        <attribute name="from">
+                            <parentRef name="from.valueset"/>
+                        </attribute>
+                    </optional>
+                    <optional>
+                        <attribute name="to">
+                            <parentRef name="to.valueset"/>
+                        </attribute>
+                    </optional>
+                </define>
+            </grammar>
+        </optional>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <optional>
+            <grammar>
+                <include href="item.rng">
+                    <rng:element name="focality" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
+                    <define name="response">
+                        <ref name="selectOne"/>
+                    </define>
+                </include>
+                <define name="valueset">
+                    <parentRef name="margin.focality.valueset"/>
+                </define>
             </grammar>
         </optional>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -349,12 +418,12 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <oneOrMore>
             <grammar>
-                <include href="&section;">
+                <include href="section.rng">
                     <define name="name">
-                        <value>status</value>
+                        <value>site</value>
                     </define>
                     <define name="extension">
-                        <attribute name="site">
+                        <attribute name="location">
                             <parentRef name="distantSites.location.valueset"/>
                         </attribute>
                         <optional>
@@ -381,17 +450,12 @@
     <define name="site.content">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>result</value>
-                </define>
+            <include href="item.rng">
+                <rng:element name="status" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                    <rng:ref name="content"/>
+                </rng:element>
                 <define name="response">
                     <ref name="selectOne"/>
-                </define>
-                <define name="extension">
-                    <attribute name="modifier">
-                        <parentRef name="distantSites.howDiagnosed.valueset"/>
-                    </attribute>
                 </define>
             </include>
             <define name="valueset">
@@ -400,14 +464,30 @@
         </grammar>
         <optional>
             <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>size</value>
-                    </define>
+                <include href="item.rng">
+                    <rng:element name="size" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
                     <define name="response">
                         <ref name="size"/>
                     </define>
                 </include>
+            </grammar>
+        </optional>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <optional>
+            <grammar>
+                <include href="item.rng">
+                    <rng:element name="how_diagnosed" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
+                    <define name="response">
+                        <ref name="selectOne"/>
+                    </define>
+                </include>
+                <define name="valueset">
+                    <parentRef name="distantSites.howDiagnosed.valueset"/>
+                </define>
             </grammar>
         </optional>
     </define>
@@ -416,7 +496,7 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <oneOrMore>
             <grammar>
-                <include href="&section;">
+                <include href="section.rng">
                     <define name="name">
                         <value>node group</value>
                     </define>
@@ -424,7 +504,7 @@
                         <parentRef name="nodes.nodeGroup.content"/>
                     </define>
                     <define name="extension">
-                        <attribute name="site">
+                        <attribute name="location">
                             <parentRef name="nodes.location.valueset"/>
                         </attribute>
                         <optional>
@@ -448,22 +528,13 @@
     <define name="nodes.nodeGroup.content">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <ref name="nodes.nodeGroup.tally.content"/>
-        <optional>
-            <ref name="nodes.nodeGroup.tally.content"/>
-            <optional>
-                <ref name="nodes.nodeGroup.tally.content"/>
-                <optional>
-                    <ref name="nodes.nodeGroup.tally.content"/>
-                </optional>
-            </optional>
-        </optional>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <optional>
             <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>largest metastasis</value>
-                    </define>
+                <include href="item.rng">
+                    <rng:element name="largest_metastasis" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
                     <define name="response">
                         <ref name="size"/>
                     </define>
@@ -473,10 +544,10 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <optional>
             <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>extracapsular extension</value>
-                    </define>
+                <include href="item.rng">
+                    <rng:element name="extracapsular_extension" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
                     <define name="response">
                         <ref name="selectOne"/>
                     </define>
@@ -487,113 +558,69 @@
             </grammar>
         </optional>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <ref name="nodes.nodeGroup.extension"/>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="nodes.nodeGroup.extension">
-        <empty/>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="nodes.nodeGroup.tally.content">
+    <define name="nodes.nodeGroup.tally.content">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>count</value>
-                </define>
-                <define name="item.extension">
-                    <attribute name="modifier">
-                        <parentRef name="nodes.count.modifier.valueset"/>
-                    </attribute>
-                </define>
+            <include href="item.rng">
+                <rng:element name="total" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                    <rng:ref name="content"/>
+                </rng:element>
                 <define name="response">
-                    <oneOrMore>
-                        <ref name="tally"/>
-                    </oneOrMore>
+                    <ref name="tally"/>
                 </define>
             </include>
         </grammar>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <!--<zeroOrMore>
-			<grammar>
-				<include href="&item;">
-					<define name="name">
-						<value>count</value>
-					</define>
-					<define name="response">
-						<ref name="tally"/>
-					</define>
-					<define name="extension">
-						<attribute name="modifier">
-							<parentRef name="nodes.count.modifier.valueset"/>
-						</attribute>
-					</define>
-				</include>
-			</grammar>
-		</zeroOrMore>-->
+        <optional>
+            <grammar>
+                <include href="item.rng">
+                    <rng:element name="positive" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
+                    <define name="response">
+                        <ref name="tally"/>
+                    </define>
+                </include>
+            </grammar>
+        </optional>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <!--<optional>
-			<grammar>
-				<include href="&item;">
-					<define name="name">
-						<value>negative</value>
-					</define>
-					<define name="response">
-						<ref name="tally"/>
-					</define>
-				</include>
-			</grammar>
-		</optional>
-		<!-\-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-\->
-		<optional>
-			<grammar>
-				<include href="&item;">
-					<define name="name">
-						<value>positive</value>
-					</define>
-					<define name="response">
-						<ref name="tally"/>
-					</define>
-				</include>
-			</grammar>
-		</optional>
-		<!-\-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-\->
-		<optional>
-			<grammar>
-				<include href="&item;">
-					<define name="name">
-						<value>regressed</value>
-					</define>
-					<define name="response">
-						<ref name="tally"/>
-					</define>
-				</include>
-			</grammar>
-		</optional>
-		<!-\-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-\->
-		<optional>
-			<grammar>
-				<include href="&item;">
-					<define name="name">
-						<value>specify</value>
-					</define>
-					<define name="response">
-						<ref name="tally"/>
-					</define>
-				</include>
-			</grammar>
-		</optional>-->
+        <optional>
+            <grammar>
+                <include href="item.rng">
+                    <rng:element name="regressed" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
+                    <define name="response">
+                        <ref name="tally"/>
+                    </define>
+                </include>
+            </grammar>
+        </optional>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <optional>
+            <grammar>
+                <include href="item.rng">
+                    <rng:element name="specify" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
+                    <define name="response">
+                        <ref name="tally"/>
+                    </define>
+                </include>
+            </grammar>
+        </optional>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     </define>
     <!--=============================================================-->
     <define name="specimen.content">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>procedure</value>
-                </define>
+            <include href="item.rng">
+                <rng:element name="procedure" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                    <rng:ref name="content"/>
+                </rng:element>
                 <define name="response">
                     <ref name="selectMany"/>
                 </define>
@@ -604,10 +631,10 @@
         </grammar>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>size</value>
-                </define>
+            <include href="item.rng">
+                <rng:element name="size" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                    <rng:ref name="content"/>
+                </rng:element>
                 <define name="response">
                     <ref name="size"/>
                 </define>
@@ -616,10 +643,10 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <optional>
             <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>weight</value>
-                    </define>
+                <include href="item.rng">
+                    <rng:element name="weight" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
                     <define name="response">
                         <ref name="weight"/>
                     </define>
@@ -628,10 +655,10 @@
         </optional>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>site</value>
-                </define>
+            <include href="item.rng">
+                <rng:element name="included_sites" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                    <rng:ref name="content"/>
+                </rng:element>
                 <define name="response">
                     <ref name="selectMany"/>
                 </define>
@@ -643,10 +670,10 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <optional>
             <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>integrity</value>
-                    </define>
+                <include href="item.rng">
+                    <rng:element name="integrity" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
                     <define name="response">
                         <ref name="selectOne"/>
                     </define>
@@ -668,10 +695,10 @@
     <define name="stage.content">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>prefix</value>
-                </define>
+            <include href="item.rng">
+                <rng:element name="prefix" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                    <rng:ref name="content"/>
+                </rng:element>
                 <define name="response">
                     <ref name="selectOne"/>
                 </define>
@@ -683,10 +710,10 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <optional>
             <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>multiplicity</value>
-                    </define>
+                <include href="item.rng">
+                    <rng:element name="multiplicity" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                        <rng:ref name="content"/>
+                    </rng:element>
                     <define name="response">
                         <ref name="selectOne"/>
                     </define>
@@ -698,10 +725,10 @@
         </optional>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>pT</value>
-                </define>
+            <include href="item.rng">
+                <rng:element name="pT" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                    <rng:ref name="content"/>
+                </rng:element>
                 <define name="response">
                     <ref name="selectOne"/>
                 </define>
@@ -712,10 +739,10 @@
         </grammar>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>pN</value>
-                </define>
+            <include href="item.rng">
+                <rng:element name="pN" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                    <rng:ref name="content"/>
+                </rng:element>
                 <define name="response">
                     <ref name="selectOne"/>
                 </define>
@@ -726,10 +753,10 @@
         </grammar>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>pM</value>
-                </define>
+            <include href="item.rng">
+                <rng:element name="pM" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                    <rng:ref name="content"/>
+                </rng:element>
                 <define name="response">
                     <ref name="selectOne"/>
                 </define>
@@ -760,17 +787,11 @@
     <!--=============================================================-->
     <define name="tumor.content">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <ref name="tumor.principalFocus"/>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <zeroOrMore>
-            <ref name="tumor.additionalFocus"/>
-        </zeroOrMore>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>histologic types</value>
-                </define>
+            <include href="item.rng">
+                <rng:element name="histologic_types" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                    <rng:ref name="content"/>
+                </rng:element>
                 <define name="response">
                     <ref name="selectMany"/>
                 </define>
@@ -786,138 +807,12 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.principalFocus">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>focus</value>
-                </define>
-                <define name="content">
-                    <parentRef name="tumor.principalFocus.content"/>
-                </define>
-                <define name="extension">
-                    <attribute name="modifier">
-                        <value>principal</value>
-                    </attribute>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.additionalFocus">
-        <grammar>
-            <include href="&section;">
-                <define name="name">
-                    <value>focus</value>
-                </define>
-                <define name="content">
-                    <parentRef name="tumor.additionalFocus.content"/>
-                </define>
-                <define name="extension">
-                    <attribute name="modifier">
-                        <value>additional</value>
-                    </attribute>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.principalFocus.content">
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>site</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectMany"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="extent.sites.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-        <ref name="tumor.focus.size"/>
-        <ref name="tumor.principalFocus.extension"/>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.additionalFocus.content">
-        <optional>
-            <grammar>
-                <include href="&item;">
-                    <define name="name">
-                        <value>site</value>
-                    </define>
-                    <define name="response">
-                        <ref name="selectMany"/>
-                    </define>
-                    <define name="extension">
-                        <parentRef name="tumor.additionalFocus.site.extension"/>
-                    </define>
-                </include>
-                <define name="valueset">
-                    <parentRef name="extent.sites.valueset"/>
-                </define>
-            </grammar>
-        </optional>
-        <ref name="tumor.focus.size"/>
-        <optional>
-            <ref name="tumor.additionalFocus.multiplicity"/>
-        </optional>
-        <ref name="tumor.additionalFocus.extension"/>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.additionalFocus.multiplicity">
-        <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>multiplicity</value>
-                </define>
-                <define name="response">
-                    <ref name="tally"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="tumor.additionalFocus.site.extension">
-        <empty/>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.focus.size">
-        <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>size</value>
-                </define>
-                <define name="response">
-                    <choice>
-                        <ref name="size"/>
-                        <ref name="selectOne"/>
-                    </choice>
-                </define>
-                <define name="valueset">
-                    <parentRef name="extent.size.valueset"/>
-                </define>
-            </include>
-        </grammar>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="tumor.principalFocus.extension">
-        <empty/>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="tumor.additionalFocus.extension">
-        <empty/>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="tumor.histologicGrade">
         <grammar>
-            <include href="&item;">
-                <define name="name">
-                    <value>histologic grade</value>
-                </define>
+            <include href="item.rng">
+                <rng:element name="histologic_grade" xmlns="" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+                    <rng:ref name="content"/>
+                </rng:element>
                 <define name="response">
                     <ref name="ordinal"/>
                 </define>
@@ -925,7 +820,7 @@
             <define name="valueset">
                 <parentRef name="tumor.grade.valueset"/>
             </define>
-            <define name="modifier.valueset">
+            <define name="system.valueset">
                 <parentRef name="tumor.gradeSystem.valueset"/>
             </define>
         </grammar>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resection version="1.0a" xmlns="http://cap#">
+    <clinical>
+        <clinicalFinding date="2009" duration="P6M">
+            <response value="specify">
+                <specify>hematochezia</specify>
+            </response>
+        </clinicalFinding>
+        <clinicalFinding duration="P5Y">
+            <response value="specify">
+                <specify>constipation</specify>
+            </response>
+        </clinicalFinding>
+        <priorPathologicDiagnosis date="2008-06-05">
+            <response value="specify">
+                <specify>tubular adenoma</specify>
+            </response>
+        </priorPathologicDiagnosis>
+        <priorPathologicDiagnosis date="2008-06-05">
+            <response value="specify">
+                <specify>lung cancer</specify>
+            </response>
+        </priorPathologicDiagnosis>
+        <priorTherapy>
+            <response value="unreported"/>
+        </priorTherapy>
+        <radiologicFinding date="2009-10">
+            <response value="specify">
+                <specify>mass on CT</specify>
+            </response>
+        </radiologicFinding>
+    </clinical>
+    <specimen>
+        <procedure>
+            <response value="right hemicolectomy"/>
+        </procedure>
+        <size>
+            <response unit="cm" value="7"/>
+            <response unit="cm" value="6"/>
+            <response unit="cm" value="5"/>
+        </size>
+        <weight>
+            <response unit="g" value="560"/>
+        </weight>
+        <includedSites>
+            <response value="hepatic flexure"/>
+            <response value="right colon"/>
+            <response value="transverse colon"/>
+        </includedSites>
+        <integrity>
+            <response value="intact"/>
+        </integrity>
+        <precursorPolyp>
+            <configuration>
+                <response value="pedunculated"/>
+            </configuration>
+            <stalkLength>
+                <response unit="cm" value="2"/>
+            </stalkLength>
+        </precursorPolyp>
+        <mesorectumIntactness>
+            <!-- TODO: need to change this to mesorectum/incompletely intact -->
+            <!-- TODO: schemnatron rule so this is allowed only in the case of rectum specimens -->
+            <response value="incomplete"/>
+        </mesorectumIntactness>
+        <tumorPerforation>
+            <response value="negative"/>
+        </tumorPerforation>
+    </specimen>
+    <tumor>
+        <histologicTypes>
+            <response value="medullary carcinoma"/>
+        </histologicTypes>
+        <histologicGrade>
+            <response system="2-grade" value="high"/>
+        </histologicGrade>
+    </tumor>
+    <extent>
+        <principalFocus>
+            <location>
+                <response value="hepatic flexure"/>
+                <response value="transverse colon"/>
+                <response value="right colon"/>
+            </location>
+            <size>
+                <response unit="cm" value="15.0"/>
+                <response unit="cm" value="4.0"/>
+                <response unit="cm" value="3.0"/>
+            </size>
+        </principalFocus>
+        <additionalFocus>
+            <location>
+                <response value="right colon"/>
+            </location>
+            <size>
+                <response unit="unreported" value="unreported"/>
+            </size>
+            <severity>
+                <response value="adheres"/>
+            </severity>
+        </additionalFocus>
+        <deepestInvasion>
+            <response value="adjacent structure"/>
+        </deepestInvasion>
+    </extent>
+    <accessory>
+        <treatmentEffect>
+            <response value="no response"/>
+        </treatmentEffect>
+        <lymph-vascularInvasion>
+            <response value="negative"/>
+        </lymph-vascularInvasion>
+        <perineuralInvasion>
+            <response value="negative"/>
+        </perineuralInvasion>
+        <peritumorDeposits>
+            <response value="negative"/>
+        </peritumorDeposits>
+        <precursorPolyp>
+            <response value="tubular adenoma"/>
+        </precursorPolyp>
+        <mucinousComponent>
+            <response unit="percent" value="45"/>
+        </mucinousComponent>
+        <medullaryComponent>
+            <response value="negative"/>
+        </medullaryComponent>
+        <highGrade>
+            <response value="positive"/>
+        </highGrade>
+        <intratumoralImmuneResponse>
+            <response value="mild-to-moderate"/>
+        </intratumoralImmuneResponse>
+        <peritumoralImmuneResponse>
+            <response value="mild-to-moderate"/>
+        </peritumoralImmuneResponse>
+    </accessory>
+    <margins>
+        <margin location="proximal">
+            <intramucosalCarcinoma>
+                <status>
+                    <response value="negative"/>
+                </status>
+                <closest>
+                    <response value="positive"/>
+                </closest>
+                <distance>
+                    <response unit="cm" value="0.3"/>
+                </distance>
+            </intramucosalCarcinoma>
+            <invasiveCarcinoma>
+                <status>
+                    <response value="positive"/>
+                </status>
+                <focality>
+                    <response value="multifocal"/>
+                </focality>
+            </invasiveCarcinoma>
+        </margin>
+        <margin location="distal">
+            <intramucosalCarcinoma>
+                <status>
+                    <response value="negative"/>
+                </status>
+            </intramucosalCarcinoma>
+            <invasiveCarcinoma>
+                <status>
+                    <response value="negative"/>
+                </status>
+            </invasiveCarcinoma>
+        </margin>
+    </margins>
+    <nodes>
+        <nodeGroup laterality="ipsilateral" location="inferior hemorrhoidal">
+            <total>
+                <response value="25"/>
+            </total>
+            <positive>
+                <response value="12"/>
+            </positive>
+            <regressed>
+                <response value="2"/>
+            </regressed>
+            <largestMetastasis>
+                <response relation="greater than" unit="cm" value="2.5"/>
+            </largestMetastasis>
+            <extracapsularExtension>
+                <response value="positive"/>
+            </extracapsularExtension>
+        </nodeGroup>
+    </nodes>
+    <distantSites>
+        <site laterality="left" location="liver">
+            <status>
+                <response value="positive"/>
+            </status>
+            <size>
+                <response unit="cm" value="2"/>
+            </size>
+            <howDiagnosed>
+                <response value="this accession"/>
+            </howDiagnosed>
+        </site>
+    </distantSites>
+    <studies>
+        <!-- TODO: need to put this back to sections with multiple responses -->
+        <microsatelliteInstability>
+            <result>
+                <response value="low"/>
+            </result>
+            <method>
+                <technique>
+                    <response value="unreported"/>
+                </technique>
+            </method>
+        </microsatelliteInstability>
+        <MLH1>
+            <result>
+                <response value="intact nuclear positivity, tumor cells"/>
+            </result>
+            <method>
+                <technique>
+                    <response value="immunohistochemistry"/>
+                </technique>
+            </method>
+        </MLH1>
+        <BRAF>
+            <result mutation="V600E">
+                <response value="mutation detected"/>
+            </result>
+            <method>
+                <technique>
+                    <response value="specify">
+                        <specify>something</specify>
+                    </response>
+                </technique>
+            </method>
+        </BRAF>
+        <KRAS>
+            <result>
+                <response value="mutation detected"> </response>
+            </result>
+            <method>
+                <technique>
+                    <response value="unreported"/>
+                </technique>
+            </method>
+        </KRAS>
+    </studies>
+    <stage>
+        <prefix>
+            <response value="y"/>
+        </prefix>
+        <multiplicity>
+            <response value="m"/>
+        </multiplicity>
+        <pT>
+            <response value="2"/>
+        </pT>
+        <pN>
+            <response value="1"/>
+        </pN>
+        <pM>
+            <response value="1"/>
+        </pM>
+    </stage>
+    <additional>
+        <finding>
+            <response value="Crohn's disease"/>
+            <response value="dysplasia with IBD"/>
+        </finding>
+    </additional>
+</resection>

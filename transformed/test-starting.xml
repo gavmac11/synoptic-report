@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grammar [
+<!ENTITY  item  	"item.rng">
+<!ENTITY  values	"values.rng">
+<!ENTITY  generic	"generic.rng">
+<!ENTITY  section	"section.rng">
+]>
+<root>
+	<include href="&item;">
+		<define name="name">
+			<value>lymph-vascular invasion</value>
+		</define>
+		<define name="response">
+			<ref name="selectOne"/>
+		</define>
+	</include>
+</root>

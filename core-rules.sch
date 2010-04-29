@@ -73,15 +73,15 @@
         y else $skip.</p>
 	<let name="skip" value="true()"/>
 	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-	<p>This does a similar thing, but creates one named $no-report to use in {report}if-then-else{/report} report
+	<p>This does a similar thing, but creates one named $report to use in {assert}if-then-else{/assert} report
         clauses.</p>
-	<let name="no-report" value="false()"/>
+	<let name="report" value="false()"/>
 	<!--=============================================================-->
 	<p>In this schema, there are multiple occasions when I need to convert a value expressed in centimeters or inches
         into millimeters. This is an xslt2 function that does this. The operative formula is just a cascade of if-then
-        statements that applies the appropriate conversion factor. If the input is cannot be handled, the fallback is to
-        report the result as an empty sequence.</p>
-	<xsl:function name="ecc:to-mm">
+        statements that applies the appropriate conversion factor. </p>
+	<p>NOTA BENE: If the input is cannot be handled, the fallback is to report the result as 0.</p>
+	<xsl:function as="xs:decimal" name="ecc:to-mm">
 		<xsl:param name="value"/>
 		<xsl:param name="unit"/>
 		<xsl:param name="relation"/>
@@ -89,7 +89,7 @@
 			<xsl:value-of select="if ($relation eq 'less than') then -1.0 else if ($relation eq 'greater than') then 1.0 else 0.0"/>
 		</xsl:variable>
 		<xsl:value-of
-			select="if ($value castable as xs:decimal) then if ($unit eq 'mm') then ($value + $correction) else if ($unit eq 'cm') then ($value*10.0 + $correction) else if ($unit eq 'in') then ($value*25.4 + $correction) else () else ()"
+			select="if ($value castable as xs:decimal) then if ($unit eq 'mm') then ($value + $correction) else if ($unit eq 'cm') then    ($value*10.0 + $correction) else if ($unit eq 'in') then ($value*25.4 + $correction) else (0) else (0)"
 		/>
 	</xsl:function>
 	<!--=============================================================-->
@@ -103,23 +103,16 @@
             'specify', its that response must have a child {specify} element. </p>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="ecc:specify" role="error">
-			<assert test="(../attribute::* = 'specify') or (some $x in ../attribute::* satisfies ends-with($x,' (specify)'))"
+			<assert test="../@* = 'specify'"
 				>
-                In a "<value-of select="../../@name"/>" item, the response contains a "specify" element, but the response value is "<value-of select="../@value"/>", rather than "specify".
+                A "specify" element is provided, but the response value is "<value-of select="../@value"/>", rather than "specify".
             </assert>
 		</rule>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<rule context="//ecc:response[attribute::* = 'specify']">
+		<rule context="*[@* = 'specify']" role="error">
 			<assert test="exists (ecc:specify)"
 				>
-                Item "<value-of select="../@name"/>" has a response value of "specify", but no specification ("specify" element) is given.
-            </assert>
-		</rule>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<rule context="//ecc:response[ends-with(@value,' (specify)')]">
-			<assert test="exists (ecc:specify)"
-				>
-                Item "<value-of select="../@name"/>" has a response value of "specify", but no specification ("specify" element) is given.
+                In the scope of an element named "<value-of select="name()"/>", "specify" is asserted, but no specification ("specify" element) is provided.
             </assert>
 		</rule>
 	</pattern>
@@ -129,11 +122,13 @@
 		<p>This pattern ensures that if any measurement has either the unit or the value equal to inapplicable, then
             both are inapplicable.</p>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<rule context="//ecc:response[@unit]">
-			<report test="('inapplicable' = (@unit, @value)) and ('inapplicable' != (@unit,@value))"
+		<rule context="ecc:response[@unit]">
+			<let name="values" value="('inapplicable','unreported','indeterminate')"/>
+			<assert test="if ((@unit = $values) or (@value = $values)) then (@unit eq @value) else $skip"
 				>
-                In the "<value-of select="../@name"/>" item, an "inapplicable" response for either unit or value requires the same response for both.
-            </report>
+                In the "<value-of select="../@name"/>" item, a response exception for either unit or value requires the same response
+				exception for both.
+            </assert>
 		</rule>
 	</pattern>
 	<!--=============================================================-->
@@ -145,7 +140,7 @@
 		<p>The first rules check the second dimension's unit against that of the first dimension. The second rule checks
             the third dimension's unit against that of the first dimension.</p>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<rule context="//ecc:item[ecc:response[@unit][2]]">
+		<rule context="ecc:item[ecc:response[@unit][2]]">
 			<let name="units" value="ecc:response/@unit"/>
 			<report role="warning" test="distinct-values($units)[2]"
 				>
@@ -161,16 +156,13 @@
             interface should ensure that this doesn't happen.</p>
 		<p>This pattern makes use of the xsl:to-mm() function defined up at the beginning of this file, in order to
             ensure that all dimensions are converted to millimeters before the comparisons are made.</p>
-		<p>There are two rules: the first compares the second dimension against the first. The other one compares the
-            third dimension against the first.</p>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<rule context="//ecc:item[ecc:response[@unit][2]]" role="warning">
 			<let name="value" value="for $x in ecc:response return ecc:to-mm($x/@value,$x/@unit,$x/@relation)"/>
-			<let name="first" value="xs:decimal($value[1])"/>
-			<let name="last" value="xs:decimal($value[last()])"/>
-			<assert test="(max($value) eq $first) and (min($value) eq $last)"
+			<assert test="max($value) eq $value[1] and (min($value) eq $value[last()])"
 				>   
-                Dimensions should be in descending order in the "<value-of select="@name"/>" item.
+                Dimensions should be in descending order in the "<value-of select="@name"/>" item. Dimensions with non-numeric values
+				should be reported last.
             </assert>
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		</rule>
@@ -184,63 +176,104 @@
             margin types will be reported, but some protocols might report three different types. </p>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<!--
-				negative margin incompatible with focality
-				closest margin should have smallest distance
+				- only one margin can be closest
+				- closest margin should have smallest distance
+				- only negative margins can have a distance
         -->
-		<rule context="//ecc:section[@name eq 'margins']">
-			<!-- This selects all the margin-type elements. -->
-			<let name="margin" value="ecc:section/ecc:section"/>
-			<!--This filters down to a vector of unique margin type names.-->
-			<let name="margin-type" value="distinct-values($margin/@name)"/>
-			<!--This counts the number of unique margin types.-->
-			<let name="type-count" value="count($margin-type)"/>
-			<!--This creates a vector of the number of reports for each uniquely named margin types. Now we have a
-                    vector of names ($margin-type) and a corresponding vector of counts ($total-count).-->
-			<let name="total-count" value="for $x in $margin-type return count($margin[@name eq $x]/ecc:item[@name eq 'status'])"/>
-			<!--This creates a vector that counts for each margin type is reported as both"closest" AND reported as
-                    positive. This vector should consist of all zeroes.-->
-			<let name="closest-count"
-				value="for $x in $margin-type return count($margin[@name eq $x]/ecc:item[@name eq 'closest']/ecc:response[@value eq 'positive'])"/>
-			<!--This creates a vector of the number of times a margin of each type is reported as "negative".-->
-			<let name="negative-count"
-				value="for $x in $margin-type return count($margin[@name eq $x]/ecc:item[@name eq 'status']/ecc:response[@value eq 'negative'])"/>
-			<!--This creates a vector of booleans that report whether any margin type violates the rule that only one
-                    margin of each type can be "closest".-->
-			<let name="closest-not-unique" value="for $x in (1 to $type-count) return $margin-type[$x][$closest-count[$x] gt 1]"/>
-			<!--This creates a vector of booleans. The boolean is true() if the margin-type in question (i) has a
-                    "closest" margin reported and (ii) has at least one non-negative margin. -->
-			<let name="closest-but-not-all-negative"
-				value="for $x in (1 to $type-count) return $margin-type[$x][$negative-count[$x] lt $total-count[$x]][$closest-count[$x] gt 0]"/>
-			<!--This creates a vector of booleans. The boolean is true() if the margin type in question (i) has no
-                    reported "closest" margin and (ii) has only negative margins.-->
-			<let name="negative-but-no-closest"
-				value="for $x in (1 to $type-count) return $margin-type[$x][$negative-count[$x] eq $total-count[$x]][$closest-count[$x] eq 0]"/>
-			<assert test="empty($closest-but-not-all-negative)"
-				>
-                For margin type(s) "<value-of select="string-join($closest-but-not-all-negative, '&quot; and &quot;')"/> a "closest" margin is specified even though not all margins are negative.
-            </assert>
-			<assert test="empty($closest-not-unique)"
-				>
-                For margin type(s) "<value-of select="string-join($closest-not-unique, '&quot; and &quot;')"/>" more than one closest margin is claimed.
-            </assert>
-			<report role="warning" test="$negative-but-no-closest"
-				>
-                All margins are negative for "<value-of select="string-join($negative-but-no-closest, '&quot; and &quot;')"/>"; therefore one margin should be designated as "closest".
-            </report>
-		</rule>
-	</pattern>
-	<!--=============================================================-->
-	<pattern id="margin-distance-only-if-negative">
+		<let name="margin" value="//ecc:section[@name eq 'margin']"/>
+		<let name="in-situ" value="$margin/ecc:section[@modifier eq 'in-situ']/ecc:item[@name='result']/ecc:response"/>
+		<let name="invasive" value="$margin/ecc:section[@modifier eq 'invasive']/ecc:item[@name='result']/ecc:response"/>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<p>This checks that you don't report a distance from the margin if the margin is positive. Distance from margin
-            is only meaningful if the margin is negative.</p>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<rule context="//ecc:section[@name eq 'margin']/ecc:section[ecc:item[@name eq 'status'][ecc:response/@value eq 'positive']]">
+		<rule context="ecc:section[@name eq 'margins']">
 			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			<report test="ecc:item[@name eq 'distance']"
+			<let name="location" value="distinct-values($margin/@location)"/>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<let name="in-situ-closest-count" value="count($in-situ[@modifier eq 'closest'])"/>
+			<let name="in-situ-positive-count" value="count($in-situ[@value eq 'positive'])"/>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<let name="invasive-closest-count" value="count($invasive[@modifier eq 'closest'])"/>
+			<let name="invasive-positive-count" value="count($invasive[@value eq 'positive'])"/>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<report role="error" test="count($margin) gt count($location)"
 				>
-                Distance from margin may not be specified for "<value-of select="@name"/>" at the "<value-of select="../ecc:item[@name eq 'location']/ecc:response/@value"/>" margin because that margin is positive.
+                The same margin location is reported more than once.
             </report>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<report role="error" test="$in-situ-closest-count gt 0 and $in-situ-positive-count gt 0"
+				>
+                A margin is reported as "closest" for in-situ carcinoma, yet at least one margin is positive for in-situ carcinoma.
+            </report>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<report role="error" test="$invasive-closest-count gt 0 and $invasive-positive-count gt 0"
+				>
+                A margin is reported as "closest" for invasive carcinoma, yet at least one margin is positive for invasive carcinoma.
+            </report>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<report role="warning" test="$in-situ-positive-count eq 0 and $in-situ-closest-count eq 0"
+				>
+                At least one margin should be designated as "closest" for in-situ carcinonoma, since no margin is positive for in-situ carcinonoma.
+            </report>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<report role="warning" test="$invasive-positive-count eq 0 and $invasive-closest-count eq 0"
+				>
+                At least one margin should be designated as "closest" for invasive carcinonoma, since no margin is positive for invasive carcinonoma.
+            </report>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		</rule>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<rule context="ecc:section[@name eq 'margins']//ecc:item[@name eq 'distance']">
+			<assert test="not(../ecc:item[@name eq 'result']/ecc:response/@value = ('positive','unreported','inapplicable'))"
+				>
+                You may not specify the distance for a positive, unreported or 'inapplicable' margin.
+            </assert>
+		</rule>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<rule context="//ecc:section[@name eq 'margins']//ecc:response[@modifier eq 'closest']">
+			<assert role="warning" test="exists(../../ecc:item[@name eq 'distance'])"
+				>
+				You should specify the distance to the closest margin.
+			</assert>
+		</rule>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<rule context="//ecc:section[@name eq 'margins']//ecc:response[@modifier = ('unifocal','multifocal')]">
+			<assert role="error" test="@value = ('positive','equivocal')"
+				>
+                You can specify focality only in the case of a positive (or equivocal) margin.
+            </assert>
+		</rule>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</pattern>
+	<pattern id="closest-distance">
+		<!-- Tests whether the margin desginated as "closest" has the smallest distance specified. -->
+		<rule context="//ecc:section[@modifier eq 'in-situ']//ecc:response[@modifier eq 'closest']">
+			<let name="all-distances"
+				value="for $x in //ecc:section[@modifier eq 'in-situ']/ecc:item[@name eq 'distance']/ecc:response return ecc:to-mm($x/@value,$x/@unit,$x/@relation)"/>
+			<let name="temp" value="../../ecc:item[@name eq 'distance']/ecc:response"/>
+			<let name="closest-distance" value="ecc:to-mm($temp/@value,$temp/@unit,$temp/@relation)"/>
+			<assert role="error" test="not($closest-distance &gt; $all-distances)"
+				>
+				The margin designated as closest for in-situ neoplasia does not have the smallest reported distance from the margin.
+			</assert>
+		</rule>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<rule context="//ecc:section[@modifier eq 'invasive']//ecc:response[@modifier eq 'closest']">
+			<let name="all-distances"
+				value="for $x in //ecc:section[@modifier eq 'invasive']/ecc:item[@name eq 'distance']/ecc:response return ecc:to-mm($x/@value,$x/@unit,$x/@relation)"/>
+			<let name="temp" value="../../ecc:item[@name eq 'distance']/ecc:response"/>
+			<let name="closest-distance" value="ecc:to-mm($temp/@value,$temp/@unit,$temp/@relation)"/>
+			<assert role="error" test="not($closest-distance &gt; $all-distances)"
+				>
+				The margin designated as closest for invasive neoplasia does not have the smallest reported distance from the margin.
+			</assert>
+		</rule>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	</pattern>
+	<pattern id="margin-modifier">
+		<rule context="//ecc:section[@name eq 'margin']//ecc:item[@name eq 'result']/ecc:response[@modifier]">
+			<assert role="error" test="not(@value = ('inapplicable','indeterminate','unreported'))"
+				>
+				You indicate the margin result is 'inapplicable', 'indeterminate' or 'unreported', yet you designate a modifier.
+			</assert>
 		</rule>
 	</pattern>
 	<!--=============================================================-->
@@ -250,9 +283,9 @@
             specified as being contained in the specimen. It would make no sense to say that tumor involves the left
             ear, if the left ear is not listed as part of the specimen.</p>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<rule context="//ecc:item[@name eq 'tumor sites']">
-			<let name="tumorSites" value="ecc:response/@value"/>
-			<let name="specimenSites" value="//ecc:item[@name eq 'specimen sites']/ecc:response/@value"/>
+		<rule context="//ecc:section[@name eq 'extent']">
+			<let name="tumorSites" value="distinct-values(.//ecc:item[@name eq 'site']/ecc:response/@value)"/>
+			<let name="specimenSites" value="//ecc:section[@name eq 'specimen']//ecc:item[@name eq 'site']/ecc:response/@value"/>
 			<let name="mismatch"
 				value="for $x in $tumorSites return if ($x = ($specimenSites,'inapplicable','unreported','specify')) then () else $x"/>
 			<assert test="empty($mismatch)"
@@ -267,10 +300,10 @@
 		<p>This checks that you don't say the tumor is larger than the specimen. It makes no sense to say the tumor has
             a largest dimension of 15 cm if the largest dimension of the specimen is only 10 cm.</p>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<rule context="//ecc:section[@name eq 'specimen']/ecc:item[@name eq 'tumor size']">
+		<rule context="//ecc:section[@name eq 'extent']//ecc:item[@name eq 'size']">
 			<let name="tumorDimensions" value="for $x in ecc:response return ecc:to-mm($x/@value,$x/@unit,$x/@relation)"/>
 			<let name="specimenDimensions"
-				value="for $x in ../ecc:item[@name eq 'specimen size']/ecc:response return ecc:to-mm($x/@value, $x/@unit,$x/@relation)"/>
+				value="for $x in //ecc:section[@name eq 'specimen']/ecc:item[@name eq 'size']/ecc:response return ecc:to-mm($x/@value, $x/@unit,$x/@relation)"/>
 			<let name="maxTumorDimension" value="max($tumorDimensions)"/>
 			<let name="maxSpecimenDimension" value="max($specimenDimensions)"/>
 			<report role="warning" test="$maxTumorDimension gt $maxSpecimenDimension"
@@ -286,15 +319,22 @@
             positive+regressed+specify count of nodes. It makes no sense e.g. to say that you have a total of 10 nodes,
             of which 20 are positive.</p>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<rule context="//ecc:section[@name eq 'tally']">
-			<let name="total" value="ecc:item[@name eq 'total']/ecc:response/@value[. castable as xs:decimal]"/>
-			<let name="other" value="ecc:item[@name ne 'total']/ecc:response/@value[. castable as xs:decimal]"/>
-			<let name="loc" value="../ecc:item[@name eq 'location']/ecc:response/@value"/>
-			<let name="location"
-				value="if ($loc eq 'specify') then ecc:specify else if ($loc = 'unreported') then 'unreported location' else @loc"/>
+		<rule context="//ecc:section[@name eq 'node group']">
+			<let name="total" value="ecc:item[@name eq 'count']/ecc:response[@modifier eq 'total']/@value[. castable as xs:decimal]"/>
+			<let name="other" value="ecc:item[@name eq 'count']/ecc:response[@modifier ne 'total']/@value[. castable as xs:decimal]"/>
 			<assert test="if (exists($total)) then number($total) ge sum($other) else $skip"
 				>
-                In the "<value-of select="$location"/>" group, you report fewer total nodes (<value-of select="$total"/>) than the sum of the enumerated node status categories (<value-of select="sum($other)"/>).
+            In the "<value-of select="string-join((@laterality,@site),' ')"/>" node group, you report fewer total nodes (<value-of select="$total"/>) than the sum of the enumerated node status categories (<value-of select="sum($other)"/>).
+            </assert>
+		</rule>
+	</pattern>
+	<pattern id="requires-positive-nodes">
+		<rule context="//ecc:section[@name eq 'node group']">
+			<assert
+				test="if (exists(ecc:item[@name = ('largest metastasis','extracapsular extension')])) then (xs:integer(ecc:item/ecc:response[@modifier eq
+				'positive']/@value) gt 0) else $skip"
+				>
+                You may not specify largest metastasis or extracapsular extension unless at least one node in the group is positive.
             </assert>
 		</rule>
 	</pattern>
@@ -305,12 +345,12 @@
             history section you have not given any indication that tumor was previously treated, and how. This is
             allowed, but it is obviously bad practice.</p>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<rule context="/ecc:section">
-			<let name="pathologic" value="ecc:section[@name eq 'accessory']/ecc:item[@name eq 'treatment effect']/ecc:response/@value"/>
-			<let name="clinical" value="ecc:section[@name eq 'clinical']/ecc:item [@name eq 'prior therapies']/ecc:response/@value"/>
+		<rule context="ecc:section[@name eq 'accessory']/ecc:item[@name eq 'treatment effect']/ecc:response">
+			<let name="pathologic" value="@value"/>
+			<let name="clinical" value="//ecc:item [@name eq 'prior therapy']/ecc:response/@value"/>
 			<report role="warning" test="exists($pathologic) and $pathologic != ('inapplicable','unreported') and empty($clinical)"
 				>
-                You report treatment effect among the accessory findings, but there is no prior therapy report in the clinical section.
+                You report treatment response among the accessory findings, but there is no prior therapy report in the clinical section.
             </report>
 		</rule>
 	</pattern>
@@ -332,15 +372,15 @@
 		</rule>
 	</pattern>
 	<!--=============================================================-->
-	<pattern id="response-unique">
-		<p>Some queries permit multiple responses. No repeats of the same response are allowed except in sizes.</p>
+	<!--<pattern id="response-unique">
+		<p>Some queries permit multiple responses. No repeats of the same response are allowed except in sizes or when there is a modifier.</p>
 		<rule context="//ecc:item[not(ecc:response/@unit = ('m', 'cm', 'mm', 'in'))]" role="warning">
-			<let name="response" value="ecc:response/@value[. ne 'specify'][. ne 'inapplicable'][. ne 'unreported']"/>
+			<let name="response" value="ecc:response/@value[. != ('specify','inapplicable','unreported']"/>
 			<assert test="count($response) eq count(distinct-values($response))"
 				>
                 Duplicate responses for "<value-of select="@name"/>".
             </assert>
 		</rule>
-	</pattern>
+	</pattern>-->
 	<!--=============================================================-->
 </schema>

@@ -30,8 +30,7 @@
 		<a:documentation>Definition of [item].</a:documentation>
 		<start>
 			<element name="item">
-				<a:documentation>Allowed content for an item is oneOrMore
-					{response}.</a:documentation>
+				<a:documentation>Allowed content for an item is oneOrMore {response}.</a:documentation>
 				<ref name="content"/>
 			</element>
 		</start>
@@ -40,6 +39,7 @@
 			<attribute name="name">
 				<ref name="name"/>
 			</attribute>
+			<ref name="item.extension"/>
 			<ref name="response"/>
 			<interleave>
 				<parentRef name="generic.content"/>
@@ -57,10 +57,14 @@
 	</div>
 	<!--=============================================================-->
 	<div>
+		<define combine="choice" name="item.extension">
+			<empty/>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<a:documentation>Definition of response.content for a [response].</a:documentation>
 		<define name="response.content">
 			<interleave>
-				<ref name="specify"/>
+				<!--<ref name="specify"/>-->
 				<interleave>
 					<parentRef name="generic.content"/>
 					<parentRef name="user.content"/>
@@ -69,24 +73,19 @@
 			</interleave>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define name="specify">
-			<optional>
-				<element name="specify">
-					<optional>
-						<parentRef name="generic.attrib"/>
-					</optional>
-					<data type="string"/>
-				</element>
-			</optional>
-		</define>
-		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define combine="interleave" name="extension">
 			<empty/>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define name="modifier">
+			<attribute name="modifier">
+				<ref name="modifier.valueset"/>
+			</attribute>
 		</define>
 	</div>
 	<!--=============================================================-->
 	<div>
-		<a:documentation>Utility definitions for construction of response types.</a:documentation>
+		<a:documentation>Utility definitions for item definition extensions.</a:documentation>
 		<define name="date">
 			<choice>
 				<attribute name="date">
@@ -122,6 +121,47 @@
 			</optional>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define name="sort">
+			<attribute name="sort">
+				<ref name="sort.valueset"/>
+			</attribute>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define combine="choice" name="sort.valueset">
+			<choice>
+				<parentRef name="base.valueset"/>
+			</choice>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define name="from-to">
+			<optional>
+				<attribute name="from">
+					<ref name="from.valueset"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="to">
+					<ref name="to.valueset"/>
+				</attribute>
+			</optional>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define combine="choice" name="from.valueset">
+			<choice>
+				<parentRef name="base.valueset"/>
+			</choice>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define combine="choice" name="to.valueset">
+			<choice>
+				<parentRef name="base.valueset"/>
+			</choice>
+		</define>
+	</div>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<div>
+		<a:documentation>Utility definitions for response types.</a:documentation>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="relation">
 			<optional>
 				<attribute a:defaultValue="equal" name="relation">
@@ -134,7 +174,7 @@
 			<parentRef name="base.valueset"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-		<define combine="choice" name="system.valueset">
+		<define combine="choice" name="modifier.valueset">
 			<parentRef name="base.valueset"/>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -215,6 +255,21 @@
 			</element>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define name="ratio">
+			<element name="response">
+				<attribute name="value">
+					<choice>
+						<data type="float">
+							<param name="minInclusive">0.0</param>
+						</data>
+						<parentRef name="base.valueset"/>
+					</choice>
+				</attribute>
+				<ref name="relation"/>
+				<ref name="response.content"/>
+			</element>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="length">
 			<element name="response">
 				<attribute name="value">
@@ -267,13 +322,27 @@
 					<ref name="valueset"/>
 				</attribute>
 				<optional>
-					<attribute name="system">
-						<ref name="system.valueset"/>
+					<attribute name="modifier">
+						<ref name="modifier.valueset"/>
 					</attribute>
 				</optional>
 				<ref name="relation"/>
 				<ref name="response.content"/>
 			</element>
+		</define>
+		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+		<define name="eventList">
+			<oneOrMore>
+				<element name="response">
+					<attribute name="value">
+						<ref name="valueset"/>
+					</attribute>
+					<optional>
+						<ref name="date"/>
+					</optional>
+					<ref name="response.content"/>
+				</element>
+			</oneOrMore>
 		</define>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<define name="study">

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?><?oxygen RNGSchema="colon.rng" type="xml"?><?oxygen SCHSchema="../core-rules.sch"?>
+<resection grddl:transformation="http://cap#colon/snomedct/ http://cap#colon/radlex/" kind="section"
+    schemaLocation="http://cap#colon/" version="1.0a" xml:id="d2e3" xmlns:grddl="http://www.w3.org/2003/g/data-view#">
+    <clinical kind="section" xml:id="d2e5">
+        <clinicalFinding date="2009" duration="P6M" kind="item" xml:id="d2e7">
+            <response value="ecc:specify" xmlns="http://cap#" xmlns:ecc="http://cap#">
+                <specify>hematochezia</specify>
+            </response>
+        </clinicalFinding>
+        <clinicalFinding duration="P5Y" kind="item" start="2005" xml:id="d2e16">
+            <response value="ecc:specify" xmlns="http://cap#" xmlns:ecc="http://cap#">
+                <specify>constipation</specify>
+            </response>
+        </clinicalFinding>
+        <priorPathologicDiagnosis date="2008-06-05" kind="item" xml:id="d2e25">
+            <response value="ecc:specify" xmlns="http://cap#" xmlns:ecc="http://cap#">
+                <specify>tubular adenoma</specify>
+            </response>
+        </priorPathologicDiagnosis>
+        <priorPathologicDiagnosis date="2008-06-05" kind="item" xml:id="d2e34">
+            <response value="ecc:specify" xmlns="http://cap#" xmlns:ecc="http://cap#">
+                <specify>lung cancer</specify>
+            </response>
+        </priorPathologicDiagnosis>
+        <priorTherapy kind="item" xml:id="d2e43">
+            <response value="ecc:unreported" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </priorTherapy>
+        <radiologicFinding date="2009-10" kind="item" xml:id="d2e49">
+            <response value="ecc:specify" xmlns="http://cap#" xmlns:ecc="http://cap#">
+                <specify>mass on CT</specify>
+            </response>
+        </radiologicFinding>
+    </clinical>
+    <specimen kind="section" xml:id="d2e59">
+        <procedure kind="item" xml:id="d2e61">
+            <response value="ecc:rightHemicolectomy" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </procedure>
+        <size kind="item" xml:id="d2e66">
+            <response unit="cm" value="ecc:7" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            <response unit="cm" value="ecc:6" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            <response unit="cm" value="ecc:5" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </size>
+        <weight kind="item" xml:id="d2e75">
+            <response unit="g" value="ecc:560" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </weight>
+        <includedSites kind="item" xml:id="d2e80">
+            <response value="ecc:hepaticFlexure" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            <response value="ecc:rightColon" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            <response value="ecc:transverseColon" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </includedSites>
+        <integrity kind="item" xml:id="d2e89">
+            <response value="ecc:intact" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </integrity>
+        <precursorPolyp kind="section" xml:id="d2e95">
+            <configuration kind="item" xml:id="d2e97">
+                <response value="ecc:pedunculated" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            </configuration>
+            <stalkLength kind="item" xml:id="d2e102">
+                <response unit="cm" value="ecc:2" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            </stalkLength>
+        </precursorPolyp>
+        <mesorectumIntactness kind="item" xml:id="d2e108">
+            <!-- TODO: need to change this to mesorectum/incompletely intact -->
+            <!-- TODO: schemnatron rule so this is allowed only in the case of rectum specimens -->
+            <response value="ecc:incomplete" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </mesorectumIntactness>
+        <tumorPerforation kind="item" xml:id="d2e117">
+            <response value="ecc:negative" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </tumorPerforation>
+    </specimen>
+    <tumor kind="section" xml:id="d2e123">
+        <histologicTypes kind="item" xml:id="d2e125">
+            <response value="ecc:medullaryCarcinoma" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </histologicTypes>
+        <histologicGrade kind="item" xml:id="d2e130">
+            <response system="2-grade" value="ecc:high" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </histologicGrade>
+    </tumor>
+    <extent kind="section" xml:id="d2e136">
+        <principalFocus kind="section" xml:id="d2e138">
+            <location kind="item" xml:id="d2e140">
+                <response value="ecc:hepaticFlexure" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+                <response value="ecc:transverseColon" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+                <response value="ecc:rightColon" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            </location>
+            <size kind="item" xml:id="d2e149">
+                <response unit="cm" value="ecc:15.0" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+                <response unit="cm" value="ecc:4.0" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+                <response unit="cm" value="ecc:3.0" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            </size>
+        </principalFocus>
+        <deepestInvasion kind="item" xml:id="d2e159">
+            <response value="ecc:adjacentStructure" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </deepestInvasion>
+    </extent>
+    <accessory kind="section" xml:id="d2e165">
+        <treatmentEffect kind="item" xml:id="d2e167">
+            <response value="ecc:noResponse" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </treatmentEffect>
+        <lymph-vascularInvasion kind="item" xml:id="d2e172">
+            <response value="ecc:negative" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </lymph-vascularInvasion>
+        <perineuralInvasion kind="item" xml:id="d2e177">
+            <response value="ecc:negative" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </perineuralInvasion>
+        <peritumoralDeposits kind="item" xml:id="d2e182">
+            <response value="ecc:negative" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </peritumoralDeposits>
+        <precursorPolyp kind="item" xml:id="d2e187">
+            <response value="ecc:tubularAdenoma" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </precursorPolyp>
+        <mucinousComponent kind="item" xml:id="d2e193">
+            <response unit="percent" value="ecc:45" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </mucinousComponent>
+        <medullaryComponent kind="item" xml:id="d2e198">
+            <response value="ecc:negative" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </medullaryComponent>
+        <highGrade kind="item" xml:id="d2e203">
+            <response value="ecc:positive" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </highGrade>
+        <intratumoralImmuneResponse kind="item" xml:id="d2e208">
+            <response value="ecc:mild-to-moderate" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </intratumoralImmuneResponse>
+        <peritumoralImmuneResponse kind="item" xml:id="d2e213">
+            <response value="ecc:mild-to-moderate" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </peritumoralImmuneResponse>
+    </accessory>
+    <margins kind="section" xml:id="d2e220">
+        <margin kind="section" location="proximal" xml:id="d2e222">
+            <intramucosalCarcinoma kind="section" xml:id="d2e224">
+                <status kind="item" xml:id="d2e226">
+                    <response value="ecc:negative" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+                </status>
+                <closest kind="item" xml:id="d2e231">
+                    <response value="ecc:positive" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+                </closest>
+                <distance kind="item" xml:id="d2e236">
+                    <response unit="cm" value="ecc:0.3" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+                </distance>
+            </intramucosalCarcinoma>
+            <invasiveCarcinoma kind="section" xml:id="d2e242">
+                <status kind="item" xml:id="d2e244">
+                    <response value="ecc:positive" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+                </status>
+                <focality kind="item" xml:id="d2e249">
+                    <response value="ecc:multifocal" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+                </focality>
+            </invasiveCarcinoma>
+        </margin>
+        <margin kind="section" location="distal" xml:id="d2e256">
+            <intramucosalCarcinoma kind="section" xml:id="d2e258">
+                <status kind="item" xml:id="d2e260">
+                    <response value="ecc:negative" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+                </status>
+            </intramucosalCarcinoma>
+            <invasiveCarcinoma kind="section" xml:id="d2e266">
+                <status kind="item" xml:id="d2e268">
+                    <response value="ecc:negative" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+                </status>
+            </invasiveCarcinoma>
+        </margin>
+    </margins>
+    <nodes kind="section" xml:id="d2e276">
+        <nodeGroup kind="section" laterality="ipsilateral" location="inferior hemorrhoidal" xml:id="d2e278">
+            <total kind="item" xml:id="d2e280">
+                <response value="ecc:25" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            </total>
+            <positive kind="item" xml:id="d2e285">
+                <response value="ecc:12" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            </positive>
+            <regressed kind="item" xml:id="d2e290">
+                <response value="ecc:2" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            </regressed>
+            <largestMetastasis kind="item" xml:id="d2e295">
+                <response relation="greater than" unit="cm" value="ecc:2.5" xmlns="http://cap#" xmlns:ecc="http://cap#"
+                />
+            </largestMetastasis>
+            <extracapsularExtension kind="item" xml:id="d2e300">
+                <response value="ecc:positive" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            </extracapsularExtension>
+        </nodeGroup>
+    </nodes>
+    <distantSites kind="section" xml:id="d2e307">
+        <site kind="section" laterality="left" location="liver" xml:id="d2e309">
+            <status kind="item" xml:id="d2e311">
+                <response value="ecc:positive" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            </status>
+            <size kind="item" xml:id="d2e316">
+                <response unit="cm" value="ecc:2" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            </size>
+            <howDiagnosed kind="item" xml:id="d2e321">
+                <response value="ecc:thisAccession" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            </howDiagnosed>
+        </site>
+    </distantSites>
+    <studies kind="section" xml:id="d2e328">
+        <!-- TODO: need to put this back to sections with multiple responses -->
+        <microsatelliteInstability kind="section" xml:id="d2e332">
+            <result kind="item" xml:id="d2e334">
+                <response value="ecc:low" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            </result>
+            <method kind="section" xml:id="d2e339">
+                <technique kind="item" xml:id="d2e341">
+                    <response value="ecc:unreported" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+                </technique>
+            </method>
+        </microsatelliteInstability>
+        <mlh1 kind="section" xml:id="d2e348">
+            <result kind="item" xml:id="d2e350">
+                <response value="ecc:intactNuclearPositivity,TumorCells" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            </result>
+            <method kind="section" xml:id="d2e355">
+                <technique kind="item" xml:id="d2e357">
+                    <response value="ecc:immunohistochemistry" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+                </technique>
+            </method>
+        </mlh1>
+        <braf kind="section" xml:id="d2e364">
+            <result kind="item" xml:id="d2e366">
+                <response mutation="V600E" value="ecc:mutationDetected" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            </result>
+            <method kind="section" xml:id="d2e371">
+                <technique kind="item" xml:id="d2e373">
+                    <response value="ecc:specify" xmlns="http://cap#" xmlns:ecc="http://cap#">
+                        <specify>something</specify>
+                    </response>
+                </technique>
+            </method>
+        </braf>
+        <kras kind="section" xml:id="d2e384">
+            <result kind="item" xml:id="d2e386">
+                <response mutation="specify" value="ecc:mutationDetected" xmlns="http://cap#" xmlns:ecc="http://cap#">
+                    <specify>name of mutation</specify>
+                </response>
+            </result>
+            <method kind="section" xml:id="d2e395">
+                <technique kind="item" xml:id="d2e397">
+                    <response value="ecc:unreported" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+                </technique>
+            </method>
+        </kras>
+    </studies>
+    <stage kind="section" xml:id="d2e405">
+        <prefix kind="item" xml:id="d2e407">
+            <response value="ecc:y" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </prefix>
+        <multiplicity kind="item" xml:id="d2e412">
+            <response value="ecc:m" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </multiplicity>
+        <pt kind="item" xml:id="d2e417">
+            <response value="ecc:2" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </pt>
+        <pn kind="item" xml:id="d2e422">
+            <response value="ecc:1" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </pn>
+        <pm kind="item" xml:id="d2e427">
+            <response value="ecc:1" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </pm>
+    </stage>
+    <additional kind="section" xml:id="d2e433">
+        <additionalFindings kind="item" xml:id="d2e435">
+            <response value="ecc:crohn'sDisease" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+            <response value="ecc:dysplasiaWithIbd" xmlns="http://cap#" xmlns:ecc="http://cap#"/>
+        </additionalFindings>
+    </additional>
+</resection>
