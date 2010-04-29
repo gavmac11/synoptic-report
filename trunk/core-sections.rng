@@ -203,7 +203,7 @@
         <grammar>
             <include href="&section;">
                 <define name="name">
-                    <value>distant sites</value>
+                    <value>distant</value>
                 </define>
                 <define name="content">
                     <parentRef name="distantSites.content"/>
