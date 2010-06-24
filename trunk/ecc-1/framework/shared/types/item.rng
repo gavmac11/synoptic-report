@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE	grammar [
+<!ENTITY	generic   "../generic.rng">
+]>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <a:documentation>Every node in an ecc document is one of three classes of things: (a) "section", (b) "item" or (c)
+        "response". This grammar defines the internal structure of an ecc "item" in the ecc XML
+        serialization.</a:documentation>
+    <a:documentation>An item--sometimes referred to as a "question" in previous versions of the ecc
+        documentation--represents an informational unit to which one (or more) response(s)--previously referred to as
+        "answer(s)"--can be given. For example, if a report states that the tumor's histologic_type is adenocarcinoma,
+        then "histologic_type" corresponds to the item, and "adenocarcinoma" corresponds to the response. A response is
+        a leaf in the ecc document tree, so items can always recognized in the ecc XML serialization as the immediate
+        parents of a (or several) <response/> element(s).</a:documentation>
+    <a:documentation> An item is distinguished from an ecc "section", which is container or grouper for multiple related
+        items and/or (sub)sections. The structure of an ecc:section is given separately in the file
+        section.rng.</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&generic;"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="item.content">
+        <interleave>
+            <ref name="response"/>
+            <ref name="item.extension"/>
+            <ref name="generic.content"/>
+        </interleave>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="interleave" name="response.defaults">
+        <interleave>
+            <ref name="response.extension"/>
+            <ref name="generic.content"/>
+        </interleave>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="interleave" name="response.extension">
+        <empty/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="interleave" name="item.extension">
+        <empty/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</grammar>
