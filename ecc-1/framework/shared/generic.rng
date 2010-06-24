@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE	grammar [
+<!ENTITY	ecc		"http://purl.org/pathology/ecc/">
+]>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <define name="generic.content">
+        <interleave>
+            <ref name="specify"/>
+            <optional>
+                <element name="label" ns="&ecc;">
+                    <data type="string"/>
+                </element>
+            </optional>
+            <optional>
+                <element name="comment" ns="&ecc;">
+                    <data type="string"/>
+                </element>
+            </optional>
+            <zeroOrMore>
+                <ref name="user.element"/>
+            </zeroOrMore>
+        </interleave>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="specify">
+        <optional>
+            <element name="specify" ns="&ecc;">
+                <data type="string"/>
+            </element>
+        </optional>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="user.attrib">
+        <attribute>
+            <anyName>
+                <except>
+                    <!--<xi:include href="ecc-namespaces.rng"/>-->
+                    <choice xmlns="http://relaxng.org/ns/structure/1.0">
+                        <nsName ns="http://purl.org/pathology/ecc/"/>
+                        <nsName ns="http://purl.org/pathology/ecc/colon/"/>
+                        <nsName ns="http://purl.org/pathology/ecc/breast/"/>
+                        <nsName ns="http://purl.org/pathology/ecc/endometrium/"/>
+                        <nsName ns="http://purl.org/pathology/ecc/lung/"/>
+                        <nsName ns="http://purl.org/pathology/ecc/prostate/"/>
+                        <nsName ns="http://purl.org/pathology/ecc/bladder/"/>
+                        <nsName ns="http://purl.org/pathology/ecc/kidney/"/>
+                    </choice>
+                </except>
+            </anyName>
+        </attribute>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="user.element">
+        <element>
+            <anyName>
+                <except>
+                    <!--<xi:include href="ecc-namespaces.rng"/>-->
+                    <choice xmlns="http://relaxng.org/ns/structure/1.0">
+                        <nsName ns="http://purl.org/pathology/ecc/"/>
+                        <nsName ns="http://purl.org/pathology/ecc/colon/"/>
+                        <nsName ns="http://purl.org/pathology/ecc/breast/"/>
+                        <nsName ns="http://purl.org/pathology/ecc/endometrium/"/>
+                        <nsName ns="http://purl.org/pathology/ecc/lung/"/>
+                        <nsName ns="http://purl.org/pathology/ecc/prostate/"/>
+                        <nsName ns="http://purl.org/pathology/ecc/bladder/"/>
+                        <nsName ns="http://purl.org/pathology/ecc/kidney/"/>
+                    </choice>
+                </except>
+            </anyName>
+            <zeroOrMore>
+                <choice>
+                    <ref name="user.attrib"/>
+                    <ref name="user.element"/>
+                </choice>
+            </zeroOrMore>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</grammar>

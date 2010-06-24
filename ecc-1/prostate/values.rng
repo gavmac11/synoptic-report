@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <define name="stage.pM.valueset">
+        <choice>
+            <value>X</value>
+            <value>0</value>
+            <value>1</value>
+            <value>1a</value>
+            <value>1b</value>
+            <value>1c</value>
+        </choice>
+    </define>
+    <define name="stage.pT.valueset">
+        <choice>
+            <value>X</value>
+            <value>0</value>
+            <value>1</value>
+            <value>1a</value>
+            <value>1b</value>
+            <value>1c</value>
+            <value>2</value>
+            <value>2a</value>
+            <value>2b</value>
+            <value>2c</value>
+            <value>3</value>
+            <value>3a</value>
+            <value>3b</value>
+            <value>4</value>
+        </choice>
+    </define>
+    <define name="stage.pN.valueset">
+        <choice>
+            <value>X</value>
+            <value>0</value>
+            <value>1</value>
+        </choice>
+    </define>
+    <define name="additional.findings.valueset">
+        <choice>
+            <value>benign prostatic hypertrophy</value>
+            <value>granulomatous prostatitis</value>
+            <value>acute prostatitis</value>
+            <value/>
+        </choice>
+    </define>
+    <define name="margins.margin.name.valueset">
+        <choice>
+            <value>apex</value>
+            <value>bladder neck</value>
+            <value>left</value>
+            <value>right</value>
+        </choice>
+    </define>
+    <define name="specimen.procedure.valueset">
+        <choice>
+            <value>robotic prostatectomy</value>
+            <value>radical perineal prostatectomy</value>
+            <value>abdominopelvic prostatectomy</value>
+        </choice>
+    </define>
+    <define name="sites.valueset">
+        <choice>
+            <value>right lobe</value>
+            <value>left lobe</value>
+            <value>apex</value>
+            <value>base</value>
+            <value>right transition zone</value>
+            <value>left transition zone</value>
+        </choice>
+    </define>
+    <define name="tumor.histologicType.valueset">
+        <choice>
+            <value>acinar adenocarcinoma</value>
+            <value>prostatic duct adenocarcinoma</value>
+            <value>mucinous adenocarcinoma</value>
+            <value>signet ring cell carcinoma</value>
+            <value>adenosquamous carcinoma</value>
+            <value>small cell carcinoma</value>
+            <value>sarcomatoid carcinoma</value>
+            <value>undifferentiated carcinoma</value>
+            <value>other</value>
+        </choice>
+    </define>
+    <define name="extent.adjacentStructures.valueset">
+        <choice>
+            <value>bladder</value>
+            <value>bladder neck</value>
+            <value>external sphincter</value>
+            <value>rectum</value>
+            <value>levator muscles</value>
+            <value>pelvic wall</value>
+            <value>other</value>
+        </choice>
+    </define>
+    <define name="tumor.histologicGrade.valueset">
+        <choice>
+            <value>1</value>
+            <value>2</value>
+            <value>3</value>
+            <value>4</value>
+            <value>5</value>
+        </choice>
+    </define>
+    <define name="tumor.grade.system.valueset">
+        <choice>
+            <value>Gleason</value>
+            <value>AFIP</value>
+        </choice>
+    </define>
+    <define name="extent.extraprostaticExtension.location.valueset">
+        <choice>
+            <value>right side</value>
+            <value>left side</value>
+            <value>bladder neck</value>
+            <value>apex</value>
+            <value>other</value>
+        </choice>
+    </define>
+</grammar>

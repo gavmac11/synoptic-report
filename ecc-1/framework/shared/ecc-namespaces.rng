@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://relaxng.org/ns/structure/1.0">
+    <nsName ns="http://purl.org/pathology/ecc/"/>
+    <nsName ns="http://purl.org/pathology/ecc/colon/"/>
+    <nsName ns="http://purl.org/pathology/ecc/breast/"/>
+    <nsName ns="http://purl.org/pathology/ecc/endometrium/"/>
+    <nsName ns="http://purl.org/pathology/ecc/lung/"/>
+    <nsName ns="http://purl.org/pathology/ecc/prostate/"/>
+    <nsName ns="http://purl.org/pathology/ecc/bladder/"/>
+    <nsName ns="http://purl.org/pathology/ecc/kidney/"/>
+</choice>

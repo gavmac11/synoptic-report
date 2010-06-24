@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE	grammar [
+<!ENTITY	item   "item.rng">
+]>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://purl.org/pathology/ecc/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <a:documentation/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&item;"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <start>
+        <ref name="item.content"/>
+    </start>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="response">
+        <element name="response">
+            <attribute name="value">
+                <choice>
+                    <data type="float">
+                        <param name="minExclusive">0.0</param>
+                    </data>
+                    <parentRef name="base.valueset"/>
+                </choice>
+            </attribute>
+            <attribute name="unit">
+                <parentRef name="weightUnit.valueset"/>
+            </attribute>
+            <optional>
+                <attribute a:defaultValue="equal" name="relation">
+                    <parentRef name="relation.valueset"/>
+                </attribute>
+            </optional>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</grammar>

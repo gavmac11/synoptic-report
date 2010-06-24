@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE	grammar [
+<!ENTITY	sections   "shared/sections.rng">
+<!ENTITY	section	   "shared/types/section.rng">
+]>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://purl.org/pathology/ecc/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&sections;"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <start>
+        <ref name="test-harness"/>
+    </start>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="test-harness">
+        <element name="test-harness">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="test-harness.content"/>
+                </define>
+                <define name="extension">
+                    <parentRef name="toplevel.attrib"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="test-harness.content">
+        <interleave>
+            <ref name="accessory"/>
+            <ref name="additional"/>
+            <ref name="history"/>
+            <ref name="extent"/>
+            <ref name="margins"/>
+            <ref name="distantSites"/>
+            <ref name="nodes"/>
+            <ref name="specimen"/>
+            <ref name="stage"/>
+            <ref name="studies"/>
+            <ref name="tumor"/>
+        </interleave>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</grammar>
