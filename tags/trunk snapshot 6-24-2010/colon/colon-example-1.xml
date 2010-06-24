@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="colon.rng" type="xml"?>
+<?oxygen SCHSchema="../core-rules.sch"?>
+<?oxygen SCHSchema="colon.sch"?>
+<section grddl:transformation="http://cap#colon/snomedct/ http://cap#colon/radlex/" name="resection"
+    schemaLocation="http://cap#colon/" version="1.0a" xmlns="http://cap#" xmlns:ecc="http://cap#"
+    xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:kaiser="http://www.kaiser.com">
+    <section name="clinical">
+        <item date="2009" duration="P6M" name="clinical finding">
+            <response value="specify">
+                <specify>hematochezia</specify>
+            </response>
+        </item>
+        <item duration="P5Y" name="clinical finding" start="2005">
+            <response value="specify">
+                <specify>constipation</specify>
+            </response>
+        </item>
+        <item date="2008-06-05" name="prior pathologic diagnosis">
+            <response value="specify">
+                <specify>tubular adenoma</specify>
+            </response>
+        </item>
+        <item date="2008-06-05" name="prior pathologic diagnosis">
+            <response value="specify">
+                <specify>lung cancer</specify>
+            </response>
+        </item>
+        <item name="prior therapy">
+            <response value="unreported"/>
+        </item>
+        <item date="2009-10" name="radiologic finding">
+            <response value="specify">
+                <specify>mass on CT</specify>
+            </response>
+        </item>
+    </section>
+    <section name="specimen">
+        <item name="procedure">
+            <response value="right hemicolectomy"/>
+        </item>
+        <item name="size">
+            <response unit="cm" value="17"/>
+            <response unit="cm" value="6"/>
+            <response unit="cm" value="5"/>
+        </item>
+        <item name="weight">
+            <response unit="g" value="560"/>
+        </item>
+        <item name="site">
+            <response value="hepatic flexure"/>
+            <response value="right colon"/>
+            <response value="cecum"/>
+            <response value="transverse colon"/>
+        </item>
+        <item name="integrity">
+            <response value="intact"/>
+        </item>
+    </section>
+    <section name="tumor">
+        <section modifier="principal" name="focus">
+            <item name="site">
+                <response value="hepatic flexure"/>
+                <response value="transverse colon"/>
+                <response value="right colon"/>
+            </item>
+            <item name="size">
+                <response unit="cm" value="15.0"/>
+                <response unit="cm" value="4.0"/>
+                <response unit="cm" value="3.0"/>
+            </item>
+        </section>
+        <section modifier="additional" name="focus">
+            <item name="site">
+                <response modifier="adheres" value="right colon"/>
+            </item>
+            <item name="size">
+                <response unit="unreported" value="unreported"/>
+            </item>
+            <item name="multiplicity">
+                <response value="4"/>
+            </item>
+        </section>
+        <item name="histologic types">
+            <response value="medullary carcinoma"/>
+        </item>
+        <item name="histologic grade">
+            <response modifier="2-grade" value="high"/>
+        </item>
+        <section name="precursor polyp">
+            <item name="type">
+                <response value="tubular adenoma"/>
+            </item>
+            <item name="configuration">
+                <response value="pedunculated"/>
+            </item>
+            <item name="stalk length">
+                <response unit="cm" value="2"/>
+            </item>
+        </section>
+    </section>
+    <section name="extent">
+        <item name="deepest invasion">
+            <response value="adjacent structure"/>
+        </item>
+        <item name="tumor perforation">
+            <response value="negative"/>
+        </item>
+    </section>
+    <section name="accessory">
+        <item name="treatment response">
+            <response value="slight"/>
+        </item>
+        <item name="lymph-vascular invasion">
+            <response value="negative"/>
+        </item>
+        <item name="perineural invasion">
+            <response value="negative"/>
+        </item>
+        <item name="peritumoral deposits">
+            <response value="negative"/>
+        </item>
+        <item name="mucinous component">
+            <response unit="percent" value="45"/>
+        </item>
+        <item name="medullary component">
+            <response value="negative"/>
+        </item>
+        <item name="intratumoral immune response">
+            <response value="mild-to-moderate"/>
+        </item>
+        <item name="peritumoral immune response">
+            <response value="mild-to-moderate"/>
+        </item>
+    </section>
+    <section name="margins">
+        <section location="12:00" name="margin">
+            <section modifier="in-situ" name="status">
+                <item name="result">
+                    <response modifier="closest" value="negative"/>
+                </item>
+                <item name="distance">
+                    <response unit="cm" value="0.5"/>
+                </item>
+            </section>
+            <section modifier="invasive" name="status">
+                <item name="result">
+                    <response value="positive"/>
+                </item>
+            </section>
+        </section>
+        <section location="10:00" name="margin">
+            <section modifier="in-situ" name="status">
+                <item name="result">
+                    <response modifier="closest" value="negative"/>
+                </item>
+                <item name="distance">
+                    <response unit="mm" value="5"/>
+                </item>
+            </section>
+            <section modifier="invasive" name="status">
+                <item name="result">
+                    <response value="negative"/>
+                </item>
+            </section>
+        </section>
+    </section>
+    <section name="nodes">
+        <section laterality="ipsilateral" name="node group" site="inferior hemorrhoidal">
+            <item modifier="total" name="count">
+                <response value="25"/>
+            </item>
+            <item modifier="positive" name="count">
+                <response value="11"/>
+            </item>
+            <item modifier="necroinflammatory changes" name="count">
+                <response value="2"/>
+            </item>
+            <item name="largest metastasis">
+                <response relation="greater than" unit="cm" value="2.5"/>
+            </item>
+            <item name="extracapsular extension">
+                <response value="positive"/>
+            </item>
+        </section>
+    </section>
+    <section name="distant">
+        <section laterality="left" name="status" site="lung">
+            <item name="result">
+                <response modifier="this accession" value="negative"/>
+            </item>
+            <item name="size">
+                <response unit="cm" value="2"/>
+            </item>
+        </section>
+    </section>
+    <section name="studies">
+        <!-- TODO: need to put this back to sections with multiple responses -->
+        <section name="microsatellite instability">
+            <item name="result">
+                <response value="low"/>
+            </item>
+            <item name="technique">
+                <response value="unreported"/>
+            </item>
+        </section>
+        <section name="MLH1">
+            <item name="result">
+                <response value="intact nuclear positivity, tumor cells"/>
+            </item>
+            <item name="technique">
+                <response value="immunohistochemistry"/>
+            </item>
+        </section>
+        <section name="BRAF">
+            <item name="result">
+                <response value="mutation detected"/>
+            </item>
+            <item name="mutation">
+                <response value="specify">
+                    <specify>something</specify>
+                </response>
+            </item>
+            <item name="technique">
+                <response value=""/>
+            </item>
+        </section>
+        <section name="KRAS">
+            <item name="result">
+                <response value="mutation detected"/>
+            </item>
+            <item name="mutation">
+                <response value="specify">
+                    <specify>something</specify>
+                </response>
+            </item>
+            <item name="technique">
+                <response value="unreported"/>
+            </item>
+        </section>
+    </section>
+    <section name="stage">
+        <item name="prefix">
+            <response value="y"/>
+        </item>
+        <item name="multiplicity">
+            <response value="m"/>
+        </item>
+        <item name="pT">
+            <response value="4b"/>
+        </item>
+        <item name="pN">
+            <response value="2b"/>
+        </item>
+        <item name="pM">
+            <response value="unreported"/>
+        </item>
+    </section>
+    <section name="additional">
+        <item name="finding">
+            <response value="Crohn's disease"/>
+        </item>
+        <item name="finding">
+            <response value="dysplasia with IBD"/>
+        </item>
+    </section>
+</section>

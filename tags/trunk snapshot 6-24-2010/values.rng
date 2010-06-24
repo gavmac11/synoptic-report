@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <!--=============================================================-->
+    <define combine="choice" name="base.valueset">
+        <choice>
+            <value>specify</value>
+            <value>inapplicable</value>
+            <value>unreported</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="qualitative.valueset">
+        <choice>
+            <value>positive</value>
+            <value>negative</value>
+            <value>equivocal</value>
+            <value>indeterminate</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="lengthUnit.valueset">
+        <choice>
+            <value>cm</value>
+            <value>mm</value>
+            <value>in</value>
+            <ref name="base.valueset"/>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="weightUnit.valueset">
+        <choice>
+            <value>mg</value>
+            <value>g</value>
+            <value>kg</value>
+            <ref name="base.valueset"/>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="relation.valueset">
+        <choice>
+            <value>less than</value>
+            <value>less than or equal</value>
+            <value>equal</value>
+            <value>approximately equal</value>
+            <value>greater than or equal</value>
+            <value>greater than</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="laterality.valueset">
+        <choice>
+            <value>ipsilateral</value>
+            <value>contralateral</value>
+            <value>right</value>
+            <value>left</value>
+            <value>midline</value>
+            <value>specify</value>
+            <value>unreported</value>
+            <value>inapplicable</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="focality.valueset">
+        <choice>
+            <value>unifocal</value>
+            <value>multifocal</value>
+            <value>extensive</value>
+            <value>specify</value>
+            <value>unreported</value>
+            <value>inapplicable</value>
+        </choice>
+    </define>
+    <define combine="choice" name="from.valueset">
+        <ref name="base.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="to.valueset">
+        <ref name="base.valueset"/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>accessory SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.lymph-vascularInvasion.valueset">
+        <ref name="qualitative.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.perineuralInvasion.valueset">
+        <ref name="qualitative.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="accessory.treatmentResponse.valueset">
+        <choice>
+            <value>none</value>
+            <value>slight</value>
+            <value>marked</value>
+            <value>complete</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>additional SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="additional.finding.valueset">
+        <empty/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>clinical SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="clinical.clinicalFinding.valueset">
+        <notAllowed/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="clinical.priorPathologicDiagnosis.valueset">
+        <notAllowed/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="clinical.priorTherapy.valueset">
+        <notAllowed/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="clinical.radiologicFinding.valueset">
+        <notAllowed/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>extent SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="extent.sites.valueset">
+        <notAllowed/>
+    </define>
+    <define combine="choice" name="extent.size.valueset">
+        <notAllowed/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>margin SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="margin.focality.valueset">
+        <ref name="focality.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="margin.sort.valueset">
+        <choice>
+            <value>invasive</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="margin.location.valueset">
+        <ref name="base.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="margin.status.valueset">
+        <ref name="qualitative.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="margin.status.modifier.valueset">
+        <choice>
+            <value>closest</value>
+            <value>unifocal</value>
+            <value>multifocal</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>distantSites SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="distantSites.howDiagnosed.valueset">
+        <choice>
+            <value>this accession</value>
+            <value>prior accession</value>
+            <value>outside report</value>
+            <value>clinical history</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="distantSites.location.valueset">
+        <choice>
+            <value>liver</value>
+            <value>bone</value>
+            <value>lung</value>
+            <value>brain</value>
+            <value>specify</value>
+            <value>unreported</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>nodes SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="nodes.extracapsularExtension.valueset">
+        <ref name="qualitative.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="nodes.location.valueset">
+        <ref name="base.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="interleave" name="nodes.count.modifier.valueset">
+        <choice>
+            <value>total</value>
+            <value>negative</value>
+            <value>positive</value>
+            <value>necroinflammatory changes</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>specimen SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="specimen.integrity.valueset">
+        <choice>
+            <value>intact</value>
+            <value>fragmented</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="specimen.procedure.valueset">
+        <ref name="base.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="specimen.sites.valueset">
+        <ref name="base.valueset"/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>stage SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="stage.prefix.valueset">
+        <choice>
+            <value>y</value>
+            <value>r</value>
+            <value>a</value>
+            <value>none</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="stage.multiplicity.valueset">
+        <choice>
+            <value>1</value>
+            <value>2</value>
+            <value>3</value>
+            <value>4</value>
+            <value>m</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="stage.pT.valueset">
+        <notAllowed/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="stage.pN.valueset">
+        <notAllowed/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="stage.pM.valueset">
+        <notAllowed/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>tumor SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="tumor.type.valueset">
+        <ref name="base.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="tumor.grade.valueset">
+        <ref name="base.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="tumor.gradeSystem.valueset">
+        <choice>
+            <value>4-grade</value>
+            <value>3-grade</value>
+            <value>2-grade</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</grammar>

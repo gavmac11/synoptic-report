@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    
+    ===========================================================================
+    Copyright 2009 College of American Pathologists (CAP)
+    
+    This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+    
+    The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================
+
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://cap#"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:ecc="http://cap#">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div>
+        <a:documentation>Definition of [item].</a:documentation>
+        <start>
+            <ref name="item"/>
+        </start>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="item">
+            <empty/>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="content">
+            <!--<attribute name="name">
+                <ref name="name"/>
+            </attribute>-->
+            <ref name="item.extension"/>
+            <ref name="response"/>
+            <interleave>
+                <parentRef name="generic.content"/>
+                <parentRef name="user.content"/>
+            </interleave>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="name">
+            <name>
+                <notAllowed/>
+            </name>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="response">
+            <notAllowed/>
+        </define>
+    </div>
+    <!--=============================================================-->
+    <div>
+        <define combine="choice" name="item.extension">
+            <empty/>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <a:documentation>Definition of response.content for a [response].</a:documentation>
+        <define name="response.content">
+            <interleave>
+                <!--<ref name="specify"/>-->
+                <interleave>
+                    <parentRef name="generic.content"/>
+                    <parentRef name="user.content"/>
+                    <ref name="extension"/>
+                </interleave>
+            </interleave>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define combine="interleave" name="extension">
+            <empty/>
+        </define>
+    </div>
+    <!--=============================================================-->
+    <div>
+        <a:documentation>Utility definitions for construction of response types.</a:documentation>
+        <define name="date">
+            <choice>
+                <attribute name="date">
+                    <choice>
+                        <data type="date"/>
+                        <data type="gYearMonth"/>
+                        <data type="gYear"/>
+                    </choice>
+                </attribute>
+                <group>
+                    <attribute name="start">
+                        <choice>
+                            <data type="date"/>
+                            <data type="gYearMonth"/>
+                            <data type="gYear"/>
+                        </choice>
+                    </attribute>
+                    <optional>
+                        <attribute name="end">
+                            <choice>
+                                <data type="date"/>
+                                <data type="gYearMonth"/>
+                                <data type="gYear"/>
+                            </choice>
+                        </attribute>
+                    </optional>
+                </group>
+            </choice>
+            <optional>
+                <attribute name="duration">
+                    <data type="duration"/>
+                </attribute>
+            </optional>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="relation">
+            <optional>
+                <attribute a:defaultValue="equal" name="relation">
+                    <parentRef name="relation.valueset"/>
+                </attribute>
+            </optional>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define combine="choice" name="valueset">
+            <parentRef name="base.valueset"/>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define combine="choice" name="system.valueset">
+            <parentRef name="base.valueset"/>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define combine="choice" name="unit.valueset">
+            <parentRef name="base.valueset"/>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define combine="choice" name="method.valueset">
+            <parentRef name="base.valueset"/>
+        </define>
+    </div>
+    <!--=============================================================-->
+    <div>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <a:documentation>Predefined response types</a:documentation>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="selectOne">
+            <element name="response">
+                <attribute name="value">
+                    <ref name="valueset"/>
+                </attribute>
+                <ref name="response.content"/>
+            </element>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="selectMany">
+            <oneOrMore>
+                <element name="response">
+                    <attribute name="value">
+                        <ref name="valueset"/>
+                    </attribute>
+                    <ref name="response.content"/>
+                </element>
+            </oneOrMore>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="tally">
+            <element name="response">
+                <attribute name="value">
+                    <choice>
+                        <data type="nonNegativeInteger"/>
+                        <parentRef name="base.valueset"/>
+                    </choice>
+                </attribute>
+                <ref name="relation"/>
+                <ref name="response.content"/>
+            </element>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="percent">
+            <element name="response">
+                <attribute name="value">
+                    <choice>
+                        <data type="nonNegativeInteger">
+                            <param name="maxInclusive">100</param>
+                        </data>
+                        <parentRef name="base.valueset"/>
+                    </choice>
+                </attribute>
+                <ref name="relation"/>
+                <attribute name="unit">
+                    <value>percent</value>
+                </attribute>
+                <ref name="response.content"/>
+            </element>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="quantity">
+            <element name="response">
+                <attribute name="value">
+                    <ref name="valueset"/>
+                </attribute>
+                <attribute name="unit">
+                    <ref name="unit.valueset"/>
+                </attribute>
+                <ref name="relation"/>
+                <ref name="response.content"/>
+            </element>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="ratio">
+            <element name="response">
+                <attribute name="value">
+                    <choice>
+                        <data type="float">
+                            <param name="minInclusive">0.0</param>
+                        </data>
+                        <parentRef name="base.valueset"/>
+                    </choice>
+                </attribute>
+                <ref name="relation"/>
+                <ref name="response.content"/>
+            </element>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="length">
+            <element name="response">
+                <attribute name="value">
+                    <choice>
+                        <data type="float">
+                            <param name="minExclusive">0.0</param>
+                        </data>
+                        <parentRef name="base.valueset"/>
+                    </choice>
+                </attribute>
+                <attribute name="unit">
+                    <parentRef name="lengthUnit.valueset"/>
+                </attribute>
+                <ref name="relation"/>
+                <ref name="response.content"/>
+            </element>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="size">
+            <ref name="length"/>
+            <optional>
+                <ref name="length"/>
+                <optional>
+                    <ref name="length"/>
+                </optional>
+            </optional>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="weight">
+            <element name="response">
+                <attribute name="value">
+                    <choice>
+                        <data type="float">
+                            <param name="minExclusive">0.0</param>
+                        </data>
+                        <parentRef name="base.valueset"/>
+                    </choice>
+                </attribute>
+                <attribute name="unit">
+                    <parentRef name="weightUnit.valueset"/>
+                </attribute>
+                <ref name="relation"/>
+                <ref name="response.content"/>
+            </element>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="ordinal">
+            <element name="response">
+                <attribute name="value">
+                    <ref name="valueset"/>
+                </attribute>
+                <optional>
+                    <attribute name="system">
+                        <ref name="system.valueset"/>
+                    </attribute>
+                </optional>
+                <ref name="relation"/>
+                <ref name="response.content"/>
+            </element>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="eventList">
+            <oneOrMore>
+                <element name="response">
+                    <attribute name="value">
+                        <ref name="valueset"/>
+                    </attribute>
+                    <optional>
+                        <ref name="date"/>
+                    </optional>
+                    <ref name="response.content"/>
+                </element>
+            </oneOrMore>
+        </define>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <define name="study">
+            <element name="response">
+                <attribute name="value">
+                    <ref name="valueset"/>
+                </attribute>
+                <optional>
+                    <attribute name="method">
+                        <ref name="method.valueset"/>
+                    </attribute>
+                </optional>
+                <ref name="response.content"/>
+            </element>
+        </define>
+    </div>
+    <!--=============================================================-->
+</grammar>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:/Users/me/Dropbox/eCC%20working/breast/breast.rng" type="xml"?>
+<section name="resection" 
+    schemaLocation="http://cap#breast/" version="1.0a" xmlns:ns1="http://www.w3.org/2003/g/data-view#">
+    <section name="clinical">
+        <item date="2008" name="clinical_finding">
+            <response value="specify" xmlns="http://cap#">
+                <specify>some clinical finding</specify>
+            </response>
+        </item>
+        <item name="prior_pathologic_diagnosis">
+            <response value="specify" xmlns="http://cap#">
+                <specify>invasive carcinoma</specify>
+            </response>
+        </item>
+    </section>
+    <section name="specimen">
+        <item name="procedure">
+            <response value="excision with wire-guided localization" xmlns="http://cap#"/>
+        </item>
+        <item name="size">
+            <response unit="cm" value="8.0" xmlns="http://cap#"/>
+            <response unit="cm" value="6.0" xmlns="http://cap#"/>
+        </item>
+        <item name="weight">
+            <response unit="g" value="450" xmlns="http://cap#"/>
+        </item>
+        <item name="included_sites">
+            <response value="partial breast" xmlns="http://cap#"/>
+        </item>
+        <item name="integrity">
+            <response value="intact" xmlns="http://cap#"/>
+        </item>
+        <item name="lymph_node_sampling">
+            <response value="partial axillary dissection" xmlns="http://cap#"/>
+        </item>
+    </section>
+    <section name="tumor">
+        <item name="histologic_types">
+            <response value="ductal carcinoma" xmlns="http://cap#"/>
+        </item>
+        <section name="grade">
+            <item name="glandular">
+                <response value="1" xmlns="http://cap#"/>
+            </item>
+            <item name="nuclear">
+                <response value="2" xmlns="http://cap#"/>
+            </item>
+            <item name="mitotic">
+                <response value="3" xmlns="http://cap#"/>
+            </item>
+            <item name="overall">
+                <response value="2" xmlns="http://cap#"/>
+            </item>
+        </section>
+    </section>
+    <section name="extent">
+        <section name="principal_focus">
+            <item name="location">
+                <response value="central" xmlns="http://cap#"/>
+            </item>
+            <item name="size">
+                <response unit="cm" value="3.2" xmlns="http://cap#"/>
+                <response unit="cm" value="2.6" xmlns="http://cap#"/>
+                <response unit="cm" value="2.1" xmlns="http://cap#"/>
+            </item>
+        </section>
+        <section name="additional_focus">
+            <item name="location">
+                <response value="lower outer quadrant" xmlns="http://cap#"/>
+                <response value="central" xmlns="http://cap#"/>
+            </item>
+            <item name="size">
+                <response relation="less than" unit="cm" value="1.0  " xmlns="http://cap#"/>
+            </item>
+        </section>
+        <section name="additional_focus">
+            <item name="location">
+                <response value="nipple" xmlns="http://cap#"/>
+            </item>
+            <item name="size">
+                <response value="microinvasion" xmlns="http://cap#"/>
+            </item>
+            <item name="multiplicity">
+                <response value="3" xmlns="http://cap#"/>
+            </item>
+        </section>
+        <section name="skin">
+            <item name="invasion">
+                <response value="negative" xmlns="http://cap#"/>
+            </item>
+            <item name="ulceration">
+                <response value="negative" xmlns="http://cap#"/>
+            </item>
+            <item name="satellite_nodules">
+                <response value="negative" xmlns="http://cap#"/>
+            </item>
+            <item name="dermal_lymphatic_invasion">
+                <response value="negative" xmlns="http://cap#"/>
+            </item>
+        </section>
+        <item name="underlying_structures">
+            <response value="negative" xmlns="http://cap#"/>
+        </item>
+        <item name="nipple_Paget_disease">
+            <response value="negative" xmlns="http://cap#"/>
+        </item>
+    </section>
+    <section name="accessory">
+        <item name="lymph-vascular_invasion">
+            <response value="unreported" xmlns="http://cap#"/>
+        </item>
+        <item name="perineural_invasion">
+            <response value="unreported" xmlns="http://cap#"/>
+        </item>
+        <item name="microcalcifications">
+            <response value="in DCIS" xmlns="http://cap#"/>
+        </item>
+        <section name="ductal_carcinoma-in-situ">
+            <item name="extent">
+                <response value="negative" xmlns="http://cap#"/>
+            </item>
+        </section>
+        <section name="lobular_carcinoma-in-situ">
+            <item name="extent">
+                <response value="negative" xmlns="http://cap#"/>
+            </item>
+        </section>
+    </section>
+    <section name="margins">
+        <section location="lateral" name="margin">
+            <section name="invasive_carcinoma">
+                <item name="status">
+                    <response value="unreported" xmlns="http://cap#"/>
+                </item>
+            </section>
+        </section>
+        <section location="anterior" name="margin">
+            <section name="DCIS">
+                <item name="status">
+                    <response value="equivocal" xmlns="http://cap#"/>
+                </item>
+                <item name="closest">
+                    <response value="positive" xmlns="http://cap#"/>
+                </item>
+                <item name="focality">
+                    <response value="multifocal" xmlns="http://cap#"/>
+                </item>
+            </section>
+            <section name="invasive_carcinoma">
+                <item name="status">
+                    <response value="negative" xmlns="http://cap#"/>
+                </item>
+            </section>
+        </section>
+        <section location="inferior" name="margin">
+            <section name="DCIS">
+                <item name="status">
+                    <response value="positive" xmlns="http://cap#"/>
+                </item>
+                <item name="focality">
+                    <response value="unifocal" xmlns="http://cap#"/>
+                </item>
+            </section>
+            <section name="invasive_carcinoma">
+                <item name="status">
+                    <response value="negative" xmlns="http://cap#"/>
+                </item>
+            </section>
+        </section>
+        <section location="specify" name="margin">
+            <!-- need to fix the lack of specify element here in schema -->
+            <specify xmlns="http://cap#">all other margins</specify>
+            <section name="DCIS">
+                <item name="status">
+                    <response value="negative" xmlns="http://cap#"/>
+                </item>
+            </section>
+            <section name="invasive_carcinoma">
+                <item name="status">
+                    <response value="negative" xmlns="http://cap#"/>
+                </item>
+            </section>
+        </section>
+    </section>
+    <section name="nodes">
+        <section location="unreported" name="node_group">
+            <item name="total">
+                <response value="unreported" xmlns="http://cap#"/>
+            </item>
+            <item name="positive">
+                <response value="unreported" xmlns="http://cap#"/>
+            </item>
+        </section>
+        <section location="unreported" name="node_group">
+            <item name="total">
+                <response value="unreported" xmlns="http://cap#"/>
+            </item>
+        </section>
+        <item name="sentinel_node_evaluation">
+            <response value="H&amp;E, one level" xmlns="http://cap#"/>
+        </item>
+    </section>
+    <section name="distant_sites">
+        <section location="liver" name="site">
+            <item name="status">
+                <response value="negative" xmlns="http://cap#"/>
+            </item>
+        </section>
+    </section>
+    <section name="studies">
+        <section name="estrogen_receptor">
+            <item name="result">
+                <response relation="less than" unit="percent" value="1" xmlns="http://cap#"/>
+            </item>
+            <section name="method">
+                <item name="technique">
+                    <response value="immunohistochemistry" xmlns="http://cap#"/>
+                </item>
+                <item name="source">
+                    <response value="this specimen" xmlns="http://cap#"/>
+                </item>
+                <item name="antibody">
+                    <response value="specify" vendor="Dako" xmlns="http://cap#">
+                        <specify>HF347</specify>
+                    </response>
+                </item>
+            </section>
+        </section>
+        <section name="progesterone_receptor">
+            <item name="result">
+                <response relation="less than" unit="percent" value="1" xmlns="http://cap#"/>
+            </item>
+            <section name="method">
+                <item name="technique">
+                    <response value="immunohistochemistry" xmlns="http://cap#"/>
+                </item>
+                <item name="source">
+                    <response value="this specimen" xmlns="http://cap#"/>
+                </item>
+            </section>
+        </section>
+        <section name="HER2-neu">
+            <section name="result">
+                <item name="her2_gene_copy_number">
+                    <response unit="per cell" value="3" xmlns="http://cap#"/>
+                </item>
+                <item name="chromosome_17_copy_number">
+                    <response unit="per cell" value="4.3" xmlns="http://cap#"/>
+                </item>
+                <item name="her2_copy_number_ratio">
+                    <response value="4.3" xmlns="http://cap#"/>
+                </item>
+            </section>
+            <section name="method">
+                <item name="technique">
+                    <response value="fluorescence in-situ hybridization" xmlns="http://cap#"/>
+                </item>
+                <item name="source">
+                    <response value="this specimen" xmlns="http://cap#"/>
+                </item>
+                <item name="assay">
+                    <response value="specify" vendor="Dako" xmlns="http://cap#">
+                        <specify>razzmatazz</specify>
+                    </response>
+                </item>
+            </section>
+        </section>
+    </section>
+    <section name="stage">
+        <item name="prefix">
+            <response value="none" xmlns="http://cap#"/>
+        </item>
+        <item name="pT">
+            <response value="1" xmlns="http://cap#"/>
+        </item>
+        <item name="pN">
+            <response value="1" xmlns="http://cap#"/>
+        </item>
+        <item name="pM">
+            <response value="1" xmlns="http://cap#"/>
+        </item>
+    </section>
+    <section name="additional"/>
+</section>

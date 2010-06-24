@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resection ns1:transformation="http://cap#breast/snomedct/ http://cap#breast/radlex/" schemaLocation="http://cap#breast/" version="1.0a"
+	xmlns="http://cap#" xmlns:ns1="http://www.w3.org/2003/g/data-view#">
+	<clinical>
+		<clinical_finding date="2008">
+			<response value="specify">
+				<specify>some clinical finding</specify>
+			</response>
+		</clinical_finding>
+		<prior_pathologic_diagnosis>
+			<response value="specify">
+				<specify>invasive carcinoma</specify>
+			</response>
+		</prior_pathologic_diagnosis>
+	</clinical>
+	<specimen>
+		<procedure>
+			<response value="excision with wire-guided localization"/>
+		</procedure>
+		<size>
+			<response unit="cm" value="8.0"/>
+			<response unit="cm" value="6.0"/>
+		</size>
+		<weight>
+			<response unit="g" value="450"/>
+		</weight>
+		<included_sites>
+			<response value="partial breast"/>
+		</included_sites>
+		<integrity>
+			<response value="intact"/>
+		</integrity>
+		<lymph_node_sampling>
+			<response value="partial axillary dissection"/>
+		</lymph_node_sampling>
+	</specimen>
+	<tumor>
+		<histologic_types>
+			<response value="ductal carcinoma"/>
+		</histologic_types>
+		<grade>
+			<glandular>
+				<response value="1"/>
+			</glandular>
+			<nuclear>
+				<response value="2"/>
+			</nuclear>
+			<mitotic>
+				<response value="3"/>
+			</mitotic>
+			<overall>
+				<response value="2"/>
+			</overall>
+		</grade>
+	</tumor>
+	<extent>
+		<principal_focus>
+			<location>
+				<response value="central"/>
+			</location>
+			<size>
+				<response unit="cm" value="3.2"/>
+				<response unit="cm" value="2.6"/>
+				<response unit="cm" value="2.1"/>
+			</size>
+		</principal_focus>
+		<additional_focus>
+			<location>
+				<response value="lower outer quadrant"/>
+				<response value="central"/>
+			</location>
+			<size>
+				<response relation="less than" unit="cm" value="1.0  "/>
+			</size>
+		</additional_focus>
+		<additional_focus>
+			<location>
+				<response value="nipple"/>
+			</location>
+			<size>
+				<response value="microinvasion"/>
+			</size>
+			<multiplicity>
+				<response value="3"/>
+			</multiplicity>
+		</additional_focus>
+		<skin>
+			<invasion>
+				<response value="negative"/>
+			</invasion>
+			<ulceration>
+				<response value="negative"/>
+			</ulceration>
+			<satellite_nodules>
+				<response value="negative"/>
+			</satellite_nodules>
+			<dermal_lymphatic_invasion>
+				<response value="negative"/>
+			</dermal_lymphatic_invasion>
+		</skin>
+		<underlying_structures>
+			<response value="negative"/>
+		</underlying_structures>
+		<nipple_Paget_disease>
+			<response value="negative"/>
+		</nipple_Paget_disease>
+	</extent>
+	<accessory>
+		<lymph-vascular_invasion>
+			<response value="unreported"/>
+		</lymph-vascular_invasion>
+		<perineural_invasion>
+			<response value="unreported"/>
+		</perineural_invasion>
+		<microcalcifications>
+			<response value="in DCIS"/>
+		</microcalcifications>
+		<ductal_carcinoma-in-situ>
+			<extent>
+				<response value="negative"/>
+			</extent>
+		</ductal_carcinoma-in-situ>
+		<lobular_carcinoma-in-situ>
+			<extent>
+				<response value="negative"/>
+			</extent>
+		</lobular_carcinoma-in-situ>
+	</accessory>
+	<margins>
+		<margin location="lateral">
+			<invasive_carcinoma>
+				<status>
+					<response value="unreported"/>
+				</status>
+			</invasive_carcinoma>
+		</margin>
+		<margin location="anterior">
+			<DCIS>
+				<status>
+					<response value="equivocal"/>
+				</status>
+				<closest>
+					<response value="positive"/>
+				</closest>
+				<focality>
+					<response value="multifocal"/>
+				</focality>
+			</DCIS>
+			<invasive_carcinoma>
+				<status>
+					<response value="negative"/>
+				</status>
+			</invasive_carcinoma>
+		</margin>
+		<margin location="inferior">
+			<DCIS>
+				<status>
+					<response value="positive"/>
+				</status>
+				<focality>
+					<response value="unifocal"/>
+				</focality>
+			</DCIS>
+			<invasive_carcinoma>
+				<status>
+					<response value="negative"/>
+				</status>
+			</invasive_carcinoma>
+		</margin>
+		<margin location="specify">
+			<!-- need to fix the lack of specify element here in schema -->
+			<specify>all other margins</specify>
+			<DCIS>
+				<status>
+					<response value="negative"/>
+				</status>
+			</DCIS>
+			<invasive_carcinoma>
+				<status>
+					<response value="negative"/>
+				</status>
+			</invasive_carcinoma>
+		</margin>
+	</margins>
+	<nodes>
+		<node_group location="unreported">
+			<total>
+				<response value="unreported"/>
+			</total>
+			<positive>
+				<response value="unreported"/>
+			</positive>
+		</node_group>
+		<node_group location="unreported">
+			<total>
+				<response value="unreported"/>
+			</total>
+		</node_group>
+		<sentinel_node_evaluation>
+			<response value="H&amp;E, one level"/>
+		</sentinel_node_evaluation>
+	</nodes>
+	<distant_sites>
+		<site location="liver">
+			<status>
+				<response value="negative"/>
+			</status>
+		</site>
+	</distant_sites>
+	<studies>
+		<estrogen_receptor>
+			<result>
+				<response relation="less than" unit="percent" value="1"/>
+			</result>
+			<method>
+				<technique>
+					<response value="immunohistochemistry"/>
+				</technique>
+				<source>
+					<response value="this specimen"/>
+				</source>
+				<antibody>
+					<response value="specify" vendor="Dako">
+						<specify>HF347</specify>
+					</response>
+				</antibody>
+			</method>
+		</estrogen_receptor>
+		<progesterone_receptor>
+			<result>
+				<response relation="less than" unit="percent" value="1"/>
+			</result>
+			<method>
+				<technique>
+					<response value="immunohistochemistry"/>
+				</technique>
+				<source>
+					<response value="this specimen"/>
+				</source>
+			</method>
+		</progesterone_receptor>
+		<HER2-neu>
+			<result>
+				<her2_gene_copy_number>
+					<response unit="per cell" value="3"/>
+				</her2_gene_copy_number>
+				<chromosome_17_copy_number>
+					<response unit="per cell" value="4.3"/>
+				</chromosome_17_copy_number>
+				<her2_copy_number_ratio>
+					<response value="4.3"/>
+				</her2_copy_number_ratio>
+			</result>
+			<method>
+				<technique>
+					<response value="fluorescence in-situ hybridization"/>
+				</technique>
+				<source>
+					<response value="this specimen"/>
+				</source>
+				<assay>
+					<response value="specify" vendor="Dako">
+						<specify>razzmatazz</specify>
+					</response>
+				</assay>
+			</method>
+		</HER2-neu>
+	</studies>
+	<stage>
+		<prefix>
+			<response value="none"/>
+		</prefix>
+		<pT>
+			<response value="1"/>
+		</pT>
+		<pN>
+			<response value="1"/>
+		</pN>
+		<pM>
+			<response value="1"/>
+		</pM>
+	</stage>
+	<additional/>
+</resection>
