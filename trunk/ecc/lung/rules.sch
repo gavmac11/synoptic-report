@@ -21,13 +21,14 @@
     limitations under the License.
     ===========================================================================  
 -->
-<choice xmlns="http://relaxng.org/ns/structure/1.0">
-    <nsName ns="http://purl.org/pathology/ecc/"/>
-    <nsName ns="http://purl.org/pathology/ecc/colon/"/>
-    <nsName ns="http://purl.org/pathology/ecc/breast/"/>
-    <nsName ns="http://purl.org/pathology/ecc/endometrium/"/>
-    <nsName ns="http://purl.org/pathology/ecc/lung/"/>
-    <nsName ns="http://purl.org/pathology/ecc/prostate/"/>
-    <nsName ns="http://purl.org/pathology/ecc/bladder/"/>
-    <nsName ns="http://purl.org/pathology/ecc/kidney/"/>
-</choice>
+<schema queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron"
+    xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <ns prefix="ecc" uri="http://purl.org/pathology/ecc/"/>
+    <ns prefix="rng" uri="http://relaxng.org/ns/structure/1.0"/>
+    <let name="skip" value="true()"/>
+    <let name="positive" value="'positive'"/>
+    <let name="test"
+        value="document('values.rng')/rng:grammar/rng:define[@name eq 'extent.adjacentSite.valueset']/rng:choice/rng:value"
+    />
+</schema>

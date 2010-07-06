@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <!--=============================================================-->
+    <a:documentation>SHARED valuesets</a:documentation>
+    <!--=============================================================-->
+    <define name="intrinsic.site.valueset">
+        <choice>
+            <value>main bronchus</value>
+            <value>right lung</value>
+            <value>right upper lobe</value>
+            <value>right middle lobe</value>
+            <value>right lower lobe</value>
+            <value>left lung</value>
+            <value>left upper lobe</value>
+            <value>lingula</value>
+            <value>left lower lobe</value>
+            <value>carina</value>
+            <value>right lung</value>
+            <value>right upper lobe</value>
+            <value>right middle lobe</value>
+            <value>right lower lobe</value>
+            <value>left lung</value>
+            <value>left upper lobe</value>
+            <value>lingula</value>
+            <value>left lower lobe</value>
+            <value>apical right upper segment</value>
+            <value>posterior right upper segment</value>
+            <value>anterior right upper segment</value>
+            <value>lateral right middle segment</value>
+            <value>medial right middle segment</value>
+            <value>superior right lower segment</value>
+            <value>medial-basal right lower segment</value>
+            <value>anterior-basal right lower segment</value>
+            <value>lateral-basal right lower segment</value>
+            <value>apical-posterior left upper segment</value>
+            <value>anterior left upper segment</value>
+            <value>inferior lingular segment</value>
+            <value>superior left lower segment</value>
+            <value>anteromedial-basal left lower segment</value>
+            <value>posterior-basal left lower segment</value>
+            <value>lateral-basal left lowers egment</value>
+            <value>right mainstem bronchus</value>
+            <value>right upper lobe bronchus</value>
+            <value>bronchus intermedius</value>
+            <value>right middle lobe bronchus</value>
+            <value>right lower lobe bronchus</value>
+            <value>left upper lobe bronchus</value>
+            <value>left lower lobe bronchus</value>
+            <value>left upper lobe bronchus</value>
+        </choice>
+    </define>
+    <define name="extrinsic.site.valueset">
+        <choice>
+            <choice>
+                <value>carina</value>
+                <value>chest wall</value>
+                <value>diaphragm</value>
+                <value>esophagus</value>
+                <value>great vessels</value>
+                <value>heart</value>
+                <value>main bronchus</value>
+                <value>mediastinal pleura</value>
+                <value>mediastinum</value>
+                <value>parietal pericardium</value>
+                <value>parietal pleura</value>
+                <value>phrenic nerve</value>
+                <value>recurrent laryngeal nerve</value>
+                <value>trachea</value>
+                <value>vertebral body</value>
+                <value>other</value>
+            </choice>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>SPECIMEN section valuesets</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="specimen.procedure.valueset">
+        <choice>
+            <value>wedge biopsy</value>
+            <value>transbronchial biopsy</value>
+            <value>endobronchial biopsy</value>
+            <value>pneumonectomy</value>
+            <value>segmentectomy</value>
+            <value>lobectomy</value>
+            <value>bilobectomy</value>
+            <value>major airway resection</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="specimen.site.valueset">
+        <ref name="sites.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="sites.valueset">
+        <ref name="intrinsic.site.valueset"/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>TUMOR section valuesets</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.type.valueset">
+        <choice>
+            <value>carcinoma nos</value>
+            <value>non-small cell carcinoma nos</value>
+            <value>small cell carcinoma</value>
+            <value>squamous cell carcinoma</value>
+            <value>papillary squamous cell carcinoma</value>
+            <value>clear cell squamous cell carcinoma</value>
+            <value>small cell squamous cell carcinoma</value>
+            <value>basaloid squamous cell carcinoma</value>
+            <value>adenocarcinoma</value>
+            <value>acinar adenocarcinoma</value>
+            <value>papillary adenocarcinoma</value>
+            <value>bronchioloalveolar carcinoma</value>
+            <value>nonmucinous bronchioloalveolar carcinoma</value>
+            <value>mucinous bronchioloalveolar carcinoma</value>
+            <value>fetal adenocarcinoma</value>
+            <value>mucinous adenocarcinoma</value>
+            <value>mucinous cystadenocarcinoma</value>
+            <value>signet ring cell adenocarcinoma</value>
+            <value>clear cell adenocarcinoma</value>
+            <value>large cell adenocarcinoma</value>
+            <value>large cell neuroendocrine carcinoma</value>
+            <value>basaloid carcinoma</value>
+            <value>lymphoepitheial-like carcinoma</value>
+            <value>rhabdoid large cell carcinoma</value>
+            <value>adenosquamous carcinoma</value>
+            <value>sarcomatoid carcinoma</value>
+            <value>pleomorphic carcinoma</value>
+            <value>spindle cell carcinoma</value>
+            <value>giant cell carcinoma</value>
+            <value>carcinosarcoma</value>
+            <value>pulmonary blastoma</value>
+            <value>typical carcinoid</value>
+            <value>atypical carcinoid</value>
+            <value>mucoepidermoid carcinoma</value>
+            <value>adenoid cystic carcinoma</value>
+            <value>epitheilial myoepithelial carcinoma</value>
+            <value>other</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.grade.valueset">
+        <choice>
+            <value>1</value>
+            <value>2</value>
+            <value>3</value>
+            <value>4</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.gradeSystem.valueset">
+        <choice>
+            <value>WHO</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="tumor.multiplicity.valueset">
+        <choice>
+            <value>unifocal</value>
+            <value>multifocal same lobe</value>
+            <value>multifocal different lobes</value>
+            <value>synchronous tumors</value>
+            <value>indeterminate</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>EXTENT section valuesets</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.adjacentSite.valueset">
+        <ref name="extrinsic.site.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.adjacentSite.status.type.valueset">
+        <choice>
+            <value>invades</value>
+            <value>adheres</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.pneumonitis.valueset">
+        <choice>
+            <value>focal or negative</value>
+            <value>extending to hilum</value>
+            <value>entire lung</value>
+            <value>indeterminate</value>
+            <value>inapplicable</value>
+            <value>inconclusive</value>
+            <value>other</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.site.valueset">
+        <choice>
+            <ref name="intrinsic.site.valueset"/>
+            <ref name="extrinsic.site.valueset"/>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>MARGINS section valuesets</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="margins.margin.site.valueset">
+        <choice>
+            <value>bronchial</value>
+            <value>vascular</value>
+            <value>parenchymal</value>
+            <value>parietal pleural</value>
+            <value>chest wall</value>
+            <value>other</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>NODES section valuesets</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="nodes.nodeGroup.site.valueset">
+        <choice>
+            <value>peribronchial</value>
+            <value>hilar</value>
+            <value>intrapulmonary</value>
+            <value>mediastinal</value>
+            <value>subcarinal</value>
+            <value>scalene</value>
+            <value>supraclavicular</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>ACCESSORY section valuesets</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accesssory.treatmentResponse.valueset">
+        <choice>
+            <value>inapplicable</value>
+            <value>indeterminate</value>
+            <value>&lt;10% viable</value>
+            <value>&gt;10% viable</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>DISTANT section valuesets</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="distant.site.status.result.type.valueset">
+        <choice>
+            <value>micrometastasis</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>STAGE section valuesets</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="stage.pT.valueset">
+        <choice>
+            <value>X</value>
+            <value>0</value>
+            <value>is</value>
+            <value>1</value>
+            <value>1a</value>
+            <value>1b</value>
+            <value>2</value>
+            <value>2a</value>
+            <value>2b</value>
+            <value>3</value>
+            <value>4</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="stage.pN.valueset">
+        <choice>
+            <value>X</value>
+            <value>0</value>
+            <value>1</value>
+            <value>2</value>
+            <value>3</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="stage.pM.valueset">
+        <choice>
+            <value>X</value>
+            <value>0</value>
+            <value>1</value>
+            <value>1a</value>
+            <value>1b</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="stage.group.valueset">
+        <choice>
+            <value>X</value>
+            <value>I</value>
+            <value>II</value>
+            <value>III</value>
+            <value>IV</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>ADDITIONAL section valuesets</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="additional.finding.valueset">
+        <choice>
+            <value>atypical adenomatous hyperplasia</value>
+            <value>squamous dysplasia</value>
+            <value>metaplasia</value>
+            <value>diffuse neuroendocrine hyperplasia</value>
+            <value>emphysema</value>
+            <value>inflammation</value>
+        </choice>
+    </define>
+</grammar>

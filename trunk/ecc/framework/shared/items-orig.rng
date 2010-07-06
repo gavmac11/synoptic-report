@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
 <!DOCTYPE grammar [
 <!ENTITY    item  	    "types/item.rng">
 <!ENTITY    values	    "../values.rng">
@@ -14,8 +36,9 @@
 <!ENTITY	date  	    "types/date.rng">
 <!ENTITY	length      "types/length.rng">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://purl.org/pathology/ecc/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://purl.org/pathology/ecc/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:ecc="http://purl.org/pathology/ecc/">
     <!--=============================================================-->
     <include href="&values;"/>
@@ -38,7 +61,7 @@
                 <grammar>
                     <include href="&selectOne;"/>
                     <define name="valueset">
-                        <parentRef name="accessory.lymph-vascularInvasion.valueset"/>
+                        <parentRef name="accessory.lymphvascular.valueset"/>
                     </define>
                 </grammar>
             </element>
@@ -48,7 +71,7 @@
                 <grammar>
                     <include href="&selectOne;"/>
                     <define name="valueset">
-                        <parentRef name="accessory.perineuralInvasion.valueset"/>
+                        <parentRef name="accessory.perineural.valueset"/>
                     </define>
                 </grammar>
             </element>
@@ -96,7 +119,7 @@
                             </optional>
                         </define>
                         <define name="valueset">
-                            <parentRef name="history.clinicalFinding.valueset"/>
+                            <parentRef name="history.clinical.valueset"/>
                         </define>
                     </grammar>
                 </element>
@@ -111,7 +134,7 @@
                             </optional>
                         </define>
                         <define name="valueset">
-                            <parentRef name="history.priorPathologicDiagnosis.valueset"/>
+                            <parentRef name="history.pathology.valueset"/>
                         </define>
                     </grammar>
                 </element>
@@ -141,7 +164,7 @@
                             </optional>
                         </define>
                         <define name="valueset">
-                            <parentRef name="history.radiologicFinding.valueset"/>
+                            <parentRef name="history.radiology.valueset"/>
                         </define>
                     </grammar>
                 </element>
@@ -157,7 +180,51 @@
     <a:documentation>EXTENT section</a:documentation>
     <!--=============================================================-->
     <define name="extent.content">
+        <zeroOrMore>
+            <element name="adjacentSite">
+                <grammar>
+                    <include href="&section;"/>
+                    <define name="extension">
+                        <attribute name="name">
+                            <parentRef name="extent.adjacentSite.valueset"/>
+                        </attribute>
+                    </define>
+                    <define name="content">
+                        <parentRef name="extent.adjacentSite.content"/>
+                    </define>
+                </grammar>
+            </element>
+        </zeroOrMore>
         <ref name="extent.extension"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.adjacentSite.content">
+        <zeroOrMore>
+            <element name="status">
+                <grammar>
+                    <include href="&section;"/>
+                    <define name="extension">
+                        <attribute name="type">
+                            <parentRef name="extent.adjacentSite.status.type.valueset"/>
+                        </attribute>
+                    </define>
+                    <define name="content">
+                        <parentRef name="extent.adjacentSite.status.content"/>
+                    </define>
+                </grammar>
+            </element>
+        </zeroOrMore>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.adjacentSite.status.content">
+        <element name="result">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="qualitative.valueset"/>
+                </define>
+            </grammar>
+        </element>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="interleave" name="extent.extension">
@@ -167,24 +234,24 @@
     <a:documentation>MARGINS section</a:documentation>
     <!--=============================================================-->
     <define name="margins.content">
-        <oneOrMore>
+        <zeroOrMore>
             <element name="margin">
                 <grammar>
                     <include href="&section;"/>
                     <define name="content">
-                        <parentRef name="margin.content"/>
+                        <parentRef name="margins.margin.content"/>
                     </define>
                     <define name="extension">
                         <attribute name="name">
                             <choice>
-                                <parentRef name="margin.location.valueset"/>
+                                <parentRef name="margins.margin.site.valueset"/>
                                 <parentRef name="base.valueset"/>
                             </choice>
                         </attribute>
                     </define>
                 </grammar>
             </element>
-        </oneOrMore>
+        </zeroOrMore>
         <ref name="margins.extension"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -192,40 +259,31 @@
         <empty/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margin.content">
-        <optional>
-            <element name="in-situ">
+    <define name="margins.margin.content">
+        <oneOrMore>
+            <element name="status">
+                <attribute name="for">
+                    <ref name="margins.margin.status.type.valueset"/>
+                </attribute>
                 <grammar>
                     <include href="&section;"/>
                     <define name="content">
-                        <parentRef name="margin.type.content"/>
+                        <parentRef name="margins.margin.type.content"/>
                     </define>
                 </grammar>
             </element>
-        </optional>
-        <element name="invasive">
-            <grammar>
-                <include href="&section;"/>
-                <define name="content">
-                    <parentRef name="margin.type.content"/>
-                </define>
-            </grammar>
-        </element>
+        </oneOrMore>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margin.type.content">
-        <element name="status">
+    <define name="margins.margin.type.content">
+        <element name="result">
             <grammar>
                 <include href="&selectOne;"/>
                 <define name="response.extension">
                     <optional>
                         <choice>
                             <attribute name="extent">
-                                <choice>
-                                    <value>unifocal</value>
-                                    <value>multifocal</value>
-                                    <value>extensive</value>
-                                </choice>
+                                <parentRef name="margins.margin.focality.valueset"/>
                             </attribute>
                             <attribute name="closest">
                                 <parentRef name="qualitative.valueset"/>
@@ -246,18 +304,23 @@
             </element>
         </optional>
     </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <!--=============================================================-->
     <a:documentation>DISTANT section</a:documentation>
     <!--=============================================================-->
-    <define name="distantSites.content">
-        <oneOrMore>
+    <define name="distant.content">
+        <zeroOrMore>
             <element name="site">
                 <grammar>
                     <include href="&section;"/>
+                    <define name="content">
+                        <parentRef name="distant.site.content"/>
+                    </define>
                     <define name="extension">
-                        <attribute name="value">
-                            <parentRef name="distantSites.location.valueset"/>
+                        <attribute name="name">
+                            <choice>
+                                <parentRef name="distant.site.name.valueset"/>
+                                <parentRef name="base.valueset"/>
+                            </choice>
                         </attribute>
                         <optional>
                             <attribute name="laterality">
@@ -265,35 +328,61 @@
                             </attribute>
                         </optional>
                     </define>
-                    <define name="content">
-                        <parentRef name="site.content"/>
-                    </define>
                 </grammar>
             </element>
-        </oneOrMore>
-        <ref name="distantSites.extension"/>
+        </zeroOrMore>
+        <ref name="distant.site.extension"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="interleave" name="distantSites.extension">
+    <define name="distant.site.extension">
         <empty/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="site.content">
-        <element name="status">
+    <define name="distant.site.content">
+        <zeroOrMore>
+            <element name="status">
+                <grammar>
+                    <include href="&section;"/>
+                    <define name="extension">
+                        <attribute name="of">
+                            <parentRef name="distant.site.status.of.valueset"/>
+                        </attribute>
+                        <optional>
+                            <grammar>
+                                <include href="&date;"/>
+                            </grammar>
+                        </optional>
+                    </define>
+                    <define name="content">
+                        <parentRef name="distant.site.status.content"/>
+                    </define>
+                </grammar>
+            </element>
+        </zeroOrMore>
+        <ref name="distant.site.status.extension"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="distant.site.status.extension">
+        <empty/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="distant.site.status.content">
+        <element name="result">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="item.extension">
-                    <attribute name="method">
-                        <parentRef name="distantSites.howDiagnosed.valueset"/>
-                    </attribute>
-                    <optional>
-                        <grammar>
-                            <include href="&date;"/>
-                        </grammar>
-                    </optional>
-                </define>
                 <define name="valueset">
                     <parentRef name="qualitative.valueset"/>
+                </define>
+                <define name="item.extension">
+                    <optional>
+                        <attribute name="type">
+                            <parentRef name="distant.site.status.result.type.valueset"/>
+                        </attribute>
+                    </optional>
+                    <parentRef name="distant.site.status.item.extension"/>
+                </define>
+                <define name="response.extension">
+                    <parentRef name="distant.site.status.response.extension"/>
                 </define>
             </grammar>
         </element>
@@ -304,6 +393,14 @@
                 </grammar>
             </element>
         </optional>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="interleave" name="distant.site.status.item.extension">
+        <empty/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="interleave" name="distant.site.status.response.extension">
+        <empty/>
     </define>
     <!--=============================================================-->
     <a:documentation>NODES section</a:documentation>
@@ -319,7 +416,7 @@
                     <define name="extension">
                         <attribute name="name">
                             <choice>
-                                <parentRef name="nodes.location.valueset"/>
+                                <parentRef name="nodes.nodeGroup.site.valueset"/>
                                 <parentRef name="base.valueset"/>
                             </choice>
                         </attribute>
@@ -335,23 +432,24 @@
         <ref name="nodes.extension"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="interleave" name="nodes.extension">
+    <define combine="choice" name="nodes.extension">
         <empty/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="nodes.nodeGroup.content">
-        <element name="tally">
+        <element name="status">
+            <optional>
+                <attribute name="technique">
+                    <ref name="nodes.nodeGroup.status.technique.valueset"/>
+                </attribute>
+            </optional>
             <grammar>
                 <include href="&tally;"/>
-                <define name="valueset">
-                    <parentRef name="nodes.count.type.valueset"/>
+                <define name="item.type.valueset">
+                    <parentRef name="nodes.nodeGroup.status.type.valueset"/>
                 </define>
-                <define name="response.extension">
-                    <optional>
-                        <attribute name="subtype">
-                            <parentRef name="nodes.nodeGroup.tally.subtype.valueset"/>
-                        </attribute>
-                    </optional>
+                <define name="item.subtype.valueset">
+                    <parentRef name="nodes.nodeGroup.status.subtype.valueset"/>
                 </define>
             </grammar>
         </element>
@@ -367,7 +465,7 @@
                 <grammar>
                     <include href="&selectOne;"/>
                     <define name="valueset">
-                        <parentRef name="nodes.extracapsularExtension.valueset"/>
+                        <parentRef name="nodes.nodeGroup.extracapsular.valueset"/>
                     </define>
                 </grammar>
             </element>
@@ -376,6 +474,10 @@
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="nodes.nodeGroup.extension">
+        <empty/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="nodes.nodeGroup.tally.response.extension">
         <empty/>
     </define>
     <!--=============================================================-->
@@ -387,6 +489,13 @@
                 <include href="&selectMany;"/>
                 <define name="valueset">
                     <parentRef name="specimen.procedure.valueset"/>
+                </define>
+                <define name="response.extension">
+                    <optional>
+                        <attribute name="laterality">
+                            <parentRef name="laterality.valueset"/>
+                        </attribute>
+                    </optional>
                 </define>
             </grammar>
         </element>
@@ -406,7 +515,14 @@
             <grammar>
                 <include href="&selectMany;"/>
                 <define name="valueset">
-                    <parentRef name="specimen.sites.valueset"/>
+                    <parentRef name="specimen.site.valueset"/>
+                </define>
+                <define name="response.extension">
+                    <optional>
+                        <attribute name="laterality">
+                            <parentRef name="laterality.valueset"/>
+                        </attribute>
+                    </optional>
                 </define>
             </grammar>
         </element>
@@ -492,30 +608,22 @@
     <a:documentation>STUDIES section</a:documentation>
     <!--=============================================================-->
     <define name="studies.content">
-        <empty/>
         <ref name="studies.extension"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="interleave" name="studies.extension">
+    <define combine="choice" name="studies.extension">
         <empty/>
     </define>
     <!--=============================================================-->
     <a:documentation>TUMOR section</a:documentation>
     <!--=============================================================-->
-    <define name="tumor.content">
+    <define combine="choice" name="tumor.content">
         <ref name="tumor.principalFocus"/>
         <zeroOrMore>
             <ref name="tumor.additionalFocus"/>
         </zeroOrMore>
-        <element name="histologicType">
-            <grammar>
-                <include href="&selectMany;"/>
-                <define name="valueset">
-                    <parentRef name="tumor.type.valueset"/>
-                </define>
-            </grammar>
-        </element>
-        <ref name="tumor.histologicGrade"/>
+        <ref name="tumor.type"/>
+        <ref name="tumor.grade"/>
         <ref name="tumor.extension"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -557,7 +665,14 @@
                 <grammar>
                     <include href="&selectMany;"/>
                     <define name="valueset">
-                        <parentRef name="extent.sites.valueset"/>
+                        <parentRef name="tumor.site.valueset"/>
+                    </define>
+                    <define name="response.extension">
+                        <optional>
+                            <attribute name="laterality">
+                                <parentRef name="laterality.valueset"/>
+                            </attribute>
+                        </optional>
                     </define>
                 </grammar>
             </element>
@@ -571,11 +686,16 @@
             <element name="site">
                 <grammar>
                     <include href="&selectMany;"/>
-                    <define name="item.extension">
+                    <define name="response.extension">
                         <parentRef name="tumor.additionalFocus.site.extension"/>
+                        <optional>
+                            <attribute name="laterality">
+                                <parentRef name="laterality.valueset"/>
+                            </attribute>
+                        </optional>
                     </define>
                     <define name="valueset">
-                        <parentRef name="extent.sites.valueset"/>
+                        <parentRef name="tumor.site.valueset"/>
                     </define>
                 </grammar>
             </element>
@@ -592,7 +712,7 @@
             <grammar>
                 <include href="&selectOne;"/>
                 <define name="valueset">
-                    <parentRef name="tumor.focality.valueset"/>
+                    <parentRef name="tumor.multiplicity.valueset"/>
                 </define>
             </grammar>
         </element>
@@ -626,20 +746,33 @@
         <empty/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="tumor.histologicGrade">
-        <element name="grade">
+    <define name="tumor.type">
+        <element name="histologicType">
             <grammar>
-                <include href="&selectOne;"/>
+                <include href="&selectMany;"/>
                 <define name="valueset">
-                    <parentRef name="tumor.grade.valueset"/>
-                </define>
-                <define name="response.extension">
-                    <attribute name="system">
-                        <parentRef name="tumor.gradeSystem.valueset"/>
-                    </attribute>
+                    <parentRef name="tumor.type.valueset"/>
                 </define>
             </grammar>
         </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="tumor.grade">
+        <oneOrMore>
+            <element name="grade">
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="tumor.grade.valueset"/>
+                    </define>
+                    <define name="item.extension">
+                        <attribute name="system">
+                            <parentRef name="tumor.gradeSystem.valueset"/>
+                        </attribute>
+                    </define>
+                </grammar>
+            </element>
+        </oneOrMore>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="interleave" name="tumor.extension">

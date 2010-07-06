@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?oxygen RNGSchema="test-harness.rng" type="xml"?>
+<?oxygen RNGSchema="noSite.rng" type="xml"?>
 <?oxygen SCHSchema="rules.sch"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
 <test-harness ns1:transformation="" schemaLocation="" version="" xmlns="http://purl.org/pathology/ecc/"
     xmlns:ns1="http://www.w3.org/2003/g/data-view#">
     <accessory>
@@ -23,59 +45,67 @@
         <clinicalFinding>
             <response value="unreported"/>
         </clinicalFinding>
+        <priorTherapy>
+            <response value="chemotherapy"/>
+        </priorTherapy>
     </history>
     <extent/>
     <margins>
         <margin name="unreported">
-            <in-situ>
-                <status>
+            <status of="in-situ">
+                <result>
                     <response extent="multifocal" value="positive"/>
-                </status>
-            </in-situ>
-            <invasive>
-                <status>
+                </result>
+            </status>
+            <status of="invasive">
+                <result>
                     <response closest="positive" value="negative"/>
-                </status>
+                </result>
                 <distance>
                     <response unit="cm" value="1"/>
                 </distance>
-            </invasive>
+            </status>
         </margin>
     </margins>
     <distant>
-        <site value="bone">
-            <status date="20090101" method="clinical history">
-                <response value="specify">
-                    <specify>something</specify>
-                </response>
+        <site name="bone">
+            <status date="20090101" of="clinical history">
+                <result>
+                    <response value="specify">
+                        <specify>something</specify>
+                    </response>
+                </result>
+                <size>
+                    <response unit="cm" value="3"/>
+                    <response unit="cm" value="2"/>
+                    <response unit="cm" value="1"/>
+                </size>
             </status>
-            <size>
-                <response unit="cm" value="3"/>
-                <response unit="cm" value="2"/>
-                <response unit="cm" value="1"/>
-            </size>
         </site>
     </distant>
     <nodes>
         <nodeGroup name="unreported">
-            <tally>
-                <response type="total" value="1"/>
-                <response subtype="necroinflammatory" type="positive" value="1"/>
-            </tally>
-            <largestMetastasis>
-                <response unit="cm" value="1"/>
-                <response unit="cm" value="1"/>
-                <response unit="cm" value="1"/>
-            </largestMetastasis>
-            <extracapsularExtension>
-                <response value="unreported"/>
-            </extracapsularExtension>
+            <status>
+                <result type="total">
+                    <response value="13"/>
+                </result>
+                <result type="negative">
+                    <response value="13"/>
+                </result>
+            </status>
         </nodeGroup>
         <nodeGroup laterality="left" name="inapplicable">
-            <tally>
-                <response type="total" value="12"/>
-                <response subtype="necroinflammatory" type="negative" value="3"/>
-            </tally>
+            <status>
+                <result type="total">
+                    <response value="10"/>
+                </result>
+                <result type="negative">
+                    <response value="9"/>
+                </result>
+                <result type="positive">
+                    <response value="1"/>
+                </result>
+            </status>
             <largestMetastasis>
                 <response unit="cm" value="1"/>
                 <response unit="cm" value="1"/>
@@ -149,8 +179,8 @@
         <histologicType>
             <response value="unreported"/>
         </histologicType>
-        <grade>
-            <response system="4-grade" value="unreported"/>
+        <grade system="4-grade">
+            <response value="3"/>
         </grade>
     </tumor>
 </test-harness>

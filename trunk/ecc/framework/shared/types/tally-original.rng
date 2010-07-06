@@ -24,11 +24,10 @@
 <!DOCTYPE	grammar [
 <!ENTITY	item   "item.rng">
 ]>
-<grammar ns="http://purl.org/pathology/ecc/"
-    xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://purl.org/pathology/ecc/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <a:documentation>Model for selectMany item.</a:documentation>
+    <a:documentation/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <include href="&item;"/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -37,18 +36,44 @@
     </start>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="response">
-        <oneOrMore>
+        <element name="response">
+            <attribute name="value">
+                <choice>
+                    <data type="nonNegativeInteger"/>
+                    <parentRef name="base.valueset"/>
+                </choice>
+            </attribute>
+            <attribute name="type">
+                <value>total</value>
+            </attribute>
+            <optional>
+                <attribute a:defaultValue="equal" name="relation">
+                    <parentRef name="relation.valueset"/>
+                </attribute>
+            </optional>
+        </element>
+        <zeroOrMore>
             <element name="response">
                 <attribute name="value">
+                    <choice>
+                        <data type="nonNegativeInteger"/>
+                        <parentRef name="base.valueset"/>
+                    </choice>
+                </attribute>
+                <attribute name="type">
                     <ref name="valueset"/>
                 </attribute>
-                <ref name="response.defaults"/>
+                <optional>
+                    <attribute a:defaultValue="equal" name="relation">
+                        <parentRef name="relation.valueset"/>
+                    </attribute>
+                </optional>
+                <ref name="response.extension"/>
             </element>
-        </oneOrMore>
+        </zeroOrMore>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="valueset">
-        <parentRef name="base.valueset"/>
+    <define combine="choice" name="response.extension">
+        <empty/>
     </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>

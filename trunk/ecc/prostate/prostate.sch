@@ -2,8 +2,8 @@
 
 <!--
     
-    CAP Schema for Synoptic Reports
-    (c) Copyright 2008 College of American Pathologists
+    Schema for Synoptic Reports
+    (c) Copyright 2010 Pathology Consulting Services
     ===========================================================================
     Component name:
     resection@prostate.sch
@@ -23,139 +23,119 @@
     
     Dependencies:      
     
-    
     ===========================================================================
-    This file is part of the "CAP Schema for Synoptic Reports".
+    Copyright 2010 Pathology Consulting Services
     
-    The "CAP Schema for Synoptic Reports" is free software: 
-    you can redistribute it and/or modify it under the terms of the 
-    GNU General Public License as published by the Free Software Foundation, 
-    either version 3 of the License, or (at your option) any later version.
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
     
-    The "CAP Schema for Synoptic Reports" is distributed 
-    in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
-    without even the implied warranty of MERCHANTABILITY or 
-    FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
-    for more details.
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
     
-    You should have received a copy of the GNU General Public License
-    along with the "CAP Schema for Synoptic Reports".  
-    If not, see <http://www.gnu.org/licenses/>. 
-    ===========================================================================
+    You may obtain a copy of the License at:
     
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
 -->
 <schema queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <ns prefix="pert" uri="http://www.cap.org/pert/2009/01/"/>
-    <ns prefix="prostate" uri="http://www.cap.org/pert/2009/01/prostate/"/>
+    <ns prefix="ca" uri="http://purl.org/pathology/ecc/"/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <let name="skip" value="true()"/>
     <let name="no-report" value="false()"/>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <pattern id="therapy-description-not-allowed">
-        <rule context="//hasPriorTherapy">
-            <assert test="@value &gt;= count(@description)"> Description is
-                not allowed unless value is true. </assert>
-        </rule>
-    </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <pattern id="extraprostatic-specified-both-sides">
-        <rule context="//prostate:extension">
-            <let name="loc" value="prostate:extraprostatic/@location"/>
-            <assert test="$loc = 'right side' and $loc = 'left side'">
-                Extraprostatic extension must be reported for both right and
-                left sides (at least). </assert>
-        </rule>
-    </pattern>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <pattern id="seminal-vesicle-specified-both-sides">
-        <rule context="//prostate:extension">
-            <let name="lat" value="prostate:seminalVesicle/@laterality"/>
-            <assert test="$lat = 'right' and $lat = 'left'"> Seminal vesicle
-                extension must be reported for both right and left sides.
-            </assert>
-        </rule>
-    </pattern>
+    <let name="rside" value="'right side'"/>
+    <let name="lside" value="'left side'"/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="seminal-vesicle-extent-only-if-positive">
-        <rule context="//prostate:extension/prostate:seminalVesicle">
+        <rule context="//ca:extent/ca:seminalVesicleInvasion/ca:result/ca:response">
             <report test="@value ne 'positive' and @extent"> Negative seminal
                 vesicles must not report extent. </report>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="calculate-overall-PTI">
-        <rule context="//prostate:percentTumorInvolvement[@laterality eq 'both sides']">
-            <let name="r" value="parent::*/*[@laterality eq 'right']/@value"/>
-            <let name="l" value="parent::*/*[@laterality eq 'left']/@value"/>
-            <let name="b" value="xs:double(./@value)"/>
-            <assert test="if ($r and $l and $b) then max (($r, $l)) ge $b and min (($r, $l)) le $b else $skip"> Bilateral cancer volume must be between the right and left
+        <rule context="//ca:tumorVolume" role="warning">
+            <!-- I use the sum function to coerce NaN to 0. -->
+            <let name="r"
+                value="sum(ca:result[@for eq 'right']/ca:response/@value[. castable as xs:integer])"/>
+            <let name="l"
+                value="sum(ca:result[@for eq 'left']/ca:response/@value[. castable as xs:integer])"/>
+            <let name="b"
+                value="sum(ca:result[@for eq 'bilateral']/ca:response/@value[. castable as xs:integer])"/>
+            <assert test="max (($r, $l)) ge $b and min (($r, $l)) le $b"> Bilateral cancer volume must be between the right and left
                 unilateral volumes. </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="calculate-T-stage">
-        <rule context="//pert:T">
-            <let name="T" value="@value cast as xs:string"/>
-            <let name="adj" value="//prostate:adjacentStructure/@value"/>
-            <let name="epe" value="//prostate:extraprostatic/@value"/>
-            <let name="svi" value="//prostate:seminalVesicle/@value"/>
+        <rule context="//ca:pT/ca:response">
+            <let name="reported-T" value="@value"/>
+            <let name="adj"
+                value="//ca:contiguousExtension/ca:status[of eq 'invades']/result/@for[../ca:response eq 'positive']"/>
+            <let name="epe"
+                value="//ca:extracapsularExtension/ca:result/ca:response/@value[. eq 'positive']"/>
+            <let name="svi"
+                value="//ca:seminalVesicleInvasion/ca:result/ca:response/@value[. eq 'positive']"/>
             <let name="rpti"
-                value="//prostate:percentTumorInvolvement[@laterality =
-                'right']/@value cast as xs:integer"/>
+                value="sum(//ca:tumorVolume/ca:result[@for = 'right']/ca:response/@value[. castable as xs:integer])"/>
             <let name="lpti"
-                value="//prostate:percentTumorInvolvement[@laterality =
-                'left']/@value cast as xs:integer"/>
-            <assert test="                                       
-                     if ($adj = 'bladder' or $adj = 'rectum') then $T = '4'                   
-                else if ($svi = 'positive')                   then $T = '3b'                  
-                else if ($epe = 'positive')                   then $T = '3a'                 
-                else if ($rpti > 0 and $lpti > 0)             then $T = '2c'        
-                else if ($rpti = 0 and $lpti > 50)            then $T = '2b'
-                else if ($lpti = 0 and $rpti > 50)            then $T = '2b'             
-                else if ($rpti = 0 and $lpti > 0)             then $T = '2a'        
-                else if ($lpti = 0 and $lpti > 0)             then $T = '2a'                
-                else if ($rpti = 0 and $lpti = 0)             then $T = '0'                 
-                else                                               $T = 'X'    "> Reported T-stage (T<value-of select="$T"/>) does not match
-                calculated (T<value-of select="
+                value="sum(//ca:tumorVolume/ca:result[@for = 'left']/ca:response/@value[. castable as xs:integer])"/>
+            <let name="calculated-T"
+                value="                                       
                      if ($adj = 'bladder' or $adj = 'rectum') then '4'                   
-                else if ($svi = 'positive')                   then '3b'                  
-                else if ($epe = 'positive')                   then '3a'                 
+                else if ($svi)                                then '3b'                  
+                else if ($epe)                                then '3a'                 
                 else if ($rpti > 0 and $lpti > 0)             then '2c'        
                 else if ($rpti = 0 and $lpti > 50)            then '2b'
                 else if ($lpti = 0 and $rpti > 50)            then '2b'             
                 else if ($rpti = 0 and $lpti > 0)             then '2a'        
                 else if ($lpti = 0 and $lpti > 0)             then '2a'                
                 else if ($rpti = 0 and $lpti = 0)             then '0'                 
-                else                                               'X'    "/>). </assert>
+                else                                               'X'    "/>
+            <assert test="$calculated-T eq $reported-T">
+                Reported T-stage (<value-of select="$reported-T"/>) does not match calculated (<value-of select="$calculated-T"/>).
+            </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="calculate-N-stage">
-        <rule context="//pert:N">
-            <let name="posNodes" value="sum(//pert:nodeGroup/@positiveNodes)"/>
-            <let name="N" value="@value cast as xs:integer"/>
-            <assert test="if ($posNodes eq 0) then $N eq 0 else $N eq 1">
-                Reported N-stage (N<value-of select="$N"/>) does not match
-                calculated (N<value-of select="if ($posNodes eq 0) then '0' else '1'"/>). </assert>
+        <rule context="//ca:pN/ca:response">
+            <let name="reported-N" value="xs:string(@value)"/>
+            <let name="posNodes"
+                value="//ca:nodeGroup/ca:status/ca:result[@for eq 'positive']/ca:response/@value[. castable as xs:integer]"/>
+            <let name="calculated-N" value="if (sum($posNodes) gt 0) then '1' else '0'"/>
+            <assert test="$calculated-N eq $reported-N">
+                Reported N-stage (N<value-of select="$reported-N"/>) does not match calculated (N<value-of select="$calculated-N"/>). 
+            </assert>
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern>
-        <rule context="//pert:M">
-            <let name="M" value="@value"/>
-            <let name="met" value="exists(//pert:metastasis)"/>
-            <let name="report" value="exists(//pert:metastases)"/>
-            <assert test="
-                if ($report) then 
-                if ($met) then $M = '1' 
-                else $M = '0' 
-                else $M = 'X'"> Reported M-stage (M<value-of select="$M"/>) does not match
-                calculated (M<value-of select=" 
-                    if ($report) then 
-                        if ($met) then '1' 
-                        else '0' 
-                    else 'X'"/>). </assert>
+        <rule context="//ca:pM/ca:response">
+            <let name="reported-M" value="@value"/>
+            <let name="bone-met"
+                value="//ca:distant/ca:site[@name eq 'bone']/ca:status/ca:result/ca:response[@value eq 'positive']"/>
+            <let name="distant-nodeGroup"
+                value="('aortic','common iliac','deep inguinal','superficial inguinal','supraclavicular','cervical','scalene','retroperitoneal NOS')"/>
+            <let name="distant-node-met"
+                value="sum(//ca:nodeGroup[@name = $distant-nodeGroup]/ca:status/ca:result[@for eq 'positive']/ca:response/@value[. castable as xs:integer])"/>
+            <let name="other-met"
+                value="//ca:distant/ca:site[@name ne 'bone']/ca:status/ca:result/ca:response[@value eq 'positive']"/>
+            <let name="calculated-M"
+                value="if ($other-met)                  then '1c'
+                       else if (bone-met)               then '1b' 
+                       else if ($distant-node-met gt 0) then '1a' 
+                       else                                  '0'"/>
+            <assert test="$reported-M eq $calculated-M">
+               Reported M-stage (M<value-of select="$reported-M"/>) does not match calculated (M<value-of select="$calculated-M"/>).
+            </assert>
         </rule>
     </pattern>
 </schema>

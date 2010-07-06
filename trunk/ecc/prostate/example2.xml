@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?oxygen RNGSchema="file:/Users/me/Dropbox/Projects/Synoptic-report/Synoptic%20Working/ecc/colon/colon.rng" type="xml"?>
-<?oxygen SCHSchema="colon.sch"?>
-<?oxygen SCHSchema="../framework/rules.sch"?>
 <resection grddl:transformation="http://cap#colon/snomedct/ http://cap#colon/radlex/"
     schemaLocation="http://purl.org/pathology/ecc/colon.rng" version="1.0a" xmlns="http://purl.org/pathology/ecc/"
     xmlns:grddl="http://www.w3.org/2003/g/data-view#">
     <history>
-        <clinicalFinding>
-            <response value="unreported"/>
+        <clinicalFinding date="2008">
+            <response name="serum PSA" unit="ng/ml" value="4.3"/>
         </clinicalFinding>
     </history>
     <specimen>
         <procedure>
-            <response value="proctocolectomy"/>
+            <response value="abdominopelvic prostatectomy"/>
         </procedure>
         <size>
             <response unit="cm" value="1"/>
@@ -23,62 +20,53 @@
             <response unit="g" value="1"/>
         </weight>
         <site>
-            <response value="anus"/>
-            <response value="rectum"/>
+            <response value="entire prostate"/>
         </site>
         <integrity>
             <response value="intact"/>
         </integrity>
-        <mesorectumIntactness>
-            <response value="near complete"/>
-        </mesorectumIntactness>
     </specimen>
     <tumor>
-        <focus name="principal">
+        <focus type="principal">
             <site>
-                <response value="rectum"/>
+                <response value="left lobe"/>
             </site>
             <size>
                 <response unit="cm" value="1"/>
             </size>
-        </focus>
-        <focus name="additional">
-            <site>
-                <response value="anus"/>
-            </site>
-            <size>
-                <response unit="cm" value="1"/>
-            </size>
-            <multiplicity>
-                <response value="many"/>
-            </multiplicity>
         </focus>
         <histologicType>
-            <response value="medullary carcinoma"/>
-            <response value="adenocarcinoma"/>
+            <response value="acinar adenocarcinoma"/>
         </histologicType>
-        <grade>
-            <response system="2-grade" value="high"/>
+        <grade type="Gleason">
+            <response type="primary" value="3"/>
+            <response subtype="secondary" type="Gleason" value="4"/>
+            <response subtype="total" type="Gleason" value="7"/>
+            <response type="AFIP" value="2"></response>
         </grade>
-        <precursorPolyp>
-            <type>
-                <response value="serrated adenoma"/>
-            </type>
-            <configuration>
-                <response value="pedunculated"/>
-            </configuration>
-            <stalkLength>
-                <response unit="cm" value="1"/>
-            </stalkLength>
-        </precursorPolyp>
     </tumor>
     <extent>
-        <deepestInvasion>
-            <response value="through muscularis propria"/>
-        </deepestInvasion>
-        <tumorPerforation>
+        <tumorVolume location="left side">
+            <response unit="percent" value="50"/>
+        </tumorVolume>
+        <tumorVolume location="right side">
+            <response unit="percent" value="35"/>
+        </tumorVolume>
+        <tumorVolume location="both sides">
+            <response unit="percent" value="35"/>
+        </tumorVolume>
+        <extracapsularExtension site="left side">
             <response value="positive"/>
-        </tumorPerforation>
+        </extracapsularExtension>
+        <extracapsularExtension site="right sie">
+            <response value="positive"/>
+        </extracapsularExtension>
+        <seminalVesicleInvasion site="right side">
+            <response value="positive" type="extensive"/>
+        </seminalVesicleInvasion>
+        <seminalVesicleInvasion site="left side">
+            <response value="positive" type="focal"/>
+        </seminalVesicleInvasion>
     </extent>
     <accessory>
         <treatmentResponse>
@@ -107,7 +95,7 @@
         </peritumoralImmuneResponse>
     </accessory>
     <margins>
-        <margin name="distal">
+        <margin location="distal">
             <in-situ>
                 <status>
                     <response closest="positive" value="negative"/>
@@ -127,7 +115,7 @@
         </margin>
     </margins>
     <nodes>
-        <nodeGroup name="anterior cecal">
+        <nodeGroup location="anterior cecal">
             <tally>
                 <response type="total" value="5"/>
                 <response type="positive" value="1"/>
@@ -143,7 +131,7 @@
         </nodeGroup>
     </nodes>
     <distant>
-        <site value="liver">
+        <site location="liver">
             <status date="20090101" method="specify">
                 <response value="positive"/>
                 <specify>something</specify>
@@ -155,74 +143,7 @@
             </size>
         </site>
     </distant>
-    <studies>
-        <microsatelliteInstability>
-            <result>
-                <response value="high"/>
-            </result>
-            <technique>
-                <response value="specify">
-                    <specify>something</specify>
-                </response>
-            </technique>
-        </microsatelliteInstability>
-        <mLH1>
-            <result>
-                <response value="indeterminate"/>
-            </result>
-            <technique>
-                <response value="inapplicable"/>
-            </technique>
-        </mLH1>
-        <mSH>
-            <result>
-                <response value="pending"/>
-            </result>
-            <technique>
-                <response value="unreported"/>
-            </technique>
-        </mSH>
-        <mSH6>
-            <result>
-                <response value="pending"/>
-            </result>
-            <technique>
-                <response value="inapplicable"/>
-            </technique>
-        </mSH6>
-        <pMS2>
-            <result>
-                <response value="intact nuclear positivity, tumor cells"/>
-            </result>
-            <technique>
-                <response value="inapplicable"/>
-            </technique>
-        </pMS2>
-        <bRAF>
-            <result>
-                <response value="no mutation detected"/>
-            </result>
-            <mutation>
-                <response value="V600E"/>
-            </mutation>
-            <technique>
-                <response value="unreported"/>
-            </technique>
-        </bRAF>
-        <kRAS>
-            <result>
-                <response value="indeterminate"/>
-            </result>
-            <mutation>
-                <response value="specify">
-                    <specify>something</specify>
-                </response>
-            </mutation>
-            <technique>
-                <response value="unreported"/>
-            </technique>
-        </kRAS>
-    </studies>
+    <studies> </studies>
     <stage>
         <prefix>
             <response value="none"/>
