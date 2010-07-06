@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-   
    ===========================================================================
-   Copyright 2009 College of American Pathologists (CAP)
+   Copyright 2010 Pathology Consulting Services
    
-   This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+   This file is part of the "PCS Schema for Synoptic Cancer Reports".
    
-   The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+   The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
    License, Version 2.0 (the "License"); you may not use this file except in 
    compliance with the License.
    
@@ -20,11 +19,11 @@
    
    See the License for the specific language governing permissions and
    limitations under the License.
-   ===========================================================================
-   
+   ===========================================================================  
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://cap#"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <!--=============================================================-->
     <a:documentation>accessory SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -34,6 +33,19 @@
             <value>slight response</value>
             <value>marked response</value>
             <value>complete response</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.cis.blocks.subtype.valueset">
+        <choice>
+            <value>RT-PCR negative</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.cis.blocks.type.valueset">
+        <choice>
+            <value>negative</value>
+            <value>positive</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -102,7 +114,7 @@
     <!--=============================================================-->
     <a:documentation>extent SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.sites.valueset">
+    <define name="extent.site.valueset">
         <choice>
             <choice>
                 <value>upper outer quadrant</value>
@@ -160,7 +172,7 @@
     <!--=============================================================-->
     <a:documentation>margin SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margin.focality.valueset">
+    <define name="margins.margin.focality.valueset">
         <choice>
             <value>unifocal</value>
             <value>multifocal</value>
@@ -175,7 +187,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margin.location.valueset">
+    <define name="margins.margin.site.valueset">
         <choice>
             <value>superior</value>
             <value>inferior</value>
@@ -190,7 +202,7 @@
     <a:documentation>distantSites SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="distantSites.location.valueset">
+    <define name="distant.site.valueset">
         <choice>
             <value>liver</value>
             <value>bone</value>
@@ -203,7 +215,7 @@
     <!--=============================================================-->
     <a:documentation>nodes SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.location.valueset">
+    <define name="nodes.nodeGroup.site.valueset">
         <choice>
             <value>low axillary</value>
             <value>mid axillary</value>
@@ -214,15 +226,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.technique.valueset">
-        <choice>
-            <value>H+E one level</value>
-            <value>H+E additional level(s)</value>
-            <value>cytokeratin immunohistochemistry</value>
-        </choice>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.tally.subtype.valueset">
+    <define name="nodes.nodeGroup.status.subtype.valueset">
         <choice>
             <value>RT-PCR negative</value>
             <value>RT-PCR postive</value>
@@ -251,7 +255,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.sites.valueset">
+    <define name="specimen.site.valueset">
         <choice>
             <value>upper outer quadrant</value>
             <value>lower outer quadrant</value>
@@ -417,6 +421,11 @@
     </define>
     <!--=============================================================-->
     <a:documentation>tumor SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.site.valueset">
+        <!-- need to create a generic site valueset and refer to it -->
+        <ref name="extent.site.valueset"/>
+    </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="tumor.type.valueset">
         <choice>

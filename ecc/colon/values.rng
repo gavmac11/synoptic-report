@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-   
+<!--  
    ===========================================================================
-   Copyright 2009 College of American Pathologists (CAP)
+   Copyright 2010 Pathology Consulting Services
    
-   This file is part of the "CAP Schemas for Synoptic Cancer Reports".
+   This file is part of the "PCS Schema for Synoptic Cancer Reports".
    
-   The "CAP Schema for Synoptic Cancer Reports" is licensed under the Apache 
+   The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
    License, Version 2.0 (the "License"); you may not use this file except in 
    compliance with the License.
    
@@ -20,13 +19,41 @@
    
    See the License for the specific language governing permissions and
    limitations under the License.
-   ===========================================================================
-   
+   =========================================================================== 
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://purl.org/pathology/ecc/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://purl.org/pathology/ecc/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <!--=============================================================-->
-    <a:documentation>-- accessory SECTION VALUES --</a:documentation>
+    <a:documentation>-- SHARED valuesets --</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="intrinsic.site.valueset">
+        <choice>
+            <value>cecum</value>
+            <value>right colon</value>
+            <value>hepatic flexure</value>
+            <value>transverse colon</value>
+            <value>splenic flexure</value>
+            <value>left colon</value>
+            <value>sigmoid colon</value>
+            <value>rectosigmoid junction</value>
+            <value>rectum</value>
+            <value>anus</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extrinsic.site.valueset">
+        <choice>
+            <value>ureter</value>
+            <value>uterus</value>
+            <value>urinary bladder</value>
+            <value>prostate</value>
+            <value>pelvic wall</value>
+            <value>non-adjacent bowel</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>-- ACCESSORY section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="precursorPolyp.valueset">
         <choice>
@@ -49,7 +76,7 @@
         </choice>
     </define>
     <!--=============================================================-->
-    <a:documentation>== additional SECTION VALUES ==</a:documentation>
+    <a:documentation>== ADDITIONAL section valuesets ==</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="additional.finding.valueset">
         <choice>
@@ -64,16 +91,16 @@
         </choice>
     </define>
     <!--=============================================================-->
-    <a:documentation>-- clinical SECTION VALUES --</a:documentation>
+    <a:documentation>-- HISTORY section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="clinical.priorTherapy.valueset">
+    <define name="history.priorTherapy.valueset">
         <choice>
             <value>neoadjuvant chemotherapy</value>
             <value>neoadjuvant irradiation</value>
         </choice>
     </define>
     <!--=============================================================-->
-    <a:documentation>-- extent SECTION VALUES --</a:documentation>
+    <a:documentation>-- EXTENT section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="extent.severity.valueset">
         <choice>
@@ -97,36 +124,19 @@
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="extent.invasion.adjacent.location.valueset">
-        <choice>
-            <value>ureter</value>
-            <value>uterus</value>
-            <value>urinary bladder</value>
-            <value>specify</value>
-        </choice>
+        <ref name="extrinsic.site.valueset"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.sites.valueset">
+    <define name="extent.site.valueset">
         <choice>
-            <ref name="specimen.sites.valueset"/>
-            <choice>
-                <value>bladder</value>
-                <value>uterus</value>
-                <value>prostate</value>
-                <value>pelvic wall</value>
-                <value>non-adjacent bowel</value>
-            </choice>
+            <ref name="intrinsic.site.valueset"/>
+            <ref name="extrinsic.site.valueset"/>
         </choice>
     </define>
     <!--=============================================================-->
-    <a:documentation>-- margins SECTION VALUES --</a:documentation>
+    <a:documentation>-- MARGINS section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margin.sort.valueset">
-        <choice>
-            <value>intramucosal</value>
-        </choice>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margin.location.valueset">
+    <define name="margins.margin.site.valueset">
         <choice>
             <value>proximal</value>
             <value>distal</value>
@@ -150,15 +160,15 @@
         </choice>
     </define>
     <!--=============================================================-->
-    <a:documentation>-- distantSites SECTION VALUES --</a:documentation>
+    <a:documentation>-- DISTANT section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="distantSites.location.valueset">
+    <define name="distant.site.valueset">
         <value>peritoneum</value>
     </define>
     <!--=============================================================-->
-    <a:documentation>-- nodes SECTION VALUES --</a:documentation>
+    <a:documentation>-- NODES section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.location.valueset">
+    <define name="nodes.nodeGroup.site.valueset">
         <choice>
             <value>pericolic</value>
             <value>ileocolic</value>
@@ -188,7 +198,7 @@
         </choice>
     </define>
     <!--=============================================================-->
-    <a:documentation>-- specimen SECTION VALUES --</a:documentation>
+    <a:documentation>-- SPECIMEN section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="specimen.procedure.valueset">
         <choice>
@@ -203,19 +213,8 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.sites.valueset">
-        <choice>
-            <value>cecum</value>
-            <value>right colon</value>
-            <value>hepatic flexure</value>
-            <value>transverse colon</value>
-            <value>splenic flexure</value>
-            <value>left colon</value>
-            <value>sigmoid colon</value>
-            <value>rectosigmoid junction</value>
-            <value>rectum</value>
-            <value>anus</value>
-        </choice>
+    <define name="specimen.site.valueset">
+        <ref name="intrinsic.site.valueset"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="specimen.polypConfiguration.valueset">
@@ -238,7 +237,7 @@
         </choice>
     </define>
     <!--=============================================================-->
-    <a:documentation>-- stage SECTION VALUES --</a:documentation>
+    <a:documentation>-- STAGE section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="stage.pT.valueset">
         <choice>
@@ -287,9 +286,8 @@
         </choice>
     </define>
     <!--=============================================================-->
-    <a:documentation>-- studies SECTION VALUES --</a:documentation>
+    <a:documentation>-- STUDIES section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <!-- empty -->
     <define name="studies.microsatelliteInstability.valueset">
         <choice>
             <value>stable</value>
@@ -364,7 +362,7 @@
         </choice>
     </define>
     <!--=============================================================-->
-    <a:documentation>-- tumor SECTION VALUES --</a:documentation>
+    <a:documentation>-- TUMOR section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="tumor.type.valueset">
         <choice>
@@ -394,6 +392,13 @@
             <value>indeterminate</value>
             <value>inapplicable</value>
             <value>unreported</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.site.valueset">
+        <choice>
+            <ref name="intrinsic.site.valueset"/>
+            <ref name="extrinsic.site.valueset"/>
         </choice>
     </define>
     <!--=============================================================-->

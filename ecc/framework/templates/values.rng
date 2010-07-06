@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   
+   ===========================================================================
+   Copyright 2010 Pathology Consulting Services
+   
+   This file is part of the "PCS Schema for Synoptic Cancer Reports".
+   
+   The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+   License, Version 2.0 (the "License"); you may not use this file except in 
+   compliance with the License.
+   
+   You may obtain a copy of the License at:
+   
+   http://www.apache.org/licenses/LICENSE-2.0
+   
+   Unless required by applicable law or agreed to in writing, software 
+   distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+   WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   ===========================================================================
+   
+-->
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://purl.org/pathology/ecc/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <!--=============================================================-->
+    <a:documentation>-- shared valuesets --</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="site.valueset">
+        <choice>
+            <value>empty</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>-- ACCESSORY section valuesets --</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.empty.valueset">
+        <choice>
+            <value>empty</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>== ADDITIONAL section valuesets ==</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="additional.finding.valueset">
+        <choice>
+            <value>empty</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="additional.empty.valueset">
+        <choice>
+            <value>empty</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>-- HISTORY section valuesets --</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="history.priorTherapy.valueset">
+        <choice>
+            <value>neoadjuvant chemotherapy</value>
+            <value>neoadjuvant irradiation</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="history.empty.valueset">
+        <choice>
+            <value>empty</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>-- EXTENT section valuesets --</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.empty.valueset">
+        <choice>
+            <value>empty</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.site.valueset">
+        <choice>
+            <ref name="specimen.site.valueset"/>
+            <choice>
+                <value>empty</value>
+            </choice>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>-- MARGINS section valuesets --</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="margins.margin.site.valueset">
+        <choice>
+            <value>empty</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>-- DISTANT section valuesets --</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="distant.site.valueset">
+        <value>empty</value>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>-- NODES section valuesets --</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="nodes.nodeGroup.site.valueset">
+        <choice>
+            <value>empty</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>-- SPECIMEN section valuesets --</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="specimen.procedure.valueset">
+        <choice>
+            <value>empty</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="specimen.site.valueset">
+        <choice>
+            <value>empty</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>-- STAGE section valuesets --</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="stage.pT.valueset">
+        <choice>
+            <value>X</value>
+            <value>0</value>
+            <value>1</value>
+            <value>2</value>
+            <value>3</value>
+            <value>4</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="stage.pN.valueset">
+        <choice>
+            <value>X</value>
+            <value>0</value>
+            <value>1</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="stage.pM.valueset">
+        <choice>
+            <value>0</value>
+            <value>1</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="stage.group.valueset">
+        <choice>
+            <value>X</value>
+            <value>I</value>
+            <value>II</value>
+            <value>III</value>
+            <value>IV</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>-- STUDIES section valuesets --</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="studies.empty.valueset">
+        <choice>
+            <value>empty</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>-- TUMOR section valuesets --</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.type.valueset">
+        <choice>
+            <value>empty</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.gradeSystem.valueset">
+        <choice>
+            <value>empty</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.grade.valueset">
+        <choice>
+            <value>empty</value>
+        </choice>
+    </define>
+    <!--=============================================================-->
+</grammar>

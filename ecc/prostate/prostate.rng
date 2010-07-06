@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+<!DOCTYPE	grammar [
+<!ENTITY    date        "../framework/shared/types/date.rng">
+<!ENTITY	items  		"../framework/shared/items.rng">
+<!ENTITY	sections  	"../framework/shared/sections.rng">
+<!ENTITY	section		"../framework/shared/types/section.rng">
+<!ENTITY	percent  	"../framework/shared/types/percent.rng">
+<!ENTITY	quantity    "../framework/shared/types/quantity.rng">
+<!ENTITY	ratio  		"../framework/shared/types/ratio.rng">
+<!ENTITY	selectMany  "../framework/shared/types/selectMany.rng">
+<!ENTITY	selectOne  	"../framework/shared/types/selectOne.rng">
+<!ENTITY	size  		"../framework/shared/types/size.rng">
+<!ENTITY	tally  		"../framework/shared/types/tally.rng">
+<!ENTITY	values  	"values.rng">
+]>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://purl.org/pathology/ecc/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:breast="http://purl.org/pathology/ecc/breast/">
+    <!--=============================================================-->
+    <include href="&values;"/>
+    <!--=============================================================-->
+    <start>
+        <ref name="resection"/>
+    </start>
+    <!--=============================================================-->
+    <a:documentation>HEADER customizations</a:documentation>
+    <!--=============================================================-->
+    <include href="&sections;">
+        <define name="schemaLocation">
+            <value>http://purl.org/pathology/ecc/prostate.rng</value>
+        </define>
+        <define name="version">
+            <value>1.0a</value>
+        </define>
+        <define name="semantics">
+            <value>http://www.cancerstaging.org/csv2#</value>
+        </define>
+    </include>
+    <!--=============================================================-->
+    <a:documentation>ACCESSORY section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="accessory.extension">
+        <empty/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>ADDITIONAL section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="additional.extension">
+        <empty/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>DISTANT section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="distant.site.response.extension">
+        <empty/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>EXTENT section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="extent.extension">
+        <ref name="extent.tumorVolume"/>
+        <ref name="extent.extracapsular"/>
+        <ref name="extent.seminalVesicle"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.tumorVolume">
+        <element name="tumorVolume">
+            <element name="result">
+                <attribute name="for">
+                    <value>left</value>
+                </attribute>
+                <grammar>
+                    <include href="&percent;"/>
+                </grammar>
+            </element>
+            <element name="result">
+                <attribute name="for">
+                    <value>right</value>
+                </attribute>
+                <grammar>
+                    <include href="&percent;"/>
+                </grammar>
+            </element>
+            <element name="result">
+                <attribute name="for">
+                    <value>bilateral</value>
+                </attribute>
+                <grammar>
+                    <include href="&percent;"/>
+                </grammar>
+            </element>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.extracapsular">
+        <element name="extracapsularExtension">
+            <element name="result">
+                <attribute name="for">
+                    <value>left</value>
+                </attribute>
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="qualitative.valueset"/>
+                    </define>
+                </grammar>
+            </element>
+            <element name="result">
+                <attribute name="for">
+                    <value>right</value>
+                </attribute>
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="qualitative.valueset"/>
+                    </define>
+                </grammar>
+            </element>
+            <zeroOrMore>
+                <element name="result">
+                    <attribute name="for">
+                        <ref name="extent.extracapsular.site.valueset"/>
+                    </attribute>
+                    <grammar>
+                        <include href="&selectOne;"/>
+                        <define name="valueset">
+                            <parentRef name="qualitative.valueset"/>
+                        </define>
+                    </grammar>
+                </element>
+            </zeroOrMore>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.seminalVesicle">
+        <element name="seminalVesicleInvasion">
+            <element name="result">
+                <attribute name="for">
+                    <value>left</value>
+                </attribute>
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="qualitative.valueset"/>
+                    </define>
+                    <define name="response.extension">
+                        <optional>
+                            <attribute name="extent">
+                                <parentRef name="focality.valueset"/>
+                            </attribute>
+                        </optional>
+                    </define>
+                </grammar>
+            </element>
+            <element name="result">
+                <attribute name="for">
+                    <value>right</value>
+                </attribute>
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="qualitative.valueset"/>
+                    </define>
+                    <define name="response.extension">
+                        <optional>
+                            <attribute name="extent">
+                                <parentRef name="focality.valueset"/>
+                            </attribute>
+                        </optional>
+                    </define>
+                </grammar>
+            </element>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.site.valueset">
+        <ref name="intrinsic.site.valueset"/>
+        <ref name="extrinsic.site.valueset"/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>NODES section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="nodes.nodeGroup.extension">
+        <empty/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>SPECIMEN section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="specimen.laterality">
+        <element name="laterality">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="laterality.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>STUDIES section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="studies.extension">
+        <zeroOrMore>
+            <element name="psa">
+                <grammar>
+                    <include href="&quantity;"/>
+                    <define name="valueset">
+                        <data type="decimal">
+                            <param name="minInclusive">0.0</param>
+                        </data>
+                    </define>
+                    <define name="unit.valueset">
+                        <value>ng/ml</value>
+                    </define>
+                    <define name="item.extension">
+                        <grammar>
+                            <include href="&date;"/>
+                        </grammar>
+                    </define>
+                </grammar>
+            </element>
+        </zeroOrMore>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>TUMOR section customizations</a:documentation>
+    <!--=============================================================-->
+    <define combine="choice" name="tumor.grade">
+        <element name="grade">
+            <attribute name="system">
+                <value>gleason</value>
+            </attribute>
+            <element name="result">
+                <attribute name="for">
+                    <value>primary</value>
+                </attribute>
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <data type="string">
+                            <param name="pattern">[12345]</param>
+                        </data>
+                    </define>
+                </grammar>
+            </element>
+            <element name="result">
+                <attribute name="for">
+                    <value>secondary</value>
+                </attribute>
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <data type="string">
+                            <param name="pattern">[12345]</param>
+                        </data>
+                    </define>
+                </grammar>
+            </element>
+            <optional>
+                <element name="result">
+                    <attribute name="for">
+                        <value>tertiary</value>
+                    </attribute>
+                    <grammar>
+                        <include href="&selectOne;"/>
+                        <define name="valueset">
+                            <data type="string">
+                                <param name="pattern">[12345]</param>
+                            </data>
+                        </define>
+                    </grammar>
+                </element>
+            </optional>
+            <element name="result">
+                <attribute name="for">
+                    <value>sum</value>
+                </attribute>
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <data type="string">
+                            <param name="pattern">[23456789(10)]</param>
+                        </data>
+                    </define>
+                </grammar>
+            </element>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.dominantFocus">
+        <element name="focus">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="tumor.principalFocus.content"/>
+                </define>
+                <define name="extension">
+                    <attribute name="name">
+                        <value>dominant</value>
+                    </attribute>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.content">
+        <optional>
+            <ref name="tumor.dominantFocus"/>
+        </optional>
+        <ref name="tumor.type"/>
+        <ref name="tumor.grade"/>
+        <ref name="tumor.extension"/>
+    </define>
+    <!--=============================================================-->
+</grammar>

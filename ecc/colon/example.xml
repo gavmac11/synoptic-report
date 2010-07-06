@@ -2,13 +2,40 @@
 <?oxygen RNGSchema="file:/Users/me/Dropbox/Projects/Synoptic-report/Synoptic%20Working/ecc/colon/colon.rng" type="xml"?>
 <?oxygen SCHSchema="colon.sch"?>
 <?oxygen SCHSchema="../framework/rules.sch"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
 <resection grddl:transformation="http://cap#colon/snomedct/ http://cap#colon/radlex/"
-    schemaLocation="http://purl.org/pathology/ecc/colon.rng" version="1.0a" xmlns="http://purl.org/pathology/ecc/"
-    xmlns:grddl="http://www.w3.org/2003/g/data-view#">
+    schemaLocation="http://purl.org/pathology/ecc/colon.rng" version="1.0a"
+    xmlns="http://purl.org/pathology/ecc/" xmlns:grddl="http://www.w3.org/2003/g/data-view#">
     <history>
         <clinicalFinding>
             <response value="unreported"/>
         </clinicalFinding>
+        <priorTherapy>
+            <response value="specify">
+                <specify>something</specify>
+            </response>
+        </priorTherapy>
     </history>
     <specimen>
         <procedure>
@@ -57,8 +84,8 @@
             <response value="medullary carcinoma"/>
             <response value="adenocarcinoma"/>
         </histologicType>
-        <grade>
-            <response system="2-grade" value="high"/>
+        <grade system="2-grade">
+            <response value="high"/>
         </grade>
         <precursorPolyp>
             <type>
@@ -91,7 +118,7 @@
             <response value="indeterminate"/>
         </perineuralInvasion>
         <peritumoralDeposits>
-            <response value="negative"/>
+            <response value="positive"/>
         </peritumoralDeposits>
         <mucinousComponent>
             <response unit="percent" value="10"/>
@@ -108,30 +135,37 @@
     </accessory>
     <margins>
         <margin name="distal">
-            <in-situ>
-                <status>
+            <status of="in-situ">
+                <result>
                     <response closest="positive" value="negative"/>
-                </status>
+                </result>
                 <distance>
                     <response unit="cm" value="1"/>
                 </distance>
-            </in-situ>
-            <invasive>
-                <status>
-                    <response value="indeterminate"/>
-                </status>
+            </status>
+            <status of="invasive">
+                <result>
+                    <response closest="positive" value="negative"/>
+                </result>
                 <distance>
                     <response unit="cm" value="1"/>
                 </distance>
-            </invasive>
+            </status>
         </margin>
     </margins>
     <nodes>
         <nodeGroup name="anterior cecal">
-            <tally>
-                <response type="total" value="5"/>
-                <response type="positive" value="1"/>
-            </tally>
+            <status>
+                <result for="total">
+                    <response value="32"/>
+                </result>
+                <result for="negative">
+                    <response value="11"/>
+                </result>
+                <result for="positive">
+                    <response value="10"/>
+                </result>
+            </status>
             <largestMetastasis>
                 <response unit="cm" value="1"/>
                 <response unit="cm" value="1"/>
@@ -143,16 +177,29 @@
         </nodeGroup>
     </nodes>
     <distant>
-        <site value="liver">
-            <status date="20090101" method="specify">
-                <response value="positive"/>
-                <specify>something</specify>
+        <site name="liver">
+            <status date="20090101" of="outside report">
+                <result>
+                    <response value="positive"/>
+                </result>
+                <size>
+                    <response unit="cm" value="3"/>
+                    <response unit="cm" value="2"/>
+                    <response unit="cm" value="1"/>
+                </size>
             </status>
-            <size>
-                <response unit="cm" value="3"/>
-                <response unit="cm" value="2"/>
-                <response unit="cm" value="1"/>
-            </size>
+        </site>
+        <site name="brain">
+            <status date="20090101" of="clinical history">
+                <result>
+                    <response value="positive"/>
+                </result>
+                <size>
+                    <response unit="cm" value="3"/>
+                    <response unit="cm" value="2"/>
+                    <response unit="cm" value="1"/>
+                </size>
+            </status>
         </site>
     </distant>
     <studies>
@@ -192,7 +239,7 @@
         </mSH6>
         <pMS2>
             <result>
-                <response value="intact nuclear positivity, tumor cells"/>
+                <response value="intact nuclear positivity"/>
             </result>
             <technique>
                 <response value="inapplicable"/>
@@ -228,16 +275,16 @@
             <response value="none"/>
         </prefix>
         <multiplicity>
-            <response value="2"/>
+            <response value="1"/>
         </multiplicity>
         <pT>
             <response value="3"/>
         </pT>
         <pN>
-            <response value="0"/>
+            <response value="2b"/>
         </pN>
         <pM>
-            <response value="1a"/>
+            <response value="1b"/>
         </pM>
         <group>
             <response value="III"/>
@@ -245,7 +292,7 @@
     </stage>
     <additional>
         <finding>
-            <response value="active inflammatory bowel disease"/>
+            <response value="active IBD"/>
         </finding>
     </additional>
 </resection>

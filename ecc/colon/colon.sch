@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
 <schema queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron"
     xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -7,6 +29,7 @@
     <let name="skip" value="true()"/>
     <let name="cval" value="doc('values.rng')"/>
     <let name="val" value="doc('../framework/values.rng')"/>
+    <let name="positive" value="'positive'"/>
     <pattern id="mesorectum-iff-rectum-specimen">
         <rule context="//ecc:mesorectumIntactness/ecc:response[@value ne 'unreported']">
             <assert role="error" test="//ecc:specimen/ecc:site/ecc:response[@value eq 'rectum']">
@@ -87,44 +110,45 @@
             <let name="procs" value="//ecc:specimen/ecc:procedure/ecc:response/@value"/>
             <let name="sites" value="//ecc:specimen/ecc:site/ecc:response/@value"/>
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <let name="msg1" value="' is among the reported sites, but no matching procedure is reported.'"/>
+            <let name="msg1"
+                value="' is among the reported sites, but no matching procedure is reported.'"/>
             <let name="msg2" value="' is reported, but corresponding specimen sites are absent.'"/>
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
             <!--This assertions tests that for every reported site, at least one possibly matching procedure is reported-->
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <assert test="not($anu = $sites and not($procs = $anu-procs))">
+            <report test="$anu = $sites and not($procs = $anu-procs)">
                 Anus<value-of select="$msg1"/>
-            </assert>
-            <assert test="not($rec = $sites and not($procs = $rec-procs))">
+            </report>
+            <report test="$rec = $sites and not($procs = $rec-procs)">
                 Rectum<value-of select="$msg1"/>
-            </assert>
-            <assert test="not($rsj = $sites and not($procs = $rsj-procs))">
+            </report>
+            <report test="$rsj = $sites and not($procs = $rsj-procs)">
                 Rectosigmoid junction<value-of select="$msg1"/>
-            </assert>
-            <assert test="not($sig = $sites and not($procs = $sig-procs))">
+            </report>
+            <report test="$sig = $sites and not($procs = $sig-procs)">
                 Sigmoid colon<value-of select="$msg1"/>
-            </assert>
-            <assert test="not($des = $sites and not($procs = $des-procs))">
+            </report>
+            <report test="$des = $sites and not($procs = $des-procs)">
                 Left colon<value-of select="$msg1"/>
-            </assert>
-            <assert test="not($spl = $sites and not($procs = $spl-procs))">
+            </report>
+            <report test="$spl = $sites and not($procs = $spl-procs)">
                 Splenic flexure<value-of select="$msg1"/>
-            </assert>
-            <assert test="not($tra = $sites and not($procs = $tra-procs))">
+            </report>
+            <report test="$tra = $sites and not($procs = $tra-procs)">
                 Transverse colon<value-of select="$msg1"/>
-            </assert>
-            <assert test="not($hep = $sites and not($procs = $hep-procs))">
+            </report>
+            <report test="$hep = $sites and not($procs = $hep-procs)">
                 Hepatic flexure<value-of select="$msg1"/>
-            </assert>
-            <assert test="not($asc = $sites and not($procs = $asc-procs))">
+            </report>
+            <report test="$asc = $sites and not($procs = $asc-procs)">
                 Right colon<value-of select="$msg1"/>
-            </assert>
-            <assert test="not($cec = $sites and not($procs = $cec-procs))">
+            </report>
+            <report test="$cec = $sites and not($procs = $cec-procs)">
                 Cecum<value-of select="$msg1"/>
-            </assert>
-            <assert test="not($ter = $sites and not($procs = $ter-procs))">
+            </report>
+            <report test="$ter = $sites and not($procs = $ter-procs)">
                 Terminal ileum<value-of select="$msg1"/>
-            </assert>
+            </report>
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
             <!--This assertion tests that for every reported procedure, at least the minimal set of necessarily matching site(s) is reported-->
@@ -163,8 +187,8 @@
     </pattern>
     <pattern id="colon-calculate-T-stage">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <p>This pattern checks that the pT assignment is correct, given the invasion reported in the "extent" section of
-            the patient's report. This is the AJCC 7th edition algorithm.</p>
+        <p>This pattern checks that the pT assignment is correct, given the invasion reported in the
+            "extent" section of the patient's report. This is the AJCC 7th edition algorithm.</p>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <rule context="//ecc:extent/ecc:deepestInvasion/ecc:response">
             <let name="invasion" value="@value"/>
@@ -188,13 +212,14 @@
     </pattern>
     <pattern id="colon-calculate-N-stage">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <p>This pattern checks that the pN assignment is correct, given the node statuses reported in the "nodes"
-            section of the patient's report. This is the AJCC 7th edition algorithm.</p>
+        <p>This pattern checks that the pN assignment is correct, given the node statuses reported
+            in the "nodes" section. This is the AJCC 7th edition algorithm.</p>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <rule context="//ecc:nodes">
-            <let name="posNodes" value="sum(.//ecc:positive/ecc:response/@value)"/>
+            <let name="posNodes"
+                value="sum(ecc:nodeGroup/ecc:status/ecc:result[@for eq $positive]/ecc:response/@value)"/>
             <let name="tumorDeposits"
-                value="ecc:*[@site eq 'tumor deposits']/ecc:*[@name='positive']/ecc:response/@value gt 0"/>
+                value="ecc:peritumoralDeposits/ecc:response/@value eq 'positive'"/>
             <let name="N-reported" value="//ecc:pN/ecc:response/@value"/>
             <let name="N-calculated"
                 value="  if ($posNodes ge 7) then '2b'
@@ -212,13 +237,16 @@
     </pattern>
     <pattern>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <p>This pattern checks that the pM assignment is correct, given the metastasis statuses reported in the
-            "metastases" section of the patient's report. This is the AJCC 7th edition algorithm.</p>
+        <p>This pattern checks that the pM assignment is correct, given the metastasis statuses
+            reported in the "metastases" section of the patient's report. This is the AJCC 7th
+            edition algorithm.</p>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <rule context="//ecc:distant">
-            <let name="peritoneum" value="ecc:*[@site eq 'peritoneum']/ecc:result/ecc:response/@value eq 'positive'"/>
+            <let name="peritoneum"
+                value="ecc:site[@name eq 'peritoneum']/ecc:status/ecc:result/ecc:response/@value eq 'positive'"/>
             <let name="M-reported" value="//ecc:pM/ecc:response/@value"/>
-            <let name="positive-count" value="count(.//ecc:response[@value eq 'positive'])"/>
+            <let name="positive-count"
+                value="count(ecc:site/ecc:status/ecc:result/ecc:response[@value eq 'positive'])"/>
             <let name="M-calculated"
                 value="  if ($peritoneum)          then '1b'
 					else if ($positive-count gt 1) then '1b'
@@ -231,8 +259,8 @@
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     </pattern>
     <pattern id="colon-grade">
-        <rule context="//histologicGrade" role="warning">
-            <assert test="@modifier eq '2-grade'">
+        <rule context="//ecc:tumor/ecc:grade" role="warning">
+            <assert test="@system eq '2-grade'">
                 A 2-grade ("low-grade" vs. "high-grade") reporting system is recommended for colon carcinoma.
             </assert>
         </rule>
