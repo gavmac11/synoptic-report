@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:/Users/me/Dropbox/Projects/Synoptic-report/Synoptic%20Working/ecc/endometrium/endometrium.rng" type="xml"?>
+<?oxygen SCHSchema="../framework/rules.sch"?>
+<?oxygen SCHSchema="endometrium.sch"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+<resection ns1:transformation="http://purl.org/pathology/ecc/transform/endometrium/csv2.xsl"
+    schemaLocation="http://purl.org/pathology/ecc/endometrium.rng" version="1.0a" xmlns="http://purl.org/pathology/ecc/"
+    xmlns:ns1="http://www.w3.org/2003/g/data-view#">
+    <history>
+        <clinicalFinding>
+            <response value="specify">
+                <specify>something</specify>
+            </response>
+        </clinicalFinding>
+        <pathologicFinding date="20091010">
+            <response value="specify">
+                <specify>something</specify>
+            </response>
+        </pathologicFinding>
+    </history>
+    <specimen>
+        <procedure>
+            <response value="radical hysterectomy"/>
+            <response laterality="bilateral" value="salpingo-oophorectomy"/>
+            <response value="lymph node sampling"/>
+        </procedure>
+        <size>
+            <response unit="cm" value="12"/>
+            <response unit="cm" value="6"/>
+            <response unit="cm" value="6"/>
+        </size>
+        <site>
+            <response value="uterine corpus"/>
+            <response laterality="bilateral" value="ovary"/>
+            <response laterality="bilateral" value="fallopian tube"/>
+            <response value="lymph nodes"/>
+        </site>
+    </specimen>
+    <tumor>
+        <focus name="principal">
+            <size>
+                <response unit="cm" value="2"/>
+            </size>
+        </focus>
+        <histologicType>
+            <response value="endometrioid carcinoma"/>
+        </histologicType>
+        <grade system="FIGO">
+            <response value="2"/>
+        </grade>
+    </tumor>
+    <extent>
+        <contiguousExtension>
+            <status of="invades">
+                <result for="bladder mucosa">
+                    <response value="positive"/>
+                </result>
+                <result for="cervix">
+                    <!-- probably use this instead of a special item for cervical stromal invasion -->
+                    <response value="positive"/>
+                </result>
+            </status>
+        </contiguousExtension>
+        <myometrialInvasion>
+            <depth>
+                <response unit="cm" value="1.2"/>
+            </depth>
+            <thickness>
+                <response unit="cm" value="2.5"/>
+            </thickness>
+        </myometrialInvasion>
+        <cervicalStromalInvasion>
+            <response value="negative"/>
+        </cervicalStromalInvasion>
+    </extent>
+    <accessory>
+        <lymphVascularInvasion>
+            <response value="positive"/>
+        </lymphVascularInvasion>
+        <perineuralInvasion>
+            <response value="indeterminate"/>
+        </perineuralInvasion>
+    </accessory>
+    <margins>
+        <margin name="vaginal cuff">
+            <status of="invasive">
+                <result>
+                    <response closest="positive" value="negative"/>
+                </result>
+                <distance>
+                    <response relation="greater than" unit="cm" value="1.0"/>
+                </distance>
+            </status>
+        </margin>
+    </margins>
+    <nodes>
+        <nodeGroup name="inguinal">
+            <status>
+                <result for="total">
+                    <response value="4"/>
+                </result>
+                <result for="" type="necroinflammatory">
+                    <response value="1"/>
+                </result>
+            </status>
+            <largestMetastasis>
+                <response unit="cm" value="1"/>
+            </largestMetastasis>
+        </nodeGroup>
+    </nodes>
+    <distant>
+        <site name="liver">
+            <status of="this accession">
+                <result>
+                    <response value="negative"/>
+                </result>
+            </status>
+        </site>
+    </distant>
+    <studies/>
+    <stage>
+        <prefix>
+            <response value="none"/>
+        </prefix>
+        <pT>
+            <response value="4"/>
+        </pT>
+        <pN>
+            <response value="0"/>
+        </pN>
+        <pM>
+            <response value="unreported"/>
+        </pM>
+    </stage>
+    <additional>
+        <finding>
+            <response value="EIN"/>
+        </finding>
+    </additional>
+</resection>
