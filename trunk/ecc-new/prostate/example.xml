@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+<?oxygen RNGSchema="prostate.rng" type="xml"?>
+<?oxygen SCHSchema="prostate.sch"?>
+<resection grddl:transformation="http://www.cancerstaging.org/csv2#"
+    schemaLocation="http://purl.org/pathology/ecc/prostate.rng" version="1.0a" xmlns="http://purl.org/pathology/ecc/"
+    xmlns:grddl="http://www.w3.org/2003/g/data-view#">
+    <history>
+        <clinicalFinding date="2008">
+            <response value="specify">
+                <specify>serum PSA 4.3 ng/ml on 10-1-2007</specify>
+            </response>
+        </clinicalFinding>
+    </history>
+    <specimen>
+        <procedure>
+            <response value="abdominopelvic prostatectomy"/>
+        </procedure>
+        <size>
+            <response unit="cm" value="1"/>
+            <response unit="cm" value="1"/>
+            <response unit="cm" value="1"/>
+        </size>
+        <weight>
+            <response unit="g" value="1"/>
+        </weight>
+        <site>
+            <response value="entire prostate"/>
+        </site>
+        <integrity>
+            <response value="intact"/>
+        </integrity>
+    </specimen>
+    <tumor>
+        <focus name="dominant">
+            <site>
+                <response value="left lobe"/>
+            </site>
+            <size>
+                <response unit="cm" value="1"/>
+            </size>
+            <histologicType>
+                <response value="acinar adenocarcinoma"/>
+            </histologicType>
+            <grade system="gleason">
+                <result for="primary">
+                    <response value="3"/>
+                </result>
+                <result for="secondary">
+                    <response value="4"/>
+                </result>
+                <result for="sum">
+                    <response value="7"/>
+                </result>
+            </grade>
+        </focus>
+        <histologicType>
+            <response value="acinar adenocarcinoma"/>
+        </histologicType>
+        <grade system="gleason">
+            <result for="primary">
+                <response value="3"/>
+            </result>
+            <result for="secondary">
+                <response value="4"/>
+            </result>
+            <result for="sum">
+                <response value="7"/>
+            </result>
+        </grade>
+    </tumor>
+    <extent>
+        <tumorVolume>
+            <result for="left">
+                <response unit="percent" value="20"/>
+            </result>
+            <result for="right">
+                <response unit="percent" value="40"/>
+            </result>
+            <result for="bilateral">
+                <response unit="percent" value="30"/>
+            </result>
+        </tumorVolume>
+        <extracapsularExtension>
+            <result for="left">
+                <response value="negative"/>
+            </result>
+            <result for="right">
+                <response value="negative"/>
+            </result>
+        </extracapsularExtension>
+        <seminalVesicleInvasion>
+            <result for="left">
+                <response value="negative"/>
+            </result>
+            <result for="right">
+                <response value="negative"/>
+            </result>
+        </seminalVesicleInvasion>
+        <contiguousExtension>
+            <status of="bladder">
+                <result for="invades">
+                    <response value="positive"/>
+                </result>
+            </status>
+            <status of="bladder neck">
+                <result for="invades">
+                    <response extent="microfocal" value="positive"/>
+                </result>
+            </status>
+        </contiguousExtension>
+    </extent>
+    <accessory>
+        <treatmentResponse>
+            <response value="marked"/>
+        </treatmentResponse>
+        <lymphVascularInvasion>
+            <response value="negative"/>
+        </lymphVascularInvasion>
+        <perineuralInvasion>
+            <response value="indeterminate"/>
+        </perineuralInvasion>
+    </accessory>
+    <margin>
+        <status of="bladder neck">
+            <result for="invasive">
+                <response value="indeterminate"/>
+            </result>
+            <result for="in-situ">
+                <response value="negative"/>
+            </result>
+            <distance for="in-situ">
+                <response unit="cm" value="1"/>
+            </distance>
+        </status>
+    </margin>
+    <nodes>
+        <status of="external iliac">
+            <result for="total">
+                <response value="8"/>
+            </result>
+            <result for="positive">
+                <response value="1"/>
+            </result>
+            <largestMetastasis>
+                <response unit="cm" value="1"/>
+                <response unit="cm" value="1"/>
+                <response unit="cm" value="1"/>
+            </largestMetastasis>
+            <extracapsularExtension>
+                <response value="negative"/>
+            </extracapsularExtension>
+        </status>
+    </nodes>
+    <distant>
+        <status of="liver">
+            <result date="20090101" for="clinical history">
+                <response value="positive"/>
+            </result>
+            <size>
+                <response unit="cm" value="3"/>
+                <response unit="cm" value="2"/>
+                <response unit="cm" value="1"/>
+            </size>
+        </status>
+    </distant>
+    <studies>
+        <psa date="20090921">
+            <response unit="ng/ml" value="6.3"/>
+        </psa>
+        <psa date="20100216">
+            <response unit="ng/ml" value="7.2"/>
+        </psa>
+    </studies>
+    <stage>
+        <prefix>
+            <response value="none"/>
+        </prefix>
+        <multiplicity>
+            <response value="2"/>
+        </multiplicity>
+        <pT>
+            <response value="2c"/>
+        </pT>
+        <pN>
+            <response value="0"/>
+        </pN>
+        <pM>
+            <response value="0"/>
+        </pM>
+        <group>
+            <response value="III"/>
+        </group>
+    </stage>
+    <additional>
+        <finding>
+            <response value="extensive HGPIN"/>
+        </finding>
+    </additional>
+</resection>
