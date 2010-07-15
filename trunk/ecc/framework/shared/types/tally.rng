@@ -75,11 +75,11 @@
                     </define>
                     <define name="item.extension">
                         <attribute name="for">
-                            <parentRef name="item.type.valueset"/>
+                            <parentRef name="item.for.valueset"/>
                         </attribute>
                         <optional>
                             <attribute name="type">
-                                <parentRef name="item.subtype.valueset"/>
+                                <parentRef name="item.type.valueset"/>
                             </attribute>
                         </optional>
                     </define>
@@ -108,11 +108,11 @@
         <empty/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="item.type.valueset">
+    <define combine="choice" name="item.for.valueset">
         <empty/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="item.subtype.valueset">
+    <define combine="choice" name="item.type.valueset">
         <empty/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

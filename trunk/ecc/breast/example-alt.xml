@@ -25,9 +25,9 @@
     ===========================================================================  
 -->
 <resection grddl:transformation="http://www.cancerstaging.org/csv2#"
-    schemaLocation="http://purl.org/pathology/ecc/breast.rng" version="1.0a" xmlns="http://purl.org/pathology/ecc/"
-    xmlns:breast="http://purl.org/pathology/ecc/breast/" xmlns:ecc="http://purl.org/pathology/ecc/"
-    xmlns:grddl="http://www.w3.org/2003/g/data-view#">
+    schemaLocation="http://purl.org/pathology/ecc/breast.rng" version="1.0a"
+    xmlns="http://purl.org/pathology/ecc/" xmlns:breast="http://purl.org/pathology/ecc/breast/"
+    xmlns:ecc="http://purl.org/pathology/ecc/" xmlns:grddl="http://www.w3.org/2003/g/data-view#">
     <history>
         <clinicalFinding>
             <response value="specify">
@@ -54,7 +54,7 @@
             <response unit="g" value="100"/>
         </weight>
         <site>
-            <response on="right" value="axillary tail"/>
+            <response laterality="right" value="axillary tail"/>
             <response value="total breast"/>
         </site>
         <integrity>
@@ -62,9 +62,9 @@
         </integrity>
     </specimen>
     <tumor>
-        <focus type="principal">
+        <focus name="principal">
             <site>
-                <response on="right" value="lower outer quadrant"/>
+                <response laterality="right" value="lower outer quadrant"/>
                 <response value="axillary tail"/>
                 <response value="5:00"/>
             </site>
@@ -91,7 +91,7 @@
         </focus>
         <focus name="additional">
             <site>
-                <response on="right" value="lower outer quadrant"/>
+                <response laterality="right" value="lower outer quadrant"/>
             </site>
             <size>
                 <response unit="cm" value="3"/>
@@ -154,9 +154,7 @@
         </microcalcifications>
         <ductalCarcinoma-in-situ>
             <result>
-                <response focality="extensive" value="positive"/>
-                <!-- what about extensive intraductal component -->
-                <!-- best is to use @subtype -->
+                <response focality="extensive intraductal component" value="positive"/>
             </result>
             <size>
                 <response unit="cm" value="2"/>
@@ -166,7 +164,7 @@
                     <response value="23"/>
                 </result>
                 <result for="positive">
-                    <response relation="approximately equal" value="1"/>
+                    <response relation="approximately equal" value="13"/>
                 </result>
             </blocks>
             <architecture>
@@ -196,17 +194,18 @@
             </blocks>
         </lobularCarcinoma-in-situ>
     </accessory>
-    <margin>
+    <margins>
         <status of="medial">
             <result for="in-situ">
                 <response value="inapplicable"/>
             </result>
-        </status>
-        <status of="lateral">
+            <distance of="in-situ">
+                <response unit="cm" value="3"/>
+            </distance>
             <result for="invasive">
                 <response closest="positive" value="negative"/>
             </result>
-            <distance for="invasive">
+            <distance of="invasive">
                 <response unit="cm" value="0.5"/>
             </distance>
         </status>
@@ -217,13 +216,13 @@
             <result for="invasive">
                 <response value="negative"/>
             </result>
-            <distance for="invasive">
+            <distance from="margin" of="invasive">
                 <response unit="cm" value="1"/>
             </distance>
         </status>
-    </margin>
+    </margins>
     <nodes>
-        <status of="sentinel" technique="H+E plus immunohistochemistry">
+        <status laterality="ipsilateral" of="sentinel" technique="H+E multiple level(s)">
             <result for="total">
                 <response value="36"/>
             </result>
@@ -315,10 +314,10 @@
             <response value="1a"/>
         </pN>
         <pM>
-            <response value="1"/>
+            <response value="0(i+)"/>
         </pM>
         <group>
-            <response value="IV"/>
+            <response value="IIB"/>
         </group>
     </stage>
     <additional>

@@ -77,4 +77,64 @@
             </element>
         </optional>
     </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.principalFocus.extension">
+        <ref name="tumor.focus.pleuralInvasion"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.additionalFocus.extension">
+        <ref name="tumor.focus.pleuralInvasion"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.focus.pleuralInvasion">
+        <element name="pleuralInvasion">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <choice>
+                        <parentRef name="tumor.focus.pleuralInvasion.valueset"/>
+                        <parentRef name="base.valueset"/>
+                    </choice>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.extension">
+        <element name="postobstructiveChanges">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <choice>
+                        <parentRef name="extent.postobstructive.valueset"/>
+                        <parentRef name="base.valueset"/>
+                    </choice>
+                </define>
+            </grammar>
+        </element>
+        <oneOrMore>
+            <element name="malignantEffusion">
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="item.extension">
+                        <attribute name="of">
+                            <choice>
+                                <parentRef name="extent.malignantEffusion.of.valueset"/>
+                                <parentRef name="base.valueset"/>
+                            </choice>
+                        </attribute>
+                        <optional>
+                            <attribute name="laterality">
+                                <parentRef name="laterality.valueset"/>
+                            </attribute>
+                        </optional>
+                    </define>
+                    <define name="valueset">
+                        <parentRef name="qualitative.valueset"/>
+                    </define>
+                </grammar>
+            </element>
+        </oneOrMore>
+    </define>
+    
 </grammar>

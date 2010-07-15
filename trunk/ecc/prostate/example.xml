@@ -24,8 +24,8 @@
 <?oxygen RNGSchema="prostate.rng" type="xml"?>
 <?oxygen SCHSchema="prostate.sch"?>
 <resection grddl:transformation="http://www.cancerstaging.org/csv2#"
-    schemaLocation="http://purl.org/pathology/ecc/prostate.rng" version="1.0a"
-    xmlns="http://purl.org/pathology/ecc/" xmlns:grddl="http://www.w3.org/2003/g/data-view#">
+    schemaLocation="http://purl.org/pathology/ecc/prostate.rng" version="1.0a" xmlns="http://purl.org/pathology/ecc/"
+    xmlns:grddl="http://www.w3.org/2003/g/data-view#">
     <history>
         <clinicalFinding date="2008">
             <response value="specify">
@@ -53,13 +53,27 @@
         </integrity>
     </specimen>
     <tumor>
-        <focus name="principal">
+        <focus name="dominant">
             <site>
                 <response value="left lobe"/>
             </site>
             <size>
                 <response unit="cm" value="1"/>
             </size>
+            <histologicType>
+                <response value="acinar adenocarcinoma"/>
+            </histologicType>
+            <grade system="gleason">
+                <result for="primary">
+                    <response value="3"/>
+                </result>
+                <result for="secondary">
+                    <response value="4"/>
+                </result>
+                <result for="sum">
+                    <response value="7"/>
+                </result>
+            </grade>
         </focus>
         <histologicType>
             <response value="acinar adenocarcinoma"/>
@@ -77,43 +91,45 @@
         </grade>
     </tumor>
     <extent>
-        <contiguousExtension>
-            <status of="invades">
-                <result for="bladder">
-                    <response value="positive"/>
-                </result>
-                <result for="bladder neck">
-                    <response extent="microfocal" value="negative"/>
-                </result>
-            </status>
-        </contiguousExtension>
         <tumorVolume>
             <result for="left">
-                <response unit="percent" value="50"/>
+                <response unit="percent" value="20"/>
             </result>
             <result for="right">
-                <response unit="percent" value="30"/>
+                <response unit="percent" value="40"/>
             </result>
             <result for="bilateral">
-                <response unit="percent" value="40"/>
+                <response unit="percent" value="30"/>
             </result>
         </tumorVolume>
         <extracapsularExtension>
             <result for="left">
-                <response value="positive"/>
+                <response value="negative"/>
             </result>
             <result for="right">
-                <response value="positive"/>
+                <response value="negative"/>
             </result>
         </extracapsularExtension>
         <seminalVesicleInvasion>
             <result for="left">
-                <response extent="multifocal" value="positive"/>
+                <response value="negative"/>
             </result>
             <result for="right">
                 <response value="negative"/>
             </result>
         </seminalVesicleInvasion>
+        <contiguousExtension>
+            <status of="bladder">
+                <result for="invades">
+                    <response value="positive"/>
+                </result>
+            </status>
+            <status of="bladder neck">
+                <result for="invades">
+                    <response extent="microfocal" value="positive"/>
+                </result>
+            </status>
+        </contiguousExtension>
     </extent>
     <accessory>
         <treatmentResponse>
@@ -126,28 +142,27 @@
             <response value="indeterminate"/>
         </perineuralInvasion>
     </accessory>
-    <margins>
-        <margin name="bladder neck">
-            <status of="invasive">
-                <result>
-                    <response value="indeterminate"/>
-                </result>
-                <distance>
-                    <response unit="cm" value="1"/>
-                </distance>
-            </status>
-        </margin>
-    </margins>
+    <margin>
+        <status of="bladder neck">
+            <result for="invasive">
+                <response value="indeterminate"/>
+            </result>
+            <result for="in-situ">
+                <response value="negative"/>
+            </result>
+            <distance for="in-situ">
+                <response unit="cm" value="1"/>
+            </distance>
+        </status>
+    </margin>
     <nodes>
-        <nodeGroup name="external iliac">
-            <status>
-                <result for="total">
-                    <response value="8"/>
-                </result>
-                <result for="positive">
-                    <response value="1"/>
-                </result>
-            </status>
+        <status of="external iliac">
+            <result for="total">
+                <response value="8"/>
+            </result>
+            <result for="positive">
+                <response value="1"/>
+            </result>
             <largestMetastasis>
                 <response unit="cm" value="1"/>
                 <response unit="cm" value="1"/>
@@ -156,21 +171,19 @@
             <extracapsularExtension>
                 <response value="negative"/>
             </extracapsularExtension>
-        </nodeGroup>
+        </status>
     </nodes>
     <distant>
-        <site name="liver">
-            <status date="20090101" of="clinical history">
-                <result>
-                    <response value="positive"/>
-                </result>
-                <size>
-                    <response unit="cm" value="3"/>
-                    <response unit="cm" value="2"/>
-                    <response unit="cm" value="1"/>
-                </size>
-            </status>
-        </site>
+        <status of="liver">
+            <result date="20090101" for="clinical history">
+                <response value="positive"/>
+            </result>
+            <size>
+                <response unit="cm" value="3"/>
+                <response unit="cm" value="2"/>
+                <response unit="cm" value="1"/>
+            </size>
+        </status>
     </distant>
     <studies>
         <psa date="20090921">
@@ -188,13 +201,13 @@
             <response value="2"/>
         </multiplicity>
         <pT>
-            <response value="3b"/>
+            <response value="2c"/>
         </pT>
         <pN>
-            <response value="1"/>
+            <response value="0"/>
         </pN>
         <pM>
-            <response value="1a"/>
+            <response value="0"/>
         </pM>
         <group>
             <response value="III"/>

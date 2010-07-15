@@ -21,8 +21,7 @@
     limitations under the License.
     ===========================================================================  
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    xmlns="http://relaxng.org/ns/structure/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <!--=============================================================-->
     <a:documentation>SHARED valuesets</a:documentation>
@@ -30,23 +29,12 @@
     <define name="intrinsic.site.valueset">
         <choice>
             <value>main bronchus</value>
-            <value>right lung</value>
-            <value>right upper lobe</value>
-            <value>right middle lobe</value>
-            <value>right lower lobe</value>
-            <value>left lung</value>
-            <value>left upper lobe</value>
+            <value>entire lung</value>
+            <value>upper lobe</value>
+            <value>middle lobe</value>
+            <value>lower lobe</value>
             <value>lingula</value>
-            <value>left lower lobe</value>
             <value>carina</value>
-            <value>right lung</value>
-            <value>right upper lobe</value>
-            <value>right middle lobe</value>
-            <value>right lower lobe</value>
-            <value>left lung</value>
-            <value>left upper lobe</value>
-            <value>lingula</value>
-            <value>left lower lobe</value>
             <value>apical right upper segment</value>
             <value>posterior right upper segment</value>
             <value>anterior right upper segment</value>
@@ -62,15 +50,11 @@
             <value>superior left lower segment</value>
             <value>anteromedial-basal left lower segment</value>
             <value>posterior-basal left lower segment</value>
-            <value>lateral-basal left lowers egment</value>
-            <value>right mainstem bronchus</value>
-            <value>right upper lobe bronchus</value>
+            <value>lateral-basal left lower segment</value>
+            <value>upper lobe bronchus</value>
             <value>bronchus intermedius</value>
             <value>right middle lobe bronchus</value>
-            <value>right lower lobe bronchus</value>
-            <value>left upper lobe bronchus</value>
-            <value>left lower lobe bronchus</value>
-            <value>left upper lobe bronchus</value>
+            <value>lower lobe bronchus</value>
         </choice>
     </define>
     <define name="extrinsic.site.valueset">
@@ -86,6 +70,7 @@
                 <value>mediastinal pleura</value>
                 <value>mediastinum</value>
                 <value>parietal pericardium</value>
+                <value>visceral pleura</value>
                 <value>parietal pleura</value>
                 <value>phrenic nerve</value>
                 <value>recurrent laryngeal nerve</value>
@@ -187,17 +172,29 @@
             <value>indeterminate</value>
         </choice>
     </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="tumor.site.valueset">
+        <ref name="intrinsic.site.valueset"/>
+    </define>
+    <define name="tumor.focus.pleuralInvasion.valueset">
+        <choice>
+            <value>negative</value>
+            <value>past visceral pleura elastica</value>
+            <value>to visceral pleura surface</value>
+            <value>in parietal pleura</value>
+        </choice>
+    </define>
     <!--=============================================================-->
     <a:documentation>EXTENT section valuesets</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.adjacentSite.valueset">
+    <define name="extent.contiguousExtension.status.of.valueset">
         <ref name="extrinsic.site.valueset"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.adjacentSite.status.type.valueset">
+    <define name="extent.contiguousExtension.status.distance.from.valueset">
         <choice>
-            <value>invades</value>
-            <value>adheres</value>
+            <value>carina</value>
+            <value>visceral pleural surface</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -213,16 +210,25 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.site.valueset">
+    <define name="extent.postobstructive.valueset">
         <choice>
-            <ref name="intrinsic.site.valueset"/>
-            <ref name="extrinsic.site.valueset"/>
+            <value>negative</value>
+            <value>extending to hilum</value>
+            <value>involving entire lung</value>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.malignantEffusion.of.valueset">
+        <choice>
+            <value>pericardium</value>
+            <value>pleura</value>
+            <value>peritoneum</value>
         </choice>
     </define>
     <!--=============================================================-->
     <a:documentation>MARGINS section valuesets</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margins.margin.site.valueset">
+    <define name="margin.status.of.valueset">
         <choice>
             <value>bronchial</value>
             <value>vascular</value>
@@ -235,7 +241,7 @@
     <!--=============================================================-->
     <a:documentation>NODES section valuesets</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.nodeGroup.site.valueset">
+    <define name="nodes.status.of.valueset">
         <choice>
             <value>peribronchial</value>
             <value>hilar</value>

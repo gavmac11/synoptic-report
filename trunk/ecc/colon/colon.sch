@@ -22,177 +22,47 @@
     ===========================================================================  
 -->
 <schema queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron"
-    xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    xmlns:data="http://purl.org/pathology/ecc/data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <ns prefix="ecc" uri="http://purl.org/pathology/ecc/"/>
-    <ns prefix="rng" uri="http://relaxng.org/ns/structure/1.0"/>
+    <ns prefix="data" uri="http://purl.org/pathology/ecc/data"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <let name="skip" value="true()"/>
-    <let name="cval" value="doc('values.rng')"/>
-    <let name="val" value="doc('../framework/values.rng')"/>
     <let name="positive" value="'positive'"/>
+    <!--=============================================================-->
     <pattern id="mesorectum-iff-rectum-specimen">
-        <rule context="//ecc:mesorectumIntactness/ecc:response[@value ne 'unreported']">
+        <rule context="//ecc:mesorectumIntact/ecc:response[@value ne 'unreported']">
             <assert role="error" test="//ecc:specimen/ecc:site/ecc:response[@value eq 'rectum']">
                 You may not report on mesorectum intactness unless the specimen includes rectum.
             </assert>
         </rule>
         <rule context="//ecc:specimen/ecc:site/ecc:response[@value = 'rectum']">
-            <assert role="warning" test="//ecc:mesorectumIntactness/ecc:response[@value ne 'unreported']">
+            <assert role="warning" test="//ecc:mesorectumIntact/ecc:response[@value ne 'unreported']">
                 Since the specimen includes rectum, you should report on mesorectum intactness.
             </assert>
         </rule>
     </pattern>
-    <pattern>
-        <rule context="//ecc:specimen">
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <!--procedure strings (cf. specimen.procedure.response.value.valueset in project/colon/components/valuesets.rng)-->
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <let name="tox" value="'total colectomy'"/>
-            <let name="sex" value="'segmental colectomy'"/>
-            <let name="prx" value="'proctocolectomy'"/>
-            <let name="apx" value="'abdominoperineal resection'"/>
-            <let name="lax" value="'low anterior resection'"/>
-            <let name="tdx" value="'transanal disk excision'"/>
-            <let name="six" value="'sigmoidectomy'"/>
-            <let name="lhx" value="'left hemicolectomy'"/>
-            <let name="trx" value="'transverse colectomy'"/>
-            <let name="rhx" value="'right hemicolectomy'"/>
-            <let name="asx" value="'ascending colectomy'"/>
-            <let name="pox" value="'polypectomy'"/>
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <!--procedure strings (cf. specimen.site.response.value.valueset in project/colon/components/valuesets.rng)-->
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <let name="anu" value="'anus'"/>
-            <let name="rec" value="'rectum'"/>
-            <let name="rsj" value="'rectosigmoid junction'"/>
-            <let name="sig" value="'sigmoid colon'"/>
-            <let name="des" value="'left colon'"/>
-            <let name="spl" value="'splenic flexure'"/>
-            <let name="tra" value="'transverse colon'"/>
-            <let name="hep" value="'hepatic flexure'"/>
-            <let name="asc" value="'right colon'"/>
-            <let name="cec" value="'cecum'"/>
-            <let name="ter" value="'terminal ileum'"/>
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <!--table of procedures matching each site-->
-            <!--e.g. $anu-procs is **possibly matching** procedures that can give rise to an anus specimen-->
-            <!--in this sense, this is a "maximal" table, e.g. -->
-            <!--put another way, there are the procedures that are **acceptable** matches to each site-->
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <let name="anu-procs" value="$tox, $sex, $pox, $prx, $apx, $lax, $tdx"/>
-            <let name="rec-procs" value="$tox, $sex, $pox, $prx, $apx, $lax, $tdx, $six, $lhx"/>
-            <let name="rsj-procs" value="$tox, $sex, $pox, $prx, $apx, $lax, $six, $lhx"/>
-            <let name="sig-procs" value="$tox, $sex, $pox, $apx, $lax, $six, $lhx"/>
-            <let name="des-procs" value="$tox, $sex, $pox, $six, $lhx"/>
-            <let name="spl-procs" value="$tox, $sex, $pox, $lhx, $trx"/>
-            <let name="tra-procs" value="$tox, $sex, $pox, $lhx, $trx, $rhx"/>
-            <let name="hep-procs" value="$tox, $sex, $pox, $trx, $rhx"/>
-            <let name="asc-procs" value="$tox, $sex, $pox, $rhx, $asx"/>
-            <let name="cec-procs" value="$tox, $sex, $pox, $rhx, $asx"/>
-            <let name="ter-procs" value="$tox, $rhx, $asx"/>
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <!--table of required sites for each procedure-->
-            <!--e.g. $prx-sites is **necessarily matching** sites yielded by a proctocolectomy procedure-->
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <let name="tox-sites" value="$des, $spl, $tra, $hep, $hep, $asc, $cec"/>
-            <!--<let name="sex-sites" value=""/>-->
-            <!--<let name="pox-sites" value=""/>-->
-            <let name="prx-sites" value="$anu, $rec"/>
-            <let name="apx-sites" value="$rec"/>
-            <let name="lax-sites" value="$rec"/>
-            <let name="tdx-sites" value="$rec"/>
-            <let name="six-sites" value="$sig"/>
-            <let name="lhx-sites" value="$des"/>
-            <let name="trx-sites" value="$tra"/>
-            <let name="rhx-sites" value="$asc"/>
-            <let name="asx-sites" value="$asc"/>
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <let name="procs" value="//ecc:specimen/ecc:procedure/ecc:response/@value"/>
-            <let name="sites" value="//ecc:specimen/ecc:site/ecc:response/@value"/>
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <let name="msg1"
-                value="' is among the reported sites, but no matching procedure is reported.'"/>
-            <let name="msg2" value="' is reported, but corresponding specimen sites are absent.'"/>
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <!--This assertions tests that for every reported site, at least one possibly matching procedure is reported-->
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <report test="$anu = $sites and not($procs = $anu-procs)">
-                Anus<value-of select="$msg1"/>
-            </report>
-            <report test="$rec = $sites and not($procs = $rec-procs)">
-                Rectum<value-of select="$msg1"/>
-            </report>
-            <report test="$rsj = $sites and not($procs = $rsj-procs)">
-                Rectosigmoid junction<value-of select="$msg1"/>
-            </report>
-            <report test="$sig = $sites and not($procs = $sig-procs)">
-                Sigmoid colon<value-of select="$msg1"/>
-            </report>
-            <report test="$des = $sites and not($procs = $des-procs)">
-                Left colon<value-of select="$msg1"/>
-            </report>
-            <report test="$spl = $sites and not($procs = $spl-procs)">
-                Splenic flexure<value-of select="$msg1"/>
-            </report>
-            <report test="$tra = $sites and not($procs = $tra-procs)">
-                Transverse colon<value-of select="$msg1"/>
-            </report>
-            <report test="$hep = $sites and not($procs = $hep-procs)">
-                Hepatic flexure<value-of select="$msg1"/>
-            </report>
-            <report test="$asc = $sites and not($procs = $asc-procs)">
-                Right colon<value-of select="$msg1"/>
-            </report>
-            <report test="$cec = $sites and not($procs = $cec-procs)">
-                Cecum<value-of select="$msg1"/>
-            </report>
-            <report test="$ter = $sites and not($procs = $ter-procs)">
-                Terminal ileum<value-of select="$msg1"/>
-            </report>
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <!--This assertion tests that for every reported procedure, at least the minimal set of necessarily matching site(s) is reported-->
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <report test="$tox = $procs and not(every $s in $tox-sites satisfies $s = $sites)">
-                Total colectomy<value-of select="$msg2"/>
-            </report>
-            <report test="$prx = $procs and not(every $s in $prx-sites satisfies $s = $sites)">
-                Proctocolectomy<value-of select="$msg2"/>
-            </report>
-            <report test="$apx = $procs and not(every $s in $apx-sites satisfies $s = $sites)">
-                Abdominoperineal resection<value-of select="$msg2"/>
-            </report>
-            <report test="$lax = $procs and not(every $s in $lax-sites satisfies $s = $sites)">
-                Low anterior resection<value-of select="$msg2"/>
-            </report>
-            <report test="$tdx = $procs and not(every $s in $tdx-sites satisfies $s = $sites)">
-                Transanal disk excision<value-of select="$msg2"/>
-            </report>
-            <report test="$six = $procs and not(every $s in $six-sites satisfies $s = $sites)">
-                Sigmoidectomy<value-of select="$msg2"/>
-            </report>
-            <report test="$lhx = $procs and not(every $s in $lhx-sites satisfies $s = $sites)">
-                Left hemicolectomy<value-of select="$msg2"/>
-            </report>
-            <report test="$trx = $procs and not(every $s in $trx-sites satisfies $s = $sites)">
-                Transverse colectomy<value-of select="$msg2"/>
-            </report>
-            <report test="$rhx = $procs and not(every $s in $rhx-sites satisfies $s = $sites)">
-                Right hemicolectomy<value-of select="$msg2"/>
-            </report>
-            <report test="$asx = $sites and not(every $s in $asx-sites satisfies $s = $sites)">
-                Ascending colectomy<value-of select="$msg2"/>
-            </report>
-        </rule>
+    <!--=============================================================-->
+    <include href="../framework/shared/abstractPatterns/site-proc-match.sch"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <pattern id="colon-site-proc-match" is-a="site-proc-match">
+        <param name="data-source" value="''"/>
     </pattern>
+    <!--=============================================================-->
+    <include href="../framework/shared/abstractPatterns/proc-site-match.sch"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <pattern id="colon-proc-site-match" is-a="proc-site-match">
+        <param name="data-source" value="''"/>
+    </pattern>
+    <!--=============================================================-->
     <pattern id="colon-calculate-T-stage">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <p>This pattern checks that the pT assignment is correct, given the invasion reported in the
-            "extent" section of the patient's report. This is the AJCC 7th edition algorithm.</p>
+        <p>This pattern checks that the pT assignment is correct, given the invasion reported in the "extent" section of
+            the patient's report. This is the AJCC 7th edition algorithm.</p>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <rule context="//ecc:extent/ecc:deepestInvasion/ecc:response">
-            <let name="invasion" value="@value"/>
-            <let name="T-reported" value="//ecc:stage/ecc:pT/ecc:response/@value"/>
+        <rule context="//ecc:pT/ecc:response">
+            <let name="T-reported" value="@value"/>
+            <let name="invasion" value="//ecc:extent/ecc:deepestInvasion/ecc:response/@value"/>
             <let name="T-calculated"
                 value="  if ($invasion = 'adjacent structure')          then '4b'
 					else if ($invasion = 'visceral peritoneal surface') then '4a'
@@ -208,19 +78,17 @@
                 Reported T-stage (<value-of select="$T-reported"/>) does not match calculated (<value-of select="$T-calculated"/>).
             </report>
         </rule>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     </pattern>
+    <!--=============================================================-->
     <pattern id="colon-calculate-N-stage">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <p>This pattern checks that the pN assignment is correct, given the node statuses reported
-            in the "nodes" section. This is the AJCC 7th edition algorithm.</p>
+        <p>This pattern checks that the pN assignment is correct, given the node statuses reported in the "nodes"
+            section. This is the AJCC 7th edition algorithm.</p>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <rule context="//ecc:nodes">
-            <let name="posNodes"
-                value="sum(ecc:nodeGroup/ecc:status/ecc:result[@for eq $positive]/ecc:response/@value)"/>
-            <let name="tumorDeposits"
-                value="ecc:peritumoralDeposits/ecc:response/@value eq 'positive'"/>
-            <let name="N-reported" value="//ecc:pN/ecc:response/@value"/>
+        <rule context="//ecc:pN/ecc:response">
+            <let name="N-reported" value="@value"/>
+            <let name="posNodes" value="sum(//ecc:nodes/ecc:status/ecc:result[@for eq $positive]/ecc:response/@value)"/>
+            <let name="tumorDeposits" value="//ecc:peritumoralDeposits/ecc:response/@value eq 'positive'"/>
             <let name="N-calculated"
                 value="  if ($posNodes ge 7) then '2b'
 					else if ($posNodes ge 4) then '2a'
@@ -233,20 +101,20 @@
                 Reported N-stage (<value-of select="$N-reported"/>) does not match calculated (<value-of select="$N-calculated"/>).
             </report>
         </rule>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     </pattern>
+    <!--=============================================================-->
     <pattern>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <p>This pattern checks that the pM assignment is correct, given the metastasis statuses
-            reported in the "metastases" section of the patient's report. This is the AJCC 7th
-            edition algorithm.</p>
+        <p>This pattern checks that the pM assignment is correct, given the metastasis statuses reported in the
+            "metastases" section of the patient's report. This is the AJCC 7th edition algorithm.</p>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <rule context="//ecc:distant">
+        <rule context="//ecc:pM/ecc:response">
+            <let name="M-reported" value="@value"/>
             <let name="peritoneum"
-                value="ecc:site[@name eq 'peritoneum']/ecc:status/ecc:result/ecc:response/@value eq 'positive'"/>
-            <let name="M-reported" value="//ecc:pM/ecc:response/@value"/>
-            <let name="positive-count"
-                value="count(ecc:site/ecc:status/ecc:result/ecc:response[@value eq 'positive'])"/>
+                value="//ecc:distant/ecc:status[@of eq 'peritoneum']/ecc:result/ecc:response/@value eq 'positive' or
+                //ecc:contiguousExtension/ecc:status[@of eq 'peritoneum']/ecc:result[@for eq
+                'invades']/ecc:response/@value eq 'positive'"/>
+            <let name="positive-count" value="count(ecc:site/ecc:status/ecc:result/ecc:response[@value eq 'positive'])"/>
             <let name="M-calculated"
                 value="  if ($peritoneum)          then '1b'
 					else if ($positive-count gt 1) then '1b'
@@ -256,13 +124,149 @@
                 Reported M-stage (<value-of select="$M-reported"/>) does not match calculated (<value-of select="$M-calculated"/>).
             </report>
         </rule>
-        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     </pattern>
+    <!--=============================================================-->
     <pattern id="colon-grade">
-        <rule context="//ecc:tumor/ecc:grade" role="warning">
+        <rule context="//ecc:tumor//ecc:grade" role="warning">
             <assert test="@system eq '2-grade'">
                 A 2-grade ("low-grade" vs. "high-grade") reporting system is recommended for colon carcinoma.
             </assert>
         </rule>
     </pattern>
+    <!--=============================================================-->
+    <data:procedures>
+        <!--sites that are **OBLIGATE MATCHES** to the procedure that precedes them-->
+        <!--in other words, a procedure is first given; this is followed by a list of procedures that *must* be present if that procedure was performed-->
+        <data:proc of="total colectomy">
+            <data:site>sigmoid colon</data:site>
+            <data:site>descending colon</data:site>
+            <data:site>splenic flexure</data:site>
+            <data:site>transverse colon</data:site>
+            <data:site>hepatic flexure</data:site>
+            <data:site>ascending colon</data:site>
+            <data:site>cecum</data:site>
+        </data:proc>
+        <data:proc of="segmental colectomy"/>
+        <data:proc of="proctocolectomy">
+            <data:site>anus</data:site>
+            <data:site>rectum</data:site>
+        </data:proc>
+        <data:proc of="abdominoperineal resection">
+            <data:site>rectum</data:site>
+        </data:proc>
+        <data:proc of="low anterior resection">
+            <data:site>rectum</data:site>
+        </data:proc>
+        <data:proc of="transanal disk excision">
+            <data:site>rectum</data:site>
+        </data:proc>
+        <data:proc of="sigmoidectomy">
+            <data:site>sigmoid colon</data:site>
+        </data:proc>
+        <data:proc of="left hemicolectomy">
+            <data:site>descending colon</data:site>
+        </data:proc>
+        <data:proc of="transverse colectomy">
+            <data:site>transverse colon</data:site>
+        </data:proc>
+        <data:proc of="right hemicolectomy">
+            <data:site>ascending colon</data:site>
+        </data:proc>
+        <data:proc of="ascending colectomy">
+            <data:site>ascending colon</data:site>
+        </data:proc>
+        <data:proc of="polypectomy"/>
+    </data:procedures>
+    <data:sites>
+        <!--procedures that are **ALLOWABLE MATCHES** to the site that precedes them-->
+        <!--in other words, a site is first given; this is followed by a list of procedures that *can* give rise to that site-->
+        <data:site of="anus">
+            <data:proc>total colectomy</data:proc>
+            <data:proc>segmental colectomy</data:proc>
+            <data:proc>polypectomy</data:proc>
+            <data:proc>proctocolectomy</data:proc>
+            <data:proc>abdominoperineal resection</data:proc>
+            <data:proc>low anterior resection</data:proc>
+            <data:proc>transanal disk excision</data:proc>
+        </data:site>
+        <data:site of="rectum">
+            <data:proc>total colectomy</data:proc>
+            <data:proc>segmental colectomy</data:proc>
+            <data:proc>polypectomy</data:proc>
+            <data:proc>proctocolectomy</data:proc>
+            <data:proc>abdominoperineal resection</data:proc>
+            <data:proc>low anterior resection</data:proc>
+            <data:proc>transanal disk excision</data:proc>
+            <data:proc>sigmoidectomy</data:proc>
+            <data:proc>left hemicolectomy</data:proc>
+        </data:site>
+        <data:site of="rectomsigmoid junction">
+            <data:proc>total colectomy</data:proc>
+            <data:proc>segmental colectomy</data:proc>
+            <data:proc>polypectomy</data:proc>
+            <data:proc>proctocolectomy</data:proc>
+            <data:proc>abdominoperineal resection</data:proc>
+            <data:proc>low anterior resection</data:proc>
+            <data:proc>sigmoidectomy</data:proc>
+            <data:proc>left hemicolectomy</data:proc>
+        </data:site>
+        <data:site of="sigmoid colon">
+            <data:proc>total colectomy</data:proc>
+            <data:proc>segmental colectomy</data:proc>
+            <data:proc>polypectomy</data:proc>
+            <data:proc>abdominoperineal resection</data:proc>
+            <data:proc>low anterior resection</data:proc>
+            <data:proc>sigmoidectomy</data:proc>
+            <data:proc>left hemicolectomy</data:proc>
+        </data:site>
+        <data:site of="left colon">
+            <data:proc>total colectomy</data:proc>
+            <data:proc>segmental colectomy</data:proc>
+            <data:proc>polypectomy</data:proc>
+            <data:proc>abdominoperineal resection</data:proc>
+            <data:proc>sigmoidectomy</data:proc>
+            <data:proc>left hemicolectomy</data:proc>
+        </data:site>
+        <data:site of="splenic flexure">
+            <data:proc>total colectomy</data:proc>
+            <data:proc>segmental colectomy</data:proc>
+            <data:proc>polypectomy</data:proc>
+            <data:proc>left hemicolectomy</data:proc>
+            <data:proc>transverse colectomy</data:proc>
+        </data:site>
+        <data:site of="transverse colon">
+            <data:proc>total colectomy</data:proc>
+            <data:proc>segmental colectomy</data:proc>
+            <data:proc>polypectomy</data:proc>
+            <data:proc>left hemicolectomy</data:proc>
+            <data:proc>transverse colectomy</data:proc>
+            <data:proc>right hemicolectomy</data:proc>
+        </data:site>
+        <data:site of="hepatic flexure">
+            <data:proc>total colectomy</data:proc>
+            <data:proc>segmental colectomy</data:proc>
+            <data:proc>polypectomy</data:proc>
+            <data:proc>transverse colectomy</data:proc>
+            <data:proc>right hemicolectomy</data:proc>
+        </data:site>
+        <data:site of="right colon">
+            <data:proc>total colectomy</data:proc>
+            <data:proc>segmental colectomy</data:proc>
+            <data:proc>polypectomy</data:proc>
+            <data:proc>right hemicolectomy</data:proc>
+            <data:proc>ascending colectomy</data:proc>
+        </data:site>
+        <data:site of="cecum">
+            <data:proc>total colectomy</data:proc>
+            <data:proc>segmental colectomy</data:proc>
+            <data:proc>polypectomy</data:proc>
+            <data:proc>right hemicolectomy</data:proc>
+            <data:proc>ascending colectomy</data:proc>
+        </data:site>
+        <data:site of="terminal ileum">
+            <data:proc>total colectomy</data:proc>
+            <data:proc>right hemicolectomy</data:proc>
+            <data:proc>ascending colectomy</data:proc>
+        </data:site>
+    </data:sites>
 </schema>

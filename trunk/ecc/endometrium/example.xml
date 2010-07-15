@@ -25,8 +25,8 @@
     ===========================================================================  
 -->
 <resection ns1:transformation="http://purl.org/pathology/ecc/transform/endometrium/csv2.xsl"
-    schemaLocation="http://purl.org/pathology/ecc/endometrium.rng" version="1.0a"
-    xmlns="http://purl.org/pathology/ecc/" xmlns:ns1="http://www.w3.org/2003/g/data-view#">
+    schemaLocation="http://purl.org/pathology/ecc/endometrium.rng" version="1.0a" xmlns="http://purl.org/pathology/ecc/"
+    xmlns:ns1="http://www.w3.org/2003/g/data-view#">
     <history>
         <clinicalFinding>
             <response value="specify">
@@ -120,7 +120,7 @@
                 <result for="total">
                     <response value="4"/>
                 </result>
-                <result for="positive">
+                <result for="" type="necroinflammatory">
                     <response value="1"/>
                 </result>
             </status>
@@ -150,7 +150,7 @@
             <response value="0"/>
         </pN>
         <pM>
-            <response value="1"/>
+            <response value="unreported"/>
         </pM>
     </stage>
     <additional>

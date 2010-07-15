@@ -21,9 +21,8 @@
    limitations under the License.
    =========================================================================== 
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://purl.org/pathology/ecc/" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://purl.org/pathology/ecc/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <!--=============================================================-->
     <a:documentation>-- SHARED valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -49,6 +48,7 @@
             <value>urinary bladder</value>
             <value>prostate</value>
             <value>pelvic wall</value>
+            <value>peritoneum</value>
             <value>non-adjacent bowel</value>
         </choice>
     </define>
@@ -106,7 +106,6 @@
         <choice>
             <value>adheres</value>
             <value>invades</value>
-            <value>specify</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -123,7 +122,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.invasion.adjacent.location.valueset">
+    <define name="extent.contiguousExtension.status.of.valueset">
         <ref name="extrinsic.site.valueset"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -136,7 +135,7 @@
     <!--=============================================================-->
     <a:documentation>-- MARGINS section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margins.margin.site.valueset">
+    <define name="margin.status.of.valueset">
         <choice>
             <value>proximal</value>
             <value>distal</value>
@@ -162,13 +161,13 @@
     <!--=============================================================-->
     <a:documentation>-- DISTANT section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="distant.site.valueset">
+    <define name="distant.status.of.valueset">
         <value>peritoneum</value>
     </define>
     <!--=============================================================-->
     <a:documentation>-- NODES section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.nodeGroup.site.valueset">
+    <define name="nodes.status.of.valueset">
         <choice>
             <value>pericolic</value>
             <value>ileocolic</value>

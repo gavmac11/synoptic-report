@@ -30,8 +30,7 @@
 
 -->
 <schema queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-    xmlns:data="http://purl.org/pathology/ecc/rules/"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:data="http://purl.org/pathology/ecc/rules/"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <p>Schema for constraining CAP/PERT compliant XML breast cancer resection documents.</p>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -189,8 +188,7 @@
             <!-- superName:    description of the superset as plural noun (for error message)  -->
             <let name="explosions"
                 value="document('')//data:explosions[xs:string(@for) eq xs:string($explode)]/data:explosion"/>
-            <let name="r"
-                value="for $x in $explosions return if ($x/@of = $superset) then $x/data:value else ()"/>
+            <let name="r" value="for $x in $explosions return if ($x/@of = $superset) then $x/data:value else ()"/>
             <assert test="empty(for $x in distinct-values($subset) return if ($x = ($superset, $r, $noReport, $specify)) then () else $x)">
                 Warning: One or more <value-of select="$subName"/> may not be represented among the <value-of select="$superName"/>.
             </assert>
@@ -279,37 +277,30 @@
     <pattern id="calculate-N-stage">
         <rule context="ecc:pN" subject="@value">
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <let name="grp" value="//ecc:nodeGroup"/>
-            <let name="tot"
-                value="sum($grp/ecc:status/ecc:result[@for eq $total]/ecc:response/@value[f:int(.)])"/>
+            <let name="grp" value="//ecc:nodes/ecc:status"/>
+            <let name="tot" value="sum($grp/ecc:result[@for eq $total]/ecc:response/@value[f:int(.)])"/>
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            <let name="sc" value="$grp[@name eq $supraclavicular]"/>
-            <let name="ic" value="$grp[@name = ($infraclavicular,$highAxillary)]"/>
-            <let name="im" value="$grp[@name eq $internalMammary]"/>
-            <let name="ax"
-                value="$grp[@name = ($lowAxillary,$midAxillary,$highAxillary,$sentinel,$iiu)]"/>
+            <let name="sc" value="$grp[@of eq $supraclavicular]"/>
+            <let name="ic" value="$grp[@of = ($infraclavicular,$highAxillary)]"/>
+            <let name="im" value="$grp[@of eq $internalMammary]"/>
+            <let name="ax" value="$grp[@of = ($lowAxillary,$midAxillary,$highAxillary,$sentinel,$iiu)]"/>
             <!-- Sum function is useful here even though the input sequence is normally a singleton, because it
                  defaults to 0 when the input sequence is empty, whereas xs:integer() cast throws error. -->
-            <let name="sc-pos"
-                value="sum($sc/ecc:status/ecc:result[@for eq $positive]/ecc:response/@value[f:int(.)])"/>
-            <let name="ic-pos"
-                value="sum($ic/ecc:status/ecc:result[@for eq $positive]/ecc:response/@value[f:int(.)])"/>
-            <let name="im-pos"
-                value="sum($im/ecc:status/ecc:result[@for eq $positive]/ecc:response/@value[f:int(.)])"/>
-            <let name="ax-pos"
-                value="sum($ax/ecc:status/ecc:result[@for eq $positive]/ecc:response/@value[f:int(.)])"/>
-            <let name="ax-mac"
-                value="sum($ax/ecc:status/ecc:result[@for eq $positive]/ecc:response/@value[f:int(.)])"/>
+            <let name="sc-pos" value="sum($sc/ecc:result[@for eq $positive]/ecc:response/@value[f:int(.)])"/>
+            <let name="ic-pos" value="sum($ic/ecc:result[@for eq $positive]/ecc:response/@value[f:int(.)])"/>
+            <let name="im-pos" value="sum($im/ecc:result[@for eq $positive]/ecc:response/@value[f:int(.)])"/>
+            <let name="ax-pos" value="sum($ax/ecc:result[@for eq $positive]/ecc:response/@value[f:int(.)])"/>
+            <let name="ax-mac" value="sum($ax/ecc:result[@for eq $positive]/ecc:response/@value[f:int(.)])"/>
             <!--  -->
             <let name="micro"
-                value="sum($grp/ecc:status/ecc:result[@for eq $positive][@type eq $micrometastasis]/ecc:response/@value[f:int(.)])"/>
+                value="sum($grp/ecc:result[@for eq $positive][@type eq $micrometastasis]/ecc:response/@value[f:int(.)])"/>
             <!--  -->
             <let name="im-mic"
-                value="sum($im/ecc:status/ecc:result[@for eq $positive][@type eq $micrometastasis]/ecc:response/@value[f:int(.)])"/>
+                value="sum($im/ecc:result[@for eq $positive][@type eq $micrometastasis]/ecc:response/@value[f:int(.)])"/>
             <let name="im-mac"
-                value="sum($im/ecc:status/ecc:result[@for eq $positive][empty(@type)]/ecc:response/@value[f:int(.)])"/>
+                value="sum($im/ecc:result[@for eq $positive][empty(@type)]/ecc:response/@value[f:int(.)])"/>
             <let name="itc"
-                value="sum($grp/ecc:status/ecc:result[@for eq $negative][@type eq $isolatedTumorCells]/ecc:response/@value[f:int(.)])"/>
+                value="sum($grp/ecc:result[@for eq $negative][@type eq $isolatedTumorCells]/ecc:response/@value[f:int(.)])"/>
             <!--  -->
             <let name="reported-N" value="ecc:response/@value"/>
             <let name="calculated-N"
@@ -343,13 +334,11 @@
             <let name="value" value="$size/@value"/>
             <let name="unit" value="$size/@unit"/>
             <let name="rel" value="$size/@relation"/>
-            <let name="dim"
-                value="max(for $n in 1 to count($value) return f:to-mm($value[$n],$unit[$n],$rel[$n]))"/>
+            <let name="dim" value="max(for $n in 1 to count($value) return f:to-mm($value[$n],$unit[$n],$rel[$n]))"/>
             <!--  -->
             <let name="skin"
                 value="//ecc:extent/(ecc:skinUlceration|ecc:skinEdema|ecc:skinSatelliteNodules)/ecc:response[@value eq $positive]"/>
-            <let name="chest"
-                value="//ecc:extent/ecc:underlyingStructures/ecc:response[@value eq $chestWall]"/>
+            <let name="chest" value="//ecc:extent/ecc:underlyingStructures/ecc:response[@value eq $chestWall]"/>
             <let name="reported-T" value="ecc:response/@value cast as xs:string"/>
             <let name="calculated-T"
                 value="              
@@ -416,15 +405,13 @@
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern>
-        <rule context="//ecc:M">
+        <rule context="//ecc:pM/ecc:response">
             <let name="M-reported" value="@value"/>
-            <let name="met" value="exists(//ecc:distant)"/>
-            <let name="report" value="exists(//ecc:metastases)"/>
-            <let name="distant-pos"
-                value="//ecc:distant/ecc:site/ecc:status/ecc:response[@value eq $positive]"/>
+            <let name="report" value="exists(//ecc:distant)"/>
+            <let name="distant-pos" value="//ecc:distant/ecc:status/ecc:result/ecc:response[@value eq $positive]"/>
             <let name="M-calculated"
                 value="if ($report) then 
-                if ($met) then '1' 
+                if ($distant-pos) then '1' 
                 else '0' 
                 else 'X'"/>
             <assert test="$M-reported eq $M-calculated">
@@ -435,8 +422,7 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="node-subtype-appropriate">
         <let name="list" value="($rtpcrNegative,$rtpcrPositive,$isolatedTumorCells)"/>
-        <rule
-            context="ecc:nodes/ecc:nodeGroup/ecc:result/ecc:positive|ecc:nodes/ecc:nodeGroup/ecc:result/ecc:total">
+        <rule context="ecc:nodes/ecc:nodeGroup/ecc:result/ecc:positive|ecc:nodes/ecc:nodeGroup/ecc:result/ecc:total">
             <assert test="not(@type = $list)">
                 A type of "<value-of select="@type"/>" is possible only in the case of negative nodes."/>
             </assert>

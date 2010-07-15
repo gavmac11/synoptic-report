@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?oxygen RNGSchema="file:/Users/me/Dropbox/Projects/Synoptic-report/Synoptic%20Working/ecc/lung/lung.rng" type="xml"?>
+<?oxygen RNGSchema="lung.rng" type="xml"?>
 <!--
     ===========================================================================
     Copyright 2010 Pathology Consulting Services
@@ -35,38 +35,72 @@
     </history>
     <specimen>
         <procedure>
-            <response value="segmentectomy"/>
+            <response value="pneumonectomy"/>
         </procedure>
         <size>
-            <response unit="cm" value="8"/>
-            <response unit="cm" value="6"/>
-            <response unit="cm" value="4"/>
+            <response unit="mm" value="8"/>
+            <response unit="mm" value="6"/>
+            <response unit="mm" value="4"/>
         </size>
         <site>
-            <response value="anterior-basal right lower segment"/>
+            <response on="left" value="upper lobe"/>
         </site>
     </specimen>
     <tumor>
-        <focus name="principal">
+        <focus type="principal">
+            <site>
+                <response on="left" value="lower lobe"/>
+            </site>
             <size>
                 <response unit="cm" value="2.1"/>
             </size>
+            <histologicType>
+                <response value="adenocarcinoma"/>
+            </histologicType>
+            <grade system="4-grade">
+                <response value="3"/>
+            </grade>
+            <pleuralInvasion>
+                <response value="negative"/>
+            </pleuralInvasion>
         </focus>
-        <histologicType>
-            <response value="adenocarcinoma"/>
-        </histologicType>
-        <grade system="4-grade">
-            <response value="3"/>
-        </grade>
+        <focus name="additional">
+            <site>
+                <response value="lower lobe"/>
+            </site>
+            <size>
+                <response unit="cm" value="1"/>
+            </size>
+            <histologicType>
+                <response value="adenocarcinoma"/>
+            </histologicType>
+            <grade system="4-grade">
+                <response value="2"/>
+            </grade>
+        </focus>
     </tumor>
     <extent>
-        <adjacentSite name="diaphragm">
-            <status of="invades">
-                <result>
+        <postobstructiveChanges>
+            <response value="extending to hilum"/>
+        </postobstructiveChanges>
+        <malignantEffusion laterality="ipsilateral" of="pleura">
+            <response value="positive"/>
+        </malignantEffusion>
+        <contiguousExtension>
+            <status of="diaphragm">
+                <result for="invades">
                     <response value="positive"/>
                 </result>
             </status>
-        </adjacentSite>
+            <status of="main bronchus">
+                <result for="invades">
+                    <response value="positive"/>
+                </result>
+                <distance for="invades" from="carina">
+                    <response unit="cm" value="1.5"/>
+                </distance>
+            </status>
+        </contiguousExtension>
     </extent>
     <accessory>
         <lymphVascularInvasion>
@@ -76,51 +110,52 @@
             <response value="negative"/>
         </perineuralInvasion>
     </accessory>
-    <margins>
-        <margin name="bronchial">
-            <status of="invasive">
-                <result>
-                    <response value="negative"/>
-                </result>
-                <distance>
-                    <response unit="cm" value="1.2"/>
-                </distance>
-            </status>
-        </margin>
-        <margin name="parenchymal">
-            <status of="invasive">
-                <result>
-                    <response value="negative"/>
-                </result>
-                <distance>
-                    <response unit="cm" value="1.1"/>
-                </distance>
-            </status>
-        </margin>
-    </margins>
+    <margin>
+        <status of="bronchial">
+            <result for="invasive">
+                <response value="negative"/>
+            </result>
+            <distance for="invasive">
+                <response unit="cm" value="1.2"/>
+            </distance>
+            <result for="in-situ">
+                <response value="positive"/>
+            </result>
+            <distance for="in-situ">
+                <response unit="cm" value="1.2"/>
+            </distance>
+        </status>
+        <status of="parenchymal">
+            <result for="invasive">
+                <response value="negative"/>
+            </result>
+            <distance for="invasive">
+                <response unit="cm" value="1.1"/>
+            </distance>
+        </status>
+    </margin>
     <nodes>
-        <nodeGroup name="intrapulmonary">
-            <status>
-                <result for="total">
-                    <response value="1"/>
-                </result>
-                <result for="negative">
-                    <response value="0"/>
-                </result>
-            </status>
-        </nodeGroup>
+        <status of="subcarinal">
+            <result for="total">
+                <response value="1"/>
+            </result>
+            <result for="positive">
+                <response value="1"/>
+            </result>
+            <largestMetastasis>
+                <response unit="mm" value="3"/>
+            </largestMetastasis>
+        </status>
     </nodes>
     <distant>
-        <site name="liver">
-            <status date="20090101" of="this accession">
-                <result>
-                    <response value="negative"/>
-                </result>
-                <size>
-                    <response unit="cm" value="1"/>
-                </size>
-            </status>
-        </site>
+        <status of="liver">
+            <result date="20090101" for="this accession">
+                <response value="negative"/>
+            </result>
+            <size>
+                <response unit="cm" value="1"/>
+            </size>
+        </status>
     </distant>
     <studies/>
     <stage>
@@ -128,13 +163,13 @@
             <response value="none"/>
         </prefix>
         <pT>
-            <response value="1"/>
+            <response value="4"/>
         </pT>
         <pN>
-            <response value="1"/>
+            <response value="2"/>
         </pN>
         <pM>
-            <response value="0"/>
+            <response value="1a"/>
         </pM>
         <group>
             <response value="I"/>

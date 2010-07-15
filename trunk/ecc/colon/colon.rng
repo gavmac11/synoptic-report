@@ -140,7 +140,7 @@
     <!--=============================================================-->
     <define name="specimen.extension">
         <optional>
-            <element name="mesorectumIntactness">
+            <element name="mesorectumIntact">
                 <grammar>
                     <include href="&selectOne;"/>
                     <define name="valueset">
