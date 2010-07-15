@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <start>
+        <element name="breast" ns="http://www.cancerstaging.org/">
+            <element name="subsite">
+                <!--<attribute name="code">-->
+                    <data type="string">
+                        <param name="pattern">C50\.[0-9]</param>
+                    </data>
+                <!--</attribute>-->
+            </element>
+            <element name="tumorSize">
+                <ref name="csdata3"/>
+            </element>
+            <element name="extension">
+                <ref name="csdata3"/>
+            </element>
+            <element name="tumorSizeExtentEval">
+                <ref name="csdata1"/>
+            </element>
+            <element name="lymphNodes">
+                <ref name="csdata3"/>
+            </element>
+            <element name="lymphNodesEval">
+                <ref name="csdata1"/>
+            </element>
+            <element name="regLNPos">
+                <ref name="csdata2"/>
+            </element>
+            <element name="regLNExam">
+                <ref name="csdata2"/>
+            </element>
+            <element name="metsAtDx">
+                <ref name="csdata2"/>
+            </element>
+            <element name="metsEval">
+                <ref name="csdata1"/>
+            </element>
+            <element name="SSF1">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF2">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF3">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF4">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF5">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF6">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF7">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF8">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF9">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF10">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF11">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF12">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF13">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF14">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF15">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF16">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF17">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF18">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF19">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF20">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF21">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF22">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF23">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF24">
+                <ref name="csdata3"/>
+            </element>
+            <element name="SSF25">
+                <ref name="csdata3"/>
+            </element>
+        </element>
+    </start>
+    <define name="csdata3">
+        <!--<attribute name="code">-->
+            <data type="string">
+                <param name="pattern">\d{3}</param>
+            </data>
+        <!--</attribute>-->
+    </define>
+    <define name="csdata2">
+        <!--<attribute name="code">-->
+            <data type="string">
+                <param name="pattern">\d{2}</param>
+            </data>
+        <!--</attribute>-->
+    </define>
+    <define name="csdata1">
+       <!-- <attribute name="code">-->
+            <data type="string">
+                <param name="pattern">\d</param>
+            </data>
+        <!--</attribute>-->
+    </define>
+</grammar>
