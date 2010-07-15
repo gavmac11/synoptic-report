@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="lung.rng" type="xml"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+<?oxygen SCHSchema="rules.sch"?>
+<resection grddl:transformation="http://cap#lung/snomedct/ http://cap#lung/radlex/"
+    schemaLocation="http://purl.org/pathology/ecc/lung.rng" version="1.0a"
+    xmlns="http://purl.org/pathology/ecc/" xmlns:grddl="http://www.w3.org/2003/g/data-view#">
+    <history>
+        <clinicalFinding>
+            <response value="specify">
+                <specify>Something</specify>
+            </response>
+        </clinicalFinding>
+    </history>
+    <specimen>
+        <procedure>
+            <response value="pneumonectomy"/>
+        </procedure>
+        <size>
+            <response unit="mm" value="8"/>
+            <response unit="mm" value="6"/>
+            <response unit="mm" value="4"/>
+        </size>
+        <site>
+            <response on="left" value="upper lobe"/>
+        </site>
+    </specimen>
+    <tumor>
+        <focus type="principal">
+            <site>
+                <response on="left" value="lower lobe"/>
+            </site>
+            <size>
+                <response unit="cm" value="2.1"/>
+            </size>
+            <histologicType>
+                <response value="adenocarcinoma"/>
+            </histologicType>
+            <grade system="4-grade">
+                <response value="3"/>
+            </grade>
+            <pleuralInvasion>
+                <response value="negative"/>
+            </pleuralInvasion>
+        </focus>
+        <focus name="additional">
+            <site>
+                <response value="lower lobe"/>
+            </site>
+            <size>
+                <response unit="cm" value="1"/>
+            </size>
+            <histologicType>
+                <response value="adenocarcinoma"/>
+            </histologicType>
+            <grade system="4-grade">
+                <response value="2"/>
+            </grade>
+        </focus>
+    </tumor>
+    <extent>
+        <postobstructiveChanges>
+            <response value="extending to hilum"/>
+        </postobstructiveChanges>
+        <malignantEffusion laterality="ipsilateral" of="pleura">
+            <response value="positive"/>
+        </malignantEffusion>
+        <contiguousExtension>
+            <status of="diaphragm">
+                <result for="invades">
+                    <response value="positive"/>
+                </result>
+            </status>
+            <status of="main bronchus">
+                <result for="invades">
+                    <response value="positive"/>
+                </result>
+                <distance for="invades" from="carina">
+                    <response unit="cm" value="1.5"/>
+                </distance>
+            </status>
+        </contiguousExtension>
+    </extent>
+    <accessory>
+        <lymphVascularInvasion>
+            <response value="negative"/>
+        </lymphVascularInvasion>
+        <perineuralInvasion>
+            <response value="negative"/>
+        </perineuralInvasion>
+    </accessory>
+    <margin>
+        <status of="bronchial">
+            <result for="invasive">
+                <response value="negative"/>
+            </result>
+            <distance for="invasive">
+                <response unit="cm" value="1.2"/>
+            </distance>
+            <result for="in-situ">
+                <response value="positive"/>
+            </result>
+            <distance for="in-situ">
+                <response unit="cm" value="1.2"/>
+            </distance>
+        </status>
+        <status of="parenchymal">
+            <result for="invasive">
+                <response value="negative"/>
+            </result>
+            <distance for="invasive">
+                <response unit="cm" value="1.1"/>
+            </distance>
+        </status>
+    </margin>
+    <nodes>
+        <status of="subcarinal">
+            <result for="total">
+                <response value="1"/>
+            </result>
+            <result for="positive">
+                <response value="1"/>
+            </result>
+            <largestMetastasis>
+                <response unit="mm" value="3"/>
+            </largestMetastasis>
+        </status>
+    </nodes>
+    <distant>
+        <status of="liver">
+            <result date="20090101" for="this accession">
+                <response value="negative"/>
+            </result>
+            <size>
+                <response unit="cm" value="1"/>
+            </size>
+        </status>
+    </distant>
+    <studies/>
+    <stage>
+        <prefix>
+            <response value="none"/>
+        </prefix>
+        <pT>
+            <response value="4"/>
+        </pT>
+        <pN>
+            <response value="2"/>
+        </pN>
+        <pM>
+            <response value="1a"/>
+        </pM>
+        <group>
+            <response value="I"/>
+        </group>
+    </stage>
+    <additional>
+        <finding>
+            <response value="atypical adenomatous hyperplasia"/>
+        </finding>
+    </additional>
+</resection>
