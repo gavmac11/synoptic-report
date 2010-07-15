@@ -34,9 +34,8 @@
 <!ENTITY	tally  		"../framework/shared/types/tally.rng">
 <!ENTITY	brvalues  	"values.rng">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://purl.org/pathology/ecc/" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://purl.org/pathology/ecc/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:breast="http://purl.org/pathology/ecc/breast/">
     <!--=============================================================-->
     <include href="&brvalues;"/>
@@ -95,7 +94,7 @@
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="accessory.cis.result">
-        <element name="status">
+        <element name="result">
             <grammar>
                 <include href="&selectOne;"/>
                 <define name="valueset">
@@ -103,8 +102,8 @@
                 </define>
                 <define name="response.extension">
                     <optional>
-                        <attribute name="for">
-                            <parentRef name="accessory.dcis.result.modifier.valueset"/>
+                        <attribute name="focality">
+                            <parentRef name="focality.valueset"/>
                         </attribute>
                     </optional>
                 </define>
@@ -113,22 +112,15 @@
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="accessory.cis.amount">
-        <element name="extent">
-            <grammar>
-                <include href="&section;"/>
-                <define name="content">
-                    <choice>
-                        <group>
-                            <parentRef name="accessory.cis.size"/>
-                            <optional>
-                                <parentRef name="accessory.cis.blocks"/>
-                            </optional>
-                        </group>
-                        <parentRef name="accessory.cis.blocks"/>
-                    </choice>
-                </define>
-            </grammar>
-        </element>
+        <choice>
+            <group>
+                <ref name="accessory.cis.size"/>
+                <optional>
+                    <ref name="accessory.cis.blocks"/>
+                </optional>
+            </group>
+            <ref name="accessory.cis.blocks"/>
+        </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="accessory.cis.size">
@@ -143,11 +135,11 @@
         <element name="blocks">
             <grammar>
                 <include href="&tally;"/>
+                <define name="item.for.valueset">
+                    <parentRef name="qualitative.valueset"/>
+                </define>
                 <define name="item.type.valueset">
                     <parentRef name="accessory.cis.blocks.type.valueset"/>
-                </define>
-                <define name="item.subtype.valueset">
-                    <parentRef name="accessory.cis.blocks.subtype.valueset"/>
                 </define>
             </grammar>
         </element>
@@ -219,7 +211,7 @@
     <!--=============================================================-->
     <a:documentation>DISTANT section customizations</a:documentation>
     <!--=============================================================-->
-    <define name="distant.site.response.extension">
+    <define name="distant.site.status.response.extension">
         <optional>
             <attribute name="type">
                 <choice>
@@ -308,9 +300,9 @@
     <!--=============================================================-->
     <a:documentation>NODES section customizations</a:documentation>
     <!--=============================================================-->
-    <define name="nodes.nodeGroup.tally.item.type.valueset">
-        <ref name="nodes.nodeGroup.status.subtype.valueset"/>
-    </define>
+    <!--<define name="nodes.nodeGroup.tally.item.type.valueset">
+        <ref name="nodes.status.result.type.valueset"/>
+    </define>-->
     <!--=============================================================-->
     <a:documentation>SPECIMEN section customizations</a:documentation>
     <!--=============================================================-->

@@ -121,7 +121,7 @@
     <!--=============================================================-->
     <!-- MARGINS section valuesets -->
     <!--=============================================================-->
-    <define name="margins.margin.site.valueset">
+    <define name="margin.status.of.valueset">
         <choice>
             <value>apex</value>
             <value>right anterior</value>
@@ -136,7 +136,7 @@
     <!--=============================================================-->
     <!-- NODES section valuesets -->
     <!--=============================================================-->
-    <define name="nodes.nodeGroup.site.valueset">
+    <define name="nodes.status.of.valueset">
         <choice>
             <value>pelvic</value>
             <value>hypogastric</value>

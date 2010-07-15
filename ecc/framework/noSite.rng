@@ -55,7 +55,7 @@
             <ref name="distant"/>
             <ref name="extent"/>
             <ref name="history"/>
-            <ref name="margins"/>
+            <ref name="margin"/>
             <ref name="nodes"/>
             <ref name="specimen"/>
             <ref name="stage"/>

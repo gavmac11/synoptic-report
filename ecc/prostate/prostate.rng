@@ -35,9 +35,8 @@
 <!ENTITY	tally  		"../framework/shared/types/tally.rng">
 <!ENTITY	values  	"values.rng">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://purl.org/pathology/ecc/" xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://purl.org/pathology/ecc/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:breast="http://purl.org/pathology/ecc/breast/">
     <!--=============================================================-->
     <include href="&values;"/>
@@ -196,9 +195,11 @@
         </element>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.site.valueset">
-        <ref name="intrinsic.site.valueset"/>
-        <ref name="extrinsic.site.valueset"/>
+    <define name="extent.contiguousExtension.status.of.valueset">
+        <choice>
+            <ref name="intrinsic.site.valueset"/>
+            <ref name="extrinsic.site.valueset"/>
+        </choice>
     </define>
     <!--=============================================================-->
     <a:documentation>NODES section customizations</a:documentation>

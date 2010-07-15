@@ -56,11 +56,11 @@
         </interleave>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="response.extension">
+    <define combine="interleave" name="response.extension">
         <empty/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="item.extension">
+    <define combine="interleave" name="item.extension">
         <empty/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

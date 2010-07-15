@@ -136,7 +136,7 @@
     <!--=============================================================-->
     <a:documentation>-- NODES section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.nodeGroup.site.valueset">
+    <define name="nodes.status.of.valueset">
         <choice>
             <value>obturator</value>
             <value>internal iliac</value>

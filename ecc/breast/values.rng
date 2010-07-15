@@ -22,8 +22,7 @@
    ===========================================================================  
 -->
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://cap#"
-    xmlns="http://relaxng.org/ns/structure/1.0"
-    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <!--=============================================================-->
     <a:documentation>accessory SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -36,16 +35,9 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="accessory.cis.blocks.subtype.valueset">
-        <choice>
-            <value>RT-PCR negative</value>
-        </choice>
-    </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="accessory.cis.blocks.type.valueset">
         <choice>
-            <value>negative</value>
-            <value>positive</value>
+            <value>RT-PCR negative</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -111,6 +103,9 @@
             <value>microcalcifications</value>
         </choice>
     </define>
+    <!--=============================================================-->
+    <a:documentation>distant SECTION VALUESETS</a:documentation>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <!--=============================================================-->
     <a:documentation>extent SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -187,7 +182,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margins.margin.site.valueset">
+    <define name="margin.status.of.valueset">
         <choice>
             <value>superior</value>
             <value>inferior</value>
@@ -215,7 +210,7 @@
     <!--=============================================================-->
     <a:documentation>nodes SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.nodeGroup.site.valueset">
+    <define name="nodes.status.of.valueset">
         <choice>
             <value>low axillary</value>
             <value>mid axillary</value>
@@ -226,7 +221,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.nodeGroup.status.subtype.valueset">
+    <define name="nodes.status.result.type.valueset">
         <choice>
             <value>RT-PCR negative</value>
             <value>RT-PCR postive</value>
