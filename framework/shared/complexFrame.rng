@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grammar [
+<!ENTITY    item  	    "types/item.rng">
+<!ENTITY    values	    "../values.rng">
+<!ENTITY    section	    "types/section.rng">
+<!ENTITY	percent  	"types/percent.rng">
+<!ENTITY	quantity    "types/quantity.rng">
+<!ENTITY	ratio  		"types/ratio.rng">
+<!ENTITY	selectMany  "types/selectMany.rng">
+<!ENTITY	selectOne  	"types/selectOne.rng">
+<!ENTITY	size  		"types/size.rng">
+<!ENTITY	tally  		"types/tally.rng">
+<!ENTITY	weight  	"types/weight.rng">
+<!ENTITY	date  	    "types/date.rng">
+<!ENTITY	length      "types/length.rng">
+]>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <start>
+        <ref name="content"/>
+    </start>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="content">
+        <grammar>
+            <include href="&section;"/>
+            <define name="extension">
+                
+                <parentRef name="extension"/>
+            </define>
+            <define name="content">
+                <parentRef name="section.content"/>
+            </define>
+        </grammar>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="section.content">
+        <optional>
+            <attribute name="name">
+                <ref name="name.valueset"/>
+            </attribute>
+        </optional>
+        <zeroOrMore>
+            <element name="status">
+                <grammar>
+                    <include href="&section;"/>
+                    <define name="extension">
+                        <optional>
+                            <attribute name="of">
+                                <parentRef name="status.of.valueset"/>
+                            </attribute>
+                        </optional>
+                        <parentRef name="status.extension"/>
+                    </define>
+                    <define name="content">
+                        <parentRef name="status.content"/>
+                    </define>
+                </grammar>
+            </element>
+        </zeroOrMore>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="status.content">
+        <ref name="result"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="result">
+        <zeroOrMore>
+            <element name="result">
+                <ref name="result.content"/>
+            </element>
+        </zeroOrMore>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="name.valueset">
+        <notAllowed/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="extension">
+        <notAllowed/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="status.of.valueset">
+        <notAllowed/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="status.extension">
+        <notAllowed/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="result.content">
+        <notAllowed/>
+    </define>
+</grammar>
