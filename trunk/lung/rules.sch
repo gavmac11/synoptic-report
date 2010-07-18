@@ -153,8 +153,7 @@
             <let name="contra-lobe"
                 value="//ca:distant/ca:status[matches(@of,'lung|lobe|segment|lingula','ix')][@laterality eq
                 'contralateral']/ca:result/ca:response/@value eq 'positive'"/>
-            <let name="pce"
-                value="//ca:malignantEffusion[@of eq 'pericardium']/ca:response/@value eq 'positive'"/>
+            <let name="pce" value="//ca:malignantEffusion[@of eq 'pericardium']/ca:response/@value eq 'positive'"/>
             <let name="calculated-M"
                 value="
                                     if ($distant)          then '1b'

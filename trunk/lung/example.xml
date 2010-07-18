@@ -24,8 +24,8 @@
 -->
 <?oxygen SCHSchema="rules.sch"?>
 <resection grddl:transformation="http://cap#lung/snomedct/ http://cap#lung/radlex/"
-    schemaLocation="http://purl.org/pathology/ecc/lung.rng" version="1.0a"
-    xmlns="http://purl.org/pathology/ecc/" xmlns:grddl="http://www.w3.org/2003/g/data-view#">
+    schemaLocation="http://purl.org/pathology/ecc/lung.rng" version="1.0a" xmlns="http://purl.org/pathology/ecc/"
+    xmlns:grddl="http://www.w3.org/2003/g/data-view#">
     <history>
         <clinicalFinding>
             <response value="specify">
@@ -43,7 +43,7 @@
             <response unit="mm" value="4"/>
         </size>
         <site>
-            <response on="left" value="upper lobe"/>
+            <response value="entire lung"/>
         </site>
     </specimen>
     <tumor>
@@ -163,7 +163,7 @@
             <response value="none"/>
         </prefix>
         <pT>
-            <response value="4"/>
+            <response value="3"/>
         </pT>
         <pN>
             <response value="2"/>

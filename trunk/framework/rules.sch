@@ -26,34 +26,31 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <!--    <xi:include href="shared/functions.xsl"/>-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <p>This Schematron schema contains integrity rules that apply to the generic contents of any schema. Some
-        of these rules apply structural constraints that are inconvenient to express in Relax NG (for example,
-        a result value of "specify" mandates a {specify} element to contain the specified result). Others are
-        "sanity" rules (for example, total nodes must be greater than or equal to sum of all the non-negative
-        nodes).</p>
+    <p>This Schematron schema contains integrity rules that apply to the generic contents of any schema. Some of these
+        rules apply structural constraints that are inconvenient to express in Relax NG (for example, a result value of
+        "specify" mandates a {specify} element to contain the specified result). Others are "sanity" rules (for example,
+        total nodes must be greater than or equal to sum of all the non-negative nodes).</p>
     <p>The following rules are supplied:</p>
-    <p>1. If a response value is "specify", then a value MUST be specified in a child {specify} element
-        (otherwise ERROR).</p>
-    <p>2. If a child {specify} element is present, then the response to the parent query MUST be "specify"
-        (otherwise ERROR).</p>
-    <p>3. All dimensional units for a given size SHOULD be the same unit (e.g. all in cm), (otherwise
-        WARNING).</p>
+    <p>1. If a response value is "specify", then a value MUST be specified in a child {specify} element (otherwise
+        ERROR).</p>
+    <p>2. If a child {specify} element is present, then the response to the parent query MUST be "specify" (otherwise
+        ERROR).</p>
+    <p>3. All dimensional units for a given size SHOULD be the same unit (e.g. all in cm), (otherwise WARNING).</p>
     <p>4. Dimensions SHOULD be presented in decreasing order by absolute size (otherwise WARNING).</p>
     <p>5. If a "closest" margin is specified, then all margins MUST be negative (otherwise ERROR).</p>
     <p>6. If all margins are negative, then a "closest" margin SHOULD be specified (otherwise WARNING).</p>
     <p>7. You MUST not report a "distance from margin" for any margin that is other than negative or equivocal
         (otherwise ERROR).</p>
-    <p>8. You MUST not report a site as being involved by tumor unless that site is also reported as present
-        in the specimen (otherwise ERROR).</p>
-    <p>9. The tumor greatest dimension SHOULD not exceed the specimen greatest dimenson (otherwise
-        WARNING).</p>
-    <p>10. The number of non-negative nodes for any node group MUST not exceed the total number of nodes for
-        that group (otherwise FATAL).</p>
-    <p>11. If treatment effect is present pathologically, the there SHOULD be a specification of the prior
-        therapy in the clinical section (otherwise WARNING).</p>
-    <p>12. The assigned grade MUST occur in the assigned grading system, e.g. cannot assign G3 if a 2-grade
-        system is specified (otherwise ERROR). (Note that this works for the default grade specification
-        system of 'G1'-'G4'. If you override this with a custom system, you must write your own rule.)</p>
+    <p>8. You MUST not report a site as being involved by tumor unless that site is also reported as present in the
+        specimen (otherwise ERROR).</p>
+    <p>9. The tumor greatest dimension SHOULD not exceed the specimen greatest dimenson (otherwise WARNING).</p>
+    <p>10. The number of non-negative nodes for any node group MUST not exceed the total number of nodes for that group
+        (otherwise FATAL).</p>
+    <p>11. If treatment effect is present pathologically, the there SHOULD be a specification of the prior therapy in
+        the clinical section (otherwise WARNING).</p>
+    <p>12. The assigned grade MUST occur in the assigned grading system, e.g. cannot assign G3 if a 2-grade system is
+        specified (otherwise ERROR). (Note that this works for the default grade specification system of 'G1'-'G4'. If
+        you override this with a custom system, you must write your own rule.)</p>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <ns prefix="ecc" uri="http://purl.org/pathology/ecc/"/>
     <ns prefix="f" uri="http://purl.org/pathology/ecc/functions/"/>
@@ -80,18 +77,18 @@
         value="('X','1','2','3','4','well differentiated','moderately differentiated','poorly
             differentiated','undifferentiated')"/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <p>This creates a variable named $skip that is available throughout the schema, and sets it equal to
-        true(). This is used to make {assert}if-then-else{/assert} assertions more readable. Usually, it is in
-        the idiom of "if (x) then y else $skip.</p>
+    <p>This creates a variable named $skip that is available throughout the schema, and sets it equal to true(). This is
+        used to make {assert}if-then-else{/assert} assertions more readable. Usually, it is in the idiom of "if (x) then
+        y else $skip.</p>
     <let name="skip" value="true()"/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <p>This does a similar thing, but creates one named $report to use in {assert}if-then-else{/assert} report
         clauses.</p>
     <let name="report" value="false()"/>
     <!--=============================================================-->
-    <p>In this schema, there are multiple occasions when I need to convert a value expressed in centimeters or
-        inches into millimeters. This is an xslt2 function that does this. The operative formula is just a
-        cascade of if-then statements that applies the appropriate conversion factor. </p>
+    <p>In this schema, there are multiple occasions when I need to convert a value expressed in centimeters or inches
+        into millimeters. This is an xslt2 function that does this. The operative formula is just a cascade of if-then
+        statements that applies the appropriate conversion factor. </p>
     <p>NOTA BENE: If the input is cannot be handled, the fallback is to report the result as 0.</p>
     <xsl:function as="xs:decimal" name="f:mm">
         <xsl:param name="value"/>
@@ -145,8 +142,8 @@
     <!--=============================================================-->
     <pattern id="response-unique">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <p>Some queries permit multiple responses. Repeats of the same response generate a warning, except in
-            sizes or when there is a modifier.</p>
+        <p>Some queries permit multiple responses. Repeats of the same response generate a warning, except in sizes or
+            when there is a modifier.</p>
         <rule context="ecc:*[ecc:response[not(@unit)]]" role="warning">
             <let name="response"
                 value="for $x in ecc:response[not(@value = ($specify,$noReport))] return string-join(f:sort($x/@*),' ')"/>
@@ -160,13 +157,12 @@
     <!--=============================================================-->
     <pattern id="specify">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <p>This pattern ensures that a response value of 'specify' is accompanied by a child &lt;specify&gt;
-            element where the user's specify string is reported. The point: you can't respond to an item by
-            saying you're going to specify a different response from any of the available options, then fail
-            to make such a specification. </p>
-        <p>The pattern has three rules. The first ensures that for any {specify} element, the parent has an
-            attribute with a value of 'specify'. The second and third ensure that if any response attribute
-            has a value of 'specify', its that response must have a child &lt;specify&gt; element. </p>
+        <p>This pattern ensures that a response value of 'specify' is accompanied by a child &lt;specify&gt; element
+            where the user's specify string is reported. The point: you can't respond to an item by saying you're going
+            to specify a different response from any of the available options, then fail to make such a specification. </p>
+        <p>The pattern has three rules. The first ensures that for any {specify} element, the parent has an attribute
+            with a value of 'specify'. The second and third ensure that if any response attribute has a value of
+            'specify', its that response must have a child &lt;specify&gt; element. </p>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <rule context="ecc:specify" role="error">
             <assert test="../@* = $specify">
@@ -185,11 +181,11 @@
     <!--=============================================================-->
     <pattern id="dimensions-have-same-unit">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <p>This pattern emits a VALIDATION WARNING (=schematron {report} (not a VALIDATION FAILURE
-            (=schematron {assert}) when a size is specified in which a different length unit is used for
-            different dimensions. The framework permits this, but it is poor practice and is discouraged.</p>
-        <p>The first rules check the second dimension's unit against that of the first dimension. The second
-            rule checks the third dimension's unit against that of the first dimension.</p>
+        <p>This pattern emits a VALIDATION WARNING (=schematron {report} (not a VALIDATION FAILURE (=schematron
+            {assert}) when a size is specified in which a different length unit is used for different dimensions. The
+            framework permits this, but it is poor practice and is discouraged.</p>
+        <p>The first rules check the second dimension's unit against that of the first dimension. The second rule checks
+            the third dimension's unit against that of the first dimension.</p>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <rule context="ecc:*[ecc:response[@unit][2]]">
             <report role="warning" test="exists(distinct-values(ecc:response/@unit)[2])">
@@ -200,12 +196,11 @@
     <!--=============================================================-->
     <pattern id="largest-dimension-comes-first">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <p>This pattern issues a validation warning when the first dimension of a size is not the largest
-            dimension. The framework permits this, but it is poor practice and is discouraged. Normally, input
-            validation in a user interface should ensure that this doesn't happen.</p>
-        <p>This pattern makes use of the xsl:to-mm() function defined up at the beginning of this file, in
-            order to ensure that all dimensions are converted to millimeters before the comparisons are
-            made.</p>
+        <p>This pattern issues a validation warning when the first dimension of a size is not the largest dimension. The
+            framework permits this, but it is poor practice and is discouraged. Normally, input validation in a user
+            interface should ensure that this doesn't happen.</p>
+        <p>This pattern makes use of the xsl:to-mm() function defined up at the beginning of this file, in order to
+            ensure that all dimensions are converted to millimeters before the comparisons are made.</p>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <rule context="ecc:*[ecc:response[@unit][2]]" role="warning">
             <let name="value" value="for $x in ecc:response return f:mm($x/@value,$x/@unit,$x/@relation)"/>
@@ -220,8 +215,7 @@
     <pattern id="margin-location-unique">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <rule context="ecc:margin">
-            <let name="locations"
-                value="for $x in ecc:status[@of != $nonspecific] return concat($x/@of, ' ', $x/@on)"/>
+            <let name="locations" value="for $x in ecc:status[@of != $nonspecific] return concat($x/@of, ' ', $x/@on)"/>
             <report role="error" test="count($locations) gt count(distinct-values($locations))">
                 The same margin location is reported more than once.
             </report>
@@ -230,11 +224,10 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <pattern id="margin">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <p>This pattern checks a variety of consistency properties in the margins section. We set a a series
-            of vectors. The first vector contains the names of the margin types that are being reported (e.g.
-            "invasive carcinoma". "carcinoma-in-situ", "intraepithelial carcinoma", "high grade dysplasia",
-            etc.) Typically, only one or two margin types will be reported, but some protocols might report
-            three different types.</p>
+        <p>This pattern checks a variety of consistency properties in the margins section. We set a a series of vectors.
+            The first vector contains the names of the margin types that are being reported (e.g. "invasive carcinoma".
+            "carcinoma-in-situ", "intraepithelial carcinoma", "high grade dysplasia", etc.) Typically, only one or two
+            margin types will be reported, but some protocols might report three different types.</p>
         <p>- only one margin can be closest </p>
         <p>- closest margin should have smallest distance </p>
         <p>- only negative margins can have a distance</p>
@@ -336,8 +329,8 @@
     <!--=============================================================-->
     <pattern id="tumor-largest-dimension-should-not-exceed-specimen-largest-dimension">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <p>This checks that you don't say the tumor is larger than the specimen. It makes no sense to say the
-            tumor has a largest dimension of 15 cm if the largest dimension of the specimen is only 10 cm.</p>
+        <p>This checks that you don't say the tumor is larger than the specimen. It makes no sense to say the tumor has
+            a largest dimension of 15 cm if the largest dimension of the specimen is only 10 cm.</p>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <rule context="ecc:tumor">
             <let name="maxTumorDimension"
@@ -398,9 +391,9 @@
     <!--=============================================================-->
     <pattern id="clinical-treatment-and-pathologic-effect-consonant">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <p>This issues a warning if you indicate there is pathologic evidence of treatment effect, but in the
-            clinical history section you have not given any indication that tumor was previously treated, and
-            how. This is allowed, but it is obviously bad practice.</p>
+        <p>This issues a warning if you indicate there is pathologic evidence of treatment effect, but in the clinical
+            history section you have not given any indication that tumor was previously treated, and how. This is
+            allowed, but it is obviously bad practice.</p>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <rule context="ecc:accessory/ecc:treatmentResponse/ecc:response">
             <let name="pathologic" value="@value"/>
@@ -417,8 +410,8 @@
     <!-- NEED TO TEST THIS ONE OUT.... -->
     <pattern id="grade-appropriate-for-grade-system">
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        <p>This pattern checks that a grade value is compatible with the grade system chosen. For example, if
-            the grade system is "2-grade" then a grade of "G4" would be incompatible.</p>
+        <p>This pattern checks that a grade value is compatible with the grade system chosen. For example, if the grade
+            system is "2-grade" then a grade of "G4" would be incompatible.</p>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <rule context="//ecc:tumor//ecc:grade">
             <assert test="false() != (for $x in . return 

@@ -25,7 +25,7 @@
 -->
 <test-harness ns1:transformation="" schemaLocation="" version="" xmlns="http://purl.org/pathology/ecc/"
     xmlns:ns1="http://www.w3.org/2003/g/data-view#">
-    <accessory>
+    <!--<accessory>
         <treatmentResponse>
             <response value="unreported"/>
         </treatmentResponse>
@@ -35,7 +35,7 @@
         <perineuralInvasion>
             <response value="unreported"/>
         </perineuralInvasion>
-    </accessory>
+    </accessory>-->
     <additional>
         <finding>
             <response value="unreported"/>
@@ -133,7 +133,7 @@
     </nodes>
     <specimen>
         <procedure>
-            <response value="biopsy"/>
+            <response value="unreported"/>
         </procedure>
         <size>
             <response unit="cm" value="1"/>
@@ -174,10 +174,10 @@
     <tumor>
         <focus type="principal">
             <site>
-                <response value="uvula"/>
+                <response value="unreported"/>
             </site>
             <size>
-                <response unit="cm" value="9"/>
+                <response unit="mm" value="9"/>
             </size>
             <histologicType>
                 <response value="unreported"/>

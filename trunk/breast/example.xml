@@ -31,7 +31,7 @@
     <history>
         <clinicalFinding>
             <response value="specify">
-                <specify>something</specify>
+                <specify>breast lump</specify>
             </response>
         </clinicalFinding>
         <priorTherapy>
@@ -39,23 +39,27 @@
                 <specify>herbal therapy</specify>
             </response>
         </priorTherapy>
+        <radiologicFinding>
+            <response value="specify">
+                <specify>2 cm lump in upper outer quadrant</specify>
+            </response>
+        </radiologicFinding>
     </history>
     <specimen>
         <procedure>
-            <response value="total mastectomy"/>
+            <response value="excision, wire-guided"/>
             <response value="sentinel lymph node sampling"/>
         </procedure>
         <size>
-            <response unit="cm" value="10"/>
-            <response unit="cm" value="7"/>
-            <response unit="cm" value="5"/>
+            <response unit="cm" value="24"/>
+            <response unit="cm" value="12"/>
         </size>
         <weight>
             <response unit="g" value="100"/>
         </weight>
         <site>
             <response on="right" value="axillary tail"/>
-            <response value="total breast"/>
+            <response value="lower inner quadrant"/>
         </site>
         <integrity>
             <response value="intact"/>
@@ -94,7 +98,7 @@
                 <response on="right" value="lower outer quadrant"/>
             </site>
             <size>
-                <response unit="cm" value="3"/>
+                <response unit="mm" value="3"/>
             </size>
             <multiplicity>
                 <response value="many"/>
@@ -204,7 +208,7 @@
         </status>
         <status of="lateral">
             <result for="invasive">
-                <response closest="positive" value="negative"/>
+                <response closest="positive" value="positive"/>
             </result>
             <distance for="invasive">
                 <response unit="cm" value="0.5"/>
@@ -309,7 +313,7 @@
             <response value="m"/>
         </multiplicity>
         <pT>
-            <response value="2"/>
+            <response value="3"/>
         </pT>
         <pN>
             <response value="1a"/>
