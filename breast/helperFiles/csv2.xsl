@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE stylesheet [
-<!ENTITY  sites         "//e:section[@name eq 'tumor']//e:item[@name eq 'site']/e:response/@value">
-<!ENTITY  tumorSizes    "//e:section[@name eq 'tumor']//e:item[@name eq 'size']/e:response">
-<!ENTITY  T-stage       "//e:section[@name eq 'stage']/e:item[@name eq 'pT']/e:response/@value">
-<!ENTITY  N-stage       "//e:section[@name eq 'stage']/e:item[@name eq 'pN']/e:response/@value">
-<!ENTITY  posNodes      "//e:section[@name eq 'nodes']//e:item[@name eq 'count'][@modifier eq 'positive']/e:response/@value">
-<!ENTITY  examNodes     "//e:section[@name eq 'nodes']//e:item[@name eq 'count'][@modifier eq 'total']/e:response/@value">
-<!ENTITY  mets          "//e:section[@name eq 'distant']//e:item[@name eq 'result']/e:response/@value">
-<!ENTITY  metsEval      "//e:section[@name eq 'distant']//e:item[@name eq 'result'][e:response/@value eq 'positive']/@modifier">
-<!ENTITY  SSF1          "//e:section[@name eq 'studies']/e:section[@name eq 'estrogen receptor']/e:item[@name eq 'result']/e:response/@value">
-<!ENTITY  SSF2          "//e:section[@name eq 'studies']/e:section[@name eq 'progesterone receptor']/e:item[@name eq 'result']/e:response/@value">
-<!ENTITY  SSF3          "//e:section[@name eq 'nodes']/e:section[@location = ('low axillary','mid axillary')]/e:item[@name eq 'count'][@modifier eq 'positive']/e:response/@value">
-<!ENTITY  SSF7          "//e:section[@name eq 'tumor']/e:item[@name eq 'Nottingham score']/e:response/@value">
+<!ENTITY  sites         "//e:tumor//e:site/e:response/@value">
+<!ENTITY  tumorSizes    "//e:tumor//e:size/e:response">
+<!ENTITY  T-stage       "//e:stage/pT/e:response/@value">
+<!ENTITY  N-stage       "//e:stage/e:pN/e:response/@value">
+<!ENTITY  posNodes      "//e:nodes//e:result[@of eq 'positive']/e:response/@value">
+<!ENTITY  examNodes     "//e:nodes//e:result[@of eq 'total']/e:response/@value">
+<!ENTITY  mets          "//e:distant//e:result/e:response/@value">
+<!ENTITY  metsEval      "//e:distant//e:result[e:response/@value eq 'positive']/@for">
+<!ENTITY  SSF1          "//e:studies/e:estrogenReceptor/e:result/e:response/@value">
+<!ENTITY  SSF2          "//e:studies/e:progesteroneReceptor/e:result/e:response/@value">
+<!ENTITY  SSF3          "//e:nodes/e:status[@of = ('low axillary','mid axillary')]/e:result[@for eq 'positive']/e:response/@value">
+<!ENTITY  SSF4          "//e:nodes/e:status[contains(@technique,'immunohistochemistry')/e:result">
+<!ENTITY  SSF7          "//e:tumor/e:focus[1]/e:grade/e:result[@for = ('glands','nuclei','mitoses')]/e:response/@value">
+
 ]>
 <xsl:stylesheet exclude-result-prefixes="xs" version="2.0" xmlns="http://www.cancerstaging.org/csv2#"
-    xmlns:e="http://cap#" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:e="http://purl.org/pathology/ecc/" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <!--  -->
     <xsl:output indent="yes" method="xml"/>
@@ -145,12 +147,12 @@
                     <xsl:call-template name="SSF10"/>
                 </xsl:attribute>
             </SSF10>
-            <!--            <SSF11>
+            <SSF11>
                 <xsl:attribute name="code">
                     <xsl:call-template name="SSF11"/>
                 </xsl:attribute>
             </SSF11>
-            <SSF12>
+            <!--<SSF12>
                 <xsl:attribute name="code">
                     <xsl:call-template name="SSF12"/>
                 </xsl:attribute>
@@ -465,10 +467,10 @@
     </xsl:template>
     <!--  -->
     <xsl:template name="SSF4">
-        <xsl:variable name="ssf">
-            <xsl:value-of select="'xyz'"/>
+       <!-- <xsl:variable name="ssf">
+            <xsl:value-of select="&SSF4;[e:response[@value castable as xs:integer]]"/>
         </xsl:variable>
-        <xsl:value-of select="'000'"/>
+        <xsl:value-of select="if ($ssf[@type eq 'isolated tumor cells'][@value gt 0]) then '002' else '000'"/>-->
     </xsl:template>
     <!--  -->
     <xsl:template name="SSF5">
