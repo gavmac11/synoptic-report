@@ -25,7 +25,7 @@
 -->
 <test-harness ns1:transformation="" schemaLocation="" version="" xmlns="http://purl.org/pathology/ecc/"
     xmlns:ns1="http://www.w3.org/2003/g/data-view#">
-    <!--<accessory>
+    <accessory>
         <treatmentResponse>
             <response value="unreported"/>
         </treatmentResponse>
@@ -35,7 +35,7 @@
         <perineuralInvasion>
             <response value="unreported"/>
         </perineuralInvasion>
-    </accessory>-->
+    </accessory>
     <additional>
         <finding>
             <response value="unreported"/>
@@ -116,7 +116,7 @@
                 <response value="10"/>
             </result>
             <result for="negative">
-                <response value="9"/>
+                <response value="99"/>
             </result>
             <result for="positive">
                 <response value="1"/>
@@ -158,10 +158,10 @@
             <response value="unreported"/>
         </multiplicity>
         <pT>
-            <response value="unreported"/>
+            <response value="3b"/>
         </pT>
         <pN>
-            <response value="unreported"/>
+            <response value="2a"/>
         </pN>
         <pM>
             <response value="unreported"/>

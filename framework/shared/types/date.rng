@@ -58,6 +58,9 @@
             <data type="date"/>
             <data type="gYearMonth"/>
             <data type="gYear"/>
+            <value>unreported</value>
+            <value>inapplicable</value>
+            <value>indeterminate</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

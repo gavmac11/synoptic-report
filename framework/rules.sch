@@ -294,13 +294,13 @@
         </rule>
     </pattern>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <pattern id="closest-invasive-distance" is-a="closest-distance">
+    <!--<pattern id="closest-invasive-distance" is-a="closest-distance">
         <param name="for" value="$invas"/>
-    </pattern>
+    </pattern>-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <pattern id="closest-insitu-distance" is-a="closest-distance">
+    <!--<pattern id="closest-insitu-distance" is-a="closest-distance">
         <param name="for" value="$insitu"/>
-    </pattern>
+    </pattern>-->
     <!--=============================================================-->
     <!-- RULES FOR CONSISTENCY WHEN ONE SET OF RESPONSE VALUES MUST  -->
     <!-- SUBSET VALUES OF A DIFFERENT SET OF RESPONSES               -->
@@ -354,8 +354,8 @@
             <let name="otherCount"
                 value="sum(../ecc:result[@for ne $total]/ecc:response/@value[. castable as xs:integer])"/>
             <assert test="$totalCount ge $otherCount">
-                For quantitation of <value-of select="../@of"/><value-of select="if (exists(../@of)) then ' ' else
-                    ''"/><value-of select="name(../..)"/>, you report a total (<value-of select="$totalCount"/>) less than the sum of the enumerated subcategories (<value-of select="$otherCount"/>).
+                In the results for the "<value-of select="../@on"/><value-of select="if (exists(../@of)) then ' ' else
+                    ''"/><value-of select="../@of"/>" node group, you report a total numnber of nodes (<value-of select="$totalCount"/>) that is less than the sum of the enumerated node subcategories (<value-of select="$otherCount"/>).
             </assert>
         </rule>
     </pattern>
