@@ -65,6 +65,7 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="accessory.microcalcifications.valueset">
         <choice>
+            <value>negative</value>
             <value>in DCIS</value>
             <value>in invasive carcinoma</value>
             <value>in non-neoplastic tissue</value>

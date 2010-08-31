@@ -1,0 +1,63 @@
+# ===========================================================================
+# Copyright 2010 Pathology Consulting Services
+# 
+# This file is part of the "PCS Schema for Synoptic Cancer Reports".
+# 
+# The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+# License, Version 2.0 (the "License"); you may not use this file except in 
+# compliance with the License.
+# 
+# You may obtain a copy of the License at:
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software 
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# 
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ===========================================================================  
+
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace ns1 = "http://purl.org/pathology/ecc/breast/"
+namespace ns2 = "http://purl.org/pathology/ecc/lung/"
+namespace ns3 = "http://purl.org/pathology/ecc/colon/"
+namespace ns4 = "http://purl.org/pathology/ecc/prostate/"
+namespace ns5 = "http://purl.org/pathology/ecc/endometrium/"
+default namespace ns6 = "http://purl.org/pathology/ecc/"
+namespace ns7 = "http://purl.org/pathology/ecc/bladder/"
+namespace ns8 = "http://purl.org/pathology/ecc/kidney/"
+namespace xi = "http://www.w3.org/2001/XInclude"
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+generic.content =
+  specify
+  & element label { xsd:string }?
+  & element comment { xsd:string }?
+  & user.element*
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+specify = element specify { xsd:string }?
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+user.attrib =
+  attribute * - # <xi:include href="ecc-namespaces.rng"/>
+                (ns6:*
+                 | ns3:*
+                 | ns1:*
+                 | ns5:*
+                 | ns2:*
+                 | ns4:*
+                 | ns7:*
+                 | ns8:*) { text }
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+user.element =
+  element * - # <xi:include href="ecc-namespaces.rng"/>
+              (ns6:*
+               | ns3:*
+               | ns1:*
+               | ns5:*
+               | ns2:*
+               | ns4:*
+               | ns7:*
+               | ns8:*) { (user.attrib | user.element)* }
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
