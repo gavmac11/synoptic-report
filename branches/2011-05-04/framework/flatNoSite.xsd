@@ -1,0 +1,1887 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
+    xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import namespace="http://www.w3.org/2003/g/data-view#" schemaLocation="data-view.xsd"/>
+    <xs:simpleType name="empty">
+        <xs:restriction base="xs:string">
+            <xs:length value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="schemaLocation">
+        <xs:restriction base="ecc:empty"/>
+    </xs:simpleType>
+    <xs:simpleType name="version">
+        <xs:restriction base="ecc:empty"/>
+    </xs:simpleType>
+    <xs:element name="test-harness">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element ref="ecc:accessory"/>
+                <xs:element ref="ecc:additional"/>
+                <xs:element ref="ecc:distant"/>
+                <xs:element ref="ecc:extent"/>
+                <xs:element ref="ecc:history"/>
+                <xs:element ref="ecc:margin"/>
+                <xs:element ref="ecc:nodes"/>
+                <xs:element ref="ecc:specimen"/>
+                <xs:element ref="ecc:stage"/>
+                <xs:element ref="ecc:studies"/>
+                <xs:element ref="ecc:tumor"/>
+            </xs:sequence>
+            <xs:attribute name="schemaLocation" type="ecc:schemaLocation" use="required"/>
+            <xs:attribute name="version" type="ecc:version" use="required"/>
+            <xs:attribute ref="data-view:transformation" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="specify" type="xs:string"/>
+    <xs:element name="label" type="xs:string"/>
+    <xs:element name="comment" type="xs:string"/>
+    <xs:group name="foreign.content">
+        <xs:sequence>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="generic.content">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="0" ref="ecc:specify"/>
+            <xs:element maxOccurs="1" minOccurs="0" ref="ecc:label"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:comment"/>
+            <xs:group maxOccurs="unbounded" minOccurs="0" ref="ecc:foreign.content"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="accessory">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element minOccurs="0" ref="ecc:treatmentResponse"/>
+                <xs:element minOccurs="0" ref="ecc:lymphVascularInvasion"/>
+                <xs:element minOccurs="0" ref="ecc:perineuralInvasion"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="additional">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:finding"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="distant">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group maxOccurs="unbounded" minOccurs="1" ref="ecc:distantStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="extent">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element maxOccurs="unbounded" minOccurs="1" ref="ecc:contiguousExtension"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="history">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:choice maxOccurs="unbounded" minOccurs="0">
+                    <xs:element ref="ecc:clinicalFinding"/>
+                    <xs:element ref="ecc:pathologicFinding"/>
+                    <xs:element ref="ecc:priorTherapy"/>
+                    <xs:element ref="ecc:radiologicFinding"/>
+                </xs:choice>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="margin">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group maxOccurs="unbounded" minOccurs="0" ref="ecc:marginStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="nodes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group maxOccurs="unbounded" minOccurs="0" ref="ecc:nodesStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="specimen">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element ref="ecc:procedure"/>
+                <xs:group ref="ecc:size"/>
+                <xs:element ref="ecc:weight"/>
+                <xs:group ref="ecc:site"/>
+                <xs:element ref="ecc:integrity"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="stage">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element ref="ecc:prefix"/>
+                <xs:group ref="ecc:multiplicities"/>
+                <xs:element ref="ecc:pT"/>
+                <xs:element ref="ecc:pN"/>
+                <xs:element ref="ecc:pM"/>
+                <xs:element ref="ecc:group"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="studies">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tumor">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:generic.content"/>
+                <xs:choice>
+                    <xs:group ref="ecc:focus"/>
+                    <xs:group ref="ecc:focus_2"/>
+                </xs:choice>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="treatmentResponse">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="lymphVascularInvasion">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_2"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="perineuralInvasion">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_3"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="finding">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_4"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+            <xs:attribute name="of">
+                <xs:simpleType>
+                    <xs:union>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:length value="0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:union>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="distantStatus">
+        <xs:sequence>
+            <xs:element name="status">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:choice>
+                            <xs:group ref="ecc:result"/>
+                            <xs:group ref="ecc:size"/>
+                        </xs:choice>
+                    </xs:choice>
+                    <xs:attribute name="of" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="liver"/>
+                                <xs:enumeration value="bone"/>
+                                <xs:enumeration value="lung"/>
+                                <xs:enumeration value="brain"/>
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="on" type="ecc:laterality.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="contiguousExtension">
+        <xs:complexType>
+            <xs:group maxOccurs="unbounded" minOccurs="0" ref="ecc:contiguousExtensionStatus"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="clinicalFinding">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_5"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+            <xs:attribute name="date">
+                <xs:simpleType>
+                    <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="start">
+                <xs:simpleType>
+                    <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="end">
+                <xs:simpleType>
+                    <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="duration" type="xs:duration"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pathologicFinding">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_6"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+            <xs:attribute name="date">
+                <xs:simpleType>
+                    <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="start">
+                <xs:simpleType>
+                    <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="end">
+                <xs:simpleType>
+                    <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="duration" type="xs:duration"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="priorTherapy">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_7"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+            <xs:attribute name="date">
+                <xs:simpleType>
+                    <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="start">
+                <xs:simpleType>
+                    <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="end">
+                <xs:simpleType>
+                    <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="duration" type="xs:duration"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="radiologicFinding">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_8"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+            <xs:attribute name="date">
+                <xs:simpleType>
+                    <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="start">
+                <xs:simpleType>
+                    <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="end">
+                <xs:simpleType>
+                    <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="duration" type="xs:duration"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="marginStatus">
+        <xs:sequence>
+            <xs:element name="status">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:choice>
+                            <xs:group ref="ecc:result_2"/>
+                            <xs:group ref="ecc:distance"/>
+                        </xs:choice>
+                    </xs:choice>
+                    <xs:attribute name="of" use="required">
+                        <xs:simpleType>
+                            <xs:union>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:enumeration value="specify"/>
+                                        <xs:enumeration value="inapplicable"/>
+                                        <xs:enumeration value="unreported"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:length value="0"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:union>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="on" type="ecc:laterality.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="nodesStatus">
+        <xs:sequence>
+            <xs:element name="status">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:choice>
+                            <xs:group ref="ecc:result_3"/>
+                            <xs:group ref="ecc:result_4"/>
+                            <xs:element ref="ecc:largestMetastasis"/>
+                            <xs:element ref="ecc:extracapsularExtension"/>
+                        </xs:choice>
+                    </xs:choice>
+                    <xs:attribute name="of" use="required">
+                        <xs:simpleType>
+                            <xs:union>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:enumeration value="specify"/>
+                                        <xs:enumeration value="inapplicable"/>
+                                        <xs:enumeration value="unreported"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:length value="0"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:union>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="on" type="ecc:laterality.valueset"/>
+                    <xs:attribute name="technique">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="H+E one level"/>
+                                <xs:enumeration value="H+E multiple level(s)"/>
+                                <xs:enumeration value="H+E plus immunohistochemistry"/>
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="procedure">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_9"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="size">
+        <xs:sequence>
+            <xs:element name="size">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:choice>
+                            <xs:group ref="ecc:sizeContent"/>
+                            <xs:choice>
+                                <xs:group ref="ecc:sizeContent"/>
+                                <xs:group ref="ecc:sizeContent"/>
+                            </xs:choice>
+                        </xs:choice>
+                        <xs:group ref="ecc:generic.content"/>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="weight">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_11"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="site">
+        <xs:sequence>
+            <xs:element name="site">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:response_12"/>
+                        <xs:group ref="ecc:generic.content"/>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="integrity">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_13"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="prefix">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_14"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="multiplicities">
+        <xs:sequence>
+            <xs:element name="multiplicity">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:multiplicities"/>
+                        <xs:group ref="ecc:generic.content"/>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="pT">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_16"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pN">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_17"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pM">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_18"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="group">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:response_19"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="focus">
+        <xs:sequence>
+            <xs:element name="focus">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:choice>
+                            <xs:group ref="ecc:site"/>
+                            <xs:group ref="ecc:size"/>
+                            <xs:element ref="ecc:histologicType"/>
+                            <xs:element ref="ecc:grade"/>
+                        </xs:choice>
+                    </xs:choice>
+                    <xs:attribute name="type" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="principal"/>
+                                <xs:enumeration value="sole"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="focus_2">
+        <xs:sequence>
+            <xs:element name="focus">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:choice>
+                            <xs:group ref="ecc:site"/>
+                            <xs:group ref="ecc:size"/>
+                            <xs:group ref="ecc:multiplicity_2"/>
+                            <xs:element ref="ecc:histologicType"/>
+                            <xs:element ref="ecc:grade"/>
+                        </xs:choice>
+                    </xs:choice>
+                    <xs:attribute name="name" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="additional"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                                <xs:enumeration value="none"/>
+                                <xs:enumeration value="slight"/>
+                                <xs:enumeration value="marked"/>
+                                <xs:enumeration value="complete"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_2">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                                <xs:enumeration value="positive"/>
+                                <xs:enumeration value="negative"/>
+                                <xs:enumeration value="equivocal"/>
+                                <xs:enumeration value="indeterminate"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_3">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                                <xs:enumeration value="positive"/>
+                                <xs:enumeration value="negative"/>
+                                <xs:enumeration value="equivocal"/>
+                                <xs:enumeration value="indeterminate"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_4">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:union>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:enumeration value="specify"/>
+                                        <xs:enumeration value="inapplicable"/>
+                                        <xs:enumeration value="unreported"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:length value="0"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:union>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="result">
+        <xs:sequence>
+            <xs:element name="result">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:response_20"/>
+                        <xs:group ref="ecc:generic.content"/>
+                    </xs:choice>
+                    <xs:attribute name="for">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="this accession"/>
+                                <xs:enumeration value="prior accession"/>
+                                <xs:enumeration value="outside report"/>
+                                <xs:enumeration value="clinical history"/>
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="date">
+                        <xs:simpleType>
+                            <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="start">
+                        <xs:simpleType>
+                            <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="end">
+                        <xs:simpleType>
+                            <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="duration" type="xs:duration"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="contiguousExtensionStatus">
+        <xs:sequence>
+            <xs:element name="status">
+                <xs:complexType>
+                    <xs:sequence maxOccurs="unbounded">
+                        <xs:group ref="ecc:result_5"/>
+                        <xs:group minOccurs="0" ref="ecc:distance_2"/>
+                    </xs:sequence>
+                    <xs:attribute name="of">
+                        <xs:simpleType>
+                            <xs:union>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:enumeration value="specify"/>
+                                        <xs:enumeration value="inapplicable"/>
+                                        <xs:enumeration value="unreported"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:length value="0"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:union>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_5">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_6">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_7">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                                <xs:enumeration value="chemotherapy"/>
+                                <xs:enumeration value="radiation"/>
+                                <xs:enumeration value="surgery"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_8">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="result_2">
+        <xs:sequence>
+            <xs:element name="result">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:response_22"/>
+                        <xs:group ref="ecc:generic.content"/>
+                    </xs:choice>
+                    <xs:attribute name="for" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="in-situ"/>
+                                <xs:enumeration value="invasive"/>
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="distance">
+        <xs:sequence>
+            <xs:element name="distance">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:response_23"/>
+                        <xs:group ref="ecc:generic.content"/>
+                    </xs:choice>
+                    <xs:attribute name="for" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="in-situ"/>
+                                <xs:enumeration value="invasive"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="from">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="margin"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="result_3">
+        <xs:sequence>
+            <xs:element name="result">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:response_24"/>
+                        <xs:group ref="ecc:generic.content"/>
+                    </xs:choice>
+                    <xs:attribute name="for" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="total"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="result_4">
+        <xs:sequence>
+            <xs:element name="result">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:response_24"/>
+                        <xs:group ref="ecc:generic.content"/>
+                    </xs:choice>
+                    <xs:attribute name="for" use="required">
+                        <xs:simpleType>
+                            <xs:union>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:enumeration value="negative"/>
+                                        <xs:enumeration value="positive"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:length value="0"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:union>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="type">
+                        <xs:simpleType>
+                            <xs:union>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:enumeration value="necroinflammatory"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:length value="0"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:union>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="largestMetastasis">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:choice>
+                    <xs:group ref="ecc:response_25"/>
+                    <xs:choice>
+                        <xs:group ref="ecc:response_25"/>
+                        <xs:group ref="ecc:response_25"/>
+                    </xs:choice>
+                </xs:choice>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="extracapsularExtension">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <!--<xs:group ref="ecc:response_26"/>-->
+                <xs:group ref="ecc:extent.extracapsularExtension.content"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="response_9">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="on" type="ecc:laterality.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_11">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:union>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:float">
+                                        <xs:minExclusive value="0.0"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:enumeration value="specify"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:enumeration value="inapplicable"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:enumeration value="unreported"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:union>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="unit" type="ecc:weightUnit.valueset" use="required"/>
+                    <xs:attribute name="relation" type="ecc:relation.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_12">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="on" type="ecc:laterality.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_13">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                                <xs:enumeration value="intact"/>
+                                <xs:enumeration value="fragmented"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_14">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                                <xs:enumeration value="y"/>
+                                <xs:enumeration value="r"/>
+                                <xs:enumeration value="a"/>
+                                <xs:enumeration value="none"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="multiplicity">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                                <xs:enumeration value="1"/>
+                                <xs:enumeration value="2"/>
+                                <xs:enumeration value="3"/>
+                                <xs:enumeration value="4"/>
+                                <xs:enumeration value="m"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_16">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_17">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_18">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_19">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="histologicType">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:tumor.histologicType.content"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="grade">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="ecc:tumor.grade.content"/>
+                <xs:group ref="ecc:generic.content"/>
+            </xs:choice>
+            <xs:attribute name="system" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:token">
+                        <xs:enumeration value="4-grade"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="multiplicity_2">
+        <xs:sequence>
+            <xs:element name="multiplicity">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:multiplicities"/>
+                        <xs:group ref="ecc:generic.content"/>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_20">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                                <xs:enumeration value="positive"/>
+                                <xs:enumeration value="negative"/>
+                                <xs:enumeration value="equivocal"/>
+                                <xs:enumeration value="indeterminate"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="result_5">
+        <xs:sequence>
+            <xs:element name="result">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:response_34"/>
+                        <xs:group ref="ecc:generic.content"/>
+                    </xs:choice>
+                    <xs:attribute name="for" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="invades"/>
+                                <xs:enumeration value="adheres"/>
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="on" type="ecc:laterality.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="distance_2">
+        <xs:sequence>
+            <xs:element name="distance">
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <xs:group ref="ecc:lengthContent"/>
+                        <xs:group ref="ecc:generic.content"/>
+                    </xs:choice>
+                    <xs:attribute name="for">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="invades"/>
+                                <xs:enumeration value="adheres"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="from">
+                        <xs:simpleType>
+                            <xs:union>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:enumeration value="specify"/>
+                                        <xs:enumeration value="inapplicable"/>
+                                        <xs:enumeration value="unreported"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                <xs:simpleType>
+                                    <!-- this now should be a type that can be substituted by type -->
+                                    <xs:restriction base="xs:token">
+                                        <xs:length value="0"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:union>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_22">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                                <xs:enumeration value="positive"/>
+                                <xs:enumeration value="negative"/>
+                                <xs:enumeration value="equivocal"/>
+                                <xs:enumeration value="indeterminate"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="extent" type="ecc:focality.valueset"/>
+                    <xs:attribute name="closest" type="ecc:qualitative.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_23">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:decimal">
+                                <xs:minInclusive value="0.0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="unit" type="ecc:lengthUnit.valueset" use="required"/>
+                    <xs:attribute name="relation" type="ecc:relation.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_24">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:union memberTypes="xs:nonNegativeInteger">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:enumeration value="specify"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:enumeration value="inapplicable"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:enumeration value="unreported"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:union>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="relation" type="ecc:relation.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="response_25">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:decimal">
+                                <xs:minInclusive value="0.0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="unit" type="ecc:lengthUnit.valueset" use="required"/>
+                    <xs:attribute name="relation" type="ecc:relation.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="extent.extracapsularExtension.content">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="ecc:qualitative.valueset"/>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!--<xs:group name="response_27">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:token">
+                                <xs:enumeration value="specify"/>
+                                <xs:enumeration value="inapplicable"/>
+                                <xs:enumeration value="unreported"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="on" type="ecc:laterality.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>-->
+    <!--<xs:group name="response_28">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:union>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:enumeration value="specify"/>
+                                        <xs:enumeration value="inapplicable"/>
+                                        <xs:enumeration value="unreported"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:token">
+                                        <xs:length value="0"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:union>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>-->
+    <xs:group name="sizeContent">
+        <xs:sequence>
+            <xs:element maxOccurs="3" minOccurs="1" name="response">
+                <xs:complexType>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:decimal">
+                                <xs:minInclusive value="0.0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="unit" type="ecc:lengthUnit.valueset" use="required"/>
+                    <xs:attribute name="relation" type="ecc:relation.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="tumor.histologicType.content">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:union memberTypes="ecc:base.valueset ecc:tumor.histologicType.valueset"/>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="tumor.grade.content">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="ecc:tumor.grade.valueset"/>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!--<xs:group name="response_32">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="ecc:base.valueset"/>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="on" type="ecc:laterality.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>-->
+    <xs:group name="response_34">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="ecc:qualitative.valueset"/>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="extent" type="ecc:focality.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="lengthContent">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:decimal">
+                                <xs:minInclusive value="0.0"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attribute name="unit" type="ecc:lengthUnit.valueset" use="required"/>
+                    <xs:attribute name="relation" type="ecc:relation.valueset"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ============================================================= -->
+    <xs:simpleType name="base.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="qualitative.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="positive"/>
+                    <xs:enumeration value="negative"/>
+                    <xs:enumeration value="equivocal"/>
+                    <xs:enumeration value="indeterminate"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="lengthUnit.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union memberTypes="base.valueset">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="cm"/>
+                    <xs:enumeration value="mm"/>
+                    <xs:enumeration value="in"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="weightUnit.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="mg"/>
+                    <xs:enumeration value="g"/>
+                    <xs:enumeration value="kg"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="relation.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="less than"/>
+            <xs:enumeration value="less than or equal"/>
+            <xs:enumeration value="equal"/>
+            <xs:enumeration value="approximately equal"/>
+            <xs:enumeration value="greater than or equal"/>
+            <xs:enumeration value="greater than"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="tumor.histologicType.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:restriction base="ecc:base.valueset"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="laterality.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="ipsilateral"/>
+                    <xs:enumeration value="contralateral"/>
+                    <xs:enumeration value="right"/>
+                    <xs:enumeration value="left"/>
+                    <xs:enumeration value="midline"/>
+                    <xs:enumeration value="bilateral"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="focality.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="microfocal"/>
+                    <xs:enumeration value="unifocal"/>
+                    <xs:enumeration value="multifocal"/>
+                    <xs:enumeration value="extensive"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="accessory.lymphvascular.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:restriction base="qualitative.valueset"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="accessory.perineural.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:restriction base="qualitative.valueset"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="accessory.treatmentResponse.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="none"/>
+                    <xs:enumeration value="slight"/>
+                    <xs:enumeration value="marked"/>
+                    <xs:enumeration value="complete"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ============================================================= -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="extent.contiguousExtension.status.result.for.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="invades"/>
+                    <xs:enumeration value="adheres"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ============================================================= -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="history.priorTherapy.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="chemotherapy"/>
+                    <xs:enumeration value="radiation"/>
+                    <xs:enumeration value="surgery"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ============================================================= -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ============================================================= -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="margin.status.focality.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:restriction base="focality.valueset"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="margin.status.result.for.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="in-situ"/>
+            <xs:enumeration value="invasive"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="distant.status.of.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="liver"/>
+                    <xs:enumeration value="bone"/>
+                    <xs:enumeration value="lung"/>
+                    <xs:enumeration value="brain"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="distant.status.result.for.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="this accession"/>
+                    <xs:enumeration value="prior accession"/>
+                    <xs:enumeration value="outside report"/>
+                    <xs:enumeration value="clinical history"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="nodes.status.result.for.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="negative"/>
+                    <xs:enumeration value="positive"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="nodes.status.result.type.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="necroinflammatory"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="nodes.status.technique.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="H+E one level"/>
+                    <xs:enumeration value="H+E multiple level(s)"/>
+                    <xs:enumeration value="H+E plus immunohistochemistry"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="nodes.status.extracapsular.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:restriction base="qualitative.valueset"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="specimen.integrity.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="intact"/>
+                    <xs:enumeration value="fragmented"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ============================================================= -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="stage.prefix.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="y"/>
+                    <xs:enumeration value="r"/>
+                    <xs:enumeration value="a"/>
+                    <xs:enumeration value="none"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="stage.multiplicity.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="1"/>
+                    <xs:enumeration value="2"/>
+                    <xs:enumeration value="3"/>
+                    <xs:enumeration value="4"/>
+                    <xs:enumeration value="m"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ============================================================= -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="tumor.grade.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="1"/>
+                    <xs:enumeration value="2"/>
+                    <xs:enumeration value="3"/>
+                    <xs:enumeration value="4"/>
+                    <xs:enumeration value="X"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="tumor.gradeSystem.values" xmlns="http://purl.org/pathology/ecc/">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="4-grade"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="tumor.gradeSystem.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union memberTypes="base.valueset tumor.gradeSystem.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="tumor.multiplicity.values" xmlns="http://purl.org/pathology/ecc/">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="many"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="tumor.multiplicity.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union memberTypes="ecc:base.valueset ecc:tumor.multiplicity.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</xs:schema>

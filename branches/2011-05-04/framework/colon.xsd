@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/obbr/pathology/cancer/"
+    xmlns:obbr="http://purl.org/obbr/pathology/cancer/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:redefine schemaLocation="no-specific-site.xsd">
+        <xs:group name="diagnosis.section.content">
+            <xs:sequence>
+                <xs:group ref="obbr:history.section"/>
+                <xs:group ref="obbr:specimen.section"/>
+                <xs:group ref="obbr:tumor.section"/>
+                <xs:group ref="obbr:extent.section"/>
+                <xs:group ref="obbr:accessory.section"/>
+                <xs:group ref="obbr:margins.section"/>
+                <!--<xs:group ref="obbr:nodes.section"/>-->
+                <xs:group ref="obbr:distant.section"/>
+                <xs:group ref="obbr:studies.section"/>
+                <xs:group ref="obbr:stage.section"/>
+                <xs:group ref="obbr:additional.section"/>
+            </xs:sequence>
+        </xs:group>
+    </xs:redefine>
+</xs:schema>

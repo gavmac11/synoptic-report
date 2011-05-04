@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+<!DOCTYPE	grammar [
+<!ENTITY	items  		"items.rng">
+<!ENTITY	section		"types/section.rng">
+]>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://purl.org/pathology/ecc/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <!--=============================================================-->
+    <include href="&items;"/>
+    <!--=============================================================-->
+    <define combine="interleave" name="schemaLocation">
+        <empty/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="interleave" name="version">
+        <empty/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="interleave" name="semantics">
+        <empty/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="toplevel.attrib">
+        <attribute name="schemaLocation">
+            <ref name="schemaLocation"/>
+        </attribute>
+        <attribute name="version">
+            <ref name="version"/>
+        </attribute>
+        <attribute name="transformation" ns="http://www.w3.org/2003/g/data-view#">
+            <ref name="semantics"/>
+        </attribute>
+    </define>
+    <!--=============================================================-->
+    <define name="resection">
+        <element name="resection">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="resection.content"/>
+                </define>
+                <define name="extension">
+                    <parentRef name="toplevel.attrib"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="biopsy">
+        <element name="biopsy">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="biopsy.content"/>
+                </define>
+                <define name="extension">
+                    <parentRef name="toplevel.attrib"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="normal">
+        <element name="normal">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="normal.content"/>
+                </define>
+                <define name="extension">
+                    <parentRef name="toplevel.attrib"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--=============================================================-->
+    <define name="resection.content">
+        <ref name="history"/>
+        <ref name="specimen"/>
+        <ref name="tumor"/>
+        <ref name="extent"/>
+        <ref name="accessory"/>
+        <ref name="margin"/>
+        <ref name="nodes"/>
+        <ref name="distant"/>
+        <ref name="studies"/>
+        <ref name="stage"/>
+        <ref name="additional"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="biopsy.content">
+        <ref name="history"/>
+        <ref name="specimen"/>
+        <ref name="tumor"/>
+        <optional>
+            <ref name="extent"/>
+        </optional>
+        <optional>
+            <ref name="accessory"/>
+        </optional>
+        <optional>
+            <ref name="nodes"/>
+        </optional>
+        <optional>
+            <ref name="studies"/>
+        </optional>
+        <optional>
+            <ref name="additional"/>
+        </optional>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="normal.content">
+        <ref name="history"/>
+        <ref name="specimen"/>
+        <ref name="microscopic"/>
+        <ref name="additional"/>
+        <ref name="assessment"/>
+    </define>
+    <!--=============================================================-->
+    <define name="accessory">
+        <element name="accessory">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="accessory.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="additional">
+        <element name="additional">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="additional.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="assessment">
+        <element name="assessment">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="assessment.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="history">
+        <element name="history">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="history.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent">
+        <element name="extent">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="extent.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="margin">
+        <element name="margin">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="margin.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="distant">
+        <element name="distant">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="distant.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="microscopic">
+        <element name="microscopic">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="microscopic.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="nodes">
+        <element name="nodes">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="nodes.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="specimen">
+        <element name="specimen">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="specimen.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="stage">
+        <element name="stage">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="stage.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="studies">
+        <element name="studies">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="studies.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor">
+        <element name="tumor">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="tumor.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--=============================================================-->
+</grammar>

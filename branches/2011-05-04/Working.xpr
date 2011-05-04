@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="12.1">
+    <meta>
+        <filters directoryPatterns="" filePatterns=""
+            positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="Working.xpr">
+        <folder name="Working">
+            <folder name=".svn">
+                <folder name="prop-base"/>
+                <folder name="props"/>
+                <folder name="text-base">
+                    <file name=".svn/text-base/Validation.xpr.svn-base"
+                    />
+                </folder>
+                <folder name="tmp">
+                    <folder name="prop-base"/>
+                    <folder name="props"/>
+                    <folder name="text-base"/>
+                </folder>
+                <file name=".svn/all-wcprops"/>
+                <file name=".svn/entries"/>
+            </folder>
+            <folder name="breast">
+                <folder name=".svn">
+                    <folder name="prop-base"/>
+                    <folder name="props"/>
+                    <folder name="text-base">
+                        <file
+                            name="breast/.svn/text-base/breast.rng.svn-base"/>
+                        <file
+                            name="breast/.svn/text-base/breast.sch.svn-base"/>
+                        <file
+                            name="breast/.svn/text-base/example.xml.svn-base"/>
+                        <file
+                            name="breast/.svn/text-base/values.rng.svn-base"
+                        />
+                    </folder>
+                    <folder name="tmp">
+                        <folder name="prop-base"/>
+                        <folder name="props"/>
+                        <folder name="text-base"/>
+                    </folder>
+                    <file name="breast/.svn/all-wcprops"/>
+                    <file name="breast/.svn/entries"/>
+                </folder>
+                <folder name="helperFiles">
+                    <folder name=".svn">
+                        <folder name="prop-base"/>
+                        <folder name="props"/>
+                        <folder name="text-base">
+                            <file
+                                name="breast/helperFiles/.svn/text-base/breast1.sch.svn-base"/>
+                            <file
+                                name="breast/helperFiles/.svn/text-base/Breast-example.xml.svn-base"/>
+                            <file
+                                name="breast/helperFiles/.svn/text-base/breast-example-mod-2.xml.svn-base"/>
+                            <file
+                                name="breast/helperFiles/.svn/text-base/CS-breast.rng.svn-base"/>
+                            <file
+                                name="breast/helperFiles/.svn/text-base/csv2.xsl.svn-base"/>
+                            <file
+                                name="breast/helperFiles/.svn/text-base/Rename.xsl.svn-base"/>
+                            <file
+                                name="breast/helperFiles/.svn/text-base/Untitled3.xsl.svn-base"/>
+                            <file
+                                name="breast/helperFiles/.svn/text-base/Untitled4.xsl.svn-base"
+                            />
+                        </folder>
+                        <folder name="tmp">
+                            <folder name="prop-base"/>
+                            <folder name="props"/>
+                            <folder name="text-base"/>
+                        </folder>
+                        <file name="breast/helperFiles/.svn/all-wcprops"/>
+                        <file name="breast/helperFiles/.svn/entries"/>
+                    </folder>
+                    <file name="breast/helperFiles/breast1.sch"/>
+                    <file name="breast/helperFiles/Breast-example.xml"/>
+                    <file
+                        name="breast/helperFiles/breast-example-mod-2.xml"/>
+                    <file name="breast/helperFiles/CS-breast.rng"/>
+                    <file name="breast/helperFiles/csv2.xsl"/>
+                    <file name="breast/helperFiles/Rename.xsl"/>
+                    <file name="breast/helperFiles/Untitled3.xsl"/>
+                    <file name="breast/helperFiles/Untitled4.xsl"/>
+                </folder>
+                <file name="breast/breast.rng"/>
+                <file name="breast/breast.sch"/>
+                <file name="breast/example.xml"/>
+                <file name="breast/values.rng"/>
+            </folder>
+            <folder name="colon">
+                <folder name=".svn">
+                    <folder name="prop-base"/>
+                    <folder name="props"/>
+                    <folder name="text-base">
+                        <file
+                            name="colon/.svn/text-base/colon.rng.svn-base"/>
+                        <file
+                            name="colon/.svn/text-base/colon.sch.svn-base"/>
+                        <file
+                            name="colon/.svn/text-base/example.xml.svn-base"/>
+                        <file
+                            name="colon/.svn/text-base/values.rng.svn-base"
+                        />
+                    </folder>
+                    <folder name="tmp">
+                        <folder name="prop-base"/>
+                        <folder name="props"/>
+                        <folder name="text-base"/>
+                    </folder>
+                    <file name="colon/.svn/all-wcprops"/>
+                    <file name="colon/.svn/entries"/>
+                </folder>
+                <file name="colon/colon.rng"/>
+                <file name="colon/colon.sch"/>
+                <file name="colon/example.xml"/>
+                <file name="colon/values.rng"/>
+            </folder>
+            <folder name="endometrium">
+                <folder name=".svn">
+                    <folder name="prop-base"/>
+                    <folder name="props"/>
+                    <folder name="text-base">
+                        <file
+                            name="endometrium/.svn/text-base/endometrium.rng.svn-base"/>
+                        <file
+                            name="endometrium/.svn/text-base/endometrium.sch.svn-base"/>
+                        <file
+                            name="endometrium/.svn/text-base/example.xml.svn-base"/>
+                        <file
+                            name="endometrium/.svn/text-base/values.rng.svn-base"
+                        />
+                    </folder>
+                    <folder name="tmp">
+                        <folder name="prop-base"/>
+                        <folder name="props"/>
+                        <folder name="text-base"/>
+                    </folder>
+                    <file name="endometrium/.svn/all-wcprops"/>
+                    <file name="endometrium/.svn/entries"/>
+                </folder>
+                <file name="endometrium/endometrium.rng"/>
+                <file name="endometrium/endometrium.sch"/>
+                <file name="endometrium/example.xml"/>
+                <file name="endometrium/values.rng"/>
+            </folder>
+            <folder name="framework">
+                <folder name=".svn">
+                    <folder name="prop-base"/>
+                    <folder name="props"/>
+                    <folder name="text-base">
+                        <file
+                            name="framework/.svn/text-base/complexFrame.rng.svn-base"/>
+                        <file
+                            name="framework/.svn/text-base/example.xml.svn-base"/>
+                        <file
+                            name="framework/.svn/text-base/generic-resection.rng.svn-base"/>
+                        <file
+                            name="framework/.svn/text-base/noSite.rng.svn-base"/>
+                        <file
+                            name="framework/.svn/text-base/rules.sch.svn-base"/>
+                        <file
+                            name="framework/.svn/text-base/values.rng.svn-base"
+                        />
+                    </folder>
+                    <folder name="tmp">
+                        <folder name="prop-base"/>
+                        <folder name="props"/>
+                        <folder name="text-base"/>
+                    </folder>
+                    <file name="framework/.svn/all-wcprops"/>
+                    <file name="framework/.svn/entries"/>
+                </folder>
+                <folder name="Pipelines">
+                    <folder name=".svn">
+                        <folder name="prop-base"/>
+                        <folder name="props"/>
+                        <folder name="text-base">
+                            <file fileMissing="true"
+                                name="framework/Pipelines/.svn/text-base/multiValidate.xpl.svn-base"/>
+                            <file fileMissing="true"
+                                name="framework/Pipelines/.svn/text-base/myPipeline.xpl.svn-base"/>
+                            <file fileMissing="true"
+                                name="framework/Pipelines/.svn/text-base/personal.xpl.svn-base"/>
+                            <file fileMissing="true"
+                                name="framework/Pipelines/.svn/text-base/svrl-example.xpl.svn-base"/>
+                            <file fileMissing="true"
+                                name="framework/Pipelines/.svn/text-base/transform.xpl.svn-base"/>
+                            <file fileMissing="true"
+                                name="framework/Pipelines/.svn/text-base/validation.xpl.svn-base"
+                            />
+                        </folder>
+                        <folder name="tmp">
+                            <folder name="prop-base"/>
+                            <folder name="props"/>
+                            <folder name="text-base"/>
+                        </folder>
+                        <file fileMissing="true"
+                            name="framework/Pipelines/.svn/all-wcprops"/>
+                        <file fileMissing="true"
+                            name="framework/Pipelines/.svn/entries"/>
+                    </folder>
+                    <file
+                        name="../Checklist%20Validation/framework/Pipelines/jing.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/multiValidate.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/myPipeline.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/newval.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/personal.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/svrl-example.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/transform.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/usesJing.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/usesJing-1.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/validation.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/validation-result.xml"
+                    />
+                </folder>
+                <folder name="shared">
+                    <folder name=".svn">
+                        <folder name="prop-base"/>
+                        <folder name="props"/>
+                        <folder name="text-base">
+                            <file
+                                name="framework/shared/.svn/text-base/complexFrame.rng.svn-base"/>
+                            <file
+                                name="framework/shared/.svn/text-base/ecc-namespaces.rng.svn-base"/>
+                            <file
+                                name="framework/shared/.svn/text-base/functions.xsl.svn-base"/>
+                            <file
+                                name="framework/shared/.svn/text-base/generic.rng.svn-base"/>
+                            <file
+                                name="framework/shared/.svn/text-base/items.rng.svn-base"/>
+                            <file
+                                name="framework/shared/.svn/text-base/items-alt.rng.svn-base"/>
+                            <file
+                                name="framework/shared/.svn/text-base/items-old.rng.svn-base"/>
+                            <file
+                                name="framework/shared/.svn/text-base/items-orig.rng.svn-base"/>
+                            <file
+                                name="framework/shared/.svn/text-base/items-rev.rng.svn-base"/>
+                            <file
+                                name="framework/shared/.svn/text-base/sections.rng.svn-base"/>
+                            <file
+                                name="framework/shared/.svn/text-base/subset-rule.sch.svn-base"
+                            />
+                        </folder>
+                        <folder name="tmp">
+                            <folder name="prop-base"/>
+                            <folder name="props"/>
+                            <folder name="text-base"/>
+                        </folder>
+                        <file name="framework/shared/.svn/all-wcprops"/>
+                        <file name="framework/shared/.svn/entries"/>
+                    </folder>
+                    <folder name="abstractPatterns">
+                        <folder name=".svn">
+                            <folder name="prop-base"/>
+                            <folder name="props"/>
+                            <folder name="text-base">
+                                <file
+                                    name="framework/shared/abstractPatterns/.svn/text-base/mm.xsl.svn-base"/>
+                                <file
+                                    name="framework/shared/abstractPatterns/.svn/text-base/proc-site-match.sch.svn-base"/>
+                                <file
+                                    name="framework/shared/abstractPatterns/.svn/text-base/site-proc-match.sch.svn-base"/>
+                                <file
+                                    name="framework/shared/abstractPatterns/.svn/text-base/subset-rule.sch.svn-base"
+                                />
+                            </folder>
+                            <folder name="tmp">
+                                <folder name="prop-base"/>
+                                <folder name="props"/>
+                                <folder name="text-base"/>
+                            </folder>
+                            <file
+                                name="framework/shared/abstractPatterns/.svn/all-wcprops"/>
+                            <file
+                                name="framework/shared/abstractPatterns/.svn/entries"
+                            />
+                        </folder>
+                        <file
+                            name="framework/shared/abstractPatterns/mm.xsl"/>
+                        <file
+                            name="framework/shared/abstractPatterns/proc-site-match.sch"/>
+                        <file
+                            name="framework/shared/abstractPatterns/site-proc-match.sch"/>
+                        <file
+                            name="framework/shared/abstractPatterns/subset-rule.sch"
+                        />
+                    </folder>
+                    <folder name="types">
+                        <folder name=".svn">
+                            <folder name="prop-base"/>
+                            <folder name="props"/>
+                            <folder name="text-base">
+                                <file
+                                    name="framework/shared/types/.svn/text-base/date.rng.svn-base"/>
+                                <file
+                                    name="framework/shared/types/.svn/text-base/item.rng.svn-base"/>
+                                <file
+                                    name="framework/shared/types/.svn/text-base/length.rng.svn-base"/>
+                                <file
+                                    name="framework/shared/types/.svn/text-base/percent.rng.svn-base"/>
+                                <file
+                                    name="framework/shared/types/.svn/text-base/quantity.rng.svn-base"/>
+                                <file
+                                    name="framework/shared/types/.svn/text-base/ratio.rng.svn-base"/>
+                                <file
+                                    name="framework/shared/types/.svn/text-base/section.rng.svn-base"/>
+                                <file
+                                    name="framework/shared/types/.svn/text-base/selectMany.rng.svn-base"/>
+                                <file
+                                    name="framework/shared/types/.svn/text-base/selectOne.rng.svn-base"/>
+                                <file
+                                    name="framework/shared/types/.svn/text-base/size.rng.svn-base"/>
+                                <file
+                                    name="framework/shared/types/.svn/text-base/tally.rng.svn-base"/>
+                                <file
+                                    name="framework/shared/types/.svn/text-base/tally-alt.rng.svn-base"/>
+                                <file
+                                    name="framework/shared/types/.svn/text-base/tally-alt-1.rng.svn-base"/>
+                                <file
+                                    name="framework/shared/types/.svn/text-base/tally-original.rng.svn-base"/>
+                                <file
+                                    name="framework/shared/types/.svn/text-base/weight.rng.svn-base"
+                                />
+                            </folder>
+                            <folder name="tmp">
+                                <folder name="prop-base"/>
+                                <folder name="props"/>
+                                <folder name="text-base"/>
+                            </folder>
+                            <file
+                                name="framework/shared/types/.svn/all-wcprops"/>
+                            <file
+                                name="framework/shared/types/.svn/entries"
+                            />
+                        </folder>
+                        <file name="framework/shared/types/date.rng"/>
+                        <file name="framework/shared/types/item.rng"/>
+                        <file name="framework/shared/types/length.rng"/>
+                        <file name="framework/shared/types/percent.rng"/>
+                        <file name="framework/shared/types/quantity.rng"/>
+                        <file name="framework/shared/types/ratio.rng"/>
+                        <file name="framework/shared/types/section.rng"/>
+                        <file
+                            name="framework/shared/types/selectMany.rng"/>
+                        <file
+                            name="framework/shared/types/selectOne.rng"/>
+                        <file name="framework/shared/types/size.rng"/>
+                        <file name="framework/shared/types/tally.rng"/>
+                        <file
+                            name="framework/shared/types/tally-alt.rng"/>
+                        <file
+                            name="framework/shared/types/tally-alt-1.rng"/>
+                        <file
+                            name="framework/shared/types/tally-original.rng"/>
+                        <file name="framework/shared/types/weight.rng"/>
+                    </folder>
+                    <file name="framework/shared/complexFrame.rng"/>
+                    <file name="framework/shared/ecc-namespaces.rng"/>
+                    <file name="framework/shared/functions.xsl"/>
+                    <file name="framework/shared/generic.rng"/>
+                    <file name="framework/shared/items.rng"/>
+                    <file name="framework/shared/items-alt.rng"/>
+                    <file name="framework/shared/items-old.rng"/>
+                    <file name="framework/shared/items-orig.rng"/>
+                    <file name="framework/shared/items-rev.rng"/>
+                    <file name="framework/shared/sections.rng"/>
+                    <file name="framework/shared/subset-rule.sch"/>
+                </folder>
+                <folder name="templates">
+                    <folder name=".svn">
+                        <folder name="prop-base"/>
+                        <folder name="props"/>
+                        <folder name="text-base">
+                            <file
+                                name="framework/templates/.svn/text-base/extensions.rng.svn-base"/>
+                            <file
+                                name="framework/templates/.svn/text-base/values.rng.svn-base"
+                            />
+                        </folder>
+                        <folder name="tmp">
+                            <folder name="prop-base"/>
+                            <folder name="props"/>
+                            <folder name="text-base"/>
+                        </folder>
+                        <file
+                            name="framework/templates/.svn/all-wcprops"/>
+                        <file name="framework/templates/.svn/entries"/>
+                    </folder>
+                    <file name="framework/templates/extensions.rng"/>
+                    <file name="framework/noSite.rng"/>
+                    <file name="framework/templates/values.rng"/>
+                </folder>
+                <file name="framework/example.xml"/>
+                <file name="framework/generic-resection.rng"/>
+                <file name="framework/noSite.rng"/>
+                <file name="framework/shared/sections.rng"/>
+                <file name="framework/values.rng"/>
+            </folder>
+            <folder name="lung">
+                <folder name=".svn">
+                    <folder name="prop-base"/>
+                    <folder name="props"/>
+                    <folder name="text-base">
+                        <file
+                            name="lung/.svn/text-base/example.xml.svn-base"/>
+                        <file
+                            name="lung/.svn/text-base/lung.rng.svn-base"/>
+                        <file
+                            name="lung/.svn/text-base/rules.sch.svn-base"/>
+                        <file
+                            name="lung/.svn/text-base/values.rng.svn-base"
+                        />
+                    </folder>
+                    <folder name="tmp">
+                        <folder name="prop-base"/>
+                        <folder name="props"/>
+                        <folder name="text-base"/>
+                    </folder>
+                    <file name="lung/.svn/all-wcprops"/>
+                    <file name="lung/.svn/entries"/>
+                </folder>
+                <file name="lung/example.xml"/>
+                <file name="lung/lung.rng"/>
+                <file name="lung/rules.sch"/>
+                <file name="lung/values.rng"/>
+            </folder>
+            <folder name="prostate">
+                <folder name=".svn">
+                    <folder name="prop-base"/>
+                    <folder name="props"/>
+                    <folder name="text-base">
+                        <file
+                            name="prostate/.svn/text-base/example.xml.svn-base"/>
+                        <file
+                            name="prostate/.svn/text-base/example1.xml.svn-base"/>
+                        <file
+                            name="prostate/.svn/text-base/example2.xml.svn-base"/>
+                        <file
+                            name="prostate/.svn/text-base/prostate.rng.svn-base"/>
+                        <file
+                            name="prostate/.svn/text-base/prostate.sch.svn-base"/>
+                        <file
+                            name="prostate/.svn/text-base/values.rng.svn-base"
+                        />
+                    </folder>
+                    <folder name="tmp">
+                        <folder name="prop-base"/>
+                        <folder name="props"/>
+                        <folder name="text-base"/>
+                    </folder>
+                    <file name="prostate/.svn/all-wcprops"/>
+                    <file name="prostate/.svn/entries"/>
+                </folder>
+                <file name="prostate/example.xml"/>
+                <file name="prostate/example1.xml"/>
+                <file name="prostate/example2.xml"/>
+                <file name="prostate/prostate.rng"/>
+                <file name="prostate/prostate.sch"/>
+                <file name="prostate/values.rng"/>
+            </folder>
+            <file name="Validation.xpr"/>
+        </folder>
+    </projectTree>
+</project>

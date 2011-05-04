@@ -1,0 +1,1779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<xhtml:html xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:exforms="http://www.exforms.org/exf/1-0"
+    xmlns:fr="http://orbeon.org/oxf/xml/form-runner" xmlns:saxon="http://saxon.sf.net/"
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sql="http://orbeon.org/oxf/xml/sql"
+    xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xxforms="http://orbeon.org/oxf/xml/xforms"
+    xmlns:xxi="http://orbeon.org/oxf/xml/xinclude">
+    <xhtml:head>
+        <xhtml:title>Donor Information</xhtml:title>
+        <xforms:model id="fr-form-model">
+            <xforms:instance id="fr-form-instance">
+                <form>
+                    <demographics>
+                        <donorID/>
+                        <bss/>
+                        <bssLocation-1/>
+                        <bssLocation-2/>
+                        <bssLocation-3/>
+                        <bssLocation-4/>
+                        <birthdate/>
+                        <control-57/>
+                        <sex>male</sex>
+                        <race/>
+                        <ethnicity/>
+                    </demographics>
+                    <consent>
+                        <consentDate/>
+                        <consentVersion/>
+                    </consent>
+                    <history>
+                        <informant/>
+                        <psychHospitalization/>
+                        <control-11/>
+                        <control-36 filename="separator.png" mediatype="image/png" size="948"
+                            >/fr/service/exist/crud/orbeon/builder/data/f0884179ebc5165eeb495152e580a666/b7c9615fa8a244b07fa75b4fe66f9529.png</control-36>
+                        <control-37 filename="separator.png" mediatype="image/png" size="948"
+                            >/fr/service/exist/crud/orbeon/builder/data/f0884179ebc5165eeb495152e580a666/8140c1de9184c77afc1588bc74a470ff.png</control-37>
+                        <control-27/>
+                        <control-28/>
+                        <diabetes/>
+                        <diabetesOnset/>
+                        <hypertension/>
+                        <control-19/>
+                        <cancer/>
+                        <control-20/>
+                        <cancerPrimarySite/>
+                        <metastaticCancer/>
+                        <control-26/>
+                        <dementia/>
+                        <control-21/>
+                        <parkinsons/>
+                        <control-22/>
+                        <schizophrenia/>
+                        <control-23/>
+                        <control-38 filename="separator.png" mediatype="image/png" size="948"
+                            >/fr/service/exist/crud/orbeon/builder/data/f0884179ebc5165eeb495152e580a666/5284696ff0ed385f9c5fb4f248b12563.png</control-38>
+                        <control-39 filename="separator.png" mediatype="image/png" size="948"
+                            >/fr/service/exist/crud/orbeon/builder/data/f0884179ebc5165eeb495152e580a666/9525c739218b169ffa47596e999964a2.png</control-39>
+                        <control-29/>
+                    </history>
+                    <livingSurgeryDonors>
+                        <donorType>no</donorType>
+                        <control-40/>
+                        <control-41/>
+                        <control-42/>
+                        <control-43/>
+                        <control-58/>
+                        <control-59/>
+                        <control-60/>
+                    </livingSurgeryDonors>
+                    <section-6>
+                        <control-44/>
+                        <control-45/>
+                    </section-6>
+                    <section-7>
+                        <control-46/>
+                        <control-47/>
+                        <control-51/>
+                        <control-55 filename="separator.png" mediatype="image/png" size="948"
+                            >/fr/service/exist/crud/orbeon/builder/data/f0884179ebc5165eeb495152e580a666/078a250ca12fa159808fc66d62ca2130.png</control-55>
+                        <control-56 filename="separator.png" mediatype="image/png" size="948"
+                            >/fr/service/exist/crud/orbeon/builder/data/f0884179ebc5165eeb495152e580a666/a8f95c302239c1adaf9f485e72d926ef.png</control-56>
+                        <control-48/>
+                        <control-52/>
+                        <preservationMethod>formalin-fixed</preservationMethod>
+                        <control-50/>
+                        <control-49/>
+                        <control-54/>
+                    </section-7>
+                </form>
+            </xforms:instance>
+            <xforms:bind id="fr-form-binds" nodeset="instance('fr-form-instance')">
+                <xforms:bind id="demographics-bind" name="demographics" nodeset="demographics">
+                    <xforms:bind id="donorID-bind" name="donorID" nodeset="donorID"/>
+                    <xforms:bind id="bss-bind" name="bss" nodeset="bss" type="xforms:string"/>
+                    <xforms:bind id="bssLocation-1-bind" name="bssLocation-1" nodeset="bssLocation-1"
+                        relevant="//bss eq &#34;bss-1&#34;" type="xforms:string"/>
+                    <xforms:bind id="bssLocation-2-bind" name="bssLocation-2" nodeset="bssLocation-2"
+                        relevant="//bss eq &#34;bss-2&#34;" required="true()" type="xs:string"/>
+                    <xforms:bind id="bssLocation-3-bind" name="bssLocation-3" nodeset="bssLocation-3"
+                        relevant="//bss eq &#34;bss-3&#34;" type="xforms:string"/>
+                    <xforms:bind id="bssLocation-4-bind" name="bssLocation-4" nodeset="bssLocation-4"
+                        relevant="//bss eq &#34;bss-4&#34;" type="xforms:string"/>
+                    <xforms:bind id="birthdate-bind" name="birthdate" nodeset="birthdate" type="xforms:date"/>
+                    <xforms:bind id="race-bind" name="race" nodeset="race" type="xforms:string"/>
+                    <xforms:bind id="ethnicity-bind" name="ethnicity" nodeset="ethnicity" type="xforms:string"/>
+                    <xforms:bind id="sex-bind" name="sex" nodeset="sex" type="xforms:string" xxforms:default="''"/>
+                    <xforms:bind id="control-57-bind" name="control-57" nodeset="control-57"/>
+                </xforms:bind>
+                <xforms:bind id="consent-bind" name="consent" nodeset="consent">
+                    <xforms:bind id="consentDate-bind" name="consentDate" nodeset="consentDate" type="xforms:date"/>
+                    <xforms:bind id="consentVersion-bind" name="consentVersion" nodeset="consentVersion"/>
+                </xforms:bind>
+                <xforms:bind id="history-bind" name="history" nodeset="history">
+                    <xforms:bind id="informant-bind" name="informant" nodeset="informant"/>
+                    <xforms:bind id="psychHospitalization-bind" name="psychHospitalization"
+                        nodeset="psychHospitalization" type="xforms:token"/>
+                    <xforms:bind id="control-11-bind" name="control-11" nodeset="control-11"
+                        relevant="//psychHospitalization eq &#34;yes&#34;" type="xforms:string"/>
+                    <xforms:bind id="diabetes-bind" name="diabetes" nodeset="diabetes"/>
+                    <xforms:bind id="diabetesOnset-bind" name="diabetesOnset" nodeset="diabetesOnset"
+                        relevant="//diabetes eq &#34;true&#34;" type="xforms:date"/>
+                    <xforms:bind id="hypertension-bind" name="hypertension" nodeset="hypertension"/>
+                    <xforms:bind id="cancer-bind" name="cancer" nodeset="cancer"/>
+                    <xforms:bind id="dementia-bind" name="dementia" nodeset="dementia"/>
+                    <xforms:bind id="parkinsons-bind" name="parkinsons" nodeset="parkinsons"/>
+                    <xforms:bind id="schizophrenia-bind" name="schizophrenia" nodeset="schizophrenia"/>
+                    <xforms:bind id="control-19-bind" name="control-19" nodeset="control-19"
+                        relevant="//hypertension eq &#34;true&#34;" type="xforms:date"/>
+                    <xforms:bind id="control-20-bind" name="control-20" nodeset="control-20"
+                        relevant="//cancer eq &#34;true&#34;" type="xforms:date"/>
+                    <xforms:bind id="control-21-bind" name="control-21" nodeset="control-21"
+                        relevant="//dementia eq &#34;true&#34;" type="xforms:date"/>
+                    <xforms:bind id="control-22-bind" name="control-22" nodeset="control-22"
+                        relevant="//parkinsons eq &#34;true&#34;" type="xforms:date"/>
+                    <xforms:bind id="control-23-bind" name="control-23" nodeset="control-23"
+                        relevant="//schizophrenia eq &#34;true&#34;" type="xforms:date"/>
+                    <xforms:bind id="control-27-bind" name="control-27" nodeset="control-27"/>
+                    <xforms:bind constraint=". eq &#34;&#34;" id="control-28-bind" name="control-28"
+                        nodeset="control-28"
+                        relevant="contains(concat(//diabetes,//hypertension,//cancer,//dementia,//parkinsons,//schizophrenia),'true')"
+                        type="xforms:string"/>
+                    <xforms:bind id="cancerPrimarySite-bind" name="cancerPrimarySite" nodeset="cancerPrimarySite"
+                        relevant="//cancer eq &#34;true&#34;" type="xforms:string"/>
+                    <xforms:bind id="metastaticCancer-bind" name="metastaticCancer" nodeset="metastaticCancer"
+                        relevant="//cancer eq &#34;true&#34;" type="xforms:string"/>
+                    <xforms:bind id="control-26-bind" name="control-26" nodeset="control-26"
+                        relevant="//metastaticCancer eq &#34;yes&#34;" type="xforms:string"/>
+                    <xforms:bind id="control-29-bind" name="control-29" nodeset="control-29"/>
+                    <xforms:bind id="control-36-bind" name="control-36" nodeset="control-36" type="xforms:anyURI"/>
+                    <xforms:bind id="control-37-bind" name="control-36" nodeset="control-37"
+                        relevant="contains(concat(//diabetes,//hypertension,//cancer,//dementia,//parkinsons,//schizophrenia),'true')"
+                        type="xforms:anyURI"/>
+                    <xforms:bind id="control-38-bind" name="control-36" nodeset="control-38" type="xforms:anyURI"/>
+                    <xforms:bind id="control-39-bind" name="control-36" nodeset="control-39"
+                        relevant="contains(concat(//diabetes,//hypertension,//cancer,//dementia,//parkinsons,//schizophrenia),'true')"
+                        type="xforms:anyURI"/>
+                </xforms:bind>
+                <xforms:bind id="livingSurgeryDonors-bind" name="livingSurgeryDonors" nodeset="livingSurgeryDonors">
+                    <xforms:bind id="donorType-bind" name="donorType" nodeset="donorType"/>
+                    <xforms:bind id="control-40-bind" name="control-40" nodeset="control-40"
+                        relevant="//donorType eq 'livingSurgical'" type="xforms:string"/>
+                    <xforms:bind id="control-41-bind" name="control-40" nodeset="control-41"
+                        relevant="//donorType eq 'livingSurgical'" type="xforms:string"/>
+                    <xforms:bind id="control-42-bind" name="control-42" nodeset="control-42"
+                        relevant="//donorType eq 'livingSurgical'" type="xforms:string"/>
+                    <xforms:bind id="control-43-bind" name="control-42" nodeset="control-43"
+                        relevant="//donorType eq 'livingSurgical'" type="xforms:string"/>
+                    <xforms:bind id="control-58-bind" name="control-58" nodeset="control-58"
+                        relevant="//donorType eq 'autopsy'" type="xforms:string"/>
+                    <xforms:bind id="control-59-bind" name="control-59" nodeset="control-59"
+                        relevant="//donorType eq 'autopsy'" type="xforms:dateTime"/>
+                    <xforms:bind id="control-60-bind" name="control-60" nodeset="control-60"
+                        relevant="//donorType eq 'autopsy'" type="xforms:dateTime"/>
+                </xforms:bind>
+                <xforms:bind id="section-6-bind" nodeset="section-6">
+                    <xforms:bind id="control-44-bind" name="control-44" nodeset="control-44" type="xforms:dateTime"/>
+                    <xforms:bind id="control-45-bind" name="control-45" nodeset="control-45" type="xforms:dateTime"/>
+                </xforms:bind>
+                <xforms:bind id="section-7-bind" nodeset="section-7">
+                    <xforms:bind id="control-46-bind" name="control-46" nodeset="control-46"/>
+                    <xforms:bind id="control-47-bind" name="control-47" nodeset="control-47"/>
+                    <xforms:bind id="control-48-bind" name="control-48" nodeset="control-48"/>
+                    <xforms:bind id="control-51-bind" name="control-51" nodeset="control-51"/>
+                    <xforms:bind id="control-49-bind" name="control-49" nodeset="control-49"/>
+                    <xforms:bind id="control-52-bind" name="control-52" nodeset="control-52" type="xforms:dateTime"/>
+                    <xforms:bind id="control-54-bind" name="control-54" nodeset="control-54"
+                        relevant="//preservationMethod eq 'other'" type="xforms:string"/>
+                    <xforms:bind id="control-50-bind" name="control-50" nodeset="control-50"/>
+                    <xforms:bind id="preservationMethod-bind" name="preservationMethod" nodeset="preservationMethod"
+                        type="xforms:string" xxforms:default="''"/>
+                    <xforms:bind id="control-55-bind" name="control-55" nodeset="control-55" type="xforms:anyURI"/>
+                    <xforms:bind id="control-56-bind" name="control-56" nodeset="control-56" type="xforms:anyURI"/>
+                </xforms:bind>
+            </xforms:bind>
+            <xforms:instance id="fr-form-metadata" xxforms:readonly="true">
+                <metadata>
+                    <application-name>GTEx</application-name>
+                    <form-name>donor</form-name>
+                    <title xml:lang="en">Donor Information</title>
+                    <description xml:lang="en">GTEx Case Report Form (draft 8-28-10)</description>
+                    <author/>
+                    <logo filename="logo_caHUB.jpg" mediatype="image/jpeg" size="20283"
+                        >/fr/service/exist/crud/orbeon/builder/data/f0884179ebc5165eeb495152e580a666/9bff66a460dc5e4859601093d8d53693.jpg</logo>
+                </metadata>
+            </xforms:instance>
+            <xforms:instance id="fr-form-attachments">
+                <attachments>
+                    <css filename="" mediatype="text/css" size=""/>
+                    <pdf filename="" mediatype="application/pdf" size=""/>
+                </attachments>
+            </xforms:instance>
+            <xforms:instance id="fr-form-resources" xxforms:readonly="false">
+                <resources>
+                    <resource xml:lang="en">
+                        <control-46>
+                            <label>Collection Protocol Version</label>
+                            <hint>Need to decide on a format...</hint>
+                            <help/>
+                            <alert/>
+                        </control-46>
+                        <control-47>
+                            <label>Collection Kit Version</label>
+                            <hint>Need to decide on a format...</hint>
+                            <help/>
+                            <alert/>
+                        </control-47>
+                        <control-51>
+                            <label>This part of form needs elaboration...accommodate multiple vials?</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-51>
+                        <control-55>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-55>
+                        <control-56>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-56>
+                        <control-48>
+                            <label>Tissue Vial Number</label>
+                            <hint>Need to decide on a format...</hint>
+                            <help/>
+                            <alert/>
+                        </control-48>
+                        <control-52>
+                            <label>Date/Time of Preservation</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-52>
+                        <preservationMethod>
+                            <label>Preservation Method</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>Flash frozen</label>
+                                <value>flash-frozen</value>
+                            </item>
+                            <item>
+                                <label>Formalin fixed</label>
+                                <value>formalin-fixed</value>
+                            </item>
+                            <item>
+                                <label>Media</label>
+                                <value>media</value>
+                            </item>
+                            <item>
+                                <label>Other</label>
+                                <value>other</value>
+                            </item>
+                        </preservationMethod>
+                        <control-50>
+                            <label>Tissue Organ Site(s)</label>
+                            <hint>Need to create a list here...</hint>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>Brain</label>
+                                <value>brain</value>
+                            </item>
+                            <item>
+                                <label>Lung</label>
+                                <value>lung</value>
+                            </item>
+                            <item>
+                                <label>Heart</label>
+                                <value>heart</value>
+                            </item>
+                            <item>
+                                <label>Aorta</label>
+                                <value>aorta</value>
+                            </item>
+                            <item>
+                                <label>Diaphragm</label>
+                                <value>diaphragm</value>
+                            </item>
+                            <item>
+                                <label>Stomach</label>
+                                <value>stomach</value>
+                            </item>
+                            <item>
+                                <label>Esophagus</label>
+                                <value>esophagus</value>
+                            </item>
+                            <item>
+                                <label>Liver</label>
+                                <value>liver</value>
+                            </item>
+                            <item>
+                                <label>Spleen</label>
+                                <value>spleen</value>
+                            </item>
+                            <item>
+                                <label>Pancreas</label>
+                                <value>pancreas</value>
+                            </item>
+                            <item>
+                                <label>Small bowel</label>
+                                <value>small-bowel</value>
+                            </item>
+                            <item>
+                                <label>Large bowel</label>
+                                <value>large-bowel</value>
+                            </item>
+                            <item>
+                                <label>Kidney</label>
+                                <value>kidney</value>
+                            </item>
+                            <item>
+                                <label>Bladder</label>
+                                <value>bladder</value>
+                            </item>
+                            <item>
+                                <label>Prostate</label>
+                                <value>prostate</value>
+                            </item>
+                            <item>
+                                <label>Uterus</label>
+                                <value>uterus</value>
+                            </item>
+                        </control-50>
+                        <control-49>
+                            <label>Tissue Vial Type</label>
+                            <hint>Need to decide on a format...</hint>
+                            <help/>
+                            <alert/>
+                        </control-49>
+                        <control-54>
+                            <label>Specify preservation method</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-54>
+                        <control-44>
+                            <label>Start Date &amp; Time</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-44>
+                        <control-45>
+                            <label>End date &amp; Time</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-45>
+                        <donorType>
+                            <label>Donor Type</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>Living Surgical Donor</label>
+                                <value>livingSurgical</value>
+                            </item>
+                            <item>
+                                <label>Autopsy Donor</label>
+                                <value>autopsy</value>
+                            </item>
+                        </donorType>
+                        <control-40>
+                            <label>Preoperative Diagnosis</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-40>
+                        <control-41>
+                            <label>Postoperative Diagnosis</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-41>
+                        <control-42>
+                            <label>Operative Medications</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-42>
+                        <control-43>
+                            <label>Operative Complications</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-43>
+                        <control-58>
+                            <label>Death certification available?</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>Yes</label>
+                                <value>yes</value>
+                            </item>
+                            <item>
+                                <label>No</label>
+                                <value>no</value>
+                            </item>
+                        </control-58>
+                        <control-59>
+                            <label>Date &amp; time pronounced dead</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-59>
+                        <control-60>
+                            <label>Date &amp; time of actual/presumed death</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-60>
+                        <informant>
+                            <label>Informant's Relation to Donor</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>Self</label>
+                                <value>self</value>
+                            </item>
+                            <item>
+                                <label>Spouse</label>
+                                <value>spouse</value>
+                            </item>
+                            <item>
+                                <label>Parent</label>
+                                <value>parent</value>
+                            </item>
+                            <item>
+                                <label>Child</label>
+                                <value>child</value>
+                            </item>
+                            <item>
+                                <label>Sibling</label>
+                                <value>sibling</value>
+                            </item>
+                        </informant>
+                        <psychHospitalization>
+                            <label>Psychiatric Hospitalization in past 2 years?</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>Yes</label>
+                                <value>yes</value>
+                            </item>
+                            <item>
+                                <label>No</label>
+                                <value>no</value>
+                            </item>
+                            <item>
+                                <label>Unknown</label>
+                                <value>unknown</value>
+                            </item>
+                        </psychHospitalization>
+                        <control-11>
+                            <label>Reason for Hospitalization</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-11>
+                        <control-36>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-36>
+                        <control-37>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-37>
+                        <control-27>
+                            <label>History of:</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-27>
+                        <control-28>
+                            <label>Approximate Onset Date:</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-28>
+                        <diabetes>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>Diabetes</label>
+                                <value>true</value>
+                            </item>
+                        </diabetes>
+                        <diabetesOnset>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </diabetesOnset>
+                        <hypertension>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>Hypertension</label>
+                                <value>true</value>
+                            </item>
+                        </hypertension>
+                        <control-19>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-19>
+                        <cancer>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>Cancer</label>
+                                <value>true</value>
+                            </item>
+                        </cancer>
+                        <control-20>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-20>
+                        <cancerPrimarySite>
+                            <label>Cancer primary site(s):</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </cancerPrimarySite>
+                        <metastaticCancer>
+                            <label>Metastatic cancer?</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>Yes</label>
+                                <value>yes</value>
+                            </item>
+                            <item>
+                                <label>No</label>
+                                <value>no</value>
+                            </item>
+                            <item>
+                                <label>Unknown</label>
+                                <value>unknown</value>
+                            </item>
+                        </metastaticCancer>
+                        <control-26>
+                            <label>Describe extent of metastatic disease:</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-26>
+                        <dementia>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>Alzheimer's/dementia</label>
+                                <value>true</value>
+                            </item>
+                        </dementia>
+                        <control-21>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-21>
+                        <parkinsons>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>Parkinson's</label>
+                                <value>true</value>
+                            </item>
+                        </parkinsons>
+                        <control-22>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-22>
+                        <schizophrenia>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>Schizophrenia</label>
+                                <value>true</value>
+                            </item>
+                        </schizophrenia>
+                        <control-23>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-23>
+                        <control-38>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-38>
+                        <control-39>
+                            <label/>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-39>
+                        <control-29>
+                            <label>Current medications</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-29>
+                        <consentDate>
+                            <label>Date of Consent</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </consentDate>
+                        <consentVersion>
+                            <label>Version of Consent Form</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </consentVersion>
+                        <demographics>
+                            <label>Demographics</label>
+                            <help/>
+                        </demographics>
+                        <donorID>
+                            <label>Donor ID</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </donorID>
+                        <bss>
+                            <label>Biospecimen Source Site</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>BSS 1</label>
+                                <value>bss-1</value>
+                            </item>
+                            <item>
+                                <label>BSS 2</label>
+                                <value>bss-2</value>
+                            </item>
+                            <item>
+                                <label>BSS 3</label>
+                                <value>bss-3</value>
+                            </item>
+                            <item>
+                                <label>BSS 4</label>
+                                <value>bss-4</value>
+                            </item>
+                        </bss>
+                        <bssLocation-1>
+                            <label>Location in BSS 1</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>OPO 1A</label>
+                                <value>bss-1-opo-a</value>
+                            </item>
+                            <item>
+                                <label>OPO 1B</label>
+                                <value>bss-1-opo-b</value>
+                            </item>
+                            <item>
+                                <label>Hospital 1A</label>
+                                <value>bss-1-hospital-a</value>
+                            </item>
+                            <item>
+                                <label>Hospital 1B</label>
+                                <value>bss-2-hospital-b</value>
+                            </item>
+                        </bssLocation-1>
+                        <bssLocation-2>
+                            <label>Location in BSS 2</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>OPO A</label>
+                                <value>bss-1-opo-a</value>
+                            </item>
+                            <item>
+                                <label>OPO B</label>
+                                <value>bss-1-opo-b</value>
+                            </item>
+                            <item>
+                                <label>Hospital A</label>
+                                <value>bss-1-hospital-a</value>
+                            </item>
+                            <item>
+                                <label>Hospital B</label>
+                                <value>bss-2-hospital-b</value>
+                            </item>
+                        </bssLocation-2>
+                        <bssLocation-3>
+                            <label>Location in BSS 3</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>OPO A</label>
+                                <value>bss-1-opo-a</value>
+                            </item>
+                            <item>
+                                <label>OPO B</label>
+                                <value>bss-1-opo-b</value>
+                            </item>
+                            <item>
+                                <label>Hospital A</label>
+                                <value>bss-1-hospital-a</value>
+                            </item>
+                            <item>
+                                <label>Hospital B</label>
+                                <value>bss-2-hospital-b</value>
+                            </item>
+                        </bssLocation-3>
+                        <bssLocation-4>
+                            <label>Location in BSS 4</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>OPO A</label>
+                                <value>bss-1-opo-a</value>
+                            </item>
+                            <item>
+                                <label>OPO B</label>
+                                <value>bss-1-opo-b</value>
+                            </item>
+                            <item>
+                                <label>Hospital A</label>
+                                <value>bss-1-hospital-a</value>
+                            </item>
+                            <item>
+                                <label>Hospital B</label>
+                                <value>bss-2-hospital-b</value>
+                            </item>
+                        </bssLocation-4>
+                        <birthdate>
+                            <label>Date of Birth</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </birthdate>
+                        <control-57>
+                            <label>Age</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                        </control-57>
+                        <sex>
+                            <label>Sex</label>
+                            <hint/>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>Male</label>
+                                <value>male</value>
+                            </item>
+                            <item>
+                                <label>Female</label>
+                                <value>female</value>
+                            </item>
+                            <item>
+                                <label>Unknown</label>
+                                <value>unknown</value>
+                            </item>
+                        </sex>
+                        <race>
+                            <label>Race</label>
+                            <hint>What are the choices here?</hint>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>White</label>
+                                <value>white</value>
+                            </item>
+                            <item>
+                                <label>African-American</label>
+                                <value>african-american</value>
+                            </item>
+                            <item>
+                                <label>Asian</label>
+                                <value>asian</value>
+                            </item>
+                            <item>
+                                <label>Native American</label>
+                                <value>native-american</value>
+                            </item>
+                            <item>
+                                <label>Pacific Islander</label>
+                                <value>pacific-islander</value>
+                            </item>
+                        </race>
+                        <ethnicity>
+                            <label>Ethnicity</label>
+                            <hint>What are the choices supposed to be here?</hint>
+                            <help/>
+                            <alert/>
+                            <item>
+                                <label>White European</label>
+                                <value>white-european</value>
+                            </item>
+                            <item>
+                                <label>African</label>
+                                <value>african</value>
+                            </item>
+                            <item>
+                                <label>Asian</label>
+                                <value>asian</value>
+                            </item>
+                        </ethnicity>
+                        <consent>
+                            <label>Consent</label>
+                            <help/>
+                        </consent>
+                        <history>
+                            <label>Medical History</label>
+                            <help/>
+                        </history>
+                        <livingSurgeryDonors>
+                            <label>Donor</label>
+                            <help/>
+                        </livingSurgeryDonors>
+                        <section-6>
+                            <label>Tissue Procurement</label>
+                            <help/>
+                        </section-6>
+                        <section-7>
+                            <label>Tissue Aliquot</label>
+                            <help/>
+                        </section-7>
+                    </resource>
+                </resources>
+            </xforms:instance>
+            <xforms:instance id="fr-service-request-instance" xxforms:exclude-result-prefixes="#all">
+                <request/>
+            </xforms:instance>
+            <xforms:instance id="fr-service-response-instance" xxforms:exclude-result-prefixes="#all">
+                <response/>
+            </xforms:instance>
+        </xforms:model>
+    </xhtml:head>
+    <xhtml:body>
+        <fr:view>
+            <xforms:label ref="instance('fr-form-metadata')/title"/>
+            <fr:body>
+                <fr:section bind="demographics-bind" id="demographics-section">
+                    <xforms:label ref="$form-resources/demographics/label"/>
+                    <xforms:help ref="$form-resources/demographics/help"/>
+                    <fr:grid columns="4">
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:input bind="donorID-bind" id="donorID-control">
+                                    <xforms:label ref="$form-resources/donorID/label"/>
+                                    <xforms:hint ref="$form-resources/donorID/hint"/>
+                                    <xforms:help ref="$form-resources/donorID/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td rowspan="1">
+                                <xforms:select1 appearance="minimal" bind="bss-bind" id="bss-control">
+                                    <xforms:label ref="$form-resources/bss/label"/>
+                                    <xforms:hint ref="$form-resources/bss/hint"/>
+                                    <xforms:help ref="$form-resources/bss/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:item>
+                                        <xforms:label>[Select...]</xforms:label>
+                                        <xforms:value/>
+                                    </xforms:item>
+                                    <xforms:itemset nodeset="$form-resources/bss/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select1>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select1 appearance="minimal" bind="bssLocation-1-bind"
+                                    id="bssLocation-1-control">
+                                    <xforms:label ref="$form-resources/bssLocation-1/label"/>
+                                    <xforms:hint ref="$form-resources/bssLocation-1/hint"/>
+                                    <xforms:help ref="$form-resources/bssLocation-1/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:item>
+                                        <xforms:label>[Select...]</xforms:label>
+                                        <xforms:value/>
+                                    </xforms:item>
+                                    <xforms:itemset nodeset="$form-resources/bssLocation-1/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select1>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select1 appearance="minimal" bind="bssLocation-2-bind"
+                                    id="bssLocation-2-control">
+                                    <xforms:label ref="$form-resources/bssLocation-2/label"/>
+                                    <xforms:hint ref="$form-resources/bssLocation-2/hint"/>
+                                    <xforms:help ref="$form-resources/bssLocation-2/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:item>
+                                        <xforms:label>[Select...]</xforms:label>
+                                        <xforms:value/>
+                                    </xforms:item>
+                                    <xforms:itemset nodeset="$form-resources/bssLocation-2/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select1>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select1 appearance="minimal" bind="bssLocation-3-bind"
+                                    id="bssLocation-3-control">
+                                    <xforms:label ref="$form-resources/bssLocation-3/label"/>
+                                    <xforms:hint ref="$form-resources/bssLocation-3/hint"/>
+                                    <xforms:help ref="$form-resources/bssLocation-3/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:item>
+                                        <xforms:label>[Select...]</xforms:label>
+                                        <xforms:value/>
+                                    </xforms:item>
+                                    <xforms:itemset nodeset="$form-resources/bssLocation-3/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select1>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select1 appearance="minimal" bind="bssLocation-4-bind"
+                                    id="bssLocation-4-control">
+                                    <xforms:label ref="$form-resources/bssLocation-4/label"/>
+                                    <xforms:hint ref="$form-resources/bssLocation-4/hint"/>
+                                    <xforms:help ref="$form-resources/bssLocation-4/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:item>
+                                        <xforms:label>[Select...]</xforms:label>
+                                        <xforms:value/>
+                                    </xforms:item>
+                                    <xforms:itemset nodeset="$form-resources/bssLocation-4/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select1>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:input bind="birthdate-bind" id="birthdate-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/birthdate/label"/>
+                                    <xforms:hint ref="$form-resources/birthdate/hint"/>
+                                    <xforms:help ref="$form-resources/birthdate/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:input bind="control-57-bind" id="control-57-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-57/label"/>
+                                    <xforms:hint ref="$form-resources/control-57/hint"/>
+                                    <xforms:help ref="$form-resources/control-57/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td> </xhtml:td>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select1 appearance="full" bind="sex-bind" id="sex-control">
+                                    <xforms:label ref="$form-resources/sex/label"/>
+                                    <xforms:hint ref="$form-resources/sex/hint"/>
+                                    <xforms:help ref="$form-resources/sex/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/sex/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select1>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select appearance="full" bind="race-bind" id="race-control">
+                                    <xforms:label ref="$form-resources/race/label"/>
+                                    <xforms:hint ref="$form-resources/race/hint"/>
+                                    <xforms:help ref="$form-resources/race/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/race/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:select1 appearance="compact" bind="ethnicity-bind" id="ethnicity-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/ethnicity/label"/>
+                                    <xforms:hint ref="$form-resources/ethnicity/hint"/>
+                                    <xforms:help ref="$form-resources/ethnicity/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/ethnicity/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select1>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                    </fr:grid>
+                </fr:section>
+                <fr:section bind="consent-bind" id="consent-section">
+                    <xforms:label ref="$form-resources/consent/label"/>
+                    <xforms:help ref="$form-resources/consent/help"/>
+                    <fr:grid columns="4">
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:input bind="consentDate-bind" id="consentDate-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/consentDate/label"/>
+                                    <xforms:hint ref="$form-resources/consentDate/hint"/>
+                                    <xforms:help ref="$form-resources/consentDate/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:input bind="consentVersion-bind" id="consentVersion-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/consentVersion/label"/>
+                                    <xforms:hint ref="$form-resources/consentVersion/hint"/>
+                                    <xforms:help ref="$form-resources/consentVersion/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                    </fr:grid>
+                </fr:section>
+                <fr:section bind="history-bind" id="history-section">
+                    <xforms:label ref="$form-resources/history/label"/>
+                    <xforms:help ref="$form-resources/history/help"/>
+                    <fr:grid columns="4">
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select1 appearance="full" bind="informant-bind" id="informant-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/informant/label"/>
+                                    <xforms:hint ref="$form-resources/informant/hint"/>
+                                    <xforms:help ref="$form-resources/informant/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/informant/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select1>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:select1 appearance="full" bind="psychHospitalization-bind"
+                                    id="psychHospitalization-control" xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/psychHospitalization/label"/>
+                                    <xforms:hint ref="$form-resources/psychHospitalization/hint"/>
+                                    <xforms:help ref="$form-resources/psychHospitalization/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/psychHospitalization/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select1>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:textarea bind="control-11-bind" id="control-11-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-11/label"/>
+                                    <xforms:hint ref="$form-resources/control-11/hint"/>
+                                    <xforms:help ref="$form-resources/control-11/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:textarea>
+                            </xhtml:td>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:output bind="control-36-bind" class="fr-attachment" id="control-36-control"
+                                    mediatype="image/*" xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-36/label"/>
+                                    <xforms:help ref="$form-resources/control-36/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:output>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:output bind="control-37-bind" class="fr-attachment" id="control-37-control"
+                                    mediatype="image/*">
+                                    <xforms:label ref="$form-resources/control-37/label"/>
+                                    <xforms:help ref="$form-resources/control-37/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:output>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:output bind="control-27-bind" id="control-27-control">
+                                    <xforms:label ref="$form-resources/control-27/label"/>
+                                    <xforms:help ref="$form-resources/control-27/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:output>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:output bind="control-28-bind" id="control-28-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-28/label"/>
+                                    <xforms:help ref="$form-resources/control-28/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:output>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select appearance="full" bind="diabetes-bind" id="diabetes-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/diabetes/label"/>
+                                    <xforms:hint ref="$form-resources/diabetes/hint"/>
+                                    <xforms:help ref="$form-resources/diabetes/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/diabetes/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:input bind="diabetesOnset-bind" id="diabetesOnset-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/diabetesOnset/label"/>
+                                    <xforms:hint ref="$form-resources/diabetesOnset/hint"/>
+                                    <xforms:help ref="$form-resources/diabetesOnset/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select appearance="full" bind="hypertension-bind" id="hypertension-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/hypertension/label"/>
+                                    <xforms:hint ref="$form-resources/hypertension/hint"/>
+                                    <xforms:help ref="$form-resources/hypertension/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/hypertension/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:input bind="control-19-bind" id="control-19-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-19/label"/>
+                                    <xforms:hint ref="$form-resources/control-19/hint"/>
+                                    <xforms:help ref="$form-resources/control-19/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select appearance="full" bind="cancer-bind" id="cancer-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/cancer/label"/>
+                                    <xforms:hint ref="$form-resources/cancer/hint"/>
+                                    <xforms:help ref="$form-resources/cancer/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/cancer/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:input bind="control-20-bind" id="control-20-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-20/label"/>
+                                    <xforms:hint ref="$form-resources/control-20/hint"/>
+                                    <xforms:help ref="$form-resources/control-20/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:textarea bind="cancerPrimarySite-bind" id="cancerPrimarySite-control">
+                                    <xforms:label ref="$form-resources/cancerPrimarySite/label"/>
+                                    <xforms:hint ref="$form-resources/cancerPrimarySite/hint"/>
+                                    <xforms:help ref="$form-resources/cancerPrimarySite/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:textarea>
+                            </xhtml:td>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td/>
+                            <xhtml:td>
+                                <xforms:select1 appearance="full" bind="metastaticCancer-bind"
+                                    id="metastaticCancer-control">
+                                    <xforms:label ref="$form-resources/metastaticCancer/label"/>
+                                    <xforms:hint ref="$form-resources/metastaticCancer/hint"/>
+                                    <xforms:help ref="$form-resources/metastaticCancer/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/metastaticCancer/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select1>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:textarea bind="control-26-bind" id="control-26-control">
+                                    <xforms:label ref="$form-resources/control-26/label"/>
+                                    <xforms:hint ref="$form-resources/control-26/hint"/>
+                                    <xforms:help ref="$form-resources/control-26/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:textarea>
+                            </xhtml:td>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select appearance="full" bind="dementia-bind" id="dementia-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/dementia/label"/>
+                                    <xforms:hint ref="$form-resources/dementia/hint"/>
+                                    <xforms:help ref="$form-resources/dementia/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/dementia/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:input bind="control-21-bind" id="control-21-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-21/label"/>
+                                    <xforms:hint ref="$form-resources/control-21/hint"/>
+                                    <xforms:help ref="$form-resources/control-21/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select appearance="full" bind="parkinsons-bind" id="parkinsons-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/parkinsons/label"/>
+                                    <xforms:hint ref="$form-resources/parkinsons/hint"/>
+                                    <xforms:help ref="$form-resources/parkinsons/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/parkinsons/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:input bind="control-22-bind" id="control-22-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-22/label"/>
+                                    <xforms:hint ref="$form-resources/control-22/hint"/>
+                                    <xforms:help ref="$form-resources/control-22/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select appearance="full" bind="schizophrenia-bind" id="schizophrenia-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/schizophrenia/label"/>
+                                    <xforms:hint ref="$form-resources/schizophrenia/hint"/>
+                                    <xforms:help ref="$form-resources/schizophrenia/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/schizophrenia/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:input bind="control-23-bind" id="control-23-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-23/label"/>
+                                    <xforms:hint ref="$form-resources/control-23/hint"/>
+                                    <xforms:help ref="$form-resources/control-23/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:output bind="control-38-bind" class="fr-attachment" id="control-38-control"
+                                    mediatype="image/*">
+                                    <xforms:label ref="$form-resources/control-38/label"/>
+                                    <xforms:help ref="$form-resources/control-38/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:output>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:output bind="control-39-bind" class="fr-attachment" id="control-39-control"
+                                    mediatype="image/*">
+                                    <xforms:label ref="$form-resources/control-39/label"/>
+                                    <xforms:help ref="$form-resources/control-39/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:output>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:textarea bind="control-29-bind" id="control-29-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-29/label"/>
+                                    <xforms:hint ref="$form-resources/control-29/hint"/>
+                                    <xforms:help ref="$form-resources/control-29/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:textarea>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                    </fr:grid>
+                </fr:section>
+                <fr:section bind="livingSurgeryDonors-bind" id="livingSurgeryDonors-section">
+                    <xforms:label ref="$form-resources/livingSurgeryDonors/label"/>
+                    <xforms:help ref="$form-resources/livingSurgeryDonors/help"/>
+                    <fr:grid columns="4">
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select1 appearance="full" bind="donorType-bind" id="donorType-control">
+                                    <xforms:label ref="$form-resources/donorType/label"/>
+                                    <xforms:hint ref="$form-resources/donorType/hint"/>
+                                    <xforms:help ref="$form-resources/donorType/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/donorType/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select1>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:input bind="control-40-bind" id="control-40-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-40/label"/>
+                                    <xforms:hint ref="$form-resources/control-40/hint"/>
+                                    <xforms:help ref="$form-resources/control-40/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:input bind="control-41-bind" id="control-41-control">
+                                    <xforms:label ref="$form-resources/control-41/label"/>
+                                    <xforms:hint ref="$form-resources/control-41/hint"/>
+                                    <xforms:help ref="$form-resources/control-41/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:textarea bind="control-42-bind" id="control-42-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-42/label"/>
+                                    <xforms:hint ref="$form-resources/control-42/hint"/>
+                                    <xforms:help ref="$form-resources/control-42/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:textarea>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:textarea bind="control-43-bind" id="control-43-control">
+                                    <xforms:label ref="$form-resources/control-43/label"/>
+                                    <xforms:hint ref="$form-resources/control-43/hint"/>
+                                    <xforms:help ref="$form-resources/control-43/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:textarea>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:select1 appearance="full" bind="control-58-bind" id="control-58-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-58/label"/>
+                                    <xforms:hint ref="$form-resources/control-58/hint"/>
+                                    <xforms:help ref="$form-resources/control-58/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/control-58/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select1>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:input bind="control-59-bind" id="control-59-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-59/label"/>
+                                    <xforms:hint ref="$form-resources/control-59/hint"/>
+                                    <xforms:help ref="$form-resources/control-59/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:input bind="control-60-bind" id="control-60-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-60/label"/>
+                                    <xforms:hint ref="$form-resources/control-60/hint"/>
+                                    <xforms:help ref="$form-resources/control-60/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                    </fr:grid>
+                </fr:section>
+                <fr:section bind="section-6-bind" id="section-6-section">
+                    <xforms:label ref="$form-resources/section-6/label"/>
+                    <xforms:help ref="$form-resources/section-6/help"/>
+                    <fr:grid columns="4">
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:input bind="control-44-bind" id="control-44-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-44/label"/>
+                                    <xforms:hint ref="$form-resources/control-44/hint"/>
+                                    <xforms:help ref="$form-resources/control-44/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:input bind="control-45-bind" id="control-45-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-45/label"/>
+                                    <xforms:hint ref="$form-resources/control-45/hint"/>
+                                    <xforms:help ref="$form-resources/control-45/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                    </fr:grid>
+                </fr:section>
+                <fr:section bind="section-7-bind" id="section-7-section">
+                    <xforms:label ref="$form-resources/section-7/label"/>
+                    <xforms:help ref="$form-resources/section-7/help"/>
+                    <fr:grid columns="4">
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:input bind="control-46-bind" id="control-46-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-46/label"/>
+                                    <xforms:hint ref="$form-resources/control-46/hint"/>
+                                    <xforms:help ref="$form-resources/control-46/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:input bind="control-47-bind" id="control-47-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-47/label"/>
+                                    <xforms:hint ref="$form-resources/control-47/hint"/>
+                                    <xforms:help ref="$form-resources/control-47/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td>
+                                <xforms:output bind="control-51-bind" id="control-51-control">
+                                    <xforms:label ref="$form-resources/control-51/label"/>
+                                    <xforms:help ref="$form-resources/control-51/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:output>
+                            </xhtml:td>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:output bind="control-55-bind" class="fr-attachment" id="control-55-control"
+                                    mediatype="image/*" xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-55/label"/>
+                                    <xforms:help ref="$form-resources/control-55/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:output>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:output bind="control-56-bind" class="fr-attachment" id="control-56-control"
+                                    mediatype="image/*" xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-56/label"/>
+                                    <xforms:help ref="$form-resources/control-56/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:output>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:input bind="control-48-bind" id="control-48-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-48/label"/>
+                                    <xforms:hint ref="$form-resources/control-48/hint"/>
+                                    <xforms:help ref="$form-resources/control-48/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td rowspan="1">
+                                <xforms:input bind="control-52-bind" id="control-52-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-52/label"/>
+                                    <xforms:hint ref="$form-resources/control-52/hint"/>
+                                    <xforms:help ref="$form-resources/control-52/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td rowspan="1">
+                                <xforms:select1 appearance="full" bind="preservationMethod-bind"
+                                    id="preservationMethod-control">
+                                    <xforms:label ref="$form-resources/preservationMethod/label"/>
+                                    <xforms:hint ref="$form-resources/preservationMethod/hint"/>
+                                    <xforms:help ref="$form-resources/preservationMethod/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/preservationMethod/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select1>
+                            </xhtml:td>
+                            <xhtml:td>
+                                <xforms:select appearance="compact" bind="control-50-bind" id="control-50-control">
+                                    <xforms:label ref="$form-resources/control-50/label"/>
+                                    <xforms:hint ref="$form-resources/control-50/hint"/>
+                                    <xforms:help ref="$form-resources/control-50/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                    <xforms:itemset nodeset="$form-resources/control-50/item">
+                                        <xforms:label ref="label"/>
+                                        <xforms:value ref="value"/>
+                                    </xforms:itemset>
+                                </xforms:select>
+                            </xhtml:td>
+                        </xhtml:tr>
+                        <xhtml:tr>
+                            <xhtml:td>
+                                <xforms:input bind="control-49-bind" id="control-49-control">
+                                    <xforms:label ref="$form-resources/control-49/label"/>
+                                    <xforms:hint ref="$form-resources/control-49/hint"/>
+                                    <xforms:help ref="$form-resources/control-49/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td/>
+                            <xhtml:td>
+                                <xforms:input bind="control-54-bind" id="control-54-control"
+                                    xmlns:fb="http://orbeon.org/oxf/xml/form-builder"
+                                    xmlns:pipeline="java:org.orbeon.oxf.processor.pipeline.PipelineFunctionLibrary"
+                                    xmlns:xbl="http://www.w3.org/ns/xbl">
+                                    <xforms:label ref="$form-resources/control-54/label"/>
+                                    <xforms:hint ref="$form-resources/control-54/hint"/>
+                                    <xforms:help ref="$form-resources/control-54/help"/>
+                                    <xforms:alert ref="$fr-resources/detail/labels/alert"/>
+                                </xforms:input>
+                            </xhtml:td>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                    </fr:grid>
+                    <fr:grid columns="4">
+                        <xhtml:tr>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                            <xhtml:td/>
+                        </xhtml:tr>
+                    </fr:grid>
+                </fr:section>
+            </fr:body>
+        </fr:view>
+    </xhtml:body>
+</xhtml:html>

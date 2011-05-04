@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://purl.org/obbr/pathology/cancer/" xmlns:obbr="http://purl.org/obbr/pathology/cancer/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" elementFormDefault="qualified">
+    <!-- ============================================================= -->
+    <xs:simpleType name="empty">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="accessory.treatmentResponse.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="slight"/>
+            <xs:enumeration value="marked"/>
+            <xs:enumeration value="complete"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="extent.contiguousExtension.status.result.for.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="invades"/>
+            <xs:enumeration value="adheres"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="extent.contiguousExtension.status.distance.for.values">
+        <xs:union memberTypes="obbr:extent.contiguousExtension.status.result.for.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="history.priorTherapy.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="chemotherapy"/>
+            <xs:enumeration value="radiation"/>
+            <xs:enumeration value="surgery"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="history.pathologicFinding.values">
+        <xs:union memberTypes="obbr:empty"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="history.clinicalFinding.values">
+        <xs:union memberTypes="obbr:empty"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="history.radiologicFinding.values">
+        <xs:union memberTypes="obbr:empty"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="margins.margin.status.result.for.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="in-situ"/>
+            <xs:enumeration value="invasive"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="distant.status.of.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="liver"/>
+            <xs:enumeration value="bone"/>
+            <xs:enumeration value="lung"/>
+            <xs:enumeration value="brain"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="distant.status.result.for.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="this accession"/>
+            <xs:enumeration value="prior accession"/>
+            <xs:enumeration value="outside report"/>
+            <xs:enumeration value="clinical history"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="nodes.status.result.for.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="negative"/>
+            <xs:enumeration value="positive"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="nodes.status.result.type.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="necroinflammatory"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="nodes.status.technique.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="H+E one level"/>
+            <xs:enumeration value="H+E multiple level(s)"/>
+            <xs:enumeration value="H+E plus immunohistochemistry"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="specimen.integrity.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="intact"/>
+            <xs:enumeration value="fragmented"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="stage.prefix.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="y"/>
+            <xs:enumeration value="r"/>
+            <xs:enumeration value="a"/>
+            <xs:enumeration value="none"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="stage.pT.values">
+        <xs:union memberTypes="obbr:empty"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="stage.pN.values">
+        <xs:union memberTypes="obbr:empty"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="stage.pM.values">
+        <xs:union memberTypes="obbr:empty"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="stage.group.values">
+        <xs:union memberTypes="obbr:empty"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="tumor.grade.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="X"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="tumor.gradeSystem.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="4-grade"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="tumor.focus.type.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="principal"/>
+            <xs:enumeration value="sole"/>
+            <xs:enumeration value="additional"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="tumor.site.values">
+        <xs:union memberTypes="obbr:empty"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+</xs:schema>

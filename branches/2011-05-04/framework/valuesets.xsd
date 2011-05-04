@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/obbr/pathology/cancer/"
+    xmlns:obbr="http://purl.org/obbr/pathology/cancer/" xmlns:val="http://purl.org/obbr/pathology/cancer/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- ============================================================= -->
+    <xs:include schemaLocation="values.xsd"/>
+    <xs:include schemaLocation="generic.xsd"/>
+    <!-- ============================================================= -->
+    <xs:simpleType name="accessory.lymphvascularInvasion.valueset">
+        <xs:union memberTypes="val:base.values val:qualitative.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="accessory.perineuralInvasion.valueset">
+        <xs:union memberTypes="val:base.values val:qualitative.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="accessory.treatmentResponse.valueset">
+        <xs:union memberTypes="val:base.values val:accessory.treatmentResponse.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="additional.finding.valueset">
+        <xs:union memberTypes="val:base.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="additional.finding.of.valueset">
+        <xs:union memberTypes="val:base.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="extent.contiguousExtension.status.result.for.valueset">
+        <xs:union memberTypes="val:extent.contiguousExtension.status.result.for.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="extent.contiguousExtension.status.distance.for.valueset">
+        <xs:union memberTypes="val:extent.contiguousExtension.status.distance.for.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="extent.status.of.valueset">
+        <xs:union memberTypes="val:base.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="history.priorTherapy.valueset">
+        <xs:union memberTypes="val:base.values val:history.priorTherapy.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="history.pathologicFinding.valueset">
+        <xs:union memberTypes="val:base.values val:history.pathologicFinding.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="history.clinicalFinding.valueset">
+        <xs:union memberTypes="val:base.values val:history.clinicalFinding.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="history.radiologicFinding.valueset">
+        <xs:union memberTypes="val:base.values val:history.radiologicFinding.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="margins.margin.status.focality.valueset">
+        <xs:union memberTypes="val:base.values val:focality.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="margins.margin.status.of.valueset">
+        <xs:union memberTypes="val:base.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="margins.margin.status.result.for.valueset">
+        <xs:union memberTypes="val:base.values val:margins.margin.status.result.for.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="margins.margin.distance.for.valueset">
+        <xs:union memberTypes="val:margins.margin.status.result.for.valueset"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="margins.margin.distance.from.valueset">
+        <xs:union memberTypes="val:base.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="distant.status.of.valueset">
+        <xs:union memberTypes="val:distant.status.of.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="distant.status.result.for.valueset">
+        <xs:union memberTypes="val:distant.status.result.for.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="nodes.status.result.for.valueset">
+        <xs:union memberTypes="val:nodes.status.result.for.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="nodes.status.result.type.valueset">
+        <xs:union memberTypes="val:base.values val:nodes.status.result.type.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="nodes.status.of.valueset">
+        <xs:union memberTypes="val:base.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="nodes.status.technique.valueset">
+        <xs:union memberTypes="val:nodes.status.technique.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="nodes.status.extracapsular.valueset">
+        <xs:union memberTypes="val:base.values val:qualitative.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="specimen.procedure.response.valueset">
+        <xs:union memberTypes="val:base.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="specimen.integrity.valueset">
+        <xs:union memberTypes="val:base.values val:specimen.integrity.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="specimen.site.valueset">
+        <xs:union memberTypes="val:base.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="stage.prefix.valueset">
+        <xs:union memberTypes="val:stage.prefix.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="stage.pT.valueset">
+        <xs:union memberTypes="val:base.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="stage.pN.valueset">
+        <xs:union memberTypes="val:base.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="stage.pM.valueset">
+        <xs:union memberTypes="val:base.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="stage.group.valueset">
+        <xs:union memberTypes="val:base.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <xs:simpleType name="tumor.histologicType.valueset">
+        <xs:union memberTypes="val:base.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="tumor.focus.type.valueset">
+        <xs:union memberTypes="val:tumor.focus.type.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="tumor.grade.valueset">
+        <xs:union memberTypes="val:base.values val:tumor.grade.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="tumor.gradeSystem.valueset">
+        <xs:union memberTypes="val:base.values val:tumor.gradeSystem.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="tumor.site.valueset">
+        <xs:union memberTypes="val:base.values val:tumor.site.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</xs:schema>
