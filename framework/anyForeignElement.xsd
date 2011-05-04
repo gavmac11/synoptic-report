@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://purl.org/obbr/pathology/cancer/" xmlns:obbr="http://purl.org/obbr/pathology/cancer/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="anyForeignElement-1">
+        <xs:sequence>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="anyForeignElement-2">
+        <xs:complexContent>
+            <xs:restriction base="obbr:anyForeignElement-1">
+                <xs:sequence>
+                    <xs:any namespace="http://purl.org/obbr/pathology/cancer/breast/"/>
+                </xs:sequence>
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

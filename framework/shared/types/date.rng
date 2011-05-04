@@ -27,28 +27,40 @@
     <a:documentation>Utility definitions for value types.</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <start>
-        <ref name="date"/>
+        <choice>
+            <ref name="date"/>
+            <!--<ref name="start-end"/>-->
+        </choice>
     </start>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="date">
-        <choice>
-            <attribute name="date">
+        <attribute name="date">
+            <ref name="dateType"/>
+        </attribute>
+        <optional>
+            <attribute name="start">
                 <ref name="dateType"/>
             </attribute>
-            <group>
-                <attribute name="start">
+            <optional>
+                <attribute name="end">
                     <ref name="dateType"/>
                 </attribute>
-                <optional>
-                    <attribute name="end">
-                        <ref name="dateType"/>
-                    </attribute>
-                </optional>
-            </group>
-        </choice>
+            </optional>
+        </optional>
         <optional>
             <attribute name="duration">
                 <data type="duration"/>
+            </attribute>
+        </optional>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="start-end">
+        <attribute name="start">
+            <ref name="dateType"/>
+        </attribute>
+        <optional>
+            <attribute name="end">
+                <ref name="dateType"/>
             </attribute>
         </optional>
     </define>

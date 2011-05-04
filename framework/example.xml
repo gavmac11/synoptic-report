@@ -23,184 +23,284 @@
     limitations under the License.
     ===========================================================================  
 -->
-<test-harness ns1:transformation="" schemaLocation="" version="" xmlns="http://purl.org/pathology/ecc/"
+<test-harness
+    ns1:transformation=""
+    schemaLocation=""
+    version=""
+    xmlns="http://purl.org/pathology/ecc/"
     xmlns:ns1="http://www.w3.org/2003/g/data-view#">
     <accessory>
         <treatmentResponse>
-            <response value="unreported"/>
+            <response
+                value="unreported"/>
         </treatmentResponse>
         <lymphVascularInvasion>
-            <response value="unreported"/>
+            <response
+                value="unreported"/>
         </lymphVascularInvasion>
         <perineuralInvasion>
-            <response value="unreported"/>
+            <response
+                value="unreported"/>
         </perineuralInvasion>
     </accessory>
     <additional>
         <finding>
-            <response value="unreported"/>
+            <response
+                value="unreported"/>
         </finding>
     </additional>
     <history>
         <clinicalFinding>
-            <response value="unreported"/>
+            <response
+                value="unreported"/>
         </clinicalFinding>
         <priorTherapy>
-            <response value="chemotherapy"/>
+            <response
+                value="chemotherapy"/>
         </priorTherapy>
     </history>
     <extent>
         <contiguousExtension>
-            <status of="unreported">
-                <result for="invades">
-                    <response value="positive"/>
+            <status
+                of="unreported">
+                <result
+                    for="invades">
+                    <response
+                        value="positive"/>
                 </result>
             </status>
         </contiguousExtension>
     </extent>
     <margin>
-        <status of="unreported" on="left">
-            <result for="invasive">
-                <response closest="positive" value="negative"/>
+        <status
+            of="unreported"
+            on="left">
+            <result
+                for="invasive">
+                <response
+                    closest="positive"
+                    value="negative"/>
             </result>
-            <distance for="invasive">
-                <response unit="mm" value="1"/>
+            <distance
+                for="invasive">
+                <response
+                    unit="mm"
+                    value="1"/>
             </distance>
-            <result for="in-situ">
-                <response closest="positive" value="negative"/>
+            <result
+                for="in-situ">
+                <response
+                    closest="positive"
+                    value="negative"/>
             </result>
-            <distance for="in-situ">
-                <response unit="mm" value="1"/>
+            <distance
+                for="in-situ">
+                <response
+                    unit="mm"
+                    value="1"/>
             </distance>
         </status>
-        <status of="unreported">
-            <result for="invasive">
-                <response value="negative"/>
+        <status
+            of="unreported">
+            <result
+                for="invasive">
+                <response
+                    value="negative"/>
             </result>
-            <distance for="invasive">
-                <response unit="mm" value="2"/>
+            <distance
+                for="invasive">
+                <response
+                    unit="mm"
+                    value="2"/>
             </distance>
-            <result for="in-situ">
-                <response value="negative"/>
+            <result
+                for="in-situ">
+                <response
+                    value="negative"/>
             </result>
-            <distance for="in-situ">
-                <response unit="mm" value="2"/>
+            <distance
+                for="in-situ">
+                <response
+                    unit="mm"
+                    value="2"/>
             </distance>
         </status>
     </margin>
     <distant>
-        <status of="bone">
-            <result date="20090101" for="clinical history">
-                <response value="specify">
+        <status
+            of="bone">
+            <result
+                date="20090101"
+                for="clinical history">
+                <response
+                    value="specify">
                     <specify>something</specify>
                 </response>
             </result>
             <size>
-                <response unit="cm" value="3"/>
-                <response unit="cm" value="2"/>
-                <response unit="cm" value="1"/>
+                <response
+                    unit="cm"
+                    value="3"/>
+                <response
+                    unit="cm"
+                    value="2"/>
+                <response
+                    unit="cm"
+                    value="1"/>
             </size>
         </status>
     </distant>
     <nodes>
-        <status of="unreported">
-            <result for="total">
-                <response value="13"/>
+        <status
+            of="unreported">
+            <result
+                for="total">
+                <response
+                    value="13"/>
             </result>
-            <result for="negative">
-                <response value="13"/>
+            <result
+                for="negative">
+                <response
+                    value="13"/>
             </result>
         </status>
-        <status of="inapplicable" on="left">
-            <result for="total">
-                <response value="10"/>
+        <status
+            of="inapplicable"
+            on="left">
+            <result
+                for="total">
+                <response
+                    value="10"/>
             </result>
-            <result for="negative">
-                <response value="99"/>
+            <result
+                for="negative">
+                <response
+                    value="99"/>
             </result>
-            <result for="positive">
-                <response value="1"/>
+            <result
+                for="positive">
+                <response
+                    value="1"/>
             </result>
             <largestMetastasis>
-                <response unit="cm" value="1"/>
-                <response unit="cm" value="1"/>
-                <response unit="cm" value="1"/>
+                <response
+                    unit="cm"
+                    value="1"/>
+                <response
+                    unit="cm"
+                    value="1"/>
+                <response
+                    unit="cm"
+                    value="1"/>
             </largestMetastasis>
             <extracapsularExtension>
-                <response value="unreported"/>
+                <response
+                    value="unreported"/>
             </extracapsularExtension>
         </status>
     </nodes>
     <specimen>
         <procedure>
-            <response value="unreported"/>
+            <response
+                value="unreported"/>
         </procedure>
         <size>
-            <response unit="cm" value="1"/>
-            <response unit="cm" value="1"/>
-            <response unit="cm" value="1"/>
+            <response
+                unit="cm"
+                value="1"/>
+            <response
+                unit="cm"
+                value="1"/>
+            <response
+                unit="cm"
+                value="1"/>
         </size>
         <weight>
-            <response unit="g" value="1"/>
+            <response
+                unit="g"
+                value="1"/>
         </weight>
         <site>
-            <response value="unreported"/>
+            <response
+                value="unreported"/>
         </site>
         <integrity>
-            <response value="unreported"/>
+            <response
+                value="unreported"/>
         </integrity>
     </specimen>
     <stage>
         <prefix>
-            <response value="unreported"/>
+            <response
+                value="unreported"/>
         </prefix>
         <multiplicity>
-            <response value="unreported"/>
+            <response
+                value="unreported"/>
         </multiplicity>
         <pT>
-            <response value="3b"/>
+            <response
+                value="3b"/>
         </pT>
         <pN>
-            <response value="2a"/>
+            <response
+                value="2a"/>
         </pN>
         <pM>
-            <response value="unreported"/>
+            <response
+                value="unreported"/>
         </pM>
         <group>
-            <response value="unreported"/>
+            <response
+                value="unreported"/>
         </group>
     </stage>
     <studies/>
     <tumor>
-        <focus type="principal">
+        <focus
+            type="principal">
             <site>
-                <response value="unreported"/>
+                <response
+                    value="unreported"/>
             </site>
             <size>
-                <response unit="mm" value="9"/>
+                <response
+                    unit="mm"
+                    value="9"/>
             </size>
             <histologicType>
-                <response value="unreported"/>
+                <response
+                    value="unreported"/>
             </histologicType>
-            <grade system="4-grade">
-                <response value="4"/>
+            <grade
+                system="4-grade">
+                <response
+                    value="4"/>
             </grade>
         </focus>
-        <focus name="additional">
+        <focus
+            name="additional">
             <site>
-                <response value="unreported"/>
+                <response
+                    value="unreported"/>
             </site>
             <size>
-                <response unit="cm" value="1"/>
+                <response
+                    unit="cm"
+                    value="1"/>
             </size>
             <multiplicity>
-                <response value="unreported"/>
+                <response
+                    value="unreported"/>
             </multiplicity>
             <histologicType>
-                <response value="unreported"/>
+                <response
+                    value="unreported"/>
             </histologicType>
-            <grade system="4-grade">
-                <response value="3"/>
+            <grade
+                system="4-grade">
+                <response
+                    value="3"/>
             </grade>
         </focus>
     </tumor>

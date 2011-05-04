@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="11.2">
+<project version="12.1">
     <meta>
         <filters directoryPatterns="" filePatterns=""
             positiveFilePatterns="" showHiddenFiles="false"/>
@@ -179,17 +179,17 @@
                         <folder name="prop-base"/>
                         <folder name="props"/>
                         <folder name="text-base">
-                            <file
+                            <file fileMissing="true"
                                 name="framework/Pipelines/.svn/text-base/multiValidate.xpl.svn-base"/>
-                            <file
+                            <file fileMissing="true"
                                 name="framework/Pipelines/.svn/text-base/myPipeline.xpl.svn-base"/>
-                            <file
+                            <file fileMissing="true"
                                 name="framework/Pipelines/.svn/text-base/personal.xpl.svn-base"/>
-                            <file
+                            <file fileMissing="true"
                                 name="framework/Pipelines/.svn/text-base/svrl-example.xpl.svn-base"/>
-                            <file
+                            <file fileMissing="true"
                                 name="framework/Pipelines/.svn/text-base/transform.xpl.svn-base"/>
-                            <file
+                            <file fileMissing="true"
                                 name="framework/Pipelines/.svn/text-base/validation.xpl.svn-base"
                             />
                         </folder>
@@ -198,22 +198,32 @@
                             <folder name="props"/>
                             <folder name="text-base"/>
                         </folder>
-                        <file
+                        <file fileMissing="true"
                             name="framework/Pipelines/.svn/all-wcprops"/>
-                        <file name="framework/Pipelines/.svn/entries"/>
+                        <file fileMissing="true"
+                            name="framework/Pipelines/.svn/entries"/>
                     </folder>
                     <file
                         name="../Checklist%20Validation/framework/Pipelines/jing.xpl"/>
-                    <file name="framework/Pipelines/multiValidate.xpl"/>
-                    <file name="framework/Pipelines/myPipeline.xpl"/>
-                    <file name="framework/Pipelines/newval.xpl"/>
-                    <file name="framework/Pipelines/personal.xpl"/>
-                    <file name="framework/Pipelines/svrl-example.xpl"/>
-                    <file name="framework/Pipelines/transform.xpl"/>
-                    <file name="framework/Pipelines/usesJing.xpl"/>
-                    <file name="framework/Pipelines/usesJing-1.xpl"/>
-                    <file name="framework/Pipelines/validation.xpl"/>
-                    <file
+                    <file fileMissing="true"
+                        name="framework/Pipelines/multiValidate.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/myPipeline.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/newval.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/personal.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/svrl-example.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/transform.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/usesJing.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/usesJing-1.xpl"/>
+                    <file fileMissing="true"
+                        name="framework/Pipelines/validation.xpl"/>
+                    <file fileMissing="true"
                         name="framework/Pipelines/validation-result.xml"
                     />
                 </folder>
@@ -392,13 +402,13 @@
                         <file name="framework/templates/.svn/entries"/>
                     </folder>
                     <file name="framework/templates/extensions.rng"/>
+                    <file name="framework/noSite.rng"/>
                     <file name="framework/templates/values.rng"/>
                 </folder>
                 <file name="framework/example.xml"/>
                 <file name="framework/generic-resection.rng"/>
                 <file name="framework/noSite.rng"/>
-                <file name="framework/rules.sch"/>
-                <file name="framework/Pipelines/usesJing-2.xpl"/>
+                <file name="framework/shared/sections.rng"/>
                 <file name="framework/values.rng"/>
             </folder>
             <folder name="lung">

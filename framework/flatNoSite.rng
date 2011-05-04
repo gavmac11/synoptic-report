@@ -511,29 +511,42 @@
                         <choice>
                             <attribute name="date" ns="">
                                 <choice>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="date"/>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYearMonth"/>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYear"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="date"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="gYearMonth"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="gYear"/>
                                 </choice>
                             </attribute>
                             <group>
                                 <attribute name="start" ns="">
                                     <choice>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="date"/>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            type="date"/>
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                             type="gYearMonth"/>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYear"
-                                        />
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            type="gYear"/>
                                     </choice>
                                 </attribute>
                                 <optional>
                                     <attribute name="end" ns="">
                                         <choice>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="date"/>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="gYearMonth"/>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="gYear"/>
                                         </choice>
                                     </attribute>
@@ -542,7 +555,8 @@
                         </choice>
                         <optional>
                             <attribute name="duration" ns="">
-                                <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="duration"/>
+                                <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                    type="duration"/>
                             </attribute>
                         </optional>
                     </group>
@@ -571,29 +585,42 @@
                         <choice>
                             <attribute name="date" ns="">
                                 <choice>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="date"/>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYearMonth"/>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYear"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="date"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="gYearMonth"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="gYear"/>
                                 </choice>
                             </attribute>
                             <group>
                                 <attribute name="start" ns="">
                                     <choice>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="date"/>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            type="date"/>
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                             type="gYearMonth"/>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYear"
-                                        />
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            type="gYear"/>
                                     </choice>
                                 </attribute>
                                 <optional>
                                     <attribute name="end" ns="">
                                         <choice>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="date"/>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="gYearMonth"/>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="gYear"/>
                                         </choice>
                                     </attribute>
@@ -602,7 +629,8 @@
                         </choice>
                         <optional>
                             <attribute name="duration" ns="">
-                                <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="duration"/>
+                                <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                    type="duration"/>
                             </attribute>
                         </optional>
                     </group>
@@ -631,29 +659,42 @@
                         <choice>
                             <attribute name="date" ns="">
                                 <choice>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="date"/>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYearMonth"/>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYear"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="date"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="gYearMonth"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="gYear"/>
                                 </choice>
                             </attribute>
                             <group>
                                 <attribute name="start" ns="">
                                     <choice>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="date"/>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            type="date"/>
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                             type="gYearMonth"/>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYear"
-                                        />
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            type="gYear"/>
                                     </choice>
                                 </attribute>
                                 <optional>
                                     <attribute name="end" ns="">
                                         <choice>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="date"/>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="gYearMonth"/>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="gYear"/>
                                         </choice>
                                     </attribute>
@@ -662,7 +703,8 @@
                         </choice>
                         <optional>
                             <attribute name="duration" ns="">
-                                <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="duration"/>
+                                <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                    type="duration"/>
                             </attribute>
                         </optional>
                     </group>
@@ -691,29 +733,42 @@
                         <choice>
                             <attribute name="date" ns="">
                                 <choice>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="date"/>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYearMonth"/>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYear"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="date"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="gYearMonth"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="gYear"/>
                                 </choice>
                             </attribute>
                             <group>
                                 <attribute name="start" ns="">
                                     <choice>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="date"/>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            type="date"/>
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                             type="gYearMonth"/>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYear"
-                                        />
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            type="gYear"/>
                                     </choice>
                                 </attribute>
                                 <optional>
                                     <attribute name="end" ns="">
                                         <choice>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="date"/>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="gYearMonth"/>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="gYear"/>
                                         </choice>
                                     </attribute>
@@ -722,7 +777,8 @@
                         </choice>
                         <optional>
                             <attribute name="duration" ns="">
-                                <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="duration"/>
+                                <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                    type="duration"/>
                             </attribute>
                         </optional>
                     </group>
@@ -832,8 +888,10 @@
                         <attribute name="technique" ns="">
                             <choice>
                                 <value datatypeLibrary="" ns="" type="token">H+E one level</value>
-                                <value datatypeLibrary="" ns="" type="token">H+E multiple level(s)</value>
-                                <value datatypeLibrary="" ns="" type="token">H+E plus immunohistochemistry</value>
+                                <value datatypeLibrary="" ns="" type="token">H+E multiple
+                                    level(s)</value>
+                                <value datatypeLibrary="" ns="" type="token">H+E plus
+                                    immunohistochemistry</value>
                                 <value datatypeLibrary="" ns="" type="token">specify</value>
                                 <value datatypeLibrary="" ns="" type="token">inapplicable</value>
                                 <value datatypeLibrary="" ns="" type="token">unreported</value>
@@ -1290,29 +1348,42 @@
                         <choice>
                             <attribute name="date" ns="">
                                 <choice>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="date"/>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYearMonth"/>
-                                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYear"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="date"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="gYearMonth"/>
+                                    <data
+                                        datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        type="gYear"/>
                                 </choice>
                             </attribute>
                             <group>
                                 <attribute name="start" ns="">
                                     <choice>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="date"/>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            type="date"/>
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                             type="gYearMonth"/>
-                                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="gYear"
-                                        />
+                                        <data
+                                            datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            type="gYear"/>
                                     </choice>
                                 </attribute>
                                 <optional>
                                     <attribute name="end" ns="">
                                         <choice>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="date"/>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="gYearMonth"/>
-                                            <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                            <data
+                                                datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
                                                 type="gYear"/>
                                         </choice>
                                     </attribute>
@@ -1321,7 +1392,8 @@
                         </choice>
                         <optional>
                             <attribute name="duration" ns="">
-                                <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="duration"/>
+                                <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                                    type="duration"/>
                             </attribute>
                         </optional>
                     </group>
@@ -1609,7 +1681,8 @@
                     <optional>
                         <attribute name="type" ns="">
                             <optional>
-                                <value datatypeLibrary="" ns="" type="token">necroinflammatory</value>
+                                <value datatypeLibrary="" ns="" type="token"
+                                    >necroinflammatory</value>
                             </optional>
                         </attribute>
                     </optional>
@@ -1720,7 +1793,8 @@
         <element name="response" ns="http://purl.org/pathology/ecc/">
             <group>
                 <attribute name="value" ns="">
-                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="decimal">
+                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                        type="decimal">
                         <param name="minInclusive">0.0</param>
                     </data>
                 </attribute>
@@ -1738,7 +1812,8 @@
                             <value datatypeLibrary="" ns="" type="token">less than or equal</value>
                             <value datatypeLibrary="" ns="" type="token">equal</value>
                             <value datatypeLibrary="" ns="" type="token">approximately equal</value>
-                            <value datatypeLibrary="" ns="" type="token">greater than or equal</value>
+                            <value datatypeLibrary="" ns="" type="token">greater than or
+                                equal</value>
                             <value datatypeLibrary="" ns="" type="token">greater than</value>
                         </choice>
                     </attribute>
@@ -1751,7 +1826,8 @@
             <group>
                 <attribute name="value" ns="">
                     <choice>
-                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="float">
+                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                            type="float">
                             <param name="minExclusive">0.0</param>
                         </data>
                         <value datatypeLibrary="" ns="" type="token">specify</value>
@@ -1773,7 +1849,8 @@
                             <value datatypeLibrary="" ns="" type="token">less than or equal</value>
                             <value datatypeLibrary="" ns="" type="token">equal</value>
                             <value datatypeLibrary="" ns="" type="token">approximately equal</value>
-                            <value datatypeLibrary="" ns="" type="token">greater than or equal</value>
+                            <value datatypeLibrary="" ns="" type="token">greater than or
+                                equal</value>
                             <value datatypeLibrary="" ns="" type="token">greater than</value>
                         </choice>
                     </attribute>
@@ -2205,7 +2282,8 @@
         <element name="response" ns="http://purl.org/pathology/ecc/">
             <group>
                 <attribute name="value" ns="">
-                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="decimal">
+                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                        type="decimal">
                         <param name="minInclusive">0.0</param>
                     </data>
                 </attribute>
@@ -2223,7 +2301,8 @@
                             <value datatypeLibrary="" ns="" type="token">less than or equal</value>
                             <value datatypeLibrary="" ns="" type="token">equal</value>
                             <value datatypeLibrary="" ns="" type="token">approximately equal</value>
-                            <value datatypeLibrary="" ns="" type="token">greater than or equal</value>
+                            <value datatypeLibrary="" ns="" type="token">greater than or
+                                equal</value>
                             <value datatypeLibrary="" ns="" type="token">greater than</value>
                         </choice>
                     </attribute>
@@ -2291,7 +2370,8 @@
                             <optional>
                                 <choice>
                                     <value datatypeLibrary="" ns="" type="token">specify</value>
-                                    <value datatypeLibrary="" ns="" type="token">inapplicable</value>
+                                    <value datatypeLibrary="" ns="" type="token"
+                                        >inapplicable</value>
                                     <value datatypeLibrary="" ns="" type="token">unreported</value>
                                 </choice>
                             </optional>
@@ -2343,7 +2423,8 @@
                                     <value datatypeLibrary="" ns="" type="token">positive</value>
                                     <value datatypeLibrary="" ns="" type="token">negative</value>
                                     <value datatypeLibrary="" ns="" type="token">equivocal</value>
-                                    <value datatypeLibrary="" ns="" type="token">indeterminate</value>
+                                    <value datatypeLibrary="" ns="" type="token"
+                                        >indeterminate</value>
                                 </choice>
                             </attribute>
                         </choice>
@@ -2368,7 +2449,8 @@
         <element name="response" ns="http://purl.org/pathology/ecc/">
             <group>
                 <attribute name="value" ns="">
-                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="decimal">
+                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                        type="decimal">
                         <param name="minInclusive">0.0</param>
                     </data>
                 </attribute>
@@ -2386,7 +2468,8 @@
                             <value datatypeLibrary="" ns="" type="token">less than or equal</value>
                             <value datatypeLibrary="" ns="" type="token">equal</value>
                             <value datatypeLibrary="" ns="" type="token">approximately equal</value>
-                            <value datatypeLibrary="" ns="" type="token">greater than or equal</value>
+                            <value datatypeLibrary="" ns="" type="token">greater than or
+                                equal</value>
                             <value datatypeLibrary="" ns="" type="token">greater than</value>
                         </choice>
                     </attribute>
@@ -2399,7 +2482,8 @@
             <group>
                 <attribute name="value" ns="">
                     <choice>
-                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="nonNegativeInteger"/>
+                        <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                            type="nonNegativeInteger"/>
                         <value datatypeLibrary="" ns="" type="token">specify</value>
                         <value datatypeLibrary="" ns="" type="token">inapplicable</value>
                         <value datatypeLibrary="" ns="" type="token">unreported</value>
@@ -2412,7 +2496,8 @@
                             <value datatypeLibrary="" ns="" type="token">less than or equal</value>
                             <value datatypeLibrary="" ns="" type="token">equal</value>
                             <value datatypeLibrary="" ns="" type="token">approximately equal</value>
-                            <value datatypeLibrary="" ns="" type="token">greater than or equal</value>
+                            <value datatypeLibrary="" ns="" type="token">greater than or
+                                equal</value>
                             <value datatypeLibrary="" ns="" type="token">greater than</value>
                         </choice>
                     </attribute>
@@ -2424,7 +2509,8 @@
         <element name="response" ns="http://purl.org/pathology/ecc/">
             <group>
                 <attribute name="value" ns="">
-                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="decimal">
+                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                        type="decimal">
                         <param name="minInclusive">0.0</param>
                     </data>
                 </attribute>
@@ -2442,7 +2528,8 @@
                             <value datatypeLibrary="" ns="" type="token">less than or equal</value>
                             <value datatypeLibrary="" ns="" type="token">equal</value>
                             <value datatypeLibrary="" ns="" type="token">approximately equal</value>
-                            <value datatypeLibrary="" ns="" type="token">greater than or equal</value>
+                            <value datatypeLibrary="" ns="" type="token">greater than or
+                                equal</value>
                             <value datatypeLibrary="" ns="" type="token">greater than</value>
                         </choice>
                     </attribute>
@@ -2553,7 +2640,8 @@
         <element name="response" ns="http://purl.org/pathology/ecc/">
             <group>
                 <attribute name="value" ns="">
-                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="decimal">
+                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                        type="decimal">
                         <param name="minInclusive">0.0</param>
                     </data>
                 </attribute>
@@ -2571,7 +2659,8 @@
                             <value datatypeLibrary="" ns="" type="token">less than or equal</value>
                             <value datatypeLibrary="" ns="" type="token">equal</value>
                             <value datatypeLibrary="" ns="" type="token">approximately equal</value>
-                            <value datatypeLibrary="" ns="" type="token">greater than or equal</value>
+                            <value datatypeLibrary="" ns="" type="token">greater than or
+                                equal</value>
                             <value datatypeLibrary="" ns="" type="token">greater than</value>
                         </choice>
                     </attribute>
@@ -2757,7 +2846,8 @@
         <element name="response" ns="http://purl.org/pathology/ecc/">
             <group>
                 <attribute name="value" ns="">
-                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" type="decimal">
+                    <data datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+                        type="decimal">
                         <param name="minInclusive">0.0</param>
                     </data>
                 </attribute>
@@ -2775,7 +2865,8 @@
                             <value datatypeLibrary="" ns="" type="token">less than or equal</value>
                             <value datatypeLibrary="" ns="" type="token">equal</value>
                             <value datatypeLibrary="" ns="" type="token">approximately equal</value>
-                            <value datatypeLibrary="" ns="" type="token">greater than or equal</value>
+                            <value datatypeLibrary="" ns="" type="token">greater than or
+                                equal</value>
                             <value datatypeLibrary="" ns="" type="token">greater than</value>
                         </choice>
                     </attribute>

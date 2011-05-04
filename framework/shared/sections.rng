@@ -81,6 +81,20 @@
             </grammar>
         </element>
     </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="normal">
+        <element name="normal">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="normal.content"/>
+                </define>
+                <define name="extension">
+                    <parentRef name="toplevel.attrib"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
     <!--=============================================================-->
     <define name="resection.content">
         <ref name="history"/>
@@ -116,6 +130,14 @@
             <ref name="additional"/>
         </optional>
     </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="normal.content">
+        <ref name="history"/>
+        <ref name="specimen"/>
+        <ref name="microscopic"/>
+        <ref name="additional"/>
+        <ref name="assessment"/>
+    </define>
     <!--=============================================================-->
     <define name="accessory">
         <element name="accessory">
@@ -134,6 +156,17 @@
                 <include href="&section;"/>
                 <define name="content">
                     <parentRef name="additional.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="assessment">
+        <element name="assessment">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="assessment.content"/>
                 </define>
             </grammar>
         </element>
@@ -178,6 +211,17 @@
                 <include href="&section;"/>
                 <define name="content">
                     <parentRef name="distant.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="microscopic">
+        <element name="microscopic">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="microscopic.content"/>
                 </define>
             </grammar>
         </element>

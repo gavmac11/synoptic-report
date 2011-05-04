@@ -21,8 +21,35 @@
     limitations under the License.
     ===========================================================================  
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <a:documentation>This file specifies the valuesets that are shared across the entire framework.
+        A "valueset" is a list of possible values that are allowed in response to an item. In this
+        sense, valuesets are akin to enumeration types. (In Relax NG, we avoid referring to them as
+        "types", since Relax NG deals only with patterns, and enforces no inherent notion of a type
+        hierarchy.)</a:documentation>
+    <a:documentation>Valuesets can be extended or re-used, (a) by embedding them in another pattern,
+        or (b) by using the Relax NG ability to redefine patterns. (This would be akin to deriving
+        an extended enumeration type in a language that had a concept of types.) Valueset
+        extension--either by means of embedding or by means of redefinition--is used many times in
+        this project, and the valuesets shown here are often embedded in other valueset containers
+        in other schemas in the framework, to generate valuesets specialized for particular
+        sites.</a:documentation>
+    <a:documentation>To give one example, the "base.valueset", which contains three value strings
+        ("specify", "inapplicable" and "unreported") is included in almost all other valuesets that
+        appear anywhere in the framework, allowing any of these values in response to nearly any
+        item. </a:documentation>
+    <a:documentation>Valuesets in this framework are specified in a stereotypical way:
+            <a:documentation>(1) The container for each valueset is a rng:define
+            element.</a:documentation>
+        <a:documentation>(2) Every valueset has a name, specified in the @name attribute of the
+            rng:define element. By convention, all valueset names in this project end in the string
+            ".valueset", allowing references to them to be easily identified within schemas. </a:documentation>
+        <a:documentation>(3) Valueset definitions may specify a value for the @combine attribute.
+            Thisattribute is part of the Relax NG language, and specifies the way redefinitions
+        </a:documentation>
+    </a:documentation>
     <!--=============================================================-->
     <define combine="choice" name="base.valueset">
         <choice>
@@ -91,11 +118,11 @@
     <a:documentation>accessory SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="accessory.lymphvascular.valueset">
-        <ref name="qualitative.valueset"/>
+        <ref name="qualitative.valueset"></ref>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="accessory.perineural.valueset">
-        <ref name="qualitative.valueset"/>
+        <ref name="qualitative.valueset"></ref>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="accessory.treatmentResponse.valueset">
@@ -110,11 +137,11 @@
     <a:documentation>additional SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="additional.finding.of.valueset">
-        <empty/>
+        <empty></empty>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="additional.finding.valueset">
-        <empty/>
+        <empty></empty>
     </define>
     <!--=============================================================-->
     <a:documentation>extent SECTION VALUESETS</a:documentation>
@@ -127,21 +154,21 @@
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="extent.contiguousExtension.status.distance.for.valueset">
-        <empty/>
+        <empty></empty>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="extent.contiguousExtension.status.distance.from.valueset">
-        <empty/>
+        <empty></empty>
     </define>
     <!--=============================================================-->
     <a:documentation>history SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="history.clinical.valueset">
-        <notAllowed/>
+        <notAllowed></notAllowed>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="history.pathology.valueset">
-        <notAllowed/>
+        <notAllowed></notAllowed>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="history.priorTherapy.valueset">
@@ -153,31 +180,31 @@
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="history.radiology.valueset">
-        <notAllowed/>
+        <notAllowed></notAllowed>
     </define>
     <!--=============================================================-->
     <a:documentation>extent SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="extent.contiguousExtension.status.of.valueset">
-        <empty/>
+        <empty></empty>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="extent.contiguousExtension.status.type.valueset">
-        <empty/>
+        <empty></empty>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="extent.size.valueset">
-        <empty/>
+        <empty></empty>
     </define>
     <!--=============================================================-->
     <a:documentation>margin SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="margin.status.focality.valueset">
-        <ref name="focality.valueset"/>
+        <ref name="focality.valueset"></ref>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="margin.status.of.valueset">
-        <empty/>
+        <empty></empty>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="margin.status.result.for.valueset">
@@ -210,7 +237,7 @@
     <a:documentation>nodes SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="nodes.status.of.valueset">
-        <empty/>
+        <empty></empty>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="nodes.status.result.for.valueset">
@@ -235,7 +262,7 @@
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="nodes.status.extracapsular.valueset">
-        <ref name="qualitative.valueset"/>
+        <ref name="qualitative.valueset"></ref>
     </define>
     <!--=============================================================-->
     <a:documentation>specimen SECTION VALUESETS</a:documentation>
@@ -248,11 +275,11 @@
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="specimen.procedure.valueset">
-        <notAllowed/>
+        <notAllowed></notAllowed>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="specimen.site.valueset">
-        <notAllowed/>
+        <notAllowed></notAllowed>
     </define>
     <!--=============================================================-->
     <a:documentation>stage SECTION VALUESETS</a:documentation>
@@ -277,29 +304,29 @@
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="stage.pT.valueset">
-        <notAllowed/>
+        <notAllowed></notAllowed>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="stage.pN.valueset">
-        <notAllowed/>
+        <notAllowed></notAllowed>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="stage.pM.valueset">
-        <notAllowed/>
+        <notAllowed></notAllowed>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="stage.group.valueset">
-        <notAllowed/>
+        <notAllowed></notAllowed>
     </define>
     <!--=============================================================-->
     <a:documentation>tumor SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="tumor.type.valueset">
-        <notAllowed/>
+        <notAllowed></notAllowed>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="tumor.site.valueset">
-        <notAllowed/>
+        <notAllowed></notAllowed>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define combine="choice" name="tumor.grade.valueset">

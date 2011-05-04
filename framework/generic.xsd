@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/obbr/pathology/cancer/"
+    xmlns:obbr="http://purl.org/obbr/pathology/cancer/" xmlns:val="http://purl.org/obbr/pathology/cancer/"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- ============================================================= -->
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xmlid.xsd"/>
+    <!-- ============================================================= -->
+    <!-- GENERIC DERIVED SIMPLE TYPE USING FACET -->
+    <!-- ============================================================= -->
+    <xs:simpleType name="positiveDecimal">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0.0"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <!-- GENERIC ENUMERATIONS -->
+    <!-- ============================================================= -->
+    <xs:simpleType name="base.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="focality.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="microfocal"/>
+            <xs:enumeration value="unifocal"/>
+            <xs:enumeration value="multifocal"/>
+            <xs:enumeration value="extensive"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="laterality.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="ipsilateral"/>
+            <xs:enumeration value="contralateral"/>
+            <xs:enumeration value="right"/>
+            <xs:enumeration value="left"/>
+            <xs:enumeration value="midline"/>
+            <xs:enumeration value="bilateral"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="lengthUnit.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="cm"/>
+            <xs:enumeration value="mm"/>
+            <xs:enumeration value="in"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="multiplicity.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="m"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="qualitative.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="positive"/>
+            <xs:enumeration value="negative"/>
+            <xs:enumeration value="equivocal"/>
+            <xs:enumeration value="indeterminate"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="relation.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="less than"/>
+            <xs:enumeration value="less than or equal"/>
+            <xs:enumeration value="equal"/>
+            <xs:enumeration value="approximately equal"/>
+            <xs:enumeration value="greater than or equal"/>
+            <xs:enumeration value="greater than"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="weightUnit.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="mg"/>
+            <xs:enumeration value="g"/>
+            <xs:enumeration value="kg"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <!-- GENERIC UNION TYPES -->
+    <!-- ============================================================= -->
+    <xs:simpleType name="date.valueset">
+        <xs:union memberTypes="xs:date xs:gYearMonth xs:gYear"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="focality.valueset">
+        <xs:union memberTypes="val:focality.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="laterality.valueset">
+        <xs:union memberTypes="val:base.values val:laterality.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="lengthUnit.valueset">
+        <xs:union memberTypes="val:lengthUnit.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="multiplicity.valueset">
+        <xs:union memberTypes="val:multiplicity.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="qualitative.valueset">
+        <xs:union memberTypes="val:base.values val:qualitative.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="relation.valueset">
+        <xs:union memberTypes="val:relation.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="scalar.valueset">
+        <xs:union memberTypes="obbr:base.values obbr:positiveDecimal"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="tally.valueset">
+        <xs:union memberTypes="obbr:base.values xs:nonNegativeInteger"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="weightUnit.valueset">
+        <xs:union memberTypes="val:weightUnit.values"/>
+    </xs:simpleType>
+    <!-- ============================================================= -->
+    <!-- GENERIC GROUPS ("DEFINES") -->
+    <!-- ============================================================= -->
+    <xs:group name="generic.content">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="specify" type="xs:string"/>
+            <xs:element minOccurs="0" name="label" type="xs:string"/>
+            <xs:element minOccurs="0" name="comment" type="xs:string"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="length">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="obbr:generic.content"/>
+                    <xs:attributeGroup ref="obbr:quantity"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="size">
+        <xs:sequence>
+            <xs:element maxOccurs="3" minOccurs="1" name="response">
+                <xs:complexType>
+                    <xs:group ref="obbr:generic.content"/>
+                    <xs:attributeGroup ref="obbr:quantity"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ============================================================= -->
+    <!-- GENERIC ATTRIBUTES -->
+    <!-- ============================================================= -->
+    <xs:attributeGroup name="generic.attrib">
+        <xs:attribute ref="xml:id"/>
+        <xs:anyAttribute namespace="##other"/>
+    </xs:attributeGroup>
+    <!-- ============================================================= -->
+    <!-- GENERIC ATTRIBUTE GROUPS ("RESPONSE TYPES") -->
+    <!-- ============================================================= -->
+    <xs:attributeGroup name="date">
+        <xs:attribute name="date" type="obbr:date.valueset"/>
+        <xs:attribute name="start" type="obbr:date.valueset"/>
+        <xs:attribute name="end" type="obbr:date.valueset"/>
+        <xs:attribute name="duration" type="xs:duration"/>
+    </xs:attributeGroup>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:attributeGroup name="quantity">
+        <xs:attribute name="value" type="obbr:scalar.valueset" use="required"/>
+        <xs:attribute name="unit" type="obbr:lengthUnit.valueset" use="required"/>
+        <xs:attribute name="relation" type="obbr:relation.valueset"/>
+    </xs:attributeGroup>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:attributeGroup name="tally">
+        <xs:attribute name="value" type="obbr:tally.valueset" use="required"/>
+        <xs:attribute name="relation" type="obbr:relation.valueset"/>
+    </xs:attributeGroup>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:attributeGroup name="weight">
+        <xs:attribute name="value" type="obbr:scalar.valueset" use="required"/>
+        <xs:attribute name="unit" type="obbr:weightUnit.valueset" use="required"/>
+        <xs:attribute name="relation" type="obbr:relation.valueset"/>
+    </xs:attributeGroup>
+</xs:schema>

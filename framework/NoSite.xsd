@@ -1,0 +1,1217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/obbr/pathology/cancer/"
+    xmlns="http://purl.org/obbr/pathology/cancer/" xmlns:nos="http://purl.org/obbr/pathology/cancer/noSite/"
+    xmlns:obbr="http://purl.org/obbr/pathology/cancer/" xmlns:val="http://purl.org/obbr/pathology/cancer/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- ============================================================= -->
+    <xs:include schemaLocation="valuesets.xsd"/>
+    <xs:include schemaLocation="generic.xsd"/>
+    <!-- ============================================================= -->
+    <xs:element name="diagnosis">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="generic.content"/>
+                <xs:group ref="diagnosis.section.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="generic.attrib"/>
+            <xs:attribute name="schemaLocation" type="xs:anyURI" use="required"/>
+            <xs:attribute name="version" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="diagnosis.section.content">
+        <xs:sequence>
+            <xs:group ref="history.section"/>
+            <xs:group ref="specimen.section"/>
+            <xs:group ref="tumor.section"/>
+            <xs:group ref="extent.section"/>
+            <xs:group ref="accessory.section"/>
+            <xs:group ref="margins.section"/>
+            <xs:group ref="nodes.section"/>
+            <xs:group ref="distant.section"/>
+            <xs:group ref="studies.section"/>
+            <xs:group ref="stage.section"/>
+            <xs:group ref="additional.section"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ============================================================= -->
+    <xs:group name="accessory.section">
+        <xs:sequence>
+            <xs:element name="accessory">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="accessory.section.content"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="accessory.section.content">
+        <xs:sequence>
+            <xs:group ref="accessory.treatmentResponse.item"/>
+            <xs:group ref="accessory.lymphvascularInvasion.item"/>
+            <xs:group ref="accessory.perineuralInvasion.item"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="accessory.treatmentResponse.item">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="treatmentResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="accessory.treatmentResponse.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="accessory.lymphvascularInvasion.item">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="lymphvascularInvasion">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="accessory.lymphvascularInvasion.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="accessory.perineuralInvasion.item">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="perineuralInvasion">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="accessory.perineuralInvasion.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="accessory.treatmentResponse.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="accessory.treatmentResponse.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="accessory.lymphvascularInvasion.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="accessory.lymphvascularInvasion.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="accessory.perineuralInvasion.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="accessory.perineuralInvasion.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ============================================================= -->
+    <xs:group name="additional.section">
+        <xs:sequence>
+            <xs:element name="additional">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="additional.section.content"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="additional.section.content">
+        <xs:sequence>
+            <xs:group ref="additional.finding.item"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="additional.finding.item">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="finding">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="additional.finding.response"/>
+                    </xs:sequence>
+                    <xs:attribute name="of" type="additional.finding.of.valueset"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="additional.finding.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="additional.finding.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ============================================================= -->
+    <xs:group name="distant.section">
+        <xs:sequence>
+            <xs:element name="distant">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="distant.section.content"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="distant.section.content">
+        <xs:sequence>
+            <xs:group maxOccurs="unbounded" minOccurs="0" ref="distant.status.section"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="distant.status.section">
+        <xs:sequence>
+            <xs:element name="status">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="distant.status.section.content"/>
+                        <xs:group minOccurs="0" ref="size"/>
+                    </xs:sequence>
+                    <xs:attribute name="of" type="distant.status.of.valueset" use="required"/>
+                    <xs:attribute name="on" type="laterality.valueset"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="distant.status.section.content">
+        <xs:sequence>
+            <xs:group ref="distant.status.result.item"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="distant.status.result.item">
+        <xs:sequence>
+            <xs:element name="result">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="distant.status.result.response"/>
+                    </xs:sequence>
+                    <xs:attribute name="for" type="distant.status.result.for.valueset"/>
+                    <xs:attributeGroup ref="date"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="distant.status.result.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="qualitative.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ============================================================= -->
+    <xs:group name="extent.section">
+        <xs:sequence>
+            <xs:element name="extent">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="extent.section.content"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="extent.section.content">
+        <xs:sequence>
+            <xs:group maxOccurs="unbounded" ref="extent.contiguousExtension.section"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="extent.contiguousExtension.section">
+        <xs:sequence>
+            <xs:element name="contiguousExtension">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group maxOccurs="unbounded" minOccurs="0" ref="extent.contiguousExtension.status.section"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="extent.contiguousExtension.status.section">
+        <xs:sequence>
+            <xs:element name="status">
+                <xs:complexType>
+                    <xs:sequence maxOccurs="unbounded">
+                        <xs:group ref="generic.content"/>
+                        <xs:group maxOccurs="2" ref="extent.contiguousExtension.status.result.item"/>
+                        <xs:group maxOccurs="2" minOccurs="0" ref="extent.contiguousExtension.status.distance.item"/>
+                    </xs:sequence>
+                    <xs:attribute name="of" type="extent.status.of.valueset"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="extent.contiguousExtension.status.result.item">
+        <xs:sequence>
+            <xs:element name="result">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group maxOccurs="unbounded" minOccurs="0"
+                            ref="extent.contiguousExtension.status.result.response"/>
+                    </xs:sequence>
+                    <xs:attribute name="for" type="extent.contiguousExtension.status.result.for.valueset"/>
+                    <xs:attribute name="on" type="laterality.valueset"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="extent.contiguousExtension.status.distance.item">
+        <xs:sequence>
+            <xs:element name="distance">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="length"/>
+                    </xs:sequence>
+                    <xs:attribute name="for" type="extent.contiguousExtension.status.distance.for.valueset"/>
+                    <xs:attribute name="from" type="val:base.values"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="extent.contiguousExtension.status.result.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="qualitative.valueset" use="required"/>
+                    <xs:attribute name="extent" type="focality.valueset"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ============================================================= -->
+    <xs:group name="history.section">
+        <xs:sequence>
+            <xs:element name="history">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="history.section.content"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="history.section.content">
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="history.clinicalFinding.item"/>
+                <xs:group ref="history.pathologicFinding.item"/>
+                <xs:group ref="history.priorTherapy.item"/>
+                <xs:group ref="history.radiologicFinding.item"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="history.clinicalFinding.item">
+        <xs:sequence>
+            <xs:element name="clinicalFinding">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="history.clinicalFinding.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="date"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="history.pathologicFinding.item">
+        <xs:sequence>
+            <xs:element name="pathologicFinding">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="history.pathologicFinding.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="date"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="history.priorTherapy.item">
+        <xs:sequence>
+            <xs:element name="priorTherapy">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="history.priorTherapy.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="date"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="history.radiologicFinding.item">
+        <xs:sequence>
+            <xs:element name="radiologicFinding">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="history.radiologicFinding.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="date"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="history.clinicalFinding.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="history.clinicalFinding.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="history.pathologicFinding.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="history.pathologicFinding.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="history.priorTherapy.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="history.priorTherapy.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="history.radiologicFinding.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="history.radiologicFinding.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ============================================================= -->
+    <xs:group name="margins.section">
+        <xs:sequence>
+            <xs:element name="margins">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group maxOccurs="unbounded" ref="margins.section.content"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="margins.section.content">
+        <xs:sequence>
+            <xs:group maxOccurs="unbounded" ref="margins.margin.section"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="margins.margin.section">
+        <xs:sequence>
+            <xs:element name="margin">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="margins.margin.section.content"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="margins.margin.section.content">
+        <xs:sequence>
+            <xs:group ref="margins.margin.status.section"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="margins.margin.status.section">
+        <xs:sequence>
+            <xs:element name="status">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="margins.margin.status.result.item"/>
+                        <xs:group minOccurs="0" ref="margins.margin.distance.item"/>
+                    </xs:sequence>
+                    <xs:attribute name="of" type="margins.margin.status.of.valueset" use="required"/>
+                    <xs:attribute name="on" type="laterality.valueset"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="margins.margin.distance.item">
+        <xs:sequence>
+            <xs:element name="distance">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="length"/>
+                    </xs:sequence>
+                    <xs:attribute name="for" type="margins.margin.distance.for.valueset" use="required"/>
+                    <!--<xs:attribute name="from" type="margins.margin.distance.from.valueset"/>-->
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="margins.margin.status.result.item">
+        <xs:sequence>
+            <xs:element name="result">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="margins.margin.status.result.response"/>
+                    </xs:sequence>
+                    <xs:attribute name="for" type="margins.margin.status.result.for.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="margins.margin.status.result.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="qualitative.valueset" use="required"/>
+                    <xs:attribute name="extent" type="focality.valueset"/>
+                    <xs:attribute name="closest" type="qualitative.valueset"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ============================================================= -->
+    <xs:group name="nodes.section">
+        <xs:sequence>
+            <xs:element name="nodes">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="nodes.section.content"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="nodes.section.content">
+        <xs:sequence>
+            <xs:group maxOccurs="unbounded" minOccurs="0" ref="nodes.status.section"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="nodes.status.section">
+        <xs:sequence>
+            <xs:element name="status">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="nodes.status.result.section"/>
+                        <xs:group ref="nodes.status.largestMetastasis.item"/>
+                        <xs:group ref="nodes.status.extracapsularExtension.item"/>
+                    </xs:sequence>
+                    <xs:attribute name="of" type="nodes.status.of.valueset" use="required"/>
+                    <xs:attribute name="on" type="laterality.valueset"/>
+                    <xs:attribute name="technique" type="nodes.status.technique.valueset"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="nodes.status.result.section">
+        <xs:sequence>
+            <xs:element name="result">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="nodes.status.result.response"/>
+                    </xs:sequence>
+                    <xs:attribute name="for" type="nodes.status.result.for.valueset" use="required"/>
+                    <xs:attribute name="type" type="nodes.status.result.type.valueset"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="nodes.status.largestMetastasis.item">
+        <xs:sequence>
+            <xs:element name="largestMetastasis">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="size"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="nodes.status.extracapsularExtension.item">
+        <xs:sequence>
+            <xs:element name="extracapsularExtension">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="nodes.extracapsularExtension.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="nodes.extracapsularExtension.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="qualitative.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="nodes.status.result.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attributeGroup ref="tally"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ============================================================= -->
+    <xs:group name="specimen.section">
+        <xs:sequence>
+            <xs:element name="specimen">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="specimen.section.content"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="specimen.section.content">
+        <xs:sequence>
+            <xs:group ref="specimen.procedure.item"/>
+            <xs:group ref="specimen.size.item"/>
+            <xs:group minOccurs="0" ref="specimen.weight.item"/>
+            <xs:group ref="specimen.site.item"/>
+            <xs:group minOccurs="0" ref="specimen.integrity.item"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="specimen.procedure.item">
+        <xs:sequence>
+            <xs:element name="procedure">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="specimen.procedure.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="specimen.procedure.response">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="specimen.procedure.response.valueset" use="required"/>
+                    <xs:attribute name="on" type="laterality.valueset"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="specimen.size.item">
+        <xs:sequence>
+            <xs:element name="size">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="specimen.size.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="specimen.size.response">
+        <xs:sequence>
+            <xs:group ref="size"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="specimen.weight.item">
+        <xs:sequence>
+            <xs:element name="weight">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="specimen.weight.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="specimen.weight.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attributeGroup ref="weight"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="specimen.site.item">
+        <xs:sequence>
+            <xs:element name="site">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="specimen.site.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="specimen.site.response">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="specimen.site.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="specimen.integrity.item">
+        <xs:sequence>
+            <xs:element name="integrity">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="specimen.integrity.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="specimen.integrity.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="specimen.integrity.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ============================================================= -->
+    <xs:group name="stage.section">
+        <xs:sequence>
+            <xs:element name="stage">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="stage.section.content"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="stage.section.content">
+        <xs:sequence>
+            <xs:group ref="stage.prefix.item"/>
+            <xs:group ref="stage.multiplicity.item"/>
+            <xs:group ref="stage.pT.item"/>
+            <xs:group ref="stage.pN.item"/>
+            <xs:group ref="stage.pM.item"/>
+            <xs:group ref="stage.group.item"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="stage.prefix.item">
+        <xs:sequence>
+            <xs:element name="prefix">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="stage.prefix.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="stage.prefix.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="stage.prefix.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="stage.multiplicity.item">
+        <xs:sequence>
+            <xs:element name="multiplicity">
+                <xs:complexType>
+                    <xs:group ref="stage.multiplicity.response"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="stage.multiplicity.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="multiplicity.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="stage.pT.item">
+        <xs:sequence>
+            <xs:element name="pT">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="stage.pT.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="stage.pT.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="stage.pT.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="stage.pN.item">
+        <xs:sequence>
+            <xs:element name="pN">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="stage.pN.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="stage.pN.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="stage.pN.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="stage.pM.item">
+        <xs:sequence>
+            <xs:element name="pM">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="stage.pM.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="stage.pM.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="stage.pM.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="stage.group.item">
+        <xs:sequence>
+            <xs:element name="group">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="stage.group.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="stage.group.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="stage.group.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ============================================================= -->
+    <xs:group name="studies.section">
+        <xs:sequence>
+            <xs:element name="studies">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="studies.section.content"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="studies.section.content">
+        <xs:sequence>
+            <xs:element name="study">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="studies.study.item"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="studies.study.item">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="study">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="studies.study.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="studies.study.response">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="xs:token" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ============================================================= -->
+    <xs:group name="tumor.section">
+        <xs:sequence>
+            <xs:element name="tumor">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="tumor.section.content"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="tumor.section.content">
+        <xs:sequence>
+            <xs:group maxOccurs="unbounded" ref="tumor.focus.section"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="tumor.focus.section">
+        <xs:sequence>
+            <xs:element name="focus">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="tumor.site.item"/>
+                        <xs:group ref="tumor.size.item"/>
+                        <xs:group ref="tumor.histologicType.item"/>
+                        <xs:group ref="tumor.grade.item"/>
+                    </xs:sequence>
+                    <xs:attribute name="type" type="tumor.focus.type.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="tumor.histologicType.item">
+        <xs:sequence>
+            <xs:element name="histologicType">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="tumor.histologicType.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="tumor.size.item">
+        <xs:sequence>
+            <xs:element name="size">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="tumor.size.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="tumor.size.response">
+        <xs:sequence>
+            <xs:group ref="size"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="tumor.grade.item">
+        <xs:sequence>
+            <xs:element name="grade">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="tumor.grade.response"/>
+                    </xs:sequence>
+                    <xs:attribute name="system" type="tumor.gradeSystem.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="tumor.histologicType.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" use="required">
+                        <xs:simpleType>
+                            <xs:union memberTypes="val:base.values tumor.histologicType.valueset"/>
+                        </xs:simpleType>
+                    </xs:attribute>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="tumor.grade.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="tumor.grade.valueset" use="required"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="tumor.site.item">
+        <xs:sequence>
+            <xs:element name="site">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="generic.content"/>
+                        <xs:group ref="tumor.site.response"/>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:group name="tumor.site.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="generic.content"/>
+                    <xs:attribute name="value" type="tumor.site.valueset" use="required"/>
+                    <xs:attribute name="on" type="laterality.valueset"/>
+                    <xs:attributeGroup ref="generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+</xs:schema>

@@ -4,7 +4,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:import namespace="http://www.w3.org/2003/g/data-view#" schemaLocation="data-view.xsd"/>
     <xs:simpleType name="empty">
-        <xs:restriction base="xs:token">
+        <xs:restriction base="xs:string">
             <xs:length value="0"/>
         </xs:restriction>
     </xs:simpleType>
@@ -45,10 +45,10 @@
     </xs:group>
     <xs:group name="generic.content">
         <xs:sequence>
-            <xs:element minOccurs="0" ref="ecc:specify"/>
-            <xs:element minOccurs="0" ref="ecc:label"/>
-            <xs:element minOccurs="0" ref="ecc:comment"/>
-            <xs:group minOccurs="0" ref="ecc:foreign.content"/>
+            <xs:element maxOccurs="1" minOccurs="0" ref="ecc:specify"/>
+            <xs:element maxOccurs="1" minOccurs="0" ref="ecc:label"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:comment"/>
+            <xs:group maxOccurs="unbounded" minOccurs="0" ref="ecc:foreign.content"/>
         </xs:sequence>
     </xs:group>
     <xs:element name="accessory">
@@ -149,10 +149,7 @@
     <xs:element name="tumor">
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
                 <xs:choice>
                     <xs:group ref="ecc:focus"/>
                     <xs:group ref="ecc:focus_2"/>
@@ -164,10 +161,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
@@ -175,10 +169,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_2"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
@@ -186,10 +177,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_3"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
@@ -197,10 +185,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_4"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
             <xs:attribute name="of">
                 <xs:simpleType>
@@ -227,10 +212,7 @@
             <xs:element name="status">
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                         <xs:choice>
                             <xs:group ref="ecc:result"/>
                             <xs:group ref="ecc:size"/>
@@ -263,10 +245,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_5"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
             <xs:attribute name="date">
                 <xs:simpleType>
@@ -290,10 +269,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_6"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
             <xs:attribute name="date">
                 <xs:simpleType>
@@ -317,10 +293,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_7"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
             <xs:attribute name="date">
                 <xs:simpleType>
@@ -344,10 +317,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_8"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
             <xs:attribute name="date">
                 <xs:simpleType>
@@ -372,10 +342,7 @@
             <xs:element name="status">
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                         <xs:choice>
                             <xs:group ref="ecc:result_2"/>
                             <xs:group ref="ecc:distance"/>
@@ -409,10 +376,7 @@
             <xs:element name="status">
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                         <xs:choice>
                             <xs:group ref="ecc:result_3"/>
                             <xs:group ref="ecc:result_4"/>
@@ -459,10 +423,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_9"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
@@ -478,10 +439,7 @@
                                 <xs:group ref="ecc:sizeContent"/>
                             </xs:choice>
                         </xs:choice>
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                     </xs:choice>
                 </xs:complexType>
             </xs:element>
@@ -491,10 +449,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_11"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
@@ -504,10 +459,7 @@
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
                         <xs:group ref="ecc:response_12"/>
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                     </xs:choice>
                 </xs:complexType>
             </xs:element>
@@ -517,10 +469,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_13"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
@@ -528,10 +477,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_14"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
@@ -541,10 +487,7 @@
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
                         <xs:group ref="ecc:multiplicities"/>
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                     </xs:choice>
                 </xs:complexType>
             </xs:element>
@@ -554,10 +497,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_16"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
@@ -565,10 +505,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_17"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
@@ -576,10 +513,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_18"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
@@ -587,10 +521,7 @@
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:group ref="ecc:response_19"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
@@ -599,10 +530,7 @@
             <xs:element name="focus">
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                         <xs:choice>
                             <xs:group ref="ecc:site"/>
                             <xs:group ref="ecc:size"/>
@@ -627,10 +555,7 @@
             <xs:element name="focus">
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                         <xs:choice>
                             <xs:group ref="ecc:site"/>
                             <xs:group ref="ecc:size"/>
@@ -654,12 +579,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -681,12 +601,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -708,12 +623,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -735,12 +645,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:union>
@@ -769,10 +674,7 @@
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
                         <xs:group ref="ecc:response_20"/>
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                     </xs:choice>
                     <xs:attribute name="for">
                         <xs:simpleType>
@@ -841,12 +743,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -864,12 +761,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -887,12 +779,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -913,12 +800,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -938,10 +820,7 @@
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
                         <xs:group ref="ecc:response_22"/>
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                     </xs:choice>
                     <xs:attribute name="for" use="required">
                         <xs:simpleType>
@@ -964,10 +843,7 @@
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
                         <xs:group ref="ecc:response_23"/>
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                     </xs:choice>
                     <xs:attribute name="for" use="required">
                         <xs:simpleType>
@@ -994,10 +870,7 @@
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
                         <xs:group ref="ecc:response_24"/>
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                     </xs:choice>
                     <xs:attribute name="for" use="required">
                         <xs:simpleType>
@@ -1016,10 +889,7 @@
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
                         <xs:group ref="ecc:response_24"/>
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                     </xs:choice>
                     <xs:attribute name="for" use="required">
                         <xs:simpleType>
@@ -1068,21 +938,16 @@
                         <xs:group ref="ecc:response_25"/>
                     </xs:choice>
                 </xs:choice>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
     <xs:element name="extracapsularExtension">
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
-                <xs:group ref="ecc:response_26"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <!--<xs:group ref="ecc:response_26"/>-->
+                <xs:group ref="ecc:extent.extracapsularExtension.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
@@ -1090,12 +955,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -1150,12 +1010,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -1174,12 +1029,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -1199,12 +1049,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -1226,12 +1071,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -1254,12 +1094,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -1277,12 +1112,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -1300,12 +1130,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -1323,12 +1148,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -1345,22 +1165,16 @@
     <xs:element name="histologicType">
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
-                <xs:group ref="ecc:response_30"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:tumor.histologicType.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
         </xs:complexType>
     </xs:element>
     <xs:element name="grade">
         <xs:complexType>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
-                <xs:group ref="ecc:response_31"/>
-                <xs:element ref="ecc:specify"/>
-                <xs:element ref="ecc:label"/>
-                <xs:element ref="ecc:comment"/>
-                <xs:group ref="ecc:foreign.content"/>
+                <xs:group ref="ecc:tumor.grade.content"/>
+                <xs:group ref="ecc:generic.content"/>
             </xs:choice>
             <xs:attribute name="system" use="required">
                 <xs:simpleType>
@@ -1377,10 +1191,7 @@
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
                         <xs:group ref="ecc:multiplicities"/>
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                     </xs:choice>
                 </xs:complexType>
             </xs:element>
@@ -1390,12 +1201,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -1419,10 +1225,7 @@
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
                         <xs:group ref="ecc:response_34"/>
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:generic.content"/>
                     </xs:choice>
                     <xs:attribute name="for" use="required">
                         <xs:simpleType>
@@ -1445,11 +1248,8 @@
             <xs:element name="distance">
                 <xs:complexType>
                     <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:group ref="ecc:response_35"/>
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
+                        <xs:group ref="ecc:lengthContent"/>
+                        <xs:group ref="ecc:generic.content"/>
                     </xs:choice>
                     <xs:attribute name="for">
                         <xs:simpleType>
@@ -1470,6 +1270,7 @@
                                     </xs:restriction>
                                 </xs:simpleType>
                                 <xs:simpleType>
+                                    <!-- this now should be a type that can be substituted by type -->
                                     <xs:restriction base="xs:token">
                                         <xs:length value="0"/>
                                     </xs:restriction>
@@ -1485,12 +1286,7 @@
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -1574,43 +1370,25 @@
             </xs:element>
         </xs:sequence>
     </xs:group>
-    <xs:group name="response_26">
+    <xs:group name="extent.extracapsularExtension.content">
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
-                            <xs:restriction base="xs:token">
-                                <xs:enumeration value="specify"/>
-                                <xs:enumeration value="inapplicable"/>
-                                <xs:enumeration value="unreported"/>
-                                <xs:enumeration value="positive"/>
-                                <xs:enumeration value="negative"/>
-                                <xs:enumeration value="equivocal"/>
-                                <xs:enumeration value="indeterminate"/>
-                            </xs:restriction>
+                            <xs:restriction base="ecc:qualitative.valueset"/>
                         </xs:simpleType>
                     </xs:attribute>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
     </xs:group>
-    <xs:group name="response_27">
+    <!--<xs:group name="response_27">
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
@@ -1624,17 +1402,12 @@
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
-    </xs:group>
-    <xs:group name="response_28">
+    </xs:group>-->
+    <!--<xs:group name="response_28">
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
                             <xs:union>
@@ -1656,10 +1429,10 @@
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
-    </xs:group>
+    </xs:group>-->
     <xs:group name="sizeContent">
         <xs:sequence>
-            <xs:element name="response">
+            <xs:element maxOccurs="3" minOccurs="1" name="response">
                 <xs:complexType>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
@@ -1674,102 +1447,57 @@
             </xs:element>
         </xs:sequence>
     </xs:group>
-    <xs:group name="response_30">
+    <xs:group name="tumor.histologicType.content">
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
-                            <xs:restriction base="xs:token">
-                                <xs:enumeration value="specify"/>
-                                <xs:enumeration value="inapplicable"/>
-                                <xs:enumeration value="unreported"/>
-                            </xs:restriction>
+                            <xs:union memberTypes="ecc:base.valueset ecc:tumor.histologicType.valueset"/>
                         </xs:simpleType>
                     </xs:attribute>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
     </xs:group>
-    <xs:group name="response_31">
+    <xs:group name="tumor.grade.content">
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
-                            <xs:restriction base="xs:token">
-                                <xs:enumeration value="specify"/>
-                                <xs:enumeration value="inapplicable"/>
-                                <xs:enumeration value="unreported"/>
-                                <xs:enumeration value="1"/>
-                                <xs:enumeration value="2"/>
-                                <xs:enumeration value="3"/>
-                                <xs:enumeration value="4"/>
-                                <xs:enumeration value="X"/>
-                            </xs:restriction>
+                            <xs:restriction base="ecc:tumor.grade.valueset"/>
                         </xs:simpleType>
                     </xs:attribute>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
     </xs:group>
-    <xs:group name="response_32">
+    <!--<xs:group name="response_32">
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
-                            <xs:restriction base="xs:token">
-                                <xs:enumeration value="specify"/>
-                                <xs:enumeration value="inapplicable"/>
-                                <xs:enumeration value="unreported"/>
-                            </xs:restriction>
+                            <xs:restriction base="ecc:base.valueset"/>
                         </xs:simpleType>
                     </xs:attribute>
                     <xs:attribute name="on" type="ecc:laterality.valueset"/>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
-    </xs:group>
+    </xs:group>-->
     <xs:group name="response_34">
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
-                    <xs:choice maxOccurs="unbounded" minOccurs="0">
-                        <xs:element ref="ecc:specify"/>
-                        <xs:element ref="ecc:label"/>
-                        <xs:element ref="ecc:comment"/>
-                        <xs:group ref="ecc:foreign.content"/>
-                    </xs:choice>
+                    <xs:group ref="ecc:generic.content"/>
                     <xs:attribute name="value" use="required">
                         <xs:simpleType>
-                            <xs:restriction base="xs:token">
-                                <xs:enumeration value="specify"/>
-                                <xs:enumeration value="inapplicable"/>
-                                <xs:enumeration value="unreported"/>
-                                <xs:enumeration value="positive"/>
-                                <xs:enumeration value="negative"/>
-                                <xs:enumeration value="equivocal"/>
-                                <xs:enumeration value="indeterminate"/>
-                            </xs:restriction>
+                            <xs:restriction base="ecc:qualitative.valueset"/>
                         </xs:simpleType>
                     </xs:attribute>
                     <xs:attribute name="extent" type="ecc:focality.valueset"/>
@@ -1777,7 +1505,7 @@
             </xs:element>
         </xs:sequence>
     </xs:group>
-    <xs:group name="response_35">
+    <xs:group name="lengthContent">
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
@@ -1820,10 +1548,7 @@
     </xs:simpleType>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <xs:simpleType name="lengthUnit.valueset" xmlns="http://purl.org/pathology/ecc/">
-        <xs:union>
-            <xs:simpleType>
-                <xs:restriction base="base.valueset"/>
-            </xs:simpleType>
+        <xs:union memberTypes="base.valueset">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="cm"/>
@@ -1858,6 +1583,10 @@
             <xs:enumeration value="greater than or equal"/>
             <xs:enumeration value="greater than"/>
         </xs:restriction>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="tumor.histologicType.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:restriction base="ecc:base.valueset"/>
     </xs:simpleType>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <xs:simpleType name="laterality.valueset" xmlns="http://purl.org/pathology/ecc/">
@@ -2075,22 +1804,36 @@
     <!-- ============================================================= -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <xs:simpleType name="stage.prefix.valueset" xmlns="http://purl.org/pathology/ecc/">
-        <xs:restriction base="xs:token">
-            <xs:enumeration value="y"/>
-            <xs:enumeration value="r"/>
-            <xs:enumeration value="a"/>
-            <xs:enumeration value="none"/>
-        </xs:restriction>
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="y"/>
+                    <xs:enumeration value="r"/>
+                    <xs:enumeration value="a"/>
+                    <xs:enumeration value="none"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
     </xs:simpleType>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <xs:simpleType name="stage.multiplicity.valueset" xmlns="http://purl.org/pathology/ecc/">
-        <xs:restriction base="xs:token">
-            <xs:enumeration value="1"/>
-            <xs:enumeration value="2"/>
-            <xs:enumeration value="3"/>
-            <xs:enumeration value="4"/>
-            <xs:enumeration value="m"/>
-        </xs:restriction>
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="1"/>
+                    <xs:enumeration value="2"/>
+                    <xs:enumeration value="3"/>
+                    <xs:enumeration value="4"/>
+                    <xs:enumeration value="m"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
     </xs:simpleType>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -2101,22 +1844,33 @@
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <xs:simpleType name="tumor.grade.valueset" xmlns="http://purl.org/pathology/ecc/">
-        <xs:restriction base="xs:token">
-            <xs:enumeration value="1"/>
-            <xs:enumeration value="2"/>
-            <xs:enumeration value="3"/>
-            <xs:enumeration value="4"/>
-            <xs:enumeration value="X"/>
-        </xs:restriction>
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="base.valueset"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="1"/>
+                    <xs:enumeration value="2"/>
+                    <xs:enumeration value="3"/>
+                    <xs:enumeration value="4"/>
+                    <xs:enumeration value="X"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
     </xs:simpleType>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <xs:simpleType name="tumor.gradeSystem.valueset" xmlns="http://purl.org/pathology/ecc/">
+    <xs:simpleType name="tumor.gradeSystem.values" xmlns="http://purl.org/pathology/ecc/">
         <xs:restriction base="xs:token">
             <xs:enumeration value="4-grade"/>
         </xs:restriction>
     </xs:simpleType>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <xs:simpleType name="tumor.multiplicity.valueset" xmlns="http://purl.org/pathology/ecc/">
+    <xs:simpleType name="tumor.gradeSystem.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union memberTypes="base.valueset tumor.gradeSystem.values"/>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="tumor.multiplicity.values" xmlns="http://purl.org/pathology/ecc/">
         <xs:restriction base="xs:token">
             <xs:enumeration value="1"/>
             <xs:enumeration value="2"/>
@@ -2124,6 +1878,10 @@
             <xs:enumeration value="4"/>
             <xs:enumeration value="many"/>
         </xs:restriction>
+    </xs:simpleType>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <xs:simpleType name="tumor.multiplicity.valueset" xmlns="http://purl.org/pathology/ecc/">
+        <xs:union memberTypes="ecc:base.valueset ecc:tumor.multiplicity.values"/>
     </xs:simpleType>
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 </xs:schema>

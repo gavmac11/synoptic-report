@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="breast.rng" type="xml"?>
-<?oxygen SCHSchema="../framework/rules.sch"?>
 <?oxygen SCHSchema="breast.sch"?>
 <!--
     ===========================================================================
@@ -24,22 +23,26 @@
     limitations under the License.
     ===========================================================================  
 -->
-<resection grddl:transformation="http://www.cancerstaging.org/csv2#"
-    schemaLocation="http://purl.org/pathology/ecc/breast.rng" version="1.0a" xmlns="http://purl.org/pathology/ecc/"
-    xmlns:breast="http://purl.org/pathology/ecc/breast/" xmlns:ecc="http://purl.org/pathology/ecc/"
-    xmlns:grddl="http://www.w3.org/2003/g/data-view#">
+
+<resection schemaLocation="http://purl.org/pathology/ecc/breast.rng"
+    version="1.0a" xmlns="http://purl.org/pathology/ecc/"
+    xmlns:grddl="http://www.w3.org/2003/g/data-view#"
+    grddl:transformation="http://www.cancerstaging.org/csv2#">
     <history>
         <clinicalFinding>
             <response value="specify">
                 <specify>breast lump</specify>
             </response>
-        </clinicalFinding>
+        </clinicalFinding>  
+        <clinicalFinding>
+            <response value="unreported"/>
+        </clinicalFinding>    
         <priorTherapy>
             <response value="specify">
                 <specify>herbal therapy</specify>
             </response>
         </priorTherapy>
-        <radiologicFinding>
+        <radiologicFinding>       
             <response value="specify">
                 <specify>2 cm lump in upper outer quadrant</specify>
             </response>
@@ -47,8 +50,7 @@
     </history>
     <specimen>
         <procedure>
-            <response value="excision, wire-guided"/>
-            <response value="sentinel lymph node sampling"/>
+            <response value="total mastectomy"/>
         </procedure>
         <size>
             <response unit="cm" value="24"/>
@@ -58,8 +60,9 @@
             <response unit="g" value="100"/>
         </weight>
         <site>
-            <response on="right" value="axillary tail"/>
-            <response value="lower inner quadrant"/>
+            <response value="partial breast"></response>
+            <response value="axillary tail"></response>
+            <response value="total breast"></response>
         </site>
         <integrity>
             <response value="intact"/>
@@ -68,7 +71,7 @@
     <tumor>
         <focus type="principal">
             <site>
-                <response on="right" value="lower outer quadrant"/>
+                <response on="right" value="lower inner quadrant"/>
                 <response value="axillary tail"/>
                 <response value="5:00"/>
             </site>
@@ -76,7 +79,11 @@
                 <response unit="cm" value="1.9"/>
             </size>
             <histologicType>
-                <response value="ductal carcinoma"/>
+                <comment>this is not right</comment>
+                <label>Histology variety</label>
+                <response value="medullary carcinoma">
+                    <comment></comment>
+                </response>
             </histologicType>
             <grade system="nottingham">
                 <result for="glands">
@@ -95,7 +102,7 @@
         </focus>
         <focus name="additional">
             <site>
-                <response on="right" value="lower outer quadrant"/>
+                <response on="right" value="lower inner quadrant"/>
             </site>
             <size>
                 <response unit="mm" value="3"/>
@@ -153,6 +160,7 @@
             <response value="negative"/>
         </perineuralInvasion>
         <microcalcifications>
+            <response value="in DCIS"></response>
             <response value="in non-neoplastic tissue"/>
             <response value="in invasive carcinoma"/>
         </microcalcifications>
@@ -313,7 +321,7 @@
             <response value="m"/>
         </multiplicity>
         <pT>
-            <response value="3"/>
+            <response value="1b"/>
         </pT>
         <pN>
             <response value="1a"/>

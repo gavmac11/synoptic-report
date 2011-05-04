@@ -36,8 +36,9 @@
 <!ENTITY	date  	    "types/date.rng">
 <!ENTITY	length      "types/length.rng">
 ]>
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://purl.org/pathology/ecc/"
-    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://purl.org/pathology/ecc/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:ecc="http://purl.org/pathology/ecc/">
     <!--=============================================================-->
     <include href="&values;"/>
@@ -79,6 +80,17 @@
     </define>
     <!--=============================================================-->
     <define combine="interleave" name="accessory.extension">
+        <empty/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>ASSESSMENT section</a:documentation>
+    <!--=============================================================-->
+    <define name="assessment.content">
+        <empty/>
+        <ref name="assessment.extension"/>
+    </define>
+    <!--=============================================================-->
+    <define combine="interleave" name="assessment.extension">
         <empty/>
     </define>
     <!--=============================================================-->
@@ -254,7 +266,8 @@
                     </define>
                     <define name="from.valueset">
                         <choice>
-                            <parentRef name="extent.contiguousExtension.status.distance.from.valueset"/>
+                            <parentRef
+                                name="extent.contiguousExtension.status.distance.from.valueset"/>
                             <parentRef name="base.valueset"/>
                         </choice>
                     </define>
@@ -348,6 +361,17 @@
                 </element>
             </optional>
         </oneOrMore>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>MICROSCOPIC section</a:documentation>
+    <!--=============================================================-->
+    <define name="microscopic.content">
+        <empty/>
+        <ref name="microscopic.extension"/>
+    </define>
+    <!--=============================================================-->
+    <define combine="interleave" name="microscopic.extension">
+        <empty/>
     </define>
     <!--=============================================================-->
     <a:documentation>DISTANT section</a:documentation>
