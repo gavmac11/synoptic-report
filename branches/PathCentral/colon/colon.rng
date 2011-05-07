@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+<!DOCTYPE	grammar [
+<!ENTITY	items  		"../framework/shared/items.rng">
+<!ENTITY	sections  	"../framework/shared/sections.rng">
+<!ENTITY	section		"../framework/shared/types/section.rng">
+<!ENTITY    length      "../framework/shared/types/length.rng">
+<!ENTITY	percent  	"../framework/shared/types/percent.rng">
+<!ENTITY	quantity    "../framework/shared/types/quantity.rng">
+<!ENTITY	ratio  		"../framework/shared/types/ratio.rng">
+<!ENTITY	selectMany  "../framework/shared/types/selectMany.rng">
+<!ENTITY	selectOne  	"../framework/shared/types/selectOne.rng">
+<!ENTITY	size  		"../framework/shared/types/size.rng">
+<!ENTITY	tally  		"../framework/shared/types/tally.rng">
+<!ENTITY	weight  	"../framework/shared/types/weight.rng">
+]>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://purl.org/pathology/ecc/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:colon="http://purl.org/pathology/ecc/colon/">
+    <!--=============================================================-->
+    <include href="values.rng"/>
+    <!--=============================================================-->
+    <start>
+        <ref name="resection"/>
+    </start>
+    <!--=============================================================-->
+    <include href="&sections;">
+        <define name="schemaLocation">
+            <value>http://purl.org/pathology/ecc/colon.rng</value>
+        </define>
+        <define name="version">
+            <value>1.0a</value>
+        </define>
+        <define name="semantics">
+            <value>http://cap#colon/snomedct/ http://cap#colon/radlex/</value>
+        </define>
+    </include>
+    <!--=============================================================-->
+    <a:documentation>ACCESSORY section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="accessory.extension">
+        <optional>
+            <element name="peritumoralDeposits">
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="qualitative.valueset"/>
+                    </define>
+                </grammar>
+            </element>
+        </optional>
+        <optional>
+            <element name="mucinousComponent">
+                <grammar>
+                    <include href="&percent;"/>
+                </grammar>
+            </element>
+        </optional>
+        <optional>
+            <element name="medullaryComponent">
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="qualitative.valueset"/>
+                    </define>
+                </grammar>
+            </element>
+        </optional>
+        <optional>
+            <element name="intratumoralImmuneResponse">
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="accessory.immuneResponse.valueset"/>
+                    </define>
+                </grammar>
+            </element>
+        </optional>
+        <optional>
+            <element name="peritumoralImmuneResponse">
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="accessory.immuneResponse.valueset"/>
+                    </define>
+                </grammar>
+            </element>
+        </optional>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>ADDITIONAL section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="additional.extension">
+        <empty/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>EXTENT section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="extent.extension">
+        <element name="deepestInvasion">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="extent.deepestInvasion.valueset"/>
+                </define>
+            </grammar>
+        </element>
+        <element name="tumorPerforation">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="qualitative.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>SPECIMEN section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="specimen.extension">
+        <optional>
+            <element name="mesorectumIntact">
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="specimen.mesorectum.valueset"/>
+                    </define>
+                </grammar>
+            </element>
+        </optional>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>STUDIES section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="studies.extension">
+        <optional>
+            <ref name="studies.microsatelliteInstability"/>
+        </optional>
+        <optional>
+            <ref name="studies.MLH1"/>
+        </optional>
+        <optional>
+            <ref name="studies.MSH"/>
+        </optional>
+        <optional>
+            <ref name="studies.MSH6"/>
+        </optional>
+        <optional>
+            <ref name="studies.PMS2"/>
+        </optional>
+        <optional>
+            <ref name="studies.BRAF"/>
+        </optional>
+        <optional>
+            <ref name="studies.KRAS"/>
+        </optional>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="studies.microsatelliteInstability">
+        <element name="microsatelliteInstability">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="microsatellite.result"/>
+                    <parentRef name="microsatellite.method.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="microsatellite.result">
+        <element name="result">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.microsatelliteInstability.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="microsatellite.method">
+        <element name="method">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="microsatellite.method.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="microsatellite.method.content">
+        <element name="technique">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.microsatelliteInstability.method.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="studies.MLH1">
+        <element name="mLH1">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="MLH1.result"/>
+                    <parentRef name="MLH1.method.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="MLH1.result">
+        <element name="result">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.mismatchRepair.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="MLH1.method">
+        <element name="method">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="MLH1.method.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="MLH1.method.content">
+        <element name="technique">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.mismatchRepair.method.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="studies.MSH">
+        <element name="mSH">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="MSH.result"/>
+                    <parentRef name="MSH.method.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="MSH.result">
+        <element name="result">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.mismatchRepair.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="MSH.method">
+        <element name="method">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="MSH.method.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="MSH.method.content">
+        <element name="technique">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.mismatchRepair.method.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="studies.MSH6">
+        <element name="mSH6">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="MSH6.result"/>
+                    <parentRef name="MSH6.method.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="MSH6.result">
+        <element name="result">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.mismatchRepair.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="MSH6.method">
+        <element name="method">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="MSH6.method.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="MSH6.method.content">
+        <element name="technique">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.mismatchRepair.method.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="studies.PMS2">
+        <element name="pMS2">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="PMS2.result"/>
+                    <parentRef name="PMS2.method.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="PMS2.result">
+        <element name="result">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.mismatchRepair.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="PMS2.method">
+        <element name="method">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="PMS2.method.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="PMS2.method.content">
+        <element name="technique">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.mismatchRepair.method.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="studies.BRAF">
+        <element name="bRAF">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="BRAF.result"/>
+                    <parentRef name="BRAF.mutation"/>
+                    <parentRef name="BRAF.method.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="BRAF.result">
+        <element name="result">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.mutationalAnalysis.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="BRAF.mutation">
+        <element name="mutation">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.BRAF.mutation.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="BRAF.method">
+        <element name="method">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="BRAF.method.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="BRAF.method.content">
+        <element name="technique">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.mutationalAnalysis.method.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="studies.KRAS">
+        <element name="kRAS">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="KRAS.result"/>
+                    <parentRef name="KRAS.mutation"/>
+                    <parentRef name="KRAS.method.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="KRAS.result">
+        <element name="result">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.mutationalAnalysis.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="KRAS.mutation">
+        <element name="mutation">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.KRAS.mutation.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="KRAS.method">
+        <element name="method">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="KRAS.method.content"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="KRAS.method.content">
+        <element name="technique">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.mutationalAnalysis.method.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>TUMOR section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="tumor.extension">
+        <optional>
+            <element name="precursorPolyp">
+                <grammar>
+                    <include href="&section;"/>
+                    <define name="content">
+                        <parentRef name="precursorPolyp.content"/>
+                    </define>
+                </grammar>
+            </element>
+        </optional>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="precursorPolyp.content">
+        <element name="type">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="precursorPolyp.valueset"/>
+                </define>
+            </grammar>
+        </element>
+        <element name="configuration">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="specimen.polypConfiguration.valueset"/>
+                </define>
+            </grammar>
+        </element>
+        <element name="stalkLength">
+            <grammar>
+                <include href="&length;"/>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="tumor.additionalFocus.site.extension">
+        <optional>
+            <attribute name="modifier">
+                <ref name="extent.severity.valueset"/>
+            </attribute>
+        </optional>
+    </define>
+    <!--=============================================================-->
+</grammar>

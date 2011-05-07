@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE	grammar [
+<!ENTITY	item       "item.rng">
+<!ENTITY	section    "section.rng">
+]>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://purl.org/pathology/ecc/"
+    xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <a:documentation/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <include href="&section;"/>
+    <define name="content">
+        <ref name="total"/>
+        <zeroOrMore>
+            <ref name="other"/>
+        </zeroOrMore>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="total">
+        <element name="total">
+            <grammar>
+                <include href="&item;"/>
+                <start>
+                    <ref name="item.content"/>
+                </start>
+                <define name="response">
+                    <element name="response">
+                        <attribute name="value">
+                            <choice>
+                                <data type="nonNegativeInteger"/>
+                                <parentRef name="base.valueset"/>
+                            </choice>
+                        </attribute>
+                        <optional>
+                            <attribute a:defaultValue="equal" name="relation">
+                                <parentRef name="relation.valueset"/>
+                            </attribute>
+                        </optional>
+                    </element>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <define name="other">
+        <zeroOrMore>
+            <element>
+                <choice>
+                    <name>positive</name>
+                    <name>negative</name>
+                    <name>equivocal</name>
+                    <name>indeterminate</name>
+                </choice>
+                <grammar>
+                    <include href="&item;"/>
+                    <start>
+                        <ref name="item.content"/>
+                    </start>
+                    <define name="item.extension">
+                        <optional>
+                            <attribute name="type">
+                                <parentRef name="item.type.valueset"/>
+                            </attribute>
+                        </optional>
+                    </define>
+                    <define name="response">
+                        <element name="response">
+                            <attribute name="value">
+                                <choice>
+                                    <data type="nonNegativeInteger"/>
+                                    <parentRef name="base.valueset"/>
+                                </choice>
+                            </attribute>
+                            <optional>
+                                <attribute a:defaultValue="equal" name="relation">
+                                    <parentRef name="relation.valueset"/>
+                                </attribute>
+                            </optional>
+                        </element>
+                    </define>
+                </grammar>
+            </element>
+        </zeroOrMore>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="response.extension">
+        <empty/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="relation.valueset">
+        <parentRef name="relation.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="base.valueset">
+        <parentRef name="base.valueset"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="item.type.valueset">
+        <empty/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</grammar>

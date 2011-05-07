@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="breast.rng" type="xml"?>
+<?oxygen SCHSchema="../framework/rules.sch"?>
+<?oxygen SCHSchema="breast.sch"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+<resection grddl:transformation="http://www.cancerstaging.org/csv2#"
+    schemaLocation="http://purl.org/pathology/ecc/breast.rng" version="1.0a" xmlns="http://purl.org/pathology/ecc/"
+    xmlns:breast="http://purl.org/pathology/ecc/breast/" xmlns:ecc="http://purl.org/pathology/ecc/"
+    xmlns:grddl="http://www.w3.org/2003/g/data-view#">
+    <history>
+        <clinicalFinding>
+            <response value="specify">
+                <specify>breast lump</specify>
+            </response>
+        </clinicalFinding>
+        <priorTherapy>
+            <response value="specify">
+                <specify>herbal therapy</specify>
+            </response>
+        </priorTherapy>
+        <radiologicFinding>
+            <response value="specify">
+                <specify>2 cm lump in upper outer quadrant</specify>
+            </response>
+        </radiologicFinding>
+    </history>
+    <specimen>
+        <procedure>
+            <response value="excision, wire-guided"/>
+            <response value="sentinel lymph node sampling"/>
+        </procedure>
+        <size>
+            <response unit="cm" value="24"/>
+            <response unit="cm" value="12"/>
+        </size>
+        <weight>
+            <response unit="g" value="100"/>
+        </weight>
+        <site>
+            <response on="right" value="axillary tail"/>
+            <response value="lower inner quadrant"/>
+        </site>
+        <integrity>
+            <response value="intact"/>
+        </integrity>
+    </specimen>
+    <tumor>
+        <focus type="principal">
+            <site>
+                <response on="right" value="lower outer quadrant"/>
+                <response value="axillary tail"/>
+                <response value="5:00"/>
+            </site>
+            <size>
+                <response unit="cm" value="1.9"/>
+            </size>
+            <histologicType>
+                <response value="ductal carcinoma"/>
+            </histologicType>
+            <grade system="nottingham">
+                <result for="glands">
+                    <response value="2"/>
+                </result>
+                <result for="nuclei">
+                    <response value="2"/>
+                </result>
+                <result for="mitoses">
+                    <response value="2"/>
+                </result>
+                <result for="combined">
+                    <response value="1"/>
+                </result>
+            </grade>
+        </focus>
+        <focus name="additional">
+            <site>
+                <response on="right" value="lower outer quadrant"/>
+            </site>
+            <size>
+                <response unit="mm" value="3"/>
+            </size>
+            <multiplicity>
+                <response value="many"/>
+            </multiplicity>
+            <histologicType>
+                <response value="ductal carcinoma"/>
+            </histologicType>
+            <grade system="nottingham">
+                <result for="glands">
+                    <response value="2"/>
+                </result>
+                <result for="nuclei">
+                    <response value="2"/>
+                </result>
+                <result for="mitoses">
+                    <response value="2"/>
+                </result>
+                <result for="combined">
+                    <response value="1"/>
+                </result>
+            </grade>
+        </focus>
+    </tumor>
+    <extent>
+        <skinInvasion>
+            <response value="negative"/>
+        </skinInvasion>
+        <skinUlceration>
+            <response value="negative"/>
+        </skinUlceration>
+        <skinSatelliteNodules>
+            <response value="negative"/>
+        </skinSatelliteNodules>
+        <dermalLymphaticInvasion>
+            <response value="negative"/>
+        </dermalLymphaticInvasion>
+        <underlyingStructures>
+            <response value="negative"/>
+        </underlyingStructures>
+        <nipplePagetDisease>
+            <response value="negative"/>
+        </nipplePagetDisease>
+    </extent>
+    <accessory>
+        <treatmentResponse>
+            <response value="slight"/>
+        </treatmentResponse>
+        <lymphVascularInvasion>
+            <response value="negative"/>
+        </lymphVascularInvasion>
+        <perineuralInvasion>
+            <response value="negative"/>
+        </perineuralInvasion>
+        <microcalcifications>
+            <response value="in non-neoplastic tissue"/>
+            <response value="in invasive carcinoma"/>
+        </microcalcifications>
+        <ductalCarcinoma-in-situ>
+            <result>
+                <response focality="extensive" value="positive"/>
+                <!-- what about extensive intraductal component -->
+                <!-- best is to use @subtype -->
+            </result>
+            <size>
+                <response unit="cm" value="2"/>
+            </size>
+            <blocks>
+                <result for="total">
+                    <response value="23"/>
+                </result>
+                <result for="positive">
+                    <response relation="approximately equal" value="1"/>
+                </result>
+            </blocks>
+            <architecture>
+                <response value="cribriform"/>
+            </architecture>
+            <grade>
+                <response value="high"/>
+            </grade>
+            <necrosis>
+                <response value="negative"/>
+            </necrosis>
+        </ductalCarcinoma-in-situ>
+        <lobularCarcinoma-in-situ>
+            <result>
+                <response value="negative"/>
+            </result>
+            <size>
+                <response unit="cm" value="2"/>
+            </size>
+            <blocks>
+                <result for="total">
+                    <response value="10  "/>
+                </result>
+                <result for="negative" type="RT-PCR negative">
+                    <response value="1"/>
+                </result>
+            </blocks>
+        </lobularCarcinoma-in-situ>
+    </accessory>
+    <margin>
+        <status of="medial">
+            <result for="in-situ">
+                <response value="inapplicable"/>
+            </result>
+        </status>
+        <status of="lateral">
+            <result for="invasive">
+                <response closest="positive" value="positive"/>
+            </result>
+            <distance for="invasive">
+                <response unit="cm" value="0.5"/>
+            </distance>
+        </status>
+        <status of="anterior">
+            <result for="in-situ">
+                <response extent="unifocal" value="positive"/>
+            </result>
+            <result for="invasive">
+                <response value="negative"/>
+            </result>
+            <distance for="invasive">
+                <response unit="cm" value="1"/>
+            </distance>
+        </status>
+    </margin>
+    <nodes>
+        <status of="sentinel" technique="H+E plus immunohistochemistry">
+            <result for="total">
+                <response value="36"/>
+            </result>
+            <result for="negative" type="RT-PCR negative">
+                <response value="13"/>
+            </result>
+            <result for="negative" type="necroinflammatory">
+                <response value="2"/>
+            </result>
+            <result for="positive">
+                <response value="2"/>
+            </result>
+            <largestMetastasis>
+                <response unit="cm" value="0.1"/>
+            </largestMetastasis>
+        </status>
+    </nodes>
+    <distant>
+        <status of="lung">
+            <result for="clinical history">
+                <response value="positive"/>
+            </result>
+            <size>
+                <response unit="mm" value="1.5"/>
+            </size>
+        </status>
+    </distant>
+    <studies>
+        <estrogenReceptor>
+            <result>
+                <response unit="percent" value="pending"/>
+            </result>
+            <technique>
+                <response value="immunohistochemistry"/>
+            </technique>
+            <source>
+                <response value="pending"/>
+            </source>
+            <antibody>
+                <response value="inapplicable" vendor="unreported"/>
+            </antibody>
+            <fixative>
+                <response value="neutral buffered formalin"/>
+            </fixative>
+        </estrogenReceptor>
+        <progesteroneReceptor>
+            <result>
+                <response unit="percent" value="pending"/>
+            </result>
+            <technique>
+                <response value="immunohistochemistry"/>
+            </technique>
+            <source>
+                <response value="pending"/>
+            </source>
+            <antibody>
+                <response value="FERWREJ" vendor=""/>
+            </antibody>
+            <fixative>
+                <response value="neutral buffered formalin"/>
+            </fixative>
+        </progesteroneReceptor>
+        <HER2neu>
+            <result>
+                <response value="negative (score 0)"/>
+            </result>
+            <technique>
+                <response value="immunohistochemistry"/>
+            </technique>
+            <source>
+                <response value="pending"/>
+            </source>
+            <antibody>
+                <response value="unreported" vendor="unreported"/>
+            </antibody>
+        </HER2neu>
+    </studies>
+    <stage>
+        <prefix>
+            <response value="none"/>
+        </prefix>
+        <multiplicity>
+            <response value="m"/>
+        </multiplicity>
+        <pT>
+            <response value="3"/>
+        </pT>
+        <pN>
+            <response value="1a"/>
+        </pN>
+        <pM>
+            <response value="1"/>
+        </pM>
+        <group>
+            <response value="IV"/>
+        </group>
+    </stage>
+    <additional>
+        <finding>
+            <response value="unreported"/>
+        </finding>
+    </additional>
+</resection>
