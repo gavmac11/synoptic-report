@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+
+<!-- This is the generic valuesets file. This file defines all the valuesets for all the item
+    responses that are part of the generic report. Note that exept for a set of "utility" valueset
+    definitions (extension.valueset to focality.valueset in the list below), each of the valuesets
+    defined here is (a) associated with a particular report section and (b) paired with a valueset
+    placeholder ending in ".extension", that is specialized in actual site files to contain the
+    site-specific values that supplement the generic valueset.
+    
+    
+    
+-->
+
+<!-- The following is a list of all the simpleTypes defined in this file:
+
+    extension.valueset
+    base.valueset
+    qualitative.valueset
+    lengthUnit.valueset
+    weightUnit.valueset
+    relation.valueset
+    laterality.valueset
+    focality.valueset
+
+    accessory.lymphvascular.valueset
+    accessory.lymphvascular.valueset.extension
+    accessory.perineural.valueset
+    accessory.perineural.valueset.extension
+    accessory.treatmentResponse.valueset
+    accessory.treatmentResponse.valueset.extension
+
+    additional.finding.of.valueset
+    additional.finding.of.valueset.extension
+    additional.finding.valueset
+    additional.finding.valueset.extension
+
+    extent.contiguousExtension.status.result.for.valueset
+    extent.contiguousExtension.status.result.for.valueset.extension
+    extent.contiguousExtension.status.distance.for.valueset
+    extent.contiguousExtension.status.distance.for.valueset.extension
+    extent.contiguousExtension.status.distance.from.valueset
+    extent.contiguousExtension.status.distance.from.valueset.extension
+
+    history.clinical.valueset
+    history.clinical.valueset.extension
+    history.pathology.valueset
+    history.pathology.valueset.extension
+    history.priorTherapy.valueset
+    history.priorTherapy.valueset.extension
+    history.radiology.valueset
+    history.radiology.valueset.extension
+
+    extent.contiguousExtension.status.of.valueset
+    extent.contiguousExtension.status.of.valueset.extension
+    extent.contiguousExtension.status.type.valueset
+    extent.contiguousExtension.status.type.valueset.extension
+    extent.size.valueset
+    extent.size.valueset.extension
+
+    margin.status.focality.valueset
+    margin.status.focality.valueset.extension
+    margin.status.of.valueset
+    margin.status.of.valueset.extension
+    margin.status.result.for.valueset
+    margin.status.result.for.valueset.extension
+
+    distant.status.of.valueset
+    distant.status.of.valueset.extension
+    distant.status.result.for.valueset
+    distant.status.result.for.valueset.extension
+
+    nodes.status.of.valueset
+    nodes.status.of.valueset.extension
+    nodes.status.result.for.valueset
+    nodes.status.result.for.valueset.extension
+    nodes.status.result.type.valueset
+    nodes.status.result.type.valueset.extension
+    nodes.status.technique.valueset
+    nodes.status.technique.valueset.extension
+    nodes.status.extracapsular.valueset
+    nodes.status.extracapsular.valueset.extension
+
+    specimen.integrity.valueset
+    specimen.integrity.valueset.extension
+    specimen.procedure.valueset
+    specimen.procedure.valueset.extension
+    specimen.site.valueset
+    specimen.site.valueset.extension
+
+    stage.prefix.valueset
+    stage.prefix.valueset.extension
+    stage.multiplicity.valueset
+    stage.multiplicity.valueset.extension
+    stage.pT.valueset
+    stage.pT.valueset.extension
+    stage.pN.valueset
+    stage.pN.valueset.extension
+    stage.pM.valueset
+    stage.pM.valueset.extension
+    stage.group.valueset
+    stage.group.valueset.extension
+
+    tumor.type.valueset
+    tumor.type.valueset.extension
+    tumor.site.valueset
+    tumor.site.valueset.extension
+    tumor.grade.valueset
+    tumor.grade.valueset.extension
+    tumor.gradeSystem.valueset
+    tumor.gradeSystem.valueset.extension
+    tumor.multiplicity.valueset
+    tumor.multiplicity.valueset.extension
+
+-->
+<xs:schema elementFormDefault="qualified" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+   xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <!--=============================================================-->
+   <xs:simpleType name="base.valueset">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="qualitative.valueset">
+      <xs:union memberTypes="base.valueset">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="positive"/>
+               <xs:enumeration value="negative"/>
+               <xs:enumeration value="equivocal"/>
+               <xs:enumeration value="indeterminate"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="lengthUnit.valueset">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="cm"/>
+         <xs:enumeration value="mm"/>
+         <xs:enumeration value="in"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="weightUnit.valueset">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="mg"/>
+         <xs:enumeration value="g"/>
+         <xs:enumeration value="kg"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="relation.valueset">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="less than"/>
+         <xs:enumeration value="less than or equal"/>
+         <xs:enumeration value="equal"/>
+         <xs:enumeration value="approximately equal"/>
+         <xs:enumeration value="greater than or equal"/>
+         <xs:enumeration value="greater than"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="laterality.valueset">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="ipsilateral"/>
+         <xs:enumeration value="contralateral"/>
+         <xs:enumeration value="right"/>
+         <xs:enumeration value="left"/>
+         <xs:enumeration value="midline"/>
+         <xs:enumeration value="bilateral"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="focality.valueset">
+      <xs:union memberTypes="base.valueset">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="microfocal"/>
+               <xs:enumeration value="unifocal"/>
+               <xs:enumeration value="multifocal"/>
+               <xs:enumeration value="extensive"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--=============================================================-->
+   <!--accessory SECTION VALUESETS-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="accessory.lymphvascular.valueset">
+      <xs:union memberTypes="qualitative.valueset accessory.lymphvascular.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="accessory.lymphvascular.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="accessory.perineural.valueset">
+      <xs:union memberTypes="qualitative.valueset accessory.perineural.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="accessory.perineural.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="accessory.treatmentResponse.valueset">
+      <xs:union memberTypes="accessory.treatmentResponse.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="none"/>
+               <xs:enumeration value="slight"/>
+               <xs:enumeration value="marked"/>
+               <xs:enumeration value="complete"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="accessory.treatmentResponse.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--=============================================================-->
+   <!--additional SECTION VALUESETS-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="additional.finding.of.valueset">
+      <xs:union memberTypes="additional.finding.of.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="additional.finding.of.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="additional.finding.valueset">
+      <xs:union memberTypes="additional.finding.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="additional.finding.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--=============================================================-->
+   <!--extent SECTION VALUESETS-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="extent.contiguousExtension.status.result.for.valueset">
+      <xs:union memberTypes="extent.contiguousExtension.status.result.for.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="invades"/>
+               <xs:enumeration value="adheres"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="extent.contiguousExtension.status.result.for.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="extent.contiguousExtension.status.distance.for.valueset">
+      <xs:union memberTypes="extent.contiguousExtension.status.distance.for.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="extent.contiguousExtension.status.distance.for.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="extent.contiguousExtension.status.distance.from.valueset">
+      <xs:union memberTypes="extent.contiguousExtension.status.distance.from.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="extent.contiguousExtension.status.distance.from.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--=============================================================-->
+   <!--history SECTION VALUESETS-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="history.clinical.valueset">
+      <xs:union memberTypes="history.clinical.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="history.clinical.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="history.pathology.valueset">
+      <xs:union memberTypes="history.pathology.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="history.pathology.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="history.priorTherapy.valueset">
+      <xs:union memberTypes="history.priorTherapy.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="chemotherapy"/>
+               <xs:enumeration value="radiation"/>
+               <xs:enumeration value="surgery"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="history.priorTherapy.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="history.radiology.valueset">
+      <xs:union memberTypes="history.radiology.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="history.radiology.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--=============================================================-->
+   <!--extent SECTION VALUESETS-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="extent.contiguousExtension.status.of.valueset">
+      <xs:union memberTypes="extent.contiguousExtension.status.of.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="extent.contiguousExtension.status.of.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="extent.contiguousExtension.status.type.valueset">
+      <xs:union memberTypes="extent.contiguousExtension.status.type.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="extent.contiguousExtension.status.type.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="extent.size.valueset">
+      <xs:union memberTypes="extent.size.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="extent.size.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--=============================================================-->
+   <!--margin SECTION VALUESETS-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="margin.status.focality.valueset">
+      <xs:union memberTypes="focality.valueset margin.status.focality.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="margin.status.focality.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="margin.status.of.valueset">
+      <xs:union memberTypes="margin.status.of.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="margin.status.of.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="margin.status.result.for.valueset">
+      <xs:union memberTypes="margin.status.result.for.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="in-situ"/>
+               <xs:enumeration value="invasive"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="margin.status.result.for.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--=============================================================-->
+   <!--distantSites SECTION VALUESETS-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="distant.status.of.valueset">
+      <xs:union memberTypes="distant.status.of.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="liver"/>
+               <xs:enumeration value="bone"/>
+               <xs:enumeration value="lung"/>
+               <xs:enumeration value="brain"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="distant.status.of.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="distant.status.result.for.valueset">
+      <xs:union memberTypes="distant.status.result.for.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="this accession"/>
+               <xs:enumeration value="prior accession"/>
+               <xs:enumeration value="outside report"/>
+               <xs:enumeration value="clinical history"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="distant.status.result.for.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--=============================================================-->
+   <!--nodes SECTION VALUESETS-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="nodes.status.of.valueset">
+      <xs:union memberTypes="nodes.status.of.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="nodes.status.of.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="nodes.status.result.for.valueset">
+      <xs:union memberTypes="nodes.status.result.for.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="negative"/>
+               <xs:enumeration value="positive"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="nodes.status.result.for.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="nodes.status.result.type.valueset">
+      <xs:union memberTypes="nodes.status.result.type.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="necroinflammatory"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="nodes.status.result.type.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="nodes.status.technique.valueset">
+      <xs:union memberTypes="nodes.status.technique.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="H+E one level"/>
+               <xs:enumeration value="H+E multiple level(s)"/>
+               <xs:enumeration value="H+E plus immunohistochemistry"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="nodes.status.technique.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="nodes.status.extracapsular.valueset">
+      <xs:union memberTypes="qualitative.valueset nodes.status.extracapsular.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="nodes.status.extracapsular.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--=============================================================-->
+   <!--specimen SECTION VALUESETS-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="specimen.integrity.valueset">
+      <xs:union memberTypes="specimen.integrity.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="intact"/>
+               <xs:enumeration value="fragmented"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="specimen.integrity.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="specimen.procedure.valueset">
+      <xs:union memberTypes="specimen.procedure.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="specimen.procedure.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="specimen.site.valueset">
+      <xs:union memberTypes="specimen.site.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="specimen.site.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--=============================================================-->
+   <!--stage SECTION VALUESETS-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="stage.prefix.valueset">
+      <xs:union memberTypes="stage.prefix.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="y"/>
+               <xs:enumeration value="r"/>
+               <xs:enumeration value="a"/>
+               <xs:enumeration value="none"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="stage.prefix.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="stage.multiplicity.valueset">
+      <xs:union memberTypes="stage.multiplicity.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="1"/>
+               <xs:enumeration value="2"/>
+               <xs:enumeration value="3"/>
+               <xs:enumeration value="4"/>
+               <xs:enumeration value="m"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="stage.multiplicity.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="stage.pT.valueset">
+      <xs:union memberTypes="stage.pT.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="stage.pT.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="stage.pN.valueset">
+      <xs:union memberTypes="stage.pN.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="stage.pN.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="stage.pM.valueset">
+      <xs:union memberTypes="stage.pM.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="stage.pM.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="stage.group.valueset">
+      <xs:union memberTypes="stage.group.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="stage.group.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--=============================================================-->
+   <!--tumor SECTION VALUESETS-->
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="tumor.focus.type.valueset">
+      <xs:union memberTypes="tumor.focus.type.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="principal or sole"/>
+               <xs:enumeration value="additional"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="tumor.focus.type.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="tumor.histologicType.valueset">
+      <xs:union memberTypes="tumor.histologicType.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="tumor.histologicType.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="tumor.site.valueset">
+      <xs:union memberTypes="tumor.site.valueset.extension"/>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="tumor.site.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="tumor.grade.valueset">
+      <xs:union memberTypes="tumor.grade.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="1"/>
+               <xs:enumeration value="2"/>
+               <xs:enumeration value="3"/>
+               <xs:enumeration value="4"/>
+               <xs:enumeration value="X"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="tumor.grade.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="tumor.gradeSystem.valueset">
+      <xs:union memberTypes="tumor.gradeSystem.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="4-grade"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="tumor.gradeSystem.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+   <xs:simpleType name="tumor.multiplicity.valueset">
+      <xs:union memberTypes="tumor.multiplicity.valueset.extension">
+         <xs:simpleType>
+            <xs:restriction base="xs:token">
+               <xs:enumeration value="1"/>
+               <xs:enumeration value="2"/>
+               <xs:enumeration value="3"/>
+               <xs:enumeration value="4"/>
+               <xs:enumeration value="many"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:union>
+   </xs:simpleType>
+   <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   <xs:simpleType name="tumor.multiplicity.valueset.extension">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</xs:schema>

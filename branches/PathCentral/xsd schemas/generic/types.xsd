@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
+    xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:simpleType name="positiveDecimal">
+        <xs:union memberTypes="ecc:base.valueset">
+            <xs:simpleType>
+                <xs:restriction base="xs:decimal">
+                    <xs:minInclusive value="0.0"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <xs:simpleType name="nonNegativeInteger">
+        <xs:union memberTypes="ecc:base.valueset xs:nonNegativeInteger"/>
+    </xs:simpleType>
+    <xs:simpleType name="date">
+        <xs:union memberTypes="ecc:base.valueset xs:date xs:gYearMonth xs:gYear"/>
+    </xs:simpleType>
+    <xs:attributeGroup name="date.attrib">
+        <!-- An unfortunate example of what xml schema cannot do, that Relax NG does with ease. -->
+        <!-- The RNG model for this allows you to have either a date and an optional duration; or a start date; or an end date; or both a start and end date. -->
+        <!-- In XML schema, there is no way to express optionality groups within attribute sets. Too bad, have to capture that with Schematron. -->
+        <!-- One could do a klugey workaround where you define two elements that repeat each other entirely except for the choice of attributes. -->
+        <!-- but it doesn't really seem worth it. -->
+        <xs:attribute name="date" type="ecc:date"/>
+        <xs:attribute name="start" type="ecc:date"/>
+        <xs:attribute name="end" type="ecc:date"/>
+        <xs:attribute name="duration" type="xs:duration"/>
+    </xs:attributeGroup>
+    <xs:group name="length.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.response.content"/>
+                    <xs:attribute name="value" type="ecc:positiveDecimal" use="required"/>
+                    <xs:attribute name="unit" type="ecc:lengthUnit.valueset"/>
+                    <xs:attribute name="relation" type="ecc:relation.valueset"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="size.response">
+        <xs:sequence>
+            <xs:group maxOccurs="3" minOccurs="1" ref="ecc:length.response"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="weight.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.response.content"/>
+                    <xs:attribute name="value" type="ecc:positiveDecimal" use="required"/>
+                    <xs:attribute name="unit" type="ecc:weightUnit.valueset" use="required"/>
+                    <xs:attribute name="relation" type="ecc:relation.valueset"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="tally.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.response.content"/>
+                    <xs:attribute name="value" type="ecc:nonNegativeInteger" use="required"/>
+                    <xs:attribute name="relation" type="ecc:relation.valueset"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="qualitative.response">
+        <xs:sequence>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.response.content"/>
+                    <xs:attribute name="value" type="ecc:qualitative.valueset" use="required"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="size">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:size.response"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="weight">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:weight.response"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

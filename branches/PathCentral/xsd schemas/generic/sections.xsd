@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
+    xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="common.xsd"/>
+    <xs:include schemaLocation="values.xsd"/>
+    <xs:include schemaLocation="items.xsd"/>
+    <!-- Definition of sections -->
+    <xs:element name="history">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:history.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="history.content">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:clinicalFinding"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:pathologicFinding"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:priorTherapy"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:radiologicFinding"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="specimen">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:specimen.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="specimen.content">
+        <xs:sequence>
+            <xs:element ref="ecc:procedure"/>
+            <xs:element ref="ecc:size"/>
+            <xs:element minOccurs="0" ref="ecc:weight"/>
+            <xs:element ref="ecc:site"/>
+            <xs:element minOccurs="0" ref="ecc:integrity"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="tumor">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:tumor.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="tumor.content">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" ref="ecc:focus"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="extent">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:extent.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="extent.content">
+        <xs:sequence>
+            <xs:element ref="ecc:contiguousExtension"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="accessory">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:accessory.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="accessory.content">
+        <xs:sequence>
+            <xs:element minOccurs="0" ref="ecc:treatmentResponse"/>
+            <xs:element ref="ecc:lymphVascularInvasion"/>
+            <xs:element ref="ecc:perineuralInvasion"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="margin">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:margin.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="margin.content">
+        <xs:sequence>
+            <xs:group maxOccurs="unbounded" minOccurs="0" ref="ecc:margin.status"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="nodes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:nodes.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="nodes.content">
+        <xs:sequence>
+            <xs:group maxOccurs="unbounded" minOccurs="0" ref="ecc:nodes.status"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="distant">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:distant.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="distant.content">
+        <xs:sequence>
+            <xs:group ref="ecc:distant.status"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="studies">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:studies.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="studies.content">
+        <xs:sequence>
+            <!-- Needs further modeling: need to compare with rng spec  -->
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="stage">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:stage.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="stage.content">
+        <xs:sequence>
+            <xs:element ref="ecc:prefix"/>
+            <xs:element ref="ecc:multiplicity"/>
+            <xs:element ref="ecc:pT"/>
+            <xs:element ref="ecc:pN"/>
+            <xs:element ref="ecc:pM"/>
+            <xs:element ref="ecc:group"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="additional">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:additional.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="additional.content">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" ref="ecc:finding"/>
+        </xs:sequence>
+    </xs:group>
+</xs:schema>
