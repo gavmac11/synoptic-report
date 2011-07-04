@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
+    xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:redefine schemaLocation="../framework/common.xsd"/>
+    <xs:redefine schemaLocation="../framework/items.xsd">
+        <xs:attributeGroup name="distant.status.result.response.attrib">
+            <xs:attributeGroup ref="ecc:distant.status.result.response.attrib"/>
+            <xs:attribute name="type" type="ecc:distant.status.result.response.type.valueset"/>
+        </xs:attributeGroup>
+    </xs:redefine>
+    <xs:redefine schemaLocation="../framework/sections.xsd">
+        <xs:group name="accessory.content">
+            <xs:sequence>
+                <xs:group ref="ecc:accessory.content"/>
+                <xs:element minOccurs="0" ref="ecc:microcalcifications"/>
+                <xs:element ref="ecc:ductalCarcinoma-in-situ"/>
+                <xs:element minOccurs="0" ref="ecc:lobularCarcinoma-in-situ"/>
+            </xs:sequence>
+        </xs:group>
+        <xs:group name="extent.content">
+            <xs:sequence>
+                <xs:group ref="ecc:extent.content"/>
+                <xs:element ref="ecc:skinInvasion"/>
+                <xs:element ref="ecc:skinUlceration"/>
+                <xs:element ref="ecc:skinSatelliteNodules"/>
+                <xs:element ref="ecc:dermalLymphaticInvasion"/>
+                <xs:element ref="ecc:underlyingStructures"/>
+                <xs:element ref="ecc:nipplePagetDisease"/>
+            </xs:sequence>
+        </xs:group>
+        <xs:group name="specimen.content">
+            <xs:sequence>
+                <xs:group ref="ecc:specimen.content"/>
+                <xs:element ref="ecc:laterality"/>
+            </xs:sequence>
+        </xs:group>
+        <xs:group name="studies.content">
+            <xs:sequence>
+                <xs:group ref="ecc:studies.content"/>
+                <xs:element ref="ecc:estrogenReceptor"/>
+                <xs:element ref="ecc:progesteroneReceptor"/>
+                <xs:element ref="ecc:HER2neu"/>
+            </xs:sequence>
+        </xs:group>
+    </xs:redefine>
+    <xs:redefine schemaLocation="../framework/types.xsd"/>
+    <xs:redefine schemaLocation="values.xsd"/>
+    <xs:element name="resection">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:resection.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:resection.attrib"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="resection.content">
+        <xs:sequence>
+            <xs:element ref="ecc:history"/>
+            <xs:element ref="ecc:specimen"/>
+            <xs:element ref="ecc:tumor"/>
+            <xs:element ref="ecc:extent"/>
+            <xs:element ref="ecc:accessory"/>
+            <xs:element ref="ecc:margin"/>
+            <xs:element ref="ecc:nodes"/>
+            <xs:element ref="ecc:distant"/>
+            <xs:element ref="ecc:studies"/>
+            <xs:element ref="ecc:stage"/>
+            <xs:element ref="ecc:additional"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:attributeGroup name="resection.attrib">
+        <xs:attribute name="schemaLocation" type="xs:anyURI"/>
+        <xs:attribute name="version" type="xs:token"/>
+        <xs:attribute name="transformation" type="xs:anyURI"/>
+    </xs:attributeGroup>
+    <xs:element name="microcalcifications">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element maxOccurs="unbounded" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:accessory.microcalcifications.valueset"
+                            use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ductalCarcinoma-in-situ">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:accessory.cis.result"/>
+                <xs:group minOccurs="0" ref="ecc:accessory.cis.amount"/>
+                <xs:group minOccurs="0" ref="ecc:accessory.dcis.pattern"/>
+                <xs:group minOccurs="0" ref="ecc:accessory.dcis.grade"/>
+                <xs:group minOccurs="0" ref="ecc:accessory.dcis.necrosis"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="accessory.dcis.pattern">
+        <xs:sequence>
+            <xs:element name="architecture">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element maxOccurs="unbounded" name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value"
+                                    type="ecc:accessory.dcis.pattern.valueset" use="required"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="accessory.dcis.grade">
+        <xs:sequence>
+            <xs:element name="grade">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value" type="ecc:accessory.dcis.grade.valueset"
+                                    use="required"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="accessory.dcis.necrosis">
+        <xs:sequence>
+            <xs:element name="necrosis">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value"
+                                    type="ecc:accessory.dcis.necrosis.valueset" use="required"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="accessory.cis.result">
+        <xs:sequence>
+            <xs:element name="result">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value" type="ecc:qualitative.valueset"
+                                    use="required"/>
+                                <xs:attribute name="focality" type="ecc:focality.valueset"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="accessory.cis.amount">
+        <xs:choice>
+            <xs:sequence>
+                <xs:group minOccurs="1" ref="ecc:accessory.cis.size"/>
+                <xs:group minOccurs="0" ref="ecc:accessory.cis.blocks"/>
+            </xs:sequence>
+            <xs:group minOccurs="1" ref="ecc:accessory.cis.blocks"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group name="accessory.cis.size">
+        <xs:sequence>
+            <xs:element ref="ecc:size"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="accessory.cis.blocks">
+        <xs:sequence>
+            <xs:element name="tally">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:group ref="ecc:tally.response"/>
+                    </xs:sequence>
+                    <xs:attribute name="for" type="ecc:qualitative.valueset"/>
+                    <xs:attribute name="type" type="ecc:accessory.cis.blocks.type.valueset"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="lobularCarcinoma-in-situ">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:accessory.cis.result"/>
+                <xs:group minOccurs="0" ref="ecc:accessory.cis.amount"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="skinInvasion" type="ecc:qualitative.response.type"/>
+    <xs:element name="skinUlceration" type="ecc:qualitative.response.type"/>
+    <xs:element name="skinSatelliteNodules" type="ecc:qualitative.response.type"/>
+    <xs:element name="dermalLymphaticInvasion" type="ecc:qualitative.response.type"/>
+    <xs:element name="underlyingStructures">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:extent.underlying.valueset"
+                            use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="nipplePagetDisease" type="ecc:qualitative.response.type"/>
+    <xs:element name="laterality">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:laterality.valueset" use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="estrogenReceptor">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:studies.erpr.result"/>
+                <xs:group ref="ecc:studies.erpr.method"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="progesteroneReceptor">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:studies.erpr.result"/>
+                <xs:group ref="ecc:studies.erpr.method"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="studies.erpr.result">
+        <xs:sequence>
+            <xs:element name="result">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value" type="ecc:studies.erpr.result.valueset"
+                                    use="required"/>
+                                <xs:attribute fixed="percent" name="unit" use="required"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="studies.erpr.method">
+        <xs:sequence>
+            <xs:element name="technique">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value"
+                                    type="ecc:studies.erpr.method.technique.valueset" use="required"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="source">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value"
+                                    type="ecc:studies.erpr.method.source.valueset" use="required"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="antibody">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value"
+                                    type="ecc:studies.erpr.method.antibody.valueset" use="required"/>
+                                <xs:attribute name="vendor"
+                                    type="ecc:studies.erpr.method.antibody.vendor.valueset"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="fixative">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value"
+                                    type="ecc:studies.erpr.method.fixative.valueset" use="required"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="HER2neu">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:studies.HER2neu.result"/>
+                <xs:group ref="ecc:studies.HER2neu.method"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="studies.HER2neu.result">
+        <xs:sequence>
+            <xs:element name="result">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:choice>
+                            <xs:element name="response">
+                                <xs:complexType>
+                                    <xs:group ref="ecc:generic.response.content"/>
+                                    <xs:attribute name="value"
+                                        type="ecc:studies.her2.imm.result.valueset" use="required"/>
+                                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:sequence>
+                                <xs:element name="her2GeneCopyNumber">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:group ref="ecc:generic.content"/>
+                                        </xs:sequence>
+                                        <xs:attribute name="value" type="ecc:nonNegativeDecimal"
+                                            use="required"/>
+                                        <xs:attribute fixed="per cell" name="unit" use="required"/>
+                                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="chromosome17CopyNumber">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:group ref="ecc:generic.content"/>
+                                        </xs:sequence>
+                                        <xs:attribute name="value" type="ecc:nonNegativeDecimal"
+                                            use="required"/>
+                                        <xs:attribute fixed="per cell" name="unit" use="required"/>
+                                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="her2CopyNumberRatio">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:group ref="ecc:generic.content"/>
+                                        </xs:sequence>
+                                        <xs:attribute name="value" type="ecc:nonNegativeDecimal"
+                                            use="required"/>
+                                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:choice>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="studies.HER2neu.method">
+        <xs:sequence>
+            <xs:element name="technique">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value"
+                                    type="ecc:studies.her2.method.technique.valueset" use="required"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="source">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value"
+                                    type="ecc:studies.erpr.method.source.valueset" use="required"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:choice>
+                <xs:element name="antibody">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:group ref="ecc:generic.content"/>
+                            <xs:element name="response">
+                                <xs:complexType>
+                                    <xs:group ref="ecc:generic.response.content"/>
+                                    <xs:attribute name="value"
+                                        type="ecc:studies.her2.method.antibody.valueset"
+                                        use="required"/>
+                                    <xs:attribute name="vendor"
+                                        type="ecc:studies.her2.method.antibody.vendor.valueset"/>
+                                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="assay">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:group ref="ecc:generic.content"/>
+                            <xs:element name="response">
+                                <xs:complexType>
+                                    <xs:group ref="ecc:generic.response.content"/>
+                                    <xs:attribute name="value"
+                                        type="ecc:studies.her2.method.assay.valueset" use="required"/>
+                                    <xs:attribute name="vendor"
+                                        type="ecc:studies.her2.method.assay.vendor.valueset"/>
+                                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+            <xs:element minOccurs="0" name="fixative">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value"
+                                    type="ecc:studies.erpr.method.fixative.valueset" use="required"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+</xs:schema>
