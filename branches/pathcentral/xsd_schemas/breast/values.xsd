@@ -1,77 +1,525 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema elementFormDefault="qualified" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-   xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-   <xs:redefine schemaLocation="../generic/values.xsd">
-      <xs:simpleType name="extent.size.valueset.extension">
-         <xs:restriction base="extent.size.valueset.extension">
-            <xs:enumeration value="microinvasion"/>
-            <xs:enumeration value="no residual carcinoma"/>
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="margin.status.of.valueset.extension">
-         <xs:restriction base="margin.status.of.valueset.extension">
-            <xs:enumeration value="superior"/>
-            <xs:enumeration value="inferior"/>
-            <xs:enumeration value="anterior"/>
-            <xs:enumeration value="posterior"/>
-            <xs:enumeration value="medial"/>
-            <xs:enumeration value="lateral"/>
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="nodes.status.of.valueset.extension">
-         <xs:restriction base="nodes.status.of.valueset.extension">
-            <xs:enumeration value="low axillary"/>
-            <xs:enumeration value="mid axillary"/>
-            <xs:enumeration value="high axillary"/>
-            <xs:enumeration value="supraclavicular"/>
-            <xs:enumeration value="internal mammary"/>
-            <xs:enumeration value="sentinel"/>
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="nodes.status.result.type.valueset.extension">
-         <xs:restriction base="nodes.status.result.type.valueset.extension">
+<xs:schema elementFormDefault="qualified"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:redefine schemaLocation="../framework/values.xsd">
+        <xs:simpleType name="extent.size.valueset.extension">
+            <xs:restriction base="extent.size.valueset.extension">
+                <xs:enumeration value="microinvasion"/>
+                <xs:enumeration value="no residual carcinoma"/>
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="margin.status.of.valueset.extension">
+            <xs:restriction base="margin.status.of.valueset.extension">
+                <xs:enumeration value="superior"/>
+                <xs:enumeration value="inferior"/>
+                <xs:enumeration value="anterior"/>
+                <xs:enumeration value="posterior"/>
+                <xs:enumeration value="medial"/>
+                <xs:enumeration value="lateral"/>
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="nodes.status.of.valueset.extension">
+            <xs:restriction base="nodes.status.of.valueset.extension">
+                <xs:enumeration value="low axillary"/>
+                <xs:enumeration value="mid axillary"/>
+                <xs:enumeration value="high axillary"/>
+                <xs:enumeration value="supraclavicular"/>
+                <xs:enumeration value="internal mammary"/>
+                <xs:enumeration value="sentinel"/>
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="nodes.status.result.type.valueset.extension">
+            <xs:restriction base="nodes.status.result.type.valueset.extension">
+                <xs:enumeration value="RT-PCR negative"/>
+                <xs:enumeration value="RT-PCR postive"/>
+                <xs:enumeration value="isolated tumor cells"/>
+                <xs:enumeration value="micrometastasis"/>
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="specimen.integrity.valueset.extension">
+            <xs:restriction base="specimen.integrity.valueset.extension">
+                <xs:enumeration value="multiple designated specimens"/>
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="specimen.procedure.valueset.extension">
+            <xs:restriction base="specimen.procedure.valueset.extension">
+                <xs:enumeration value="excision"/>
+                <xs:enumeration value="excision, wire-guided"/>
+                <xs:enumeration value="total mastectomy"/>
+                <xs:enumeration value="sentinel lymph node sampling"/>
+                <xs:enumeration value="partial axillary dissection"/>
+                <xs:enumeration value="complete axillary dissection"/>
+                <xs:enumeration value="intramammary lymph node biopsy"/>
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="specimen.site.valueset.extension">
+            <xs:restriction base="specimen.site.valueset.extension">
+                <xs:enumeration value="upper outer quadrant"/>
+                <xs:enumeration value="lower outer quadrant"/>
+                <xs:enumeration value="upper inner quadrant"/>
+                <xs:enumeration value="lower inner quadrant"/>
+                <xs:enumeration value="central"/>
+                <xs:enumeration value="nipple"/>
+                <xs:enumeration value="axillary tail"/>
+                <xs:enumeration value="partial breast"/>
+                <xs:enumeration value="total breast"/>
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="stage.pT.valueset.extension">
+            <xs:restriction base="stage.pT.valueset.extension">
+                <xs:enumeration value="X"/>
+                <xs:enumeration value="0"/>
+                <xs:enumeration value="is"/>
+                <xs:enumeration value="is (DCIS)"/>
+                <xs:enumeration value="is (LCIS)"/>
+                <xs:enumeration value="is (Paget)"/>
+                <xs:enumeration value="1"/>
+                <xs:enumeration value="1mi"/>
+                <xs:enumeration value="1a"/>
+                <xs:enumeration value="1b"/>
+                <xs:enumeration value="1c"/>
+                <xs:enumeration value="2"/>
+                <xs:enumeration value="3"/>
+                <xs:enumeration value="4"/>
+                <xs:enumeration value="4a"/>
+                <xs:enumeration value="4b"/>
+                <xs:enumeration value="4c"/>
+                <xs:enumeration value="4d"/>
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="stage.pN.valueset.extension">
+            <xs:restriction base="stage.pN.valueset.extension">
+                <xs:enumeration value="X"/>
+                <xs:enumeration value="0"/>
+                <xs:enumeration value="0(i-)"/>
+                <xs:enumeration value="0(i+)"/>
+                <xs:enumeration value="0(mol-)"/>
+                <xs:enumeration value="0(mol+)"/>
+                <xs:enumeration value="1"/>
+                <xs:enumeration value="1mi"/>
+                <xs:enumeration value="1a"/>
+                <xs:enumeration value="1b"/>
+                <xs:enumeration value="1c"/>
+                <xs:enumeration value="2"/>
+                <xs:enumeration value="2a"/>
+                <xs:enumeration value="2b"/>
+                <xs:enumeration value="3"/>
+                <xs:enumeration value="3a"/>
+                <xs:enumeration value="3b"/>
+                <xs:enumeration value="3c"/>
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="stage.pM.valueset.extension">
+            <xs:restriction base="stage.pM.valueset.extension">
+                <xs:enumeration value="0"/>
+                <xs:enumeration value="0(i+)"/>
+                <xs:enumeration value="1"/>
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="stage.group.valueset.extension">
+            <xs:restriction base="stage.group.valueset.extension">
+                <xs:enumeration value="0"/>
+                <xs:enumeration value="IA"/>
+                <xs:enumeration value="IB"/>
+                <xs:enumeration value="IIA"/>
+                <xs:enumeration value="IIB"/>
+                <xs:enumeration value="IIIA"/>
+                <xs:enumeration value="IIIB"/>
+                <xs:enumeration value="IIIC"/>
+                <xs:enumeration value="IV"/>
+                <xs:enumeration value="indeterminate"/>
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tumor.site.valueset.extension">
+            <xs:restriction base="tumor.site.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tumor.histologicType.valueset.extension">
+            <xs:restriction base="tumor.histologicType.valueset.extension">
+                <xs:enumeration value="ductal carcinoma"/>
+                <xs:enumeration value="lobular carcinoma"/>
+                <xs:enumeration value="carcinoma ductal-lobular"/>
+                <xs:enumeration value="mucinous carcinoma"/>
+                <xs:enumeration value="medullary carcinoma"/>
+                <xs:enumeration value="papillary carcinoma"/>
+                <xs:enumeration value="micropapillary carcinoma"/>
+                <xs:enumeration value="tubular carcinoma"/>
+                <xs:enumeration value="cribriform carcinoma"/>
+                <xs:enumeration value="carcinoma type undetermined"/>
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tumor.grade.valueset.extension">
+            <xs:restriction base="tumor.grade.valueset.extension">
+                <xs:enumeration value="1"/>
+                <xs:enumeration value="2"/>
+                <xs:enumeration value="3"/>
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tumor.grade.response.for.valueset.extension">
+            <xs:restriction base="tumor.grade.response.for.valueset.extension">
+                <xs:enumeration value="combined"></xs:enumeration>
+                <xs:enumeration value="glands"></xs:enumeration>
+                <xs:enumeration value="nuclei"></xs:enumeration>
+                <xs:enumeration value="mitoses"></xs:enumeration>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tumor.gradeSystem.valueset.extension">
+            <xs:restriction base="tumor.gradeSystem.valueset.extension">
+                <xs:enumeration value="nottingham"/>
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="accessory.lymphvascular.valueset.extension">
+            <xs:restriction base="accessory.lymphvascular.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="accessory.perineural.valueset.extension">
+            <xs:restriction base="accessory.perineural.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="accessory.treatmentResponse.valueset.extension">
+            <xs:restriction base="accessory.treatmentResponse.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="additional.finding.of.valueset.extension">
+            <xs:restriction base="additional.finding.of.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="additional.finding.valueset.extension">
+            <xs:restriction base="additional.finding.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="extent.contiguousExtension.status.result.for.valueset.extension">
+            <xs:restriction base="extent.contiguousExtension.status.result.for.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="extent.contiguousExtension.status.distance.for.valueset.extension">
+            <xs:restriction base="extent.contiguousExtension.status.distance.for.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="extent.contiguousExtension.status.distance.from.valueset.extension">
+            <xs:restriction
+                base="extent.contiguousExtension.status.distance.from.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="history.clinical.valueset.extension">
+            <xs:restriction base="history.clinical.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="history.pathology.valueset.extension">
+            <xs:restriction base="history.pathology.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="history.priorTherapy.valueset.extension">
+            <xs:restriction base="history.priorTherapy.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="history.radiology.valueset.extension">
+            <xs:restriction base="history.radiology.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="extent.contiguousExtension.status.of.valueset.extension">
+            <xs:restriction base="extent.contiguousExtension.status.of.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="extent.contiguousExtension.status.type.valueset.extension">
+            <xs:restriction base="extent.contiguousExtension.status.type.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="margin.status.focality.valueset.extension">
+            <xs:restriction base="margin.status.focality.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="margin.status.result.for.valueset.extension">
+            <xs:restriction base="margin.status.result.for.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="distant.status.of.valueset.extension">
+            <xs:restriction base="distant.status.of.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="distant.status.result.for.valueset.extension">
+            <xs:restriction base="distant.status.result.for.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="nodes.status.result.for.valueset.extension">
+            <xs:restriction base="nodes.status.result.for.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="nodes.status.technique.valueset.extension">
+            <xs:restriction base="nodes.status.technique.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="nodes.status.extracapsular.valueset.extension">
+            <xs:restriction base="nodes.status.extracapsular.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="stage.prefix.valueset.extension">
+            <xs:restriction base="stage.prefix.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="stage.multiplicity.valueset.extension">
+            <xs:restriction base="stage.multiplicity.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tumor.multiplicity.valueset.extension">
+            <xs:restriction base="tumor.multiplicity.valueset.extension">
+                <xs:enumeration value="specify"/>
+                <xs:enumeration value="inapplicable"/>
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:redefine>
+    <xs:simpleType name="accessory.cis.blocks.type.valueset">
+        <xs:restriction base="xs:token">
             <xs:enumeration value="RT-PCR negative"/>
-            <xs:enumeration value="RT-PCR postive"/>
-            <xs:enumeration value="isolated tumor cells"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="accessory.dcis.pattern.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="comedocarcinoma"/>
+            <xs:enumeration value="cribriform"/>
+            <xs:enumeration value="micropapillary"/>
+            <xs:enumeration value="papillary"/>
+            <xs:enumeration value="solid"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="accessory.dcis.grade.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="low"/>
+            <xs:enumeration value="intermediate"/>
+            <xs:enumeration value="high"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="accessory.dcis.necrosis.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="accessory.microcalcifications.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="negative"/>
+            <xs:enumeration value="in DCIS"/>
+            <xs:enumeration value="in invasive carcinoma"/>
+            <xs:enumeration value="in non-neoplastic tissue"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="accessory.dcis.result.modifier.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="extensive intraductal component"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="accessory.treatmentEffect.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="no response"/>
+            <xs:enumeration value="slight response"/>
+            <xs:enumeration value="marked response"/>
+            <xs:enumeration value="complete response"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="clinical.clinicalFindings.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="palpable mass"/>
+            <xs:enumeration value="nipple discharge"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="clinical.priorPathologicDiagnoses.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="breast carcinoma, NOS"/>
+            <xs:enumeration value="ductal carcinoma-in-situ"/>
+            <xs:enumeration value="lobular carcinoma-in-situ"/>
+            <xs:enumeration value="invasive ductal carcinoma"/>
+            <xs:enumeration value="invasive lobular carcinoma"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="clinical.priorTherapies.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="clinical.radiologicFindings.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="mass"/>
+            <xs:enumeration value="architectural distortion"/>
+            <xs:enumeration value="microcalcifications"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="distant.site.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="liver"/>
+            <xs:enumeration value="bone"/>
+            <xs:enumeration value="lung"/>
+            <xs:enumeration value="brain"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="unreported"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="distant.status.result.response.type.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="macrometastasis"/>
             <xs:enumeration value="micrometastasis"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="extent.multiplicity.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="many"/>
             <xs:enumeration value="specify"/>
             <xs:enumeration value="inapplicable"/>
             <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="specimen.integrity.valueset.extension">
-         <xs:restriction base="specimen.integrity.valueset.extension">
-            <xs:enumeration value="multiple designated specimens"/>
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="specimen.procedure.valueset.extension">
-         <xs:restriction base="specimen.procedure.valueset.extension">
-            <xs:enumeration value="excision"/>
-            <xs:enumeration value="excision, wire-guided"/>
-            <xs:enumeration value="total mastectomy"/>
-            <xs:enumeration value="sentinel lymph node sampling"/>
-            <xs:enumeration value="partial axillary dissection"/>
-            <xs:enumeration value="complete axillary dissection"/>
-            <xs:enumeration value="intramammary lymph node biopsy"/>
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="specimen.site.valueset.extension">
-         <xs:restriction base="specimen.site.valueset.extension">
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="extent.site.valueset">
+        <xs:restriction base="xs:token">
             <xs:enumeration value="upper outer quadrant"/>
             <xs:enumeration value="lower outer quadrant"/>
             <xs:enumeration value="upper inner quadrant"/>
@@ -79,585 +527,152 @@
             <xs:enumeration value="central"/>
             <xs:enumeration value="nipple"/>
             <xs:enumeration value="axillary tail"/>
-            <xs:enumeration value="partial breast"/>
-            <xs:enumeration value="total breast"/>
+            <xs:enumeration value="12:00"/>
+            <xs:enumeration value="1:00"/>
+            <xs:enumeration value="2:00"/>
+            <xs:enumeration value="3:00"/>
+            <xs:enumeration value="4:00"/>
+            <xs:enumeration value="5:00"/>
+            <xs:enumeration value="6:00"/>
+            <xs:enumeration value="7:00"/>
+            <xs:enumeration value="8:00"/>
+            <xs:enumeration value="9:00"/>
+            <xs:enumeration value="10:00"/>
+            <xs:enumeration value="11:00"/>
             <xs:enumeration value="specify"/>
             <xs:enumeration value="inapplicable"/>
             <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="stage.pT.valueset.extension">
-         <xs:restriction base="stage.pT.valueset.extension">
-            <xs:enumeration value="X"/>
-            <xs:enumeration value="0"/>
-            <xs:enumeration value="is"/>
-            <xs:enumeration value="is (DCIS)"/>
-            <xs:enumeration value="is (LCIS)"/>
-            <xs:enumeration value="is (Paget)"/>
-            <xs:enumeration value="1"/>
-            <xs:enumeration value="1mi"/>
-            <xs:enumeration value="1a"/>
-            <xs:enumeration value="1b"/>
-            <xs:enumeration value="1c"/>
-            <xs:enumeration value="2"/>
-            <xs:enumeration value="3"/>
-            <xs:enumeration value="4"/>
-            <xs:enumeration value="4a"/>
-            <xs:enumeration value="4b"/>
-            <xs:enumeration value="4c"/>
-            <xs:enumeration value="4d"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="extent.underlying.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="negative"/>
+            <xs:enumeration value="pectoralis muscle only"/>
+            <xs:enumeration value="chest wall"/>
             <xs:enumeration value="specify"/>
             <xs:enumeration value="inapplicable"/>
             <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="stage.pN.valueset.extension">
-         <xs:restriction base="stage.pN.valueset.extension">
-            <xs:enumeration value="X"/>
-            <xs:enumeration value="0"/>
-            <xs:enumeration value="0(i-)"/>
-            <xs:enumeration value="0(i+)"/>
-            <xs:enumeration value="0(mol-)"/>
-            <xs:enumeration value="0(mol+)"/>
-            <xs:enumeration value="1"/>
-            <xs:enumeration value="1mi"/>
-            <xs:enumeration value="1a"/>
-            <xs:enumeration value="1b"/>
-            <xs:enumeration value="1c"/>
-            <xs:enumeration value="2"/>
-            <xs:enumeration value="2a"/>
-            <xs:enumeration value="2b"/>
-            <xs:enumeration value="3"/>
-            <xs:enumeration value="3a"/>
-            <xs:enumeration value="3b"/>
-            <xs:enumeration value="3c"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="margins.margin.focality.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="unifocal"/>
+            <xs:enumeration value="multifocal"/>
+            <xs:enumeration value="extensive"/>
             <xs:enumeration value="specify"/>
             <xs:enumeration value="inapplicable"/>
             <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="stage.pM.valueset.extension">
-         <xs:restriction base="stage.pM.valueset.extension">
-            <xs:enumeration value="0"/>
-            <xs:enumeration value="0(i+)"/>
-            <xs:enumeration value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="margin.type.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="DCIS"/>
+            <xs:enumeration value="invasive carcinoma"/>
             <xs:enumeration value="specify"/>
             <xs:enumeration value="inapplicable"/>
             <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="stage.group.valueset.extension">
-         <xs:restriction base="stage.group.valueset.extension">
-            <xs:enumeration value="0"/>
-            <xs:enumeration value="IA"/>
-            <xs:enumeration value="IB"/>
-            <xs:enumeration value="IIA"/>
-            <xs:enumeration value="IIB"/>
-            <xs:enumeration value="IIIA"/>
-            <xs:enumeration value="IIIB"/>
-            <xs:enumeration value="IIIC"/>
-            <xs:enumeration value="IV"/>
-            <xs:enumeration value="indeterminate"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="specimen.laterality.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="right"/>
+            <xs:enumeration value="left"/>
             <xs:enumeration value="specify"/>
             <xs:enumeration value="inapplicable"/>
             <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="tumor.site.valueset.extension">
-         <xs:restriction base="tumor.site.valueset.extension">
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="specimen.lymphNodeSites.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="no lymph nodes"/>
+            <xs:enumeration value="sentinel lymph node(s)"/>
+            <xs:enumeration value="partial axillary dissection"/>
+            <xs:enumeration value="complete axillary dissection"/>
+            <xs:enumeration value="intramammary lymph nodes"/>
             <xs:enumeration value="specify"/>
             <xs:enumeration value="inapplicable"/>
             <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="tumor.histologicType.valueset.extension">
-         <xs:restriction base="tumor.histologicType.valueset.extension">
-            <xs:enumeration value="ductal carcinoma"/>
-            <xs:enumeration value="lobular carcinoma"/>
-            <xs:enumeration value="carcinoma ductal-lobular"/>
-            <xs:enumeration value="mucinous carcinoma"/>
-            <xs:enumeration value="medullary carcinoma"/>
-            <xs:enumeration value="papillary carcinoma"/>
-            <xs:enumeration value="micropapillary carcinoma"/>
-            <xs:enumeration value="tubular carcinoma"/>
-            <xs:enumeration value="cribriform carcinoma"/>
-            <xs:enumeration value="carcinoma type undetermined"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="studies.erpr.method.antibody.valueset">
+        <xs:union memberTypes="xs:token base.valueset"/>
+    </xs:simpleType>
+    <xs:simpleType name="studies.erpr.method.antibody.vendor.valueset">
+        <xs:union memberTypes="xs:token base.valueset"/>
+    </xs:simpleType>
+    <xs:simpleType name="studies.erpr.method.fixative.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="neutral buffered formalin"/>
             <xs:enumeration value="specify"/>
             <xs:enumeration value="inapplicable"/>
             <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="tumor.grade.valueset.extension">
-         <xs:restriction base="tumor.grade.valueset.extension">
-            <xs:enumeration value="1"/>
-            <xs:enumeration value="2"/>
-            <xs:enumeration value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="studies.erpr.method.source.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="this specimen"/>
+            <xs:enumeration value="pending"/>
             <xs:enumeration value="specify"/>
             <xs:enumeration value="inapplicable"/>
             <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="tumor.gradeSystem.valueset.extension">
-         <xs:restriction base="tumor.gradeSystem.valueset.extension">
-            <xs:enumeration value="3-grade"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="studies.erpr.method.technique.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="immunohistochemistry"/>
             <xs:enumeration value="specify"/>
             <xs:enumeration value="inapplicable"/>
             <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="accessory.lymphvascular.valueset.extension">
-         <xs:restriction base="accessory.lymphvascular.valueset.extension">
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="studies.erpr.result.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="pending"/>
             <xs:enumeration value="specify"/>
             <xs:enumeration value="inapplicable"/>
             <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="accessory.perineural.valueset.extension">
-         <xs:restriction base="accessory.perineural.valueset.extension">
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="studies.her2.fish.result.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="not am"/>
+            <xs:enumeration value="pending"/>
             <xs:enumeration value="specify"/>
             <xs:enumeration value="inapplicable"/>
             <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="accessory.treatmentResponse.valueset.extension">
-         <xs:restriction base="accessory.treatmentResponse.valueset.extension">
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="studies.her2.imm.result.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="negative (score 0)"/>
+            <xs:enumeration value="negative (score 1+)"/>
+            <xs:enumeration value="equivocal (score 2+)"/>
+            <xs:enumeration value="positive (score 3+)"/>
+            <xs:enumeration value="pending"/>
             <xs:enumeration value="specify"/>
             <xs:enumeration value="inapplicable"/>
             <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="additional.finding.of.valueset.extension">
-         <xs:restriction base="additional.finding.of.valueset.extension">
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="studies.her2.method.antibody.valueset">
+        <xs:union memberTypes="xs:token base.valueset"/>
+    </xs:simpleType>
+    <xs:simpleType name="studies.her2.method.antibody.vendor.valueset">
+        <xs:union memberTypes="xs:token base.valueset"/>
+    </xs:simpleType>
+    <xs:simpleType name="studies.her2.method.assay.valueset">
+        <xs:union memberTypes="xs:token base.valueset"/>
+    </xs:simpleType>
+    <xs:simpleType name="studies.her2.method.assay.vendor.valueset">
+        <xs:union memberTypes="xs:token base.valueset"/>
+    </xs:simpleType>
+    <xs:simpleType name="studies.her2.method.technique.valueset">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="immunohistochemistry"/>
+            <xs:enumeration value="FISH"/>
             <xs:enumeration value="specify"/>
             <xs:enumeration value="inapplicable"/>
             <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="additional.finding.valueset.extension">
-         <xs:restriction base="additional.finding.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="extent.contiguousExtension.status.result.for.valueset.extension">
-         <xs:restriction base="extent.contiguousExtension.status.result.for.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="extent.contiguousExtension.status.distance.for.valueset.extension">
-         <xs:restriction base="extent.contiguousExtension.status.distance.for.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="extent.contiguousExtension.status.distance.from.valueset.extension">
-         <xs:restriction base="extent.contiguousExtension.status.distance.from.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="history.clinical.valueset.extension">
-         <xs:restriction base="history.clinical.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="history.pathology.valueset.extension">
-         <xs:restriction base="history.pathology.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="history.priorTherapy.valueset.extension">
-         <xs:restriction base="history.priorTherapy.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="history.radiology.valueset.extension">
-         <xs:restriction base="history.radiology.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="extent.contiguousExtension.status.of.valueset.extension">
-         <xs:restriction base="extent.contiguousExtension.status.of.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="extent.contiguousExtension.status.type.valueset.extension">
-         <xs:restriction base="extent.contiguousExtension.status.type.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="margin.status.focality.valueset.extension">
-         <xs:restriction base="margin.status.focality.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="margin.status.result.for.valueset.extension">
-         <xs:restriction base="margin.status.result.for.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="distant.status.of.valueset.extension">
-         <xs:restriction base="distant.status.of.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="distant.status.result.for.valueset.extension">
-         <xs:restriction base="distant.status.result.for.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="nodes.status.result.for.valueset.extension">
-         <xs:restriction base="nodes.status.result.for.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="nodes.status.technique.valueset.extension">
-         <xs:restriction base="nodes.status.technique.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="nodes.status.extracapsular.valueset.extension">
-         <xs:restriction base="nodes.status.extracapsular.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="stage.prefix.valueset.extension">
-         <xs:restriction base="stage.prefix.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <xs:simpleType name="stage.multiplicity.valueset.extension">
-         <xs:restriction base="stage.multiplicity.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-      <!--<xs:simpleType name="tumor.focus.type.valueset.extension">
-         <xs:restriction base="tumor.focus.type.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>-->
-      <xs:simpleType name="tumor.multiplicity.valueset.extension">
-         <xs:restriction base="tumor.multiplicity.valueset.extension">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="inapplicable"/>
-            <xs:enumeration value="unreported"/>
-         </xs:restriction>
-      </xs:simpleType>
-   </xs:redefine>
-   <xs:simpleType name="accessory.treatmentEffect.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="no response"/>
-         <xs:enumeration value="slight response"/>
-         <xs:enumeration value="marked response"/>
-         <xs:enumeration value="complete response"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="accessory.cis.blocks.type.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="RT-PCR negative"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="accessory.dcis.pattern.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="comedocarcinoma"/>
-         <xs:enumeration value="cribriform"/>
-         <xs:enumeration value="micropapillary"/>
-         <xs:enumeration value="papillary"/>
-         <xs:enumeration value="solid"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="accessory.dcis.grade.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="low"/>
-         <xs:enumeration value="intermediate"/>
-         <xs:enumeration value="high"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="accessory.dcis.necrosis.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="accessory.microcalcifications.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="negative"/>
-         <xs:enumeration value="in DCIS"/>
-         <xs:enumeration value="in invasive carcinoma"/>
-         <xs:enumeration value="in non-neoplastic tissue"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="clinical.clinicalFindings.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="palpable mass"/>
-         <xs:enumeration value="nipple discharge"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="clinical.priorPathologicDiagnoses.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="breast carcinoma, NOS"/>
-         <xs:enumeration value="ductal carcinoma-in-situ"/>
-         <xs:enumeration value="lobular carcinoma-in-situ"/>
-         <xs:enumeration value="invasive ductal carcinoma"/>
-         <xs:enumeration value="invasive lobular carcinoma"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="clinical.priorTherapies.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="clinical.radiologicFindings.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="mass"/>
-         <xs:enumeration value="architectural distortion"/>
-         <xs:enumeration value="microcalcifications"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="extent.site.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="upper outer quadrant"/>
-         <xs:enumeration value="lower outer quadrant"/>
-         <xs:enumeration value="upper inner quadrant"/>
-         <xs:enumeration value="lower inner quadrant"/>
-         <xs:enumeration value="central"/>
-         <xs:enumeration value="nipple"/>
-         <xs:enumeration value="axillary tail"/>
-         <xs:enumeration value="12:00"/>
-         <xs:enumeration value="1:00"/>
-         <xs:enumeration value="2:00"/>
-         <xs:enumeration value="3:00"/>
-         <xs:enumeration value="4:00"/>
-         <xs:enumeration value="5:00"/>
-         <xs:enumeration value="6:00"/>
-         <xs:enumeration value="7:00"/>
-         <xs:enumeration value="8:00"/>
-         <xs:enumeration value="9:00"/>
-         <xs:enumeration value="10:00"/>
-         <xs:enumeration value="11:00"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="extent.multiplicity.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="many"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="extent.underlying.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="negative"/>
-         <xs:enumeration value="pectoralis muscle only"/>
-         <xs:enumeration value="chest wall"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="accessory.dcis.result.modifier.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="extensive intraductal component"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="margins.margin.focality.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="unifocal"/>
-         <xs:enumeration value="multifocal"/>
-         <xs:enumeration value="extensive"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="margin.type.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="DCIS"/>
-         <xs:enumeration value="invasive carcinoma"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="distant.site.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="liver"/>
-         <xs:enumeration value="bone"/>
-         <xs:enumeration value="lung"/>
-         <xs:enumeration value="brain"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="unreported"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="specimen.laterality.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="right"/>
-         <xs:enumeration value="left"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="specimen.lymphNodeSites.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="no lymph nodes"/>
-         <xs:enumeration value="sentinel lymph node(s)"/>
-         <xs:enumeration value="partial axillary dissection"/>
-         <xs:enumeration value="complete axillary dissection"/>
-         <xs:enumeration value="intramammary lymph nodes"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="studies.erpr.result.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="pending"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="studies.erpr.method.technique.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="immunohistochemistry"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="studies.erpr.method.source.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="this specimen"/>
-         <xs:enumeration value="pending"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="studies.erpr.method.fixative.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="neutral buffered formalin"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="studies.erpr.method.antibody.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="studies.her2.fish.result.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="not am"/>
-         <xs:enumeration value="pending"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="studies.her2.imm.result.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="negative (score 0)"/>
-         <xs:enumeration value="negative (score 1+)"/>
-         <xs:enumeration value="equivocal (score 2+)"/>
-         <xs:enumeration value="positive (score 3+)"/>
-         <xs:enumeration value="pending"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="studies.her2.method.technique.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="immunohistochemistry"/>
-         <xs:enumeration value="FISH"/>
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
-   <xs:simpleType name="studies.her2.method.antibody.valueset">
-      <xs:restriction base="xs:token">
-         <xs:enumeration value="specify"/>
-         <xs:enumeration value="inapplicable"/>
-         <xs:enumeration value="unreported"/>
-      </xs:restriction>
-   </xs:simpleType>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

@@ -24,9 +24,6 @@
 <xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
     xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="common.xsd"/>
-    <xs:include schemaLocation="values.xsd"/>
-    <xs:include schemaLocation="items.xsd"/>
     <!-- Definition of sections -->
     <xs:element name="history">
         <xs:complexType>

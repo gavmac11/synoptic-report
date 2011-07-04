@@ -24,7 +24,20 @@
 <xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
     xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="sections.xsd"/>
+    <xs:redefine schemaLocation="../framework/common.xsd"/>
+    <xs:redefine schemaLocation="../framework/items.xsd"/>
+    <xs:redefine schemaLocation="../framework/sections.xsd"/>
+    <xs:redefine schemaLocation="../framework/types.xsd"/>
+    <xs:redefine schemaLocation="../framework/values.xsd">
+        <xs:simpleType name="extension.valueset">
+            <!-- There are no specific changes in the framework valueset extensions, beyond the fact
+            that we allow "unreported" as the only extension value, and this applies to all
+            valuesets. -->
+            <xs:restriction base="ecc:extension.valueset">
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:redefine>
     <xs:element name="resection">
         <xs:complexType>
             <xs:sequence>

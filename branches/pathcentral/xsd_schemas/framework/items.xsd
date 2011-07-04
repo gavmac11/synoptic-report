@@ -24,7 +24,6 @@
 <xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
     xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:include schemaLocation="types.xsd"/>
     <!-- HISTORY SECTION -->
     <xs:element name="clinicalFinding">
         <xs:complexType>
@@ -33,7 +32,9 @@
                 <xs:element name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
-                        <xs:attribute name="value" type="ecc:history.clinical.valueset" use="required"/>
+                        <xs:attribute name="value" type="ecc:history.clinical.valueset"
+                            use="required"/>
+                        <xs:attributeGroup ref="ecc:history.clinicalFinding.attrib.extension"/>
                         <xs:attributeGroup ref="ecc:generic.attrib"/>
                     </xs:complexType>
                 </xs:element>
@@ -42,6 +43,7 @@
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
+    <xs:attributeGroup name="history.clinicalFinding.attrib.extension"/>
     <xs:element name="pathologicFinding">
         <xs:complexType>
             <xs:sequence>
@@ -49,7 +51,8 @@
                 <xs:element name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
-                        <xs:attribute name="value" type="ecc:history.pathology.valueset" use="required"/>
+                        <xs:attribute name="value" type="ecc:history.pathology.valueset"
+                            use="required"/>
                         <xs:attributeGroup ref="ecc:generic.attrib"/>
                     </xs:complexType>
                 </xs:element>
@@ -65,7 +68,8 @@
                 <xs:element name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
-                        <xs:attribute name="value" type="ecc:history.priorTherapy.valueset" use="required"/>
+                        <xs:attribute name="value" type="ecc:history.priorTherapy.valueset"
+                            use="required"/>
                         <xs:attributeGroup ref="ecc:generic.attrib"/>
                     </xs:complexType>
                 </xs:element>
@@ -81,7 +85,8 @@
                 <xs:element name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
-                        <xs:attribute name="value" type="ecc:history.radiology.valueset" use="required"/>
+                        <xs:attribute name="value" type="ecc:history.radiology.valueset"
+                            use="required"/>
                         <xs:attributeGroup ref="ecc:generic.attrib"/>
                     </xs:complexType>
                 </xs:element>
@@ -95,10 +100,11 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:group ref="ecc:generic.content"/>
-                <xs:element name="response">
+                <xs:element maxOccurs="unbounded" name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
-                        <xs:attribute name="value" type="ecc:specimen.procedure.valueset" use="required"/>
+                        <xs:attribute name="value" type="ecc:specimen.procedure.valueset"
+                            use="required"/>
                         <xs:attribute name="on" type="ecc:laterality.valueset"/>
                         <xs:attributeGroup ref="ecc:generic.attrib"/>
                     </xs:complexType>
@@ -111,11 +117,12 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:group ref="ecc:generic.content"/>
-                <xs:element name="response">
+                <xs:element maxOccurs="unbounded" name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
                         <xs:attribute name="value" type="ecc:specimen.site.valueset" use="required"/>
                         <xs:attribute name="on" type="ecc:laterality.valueset"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
@@ -129,7 +136,9 @@
                 <xs:element name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
-                        <xs:attribute name="value" type="ecc:specimen.integrity.valueset" use="required"/>
+                        <xs:attribute name="value" type="ecc:specimen.integrity.valueset"
+                            use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
@@ -158,10 +167,11 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:group ref="ecc:generic.content"/>
-                <xs:element name="response">
+                <xs:element maxOccurs="unbounded" name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
-                        <xs:attribute name="value" type="ecc:tumor.histologicType.valueset" use="required"/>
+                        <xs:attribute name="value" type="ecc:tumor.histologicType.valueset"
+                            use="required"/>
                         <xs:attributeGroup ref="ecc:generic.attrib"/>
                     </xs:complexType>
                 </xs:element>
@@ -173,10 +183,11 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:group ref="ecc:generic.content"/>
-                <xs:element name="response">
+                <xs:element maxOccurs="unbounded" name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
                         <xs:attribute name="value" type="ecc:tumor.grade.valueset" use="required"/>
+                        <xs:attribute name="for" type="ecc:tumor.grade.response.for.valueset"/>
                         <xs:attributeGroup ref="ecc:generic.attrib"/>
                     </xs:complexType>
                 </xs:element>
@@ -220,7 +231,8 @@
                         <xs:element name="response">
                             <xs:complexType>
                                 <xs:group ref="ecc:generic.response.content"/>
-                                <xs:attribute name="value" type="ecc:qualitative.valueset" use="required"/>
+                                <xs:attribute name="value" type="ecc:qualitative.valueset"
+                                    use="required"/>
                                 <xs:attribute name="extent" type="ecc:focality.valueset"/>
                                 <xs:attributeGroup ref="ecc:generic.attrib"/>
                             </xs:complexType>
@@ -239,40 +251,44 @@
                 <xs:element name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
-                        <xs:attribute name="value" type="ecc:accessory.treatmentResponse.valueset" use="required"/>
+                        <xs:attribute name="value" type="ecc:accessory.treatmentResponse.valueset"
+                            use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
-    <xs:element name="lymphVascularInvasion">
-        <xs:complexType>
+    <xs:element name="lymphVascularInvasion" type="ecc:qualitative.response.type">
+        <!--<xs:complexType>
             <xs:sequence>
                 <xs:group ref="ecc:generic.content"/>
                 <xs:element name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
-                        <xs:attribute name="value" type="ecc:accessory.lymphvascular.valueset" use="required"/>
+                        <xs:attribute name="value" type="ecc:accessory.lymphvascular.valueset"
+                            use="required"/>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
             <xs:attributeGroup ref="ecc:generic.attrib"/>
-        </xs:complexType>
+        </xs:complexType>-->
     </xs:element>
-    <xs:element name="perineuralInvasion">
-        <xs:complexType>
+    <xs:element name="perineuralInvasion" type="ecc:qualitative.response.type">
+        <!--<xs:complexType>
             <xs:sequence>
                 <xs:group ref="ecc:generic.content"/>
                 <xs:element name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
-                        <xs:attribute name="value" type="ecc:accessory.perineural.valueset" use="required"/>
+                        <xs:attribute name="value" type="ecc:accessory.perineural.valueset"
+                            use="required"/>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
             <xs:attributeGroup ref="ecc:generic.attrib"/>
-        </xs:complexType>
+        </xs:complexType>-->
     </xs:element>
     <xs:group name="margin.status">
         <!-- There is more than one context for <status> element (margin.status, nodes.status, distant.status, contiguousExtension.status), hence need to wrap as a group -->
@@ -302,13 +318,17 @@
                             <!-- this is a qualitative response with some modifying attributes -->
                             <xs:complexType>
                                 <xs:group ref="ecc:generic.response.content"/>
-                                <xs:attribute name="value" type="ecc:qualitative.valueset" use="required"/>
-                                <xs:attribute name="extent" type="ecc:margin.status.focality.valueset"/>
+                                <xs:attribute name="value" type="ecc:qualitative.valueset"
+                                    use="required"/>
+                                <xs:attribute name="extent"
+                                    type="ecc:margin.status.focality.valueset"/>
                                 <xs:attribute name="closest" type="ecc:qualitative.valueset"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
                             </xs:complexType>
                         </xs:element>
                     </xs:sequence>
-                    <xs:attribute name="for" type="ecc:margin.status.result.for.valueset" use="required"/>
+                    <xs:attribute name="for" type="ecc:margin.status.result.for.valueset"
+                        use="required"/>
                     <xs:attributeGroup ref="ecc:generic.attrib"/>
                 </xs:complexType>
             </xs:element>
@@ -342,7 +362,8 @@
                         <xs:group ref="ecc:generic.content"/>
                         <xs:group ref="ecc:tally.response"/>
                     </xs:sequence>
-                    <xs:attribute name="for" type="ecc:margin.status.result.for.valueset" use="required"/>
+                    <xs:attribute name="for" type="ecc:margin.status.result.for.valueset"
+                        use="required"/>
                     <xs:attribute name="type" type="ecc:nodes.status.result.type.valueset"/>
                     <xs:attributeGroup ref="ecc:generic.attrib"/>
                 </xs:complexType>
@@ -372,7 +393,21 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:group ref="ecc:generic.content"/>
-                        <xs:group ref="ecc:qualitative.response"/>
+                        <xs:element name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value" type="ecc:qualitative.valueset"
+                                    use="required"/>
+                                <!-- This attribute is required for breast only, but as extensions
+                                    are not possible, I have to add it for every site. You could
+                                    prohibit it for all the sites that don't use it, but perhaps
+                                    this is not important. -->
+                                <!--<xs:attribute name="type"
+                                type="ecc:distant.status.result.response.type.valueset" />-->
+                                <xs:attributeGroup ref="ecc:distant.status.result.response.attrib"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
                         <xs:element minOccurs="0" ref="ecc:size"/>
                     </xs:sequence>
                     <xs:attributeGroup ref="ecc:date.attrib"/>
@@ -381,11 +416,12 @@
             </xs:element>
         </xs:sequence>
     </xs:group>
+    <xs:attributeGroup name="distant.status.result.response.attrib"/>
     <xs:element name="prefix">
         <xs:complexType>
             <xs:sequence>
                 <xs:group ref="ecc:generic.content"/>
-                <xs:element name="response" maxOccurs="unbounded">
+                <xs:element maxOccurs="unbounded" name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
                         <xs:attribute name="value" type="ecc:stage.prefix.valueset" use="required"/>
@@ -403,7 +439,8 @@
                 <xs:element name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
-                        <xs:attribute name="value" type="ecc:stage.multiplicity.valueset" use="required"/>
+                        <xs:attribute name="value" type="ecc:stage.multiplicity.valueset"
+                            use="required"/>
                         <xs:attributeGroup ref="ecc:generic.attrib"/>
                     </xs:complexType>
                 </xs:element>
@@ -478,7 +515,8 @@
                 <xs:element name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
-                        <xs:attribute name="value" type="ecc:additional.finding.valueset" use="required"/>
+                        <xs:attribute name="value" type="ecc:additional.finding.valueset"
+                            use="required"/>
                         <xs:attributeGroup ref="ecc:generic.attrib"/>
                     </xs:complexType>
                 </xs:element>
@@ -508,6 +546,7 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:attribute>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="largestMetastasis">
@@ -519,13 +558,13 @@
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
-    <xs:element name="extracapsularExtension">
-        <xs:complexType>
+    <xs:element name="extracapsularExtension" type="ecc:qualitative.response.type">
+        <!--<xs:complexType>
             <xs:sequence>
                 <xs:group ref="ecc:generic.content"/>
                 <xs:group ref="ecc:qualitative.response"/>
             </xs:sequence>
             <xs:attributeGroup ref="ecc:generic.attrib"/>
-        </xs:complexType>
+        </xs:complexType>-->
     </xs:element>
 </xs:schema>

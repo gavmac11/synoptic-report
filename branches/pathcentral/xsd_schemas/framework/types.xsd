@@ -28,6 +28,15 @@
         <xs:union memberTypes="ecc:base.valueset">
             <xs:simpleType>
                 <xs:restriction base="xs:decimal">
+                    <xs:minExclusive value="0.0"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <xs:simpleType name="nonNegativeDecimal">
+        <xs:union memberTypes="ecc:base.valueset">
+            <xs:simpleType>
+                <xs:restriction base="xs:decimal">
                     <xs:minInclusive value="0.0"/>
                 </xs:restriction>
             </xs:simpleType>
@@ -94,6 +103,11 @@
         </xs:sequence>
     </xs:group>
     <xs:group name="qualitative.response">
+        <!-- Remember that if you use this canned "shorthand" for a qualitative response, you will not be
+            able to extend it with additional attributes later. So for responses that are indeed
+            qualitative, but may add additional attributes later, you need to use add them
+            explicitly to the generic type. An example would be distant.status.result.response that
+            needs to be typed for breast. -->
         <xs:sequence>
             <xs:element name="response">
                 <xs:complexType>
@@ -122,4 +136,13 @@
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
+    <xs:complexType name="qualitative.response.type">
+        <!-- I don't like using named complex types, but this one is so often used, that I will make
+        an exception. -->
+        <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
+            <xs:group ref="ecc:qualitative.response"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="ecc:generic.attrib"/>
+    </xs:complexType>
 </xs:schema>
