@@ -1,0 +1,1076 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript">
+         <!--
+        var propertiesBoxes= new Array('properties_values.xsd');
+
+        var facetsBoxes= new Array('facets_base.valueset', 
+				'facets_lengthUnit.valueset', 
+				'facets_weightUnit.valueset', 
+				'facets_relation.valueset', 
+				'facets_accessory.lymphvascular.valueset.extension', 
+				'facets_accessory.perineural.valueset.extension', 
+				'facets_accessory.treatmentResponse.valueset.extension', 
+				'facets_additional.finding.of.valueset.extension', 
+				'facets_additional.finding.valueset.extension', 
+				'facets_extent.contiguousExtension.status.result.for.valueset.extension', 
+				'facets_extent.contiguousExtension.status.distance.for.valueset.extension', 
+				'facets_extent.contiguousExtension.status.distance.from.valueset.extension', 
+				'facets_history.clinical.valueset.extension', 
+				'facets_history.pathology.valueset.extension', 
+				'facets_history.priorTherapy.valueset.extension', 
+				'facets_history.radiology.valueset.extension', 
+				'facets_extent.contiguousExtension.status.of.valueset.extension', 
+				'facets_extent.contiguousExtension.status.type.valueset.extension', 
+				'facets_extent.size.valueset.extension', 
+				'facets_margin.status.focality.valueset.extension', 
+				'facets_margin.status.of.valueset.extension', 
+				'facets_margin.status.result.for.valueset.extension', 
+				'facets_distant.status.of.valueset.extension', 
+				'facets_distant.status.result.for.valueset.extension', 
+				'facets_nodes.status.of.valueset.extension', 
+				'facets_nodes.status.result.for.valueset.extension', 
+				'facets_nodes.status.result.type.valueset.extension', 
+				'facets_nodes.status.technique.valueset.extension', 
+				'facets_nodes.status.extracapsular.valueset.extension', 
+				'facets_specimen.integrity.valueset.extension', 
+				'facets_specimen.procedure.valueset.extension', 
+				'facets_specimen.site.valueset.extension', 
+				'facets_stage.prefix.valueset.extension', 
+				'facets_stage.multiplicity.valueset.extension', 
+				'facets_stage.pT.valueset.extension', 
+				'facets_stage.pN.valueset.extension', 
+				'facets_stage.pM.valueset.extension', 
+				'facets_stage.group.valueset.extension', 
+				'facets_tumor.focus.type.valueset.extension', 
+				'facets_tumor.histologicType.valueset.extension', 
+				'facets_tumor.site.valueset.extension', 
+				'facets_tumor.grade.valueset.extension', 
+				'facets_tumor.gradeSystem.valueset.extension', 
+				'facets_tumor.multiplicity.valueset.extension');
+
+        
+        var sourceBoxes= new Array('source_base.valueset', 
+				'source_qualitative.valueset', 
+				'source_lengthUnit.valueset', 
+				'source_weightUnit.valueset', 
+				'source_relation.valueset', 
+				'source_laterality.valueset', 
+				'source_focality.valueset', 
+				'source_accessory.lymphvascular.valueset', 
+				'source_accessory.lymphvascular.valueset.extension', 
+				'source_accessory.perineural.valueset', 
+				'source_accessory.perineural.valueset.extension', 
+				'source_accessory.treatmentResponse.valueset', 
+				'source_accessory.treatmentResponse.valueset.extension', 
+				'source_additional.finding.of.valueset', 
+				'source_additional.finding.of.valueset.extension', 
+				'source_additional.finding.valueset', 
+				'source_additional.finding.valueset.extension', 
+				'source_extent.contiguousExtension.status.result.for.valueset', 
+				'source_extent.contiguousExtension.status.result.for.valueset.extension', 
+				'source_extent.contiguousExtension.status.distance.for.valueset', 
+				'source_extent.contiguousExtension.status.distance.for.valueset.extension', 
+				'source_extent.contiguousExtension.status.distance.from.valueset', 
+				'source_extent.contiguousExtension.status.distance.from.valueset.extension', 
+				'source_history.clinical.valueset', 
+				'source_history.clinical.valueset.extension', 
+				'source_history.pathology.valueset', 
+				'source_history.pathology.valueset.extension', 
+				'source_history.priorTherapy.valueset', 
+				'source_history.priorTherapy.valueset.extension', 
+				'source_history.radiology.valueset', 
+				'source_history.radiology.valueset.extension', 
+				'source_extent.contiguousExtension.status.of.valueset', 
+				'source_extent.contiguousExtension.status.of.valueset.extension', 
+				'source_extent.contiguousExtension.status.type.valueset', 
+				'source_extent.contiguousExtension.status.type.valueset.extension', 
+				'source_extent.size.valueset', 
+				'source_extent.size.valueset.extension', 
+				'source_margin.status.focality.valueset', 
+				'source_margin.status.focality.valueset.extension', 
+				'source_margin.status.of.valueset', 
+				'source_margin.status.of.valueset.extension', 
+				'source_margin.status.result.for.valueset', 
+				'source_margin.status.result.for.valueset.extension', 
+				'source_distant.status.of.valueset', 
+				'source_distant.status.of.valueset.extension', 
+				'source_distant.status.result.for.valueset', 
+				'source_distant.status.result.for.valueset.extension', 
+				'source_nodes.status.of.valueset', 
+				'source_nodes.status.of.valueset.extension', 
+				'source_nodes.status.result.for.valueset', 
+				'source_nodes.status.result.for.valueset.extension', 
+				'source_nodes.status.result.type.valueset', 
+				'source_nodes.status.result.type.valueset.extension', 
+				'source_nodes.status.technique.valueset', 
+				'source_nodes.status.technique.valueset.extension', 
+				'source_nodes.status.extracapsular.valueset', 
+				'source_nodes.status.extracapsular.valueset.extension', 
+				'source_specimen.integrity.valueset', 
+				'source_specimen.integrity.valueset.extension', 
+				'source_specimen.procedure.valueset', 
+				'source_specimen.procedure.valueset.extension', 
+				'source_specimen.site.valueset', 
+				'source_specimen.site.valueset.extension', 
+				'source_stage.prefix.valueset', 
+				'source_stage.prefix.valueset.extension', 
+				'source_stage.multiplicity.valueset', 
+				'source_stage.multiplicity.valueset.extension', 
+				'source_stage.pT.valueset', 
+				'source_stage.pT.valueset.extension', 
+				'source_stage.pN.valueset', 
+				'source_stage.pN.valueset.extension', 
+				'source_stage.pM.valueset', 
+				'source_stage.pM.valueset.extension', 
+				'source_stage.group.valueset', 
+				'source_stage.group.valueset.extension', 
+				'source_tumor.focus.type.valueset', 
+				'source_tumor.focus.type.valueset.extension', 
+				'source_tumor.histologicType.valueset', 
+				'source_tumor.histologicType.valueset.extension', 
+				'source_tumor.site.valueset', 
+				'source_tumor.site.valueset.extension', 
+				'source_tumor.grade.valueset', 
+				'source_tumor.grade.valueset.extension', 
+				'source_tumor.gradeSystem.valueset', 
+				'source_tumor.gradeSystem.valueset.extension', 
+				'source_tumor.multiplicity.valueset', 
+				'source_tumor.multiplicity.valueset.extension');
+
+        
+        var diagramBoxes= new Array('diagram_base.valueset', 
+				'diagram_qualitative.valueset', 
+				'diagram_lengthUnit.valueset', 
+				'diagram_weightUnit.valueset', 
+				'diagram_relation.valueset', 
+				'diagram_laterality.valueset', 
+				'diagram_focality.valueset', 
+				'diagram_accessory.lymphvascular.valueset', 
+				'diagram_accessory.lymphvascular.valueset.extension', 
+				'diagram_accessory.perineural.valueset', 
+				'diagram_accessory.perineural.valueset.extension', 
+				'diagram_accessory.treatmentResponse.valueset', 
+				'diagram_accessory.treatmentResponse.valueset.extension', 
+				'diagram_additional.finding.of.valueset', 
+				'diagram_additional.finding.of.valueset.extension', 
+				'diagram_additional.finding.valueset', 
+				'diagram_additional.finding.valueset.extension', 
+				'diagram_extent.contiguousExtension.status.result.for.valueset', 
+				'diagram_extent.contiguousExtension.status.result.for.valueset.extension', 
+				'diagram_extent.contiguousExtension.status.distance.for.valueset', 
+				'diagram_extent.contiguousExtension.status.distance.for.valueset.extension', 
+				'diagram_extent.contiguousExtension.status.distance.from.valueset', 
+				'diagram_extent.contiguousExtension.status.distance.from.valueset.extension', 
+				'diagram_history.clinical.valueset', 
+				'diagram_history.clinical.valueset.extension', 
+				'diagram_history.pathology.valueset', 
+				'diagram_history.pathology.valueset.extension', 
+				'diagram_history.priorTherapy.valueset', 
+				'diagram_history.priorTherapy.valueset.extension', 
+				'diagram_history.radiology.valueset', 
+				'diagram_history.radiology.valueset.extension', 
+				'diagram_extent.contiguousExtension.status.of.valueset', 
+				'diagram_extent.contiguousExtension.status.of.valueset.extension', 
+				'diagram_extent.contiguousExtension.status.type.valueset', 
+				'diagram_extent.contiguousExtension.status.type.valueset.extension', 
+				'diagram_extent.size.valueset', 
+				'diagram_extent.size.valueset.extension', 
+				'diagram_margin.status.focality.valueset', 
+				'diagram_margin.status.focality.valueset.extension', 
+				'diagram_margin.status.of.valueset', 
+				'diagram_margin.status.of.valueset.extension', 
+				'diagram_margin.status.result.for.valueset', 
+				'diagram_margin.status.result.for.valueset.extension', 
+				'diagram_distant.status.of.valueset', 
+				'diagram_distant.status.of.valueset.extension', 
+				'diagram_distant.status.result.for.valueset', 
+				'diagram_distant.status.result.for.valueset.extension', 
+				'diagram_nodes.status.of.valueset', 
+				'diagram_nodes.status.of.valueset.extension', 
+				'diagram_nodes.status.result.for.valueset', 
+				'diagram_nodes.status.result.for.valueset.extension', 
+				'diagram_nodes.status.result.type.valueset', 
+				'diagram_nodes.status.result.type.valueset.extension', 
+				'diagram_nodes.status.technique.valueset', 
+				'diagram_nodes.status.technique.valueset.extension', 
+				'diagram_nodes.status.extracapsular.valueset', 
+				'diagram_nodes.status.extracapsular.valueset.extension', 
+				'diagram_specimen.integrity.valueset', 
+				'diagram_specimen.integrity.valueset.extension', 
+				'diagram_specimen.procedure.valueset', 
+				'diagram_specimen.procedure.valueset.extension', 
+				'diagram_specimen.site.valueset', 
+				'diagram_specimen.site.valueset.extension', 
+				'diagram_stage.prefix.valueset', 
+				'diagram_stage.prefix.valueset.extension', 
+				'diagram_stage.multiplicity.valueset', 
+				'diagram_stage.multiplicity.valueset.extension', 
+				'diagram_stage.pT.valueset', 
+				'diagram_stage.pT.valueset.extension', 
+				'diagram_stage.pN.valueset', 
+				'diagram_stage.pN.valueset.extension', 
+				'diagram_stage.pM.valueset', 
+				'diagram_stage.pM.valueset.extension', 
+				'diagram_stage.group.valueset', 
+				'diagram_stage.group.valueset.extension', 
+				'diagram_tumor.focus.type.valueset', 
+				'diagram_tumor.focus.type.valueset.extension', 
+				'diagram_tumor.histologicType.valueset', 
+				'diagram_tumor.histologicType.valueset.extension', 
+				'diagram_tumor.site.valueset', 
+				'diagram_tumor.site.valueset.extension', 
+				'diagram_tumor.grade.valueset', 
+				'diagram_tumor.grade.valueset.extension', 
+				'diagram_tumor.gradeSystem.valueset', 
+				'diagram_tumor.gradeSystem.valueset.extension', 
+				'diagram_tumor.multiplicity.valueset', 
+				'diagram_tumor.multiplicity.valueset.extension');
+
+        
+        
+        
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    --></script></head>
+   <body>
+      <h2><a id="INDEX">Table of Contents</a></h2>
+      <div class="toc">
+         <form action="none">
+            <div><span> Group by: <select id="selectTOC"
+                          onchange="selectTOCGroupBy(this.options[this.selectedIndex].value, false, '.html', 'ns.html', 'comp.html');">
+                     <option value="toc_group_by_namespace" selected="selected">Namespace</option>
+                     <option value="toc_group_by_location">Location</option>
+                     <option value="toc_group_by_component_type">Component Type</option></select></span></div>
+         </form>
+         <div class="level1" id="toc_group_by_namespace" style="display:block">
+            <div>
+               <div class="level2">
+                  <p><input id="button_boxIdNamespace1" type="image" value="-" src="img/btM.gif"
+                            onclick="switchState('boxIdNamespace1');"
+                            class="control" /><span class="indexGroupTitle">No namespace</span></p>
+                  <div id="boxIdNamespace1" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <div class="componentGroupTitle">Simple Types
+                                    
+                                 </div>
+                                 <div id="boxIdNamespace1Simple_Type" style="display:block">
+                                    <div><b><a href="nikki.html#accessory.lymphvascular.valueset" target="_self"
+                                             title="No namespace">accessory.lymphvascular.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#accessory.lymphvascular.valueset.extension" target="_self"
+                                             title="No namespace">accessory.lymphvascular.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#accessory.perineural.valueset" target="_self"
+                                             title="No namespace">accessory.perineural.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#accessory.perineural.valueset.extension" target="_self"
+                                             title="No namespace">accessory.perineural.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#accessory.treatmentResponse.valueset" target="_self"
+                                             title="No namespace">accessory.treatmentResponse.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#accessory.treatmentResponse.valueset.extension" target="_self"
+                                             title="No namespace">accessory.treatmentResponse.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#additional.finding.of.valueset" target="_self"
+                                             title="No namespace">additional.finding.of.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#additional.finding.of.valueset.extension" target="_self"
+                                             title="No namespace">additional.finding.of.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#additional.finding.valueset" target="_self"
+                                             title="No namespace">additional.finding.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#additional.finding.valueset.extension" target="_self"
+                                             title="No namespace">additional.finding.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#base.valueset" target="_self" title="No namespace">base.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#distant.status.of.valueset" target="_self"
+                                             title="No namespace">distant.status.of.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#distant.status.of.valueset.extension" target="_self"
+                                             title="No namespace">distant.status.of.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#distant.status.result.for.valueset" target="_self"
+                                             title="No namespace">distant.status.result.for.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#distant.status.result.for.valueset.extension" target="_self"
+                                             title="No namespace">distant.status.result.for.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.distance.for.valueset"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.distance.for.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.distance.for.valueset.extension"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.distance.for.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.distance.from.valueset"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.distance.from.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.distance.from.valueset.extension"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.distance.from.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.of.valueset" target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.of.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.of.valueset.extension"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.of.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.result.for.valueset"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.result.for.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.result.for.valueset.extension"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.result.for.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.type.valueset"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.type.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.type.valueset.extension"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.type.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#extent.size.valueset" target="_self" title="No namespace">extent.size.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#extent.size.valueset.extension" target="_self"
+                                             title="No namespace">extent.size.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#focality.valueset" target="_self" title="No namespace">focality.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#history.clinical.valueset" target="_self" title="No namespace">history.clinical.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#history.clinical.valueset.extension" target="_self"
+                                             title="No namespace">history.clinical.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#history.pathology.valueset" target="_self"
+                                             title="No namespace">history.pathology.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#history.pathology.valueset.extension" target="_self"
+                                             title="No namespace">history.pathology.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#history.priorTherapy.valueset" target="_self"
+                                             title="No namespace">history.priorTherapy.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#history.priorTherapy.valueset.extension" target="_self"
+                                             title="No namespace">history.priorTherapy.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#history.radiology.valueset" target="_self"
+                                             title="No namespace">history.radiology.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#history.radiology.valueset.extension" target="_self"
+                                             title="No namespace">history.radiology.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#laterality.valueset" target="_self" title="No namespace">laterality.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#lengthUnit.valueset" target="_self" title="No namespace">lengthUnit.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#margin.status.focality.valueset" target="_self"
+                                             title="No namespace">margin.status.focality.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#margin.status.focality.valueset.extension" target="_self"
+                                             title="No namespace">margin.status.focality.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#margin.status.of.valueset" target="_self" title="No namespace">margin.status.of.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#margin.status.of.valueset.extension" target="_self"
+                                             title="No namespace">margin.status.of.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#margin.status.result.for.valueset" target="_self"
+                                             title="No namespace">margin.status.result.for.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#margin.status.result.for.valueset.extension" target="_self"
+                                             title="No namespace">margin.status.result.for.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.extracapsular.valueset" target="_self"
+                                             title="No namespace">nodes.status.extracapsular.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.extracapsular.valueset.extension" target="_self"
+                                             title="No namespace">nodes.status.extracapsular.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.of.valueset" target="_self" title="No namespace">nodes.status.of.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.of.valueset.extension" target="_self"
+                                             title="No namespace">nodes.status.of.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.result.for.valueset" target="_self"
+                                             title="No namespace">nodes.status.result.for.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.result.for.valueset.extension" target="_self"
+                                             title="No namespace">nodes.status.result.for.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.result.type.valueset" target="_self"
+                                             title="No namespace">nodes.status.result.type.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.result.type.valueset.extension" target="_self"
+                                             title="No namespace">nodes.status.result.type.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.technique.valueset" target="_self"
+                                             title="No namespace">nodes.status.technique.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.technique.valueset.extension" target="_self"
+                                             title="No namespace">nodes.status.technique.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#qualitative.valueset" target="_self" title="No namespace">qualitative.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#relation.valueset" target="_self" title="No namespace">relation.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#specimen.integrity.valueset" target="_self"
+                                             title="No namespace">specimen.integrity.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#specimen.integrity.valueset.extension" target="_self"
+                                             title="No namespace">specimen.integrity.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#specimen.procedure.valueset" target="_self"
+                                             title="No namespace">specimen.procedure.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#specimen.procedure.valueset.extension" target="_self"
+                                             title="No namespace">specimen.procedure.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#specimen.site.valueset" target="_self" title="No namespace">specimen.site.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#specimen.site.valueset.extension" target="_self"
+                                             title="No namespace">specimen.site.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#stage.group.valueset" target="_self" title="No namespace">stage.group.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#stage.group.valueset.extension" target="_self"
+                                             title="No namespace">stage.group.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#stage.multiplicity.valueset" target="_self"
+                                             title="No namespace">stage.multiplicity.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#stage.multiplicity.valueset.extension" target="_self"
+                                             title="No namespace">stage.multiplicity.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#stage.pM.valueset" target="_self" title="No namespace">stage.pM.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#stage.pM.valueset.extension" target="_self"
+                                             title="No namespace">stage.pM.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#stage.pN.valueset" target="_self" title="No namespace">stage.pN.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#stage.pN.valueset.extension" target="_self"
+                                             title="No namespace">stage.pN.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#stage.pT.valueset" target="_self" title="No namespace">stage.pT.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#stage.pT.valueset.extension" target="_self"
+                                             title="No namespace">stage.pT.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#stage.prefix.valueset" target="_self" title="No namespace">stage.prefix.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#stage.prefix.valueset.extension" target="_self"
+                                             title="No namespace">stage.prefix.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.focus.type.valueset" target="_self" title="No namespace">tumor.focus.type.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.focus.type.valueset.extension" target="_self"
+                                             title="No namespace">tumor.focus.type.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.grade.valueset" target="_self" title="No namespace">tumor.grade.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.grade.valueset.extension" target="_self"
+                                             title="No namespace">tumor.grade.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.gradeSystem.valueset" target="_self"
+                                             title="No namespace">tumor.gradeSystem.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.gradeSystem.valueset.extension" target="_self"
+                                             title="No namespace">tumor.gradeSystem.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.histologicType.valueset" target="_self"
+                                             title="No namespace">tumor.histologicType.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.histologicType.valueset.extension" target="_self"
+                                             title="No namespace">tumor.histologicType.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.multiplicity.valueset" target="_self"
+                                             title="No namespace">tumor.multiplicity.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.multiplicity.valueset.extension" target="_self"
+                                             title="No namespace">tumor.multiplicity.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.site.valueset" target="_self" title="No namespace">tumor.site.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.site.valueset.extension" target="_self"
+                                             title="No namespace">tumor.site.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#weightUnit.valueset" target="_self" title="No namespace">weightUnit.valueset</a></b></div>
+                                 </div>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="level1" id="toc_group_by_component_type" style="display:none">
+            <div>
+               <div class="horizontalLayout">
+                  <table class="rt">
+                     <tr>
+                        <td class="rt_cornerTopLeft"></td>
+                        <td class="rt_lineTop"></td>
+                        <td class="rt_cornerTopRight"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_lineLeft"></td>
+                        <td class="rt_content">
+                           <div class="componentGroupTitle">Simple Types
+                              
+                           </div>
+                           <div id="Simple_Type" style="display:block">
+                              <div><b><a href="nikki.html#accessory.lymphvascular.valueset" target="_self"
+                                       title="No namespace">accessory.lymphvascular.valueset</a></b></div>
+                              <div><b><a href="nikki.html#accessory.lymphvascular.valueset.extension" target="_self"
+                                       title="No namespace">accessory.lymphvascular.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#accessory.perineural.valueset" target="_self"
+                                       title="No namespace">accessory.perineural.valueset</a></b></div>
+                              <div><b><a href="nikki.html#accessory.perineural.valueset.extension" target="_self"
+                                       title="No namespace">accessory.perineural.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#accessory.treatmentResponse.valueset" target="_self"
+                                       title="No namespace">accessory.treatmentResponse.valueset</a></b></div>
+                              <div><b><a href="nikki.html#accessory.treatmentResponse.valueset.extension" target="_self"
+                                       title="No namespace">accessory.treatmentResponse.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#additional.finding.of.valueset" target="_self"
+                                       title="No namespace">additional.finding.of.valueset</a></b></div>
+                              <div><b><a href="nikki.html#additional.finding.of.valueset.extension" target="_self"
+                                       title="No namespace">additional.finding.of.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#additional.finding.valueset" target="_self"
+                                       title="No namespace">additional.finding.valueset</a></b></div>
+                              <div><b><a href="nikki.html#additional.finding.valueset.extension" target="_self"
+                                       title="No namespace">additional.finding.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#base.valueset" target="_self" title="No namespace">base.valueset</a></b></div>
+                              <div><b><a href="nikki.html#distant.status.of.valueset" target="_self"
+                                       title="No namespace">distant.status.of.valueset</a></b></div>
+                              <div><b><a href="nikki.html#distant.status.of.valueset.extension" target="_self"
+                                       title="No namespace">distant.status.of.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#distant.status.result.for.valueset" target="_self"
+                                       title="No namespace">distant.status.result.for.valueset</a></b></div>
+                              <div><b><a href="nikki.html#distant.status.result.for.valueset.extension" target="_self"
+                                       title="No namespace">distant.status.result.for.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#extent.contiguousExtension.status.distance.for.valueset"
+                                       target="_self"
+                                       title="No namespace">extent.contiguousExtension.status.distance.for.valueset</a></b></div>
+                              <div><b><a href="nikki.html#extent.contiguousExtension.status.distance.for.valueset.extension"
+                                       target="_self"
+                                       title="No namespace">extent.contiguousExtension.status.distance.for.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#extent.contiguousExtension.status.distance.from.valueset"
+                                       target="_self"
+                                       title="No namespace">extent.contiguousExtension.status.distance.from.valueset</a></b></div>
+                              <div><b><a href="nikki.html#extent.contiguousExtension.status.distance.from.valueset.extension"
+                                       target="_self"
+                                       title="No namespace">extent.contiguousExtension.status.distance.from.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#extent.contiguousExtension.status.of.valueset" target="_self"
+                                       title="No namespace">extent.contiguousExtension.status.of.valueset</a></b></div>
+                              <div><b><a href="nikki.html#extent.contiguousExtension.status.of.valueset.extension"
+                                       target="_self"
+                                       title="No namespace">extent.contiguousExtension.status.of.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#extent.contiguousExtension.status.result.for.valueset"
+                                       target="_self"
+                                       title="No namespace">extent.contiguousExtension.status.result.for.valueset</a></b></div>
+                              <div><b><a href="nikki.html#extent.contiguousExtension.status.result.for.valueset.extension"
+                                       target="_self"
+                                       title="No namespace">extent.contiguousExtension.status.result.for.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#extent.contiguousExtension.status.type.valueset"
+                                       target="_self"
+                                       title="No namespace">extent.contiguousExtension.status.type.valueset</a></b></div>
+                              <div><b><a href="nikki.html#extent.contiguousExtension.status.type.valueset.extension"
+                                       target="_self"
+                                       title="No namespace">extent.contiguousExtension.status.type.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#extent.size.valueset" target="_self" title="No namespace">extent.size.valueset</a></b></div>
+                              <div><b><a href="nikki.html#extent.size.valueset.extension" target="_self"
+                                       title="No namespace">extent.size.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#focality.valueset" target="_self" title="No namespace">focality.valueset</a></b></div>
+                              <div><b><a href="nikki.html#history.clinical.valueset" target="_self" title="No namespace">history.clinical.valueset</a></b></div>
+                              <div><b><a href="nikki.html#history.clinical.valueset.extension" target="_self"
+                                       title="No namespace">history.clinical.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#history.pathology.valueset" target="_self"
+                                       title="No namespace">history.pathology.valueset</a></b></div>
+                              <div><b><a href="nikki.html#history.pathology.valueset.extension" target="_self"
+                                       title="No namespace">history.pathology.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#history.priorTherapy.valueset" target="_self"
+                                       title="No namespace">history.priorTherapy.valueset</a></b></div>
+                              <div><b><a href="nikki.html#history.priorTherapy.valueset.extension" target="_self"
+                                       title="No namespace">history.priorTherapy.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#history.radiology.valueset" target="_self"
+                                       title="No namespace">history.radiology.valueset</a></b></div>
+                              <div><b><a href="nikki.html#history.radiology.valueset.extension" target="_self"
+                                       title="No namespace">history.radiology.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#laterality.valueset" target="_self" title="No namespace">laterality.valueset</a></b></div>
+                              <div><b><a href="nikki.html#lengthUnit.valueset" target="_self" title="No namespace">lengthUnit.valueset</a></b></div>
+                              <div><b><a href="nikki.html#margin.status.focality.valueset" target="_self"
+                                       title="No namespace">margin.status.focality.valueset</a></b></div>
+                              <div><b><a href="nikki.html#margin.status.focality.valueset.extension" target="_self"
+                                       title="No namespace">margin.status.focality.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#margin.status.of.valueset" target="_self" title="No namespace">margin.status.of.valueset</a></b></div>
+                              <div><b><a href="nikki.html#margin.status.of.valueset.extension" target="_self"
+                                       title="No namespace">margin.status.of.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#margin.status.result.for.valueset" target="_self"
+                                       title="No namespace">margin.status.result.for.valueset</a></b></div>
+                              <div><b><a href="nikki.html#margin.status.result.for.valueset.extension" target="_self"
+                                       title="No namespace">margin.status.result.for.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#nodes.status.extracapsular.valueset" target="_self"
+                                       title="No namespace">nodes.status.extracapsular.valueset</a></b></div>
+                              <div><b><a href="nikki.html#nodes.status.extracapsular.valueset.extension" target="_self"
+                                       title="No namespace">nodes.status.extracapsular.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#nodes.status.of.valueset" target="_self" title="No namespace">nodes.status.of.valueset</a></b></div>
+                              <div><b><a href="nikki.html#nodes.status.of.valueset.extension" target="_self"
+                                       title="No namespace">nodes.status.of.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#nodes.status.result.for.valueset" target="_self"
+                                       title="No namespace">nodes.status.result.for.valueset</a></b></div>
+                              <div><b><a href="nikki.html#nodes.status.result.for.valueset.extension" target="_self"
+                                       title="No namespace">nodes.status.result.for.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#nodes.status.result.type.valueset" target="_self"
+                                       title="No namespace">nodes.status.result.type.valueset</a></b></div>
+                              <div><b><a href="nikki.html#nodes.status.result.type.valueset.extension" target="_self"
+                                       title="No namespace">nodes.status.result.type.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#nodes.status.technique.valueset" target="_self"
+                                       title="No namespace">nodes.status.technique.valueset</a></b></div>
+                              <div><b><a href="nikki.html#nodes.status.technique.valueset.extension" target="_self"
+                                       title="No namespace">nodes.status.technique.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#qualitative.valueset" target="_self" title="No namespace">qualitative.valueset</a></b></div>
+                              <div><b><a href="nikki.html#relation.valueset" target="_self" title="No namespace">relation.valueset</a></b></div>
+                              <div><b><a href="nikki.html#specimen.integrity.valueset" target="_self"
+                                       title="No namespace">specimen.integrity.valueset</a></b></div>
+                              <div><b><a href="nikki.html#specimen.integrity.valueset.extension" target="_self"
+                                       title="No namespace">specimen.integrity.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#specimen.procedure.valueset" target="_self"
+                                       title="No namespace">specimen.procedure.valueset</a></b></div>
+                              <div><b><a href="nikki.html#specimen.procedure.valueset.extension" target="_self"
+                                       title="No namespace">specimen.procedure.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#specimen.site.valueset" target="_self" title="No namespace">specimen.site.valueset</a></b></div>
+                              <div><b><a href="nikki.html#specimen.site.valueset.extension" target="_self"
+                                       title="No namespace">specimen.site.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#stage.group.valueset" target="_self" title="No namespace">stage.group.valueset</a></b></div>
+                              <div><b><a href="nikki.html#stage.group.valueset.extension" target="_self"
+                                       title="No namespace">stage.group.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#stage.multiplicity.valueset" target="_self"
+                                       title="No namespace">stage.multiplicity.valueset</a></b></div>
+                              <div><b><a href="nikki.html#stage.multiplicity.valueset.extension" target="_self"
+                                       title="No namespace">stage.multiplicity.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#stage.pM.valueset" target="_self" title="No namespace">stage.pM.valueset</a></b></div>
+                              <div><b><a href="nikki.html#stage.pM.valueset.extension" target="_self"
+                                       title="No namespace">stage.pM.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#stage.pN.valueset" target="_self" title="No namespace">stage.pN.valueset</a></b></div>
+                              <div><b><a href="nikki.html#stage.pN.valueset.extension" target="_self"
+                                       title="No namespace">stage.pN.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#stage.pT.valueset" target="_self" title="No namespace">stage.pT.valueset</a></b></div>
+                              <div><b><a href="nikki.html#stage.pT.valueset.extension" target="_self"
+                                       title="No namespace">stage.pT.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#stage.prefix.valueset" target="_self" title="No namespace">stage.prefix.valueset</a></b></div>
+                              <div><b><a href="nikki.html#stage.prefix.valueset.extension" target="_self"
+                                       title="No namespace">stage.prefix.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#tumor.focus.type.valueset" target="_self" title="No namespace">tumor.focus.type.valueset</a></b></div>
+                              <div><b><a href="nikki.html#tumor.focus.type.valueset.extension" target="_self"
+                                       title="No namespace">tumor.focus.type.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#tumor.grade.valueset" target="_self" title="No namespace">tumor.grade.valueset</a></b></div>
+                              <div><b><a href="nikki.html#tumor.grade.valueset.extension" target="_self"
+                                       title="No namespace">tumor.grade.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#tumor.gradeSystem.valueset" target="_self"
+                                       title="No namespace">tumor.gradeSystem.valueset</a></b></div>
+                              <div><b><a href="nikki.html#tumor.gradeSystem.valueset.extension" target="_self"
+                                       title="No namespace">tumor.gradeSystem.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#tumor.histologicType.valueset" target="_self"
+                                       title="No namespace">tumor.histologicType.valueset</a></b></div>
+                              <div><b><a href="nikki.html#tumor.histologicType.valueset.extension" target="_self"
+                                       title="No namespace">tumor.histologicType.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#tumor.multiplicity.valueset" target="_self"
+                                       title="No namespace">tumor.multiplicity.valueset</a></b></div>
+                              <div><b><a href="nikki.html#tumor.multiplicity.valueset.extension" target="_self"
+                                       title="No namespace">tumor.multiplicity.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#tumor.site.valueset" target="_self" title="No namespace">tumor.site.valueset</a></b></div>
+                              <div><b><a href="nikki.html#tumor.site.valueset.extension" target="_self"
+                                       title="No namespace">tumor.site.valueset.extension</a></b></div>
+                              <div><b><a href="nikki.html#weightUnit.valueset" target="_self" title="No namespace">weightUnit.valueset</a></b></div>
+                           </div>
+                        </td>
+                        <td class="rt_lineRight"></td>
+                     </tr>
+                     <tr>
+                        <td class="rt_cornerBottomLeft"></td>
+                        <td class="rt_lineBottom"></td>
+                        <td class="rt_cornerBottomRight"></td>
+                     </tr>
+                  </table>
+               </div>
+               <div style="clear:left"></div>
+            </div>
+         </div>
+         <div class="level1" id="toc_group_by_location" style="display:none">
+            <div>
+               <div class="level2">
+                  <p><input id="button_values.xsd" type="image" value="-" src="img/btM.gif"
+                            onclick="switchState('values.xsd');"
+                            class="control" /><span class="indexGroupTitle">values.xsd</span></p>
+                  <div id="values.xsd" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <div class="componentGroupTitle">Simple Types
+                                    
+                                 </div>
+                                 <div id="values.xsdSimple_Type" style="display:block">
+                                    <div><b><a href="nikki.html#accessory.lymphvascular.valueset" target="_self"
+                                             title="No namespace">accessory.lymphvascular.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#accessory.lymphvascular.valueset.extension" target="_self"
+                                             title="No namespace">accessory.lymphvascular.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#accessory.perineural.valueset" target="_self"
+                                             title="No namespace">accessory.perineural.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#accessory.perineural.valueset.extension" target="_self"
+                                             title="No namespace">accessory.perineural.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#accessory.treatmentResponse.valueset" target="_self"
+                                             title="No namespace">accessory.treatmentResponse.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#accessory.treatmentResponse.valueset.extension" target="_self"
+                                             title="No namespace">accessory.treatmentResponse.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#additional.finding.of.valueset" target="_self"
+                                             title="No namespace">additional.finding.of.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#additional.finding.of.valueset.extension" target="_self"
+                                             title="No namespace">additional.finding.of.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#additional.finding.valueset" target="_self"
+                                             title="No namespace">additional.finding.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#additional.finding.valueset.extension" target="_self"
+                                             title="No namespace">additional.finding.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#base.valueset" target="_self" title="No namespace">base.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#distant.status.of.valueset" target="_self"
+                                             title="No namespace">distant.status.of.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#distant.status.of.valueset.extension" target="_self"
+                                             title="No namespace">distant.status.of.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#distant.status.result.for.valueset" target="_self"
+                                             title="No namespace">distant.status.result.for.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#distant.status.result.for.valueset.extension" target="_self"
+                                             title="No namespace">distant.status.result.for.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.distance.for.valueset"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.distance.for.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.distance.for.valueset.extension"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.distance.for.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.distance.from.valueset"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.distance.from.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.distance.from.valueset.extension"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.distance.from.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.of.valueset" target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.of.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.of.valueset.extension"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.of.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.result.for.valueset"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.result.for.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.result.for.valueset.extension"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.result.for.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.type.valueset"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.type.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#extent.contiguousExtension.status.type.valueset.extension"
+                                             target="_self"
+                                             title="No namespace">extent.contiguousExtension.status.type.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#extent.size.valueset" target="_self" title="No namespace">extent.size.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#extent.size.valueset.extension" target="_self"
+                                             title="No namespace">extent.size.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#focality.valueset" target="_self" title="No namespace">focality.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#history.clinical.valueset" target="_self" title="No namespace">history.clinical.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#history.clinical.valueset.extension" target="_self"
+                                             title="No namespace">history.clinical.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#history.pathology.valueset" target="_self"
+                                             title="No namespace">history.pathology.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#history.pathology.valueset.extension" target="_self"
+                                             title="No namespace">history.pathology.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#history.priorTherapy.valueset" target="_self"
+                                             title="No namespace">history.priorTherapy.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#history.priorTherapy.valueset.extension" target="_self"
+                                             title="No namespace">history.priorTherapy.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#history.radiology.valueset" target="_self"
+                                             title="No namespace">history.radiology.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#history.radiology.valueset.extension" target="_self"
+                                             title="No namespace">history.radiology.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#laterality.valueset" target="_self" title="No namespace">laterality.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#lengthUnit.valueset" target="_self" title="No namespace">lengthUnit.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#margin.status.focality.valueset" target="_self"
+                                             title="No namespace">margin.status.focality.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#margin.status.focality.valueset.extension" target="_self"
+                                             title="No namespace">margin.status.focality.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#margin.status.of.valueset" target="_self" title="No namespace">margin.status.of.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#margin.status.of.valueset.extension" target="_self"
+                                             title="No namespace">margin.status.of.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#margin.status.result.for.valueset" target="_self"
+                                             title="No namespace">margin.status.result.for.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#margin.status.result.for.valueset.extension" target="_self"
+                                             title="No namespace">margin.status.result.for.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.extracapsular.valueset" target="_self"
+                                             title="No namespace">nodes.status.extracapsular.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.extracapsular.valueset.extension" target="_self"
+                                             title="No namespace">nodes.status.extracapsular.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.of.valueset" target="_self" title="No namespace">nodes.status.of.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.of.valueset.extension" target="_self"
+                                             title="No namespace">nodes.status.of.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.result.for.valueset" target="_self"
+                                             title="No namespace">nodes.status.result.for.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.result.for.valueset.extension" target="_self"
+                                             title="No namespace">nodes.status.result.for.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.result.type.valueset" target="_self"
+                                             title="No namespace">nodes.status.result.type.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.result.type.valueset.extension" target="_self"
+                                             title="No namespace">nodes.status.result.type.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.technique.valueset" target="_self"
+                                             title="No namespace">nodes.status.technique.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#nodes.status.technique.valueset.extension" target="_self"
+                                             title="No namespace">nodes.status.technique.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#qualitative.valueset" target="_self" title="No namespace">qualitative.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#relation.valueset" target="_self" title="No namespace">relation.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#specimen.integrity.valueset" target="_self"
+                                             title="No namespace">specimen.integrity.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#specimen.integrity.valueset.extension" target="_self"
+                                             title="No namespace">specimen.integrity.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#specimen.procedure.valueset" target="_self"
+                                             title="No namespace">specimen.procedure.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#specimen.procedure.valueset.extension" target="_self"
+                                             title="No namespace">specimen.procedure.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#specimen.site.valueset" target="_self" title="No namespace">specimen.site.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#specimen.site.valueset.extension" target="_self"
+                                             title="No namespace">specimen.site.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#stage.group.valueset" target="_self" title="No namespace">stage.group.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#stage.group.valueset.extension" target="_self"
+                                             title="No namespace">stage.group.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#stage.multiplicity.valueset" target="_self"
+                                             title="No namespace">stage.multiplicity.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#stage.multiplicity.valueset.extension" target="_self"
+                                             title="No namespace">stage.multiplicity.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#stage.pM.valueset" target="_self" title="No namespace">stage.pM.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#stage.pM.valueset.extension" target="_self"
+                                             title="No namespace">stage.pM.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#stage.pN.valueset" target="_self" title="No namespace">stage.pN.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#stage.pN.valueset.extension" target="_self"
+                                             title="No namespace">stage.pN.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#stage.pT.valueset" target="_self" title="No namespace">stage.pT.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#stage.pT.valueset.extension" target="_self"
+                                             title="No namespace">stage.pT.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#stage.prefix.valueset" target="_self" title="No namespace">stage.prefix.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#stage.prefix.valueset.extension" target="_self"
+                                             title="No namespace">stage.prefix.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.focus.type.valueset" target="_self" title="No namespace">tumor.focus.type.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.focus.type.valueset.extension" target="_self"
+                                             title="No namespace">tumor.focus.type.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.grade.valueset" target="_self" title="No namespace">tumor.grade.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.grade.valueset.extension" target="_self"
+                                             title="No namespace">tumor.grade.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.gradeSystem.valueset" target="_self"
+                                             title="No namespace">tumor.gradeSystem.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.gradeSystem.valueset.extension" target="_self"
+                                             title="No namespace">tumor.gradeSystem.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.histologicType.valueset" target="_self"
+                                             title="No namespace">tumor.histologicType.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.histologicType.valueset.extension" target="_self"
+                                             title="No namespace">tumor.histologicType.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.multiplicity.valueset" target="_self"
+                                             title="No namespace">tumor.multiplicity.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.multiplicity.valueset.extension" target="_self"
+                                             title="No namespace">tumor.multiplicity.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.site.valueset" target="_self" title="No namespace">tumor.site.valueset</a></b></div>
+                                    <div><b><a href="nikki.html#tumor.site.valueset.extension" target="_self"
+                                             title="No namespace">tumor.site.valueset.extension</a></b></div>
+                                    <div><b><a href="nikki.html#weightUnit.valueset" target="_self" title="No namespace">weightUnit.valueset</a></b></div>
+                                 </div>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="footer">
+         <hr />
+         <div align="center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor.
+         </div>
+      </div>
+   </body>
+</html>

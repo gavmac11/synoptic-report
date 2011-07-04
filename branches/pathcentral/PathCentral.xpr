@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="12.2">
+    <meta>
+        <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="PathCentral.xpr">
+        <folder path="developer_files/"/>
+        <folder path="relaxng_schemas/"/>
+        <folder path="schematron_schemas/"/>
+        <folder path="xml_examples/"/>
+        <folder path="xsd_schemas/"/>
+    </projectTree>
+</project>

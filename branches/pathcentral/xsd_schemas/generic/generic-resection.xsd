@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
+    xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:redefine schemaLocation="../framework/common.xsd"/>
+    <xs:redefine schemaLocation="../framework/items.xsd"/>
+    <xs:redefine schemaLocation="../framework/sections.xsd"/>
+    <xs:redefine schemaLocation="../framework/types.xsd"/>
+    <xs:redefine schemaLocation="../framework/values.xsd">
+        <xs:simpleType name="extension.valueset">
+            <!-- There are no specific changes in the framework valueset extensions, beyond the fact
+            that we allow "unreported" as the only extension value, and this applies to all
+            valuesets. -->
+            <xs:restriction base="ecc:extension.valueset">
+                <xs:enumeration value="unreported"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:redefine>
+    <xs:element name="resection">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:resection.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:resection.attrib"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="resection.content">
+        <xs:sequence>
+            <xs:element ref="ecc:history"/>
+            <xs:element ref="ecc:specimen"/>
+            <xs:element ref="ecc:tumor"/>
+            <xs:element ref="ecc:extent"/>
+            <xs:element ref="ecc:accessory"/>
+            <xs:element ref="ecc:margin"/>
+            <xs:element ref="ecc:nodes"/>
+            <xs:element ref="ecc:distant"/>
+            <xs:element ref="ecc:studies"/>
+            <xs:element ref="ecc:stage"/>
+            <xs:element ref="ecc:additional"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:attributeGroup name="resection.attrib">
+        <xs:attribute name="schemaLocation" type="xs:anyURI"/>
+        <xs:attribute name="version" type="xs:token"/>
+        <xs:attribute name="transformation" type="xs:anyURI"/>
+    </xs:attributeGroup>
+</xs:schema>

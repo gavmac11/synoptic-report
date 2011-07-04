@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+<!DOCTYPE	grammar [
+<!ENTITY	items  		"../framework/items.rng">
+<!ENTITY	sections  	"../framework/sections.rng">
+<!ENTITY	section		"../framework/types/section.rng">
+<!ENTITY	percent  	"../framework/types/percent.rng">
+<!ENTITY	quantity    "../framework/types/quantity.rng">
+<!ENTITY	ratio  		"../framework/types/ratio.rng">
+<!ENTITY	selectMany  "../framework/types/selectMany.rng">
+<!ENTITY	selectOne  	"../framework/types/selectOne.rng">
+<!ENTITY	size  		"../framework/types/size.rng">
+<!ENTITY	tally  		"../framework/types/tally.rng">
+<!ENTITY	brvalues  	"values.rng">
+]>
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+    ns="http://purl.org/pathology/ecc/" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:breast="http://purl.org/pathology/ecc/breast/">
+    <!--=============================================================-->
+    <include href="&brvalues;"/>
+    <!--=============================================================-->
+    <start>
+        <ref name="resection"/>
+    </start>
+    <!--=============================================================-->
+    <a:documentation>HEADER customizations</a:documentation>
+    <!--=============================================================-->
+    <include href="&sections;">
+        <define name="schemaLocation">
+            <value>http://purl.org/pathology/ecc/breast.rng</value>
+        </define>
+        <define name="version">
+            <value>1.0a</value>
+        </define>
+        <define name="semantics">
+            <value>http://www.cancerstaging.org/csv2#</value>
+        </define>
+    </include>
+    <!--=============================================================-->
+    <a:documentation>ACCESSORY section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="accessory.extension">
+        <optional>
+            <ref name="accessory.microcalcifications"/>
+        </optional>
+        <ref name="accessory.dcis"/>
+        <optional>
+            <ref name="accessory.lcis"/>
+        </optional>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.dcis">
+        <element name="ductalCarcinoma-in-situ">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="accessory.cis.result"/>
+                    <optional>
+                        <parentRef name="accessory.cis.amount"/>
+                    </optional>
+                    <optional>
+                        <parentRef name="accessory.dcis.pattern"/>
+                    </optional>
+                    <optional>
+                        <parentRef name="accessory.dcis.grade"/>
+                    </optional>
+                    <optional>
+                        <parentRef name="accessory.dcis.necrosis"/>
+                    </optional>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.cis.result">
+        <element name="result">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="qualitative.valueset"/>
+                </define>
+                <define name="response.extension">
+                    <optional>
+                        <attribute name="focality">
+                            <parentRef name="focality.valueset"/>
+                        </attribute>
+                    </optional>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.cis.amount">
+        <choice>
+            <group>
+                <ref name="accessory.cis.size"/>
+                <optional>
+                    <ref name="accessory.cis.blocks"/>
+                </optional>
+            </group>
+            <ref name="accessory.cis.blocks"/>
+        </choice>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.cis.size">
+        <element name="size">
+            <grammar>
+                <include href="&size;"/>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.cis.blocks">
+        <element name="blocks">
+            <grammar>
+                <include href="&tally;"/>
+                <define name="item.for.valueset">
+                    <parentRef name="qualitative.valueset"/>
+                </define>
+                <define name="item.type.valueset">
+                    <parentRef name="accessory.cis.blocks.type.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.dcis.pattern">
+        <element name="architecture">
+            <grammar>
+                <include href="&selectMany;"/>
+                <define name="valueset">
+                    <parentRef name="accessory.dcis.pattern.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.dcis.grade">
+        <element name="grade">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="accessory.dcis.grade.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.dcis.necrosis">
+        <element name="necrosis">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="accessory.dcis.necrosis.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.lcis">
+        <element name="lobularCarcinoma-in-situ">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="accessory.cis.result"/>
+                    <optional>
+                        <parentRef name="accessory.cis.amount"/>
+                    </optional>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="accessory.microcalcifications">
+        <element name="microcalcifications">
+            <grammar>
+                <include href="&selectMany;"/>
+                <define name="valueset">
+                    <parentRef name="accessory.microcalcifications.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>ADDITIONAL section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="additional.extension">
+        <empty/>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>DISTANT section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="distant.site.status.response.extension">
+        <optional>
+            <attribute name="type">
+                <choice>
+                    <value>micrometastasis</value>
+                </choice>
+            </attribute>
+        </optional>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>EXTENT section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="extent.extension">
+        <ref name="extent.skin.invasion"/>
+        <ref name="extent.skin.ulceration"/>
+        <ref name="extent.skin.satellite"/>
+        <ref name="extent.skin.dermalLymphatics"/>
+        <ref name="extent.underlying"/>
+        <ref name="extent.nipple"/>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.skin.invasion">
+        <element name="skinInvasion">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="qualitative.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.skin.ulceration">
+        <element name="skinUlceration">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="qualitative.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.skin.satellite">
+        <element name="skinSatelliteNodules">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="qualitative.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.skin.dermalLymphatics">
+        <element name="dermalLymphaticInvasion">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="qualitative.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.underlying">
+        <element name="underlyingStructures">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="extent.underlying.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="extent.nipple">
+        <element name="nipplePagetDisease">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="qualitative.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>NODES section customizations</a:documentation>
+    <!--=============================================================-->
+    <!--<define name="nodes.nodeGroup.tally.item.type.valueset">
+        <ref name="nodes.status.result.type.valueset"/>
+    </define>-->
+    <!--=============================================================-->
+    <a:documentation>SPECIMEN section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="specimen.laterality">
+        <element name="laterality">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="laterality.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>STUDIES section customizations</a:documentation>
+    <!--=============================================================-->
+    <define name="studies.extension">
+        <element name="estrogenReceptor">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="studies.erpr.result"/>
+                    <parentRef name="studies.erpr.method"/>
+                </define>
+            </grammar>
+        </element>
+        <element name="progesteroneReceptor">
+            <grammar>
+                <include href="&section;">
+                    <define name="content">
+                        <parentRef name="studies.erpr.result"/>
+                        <parentRef name="studies.erpr.method"/>
+                    </define>
+                </include>
+            </grammar>
+        </element>
+        <element name="HER2neu">
+            <grammar>
+                <include href="&section;"/>
+                <define name="content">
+                    <parentRef name="studies.her2.result"/>
+                    <parentRef name="studies.her2.method"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="studies.her2.result">
+        <element name="result">
+            <choice>
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="studies.her2.imm.result.valueset"/>
+                    </define>
+                </grammar>
+                <grammar>
+                    <include href="&section;"/>
+                    <define name="content">
+                        <parentRef name="studies.her2.fish.result.content"/>
+                    </define>
+                </grammar>
+            </choice>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="studies.her2.fish.result.content">
+        <element name="her2GeneCopyNumber">
+            <grammar>
+                <include href="&quantity;"/>
+                <define name="unit.valueset">
+                    <value>per cell</value>
+                </define>
+                <define name="valueset">
+                    <data type="float">
+                        <param name="minInclusive">0.0</param>
+                    </data>
+                </define>
+            </grammar>
+        </element>
+        <element name="chromosome17CopyNumber">
+            <grammar>
+                <include href="&quantity;"/>
+                <define name="unit.valueset">
+                    <value>per cell</value>
+                </define>
+                <define name="valueset">
+                    <data type="float">
+                        <param name="minInclusive">0.0</param>
+                    </data>
+                </define>
+            </grammar>
+        </element>
+        <element name="her2CopyNumberRatio">
+            <grammar>
+                <include href="&ratio;"/>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="studies.her2.method">
+        <element name="technique">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <choice>
+                        <parentRef name="studies.her2.method.technique.valueset"/>
+                    </choice>
+                </define>
+            </grammar>
+        </element>
+        <element name="source">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.erpr.method.source.valueset"/>
+                </define>
+            </grammar>
+        </element>
+        <element>
+            <choice>
+                <name>antibody</name>
+                <name>assay</name>
+            </choice>
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="response.extension">
+                    <attribute name="vendor">
+                        <choice>
+                            <data type="string"/>
+                            <parentRef name="base.valueset"/>
+                        </choice>
+                    </attribute>
+                </define>
+                <define name="valueset">
+                    <choice>
+                        <data type="string"/>
+                        <parentRef name="studies.her2.method.antibody.valueset"/>
+                        <parentRef name="base.valueset"/>
+                    </choice>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="studies.erpr.result">
+        <element name="result">
+            <grammar>
+                <include href="&percent;"/>
+                <define name="valueset">
+                    <parentRef name="studies.erpr.result.valueset"/>
+                </define>
+            </grammar>
+        </element>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define name="studies.erpr.method">
+        <element name="technique">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.erpr.method.technique.valueset"/>
+                </define>
+            </grammar>
+        </element>
+        <element name="source">
+            <grammar>
+                <include href="&selectOne;"/>
+                <define name="valueset">
+                    <parentRef name="studies.erpr.method.source.valueset"/>
+                </define>
+            </grammar>
+        </element>
+        <optional>
+            <element name="antibody">
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="response.extension">
+                        <attribute name="vendor">
+                            <choice>
+                                <parentRef name="base.valueset"/>
+                                <data type="string"/>
+                            </choice>
+                        </attribute>
+                    </define>
+                    <define name="valueset">
+                        <choice>
+                            <parentRef name="studies.erpr.method.antibody.valueset"/>
+                            <parentRef name="base.valueset"/>
+                            <data type="string"/>
+                        </choice>
+                    </define>
+                </grammar>
+            </element>
+        </optional>
+        <optional>
+            <element name="fixative">
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="studies.erpr.method.fixative.valueset"/>
+                    </define>
+                </grammar>
+            </element>
+        </optional>
+    </define>
+    <!--=============================================================-->
+    <a:documentation>TUMOR section customizations</a:documentation>
+    <!--=============================================================-->
+    <define combine="choice" name="tumor.grade.alt">
+        <oneOrMore>
+            <element name="grade">
+                <grammar>
+                    <include href="&selectMany;"/>
+                    <define name="valueset">
+                        <choice>
+                            <value>1</value>
+                            <value>2</value>
+                            <value>3</value>
+                            <parentRef name="base.valueset"/>
+                        </choice>
+                    </define>
+                    <define name="item.extension">
+                        <attribute name="system">
+                            <value>nottingham</value>
+                        </attribute>
+                    </define>
+                    <define name="response.extension">
+                        <attribute name="type">
+                            <choice>
+                                <value>glands</value>
+                                <value>nuclei</value>
+                                <value>mitoses</value>
+                                <value>combined</value>
+                            </choice>
+                        </attribute>
+                    </define>
+                </grammar>
+            </element>
+        </oneOrMore>
+    </define>
+    <define name="tumor.grade">
+        <element name="grade">
+            <attribute name="system">
+                <value>nottingham</value>
+            </attribute>
+            <element name="result">
+                <attribute name="for">
+                    <value>glands</value>
+                </attribute>
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="tumor.grade.valueset"/>
+                    </define>
+                </grammar>
+            </element>
+            <element name="result">
+                <attribute name="for">
+                    <value>nuclei</value>
+                </attribute>
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="tumor.grade.valueset"/>
+                    </define>
+                </grammar>
+            </element>
+            <element name="result">
+                <attribute name="for">
+                    <value>mitoses</value>
+                </attribute>
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="tumor.grade.valueset"/>
+                    </define>
+                </grammar>
+            </element>
+            <element name="result">
+                <attribute name="for">
+                    <value>combined</value>
+                </attribute>
+                <grammar>
+                    <include href="&selectOne;"/>
+                    <define name="valueset">
+                        <parentRef name="tumor.grade.valueset"/>
+                    </define>
+                </grammar>
+            </element>
+        </element>
+    </define>
+    <!--=============================================================-->
+</grammar>
