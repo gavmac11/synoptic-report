@@ -221,10 +221,7 @@
         <xs:sequence>
             <xs:element name="tally">
                 <xs:complexType>
-                    <xs:sequence>
-                        <xs:group ref="ecc:generic.content"/>
-                        <xs:group ref="ecc:tally.response"/>
-                    </xs:sequence>
+                    <xs:group ref="ecc:tally.response"/>
                     <xs:attribute name="for" type="ecc:qualitative.valueset"/>
                     <xs:attribute name="type" type="ecc:accessory.cis.blocks.type.valueset"/>
                     <xs:attributeGroup ref="ecc:generic.attrib"/>
@@ -242,10 +239,26 @@
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
-    <xs:element name="skinUlceration" type="ecc:qualitative.response.type"/>
-    <xs:element name="skinSatelliteNodules" type="ecc:qualitative.response.type"/>
-    <xs:element name="dermalLymphaticInvasion" type="ecc:qualitative.response.type"/>
-    <xs:element name="nipplePagetDisease" type="ecc:qualitative.response.type"/>
+    <xs:element name="skinUlceration">
+        <xs:complexType>
+            <xs:group ref="ecc:qualitative.response"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="skinSatelliteNodules">
+        <xs:complexType>
+            <xs:group ref="ecc:qualitative.response"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="dermalLymphaticInvasion">
+        <xs:complexType>
+            <xs:group ref="ecc:qualitative.response"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="nipplePagetDisease">
+        <xs:complexType>
+            <xs:group ref="ecc:qualitative.response"/>
+        </xs:complexType>
+    </xs:element>
     <xs:element name="laterality">
         <xs:complexType>
             <xs:sequence>

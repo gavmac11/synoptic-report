@@ -61,6 +61,7 @@
     </xs:attributeGroup>
     <xs:group name="length.response">
         <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
             <xs:element name="response">
                 <xs:complexType>
                     <xs:group ref="ecc:generic.response.content"/>
@@ -74,11 +75,13 @@
     </xs:group>
     <xs:group name="size.response">
         <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
             <xs:group maxOccurs="3" minOccurs="1" ref="ecc:length.response"/>
         </xs:sequence>
     </xs:group>
     <xs:group name="weight.response">
         <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
             <xs:element name="response">
                 <xs:complexType>
                     <xs:group ref="ecc:generic.response.content"/>
@@ -92,6 +95,7 @@
     </xs:group>
     <xs:group name="tally.response">
         <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
             <xs:element name="response">
                 <xs:complexType>
                     <xs:group ref="ecc:generic.response.content"/>
@@ -109,6 +113,7 @@
             explicitly to the generic type. An example would be distant.status.result.response that
             needs to be typed for breast. -->
         <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
             <xs:element name="response">
                 <xs:complexType>
                     <xs:group ref="ecc:generic.response.content"/>
@@ -120,29 +125,14 @@
     </xs:group>
     <xs:element name="size">
         <xs:complexType>
-            <xs:sequence>
-                <xs:group ref="ecc:generic.content"/>
-                <xs:group ref="ecc:size.response"/>
-            </xs:sequence>
+            <xs:group ref="ecc:size.response"/>
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="weight">
         <xs:complexType>
-            <xs:sequence>
-                <xs:group ref="ecc:generic.content"/>
-                <xs:group ref="ecc:weight.response"/>
-            </xs:sequence>
+            <xs:group ref="ecc:weight.response"/>
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
-    <xs:complexType name="qualitative.response.type">
-        <!-- I don't like using named complex types, but this one is so often used, that I will make
-        an exception. -->
-        <xs:sequence>
-            <xs:group ref="ecc:generic.content"/>
-            <xs:group ref="ecc:qualitative.response"/>
-        </xs:sequence>
-        <xs:attributeGroup ref="ecc:generic.attrib"/>
-    </xs:complexType>
 </xs:schema>
