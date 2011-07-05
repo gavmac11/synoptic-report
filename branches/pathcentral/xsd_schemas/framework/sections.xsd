@@ -85,7 +85,7 @@
     </xs:element>
     <xs:group name="extent.content">
         <xs:sequence>
-            <xs:element ref="ecc:contiguousExtension"/>
+            <xs:element ref="ecc:contiguousExtension" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:group>
     <xs:element name="accessory">
@@ -104,18 +104,18 @@
             <xs:element ref="ecc:perineuralInvasion"/>
         </xs:sequence>
     </xs:group>
-    <xs:element name="margin">
+    <xs:element name="margins">
         <xs:complexType>
             <xs:sequence>
                 <xs:group ref="ecc:generic.content"/>
-                <xs:group ref="ecc:margin.content"/>
+                <xs:group ref="ecc:margins.content"/>
             </xs:sequence>
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
-    <xs:group name="margin.content">
+    <xs:group name="margins.content">
         <xs:sequence>
-            <xs:group maxOccurs="unbounded" minOccurs="0" ref="ecc:margin.status"/>
+            <xs:group maxOccurs="unbounded" minOccurs="0" ref="ecc:margins.margin"/>
         </xs:sequence>
     </xs:group>
     <xs:element name="nodes">

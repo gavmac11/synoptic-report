@@ -79,12 +79,12 @@
     extent.size.valueset
     extent.size.valueset.extension
 
-    margin.status.focality.valueset
-    margin.status.focality.valueset.extension
-    margin.status.of.valueset
-    margin.status.of.valueset.extension
-    margin.status.result.for.valueset
-    margin.status.result.for.valueset.extension
+    margins.margin.focality.valueset
+    margins.margin.focality.valueset.extension
+    margins.margin.at.valueset
+    margins.margin.at.valueset.extension
+    margins.margin.result.for.valueset
+    margins.margin.result.for.valueset.extension
 
     distant.status.of.valueset
     distant.status.of.valueset.extension
@@ -136,7 +136,8 @@
 -->
 <xs:schema elementFormDefault="qualified"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-    xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    xmlns:ecc="http://purl.org/pathology/ecc/" xmlns:rng="http://relaxng.org/ns/structure/1.0"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <!--=============================================================-->
     <xs:simpleType name="extension.valueset">
         <xs:union memberTypes="xs:token"/>
@@ -286,9 +287,8 @@
     <!--=============================================================-->
     <!--extent SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="extent.contiguousExtension.status.result.for.valueset">
-        <xs:union
-            memberTypes="extent.contiguousExtension.status.result.for.valueset.extension base.valueset">
+    <xs:simpleType name="extent.contiguousExtension.for.valueset">
+        <xs:union memberTypes="extent.contiguousExtension.for.valueset.extension base.valueset">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="invades"/>
@@ -298,27 +298,23 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="extent.contiguousExtension.status.result.for.valueset.extension">
+    <xs:simpleType name="extent.contiguousExtension.for.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="extent.contiguousExtension.status.distance.for.valueset">
-        <xs:union
-            memberTypes="extent.contiguousExtension.status.distance.for.valueset.extension base.valueset"
-        />
+    <xs:simpleType name="extent.contiguousExtension.to.valueset">
+        <xs:union memberTypes="extent.contiguousExtension.to.valueset.extension base.valueset"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="extent.contiguousExtension.status.distance.for.valueset.extension">
+    <xs:simpleType name="extent.contiguousExtension.to.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="extent.contiguousExtension.status.distance.from.valueset">
-        <xs:union
-            memberTypes="extent.contiguousExtension.status.distance.from.valueset.extension base.valueset"
-        />
+    <xs:simpleType name="extent.contiguousExtension.focality.valueset">
+        <xs:union memberTypes="focality.valueset"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="extent.contiguousExtension.status.distance.from.valueset.extension">
+    <xs:simpleType name="extent.contiguousExtension.focality.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--=============================================================-->
@@ -394,26 +390,26 @@
     <!--=============================================================-->
     <!--margin SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="margin.status.focality.valueset">
+    <xs:simpleType name="margins.margin.focality.valueset">
         <xs:union
-            memberTypes="focality.valueset margin.status.focality.valueset.extension base.valueset"
+            memberTypes="focality.valueset margins.margin.focality.valueset.extension base.valueset"
         />
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="margin.status.focality.valueset.extension">
+    <xs:simpleType name="margins.margin.focality.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="margin.status.of.valueset">
-        <xs:union memberTypes="margin.status.of.valueset.extension base.valueset"/>
+    <xs:simpleType name="margins.margin.at.valueset">
+        <xs:union memberTypes="margins.margin.at.valueset.extension base.valueset"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="margin.status.of.valueset.extension">
+    <xs:simpleType name="margins.margin.at.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="margin.status.result.for.valueset">
-        <xs:union memberTypes="margin.status.result.for.valueset.extension base.valueset">
+    <xs:simpleType name="margins.margin.result.for.valueset">
+        <xs:union memberTypes="margins.margin.result.for.valueset.extension base.valueset">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="in-situ"/>
@@ -423,7 +419,7 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="margin.status.result.for.valueset.extension">
+    <xs:simpleType name="margins.margin.result.for.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--=============================================================-->
@@ -681,11 +677,11 @@
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="tumor.grade.response.for.valueset">
-        <xs:union memberTypes="tumor.grade.valueset.extension base.valueset base.valueset"/>
+    <xs:simpleType name="tumor.grade.for.valueset">
+        <xs:union memberTypes="tumor.grade.for.valueset.extension base.valueset"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="tumor.grade.response.for.valueset.extension">
+    <xs:simpleType name="tumor.grade.for.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

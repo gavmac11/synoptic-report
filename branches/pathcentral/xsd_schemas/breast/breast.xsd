@@ -25,12 +25,7 @@
     xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:redefine schemaLocation="../framework/common.xsd"/>
-    <xs:redefine schemaLocation="../framework/items.xsd">
-        <xs:attributeGroup name="distant.status.result.response.attrib">
-            <xs:attributeGroup ref="ecc:distant.status.result.response.attrib"/>
-            <xs:attribute name="type" type="ecc:distant.status.result.response.type.valueset"/>
-        </xs:attributeGroup>
-    </xs:redefine>
+    <xs:redefine schemaLocation="../framework/items.xsd"/>
     <xs:redefine schemaLocation="../framework/sections.xsd">
         <xs:group name="accessory.content">
             <xs:sequence>
@@ -43,11 +38,9 @@
         <xs:group name="extent.content">
             <xs:sequence>
                 <xs:group ref="ecc:extent.content"/>
-                <xs:element ref="ecc:skinInvasion"/>
                 <xs:element ref="ecc:skinUlceration"/>
                 <xs:element ref="ecc:skinSatelliteNodules"/>
                 <xs:element ref="ecc:dermalLymphaticInvasion"/>
-                <xs:element ref="ecc:underlyingStructures"/>
                 <xs:element ref="ecc:nipplePagetDisease"/>
             </xs:sequence>
         </xs:group>
@@ -85,7 +78,7 @@
             <xs:element ref="ecc:tumor"/>
             <xs:element ref="ecc:extent"/>
             <xs:element ref="ecc:accessory"/>
-            <xs:element ref="ecc:margin"/>
+            <xs:element ref="ecc:margins"/>
             <xs:element ref="ecc:nodes"/>
             <xs:element ref="ecc:distant"/>
             <xs:element ref="ecc:studies"/>
@@ -94,9 +87,11 @@
         </xs:sequence>
     </xs:group>
     <xs:attributeGroup name="resection.attrib">
-        <xs:attribute name="schemaLocation" type="xs:anyURI"/>
-        <xs:attribute name="version" type="xs:token"/>
-        <xs:attribute name="transformation" type="xs:anyURI"/>
+        <xs:attribute fixed="http://purl.org/pathology/ecc/breast/resection/schema.xsd"
+            name="schemaLocation"/>
+        <xs:attribute fixed="0.5" name="version"/>
+        <xs:attribute fixed="http://purl.org/pathology/ecc/breast/resection/ecc.xsl"
+            name="transformation"/>
     </xs:attributeGroup>
     <xs:element name="microcalcifications">
         <xs:complexType>
@@ -247,26 +242,9 @@
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
-    <xs:element name="skinInvasion" type="ecc:qualitative.response.type"/>
     <xs:element name="skinUlceration" type="ecc:qualitative.response.type"/>
     <xs:element name="skinSatelliteNodules" type="ecc:qualitative.response.type"/>
     <xs:element name="dermalLymphaticInvasion" type="ecc:qualitative.response.type"/>
-    <xs:element name="underlyingStructures">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:group ref="ecc:generic.content"/>
-                <xs:element name="response">
-                    <xs:complexType>
-                        <xs:group ref="ecc:generic.response.content"/>
-                        <xs:attribute name="value" type="ecc:extent.underlying.valueset"
-                            use="required"/>
-                        <xs:attributeGroup ref="ecc:generic.attrib"/>
-                    </xs:complexType>
-                </xs:element>
-            </xs:sequence>
-            <xs:attributeGroup ref="ecc:generic.attrib"/>
-        </xs:complexType>
-    </xs:element>
     <xs:element name="nipplePagetDisease" type="ecc:qualitative.response.type"/>
     <xs:element name="laterality">
         <xs:complexType>

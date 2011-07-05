@@ -28,16 +28,7 @@
     <xs:redefine schemaLocation="../framework/items.xsd"/>
     <xs:redefine schemaLocation="../framework/sections.xsd"/>
     <xs:redefine schemaLocation="../framework/types.xsd"/>
-    <xs:redefine schemaLocation="../framework/values.xsd">
-        <xs:simpleType name="extension.valueset">
-            <!-- There are no specific changes in the framework valueset extensions, beyond the fact
-            that we allow "unreported" as the only extension value, and this applies to all
-            valuesets. -->
-            <xs:restriction base="ecc:extension.valueset">
-                <xs:enumeration value="unreported"/>
-            </xs:restriction>
-        </xs:simpleType>
-    </xs:redefine>
+    <xs:redefine schemaLocation="values.xsd"/>
     <xs:element name="resection">
         <xs:complexType>
             <xs:sequence>
@@ -55,7 +46,7 @@
             <xs:element ref="ecc:tumor"/>
             <xs:element ref="ecc:extent"/>
             <xs:element ref="ecc:accessory"/>
-            <xs:element ref="ecc:margin"/>
+            <xs:element ref="ecc:margins"/>
             <xs:element ref="ecc:nodes"/>
             <xs:element ref="ecc:distant"/>
             <xs:element ref="ecc:studies"/>
@@ -64,8 +55,10 @@
         </xs:sequence>
     </xs:group>
     <xs:attributeGroup name="resection.attrib">
-        <xs:attribute name="schemaLocation" type="xs:anyURI"/>
-        <xs:attribute name="version" type="xs:token"/>
-        <xs:attribute name="transformation" type="xs:anyURI"/>
+        <xs:attribute fixed="http://purl.org/pathology/ecc/generic/resection/schema.xsd"
+            name="schemaLocation"/>
+        <xs:attribute fixed="0.5" name="version"/>
+        <xs:attribute fixed="http://purl.org/pathology/ecc/generic/resection/ecc.xsl"
+            name="transformation"/>
     </xs:attributeGroup>
 </xs:schema>
