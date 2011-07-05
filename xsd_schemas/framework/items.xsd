@@ -194,6 +194,18 @@
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
+    <xs:group name="tumor.grade.response">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.response.content"/>
+                    <xs:attribute name="value" type="ecc:tumor.grade.valueset" use="required"/>
+                    <xs:attribute name="for" type="ecc:tumor.grade.for.valueset"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
     <xs:element name="contiguousExtension">
         <xs:complexType>
             <xs:sequence>
