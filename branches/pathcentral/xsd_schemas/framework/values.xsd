@@ -81,26 +81,26 @@
 
     margins.margin.focality.valueset
     margins.margin.focality.valueset.extension
-    margins.margin.at.valueset
-    margins.margin.at.valueset.extension
+    margins.margin.name.valueset
+    margins.margin.name.valueset.extension
     margins.margin.result.for.valueset
     margins.margin.result.for.valueset.extension
 
-    distant.status.of.valueset
-    distant.status.of.valueset.extension
-    distant.status.result.for.valueset
-    distant.status.result.for.valueset.extension
+    distant.metastaticSite.name.valueset
+    distant.metastaticSite.name.valueset.extension
+    distant.metastaticSite.result.for.valueset
+    distant.metastaticSite.result.for.valueset.extension
 
-    nodes.status.of.valueset
-    nodes.status.of.valueset.extension
-    nodes.status.result.for.valueset
-    nodes.status.result.for.valueset.extension
-    nodes.status.result.type.valueset
-    nodes.status.result.type.valueset.extension
-    nodes.status.technique.valueset
-    nodes.status.technique.valueset.extension
-    nodes.status.extracapsular.valueset
-    nodes.status.extracapsular.valueset.extension
+    nodes.nodeGroup.name.valueset
+    nodes.nodeGroup.name.valueset.extension
+    nodes.nodeGroup.result.for.valueset
+    nodes.nodeGroup.result.for.valueset.extension
+    nodes.nodeGroup.result.type.valueset
+    nodes.nodeGroup.result.type.valueset.extension
+    nodes.nodeGroup.technique.valueset
+    nodes.nodeGroup.technique.valueset.extension
+    nodes.nodeGroup.extracapsular.valueset
+    nodes.nodeGroup.extracapsular.valueset.extension
 
     specimen.integrity.valueset
     specimen.integrity.valueset.extension
@@ -400,11 +400,11 @@
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="margins.margin.at.valueset">
-        <xs:union memberTypes="margins.margin.at.valueset.extension base.valueset"/>
+    <xs:simpleType name="margins.margin.name.valueset">
+        <xs:union memberTypes="margins.margin.name.valueset.extension base.valueset"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="margins.margin.at.valueset.extension">
+    <xs:simpleType name="margins.margin.name.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -425,8 +425,8 @@
     <!--=============================================================-->
     <!--distantSites SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="distant.status.of.valueset">
-        <xs:union memberTypes="distant.status.of.valueset.extension base.valueset">
+    <xs:simpleType name="distant.metastaticSite.name.valueset">
+        <xs:union memberTypes="distant.metastaticSite.name.valueset.extension base.valueset">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="liver"/>
@@ -438,12 +438,12 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="distant.status.of.valueset.extension">
+    <xs:simpleType name="distant.metastaticSite.name.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="distant.status.result.for.valueset">
-        <xs:union memberTypes="distant.status.result.for.valueset.extension base.valueset">
+    <xs:simpleType name="distant.metastaticSite.result.for.valueset">
+        <xs:union memberTypes="distant.metastaticSite.result.for.valueset.extension base.valueset">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="this accession"/>
@@ -455,22 +455,22 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="distant.status.result.for.valueset.extension">
+    <xs:simpleType name="distant.metastaticSite.result.for.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--=============================================================-->
     <!--nodes SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="nodes.status.of.valueset">
-        <xs:union memberTypes="nodes.status.of.valueset.extension base.valueset"/>
+    <xs:simpleType name="nodes.nodeGroup.name.valueset">
+        <xs:union memberTypes="nodes.nodeGroup.name.valueset.extension base.valueset"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="nodes.status.of.valueset.extension">
+    <xs:simpleType name="nodes.nodeGroup.name.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="nodes.status.result.for.valueset">
-        <xs:union memberTypes="nodes.status.result.for.valueset.extension base.valueset">
+    <xs:simpleType name="nodes.nodeGroup.result.for.valueset">
+        <xs:union memberTypes="nodes.nodeGroup.result.for.valueset.extension base.valueset">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="negative"/>
@@ -480,12 +480,12 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="nodes.status.result.for.valueset.extension">
+    <xs:simpleType name="nodes.nodeGroup.result.for.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="nodes.status.result.type.valueset">
-        <xs:union memberTypes="nodes.status.result.type.valueset.extension base.valueset">
+    <xs:simpleType name="nodes.nodeGroup.result.type.valueset">
+        <xs:union memberTypes="nodes.nodeGroup.result.type.valueset.extension base.valueset">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="necroinflammatory"/>
@@ -494,12 +494,12 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="nodes.status.result.type.valueset.extension">
+    <xs:simpleType name="nodes.nodeGroup.result.type.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="nodes.status.technique.valueset">
-        <xs:union memberTypes="nodes.status.technique.valueset.extension base.valueset">
+    <xs:simpleType name="nodes.nodeGroup.technique.valueset">
+        <xs:union memberTypes="nodes.nodeGroup.technique.valueset.extension base.valueset">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="H+E one level"/>
@@ -510,17 +510,17 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="nodes.status.technique.valueset.extension">
+    <xs:simpleType name="nodes.nodeGroup.technique.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="nodes.status.extracapsular.valueset">
+    <xs:simpleType name="nodes.nodeGroup.extracapsular.valueset">
         <xs:union
-            memberTypes="qualitative.valueset nodes.status.extracapsular.valueset.extension base.valueset"
+            memberTypes="qualitative.valueset nodes.nodeGroup.extracapsular.valueset.extension base.valueset"
         />
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="nodes.status.extracapsular.valueset.extension">
+    <xs:simpleType name="nodes.nodeGroup.extracapsular.valueset.extension">
         <xs:union memberTypes="extension.valueset"/>
     </xs:simpleType>
     <!--=============================================================-->

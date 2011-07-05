@@ -230,27 +230,32 @@
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
-    <xs:element name="lymphVascularInvasion" type="ecc:qualitative.response.type"/>
-    <xs:element name="perineuralInvasion" type="ecc:qualitative.response.type"/>
-    <xs:group name="margins.margin">
-        <!-- There is more than one context for <status> element (margin.status, nodes.status, distant.status, contiguousExtension.status), hence need to wrap as a group -->
-        <xs:sequence>
-            <xs:element name="margin">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:group ref="ecc:generic.content"/>
-                        <xs:group ref="ecc:margins.margin.result"/>
-                        <xs:element minOccurs="0" ref="ecc:distance"/>
-                    </xs:sequence>
-                    <xs:attribute name="at" type="ecc:margins.margin.at.valueset" use="required"/>
-                    <xs:attribute name="on" type="ecc:laterality.valueset"/>
-                    <xs:attributeGroup ref="ecc:generic.attrib"/>
-                </xs:complexType>
-            </xs:element>
-        </xs:sequence>
-    </xs:group>
+    <xs:element name="lymphVascularInvasion">
+        <xs:complexType>
+            <xs:group ref="ecc:qualitative.response"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="perineuralInvasion">
+        <xs:complexType>
+            <xs:group ref="ecc:qualitative.response"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="margin">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:margins.margin.result"/>
+                <xs:element minOccurs="0" ref="ecc:distance"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="ecc:margins.margin.name.valueset" use="required"/>
+            <xs:attribute name="on" type="ecc:laterality.valueset"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
     <xs:group name="margins.margin.result">
-        <!-- There is more than one context for <result> element (margin.status.result, nodes.status.result, distant.status.result, contiguousExtension.status.result), hence need to wrap as group -->
+        <!-- There is more than one context for <result> element (margin.status.result, nodes.nodeGroup.result, distant.metastaticSite.result, contiguousExtension.status.result), hence need to wrap as group -->
         <xs:sequence>
             <xs:element name="result">
                 <xs:complexType>
@@ -276,60 +281,49 @@
             </xs:element>
         </xs:sequence>
     </xs:group>
-    <xs:group name="nodes.status">
-        <!-- There is more than one context for <status> element (margin.status, nodes.status, distant.status, contiguousExtension.status), hence need to wrap as a group -->
-        <xs:sequence>
-            <xs:element name="status">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:group ref="ecc:generic.content"/>
-                        <xs:group ref="ecc:nodes.status.result"/>
-                        <xs:element minOccurs="0" ref="ecc:largestMetastasis"/>
-                        <xs:element minOccurs="0" ref="ecc:extracapsularExtension"/>
-                    </xs:sequence>
-                    <xs:attribute name="of" type="ecc:nodes.status.of.valueset" use="required"/>
-                    <xs:attribute name="on" type="ecc:laterality.valueset"/>
-                    <xs:attribute name="technique" type="ecc:nodes.status.technique.valueset"/>
-                    <xs:attributeGroup ref="ecc:generic.attrib"/>
-                </xs:complexType>
-            </xs:element>
-        </xs:sequence>
-    </xs:group>
-    <xs:group name="nodes.status.result">
+    <xs:element name="nodeGroup">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:nodes.nodeGroup.result"/>
+                <xs:element minOccurs="0" ref="ecc:largestMetastasis"/>
+                <xs:element minOccurs="0" ref="ecc:extracapsularExtension"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="ecc:nodes.nodeGroup.name.valueset" use="required"/>
+            <xs:attribute name="on" type="ecc:laterality.valueset"/>
+            <xs:attribute name="technique" type="ecc:nodes.nodeGroup.technique.valueset"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="nodes.nodeGroup.result">
         <!-- There is more than one context for <result> element (margin.result, nodeGroup.result, distant.result, contiguousExtension.status.result), hence need to wrap as group -->
         <xs:sequence>
             <xs:element minOccurs="1" name="result">
                 <xs:complexType>
-                    <xs:sequence>
-                        <xs:group ref="ecc:generic.content"/>
+                    
                         <xs:group ref="ecc:tally.response"/>
-                    </xs:sequence>
                     <xs:attribute name="for" type="ecc:margins.margin.result.for.valueset"
                         use="required"/>
-                    <xs:attribute name="type" type="ecc:nodes.status.result.type.valueset"/>
+                    <xs:attribute name="type" type="ecc:nodes.nodeGroup.result.type.valueset"/>
                     <xs:attributeGroup ref="ecc:generic.attrib"/>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
     </xs:group>
-    <xs:group name="distant.status">
-        <!-- There is more than one context for <status> element (margin.status, nodes.status, distant.status, contiguousExtension.status), hence need to wrap as a group -->
-        <xs:sequence>
-            <xs:element name="status">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:group ref="ecc:generic.content"/>
-                        <xs:group ref="ecc:distant.status.result"/>
-                    </xs:sequence>
-                    <xs:attribute name="of" type="ecc:distant.status.of.valueset" use="required"/>
-                    <xs:attribute name="on" type="ecc:laterality.valueset"/>
-                    <xs:attributeGroup ref="ecc:generic.attrib"/>
-                </xs:complexType>
-            </xs:element>
-        </xs:sequence>
-    </xs:group>
-    <xs:group name="distant.status.result">
-        <!-- There is more than one context for <result> element (margin.status.result, nodes.status.result, distant.status.result, contiguousExtension.status.result), hence need to wrap as group -->
+    <xs:element name="metastaticSite">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:distant.metastaticSite.result"/>
+                <xs:element minOccurs="0" ref="ecc:metastasisSize"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="ecc:distant.metastaticSite.name.valueset" use="required"/>
+            <xs:attribute name="on" type="ecc:laterality.valueset"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="distant.metastaticSite.result">
+        <!-- There is more than one context for <result> element (margin.status.result, nodes.nodeGroup.result, distant.metastaticSite.result, contiguousExtension.status.result), hence need to wrap as group -->
         <xs:sequence>
             <xs:element name="result">
                 <xs:complexType>
@@ -345,12 +339,12 @@
                                     prohibit it for all the sites that don't use it, but perhaps
                                     this is not important. -->
                                 <!--<xs:attribute name="type"
-                                type="ecc:distant.status.result.response.type.valueset" />-->
-                                <xs:attributeGroup ref="ecc:distant.status.result.response.attrib"/>
+                                type="ecc:distant.metastaticSite.result.response.type.valueset" />-->
+                                <xs:attributeGroup
+                                    ref="ecc:distant.metastaticSite.result.response.attrib"/>
                                 <xs:attributeGroup ref="ecc:generic.attrib"/>
                             </xs:complexType>
                         </xs:element>
-                        <xs:element minOccurs="0" ref="ecc:size"/>
                     </xs:sequence>
                     <xs:attributeGroup ref="ecc:date.attrib"/>
                     <xs:attributeGroup ref="ecc:generic.attrib"/>
@@ -358,7 +352,12 @@
             </xs:element>
         </xs:sequence>
     </xs:group>
-    <xs:attributeGroup name="distant.status.result.response.attrib"/>
+    <xs:attributeGroup name="distant.metastaticSite.result.response.attrib"/>
+    <xs:element name="metastasisSize">
+        <xs:complexType>
+            <xs:group ref="ecc:size.response"/>
+        </xs:complexType>
+    </xs:element>
     <xs:element name="prefix">
         <xs:complexType>
             <xs:sequence>
@@ -469,10 +468,8 @@
     </xs:element>
     <xs:element name="distance">
         <xs:complexType>
-            <xs:sequence>
-                <xs:group ref="ecc:generic.content"/>
+            
                 <xs:group ref="ecc:length.response"/>
-            </xs:sequence>
             <xs:attribute name="for" use="required">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
@@ -493,12 +490,14 @@
     </xs:element>
     <xs:element name="largestMetastasis">
         <xs:complexType>
-            <xs:sequence>
-                <xs:group ref="ecc:generic.content"/>
-                <xs:group ref="ecc:size.response"/>
-            </xs:sequence>
+            <xs:group ref="ecc:size.response"/>
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
-    <xs:element name="extracapsularExtension" type="ecc:qualitative.response.type"/>
+    <xs:element name="extracapsularExtension">
+        <xs:complexType>
+            <xs:group ref="ecc:qualitative.response"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

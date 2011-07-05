@@ -85,7 +85,7 @@
     </xs:element>
     <xs:group name="extent.content">
         <xs:sequence>
-            <xs:element ref="ecc:contiguousExtension" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:contiguousExtension"/>
         </xs:sequence>
     </xs:group>
     <xs:element name="accessory">
@@ -108,16 +108,11 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:group ref="ecc:generic.content"/>
-                <xs:group ref="ecc:margins.content"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:margin"/>
             </xs:sequence>
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
-    <xs:group name="margins.content">
-        <xs:sequence>
-            <xs:group maxOccurs="unbounded" minOccurs="0" ref="ecc:margins.margin"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="nodes">
         <xs:complexType>
             <xs:sequence>
@@ -129,23 +124,18 @@
     </xs:element>
     <xs:group name="nodes.content">
         <xs:sequence>
-            <xs:group maxOccurs="unbounded" minOccurs="0" ref="ecc:nodes.status"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:nodeGroup"/>
         </xs:sequence>
     </xs:group>
     <xs:element name="distant">
         <xs:complexType>
             <xs:sequence>
                 <xs:group ref="ecc:generic.content"/>
-                <xs:group ref="ecc:distant.content"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:metastaticSite"/>
             </xs:sequence>
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
-    <xs:group name="distant.content">
-        <xs:sequence>
-            <xs:group ref="ecc:distant.status"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="studies">
         <xs:complexType>
             <xs:sequence>

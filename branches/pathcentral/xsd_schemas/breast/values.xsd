@@ -10,8 +10,8 @@
                 <xs:enumeration value="unreported"/>
             </xs:restriction>
         </xs:simpleType>
-        <xs:simpleType name="margins.margin.at.valueset.extension">
-            <xs:restriction base="margins.margin.at.valueset.extension">
+        <xs:simpleType name="margins.margin.name.valueset.extension">
+            <xs:restriction base="margins.margin.name.valueset.extension">
                 <xs:enumeration value="superior"/>
                 <xs:enumeration value="inferior"/>
                 <xs:enumeration value="anterior"/>
@@ -21,8 +21,8 @@
                 <xs:enumeration value="unreported"/>
             </xs:restriction>
         </xs:simpleType>
-        <xs:simpleType name="nodes.status.of.valueset.extension">
-            <xs:restriction base="nodes.status.of.valueset.extension">
+        <xs:simpleType name="nodes.nodeGroup.name.valueset.extension">
+            <xs:restriction base="nodes.nodeGroup.name.valueset.extension">
                 <xs:enumeration value="low axillary"/>
                 <xs:enumeration value="mid axillary"/>
                 <xs:enumeration value="high axillary"/>
@@ -32,8 +32,8 @@
                 <xs:enumeration value="unreported"/>
             </xs:restriction>
         </xs:simpleType>
-        <xs:simpleType name="nodes.status.result.type.valueset.extension">
-            <xs:restriction base="nodes.status.result.type.valueset.extension">
+        <xs:simpleType name="nodes.nodeGroup.result.type.valueset.extension">
+            <xs:restriction base="nodes.nodeGroup.result.type.valueset.extension">
                 <xs:enumeration value="RT-PCR negative"/>
                 <xs:enumeration value="RT-PCR postive"/>
                 <xs:enumeration value="isolated tumor cells"/>
@@ -296,30 +296,30 @@
                 <xs:enumeration value="unreported"/>
             </xs:restriction>
         </xs:simpleType>
-        <xs:simpleType name="distant.status.of.valueset.extension">
-            <xs:restriction base="distant.status.of.valueset.extension">
+        <xs:simpleType name="distant.metastaticSite.name.valueset.extension">
+            <xs:restriction base="distant.metastaticSite.name.valueset.extension">
                 <xs:enumeration value="unreported"/>
             </xs:restriction>
         </xs:simpleType>
-        <xs:simpleType name="distant.status.result.for.valueset.extension">
-            <xs:restriction base="distant.status.result.for.valueset.extension">
+        <xs:simpleType name="distant.metastaticSite.result.for.valueset.extension">
+            <xs:restriction base="distant.metastaticSite.result.for.valueset.extension">
                 <xs:enumeration value="unreported"/>
             </xs:restriction>
         </xs:simpleType>
-        <xs:simpleType name="nodes.status.result.for.valueset.extension">
-            <xs:restriction base="nodes.status.result.for.valueset.extension">
+        <xs:simpleType name="nodes.nodeGroup.result.for.valueset.extension">
+            <xs:restriction base="nodes.nodeGroup.result.for.valueset.extension">
                 <!-- NEEDS WORK -->
                 <xs:enumeration value="unreported"/>
             </xs:restriction>
         </xs:simpleType>
-        <xs:simpleType name="nodes.status.technique.valueset.extension">
-            <xs:restriction base="nodes.status.technique.valueset.extension">
+        <xs:simpleType name="nodes.nodeGroup.technique.valueset.extension">
+            <xs:restriction base="nodes.nodeGroup.technique.valueset.extension">
                 <!-- NEEDS WORK -->
                 <xs:enumeration value="unreported"/>
             </xs:restriction>
         </xs:simpleType>
-        <xs:simpleType name="nodes.status.extracapsular.valueset.extension">
-            <xs:restriction base="nodes.status.extracapsular.valueset.extension">
+        <xs:simpleType name="nodes.nodeGroup.extracapsular.valueset.extension">
+            <xs:restriction base="nodes.nodeGroup.extracapsular.valueset.extension">
                 <xs:enumeration value="unreported"/>
             </xs:restriction>
         </xs:simpleType>
