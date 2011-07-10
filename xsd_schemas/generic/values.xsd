@@ -4,12 +4,12 @@
     xmlns:ecc="http://purl.org/pathology/ecc/" xmlns:rng="http://relaxng.org/ns/structure/1.0"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:redefine schemaLocation="../framework/values.xsd">
-        <xs:simpleType name="extension.valueset">
+        <xs:simpleType name="sitespecific.values">
             <!-- There are no specific changes in the framework valueset extensions, beyond the fact
                 that we allow "unreported" as the only extension value, and this applies to all
                 valuesets. -->
-            <xs:restriction base="extension.valueset">
-                <xs:enumeration value="unreported"/>
+            <xs:restriction base="sitespecific.values">
+                <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
     </xs:redefine>

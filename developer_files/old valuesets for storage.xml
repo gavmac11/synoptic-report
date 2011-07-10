@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<xs:simpleType name="extent.multiplicity.valueset">
+    <xs:restriction base="xs:token">
+    <xs:enumeration value="many"/>
+    <xs:enumeration value="specify"/>
+    <xs:enumeration value="inapplicable"/>
+    <xs:enumeration value="specify"/>
+    </xs:restriction>
+    </xs:simpleType>-->
+<!--<xs:simpleType name="extent.site.valueset">
+    <xs:restriction base="xs:token">
+    <xs:enumeration value="upper outer quadrant"/>
+    <xs:enumeration value="lower outer quadrant"/>
+    <xs:enumeration value="upper inner quadrant"/>
+    <xs:enumeration value="lower inner quadrant"/>
+    <xs:enumeration value="central"/>
+    <xs:enumeration value="nipple"/>
+    <xs:enumeration value="axillary tail"/>
+    <xs:enumeration value="12:00"/>
+    <xs:enumeration value="1:00"/>
+    <xs:enumeration value="2:00"/>
+    <xs:enumeration value="3:00"/>
+    <xs:enumeration value="4:00"/>
+    <xs:enumeration value="5:00"/>
+    <xs:enumeration value="6:00"/>
+    <xs:enumeration value="7:00"/>
+    <xs:enumeration value="8:00"/>
+    <xs:enumeration value="9:00"/>
+    <xs:enumeration value="10:00"/>
+    <xs:enumeration value="11:00"/>
+    <xs:enumeration value="specify"/>
+    <xs:enumeration value="inapplicable"/>
+    <xs:enumeration value="specify"/>
+    </xs:restriction>
+    </xs:simpleType>-->
+<!--<xs:simpleType name="extent.underlying.valueset">
+    <xs:restriction base="xs:token">
+    <xs:enumeration value="negative"/>
+    <xs:enumeration value="pectoralis muscle only"/>
+    <xs:enumeration value="chest wall"/>
+    <xs:enumeration value="specify"/>
+    <xs:enumeration value="inapplicable"/>
+    <xs:enumeration value="specify"/>
+    </xs:restriction>
+    </xs:simpleType>-->
+<!--<xs:simpleType name="margins.margin.focality.valueset">
+    <xs:restriction base="xs:token">
+    <xs:enumeration value="unifocal"/>
+    <xs:enumeration value="multifocal"/>
+    <xs:enumeration value="extensive"/>
+    <xs:enumeration value="specify"/>
+    <xs:enumeration value="inapplicable"/>
+    <xs:enumeration value="specify"/>
+    </xs:restriction>
+    </xs:simpleType>-->
+<!--<xs:simpleType name="margin.type.valueset">
+    <xs:restriction base="xs:token">
+    <xs:enumeration value="DCIS"/>
+    <xs:enumeration value="invasive carcinoma"/>
+    <xs:enumeration value="specify"/>
+    <xs:enumeration value="inapplicable"/>
+    <xs:enumeration value="specify"/>
+    </xs:restriction>
+    </xs:simpleType>-->
+<!--<xs:simpleType name="specimen.laterality.valueset">
+    <xs:restriction base="xs:token">
+    <xs:enumeration value="right"/>
+    <xs:enumeration value="left"/>
+    <xs:enumeration value="specify"/>
+    <xs:enumeration value="inapplicable"/>
+    <xs:enumeration value="specify"/>
+    </xs:restriction>
+    </xs:simpleType>-->
+<!--<xs:simpleType name="specimen.lymphNodeSites.valueset">
+    <xs:restriction base="xs:token">
+    <xs:enumeration value="no lymph nodes"/>
+    <xs:enumeration value="sentinel lymph node(s)"/>
+    <xs:enumeration value="partial axillary dissection"/>
+    <xs:enumeration value="complete axillary dissection"/>
+    <xs:enumeration value="intramammary lymph nodes"/>
+    <xs:enumeration value="specify"/>
+    <xs:enumeration value="inapplicable"/>
+    <xs:enumeration value="specify"/>
+    </xs:restriction>
+    </xs:simpleType>-->
+

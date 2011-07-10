@@ -25,7 +25,7 @@
     xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:simpleType name="positiveDecimal">
-        <xs:union memberTypes="ecc:base.valueset">
+        <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:decimal">
                     <xs:minExclusive value="0.0"/>
@@ -34,7 +34,7 @@
         </xs:union>
     </xs:simpleType>
     <xs:simpleType name="nonNegativeDecimal">
-        <xs:union memberTypes="ecc:base.valueset">
+        <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:decimal">
                     <xs:minInclusive value="0.0"/>
@@ -43,10 +43,10 @@
         </xs:union>
     </xs:simpleType>
     <xs:simpleType name="nonNegativeInteger">
-        <xs:union memberTypes="ecc:base.valueset xs:nonNegativeInteger"/>
+        <xs:union memberTypes="ecc:base.values xs:nonNegativeInteger"/>
     </xs:simpleType>
     <xs:simpleType name="date">
-        <xs:union memberTypes="ecc:base.valueset xs:date xs:gYearMonth xs:gYear"/>
+        <xs:union memberTypes="ecc:base.values xs:date xs:gYearMonth xs:gYear"/>
     </xs:simpleType>
     <xs:attributeGroup name="date.attrib">
         <!-- An unfortunate example of what xml schema cannot do, that Relax NG does with ease. -->
@@ -66,8 +66,8 @@
                 <xs:complexType>
                     <xs:group ref="ecc:generic.response.content"/>
                     <xs:attribute name="value" type="ecc:positiveDecimal" use="required"/>
-                    <xs:attribute name="unit" type="ecc:lengthUnit.valueset"/>
-                    <xs:attribute name="relation" type="ecc:relation.valueset"/>
+                    <xs:attribute name="unit" type="ecc:lengthUnit.values"/>
+                    <xs:attribute name="relation" type="ecc:relation.values"/>
                     <xs:attributeGroup ref="ecc:generic.attrib"/>
                 </xs:complexType>
             </xs:element>
@@ -86,8 +86,8 @@
                 <xs:complexType>
                     <xs:group ref="ecc:generic.response.content"/>
                     <xs:attribute name="value" type="ecc:positiveDecimal" use="required"/>
-                    <xs:attribute name="unit" type="ecc:weightUnit.valueset" use="required"/>
-                    <xs:attribute name="relation" type="ecc:relation.valueset"/>
+                    <xs:attribute name="unit" type="ecc:weightUnit.values" use="required"/>
+                    <xs:attribute name="relation" type="ecc:relation.values"/>
                     <xs:attributeGroup ref="ecc:generic.attrib"/>
                 </xs:complexType>
             </xs:element>
@@ -100,7 +100,7 @@
                 <xs:complexType>
                     <xs:group ref="ecc:generic.response.content"/>
                     <xs:attribute name="value" type="ecc:nonNegativeInteger" use="required"/>
-                    <xs:attribute name="relation" type="ecc:relation.valueset"/>
+                    <xs:attribute name="relation" type="ecc:relation.values"/>
                     <xs:attributeGroup ref="ecc:generic.attrib"/>
                 </xs:complexType>
             </xs:element>
@@ -117,7 +117,7 @@
             <xs:element name="response">
                 <xs:complexType>
                     <xs:group ref="ecc:generic.response.content"/>
-                    <xs:attribute name="value" type="ecc:qualitative.valueset" use="required"/>
+                    <xs:attribute name="value" type="ecc:qualitative.values" use="required"/>
                     <xs:attributeGroup ref="ecc:generic.attrib"/>
                 </xs:complexType>
             </xs:element>

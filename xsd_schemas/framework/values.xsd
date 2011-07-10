@@ -24,135 +24,133 @@
 
 <!-- This is the generic valuesets file. This file defines all the valuesets for all the item
     responses that are part of the generic report. Note that exept for a set of "utility" valueset
-    definitions (extension.valueset to focality.valueset in the list below), each of the valuesets
+    definitions (extension.values to focality.values in the list below), each of the valuesets
     defined here is (a) associated with a particular report section and (b) paired with a valueset
     placeholder ending in ".extension", that is specialized in actual site files to contain the
-    site-specific values that supplement the generic valueset.
+    site-specific values that supplement the generic valueset.   
+-->
+
+<!-- 
+    sitespecific.values    
+    base.values
+    qualitative.values
+    lengthUnit.values
+    weightUnit.values
+    relation.values
+    laterality.values
+    extended.laterality.values
+    focality.values
     
+    accessory.lymphvascular.values
+    accessory.lymphvascular.sitespecific.values  
+    accessory.perineural.values
+    accessory.perineural.sitespecific.values
+    accessory.treatmentResponse.values
+    accessory.treatmentResponse.sitespecific.values
     
+    additional.finding.of.values
+    additional.finding.of.sitespecific.values
+    additional.finding.values
+    additional.finding.sitespecific.values
+    
+    extent.contiguousExtension.for.values
+    extent.contiguousExtension.for.sitespecific.values
+    extent.contiguousExtension.to.values
+    extent.contiguousExtension.to.sitespecific.values
+    extent.contiguousExtension.focality.values
+    extent.contiguousExtension.focality.sitespecific.values
+    
+    history.clinical.values
+    history.clinical.sitespecific.values
+    history.pathology.values
+    history.pathology.sitespecific.values
+    history.priorTherapy.values
+    history.priorTherapy.sitespecific.values
+    history.radiology.values
+    history.radiology.sitespecific.values
+    
+    extent.size.values
+    extent.size.sitespecific.values
+    
+    margins.margin.focality.values
+    margins.margin.focality.sitespecific.values
+    margins.margin.name.values
+    margins.margin.name.sitespecific.values
+    margins.margin.result.for.values  
+    margins.margin.result.for.sitespecific.values
+    
+    distant.metastaticSite.name.values
+    distant.metastaticSite.name.sitespecific.values
+    distant.metastaticSite.result.for.values
+    distant.metastaticSite.result.for.sitespecific.values
+    
+    nodes.nodeGroup.name.values
+    nodes.nodeGroup.name.sitespecific.values
+    nodes.nodeGroup.result.for.values
+    nodes.nodeGroup.result.for.sitespecific.values
+    nodes.nodeGroup.result.tumorRegression.values
+    nodes.nodeGroup.result.tumorRegression.sitespecific.values
+    nodes.nodeGroup.technique.values
+    nodes.nodeGroup.technique.sitespecific.values
+    nodes.nodeGroup.extracapsular.values
+    nodes.nodeGroup.extracapsular.sitespecific.values
+    
+    specimen.integrity.values
+    specimen.integrity.sitespecific.values
+    specimen.procedure.values
+    specimen.procedure.sitespecific.values
+    specimen.site.values
+    specimen.site.sitespecific.values
+    
+    stage.prefix.values
+    stage.prefix.sitespecific.values
+    stage.multiplicity.values
+    stage.multiplicity.sitespecific.values
+    stage.pT.values
+    stage.pT.sitespecific.values
+    stage.pN.values
+    stage.pN.sitespecific.values
+    stage.pM.values
+    stage.pM.sitespecific.values
+    stage.group.values
+    stage.group.sitespecific.values
+    
+    tumor.focus.type.values
+    tumor.focus.type.sitespecific.values
+    tumor.histologicType.values
+    tumor.histologicType.sitespecific.values
+    tumor.site.values
+    tumor.site.sitespecific.values
+    tumor.grade.values
+    tumor.grade.sitespecific.values
+    tumor.grade.for.values
+    tumor.grade.for.sitespecific.values
+    tumor.gradeSystem.values
+    tumor.gradeSystem.sitespecific.values
+    tumor.multiplicity.values
+    tumor.multiplicity.sitespecific.values
     
 -->
 
-<!-- The following is a list of all the simpleTypes defined in this file:
-
-    extension.valueset
-    base.valueset
-    qualitative.valueset
-    lengthUnit.valueset
-    weightUnit.valueset
-    relation.valueset
-    laterality.valueset
-    focality.valueset
-
-    accessory.lymphvascular.valueset
-    accessory.lymphvascular.valueset.extension
-    accessory.perineural.valueset
-    accessory.perineural.valueset.extension
-    accessory.treatmentResponse.valueset
-    accessory.treatmentResponse.valueset.extension
-
-    additional.finding.of.valueset
-    additional.finding.of.valueset.extension
-    additional.finding.valueset
-    additional.finding.valueset.extension
-
-    extent.contiguousExtension.status.result.for.valueset
-    extent.contiguousExtension.status.result.for.valueset.extension
-    extent.contiguousExtension.status.distance.for.valueset
-    extent.contiguousExtension.status.distance.for.valueset.extension
-    extent.contiguousExtension.status.distance.from.valueset
-    extent.contiguousExtension.status.distance.from.valueset.extension
-
-    history.clinical.valueset
-    history.clinical.valueset.extension
-    history.pathology.valueset
-    history.pathology.valueset.extension
-    history.priorTherapy.valueset
-    history.priorTherapy.valueset.extension
-    history.radiology.valueset
-    history.radiology.valueset.extension
-
-    extent.contiguousExtension.status.of.valueset
-    extent.contiguousExtension.status.of.valueset.extension
-    extent.contiguousExtension.status.type.valueset
-    extent.contiguousExtension.status.type.valueset.extension
-    extent.size.valueset
-    extent.size.valueset.extension
-
-    margins.margin.focality.valueset
-    margins.margin.focality.valueset.extension
-    margins.margin.name.valueset
-    margins.margin.name.valueset.extension
-    margins.margin.result.for.valueset
-    margins.margin.result.for.valueset.extension
-
-    distant.metastaticSite.name.valueset
-    distant.metastaticSite.name.valueset.extension
-    distant.metastaticSite.result.for.valueset
-    distant.metastaticSite.result.for.valueset.extension
-
-    nodes.nodeGroup.name.valueset
-    nodes.nodeGroup.name.valueset.extension
-    nodes.nodeGroup.result.for.valueset
-    nodes.nodeGroup.result.for.valueset.extension
-    nodes.nodeGroup.result.type.valueset
-    nodes.nodeGroup.result.type.valueset.extension
-    nodes.nodeGroup.technique.valueset
-    nodes.nodeGroup.technique.valueset.extension
-    nodes.nodeGroup.extracapsular.valueset
-    nodes.nodeGroup.extracapsular.valueset.extension
-
-    specimen.integrity.valueset
-    specimen.integrity.valueset.extension
-    specimen.procedure.valueset
-    specimen.procedure.valueset.extension
-    specimen.site.valueset
-    specimen.site.valueset.extension
-
-    stage.prefix.valueset
-    stage.prefix.valueset.extension
-    stage.multiplicity.valueset
-    stage.multiplicity.valueset.extension
-    stage.pT.valueset
-    stage.pT.valueset.extension
-    stage.pN.valueset
-    stage.pN.valueset.extension
-    stage.pM.valueset
-    stage.pM.valueset.extension
-    stage.group.valueset
-    stage.group.valueset.extension
-
-    tumor.type.valueset
-    tumor.type.valueset.extension
-    tumor.site.valueset
-    tumor.site.valueset.extension
-    tumor.grade.valueset
-    tumor.grade.valueset.extension
-    tumor.gradeSystem.valueset
-    tumor.gradeSystem.valueset.extension
-    tumor.multiplicity.valueset
-    tumor.multiplicity.valueset.extension
-
--->
 <xs:schema elementFormDefault="qualified"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:ecc="http://purl.org/pathology/ecc/" xmlns:rng="http://relaxng.org/ns/structure/1.0"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <!--=============================================================-->
-    <xs:simpleType name="extension.valueset">
+    <xs:simpleType name="sitespecific.values">
         <xs:union memberTypes="xs:token"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="base.valueset">
+    <xs:simpleType name="base.values">
         <xs:restriction base="xs:token">
-            <xs:enumeration value="specify"/>
-            <xs:enumeration value="indeterminate"/>
+            <xs:enumeration value="unreported"/>
+            <xs:enumeration value="innapplicable"/>
             <xs:enumeration value="equivocal"/>
         </xs:restriction>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="qualitative.valueset">
-        <xs:union memberTypes="base.valueset">
+    <xs:simpleType name="qualitative.values">
+        <xs:union memberTypes="base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="positive"/>
@@ -162,7 +160,7 @@
         </xs:union>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="lengthUnit.valueset">
+    <xs:simpleType name="lengthUnit.values">
         <xs:restriction base="xs:token">
             <xs:enumeration value="cm"/>
             <xs:enumeration value="mm"/>
@@ -170,7 +168,7 @@
         </xs:restriction>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="weightUnit.valueset">
+    <xs:simpleType name="weightUnit.values">
         <xs:restriction base="xs:token">
             <xs:enumeration value="mg"/>
             <xs:enumeration value="g"/>
@@ -178,7 +176,7 @@
         </xs:restriction>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="relation.valueset">
+    <xs:simpleType name="relation.values">
         <xs:restriction base="xs:token">
             <xs:enumeration value="less than"/>
             <xs:enumeration value="less than or equal"/>
@@ -189,34 +187,29 @@
         </xs:restriction>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="laterality.valueset">
-        <xs:union memberTypes="base.valueset">
-            <xs:simpleType>
-                <xs:restriction base="xs:token">
-                    <xs:enumeration value="right"/>
-                    <xs:enumeration value="left"/>
-                </xs:restriction>
-            </xs:simpleType>
-        </xs:union>
+    <xs:simpleType name="laterality.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="right"/>
+            <xs:enumeration value="left"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="extended.laterality.valueset">
-        <xs:union memberTypes="base.valueset">
+    <xs:simpleType name="extended.laterality.values">
+        <xs:union memberTypes="laterality.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="ipsilateral"/>
                     <xs:enumeration value="contralateral"/>
-                    <xs:enumeration value="right"/>
-                    <xs:enumeration value="left"/>
-                    <xs:enumeration value="midline"/>
                     <xs:enumeration value="bilateral"/>
                 </xs:restriction>
             </xs:simpleType>
         </xs:union>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="focality.valueset">
-        <xs:union memberTypes="base.valueset">
+    <xs:simpleType name="focality.values">
+        <xs:union memberTypes="base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="microfocal"/>
@@ -230,28 +223,27 @@
     <!--=============================================================-->
     <!--accessory SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="accessory.lymphvascular.valueset">
+    <xs:simpleType name="accessory.lymphvascular.values">
         <xs:union
-            memberTypes="qualitative.valueset accessory.lymphvascular.valueset.extension base.valueset"
+            memberTypes="base.values qualitative.values accessory.lymphvascular.sitespecific.values"
         />
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="accessory.lymphvascular.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="accessory.lymphvascular.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="accessory.perineural.valueset">
+    <xs:simpleType name="accessory.perineural.values">
         <xs:union
-            memberTypes="qualitative.valueset accessory.perineural.valueset.extension base.valueset"
-        />
+            memberTypes="base.values qualitative.values accessory.perineural.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="accessory.perineural.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="accessory.perineural.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="accessory.treatmentResponse.valueset">
-        <xs:union memberTypes="accessory.treatmentResponse.valueset.extension base.valueset">
+    <xs:simpleType name="accessory.treatmentResponse.values">
+        <xs:union memberTypes="base.values accessory.treatmentResponse.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="none"/>
@@ -263,32 +255,32 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="accessory.treatmentResponse.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="accessory.treatmentResponse.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--=============================================================-->
     <!--additional SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="additional.finding.of.valueset">
-        <xs:union memberTypes="additional.finding.of.valueset.extension base.valueset"/>
+    <xs:simpleType name="additional.finding.of.values">
+        <xs:union memberTypes="base.values additional.finding.of.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="additional.finding.of.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="additional.finding.of.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="additional.finding.valueset">
-        <xs:union memberTypes="additional.finding.valueset.extension base.valueset"/>
+    <xs:simpleType name="additional.finding.values">
+        <xs:union memberTypes="base.values additional.finding.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="additional.finding.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="additional.finding.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--=============================================================-->
     <!--extent SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="extent.contiguousExtension.for.valueset">
-        <xs:union memberTypes="extent.contiguousExtension.for.valueset.extension base.valueset">
+    <xs:simpleType name="extent.contiguousExtension.for.values">
+        <xs:union memberTypes="base.values extent.contiguousExtension.for.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="invades"/>
@@ -298,46 +290,46 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="extent.contiguousExtension.for.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="extent.contiguousExtension.for.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="extent.contiguousExtension.to.valueset">
-        <xs:union memberTypes="extent.contiguousExtension.to.valueset.extension base.valueset"/>
+    <xs:simpleType name="extent.contiguousExtension.to.values">
+        <xs:union memberTypes="base.values extent.contiguousExtension.to.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="extent.contiguousExtension.to.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="extent.contiguousExtension.to.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="extent.contiguousExtension.focality.valueset">
-        <xs:union memberTypes="focality.valueset"/>
+    <xs:simpleType name="extent.contiguousExtension.focality.values">
+        <xs:union memberTypes="focality.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="extent.contiguousExtension.focality.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="extent.contiguousExtension.focality.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--=============================================================-->
     <!--history SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="history.clinical.valueset">
-        <xs:union memberTypes="history.clinical.valueset.extension base.valueset"/>
+    <xs:simpleType name="history.clinical.values">
+        <xs:union memberTypes="base.values history.clinical.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="history.clinical.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="history.clinical.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="history.pathology.valueset">
-        <xs:union memberTypes="history.pathology.valueset.extension base.valueset"/>
+    <xs:simpleType name="history.pathology.values">
+        <xs:union memberTypes="base.values history.pathology.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="history.pathology.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="history.pathology.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="history.priorTherapy.valueset">
-        <xs:union memberTypes="history.priorTherapy.valueset.extension base.valueset">
+    <xs:simpleType name="history.priorTherapy.values">
+        <xs:union memberTypes="base.values history.priorTherapy.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="chemotherapy"/>
@@ -348,68 +340,49 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="history.priorTherapy.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="history.priorTherapy.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="history.radiology.valueset">
-        <xs:union memberTypes="history.radiology.valueset.extension base.valueset"/>
+    <xs:simpleType name="history.radiology.values">
+        <xs:union memberTypes="base.values history.radiology.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="history.radiology.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="history.radiology.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--=============================================================-->
     <!--extent SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="extent.contiguousExtension.status.of.valueset">
-        <xs:union
-            memberTypes="extent.contiguousExtension.status.of.valueset.extension base.valueset"/>
+    <xs:simpleType name="extent.size.values">
+        <xs:union memberTypes="base.values extent.size.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="extent.contiguousExtension.status.of.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
-    </xs:simpleType>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="extent.contiguousExtension.status.type.valueset">
-        <xs:union
-            memberTypes="extent.contiguousExtension.status.type.valueset.extension base.valueset"/>
-    </xs:simpleType>
-    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="extent.contiguousExtension.status.type.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
-    </xs:simpleType>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="extent.size.valueset">
-        <xs:union memberTypes="extent.size.valueset.extension base.valueset"/>
-    </xs:simpleType>
-    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="extent.size.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="extent.size.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--=============================================================-->
     <!--margin SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="margins.margin.focality.valueset">
+    <xs:simpleType name="margins.margin.focality.values">
         <xs:union
-            memberTypes="focality.valueset margins.margin.focality.valueset.extension base.valueset"
-        />
+            memberTypes="base.values focality.values margins.margin.focality.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="margins.margin.focality.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="margins.margin.focality.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="margins.margin.name.valueset">
-        <xs:union memberTypes="margins.margin.name.valueset.extension base.valueset"/>
-    </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="margins.margin.name.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="margins.margin.name.values">
+        <xs:union memberTypes="base.values margins.margin.name.sitespecific.values"/>
+    </xs:simpleType>
+    <xs:simpleType name="margins.margin.name.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="margins.margin.result.for.valueset">
-        <xs:union memberTypes="margins.margin.result.for.valueset.extension base.valueset">
+    <xs:simpleType name="margins.margin.result.for.values">
+        <xs:union memberTypes="base.values margins.margin.result.for.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="in-situ"/>
@@ -419,14 +392,14 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="margins.margin.result.for.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="margins.margin.result.for.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--=============================================================-->
-    <!--distantSites SECTION VALUESETS-->
+    <!--distant SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="distant.metastaticSite.name.valueset">
-        <xs:union memberTypes="distant.metastaticSite.name.valueset.extension base.valueset">
+    <xs:simpleType name="distant.metastaticSite.name.values">
+        <xs:union memberTypes="base.values distant.metastaticSite.name.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="liver"/>
@@ -438,12 +411,12 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="distant.metastaticSite.name.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="distant.metastaticSite.name.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="distant.metastaticSite.result.for.valueset">
-        <xs:union memberTypes="distant.metastaticSite.result.for.valueset.extension base.valueset">
+    <xs:simpleType name="distant.metastaticSite.result.for.values">
+        <xs:union memberTypes="base.values distant.metastaticSite.result.for.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="this accession"/>
@@ -455,24 +428,25 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="distant.metastaticSite.result.for.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="distant.metastaticSite.result.for.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--=============================================================-->
     <!--nodes SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="nodes.nodeGroup.name.valueset">
-        <xs:union memberTypes="nodes.nodeGroup.name.valueset.extension base.valueset"/>
+    <xs:simpleType name="nodes.nodeGroup.name.values">
+        <xs:union memberTypes="base.values nodes.nodeGroup.name.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="nodes.nodeGroup.name.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="nodes.nodeGroup.name.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="nodes.nodeGroup.result.for.valueset">
-        <xs:union memberTypes="nodes.nodeGroup.result.for.valueset.extension base.valueset">
+    <xs:simpleType name="nodes.nodeGroup.result.for.values">
+        <xs:union memberTypes="base.values nodes.nodeGroup.result.for.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
+                    <xs:enumeration value="total"/>
                     <xs:enumeration value="negative"/>
                     <xs:enumeration value="positive"/>
                 </xs:restriction>
@@ -480,54 +454,51 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="nodes.nodeGroup.result.for.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="nodes.nodeGroup.result.for.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="nodes.nodeGroup.result.type.valueset">
-        <xs:union memberTypes="nodes.nodeGroup.result.type.valueset.extension base.valueset">
-            <xs:simpleType>
-                <xs:restriction base="xs:token">
-                    <xs:enumeration value="necroinflammatory"/>
-                </xs:restriction>
-            </xs:simpleType>
-        </xs:union>
+    <xs:simpleType name="nodes.nodeGroup.result.tumorRegression.values">
+        <xs:union
+            memberTypes="base.values qualitative.values nodes.nodeGroup.result.tumorRegression.sitespecific.values"
+        />
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="nodes.nodeGroup.result.type.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="nodes.nodeGroup.result.tumorRegression.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="nodes.nodeGroup.technique.valueset">
-        <xs:union memberTypes="nodes.nodeGroup.technique.valueset.extension base.valueset">
+    <xs:simpleType name="nodes.nodeGroup.technique.values">
+        <xs:union memberTypes="base.values nodes.nodeGroup.technique.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="H+E one level"/>
                     <xs:enumeration value="H+E multiple level(s)"/>
                     <xs:enumeration value="H+E plus immunohistochemistry"/>
+                    <xs:enumeration value="RT-PCR"/>
                 </xs:restriction>
             </xs:simpleType>
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="nodes.nodeGroup.technique.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="nodes.nodeGroup.technique.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="nodes.nodeGroup.extracapsular.valueset">
+    <xs:simpleType name="nodes.nodeGroup.extracapsular.values">
         <xs:union
-            memberTypes="qualitative.valueset nodes.nodeGroup.extracapsular.valueset.extension base.valueset"
+            memberTypes="base.values qualitative.values nodes.nodeGroup.extracapsular.sitespecific.values"
         />
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="nodes.nodeGroup.extracapsular.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="nodes.nodeGroup.extracapsular.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--=============================================================-->
     <!--specimen SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="specimen.integrity.valueset">
-        <xs:union memberTypes="specimen.integrity.valueset.extension base.valueset">
+    <xs:simpleType name="specimen.integrity.values">
+        <xs:union memberTypes="base.values specimen.integrity.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="intact"/>
@@ -537,30 +508,30 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="specimen.integrity.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="specimen.integrity.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="specimen.procedure.valueset">
-        <xs:union memberTypes="specimen.procedure.valueset.extension base.valueset"/>
+    <xs:simpleType name="specimen.procedure.values">
+        <xs:union memberTypes="base.values specimen.procedure.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="specimen.procedure.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="specimen.procedure.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="specimen.site.valueset">
-        <xs:union memberTypes="specimen.site.valueset.extension base.valueset"/>
+    <xs:simpleType name="specimen.site.values">
+        <xs:union memberTypes="base.values specimen.site.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="specimen.site.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="specimen.site.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--=============================================================-->
     <!--stage SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="stage.prefix.valueset">
-        <xs:union memberTypes="stage.prefix.valueset.extension base.valueset">
+    <xs:simpleType name="stage.prefix.values">
+        <xs:union memberTypes="base.values stage.prefix.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="y"/>
@@ -572,12 +543,12 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="stage.prefix.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="stage.prefix.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="stage.multiplicity.valueset">
-        <xs:union memberTypes="stage.multiplicity.valueset.extension base.valueset">
+    <xs:simpleType name="stage.multiplicity.values">
+        <xs:union memberTypes="base.values stage.multiplicity.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="1"/>
@@ -590,46 +561,46 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="stage.multiplicity.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="stage.multiplicity.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="stage.pT.valueset">
-        <xs:union memberTypes="stage.pT.valueset.extension base.valueset"/>
+    <xs:simpleType name="stage.pT.values">
+        <xs:union memberTypes="base.values stage.pT.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="stage.pT.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="stage.pT.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="stage.pN.valueset">
-        <xs:union memberTypes="stage.pN.valueset.extension base.valueset"/>
+    <xs:simpleType name="stage.pN.values">
+        <xs:union memberTypes="base.values stage.pN.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="stage.pN.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="stage.pN.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="stage.pM.valueset">
-        <xs:union memberTypes="stage.pM.valueset.extension base.valueset"/>
+    <xs:simpleType name="stage.pM.values">
+        <xs:union memberTypes="base.values stage.pM.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="stage.pM.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="stage.pM.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="stage.group.valueset">
-        <xs:union memberTypes="stage.group.valueset.extension base.valueset"/>
+    <xs:simpleType name="stage.group.values">
+        <xs:union memberTypes="base.values stage.group.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="stage.group.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="stage.group.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--=============================================================-->
     <!--tumor SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="tumor.focus.type.valueset">
-        <xs:union memberTypes="tumor.focus.type.valueset.extension base.valueset">
+    <xs:simpleType name="tumor.focus.type.values">
+        <xs:union memberTypes="base.values tumor.focus.type.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="principal or sole"/>
@@ -639,28 +610,28 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="tumor.focus.type.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="tumor.focus.type.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="tumor.histologicType.valueset">
-        <xs:union memberTypes="tumor.histologicType.valueset.extension base.valueset"/>
+    <xs:simpleType name="tumor.histologicType.values">
+        <xs:union memberTypes="base.values tumor.histologicType.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="tumor.histologicType.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="tumor.histologicType.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="tumor.site.valueset">
-        <xs:union memberTypes="tumor.site.valueset.extension base.valueset"/>
+    <xs:simpleType name="tumor.site.values">
+        <xs:union memberTypes="base.values tumor.site.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="tumor.site.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="tumor.site.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="tumor.grade.valueset">
-        <xs:union memberTypes="tumor.grade.valueset.extension base.valueset">
+    <xs:simpleType name="tumor.grade.values">
+        <xs:union memberTypes="base.values tumor.grade.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="1"/>
@@ -673,20 +644,20 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="tumor.grade.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="tumor.grade.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="tumor.grade.for.valueset">
-        <xs:union memberTypes="tumor.grade.for.valueset.extension base.valueset"/>
+    <xs:simpleType name="tumor.grade.for.values">
+        <xs:union memberTypes="base.values tumor.grade.for.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="tumor.grade.for.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="tumor.grade.for.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="tumor.gradeSystem.valueset">
-        <xs:union memberTypes="tumor.gradeSystem.valueset.extension base.valueset">
+    <xs:simpleType name="tumor.gradeSystem.values">
+        <xs:union memberTypes="base.values tumor.gradeSystem.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="4-grade"/>
@@ -695,12 +666,12 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="tumor.gradeSystem.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="tumor.gradeSystem.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <xs:simpleType name="tumor.multiplicity.valueset">
-        <xs:union memberTypes="tumor.multiplicity.valueset.extension base.valueset">
+    <xs:simpleType name="tumor.multiplicity.values">
+        <xs:union memberTypes="base.values tumor.multiplicity.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="1"/>
@@ -713,8 +684,8 @@
         </xs:union>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xs:simpleType name="tumor.multiplicity.valueset.extension">
-        <xs:union memberTypes="extension.valueset"/>
+    <xs:simpleType name="tumor.multiplicity.sitespecific.values">
+        <xs:union memberTypes="sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </xs:schema>

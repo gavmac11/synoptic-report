@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resection xmlns="http://purl.org/pathology/ecc/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://purl.org/pathology/ecc/
+    file:/Users/me/Dropbox/PathCentral/xsd_schemas/breast/breast.xsd">
+    <history>
+        <clinicalFinding>
+            <response value="specify">
+                <specify>halitosis</specify>
+            </response>
+        </clinicalFinding>
+        <pathologicFinding date="2008-10-01">
+            <response value="specify">
+                <specify>inflammation</specify>
+            </response>
+        </pathologicFinding>
+    </history>
+    <specimen>
+        <procedure>
+            <response on="left" value="total mastectomy"/>
+        </procedure>
+        <size>
+            <response unit="cm" value="2.3"/>
+        </size>
+        <site>
+            <response on="left" value="upper outer quadrant"/>
+        </site>
+    </specimen>
+    <tumor>
+        <focus type="principal or sole">
+            <site>
+                <response on="left" value="upper outer quadrant"/>
+            </site>
+            <size>
+                <response unit="cm" value="1.2"/>
+                <response unit="cm" value="0.5"/>
+                <response relation="less than" unit="cm" value="0.5"/>
+            </size>
+            <histologicType>
+                <response value="ductal carcinoma"/>
+            </histologicType>
+            <grade system="nottingham">
+                <response for="combined" value="2"/>
+                <response for="glands" value="2"/>
+                <response for="mitoses" value="2"/>
+                <response for="nuclei" value="2"/>
+            </grade>
+        </focus>
+    </tumor>
+    <extent>
+        <contiguousExtension for="invades" on="left" to="chest wall">
+            <response value="negative"/>
+        </contiguousExtension>
+        <skinUlceration>
+            <response value="negative"/>
+        </skinUlceration>
+        <skinSatelliteNodules>
+            <response value="negative"/>
+        </skinSatelliteNodules>
+        <dermalLymphaticInvasion>
+            <response value="negative"/>
+        </dermalLymphaticInvasion>
+        <nipplePagetDisease>
+            <response value="negative"/>
+        </nipplePagetDisease>
+    </extent>
+    <accessory>
+        <lymphVascularInvasion>
+            <response value="negative"/>
+        </lymphVascularInvasion>
+        <perineuralInvasion>
+            <response value="negative"/>
+        </perineuralInvasion>
+        <ductalCarcinoma-in-situ>
+            <result>
+                <response focality="extensive" value="positive"/>
+            </result>
+            <architecture>
+                <response value="cribriform"/>
+            </architecture>
+            <grade>
+                <response value="intermediate"/>
+            </grade>
+            <necrosis>
+                <response value="positive"/>
+            </necrosis>
+        </ductalCarcinoma-in-situ>
+    </accessory>
+    <margins>
+        <margin name="anterior">
+            <result for="invasive">
+                <response value="negative"/>
+            </result>
+            <result for="in-situ">
+                <response value="negative"/>
+            </result>
+            <distance for="invasive">
+                <response value="unreported"/>
+            </distance>
+            <distance for="in-situ">
+                <response unit="cm" value="1.3"/>
+            </distance>
+        </margin>
+        <margin name="posterior">
+            <result for="invasive">
+                <response value="negative"/>
+            </result>
+            <result for="in-situ">
+                <response value="negative"/>
+            </result>
+            <distance for="invasive">
+                <response unit="cm" value="0.5"/>
+            </distance>
+            <distance for="in-situ">
+                <response relation="less than" unit="cm" value="0.5"/>
+            </distance>
+        </margin>
+    </margins>
+    <nodes>
+        <nodeGroup name="high axillary" technique="RT-PCR">
+            <result for="total">
+                <response value="18"/>
+            </result>
+            <result for="negative" itc="negative">
+                <response value="10"/>
+            </result>
+            <result for="positive">
+                <response value="8"/>
+            </result>
+        </nodeGroup>
+        <nodeGroup name="mid axillary" technique="RT-PCR">
+            <result for="total">
+                <response value="10"/>
+            </result>
+            <result for="negative" itc="negative">
+                <response value="10"/>
+            </result>
+        </nodeGroup>
+    </nodes>
+    <distant>
+        <metastaticSite name="brain">
+            <result>
+                <response value="negative"/>
+            </result>
+        </metastaticSite>
+    </distant>
+    <studies>
+        <estrogenReceptor>
+            <result>
+                <response unit="percent" value="6.5"/>
+            </result>
+            <technique>
+                <response value="specify">
+                    <specify>image analysis</specify>
+                </response>
+            </technique>
+            <source>
+                <response value="specify">
+                    <specify>block B3</specify>
+                </response>
+            </source>
+            <antibody>
+                <response value="specify" vendor="specify">
+                    <specify>Dako XYZ</specify>
+                </response>
+            </antibody>
+        </estrogenReceptor>
+        <progesteroneReceptor>
+            <result>
+                <response unit="percent" value="3.5"/>
+            </result>
+            <technique>
+                <response value="immunohistochemistry"/>
+            </technique>
+            <source>
+                <response value="specify">
+                    <specify>block B3</specify>
+                </response>
+            </source>
+            <antibody>
+                <response value="specify">
+                    <specify>Dako XYZ</specify>
+                </response>
+            </antibody>
+        </progesteroneReceptor>
+        <HER2neu>
+            <result>
+                <response value="positive (score 3+)"/>
+            </result>
+            <technique>
+                <response value="immunohistochemistry"/>
+            </technique>
+            <source>
+                <response value="specify">
+                    <specify>block B3</specify>
+                </response>
+            </source>
+            <antibody>
+                <response value="specify">
+                    <specify>Dako ABC</specify>
+                </response>
+            </antibody>
+        </HER2neu>
+    </studies>
+    <stage>
+        <prefix>
+            <response value="none"/>
+        </prefix>
+        <multiplicity>
+            <response value="1"/>
+        </multiplicity>
+        <pT>
+            <response value="1a"/>
+        </pT>
+        <pN>
+            <response value="0"/>
+        </pN>
+        <pM>
+            <response value="0"/>
+        </pM>
+        <group>
+            <response value="IA"/>
+        </group>
+    </stage>
+    <additional>
+        <finding>
+            <response value="specify">
+                <specify>granulomatous mastitis</specify>
+            </response>
+        </finding>
+    </additional>
+</resection>

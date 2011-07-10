@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- 
+This file is a template for a site-specific values file. 
+
+For each site, it is necessary to provide two kinds of specialized valuesets:
+
+(1) SITE-SPECIFIC EXTENSIONS OF GENERIC VALUESETS: For valuesets that are already defined in the
+generic values.xsd document, the site-specific extension values need to be created. The following
+valueset definitions are required:
+
+    accessory.lymphvascular.sitespecific.values  
+    accessory.perineural.sitespecific.values
+    accessory.treatmentResponse.sitespecific.values
+
+    additional.finding.of.sitespecific.values
+    additional.finding.sitespecific.values
+
+    extent.contiguousExtension.for.sitespecific.values
+    extent.contiguousExtension.to.sitespecific.values
+    extent.contiguousExtension.focality.sitespecific.values
+
+    history.clinical.sitespecific.values
+    history.pathology.sitespecific.values
+    history.priorTherapy.sitespecific.values
+    history.radiology.sitespecific.values
+
+    extent.size.sitespecific.values
+
+    margins.margin.focality.sitespecific.values
+    margins.margin.name.sitespecific.values
+    margins.margin.result.for.sitespecific.values
+
+    distant.metastaticSite.name.sitespecific.values
+    distant.metastaticSite.result.for.sitespecific.values
+
+    nodes.nodeGroup.name.sitespecific.values
+    nodes.nodeGroup.result.for.sitespecific.values
+    nodes.nodeGroup.result.tumorRegression.sitespecific.values
+    nodes.nodeGroup.technique.sitespecific.values
+    nodes.nodeGroup.extracapsular.sitespecific.values
+
+    specimen.integrity.sitespecific.values
+    specimen.procedure.sitespecific.values
+    specimen.site.sitespecific.values
+
+    stage.prefix.sitespecific.values
+    stage.multiplicity.sitespecific.values
+    stage.pT.sitespecific.values
+    stage.pN.sitespecific.values
+    stage.pM.sitespecific.values
+    stage.group.sitespecific.values
+
+    tumor.focus.type.sitespecific.values
+    tumor.histologicType.sitespecific.values
+    tumor.site.sitespecific.values
+    tumor.grade.sitespecific.values
+    tumor.grade.for.sitespecific.values
+    tumor.gradeSystem.sitespecific.values
+    tumor.multiplicity.sitespecific.values
+
+These extensions are defined in this file inside a <xsd:redefine> element,
+which is the first element in this file (see immediately below). 
+
+TECHNICAL NOTE: Note that while these valuesets are conceptually *extensions* of the generic 
+valuesets (and in the RNG version of this system are defined as such!),
+XML schema does not allow redefining a simple type as an extension of a parent simple type, but only as
+a restriction of a parent simple type. 
+
+To overcome this limitation, every predefined simpleType in the generic values document is equipped
+with a "...sitespecific.values" memberType that behaves in effect like an "abstract simpleType". 
+
+In the generic document, this "...sitespecific.values" memberType has a (relatively) unrestricted type 
+of xs:token. In each site-specific values document we concretize this "abstract" simpleType by 
+restricting it to a concrete enumeration set. 
+
+Even when there are no true site-specific values to be specified, each of these "abstract"
+"...sitespecific.values" types needs to be restricted from its "abstract" xs:token version down to an explicit
+enumeration in every site-specific final schema. For if we did not do this, the parent types would be in effect 
+appear in the finished site-specific schema as relatively unrestricted xs:token types.
+
+We accomplish this by restricting each and every one of them to- -minimally- -to an
+<cs:enumeration name="specify"/> element. This works well, because a principle of the framework is that
+"specify" HAS to be a possible value for any item. So we use the "sitespecific.values" abstract type
+to accomplish this in each case. But of for those that also have other site-specific
+enumeration values, of course those are also included in addition to the "specify" value.
+
+(2) SITE-SPECIFIC VALUESETS FOR SITE-SPECIFIC ITEMS: It is possible to add items to any section in
+order to extend the generic section-item model in order to accomodate site-specific requirements.
+The items are added in the site-specific schema. The valuesets for these added items are maintained
+in the values.xsd file for that specific site (i.e. this file, appropriately modified).
+
+These new site specific valuesets are added after the redefined valuesets described in #1 above.
+Their general form is the usual, named simpleType that, just as used throughout this system; see the
+examples given below.
+
+    -->
+    <!-- 
+   
+    -->
+    <!-- SITE-SPECIFIC EXTENSIONS OF GENERIC VALUESETS -->
+    <xs:redefine schemaLocation="../framework/values.xsd">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="accessory.lymphvascular.sitespecific.values">
+            <xs:restriction base="accessory.lymphvascular.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="accessory.perineural.sitespecific.values">
+            <xs:restriction base="accessory.perineural.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="accessory.treatmentResponse.sitespecific.values">
+            <xs:restriction base="accessory.treatmentResponse.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="additional.finding.sitespecific.values">
+            <xs:restriction base="additional.finding.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="additional.finding.of.sitespecific.values">
+            <xs:restriction base="additional.finding.of.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="distant.metastaticSite.name.sitespecific.values">
+            <xs:restriction base="distant.metastaticSite.name.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="distant.metastaticSite.result.for.sitespecific.values">
+            <xs:restriction base="distant.metastaticSite.result.for.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="extent.contiguousExtension.focality.sitespecific.values">
+            <xs:restriction base="extent.contiguousExtension.focality.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="extent.contiguousExtension.for.sitespecific.values">
+            <xs:restriction base="extent.contiguousExtension.for.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="extent.contiguousExtension.to.sitespecific.values">
+            <xs:restriction base="extent.contiguousExtension.to.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="extent.size.sitespecific.values">
+            <xs:restriction base="extent.size.sitespecific.values">
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="history.clinical.sitespecific.values">
+            <xs:restriction base="history.clinical.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="history.pathology.sitespecific.values">
+            <xs:restriction base="history.pathology.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="history.priorTherapy.sitespecific.values">
+            <xs:restriction base="history.priorTherapy.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="history.radiology.sitespecific.values">
+            <xs:restriction base="history.radiology.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="margins.margin.focality.sitespecific.values">
+            <xs:restriction base="margins.margin.focality.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="margins.margin.name.sitespecific.values">
+            <xs:restriction base="margins.margin.name.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="margins.margin.result.for.sitespecific.values">
+            <xs:restriction base="margins.margin.result.for.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="nodes.nodeGroup.name.sitespecific.values">
+            <xs:restriction base="nodes.nodeGroup.name.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="nodes.nodeGroup.result.for.sitespecific.values">
+            <xs:restriction base="nodes.nodeGroup.result.for.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="nodes.nodeGroup.result.tumorRegression.sitespecific.values">
+            <xs:restriction base="nodes.nodeGroup.result.tumorRegression.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="nodes.nodeGroup.technique.sitespecific.values">
+            <xs:restriction base="nodes.nodeGroup.technique.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="nodes.nodeGroup.extracapsular.sitespecific.values">
+            <xs:restriction base="nodes.nodeGroup.extracapsular.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="specimen.integrity.sitespecific.values">
+            <xs:restriction base="specimen.integrity.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="specimen.procedure.sitespecific.values">
+            <xs:restriction base="specimen.procedure.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="specimen.site.sitespecific.values">
+            <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+            <xs:restriction base="specimen.site.sitespecific.values">
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="stage.group.sitespecific.values">
+            <xs:restriction base="stage.group.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="stage.multiplicity.sitespecific.values">
+            <xs:restriction base="stage.multiplicity.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="stage.pN.sitespecific.values">
+            <xs:restriction base="stage.pN.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="stage.pM.sitespecific.values">
+            <xs:restriction base="stage.pM.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="stage.prefix.sitespecific.values">
+            <xs:restriction base="stage.prefix.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="stage.pT.sitespecific.values">
+            <xs:restriction base="stage.pT.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="tumor.focus.type.sitespecific.values">
+            <xs:restriction base="tumor.focus.type.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="tumor.grade.for.sitespecific.values">
+            <xs:restriction base="tumor.grade.for.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="tumor.grade.sitespecific.values">
+            <xs:restriction base="tumor.grade.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="tumor.gradeSystem.sitespecific.values">
+            <xs:restriction base="tumor.gradeSystem.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="tumor.histologicType.sitespecific.values">
+            <xs:restriction base="tumor.histologicType.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="tumor.multiplicity.sitespecific.values">
+            <xs:restriction base="tumor.multiplicity.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <xs:simpleType name="tumor.site.sitespecific.values">
+            <xs:restriction base="tumor.site.sitespecific.values">
+                <!-- <xs:enumeration value="aSiteSpecificValue"/> -->
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    </xs:redefine>
+    <!-- SITE-SPECIFIC VALUESETS FOR SITE-SPECIFIC ITEMS -->
+    <!--
+        EXAMPLE #1: a minimal new definition (only allowed value is "specify")
+        
+        <xs:simpleType name="section.subsection.item.values">
+            <xs:restriction base="xs:token">
+                <xs:enumeration value="specify"/>
+            </xs:restriction>
+        </xs:simpleType>
+
+    -->
+    <!--
+
+        EXAMPLE #2: a mixed type, including the base.values and non-negative integers
+        
+        <xs:simpleType name="section.subsection.item.values">
+            <xs:union memberTypes="base.values xs:nonNegativeInteger">
+        </xs:simpleType>
+ 
+    -->
+    <!--
+        
+        EXAMPLE #3: an enumeration type (don't forget to include the "specify" value!)
+        
+        <xs:simpleType name="section.subsection.item.values">
+            <xs:union memberTypes="base.values">
+                <xs:simpleType>
+                    <xs:restriction base="xs:token">
+                        <xs:enumeration value="anEnumeratedValue"/>
+                        <xs:enumeration value="anotherEnumeratedValue"/>
+                        <xs:enumeration value="specify"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            <xs:union>
+        </xs:simpleType>
+        
+    -->
+</xs:schema>

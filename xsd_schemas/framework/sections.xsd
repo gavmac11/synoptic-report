@@ -24,6 +24,32 @@
 <xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
     xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="resection">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:resection.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:resection.attrib"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="resection.content">
+        <xs:sequence>
+            <xs:element ref="ecc:history"/>
+            <xs:element ref="ecc:specimen"/>
+            <xs:element ref="ecc:tumor"/>
+            <xs:element ref="ecc:extent"/>
+            <xs:element ref="ecc:accessory"/>
+            <xs:element ref="ecc:margins"/>
+            <xs:element ref="ecc:nodes"/>
+            <xs:element ref="ecc:distant"/>
+            <xs:element ref="ecc:studies"/>
+            <xs:element ref="ecc:stage"/>
+            <xs:element ref="ecc:additional"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:attributeGroup name="resection.attrib"/>
     <!-- Definition of sections -->
     <xs:element name="history">
         <xs:complexType>
@@ -106,13 +132,16 @@
     </xs:group>
     <xs:element name="margins">
         <xs:complexType>
-            <xs:sequence>
-                <xs:group ref="ecc:generic.content"/>
-                <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:margin"/>
-            </xs:sequence>
+            <xs:group ref="ecc:margins.content"/>
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
+    <xs:group name="margins.content">
+        <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:margin"/>
+        </xs:sequence>
+    </xs:group>
     <xs:element name="nodes">
         <xs:complexType>
             <xs:sequence>
@@ -129,13 +158,16 @@
     </xs:group>
     <xs:element name="distant">
         <xs:complexType>
-            <xs:sequence>
-                <xs:group ref="ecc:generic.content"/>
-                <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:metastaticSite"/>
-            </xs:sequence>
+            <xs:group ref="ecc:distant.content"/>
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
+    <xs:group name="distant.content">
+        <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:metastaticSite"/>
+        </xs:sequence>
+    </xs:group>
     <xs:element name="studies">
         <xs:complexType>
             <xs:sequence>
