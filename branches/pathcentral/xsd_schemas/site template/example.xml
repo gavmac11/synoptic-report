@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resection xmlns="http://purl.org/pathology/ecc/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://purl.org/pathology/ecc/ site-specific-template.xsd">
+    <history>
+        <clinicalFinding date="unreported" duration="P10Y">
+            <response value="specify">
+                <specify>this is the clinical finding</specify>
+            </response>
+        </clinicalFinding>
+    </history>
+    <specimen>
+        <procedure>
+            <response value=""></response>
+        </procedure>
+        <size>
+            <response value=""></response>
+        </size>
+        <site>
+            <response value=""></response>
+        </site>
+    </specimen>
+    <tumor>
+        <focus type="">
+            <site>
+                <response value=""></response>
+            </site>
+            <size>
+                <response value=""></response>
+            </size>
+            <histologicType>
+                <response value=""></response>
+            </histologicType>
+            <grade system="">
+                <response value=""></response>
+            </grade>
+        </focus>
+    </tumor>
+    <extent>
+        
+    </extent>
+    <accessory>
+        <lymphVascularInvasion>
+            <response value=""></response>
+        </lymphVascularInvasion>
+        <perineuralInvasion>
+            <response value=""></response>
+        </perineuralInvasion>
+    </accessory>
+    <margins>
+        <margin name="">
+            <result for="">
+                <response value=""></response>
+            </result>
+        </margin>
+    </margins>
+    <nodes>
+        <nodeGroup name="">
+            <result for="">
+                <response value=""></response>
+            </result>
+        </nodeGroup>
+    </nodes>
+    <distant>
+        <metastaticSite name="bone">
+            <result>
+                <response value=""></response>
+            </result>
+        </metastaticSite>
+    </distant>
+    <studies>
+        
+    </studies>
+    <stage>
+        <prefix>
+            <response value=""></response>
+        </prefix>
+        <multiplicity>
+            <response value=""></response>
+        </multiplicity>
+        <pT>
+            <response value=""></response>
+        </pT>
+        <pN>
+            <response value=""></response>
+        </pN>
+        <pM>
+            <response value=""></response>
+        </pM>
+        <group>
+            <response value=""></response>
+        </group>
+    </stage>
+    <additional>
+        <finding>
+            <response value=""></response>
+        </finding>
+    </additional>
+</resection>

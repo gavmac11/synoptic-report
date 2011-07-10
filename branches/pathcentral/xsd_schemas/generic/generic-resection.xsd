@@ -26,39 +26,16 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:redefine schemaLocation="../framework/common.xsd"/>
     <xs:redefine schemaLocation="../framework/items.xsd"/>
-    <xs:redefine schemaLocation="../framework/sections.xsd"/>
+    <xs:redefine schemaLocation="../framework/sections.xsd">
+        <xs:attributeGroup name="resection.attrib">
+            <xs:attributeGroup ref="ecc:resection.attrib"/>
+            <xs:attribute fixed="http://purl.org/pathology/ecc/generic/resection/schema.xsd"
+                name="schemaLocation"/>
+            <xs:attribute fixed="0.5" name="version"/>
+            <xs:attribute fixed="http://purl.org/pathology/ecc/generic/resection/ecc.xsl"
+                name="transformation"/>
+        </xs:attributeGroup>
+    </xs:redefine>
     <xs:redefine schemaLocation="../framework/types.xsd"/>
     <xs:redefine schemaLocation="values.xsd"/>
-    <xs:element name="resection">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:group ref="ecc:generic.content"/>
-                <xs:group ref="ecc:resection.content"/>
-            </xs:sequence>
-            <xs:attributeGroup ref="ecc:resection.attrib"/>
-            <xs:attributeGroup ref="ecc:generic.attrib"/>
-        </xs:complexType>
-    </xs:element>
-    <xs:group name="resection.content">
-        <xs:sequence>
-            <xs:element ref="ecc:history"/>
-            <xs:element ref="ecc:specimen"/>
-            <xs:element ref="ecc:tumor"/>
-            <xs:element ref="ecc:extent"/>
-            <xs:element ref="ecc:accessory"/>
-            <xs:element ref="ecc:margins"/>
-            <xs:element ref="ecc:nodes"/>
-            <xs:element ref="ecc:distant"/>
-            <xs:element ref="ecc:studies"/>
-            <xs:element ref="ecc:stage"/>
-            <xs:element ref="ecc:additional"/>
-        </xs:sequence>
-    </xs:group>
-    <xs:attributeGroup name="resection.attrib">
-        <xs:attribute fixed="http://purl.org/pathology/ecc/generic/resection/schema.xsd"
-            name="schemaLocation"/>
-        <xs:attribute fixed="0.5" name="version"/>
-        <xs:attribute fixed="http://purl.org/pathology/ecc/generic/resection/ecc.xsl"
-            name="transformation"/>
-    </xs:attributeGroup>
 </xs:schema>
