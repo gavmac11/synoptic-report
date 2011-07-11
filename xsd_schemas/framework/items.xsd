@@ -332,7 +332,7 @@
                 <xs:element minOccurs="0" ref="ecc:metastasisSize"/>
             </xs:sequence>
             <xs:attribute name="name" type="ecc:distant.metastaticSite.name.values" use="required"/>
-            <xs:attribute name="on" type="ecc:laterality.values"/>
+            <xs:attribute name="on" type="ecc:extended.laterality.values"/>
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>

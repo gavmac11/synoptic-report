@@ -21,6 +21,8 @@
     limitations under the License.
     ===========================================================================  
 -->
+<!-- Please note that it is a principle for me that I do NOT use named complex types. The reason for
+    this? See http://www.kohsuke.org/xmlschema/XMLSchemaDOsAndDONTs.html . -->
 <xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
     xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
