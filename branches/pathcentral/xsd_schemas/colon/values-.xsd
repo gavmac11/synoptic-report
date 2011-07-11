@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!--<xs:simpleType name="intrinsic.site.valueset" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:restriction base="intrinsic.site.valueset">
+            <xs:enumeration value="cecum"/>
+            <xs:enumeration value="right colon"/>
+            <xs:enumeration value="hepatic flexure"/>
+            <xs:enumeration value="transverse colon"/>
+            <xs:enumeration value="splenic flexure"/>
+            <xs:enumeration value="left colon"/>
+            <xs:enumeration value="sigmoid colon"/>
+            <xs:enumeration value="rectosigmoid junction"/>
+            <xs:enumeration value="rectum"/>
+            <xs:enumeration value="anus"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <!--<xs:simpleType name="extrinsic.site.valueset">
+        <xs:restriction base="extrinsic.site.valueset">
+            <xs:enumeration value="ureter"/>
+            <xs:enumeration value="uterus"/>
+            <xs:enumeration value="urinary bladder"/>
+            <xs:enumeration value="prostate"/>
+            <xs:enumeration value="pelvic wall"/>
+            <xs:enumeration value="peritoneum"/>
+            <xs:enumeration value="non-adjacent bowel"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <!--<xs:simpleType name="precursorPolyp.valueset">
+        <xs:restriction base="precursorPolyp.valueset">
+            <xs:enumeration value="tubular adenoma"/>
+            <xs:enumeration value="villous adenoma"/>
+            <xs:enumeration value="tubulovillous adenoma"/>
+            <xs:enumeration value="serrated adenoma"/>
+            <xs:enumeration value="sessile serrated adenoma"/>
+            <xs:enumeration value="hamartomatous polyp"/>
+            <xs:enumeration value="indeterminate type"/>
+            <xs:enumeration value="specify"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="accessory.immuneResponse.valueset">
+        <xs:restriction base="accessory.immuneResponse.valueset">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="mild-to-moderate"/>
+            <xs:enumeration value="marked"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <!--<xs:simpleType name="additional.finding.valueset">
+        <xs:restriction base="additional.finding.valueset">
+            <xs:enumeration value="adenoma"/>
+            <xs:enumeration value="active IBD"/>
+            <xs:enumeration value="quiescent IBD"/>
+            <xs:enumeration value="ulcerative colitis"/>
+            <xs:enumeration value="Crohn disease"/>
+            <xs:enumeration value="dysplasia with IBD"/>
+            <xs:enumeration value="sessile serrated adenoma"/>
+            <xs:enumeration value="other polyp"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <!--<xs:simpleType name="history.priorTherapy.valueset">
+        <xs:restriction base="history.priorTherapy.valueset">
+            <xs:enumeration value="neoadjuvant chemotherapy"/>
+            <xs:enumeration value="neoadjuvant irradiation"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <xs:simpleType name="extent.severity.valueset">
+        <xs:restriction base="extent.severity.valueset">
+            <xs:enumeration value="adheres"/>
+            <xs:enumeration value="invades"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!--<xs:simpleType name="extent.deepestInvasion.valueset">
+        <xs:restriction base="extent.deepestInvasion.valueset">
+            <xs:enumeration value="lamina propria"/>
+            <xs:enumeration value="submucosa"/>
+            <xs:enumeration value="muscularis propria"/>
+            <xs:enumeration value="through muscularis propria"/>
+            <xs:enumeration value="pericolorectal tissues"/>
+            <xs:enumeration value="visceral peritoneal surface"/>
+            <xs:enumeration value="adjacent structure"/>
+            <xs:enumeration value="no evidence of tumor"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <xs:simpleType name="extent.contiguousExtension.status.of.valueset">
+        <xs:restriction base="extent.contiguousExtension.status.of.valueset"/>
+    </xs:simpleType>
+    <xs:simpleType name="extent.site.valueset">
+        <xs:restriction base="extent.site.valueset"/>
+    </xs:simpleType>
+    <!--<xs:simpleType name="margin.status.of.valueset">
+        <xs:restriction base="margin.status.of.valueset">
+            <xs:enumeration value="proximal"/>
+            <xs:enumeration value="distal"/>
+            <xs:enumeration value="radial"/>
+            <xs:enumeration value="deep"/>
+            <xs:enumeration value="mucosal"/>
+            <xs:enumeration value="lateral"/>
+            <xs:enumeration value="stalk"/>
+            <xs:enumeration value="1:00"/>
+            <xs:enumeration value="2:00"/>
+            <xs:enumeration value="3:00"/>
+            <xs:enumeration value="4:00"/>
+            <xs:enumeration value="5:00"/>
+            <xs:enumeration value="6:00"/>
+            <xs:enumeration value="7:00"/>
+            <xs:enumeration value="8:00"/>
+            <xs:enumeration value="9:00"/>
+            <xs:enumeration value="10:00"/>
+            <xs:enumeration value="11:00"/>
+            <xs:enumeration value="12:00"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    -- DISTANT section valuesets -- 
+    <xs:simpleType name="distant.status.of.valueset">
+        <xs:restriction base="distant.status.of.valueset"/>
+    </xs:simpleType>
+    <!--<xs:simpleType name="nodes.status.of.valueset">
+        <xs:restriction base="nodes.status.of.valueset">
+            <xs:enumeration value="pericolic"/>
+            <xs:enumeration value="ileocolic"/>
+            <xs:enumeration value="anterior cecal"/>
+            <xs:enumeration value="posterior cecal"/>
+            <xs:enumeration value="right colic"/>
+            <xs:enumeration value="middle colic"/>
+            <xs:enumeration value="left colic"/>
+            <xs:enumeration value="inferior mesenteric"/>
+            <xs:enumeration value="sigmoid"/>
+            <xs:enumeration value="superior rectal"/>
+            <xs:enumeration value="superior hemorrhoidal"/>
+            <xs:enumeration value="sigmoidal"/>
+            <xs:enumeration value="sigmoid mesenteric"/>
+            <xs:enumeration value="middle hemorrhoidal"/>
+            <xs:enumeration value="lateral sacral"/>
+            <xs:enumeration value="presacral"/>
+            <xs:enumeration value="internal iliac"/>
+            <xs:enumeration value="sacral promontory"/>
+            <xs:enumeration value="inferior hemorrhoidal"/>
+            <xs:enumeration value="anorectal"/>
+            <xs:enumeration value="superficial inguinal"/>
+            <xs:enumeration value="internal iliac"/>
+            <xs:enumeration value="hypogastric"/>
+            <xs:enumeration value="femoral"/>
+            <xs:enumeration value="lateral sacral"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <!--<xs:simpleType name="specimen.procedure.valueset">
+        <xs:restriction base="specimen.procedure.valueset">
+            <xs:enumeration value="total colectomy"/>
+            <xs:enumeration value="right hemicolectomy"/>
+            <xs:enumeration value="transverse colectomy"/>
+            <xs:enumeration value="left hemicolectomy"/>
+            <xs:enumeration value="segmental colectomy"/>
+            <xs:enumeration value="abdominoperineal resection"/>
+            <xs:enumeration value="proctocolectomy"/>
+            <xs:enumeration value="polypectomy"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <!--<xs:simpleType name="specimen.site.valueset">
+        <xs:restriction base="specimen.site.valueset"/>
+    </xs:simpleType>
+    <xs:simpleType name="specimen.polypConfiguration.valueset">
+        <xs:restriction base="specimen.polypConfiguration.valueset">
+            <xs:enumeration value="pedunculated"/>
+            <xs:enumeration value="sessile"/>
+            <xs:enumeration value="specify"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="specimen.mesorectum.valueset">
+        <xs:restriction base="specimen.mesorectum.valueset">
+            <xs:enumeration value="complete"/>
+            <xs:enumeration value="near complete"/>
+            <xs:enumeration value="incomplete"/>
+            <xs:enumeration value="indeterminate"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+            <xs:enumeration value="specify"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <!--<xs:simpleType name="stage.pT.valueset">
+        <xs:restriction base="stage.pT.valueset">
+            <xs:enumeration value="X"/>
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="is"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="4a"/>
+            <xs:enumeration value="4b"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <!--<xs:simpleType name="stage.pN.valueset">
+        <xs:restriction base="stage.pN.valueset">
+            <xs:enumeration value="X"/>
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="1a"/>
+            <xs:enumeration value="1b"/>
+            <xs:enumeration value="1c"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="2a"/>
+            <xs:enumeration value="2b"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <!--<xs:simpleType name="stage.pM.valueset">
+        <xs:restriction base="stage.pM.valueset">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="1a"/>
+            <xs:enumeration value="1b"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <!--<xs:simpleType name="stage.group.valueset">
+        <xs:restriction base="stage.group.valueset">
+            <xs:enumeration value="X"/>
+            <xs:enumeration value="I"/>
+            <xs:enumeration value="II"/>
+            <xs:enumeration value="III"/>
+            <xs:enumeration value="IV"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <xs:simpleType name="studies.microsatelliteInstability.valueset">
+        <xs:restriction base="studies.microsatelliteInstability.valueset">
+            <xs:enumeration value="stable"/>
+            <xs:enumeration value="low"/>
+            <xs:enumeration value="high"/>
+            <xs:enumeration value="pending"/>
+            <xs:enumeration value="indeterminate"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+            <xs:enumeration value="specify"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="studies.mismatchRepair.valueset">
+        <xs:restriction base="studies.mismatchRepair.valueset">
+            <xs:enumeration value="intact nuclear positivity"/>
+            <xs:enumeration value="loss of nuclear positivity"/>
+            <xs:enumeration value="pending"/>
+            <xs:enumeration value="equivocal"/>
+            <xs:enumeration value="indeterminate"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+            <xs:enumeration value="specify"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="studies.mutationalAnalysis.valueset">
+        <xs:restriction base="studies.mutationalAnalysis.valueset">
+            <xs:enumeration value="mutation detected"/>
+            <xs:enumeration value="no mutation detected"/>
+            <xs:enumeration value="pending"/>
+            <xs:enumeration value="equivocal"/>
+            <xs:enumeration value="indeterminate"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+            <xs:enumeration value="specify"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="studies.microsatelliteInstability.method.valueset">
+        <xs:restriction base="studies.microsatelliteInstability.method.valueset"/>
+    </xs:simpleType>
+    <xs:simpleType name="studies.mismatchRepair.method.valueset">
+        <xs:restriction base="studies.mismatchRepair.method.valueset">
+            <xs:enumeration value="immunohistochemistry"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="studies.mutationalAnalysis.method.valueset">
+        <xs:restriction base="studies.mutationalAnalysis.method.valueset"/>
+    </xs:simpleType>
+    <xs:simpleType name="studies.BRAF.mutation.valueset">
+        <xs:restriction base="studies.BRAF.mutation.valueset">
+            <xs:enumeration value="V600E"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="studies.KRAS.mutation.valueset">
+        <xs:restriction base="studies.KRAS.mutation.valueset"/>
+    </xs:simpleType>
+    <!--<xs:simpleType name="tumor.type.valueset">
+        <xs:restriction base="tumor.type.valueset">
+            <xs:enumeration value="adenocarcinoma"/>
+            <xs:enumeration value="mucinous adenocarcinoma"/>
+            <xs:enumeration value="signet-ring cell carcinoma"/>
+            <xs:enumeration value="small cell carcinoma"/>
+            <xs:enumeration value="squamous cell carcinoma"/>
+            <xs:enumeration value="adenosquamous carcinoma"/>
+            <xs:enumeration value="medullary carcinoma"/>
+            <xs:enumeration value="undifferentiated carcinoma"/>
+            <xs:enumeration value="carcinoma indeterminate type"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <!--<xs:simpleType name="tumor.gradeSystem.valueset">
+        <xs:restriction base="tumor.gradeSystem.valueset">
+            <xs:enumeration value="2-grade"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <!--<xs:simpleType name="tumor.grade.valueset">
+        <xs:restriction base="tumor.grade.valueset">
+            <xs:enumeration value="low"/>
+            <xs:enumeration value="high"/>
+            <xs:enumeration value="equivocal"/>
+            <xs:enumeration value="indeterminate"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+    <xs:simpleType name="tumor.site.valueset">
+        <xs:restriction base="tumor.site.valueset"/>
+    </xs:simpleType>
+</xs:schema>
