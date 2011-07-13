@@ -298,7 +298,7 @@
         </xs:complexType>
     </xs:element>
     <xs:group name="margins.margin.result">
-        <!-- There is more than one context for <result> element (margin.status.result, nodes.nodeGroup.result, distant.metastaticSite.result, contiguousExtension.status.result), hence need to wrap as group -->
+        <!-- There is more than one context for <result> element (margin.status.result, ecc:nodes.nodeGroup.result, distant.metastaticSite.result, contiguousExtension.status.result), hence need to wrap as group -->
         <xs:sequence>
             <xs:element form="qualified" name="result">
                 <xs:complexType>
@@ -367,7 +367,7 @@
         </xs:complexType>
     </xs:element>
     <xs:group name="distant.metastaticSite.result">
-        <!-- There is more than one context for <result> element (margin.status.result, nodes.nodeGroup.result, distant.metastaticSite.result, contiguousExtension.status.result), hence need to wrap as group -->
+        <!-- There is more than one context for <result> element (margin.status.result, ecc:nodes.nodeGroup.result, distant.metastaticSite.result, contiguousExtension.status.result), hence need to wrap as group -->
         <xs:sequence>
             <xs:element form="qualified" name="result">
                 <xs:complexType>
@@ -856,8 +856,8 @@
     </xs:group>
     <xs:group name="qualitative.response">
         <!-- Remember that if you use this canned "shorthand" for a qualitative response, you will not be
-            able to extend it with additional attributes later. So for responses that are indeed
-            qualitative, but may add additional attributes later, you need to use add them
+            able to extend it with ecc:additional.attributes later. So for responses that are indeed
+            qualitative, but may add ecc:additional.attributes later, you need to use add them
             explicitly to the generic type. An example would be distant.status.result.response that
             needs to be typed for breast. -->
         <xs:sequence>
@@ -884,79 +884,80 @@
         </xs:complexType>
     </xs:element>
     <xs:simpleType name="accessory.lymphvascular.sitespecific.values">
-        <xs:restriction base="accessory.lymphvascular.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:accessory.lymphvascular.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="accessory.lymphvascular.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="accessory.perineural.sitespecific.values">
-        <xs:restriction base="accessory.perineural.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:accessory.perineural.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="accessory.perineural.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="accessory.treatmentResponse.sitespecific.values">
-        <xs:restriction base="accessory.treatmentResponse.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:accessory.treatmentResponse.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="accessory.treatmentResponse.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="additional.finding.sitespecific.values">
-        <xs:restriction base="additional.finding.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:additional.finding.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="additional.finding.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="additional.finding.of.sitespecific.values">
-        <xs:restriction base="additional.finding.of.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:additional.finding.of.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="additional.finding.of.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="distant.metastaticSite.name.sitespecific.values">
-        <xs:restriction base="distant.metastaticSite.name.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:distant.metastaticSite.name.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="distant.metastaticSite.name.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="distant.metastaticSite.result.for.sitespecific.values">
-        <xs:restriction base="distant.metastaticSite.result.for.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:distant.metastaticSite.result.for.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="distant.metastaticSite.result.for.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="extent.contiguousExtension.focality.sitespecific.values">
-        <xs:restriction base="extent.contiguousExtension.focality.sitespecific.values_Redefined0">
+        <xs:restriction
+            base="ecc:extent.contiguousExtension.focality.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="extent.contiguousExtension.focality.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="extent.contiguousExtension.for.sitespecific.values">
-        <xs:restriction base="extent.contiguousExtension.for.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:extent.contiguousExtension.for.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="extent.contiguousExtension.for.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="extent.contiguousExtension.to.sitespecific.values">
-        <xs:restriction base="extent.contiguousExtension.to.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:extent.contiguousExtension.to.sitespecific.values_Redefined0">
             <xs:enumeration value="skin"/>
             <xs:enumeration value="pectoralis muscle"/>
             <xs:enumeration value="chest wall"/>
@@ -964,30 +965,30 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="extent.contiguousExtension.to.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="extent.size.sitespecific.values">
-        <xs:restriction base="extent.size.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:extent.size.sitespecific.values_Redefined0">
             <xs:enumeration value="microinvasion"/>
             <xs:enumeration value="no residual carcinoma"/>
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="extent.size.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="history.clinical.sitespecific.values">
-        <xs:restriction base="history.clinical.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:history.clinical.sitespecific.values_Redefined0">
             <xs:enumeration value="palpable mass"/>
             <xs:enumeration value="nipple discharge"/>
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="history.clinical.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="history.pathology.sitespecific.values">
-        <xs:restriction base="history.pathology.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:history.pathology.sitespecific.values_Redefined0">
             <xs:enumeration value="breast carcinoma, NOS"/>
             <xs:enumeration value="ductal carcinoma-in-situ"/>
             <xs:enumeration value="lobular carcinoma-in-situ"/>
@@ -997,18 +998,18 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="history.pathology.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="history.priorTherapy.sitespecific.values">
-        <xs:restriction base="history.priorTherapy.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:history.priorTherapy.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="history.priorTherapy.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="history.radiology.sitespecific.values">
-        <xs:restriction base="history.radiology.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:history.radiology.sitespecific.values_Redefined0">
             <xs:enumeration value="mass"/>
             <xs:enumeration value="architectural distortion"/>
             <xs:enumeration value="microcalcifications"/>
@@ -1016,18 +1017,18 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="history.radiology.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="margins.margin.focality.sitespecific.values">
-        <xs:restriction base="margins.margin.focality.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:margins.margin.focality.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="margins.margin.focality.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="margins.margin.name.sitespecific.values">
-        <xs:restriction base="margins.margin.name.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:margins.margin.name.sitespecific.values_Redefined0">
             <xs:enumeration value="superior"/>
             <xs:enumeration value="inferior"/>
             <xs:enumeration value="anterior"/>
@@ -1038,19 +1039,19 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="margins.margin.name.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="margins.margin.result.for.sitespecific.values">
-        <xs:restriction base="margins.margin.result.for.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:margins.margin.result.for.sitespecific.values_Redefined0">
             <!-- NEEDS WORK -->
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="margins.margin.result.for.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="nodes.nodeGroup.name.sitespecific.values">
-        <xs:restriction base="nodes.nodeGroup.name.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:nodes.nodeGroup.name.sitespecific.values_Redefined0">
             <xs:enumeration value="low axillary"/>
             <xs:enumeration value="mid axillary"/>
             <xs:enumeration value="high axillary"/>
@@ -1061,53 +1062,54 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="nodes.nodeGroup.name.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="nodes.nodeGroup.result.for.sitespecific.values">
-        <xs:restriction base="nodes.nodeGroup.result.for.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:nodes.nodeGroup.result.for.sitespecific.values_Redefined0">
             <!-- NEEDS WORK -->
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="nodes.nodeGroup.result.for.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="nodes.nodeGroup.result.tumorRegression.sitespecific.values">
-        <xs:restriction base="nodes.nodeGroup.result.tumorRegression.sitespecific.values_Redefined0">
+        <xs:restriction
+            base="ecc:nodes.nodeGroup.result.tumorRegression.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="nodes.nodeGroup.result.tumorRegression.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="nodes.nodeGroup.technique.sitespecific.values">
-        <xs:restriction base="nodes.nodeGroup.technique.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:nodes.nodeGroup.technique.sitespecific.values_Redefined0">
             <!-- NEEDS WORK -->
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="nodes.nodeGroup.technique.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="nodes.nodeGroup.extracapsular.sitespecific.values">
-        <xs:restriction base="nodes.nodeGroup.extracapsular.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:nodes.nodeGroup.extracapsular.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="nodes.nodeGroup.extracapsular.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="specimen.integrity.sitespecific.values">
-        <xs:restriction base="specimen.integrity.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:specimen.integrity.sitespecific.values_Redefined0">
             <xs:enumeration value="multiple designated specimens"/>
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="specimen.integrity.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="specimen.procedure.sitespecific.values">
-        <xs:restriction base="specimen.procedure.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:specimen.procedure.sitespecific.values_Redefined0">
             <xs:enumeration value="excision"/>
             <xs:enumeration value="excision, wire-guided"/>
             <xs:enumeration value="total mastectomy"/>
@@ -1119,10 +1121,10 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="specimen.procedure.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="specimen.site.sitespecific.values">
-        <xs:restriction base="specimen.site.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:specimen.site.sitespecific.values_Redefined0">
             <xs:enumeration value="upper outer quadrant"/>
             <xs:enumeration value="lower outer quadrant"/>
             <xs:enumeration value="upper inner quadrant"/>
@@ -1136,10 +1138,10 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="specimen.site.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="stage.group.sitespecific.values">
-        <xs:restriction base="stage.group.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:stage.group.sitespecific.values_Redefined0">
             <xs:enumeration value="0"/>
             <xs:enumeration value="IA"/>
             <xs:enumeration value="IB"/>
@@ -1154,18 +1156,18 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="stage.group.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="stage.multiplicity.sitespecific.values">
-        <xs:restriction base="stage.multiplicity.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:stage.multiplicity.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="stage.multiplicity.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="stage.pN.sitespecific.values">
-        <xs:restriction base="stage.pN.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:stage.pN.sitespecific.values_Redefined0">
             <xs:enumeration value="X"/>
             <xs:enumeration value="0"/>
             <xs:enumeration value="0(i-)"/>
@@ -1188,10 +1190,10 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="stage.pN.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="stage.pM.sitespecific.values">
-        <xs:restriction base="stage.pM.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:stage.pM.sitespecific.values_Redefined0">
             <xs:enumeration value="0"/>
             <xs:enumeration value="0(i+)"/>
             <xs:enumeration value="1"/>
@@ -1199,18 +1201,18 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="stage.pM.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="stage.prefix.sitespecific.values">
-        <xs:restriction base="stage.prefix.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:stage.prefix.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="stage.prefix.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="stage.pT.sitespecific.values">
-        <xs:restriction base="stage.pT.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:stage.pT.sitespecific.values_Redefined0">
             <xs:enumeration value="X"/>
             <xs:enumeration value="0"/>
             <xs:enumeration value="is"/>
@@ -1233,18 +1235,18 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="stage.pT.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="tumor.focus.type.sitespecific.values">
-        <xs:restriction base="tumor.focus.type.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:tumor.focus.type.sitespecific.values_Redefined0">
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="tumor.focus.type.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="tumor.grade.for.sitespecific.values">
-        <xs:restriction base="tumor.grade.for.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:tumor.grade.for.sitespecific.values_Redefined0">
             <xs:enumeration value="combined"/>
             <xs:enumeration value="glands"/>
             <xs:enumeration value="nuclei"/>
@@ -1252,10 +1254,10 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="tumor.grade.for.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="tumor.grade.sitespecific.values">
-        <xs:restriction base="tumor.grade.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:tumor.grade.sitespecific.values_Redefined0">
             <xs:enumeration value="1"/>
             <xs:enumeration value="2"/>
             <xs:enumeration value="3"/>
@@ -1263,18 +1265,18 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="tumor.grade.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="tumor.gradeSystem.sitespecific.values">
-        <xs:restriction base="tumor.gradeSystem.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:tumor.gradeSystem.sitespecific.values_Redefined0">
             <xs:enumeration value="nottingham"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="tumor.gradeSystem.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="tumor.histologicType.sitespecific.values">
-        <xs:restriction base="tumor.histologicType.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:tumor.histologicType.sitespecific.values_Redefined0">
             <xs:enumeration value="ductal carcinoma"/>
             <xs:enumeration value="lobular carcinoma"/>
             <xs:enumeration value="carcinoma ductal-lobular"/>
@@ -1289,19 +1291,19 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="tumor.histologicType.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="tumor.multiplicity.sitespecific.values">
-        <xs:restriction base="tumor.multiplicity.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:tumor.multiplicity.sitespecific.values_Redefined0">
             <!-- NEEDS WORK -->
             <xs:enumeration value="specify"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="tumor.multiplicity.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <xs:simpleType name="tumor.site.sitespecific.values">
-        <xs:restriction base="tumor.site.sitespecific.values_Redefined0">
+        <xs:restriction base="ecc:tumor.site.sitespecific.values_Redefined0">
             <xs:enumeration value="upper outer quadrant"/>
             <xs:enumeration value="lower outer quadrant"/>
             <xs:enumeration value="upper inner quadrant"/>
@@ -1325,7 +1327,7 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="tumor.site.sitespecific.values_Redefined0">
-        <xs:union memberTypes="sitespecific.values"/>
+        <xs:union memberTypes="ecc:sitespecific.values"/>
     </xs:simpleType>
     <!--=============================================================-->
     <xs:simpleType name="sitespecific.values">
@@ -1341,7 +1343,7 @@
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="qualitative.values">
-        <xs:union memberTypes="base.values">
+        <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="positive"/>
@@ -1388,7 +1390,7 @@
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="extended.laterality.values">
-        <xs:union memberTypes="laterality.values">
+        <xs:union memberTypes="ecc:laterality.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="ipsilateral"/>
@@ -1400,7 +1402,7 @@
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="focality.values">
-        <xs:union memberTypes="base.values">
+        <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="microfocal"/>
@@ -1416,19 +1418,20 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="accessory.lymphvascular.values">
         <xs:union
-            memberTypes="base.values qualitative.values accessory.lymphvascular.sitespecific.values"
+            memberTypes="ecc:base.values ecc:qualitative.values ecc:accessory.lymphvascular.sitespecific.values"
         />
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="accessory.perineural.values">
         <xs:union
-            memberTypes="base.values qualitative.values accessory.perineural.sitespecific.values"/>
+            memberTypes="ecc:base.values ecc:qualitative.values ecc:accessory.perineural.sitespecific.values"
+        />
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="accessory.treatmentResponse.values">
-        <xs:union memberTypes="base.values accessory.treatmentResponse.sitespecific.values">
+        <xs:union memberTypes="ecc:base.values ecc:accessory.treatmentResponse.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="none"/>
@@ -1444,19 +1447,20 @@
     <!--additional SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="additional.finding.of.values">
-        <xs:union memberTypes="base.values additional.finding.of.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:additional.finding.of.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="additional.finding.values">
-        <xs:union memberTypes="base.values additional.finding.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:additional.finding.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--=============================================================-->
     <!--extent SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="extent.contiguousExtension.for.values">
-        <xs:union memberTypes="base.values extent.contiguousExtension.for.sitespecific.values">
+        <xs:union
+            memberTypes="ecc:base.values ecc:extent.contiguousExtension.for.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="invades"/>
@@ -1468,29 +1472,30 @@
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="extent.contiguousExtension.to.values">
-        <xs:union memberTypes="base.values extent.contiguousExtension.to.sitespecific.values"/>
+        <xs:union
+            memberTypes="ecc:base.values ecc:extent.contiguousExtension.to.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="extent.contiguousExtension.focality.values">
-        <xs:union memberTypes="focality.values"/>
+        <xs:union memberTypes="ecc:focality.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--=============================================================-->
     <!--history SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="history.clinical.values">
-        <xs:union memberTypes="base.values history.clinical.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:history.clinical.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="history.pathology.values">
-        <xs:union memberTypes="base.values history.pathology.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:history.pathology.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="history.priorTherapy.values">
-        <xs:union memberTypes="base.values history.priorTherapy.sitespecific.values">
+        <xs:union memberTypes="ecc:base.values ecc:history.priorTherapy.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="chemotherapy"/>
@@ -1503,14 +1508,14 @@
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="history.radiology.values">
-        <xs:union memberTypes="base.values history.radiology.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:history.radiology.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--=============================================================-->
     <!--extent SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="extent.size.values">
-        <xs:union memberTypes="base.values extent.size.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:extent.size.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--=============================================================-->
@@ -1518,17 +1523,18 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="margins.margin.focality.values">
         <xs:union
-            memberTypes="base.values focality.values margins.margin.focality.sitespecific.values"/>
+            memberTypes="ecc:base.values ecc:focality.values ecc:margins.margin.focality.sitespecific.values"
+        />
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <xs:simpleType name="margins.margin.name.values">
-        <xs:union memberTypes="base.values margins.margin.name.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:margins.margin.name.sitespecific.values"/>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="margins.margin.result.for.values">
-        <xs:union memberTypes="base.values margins.margin.result.for.sitespecific.values">
+        <xs:union memberTypes="ecc:base.values ecc:margins.margin.result.for.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="in-situ"/>
@@ -1542,7 +1548,7 @@
     <!--distant SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="distant.metastaticSite.name.values">
-        <xs:union memberTypes="base.values distant.metastaticSite.name.sitespecific.values">
+        <xs:union memberTypes="ecc:base.values ecc:distant.metastaticSite.name.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="liver"/>
@@ -1556,7 +1562,8 @@
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="distant.metastaticSite.result.for.values">
-        <xs:union memberTypes="base.values distant.metastaticSite.result.for.sitespecific.values">
+        <xs:union
+            memberTypes="ecc:base.values ecc:distant.metastaticSite.result.for.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="this accession"/>
@@ -1572,12 +1579,12 @@
     <!--nodes SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="nodes.nodeGroup.name.values">
-        <xs:union memberTypes="base.values nodes.nodeGroup.name.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:nodes.nodeGroup.name.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="nodes.nodeGroup.result.for.values">
-        <xs:union memberTypes="base.values nodes.nodeGroup.result.for.sitespecific.values">
+        <xs:union memberTypes="ecc:base.values ecc:nodes.nodeGroup.result.for.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="total"/>
@@ -1591,13 +1598,13 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="nodes.nodeGroup.result.tumorRegression.values">
         <xs:union
-            memberTypes="base.values qualitative.values nodes.nodeGroup.result.tumorRegression.sitespecific.values"
+            memberTypes="ecc:base.values ecc:qualitative.values ecc:nodes.nodeGroup.result.tumorRegression.sitespecific.values"
         />
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="nodes.nodeGroup.technique.values">
-        <xs:union memberTypes="base.values nodes.nodeGroup.technique.sitespecific.values">
+        <xs:union memberTypes="ecc:base.values ecc:nodes.nodeGroup.technique.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="H+E one level"/>
@@ -1612,7 +1619,7 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="nodes.nodeGroup.extracapsular.values">
         <xs:union
-            memberTypes="base.values qualitative.values nodes.nodeGroup.extracapsular.sitespecific.values"
+            memberTypes="ecc:base.values ecc:qualitative.values ecc:nodes.nodeGroup.extracapsular.sitespecific.values"
         />
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -1620,7 +1627,7 @@
     <!--specimen SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="specimen.integrity.values">
-        <xs:union memberTypes="base.values specimen.integrity.sitespecific.values">
+        <xs:union memberTypes="ecc:base.values ecc:specimen.integrity.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="intact"/>
@@ -1632,19 +1639,19 @@
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="specimen.procedure.values">
-        <xs:union memberTypes="base.values specimen.procedure.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:specimen.procedure.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="specimen.site.values">
-        <xs:union memberTypes="base.values specimen.site.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:specimen.site.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--=============================================================-->
     <!--stage SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="stage.prefix.values">
-        <xs:union memberTypes="base.values stage.prefix.sitespecific.values">
+        <xs:union memberTypes="ecc:base.values ecc:stage.prefix.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="y"/>
@@ -1658,7 +1665,7 @@
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="stage.multiplicity.values">
-        <xs:union memberTypes="base.values stage.multiplicity.sitespecific.values">
+        <xs:union memberTypes="ecc:base.values ecc:stage.multiplicity.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="1"/>
@@ -1673,29 +1680,29 @@
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="stage.pT.values">
-        <xs:union memberTypes="base.values stage.pT.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:stage.pT.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="stage.pN.values">
-        <xs:union memberTypes="base.values stage.pN.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:stage.pN.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="stage.pM.values">
-        <xs:union memberTypes="base.values stage.pM.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:stage.pM.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="stage.group.values">
-        <xs:union memberTypes="base.values stage.group.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:stage.group.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--=============================================================-->
     <!--tumor SECTION VALUESETS-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="tumor.focus.type.values">
-        <xs:union memberTypes="base.values tumor.focus.type.sitespecific.values">
+        <xs:union memberTypes="ecc:base.values ecc:tumor.focus.type.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="principal or sole"/>
@@ -1707,17 +1714,17 @@
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="tumor.histologicType.values">
-        <xs:union memberTypes="base.values tumor.histologicType.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:tumor.histologicType.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="tumor.site.values">
-        <xs:union memberTypes="base.values tumor.site.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:tumor.site.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="tumor.grade.values">
-        <xs:union memberTypes="base.values tumor.grade.sitespecific.values">
+        <xs:union memberTypes="ecc:base.values ecc:tumor.grade.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="1"/>
@@ -1732,12 +1739,12 @@
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="tumor.grade.for.values">
-        <xs:union memberTypes="base.values tumor.grade.for.sitespecific.values"/>
+        <xs:union memberTypes="ecc:base.values ecc:tumor.grade.for.sitespecific.values"/>
     </xs:simpleType>
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="tumor.gradeSystem.values">
-        <xs:union memberTypes="base.values tumor.gradeSystem.sitespecific.values">
+        <xs:union memberTypes="ecc:base.values ecc:tumor.gradeSystem.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="4-grade"/>
@@ -1748,7 +1755,7 @@
     <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="tumor.multiplicity.values">
-        <xs:union memberTypes="base.values tumor.multiplicity.sitespecific.values">
+        <xs:union memberTypes="ecc:base.values ecc:tumor.multiplicity.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="1"/>
@@ -1771,7 +1778,7 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="accessory.dcis.pattern.values">
-        <xs:union memberTypes="base.values">
+        <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="comedocarcinoma"/>
@@ -1785,7 +1792,7 @@
         </xs:union>
     </xs:simpleType>
     <xs:simpleType name="accessory.dcis.grade.values">
-        <xs:union memberTypes="base.values">
+        <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="low"/>
@@ -1797,7 +1804,7 @@
         </xs:union>
     </xs:simpleType>
     <xs:simpleType name="accessory.dcis.necrosis.values">
-        <xs:union memberTypes="qualitative.values">
+        <xs:union memberTypes="ecc:qualitative.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="specify"/>
@@ -1806,7 +1813,7 @@
         </xs:union>
     </xs:simpleType>
     <xs:simpleType name="accessory.microcalcifications.values">
-        <xs:union memberTypes="base.values">
+        <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="negative"/>
@@ -1827,16 +1834,16 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="nodes.nodeGroup.result.itc.values">
-        <xs:union memberTypes="qualitative.values"/>
+        <xs:union memberTypes="ecc:qualitative.values"/>
     </xs:simpleType>
     <xs:simpleType name="nodes.nodeGroup.result.micrometastasis.values">
-        <xs:union memberTypes="qualitative.values"/>
+        <xs:union memberTypes="ecc:qualitative.values"/>
     </xs:simpleType>
     <xs:simpleType name="studies.erpr.method.antibody.values">
-        <xs:union memberTypes="xs:token base.values"/>
+        <xs:union memberTypes="xs:token ecc:base.values"/>
     </xs:simpleType>
     <xs:simpleType name="studies.erpr.method.antibody.vendor.values">
-        <xs:union memberTypes="base.values">
+        <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token"/>
             </xs:simpleType>
@@ -1868,7 +1875,7 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="studies.erpr.result.values">
-        <xs:union memberTypes="nonNegativeDecimal">
+        <xs:union memberTypes="ecc:nonNegativeDecimal">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="pending"/>
@@ -1901,16 +1908,16 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.antibody.values">
-        <xs:union memberTypes="xs:token base.values"/>
+        <xs:union memberTypes="xs:token ecc:base.values"/>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.antibody.vendor.values">
-        <xs:union memberTypes="xs:token base.values"/>
+        <xs:union memberTypes="xs:token ecc:base.values"/>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.assay.values">
-        <xs:union memberTypes="xs:token base.values"/>
+        <xs:union memberTypes="xs:token ecc:base.values"/>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.assay.vendor.values">
-        <xs:union memberTypes="xs:token base.values"/>
+        <xs:union memberTypes="xs:token ecc:base.values"/>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.technique.values">
         <xs:restriction base="xs:token">
