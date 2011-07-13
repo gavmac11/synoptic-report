@@ -811,9 +811,8 @@
         <xs:attribute name="end" type="ecc:date"/>
         <xs:attribute name="duration" type="xs:duration"/>
     </xs:attributeGroup>
-    <xs:group name="length.response">
+    <xs:group name="dimension.response">
         <xs:sequence>
-            <xs:group ref="ecc:generic.content"/>
             <xs:element form="qualified" name="response">
                 <xs:complexType>
                     <xs:group ref="ecc:generic.response.content"/>
@@ -825,10 +824,16 @@
             </xs:element>
         </xs:sequence>
     </xs:group>
+    <xs:group name="length.response">
+        <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
+            <xs:group ref="ecc:dimension.response"/>
+        </xs:sequence>
+    </xs:group>
     <xs:group name="size.response">
         <xs:sequence>
             <xs:group ref="ecc:generic.content"/>
-            <xs:group maxOccurs="3" minOccurs="1" ref="ecc:length.response"/>
+            <xs:group maxOccurs="3" minOccurs="1" ref="ecc:dimension.response"/>
         </xs:sequence>
     </xs:group>
     <xs:group name="weight.response">
