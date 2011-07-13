@@ -24,8 +24,6 @@
 <xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
     xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace"
-        schemaLocation="../framework/xmlid.xsd"/>
     <xs:redefine schemaLocation="../framework/common.xsd"/>
     <xs:redefine schemaLocation="../framework/items.xsd"/>
     <xs:redefine schemaLocation="../framework/sections.xsd">

@@ -25,8 +25,6 @@
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
     xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
     xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace"
-        schemaLocation="../framework/xmlid.xsd"/>
     <!-- Generic content definitions -->
     <xs:group name="generic.content">
         <xs:sequence>
@@ -48,7 +46,12 @@
         <!-- placeholder only -->
     </xs:attributeGroup>
     <xs:attributeGroup name="generic.attrib">
-        <xs:attribute ref="xml:id"/>
+        <xs:attribute name="id" type="xs:ID"/>
+        <!-- I would much prefer to use xml:id for this. However, the limitations of xml schema are
+            such that attributes from foreign namespaces must be imported with a @schemaLocation
+            attribute on the xs:import element. Unfortunately, MS Infopath is unable to resolve
+            xs:import elements on a schema. So I'll have to use id noNamespace. -->
+        <!-- <xs:attribute ref="xml:id"/> -->
     </xs:attributeGroup>
     <xs:attributeGroup name="nodes.nodeGroup.result.sitespecific.attrib">
         <xs:attributeGroup ref="ecc:nodes.nodeGroup.result.sitespecific.attrib_Redefined0"/>
@@ -299,7 +302,7 @@
         </xs:complexType>
     </xs:element>
     <xs:group name="margins.margin.result">
-        <!-- There is more than one context for <result> element (margin.status.result, ecc:nodes.nodeGroup.result, distant.metastaticSite.result, contiguousExtension.status.result), hence need to wrap as group -->
+        <!-- There is more than one context for <result> element (margin.status.result, nodes.nodeGroup.result, distant.metastaticSite.result, contiguousExtension.status.result), hence need to wrap as group -->
         <xs:sequence>
             <xs:element form="qualified" name="result">
                 <xs:complexType>
@@ -368,7 +371,7 @@
         </xs:complexType>
     </xs:element>
     <xs:group name="distant.metastaticSite.result">
-        <!-- There is more than one context for <result> element (margin.status.result, ecc:nodes.nodeGroup.result, distant.metastaticSite.result, contiguousExtension.status.result), hence need to wrap as group -->
+        <!-- There is more than one context for <result> element (margin.status.result, nodes.nodeGroup.result, distant.metastaticSite.result, contiguousExtension.status.result), hence need to wrap as group -->
         <xs:sequence>
             <xs:element form="qualified" name="result">
                 <xs:complexType>
@@ -857,8 +860,8 @@
     </xs:group>
     <xs:group name="qualitative.response">
         <!-- Remember that if you use this canned "shorthand" for a qualitative response, you will not be
-            able to extend it with ecc:additional.attributes later. So for responses that are indeed
-            qualitative, but may add ecc:additional.attributes later, you need to use add them
+            able to extend it with additional attributes later. So for responses that are indeed
+            qualitative, but may add additional attributes later, you need to use add them
             explicitly to the generic type. An example would be distant.status.result.response that
             needs to be typed for breast. -->
         <xs:sequence>
@@ -1841,7 +1844,7 @@
         <xs:union memberTypes="ecc:qualitative.values"/>
     </xs:simpleType>
     <xs:simpleType name="studies.erpr.method.antibody.values">
-        <xs:union memberTypes="xs:token ecc:base.values"/>
+        <xs:union memberTypes="ecc:base.values xs:token"/>
     </xs:simpleType>
     <xs:simpleType name="studies.erpr.method.antibody.vendor.values">
         <xs:union memberTypes="ecc:base.values">
@@ -1909,16 +1912,16 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.antibody.values">
-        <xs:union memberTypes="xs:token ecc:base.values"/>
+        <xs:union memberTypes="ecc:base.values xs:token"/>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.antibody.vendor.values">
-        <xs:union memberTypes="xs:token ecc:base.values"/>
+        <xs:union memberTypes="ecc:base.values xs:token"/>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.assay.values">
-        <xs:union memberTypes="xs:token ecc:base.values"/>
+        <xs:union memberTypes="ecc:base.values xs:token"/>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.assay.vendor.values">
-        <xs:union memberTypes="xs:token ecc:base.values"/>
+        <xs:union memberTypes="ecc:base.values xs:token"/>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.technique.values">
         <xs:restriction base="xs:token">

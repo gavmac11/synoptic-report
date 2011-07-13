@@ -24,7 +24,6 @@
 <xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
     xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <!-- Generic content definitions -->
     <xs:group name="generic.content">
         <xs:sequence>
@@ -46,6 +45,11 @@
         <!-- placeholder only -->
     </xs:attributeGroup>
     <xs:attributeGroup name="generic.attrib">
-        <xs:attribute ref="xml:id"/>
+        <xs:attribute name="id" type="xs:ID"/>
+        <!-- I would much prefer to use xml:id for this. However, the limitations of xml schema are
+            such that attributes from foreign namespaces must be imported with a @schemaLocation
+            attribute on the xs:import element. Unfortunately, MS Infopath is unable to resolve
+            xs:import elements on a schema. So I'll have to use id noNamespace. -->
+        <!-- <xs:attribute ref="xml:id"/> -->
     </xs:attributeGroup>
 </xs:schema>

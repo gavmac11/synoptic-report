@@ -1,55 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema elementFormDefault="qualified"
+<xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-    xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    xmlns:ecc="http://purl.org/pathology/ecc/" xmlns:rng="http://relaxng.org/ns/structure/1.0"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:redefine schemaLocation="../framework/values.xsd">
         <xs:simpleType name="accessory.lymphvascular.sitespecific.values">
-            <xs:restriction base="accessory.lymphvascular.sitespecific.values">
+            <xs:restriction base="ecc:accessory.lymphvascular.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="accessory.perineural.sitespecific.values">
-            <xs:restriction base="accessory.perineural.sitespecific.values">
+            <xs:restriction base="ecc:accessory.perineural.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="accessory.treatmentResponse.sitespecific.values">
-            <xs:restriction base="accessory.treatmentResponse.sitespecific.values">
+            <xs:restriction base="ecc:accessory.treatmentResponse.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="additional.finding.sitespecific.values">
-            <xs:restriction base="additional.finding.sitespecific.values">
+            <xs:restriction base="ecc:additional.finding.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="additional.finding.of.sitespecific.values">
-            <xs:restriction base="additional.finding.of.sitespecific.values">
+            <xs:restriction base="ecc:additional.finding.of.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="distant.metastaticSite.name.sitespecific.values">
-            <xs:restriction base="distant.metastaticSite.name.sitespecific.values">
+            <xs:restriction base="ecc:distant.metastaticSite.name.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="distant.metastaticSite.result.for.sitespecific.values">
-            <xs:restriction base="distant.metastaticSite.result.for.sitespecific.values">
+            <xs:restriction base="ecc:distant.metastaticSite.result.for.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="extent.contiguousExtension.focality.sitespecific.values">
-            <xs:restriction base="extent.contiguousExtension.focality.sitespecific.values">
+            <xs:restriction base="ecc:extent.contiguousExtension.focality.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="extent.contiguousExtension.for.sitespecific.values">
-            <xs:restriction base="extent.contiguousExtension.for.sitespecific.values">
+            <xs:restriction base="ecc:extent.contiguousExtension.for.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="extent.contiguousExtension.to.sitespecific.values">
-            <xs:restriction base="extent.contiguousExtension.to.sitespecific.values">
+            <xs:restriction base="ecc:extent.contiguousExtension.to.sitespecific.values">
                 <xs:enumeration value="skin"/>
                 <xs:enumeration value="pectoralis muscle"/>
                 <xs:enumeration value="chest wall"/>
@@ -57,21 +58,21 @@
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="extent.size.sitespecific.values">
-            <xs:restriction base="extent.size.sitespecific.values">
+            <xs:restriction base="ecc:extent.size.sitespecific.values">
                 <xs:enumeration value="microinvasion"/>
                 <xs:enumeration value="no residual carcinoma"/>
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="history.clinical.sitespecific.values">
-            <xs:restriction base="history.clinical.sitespecific.values">
+            <xs:restriction base="ecc:history.clinical.sitespecific.values">
                 <xs:enumeration value="palpable mass"/>
                 <xs:enumeration value="nipple discharge"/>
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="history.pathology.sitespecific.values">
-            <xs:restriction base="history.pathology.sitespecific.values">
+            <xs:restriction base="ecc:history.pathology.sitespecific.values">
                 <xs:enumeration value="breast carcinoma, NOS"/>
                 <xs:enumeration value="ductal carcinoma-in-situ"/>
                 <xs:enumeration value="lobular carcinoma-in-situ"/>
@@ -81,12 +82,12 @@
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="history.priorTherapy.sitespecific.values">
-            <xs:restriction base="history.priorTherapy.sitespecific.values">
+            <xs:restriction base="ecc:history.priorTherapy.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="history.radiology.sitespecific.values">
-            <xs:restriction base="history.radiology.sitespecific.values">
+            <xs:restriction base="ecc:history.radiology.sitespecific.values">
                 <xs:enumeration value="mass"/>
                 <xs:enumeration value="architectural distortion"/>
                 <xs:enumeration value="microcalcifications"/>
@@ -94,12 +95,12 @@
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="margins.margin.focality.sitespecific.values">
-            <xs:restriction base="margins.margin.focality.sitespecific.values">
+            <xs:restriction base="ecc:margins.margin.focality.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="margins.margin.name.sitespecific.values">
-            <xs:restriction base="margins.margin.name.sitespecific.values">
+            <xs:restriction base="ecc:margins.margin.name.sitespecific.values">
                 <xs:enumeration value="superior"/>
                 <xs:enumeration value="inferior"/>
                 <xs:enumeration value="anterior"/>
@@ -110,13 +111,13 @@
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="margins.margin.result.for.sitespecific.values">
-            <xs:restriction base="margins.margin.result.for.sitespecific.values">
+            <xs:restriction base="ecc:margins.margin.result.for.sitespecific.values">
                 <!-- NEEDS WORK -->
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="nodes.nodeGroup.name.sitespecific.values">
-            <xs:restriction base="nodes.nodeGroup.name.sitespecific.values">
+            <xs:restriction base="ecc:nodes.nodeGroup.name.sitespecific.values">
                 <xs:enumeration value="low axillary"/>
                 <xs:enumeration value="mid axillary"/>
                 <xs:enumeration value="high axillary"/>
@@ -127,35 +128,35 @@
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="nodes.nodeGroup.result.for.sitespecific.values">
-            <xs:restriction base="nodes.nodeGroup.result.for.sitespecific.values">
+            <xs:restriction base="ecc:nodes.nodeGroup.result.for.sitespecific.values">
                 <!-- NEEDS WORK -->
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="nodes.nodeGroup.result.tumorRegression.sitespecific.values">
-            <xs:restriction base="nodes.nodeGroup.result.tumorRegression.sitespecific.values">
+            <xs:restriction base="ecc:nodes.nodeGroup.result.tumorRegression.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="nodes.nodeGroup.technique.sitespecific.values">
-            <xs:restriction base="nodes.nodeGroup.technique.sitespecific.values">
+            <xs:restriction base="ecc:nodes.nodeGroup.technique.sitespecific.values">
                 <!-- NEEDS WORK -->
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="nodes.nodeGroup.extracapsular.sitespecific.values">
-            <xs:restriction base="nodes.nodeGroup.extracapsular.sitespecific.values">
+            <xs:restriction base="ecc:nodes.nodeGroup.extracapsular.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="specimen.integrity.sitespecific.values">
-            <xs:restriction base="specimen.integrity.sitespecific.values">
+            <xs:restriction base="ecc:specimen.integrity.sitespecific.values">
                 <xs:enumeration value="multiple designated specimens"/>
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="specimen.procedure.sitespecific.values">
-            <xs:restriction base="specimen.procedure.sitespecific.values">
+            <xs:restriction base="ecc:specimen.procedure.sitespecific.values">
                 <xs:enumeration value="excision"/>
                 <xs:enumeration value="excision, wire-guided"/>
                 <xs:enumeration value="total mastectomy"/>
@@ -167,7 +168,7 @@
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="specimen.site.sitespecific.values">
-            <xs:restriction base="specimen.site.sitespecific.values">
+            <xs:restriction base="ecc:specimen.site.sitespecific.values">
                 <xs:enumeration value="upper outer quadrant"/>
                 <xs:enumeration value="lower outer quadrant"/>
                 <xs:enumeration value="upper inner quadrant"/>
@@ -181,7 +182,7 @@
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="stage.group.sitespecific.values">
-            <xs:restriction base="stage.group.sitespecific.values">
+            <xs:restriction base="ecc:stage.group.sitespecific.values">
                 <xs:enumeration value="0"/>
                 <xs:enumeration value="IA"/>
                 <xs:enumeration value="IB"/>
@@ -196,12 +197,12 @@
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="stage.multiplicity.sitespecific.values">
-            <xs:restriction base="stage.multiplicity.sitespecific.values">
+            <xs:restriction base="ecc:stage.multiplicity.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="stage.pN.sitespecific.values">
-            <xs:restriction base="stage.pN.sitespecific.values">
+            <xs:restriction base="ecc:stage.pN.sitespecific.values">
                 <xs:enumeration value="X"/>
                 <xs:enumeration value="0"/>
                 <xs:enumeration value="0(i-)"/>
@@ -224,7 +225,7 @@
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="stage.pM.sitespecific.values">
-            <xs:restriction base="stage.pM.sitespecific.values">
+            <xs:restriction base="ecc:stage.pM.sitespecific.values">
                 <xs:enumeration value="0"/>
                 <xs:enumeration value="0(i+)"/>
                 <xs:enumeration value="1"/>
@@ -232,12 +233,12 @@
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="stage.prefix.sitespecific.values">
-            <xs:restriction base="stage.prefix.sitespecific.values">
+            <xs:restriction base="ecc:stage.prefix.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="stage.pT.sitespecific.values">
-            <xs:restriction base="stage.pT.sitespecific.values">
+            <xs:restriction base="ecc:stage.pT.sitespecific.values">
                 <xs:enumeration value="X"/>
                 <xs:enumeration value="0"/>
                 <xs:enumeration value="is"/>
@@ -260,12 +261,12 @@
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="tumor.focus.type.sitespecific.values">
-            <xs:restriction base="tumor.focus.type.sitespecific.values">
+            <xs:restriction base="ecc:tumor.focus.type.sitespecific.values">
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="tumor.grade.for.sitespecific.values">
-            <xs:restriction base="tumor.grade.for.sitespecific.values">
+            <xs:restriction base="ecc:tumor.grade.for.sitespecific.values">
                 <xs:enumeration value="combined"/>
                 <xs:enumeration value="glands"/>
                 <xs:enumeration value="nuclei"/>
@@ -273,7 +274,7 @@
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="tumor.grade.sitespecific.values">
-            <xs:restriction base="tumor.grade.sitespecific.values">
+            <xs:restriction base="ecc:tumor.grade.sitespecific.values">
                 <xs:enumeration value="1"/>
                 <xs:enumeration value="2"/>
                 <xs:enumeration value="3"/>
@@ -281,12 +282,12 @@
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="tumor.gradeSystem.sitespecific.values">
-            <xs:restriction base="tumor.gradeSystem.sitespecific.values">
+            <xs:restriction base="ecc:tumor.gradeSystem.sitespecific.values">
                 <xs:enumeration value="nottingham"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="tumor.histologicType.sitespecific.values">
-            <xs:restriction base="tumor.histologicType.sitespecific.values">
+            <xs:restriction base="ecc:tumor.histologicType.sitespecific.values">
                 <xs:enumeration value="ductal carcinoma"/>
                 <xs:enumeration value="lobular carcinoma"/>
                 <xs:enumeration value="carcinoma ductal-lobular"/>
@@ -301,13 +302,13 @@
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="tumor.multiplicity.sitespecific.values">
-            <xs:restriction base="tumor.multiplicity.sitespecific.values">
+            <xs:restriction base="ecc:tumor.multiplicity.sitespecific.values">
                 <!-- NEEDS WORK -->
                 <xs:enumeration value="specify"/>
             </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="tumor.site.sitespecific.values">
-            <xs:restriction base="tumor.site.sitespecific.values">
+            <xs:restriction base="ecc:tumor.site.sitespecific.values">
                 <xs:enumeration value="upper outer quadrant"/>
                 <xs:enumeration value="lower outer quadrant"/>
                 <xs:enumeration value="upper inner quadrant"/>
@@ -340,7 +341,7 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="accessory.dcis.pattern.values">
-        <xs:union memberTypes="base.values">
+        <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="comedocarcinoma"/>
@@ -354,7 +355,7 @@
         </xs:union>
     </xs:simpleType>
     <xs:simpleType name="accessory.dcis.grade.values">
-        <xs:union memberTypes="base.values">
+        <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="low"/>
@@ -366,7 +367,7 @@
         </xs:union>
     </xs:simpleType>
     <xs:simpleType name="accessory.dcis.necrosis.values">
-        <xs:union memberTypes="qualitative.values">
+        <xs:union memberTypes="ecc:qualitative.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="specify"/>
@@ -375,7 +376,7 @@
         </xs:union>
     </xs:simpleType>
     <xs:simpleType name="accessory.microcalcifications.values">
-        <xs:union memberTypes="base.values">
+        <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="negative"/>
@@ -396,16 +397,16 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="nodes.nodeGroup.result.itc.values">
-        <xs:union memberTypes="qualitative.values"/>
+        <xs:union memberTypes="ecc:qualitative.values"/>
     </xs:simpleType>
     <xs:simpleType name="nodes.nodeGroup.result.micrometastasis.values">
-        <xs:union memberTypes="qualitative.values"/>
+        <xs:union memberTypes="ecc:qualitative.values"/>
     </xs:simpleType>
     <xs:simpleType name="studies.erpr.method.antibody.values">
-        <xs:union memberTypes="xs:token base.values"/>
+        <xs:union memberTypes="ecc:base.values xs:token"/>
     </xs:simpleType>
     <xs:simpleType name="studies.erpr.method.antibody.vendor.values">
-        <xs:union memberTypes="base.values">
+        <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token"/>
             </xs:simpleType>
@@ -437,7 +438,7 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="studies.erpr.result.values">
-        <xs:union memberTypes="nonNegativeDecimal">
+        <xs:union memberTypes="ecc:nonNegativeDecimal">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
                     <xs:enumeration value="pending"/>
@@ -470,16 +471,16 @@
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.antibody.values">
-        <xs:union memberTypes="xs:token base.values"/>
+        <xs:union memberTypes="ecc:base.values xs:token"/>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.antibody.vendor.values">
-        <xs:union memberTypes="xs:token base.values"/>
+        <xs:union memberTypes="ecc:base.values xs:token"/>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.assay.values">
-        <xs:union memberTypes="xs:token base.values"/>
+        <xs:union memberTypes="ecc:base.values xs:token"/>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.assay.vendor.values">
-        <xs:union memberTypes="xs:token base.values"/>
+        <xs:union memberTypes="ecc:base.values xs:token"/>
     </xs:simpleType>
     <xs:simpleType name="studies.her2.method.technique.values">
         <xs:restriction base="xs:token">
