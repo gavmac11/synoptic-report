@@ -1786,6 +1786,16 @@
             <xs:enumeration value="unreported"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:annotation>
+        <xs:appinfo>
+            <values name="accessory.cis.blocks.type.values">
+                <value>RT-PCR negative</value>
+                <value>specify</value>
+                <value>inapplicable</value>
+                <value>unreported</value>
+            </values>
+        </xs:appinfo>
+    </xs:annotation>
     <xs:simpleType name="accessory.dcis.pattern.values">
         <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
