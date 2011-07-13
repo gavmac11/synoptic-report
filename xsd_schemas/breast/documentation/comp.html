@@ -7,7 +7,6 @@
       <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript">
          <!--
         var propertiesBoxes= new Array('properties_breast-flat.xsd', 
-				'properties_xml.xsd', 
 				'properties_generic.content_label', 
 				'properties_generic.content_comment', 
 				'properties_generic.response.content_specify', 
@@ -126,7 +125,7 @@
 				'properties_studies', 
 				'properties_stage', 
 				'properties_additional', 
-				'properties_id', 
+				'properties_generic.attrib_id', 
 				'properties_nodes.nodeGroup.result.sitespecific.attrib_itc', 
 				'properties_nodes.nodeGroup.result.sitespecific.attrib_micrometastasis', 
 				'properties_generic.response.content_value', 
@@ -232,10 +231,7 @@
 				'properties_studies.HER2neu.method_studies.HER2neu.method_antibody_studies.HER2neu.method_studies.HER2neu.method_antibody_response_vendor', 
 				'properties_studies.HER2neu.method_studies.HER2neu.method_assay_studies.HER2neu.method_studies.HER2neu.method_assay_response_value', 
 				'properties_studies.HER2neu.method_studies.HER2neu.method_assay_studies.HER2neu.method_studies.HER2neu.method_assay_response_vendor', 
-				'properties_studies.HER2neu.method_studies.HER2neu.method_fixative_studies.HER2neu.method_studies.HER2neu.method_fixative_response_value', 
-				'properties_lang', 
-				'properties_space', 
-				'properties_base');
+				'properties_studies.HER2neu.method_studies.HER2neu.method_fixative_studies.HER2neu.method_studies.HER2neu.method_fixative_response_value');
 
         var facetsBoxes= new Array('facets_laterality.values', 
 				'facets_lengthUnit.values', 
@@ -247,6 +243,45 @@
 				'facets_studies.erpr.method.fixative.values', 
 				'facets_studies.her2.imm.result.values', 
 				'facets_studies.her2.method.technique.values', 
+				'facets_accessory.lymphvascular.sitespecific.values', 
+				'facets_accessory.perineural.sitespecific.values', 
+				'facets_accessory.treatmentResponse.sitespecific.values', 
+				'facets_additional.finding.sitespecific.values', 
+				'facets_additional.finding.of.sitespecific.values', 
+				'facets_distant.metastaticSite.name.sitespecific.values', 
+				'facets_distant.metastaticSite.result.for.sitespecific.values', 
+				'facets_extent.contiguousExtension.focality.sitespecific.values', 
+				'facets_extent.contiguousExtension.for.sitespecific.values', 
+				'facets_extent.contiguousExtension.to.sitespecific.values', 
+				'facets_extent.size.sitespecific.values', 
+				'facets_history.clinical.sitespecific.values', 
+				'facets_history.pathology.sitespecific.values', 
+				'facets_history.priorTherapy.sitespecific.values', 
+				'facets_history.radiology.sitespecific.values', 
+				'facets_margins.margin.focality.sitespecific.values', 
+				'facets_margins.margin.name.sitespecific.values', 
+				'facets_margins.margin.result.for.sitespecific.values', 
+				'facets_nodes.nodeGroup.name.sitespecific.values', 
+				'facets_nodes.nodeGroup.result.for.sitespecific.values', 
+				'facets_nodes.nodeGroup.result.tumorRegression.sitespecific.values', 
+				'facets_nodes.nodeGroup.technique.sitespecific.values', 
+				'facets_nodes.nodeGroup.extracapsular.sitespecific.values', 
+				'facets_specimen.integrity.sitespecific.values', 
+				'facets_specimen.procedure.sitespecific.values', 
+				'facets_specimen.site.sitespecific.values', 
+				'facets_stage.group.sitespecific.values', 
+				'facets_stage.multiplicity.sitespecific.values', 
+				'facets_stage.pN.sitespecific.values', 
+				'facets_stage.pM.sitespecific.values', 
+				'facets_stage.prefix.sitespecific.values', 
+				'facets_stage.pT.sitespecific.values', 
+				'facets_tumor.focus.type.sitespecific.values', 
+				'facets_tumor.grade.for.sitespecific.values', 
+				'facets_tumor.grade.sitespecific.values', 
+				'facets_tumor.gradeSystem.sitespecific.values', 
+				'facets_tumor.histologicType.sitespecific.values', 
+				'facets_tumor.multiplicity.sitespecific.values', 
+				'facets_tumor.site.sitespecific.values', 
 				'facets_base.values', 
 				'facets_accessory.dcis.result.modifier.values', 
 				'facets_studies.her2.fish.result.values', 
@@ -275,8 +310,7 @@
 				'facets_studies.HER2neu.result_studies.HER2neu.result_result_studies.HER2neu.result_studies.HER2neu.result_result_response_value', 
 				'facets_studies.HER2neu.method_studies.HER2neu.method_technique_studies.HER2neu.method_studies.HER2neu.method_technique_response_value', 
 				'facets_studies.HER2neu.method_studies.HER2neu.method_source_studies.HER2neu.method_studies.HER2neu.method_source_response_value', 
-				'facets_studies.HER2neu.method_studies.HER2neu.method_fixative_studies.HER2neu.method_studies.HER2neu.method_fixative_response_value', 
-				'facets_space');
+				'facets_studies.HER2neu.method_studies.HER2neu.method_fixative_studies.HER2neu.method_studies.HER2neu.method_fixative_response_value');
 
         var usedByBoxes= new Array('usedBy_clinicalFinding', 
 				'usedBy_pathologicFinding', 
@@ -391,7 +425,46 @@
 				'usedBy_studies.her2.method.antibody.vendor.values', 
 				'usedBy_studies.her2.method.assay.values', 
 				'usedBy_studies.her2.method.assay.vendor.values', 
-				'usedBy_id', 
+				'usedBy_accessory.lymphvascular.sitespecific.values_Redefined0', 
+				'usedBy_accessory.perineural.sitespecific.values_Redefined0', 
+				'usedBy_accessory.treatmentResponse.sitespecific.values_Redefined0', 
+				'usedBy_additional.finding.sitespecific.values_Redefined0', 
+				'usedBy_additional.finding.of.sitespecific.values_Redefined0', 
+				'usedBy_distant.metastaticSite.name.sitespecific.values_Redefined0', 
+				'usedBy_distant.metastaticSite.result.for.sitespecific.values_Redefined0', 
+				'usedBy_extent.contiguousExtension.focality.sitespecific.values_Redefined0', 
+				'usedBy_extent.contiguousExtension.for.sitespecific.values_Redefined0', 
+				'usedBy_extent.contiguousExtension.to.sitespecific.values_Redefined0', 
+				'usedBy_extent.size.sitespecific.values_Redefined0', 
+				'usedBy_history.clinical.sitespecific.values_Redefined0', 
+				'usedBy_history.pathology.sitespecific.values_Redefined0', 
+				'usedBy_history.priorTherapy.sitespecific.values_Redefined0', 
+				'usedBy_history.radiology.sitespecific.values_Redefined0', 
+				'usedBy_margins.margin.focality.sitespecific.values_Redefined0', 
+				'usedBy_margins.margin.name.sitespecific.values_Redefined0', 
+				'usedBy_margins.margin.result.for.sitespecific.values_Redefined0', 
+				'usedBy_nodes.nodeGroup.name.sitespecific.values_Redefined0', 
+				'usedBy_nodes.nodeGroup.result.for.sitespecific.values_Redefined0', 
+				'usedBy_nodes.nodeGroup.result.tumorRegression.sitespecific.values_Redefined0', 
+				'usedBy_nodes.nodeGroup.technique.sitespecific.values_Redefined0', 
+				'usedBy_nodes.nodeGroup.extracapsular.sitespecific.values_Redefined0', 
+				'usedBy_specimen.integrity.sitespecific.values_Redefined0', 
+				'usedBy_specimen.procedure.sitespecific.values_Redefined0', 
+				'usedBy_specimen.site.sitespecific.values_Redefined0', 
+				'usedBy_stage.group.sitespecific.values_Redefined0', 
+				'usedBy_stage.multiplicity.sitespecific.values_Redefined0', 
+				'usedBy_stage.pN.sitespecific.values_Redefined0', 
+				'usedBy_stage.pM.sitespecific.values_Redefined0', 
+				'usedBy_stage.prefix.sitespecific.values_Redefined0', 
+				'usedBy_stage.pT.sitespecific.values_Redefined0', 
+				'usedBy_tumor.focus.type.sitespecific.values_Redefined0', 
+				'usedBy_tumor.grade.for.sitespecific.values_Redefined0', 
+				'usedBy_tumor.grade.sitespecific.values_Redefined0', 
+				'usedBy_tumor.gradeSystem.sitespecific.values_Redefined0', 
+				'usedBy_tumor.histologicType.sitespecific.values_Redefined0', 
+				'usedBy_tumor.multiplicity.sitespecific.values_Redefined0', 
+				'usedBy_tumor.site.sitespecific.values_Redefined0', 
+				'usedBy_generic.attrib_id', 
 				'usedBy_nodes.nodeGroup.result.sitespecific.attrib_itc', 
 				'usedBy_nodes.nodeGroup.result.sitespecific.attrib_micrometastasis', 
 				'usedBy_generic.response.content_value', 
@@ -434,9 +507,6 @@
 				'usedBy_studies.HER2neu.result_studies.HER2neu.result_result_studies.HER2neu.result_studies.HER2neu.result_result_chromosome17CopyNumber_value', 
 				'usedBy_studies.HER2neu.result_studies.HER2neu.result_result_studies.HER2neu.result_studies.HER2neu.result_result_chromosome17CopyNumber_unit', 
 				'usedBy_studies.HER2neu.result_studies.HER2neu.result_result_studies.HER2neu.result_studies.HER2neu.result_result_her2CopyNumberRatio_value', 
-				'usedBy_lang', 
-				'usedBy_space', 
-				'usedBy_base', 
 				'usedBy_generic.content', 
 				'usedBy_generic.response.content', 
 				'usedBy_tumor.focus.content', 
@@ -752,7 +822,7 @@
 				'source_tumor.multiplicity.values', 
 				'source_accessory.dcis.result.modifier.values', 
 				'source_studies.her2.fish.result.values', 
-				'source_id', 
+				'source_generic.attrib_id', 
 				'source_nodes.nodeGroup.result.sitespecific.attrib_itc', 
 				'source_nodes.nodeGroup.result.sitespecific.attrib_micrometastasis', 
 				'source_generic.response.content_value', 
@@ -859,9 +929,6 @@
 				'source_studies.HER2neu.method_studies.HER2neu.method_assay_studies.HER2neu.method_studies.HER2neu.method_assay_response_value', 
 				'source_studies.HER2neu.method_studies.HER2neu.method_assay_studies.HER2neu.method_studies.HER2neu.method_assay_response_vendor', 
 				'source_studies.HER2neu.method_studies.HER2neu.method_fixative_studies.HER2neu.method_studies.HER2neu.method_fixative_response_value', 
-				'source_lang', 
-				'source_space', 
-				'source_base', 
 				'source_generic.content', 
 				'source_generic.response.content', 
 				'source_tumor.focus.content', 
@@ -909,8 +976,7 @@
 				'source_date.attrib', 
 				'source_distant.metastaticSite.result.response.attrib', 
 				'source_resection.attrib', 
-				'source_resection.attrib_Redefined0', 
-				'source_specialAttrs');
+				'source_resection.attrib_Redefined0');
 
         var instanceBoxes= new Array('instance_clinicalFinding', 
 				'instance_clinicalFinding_response', 
@@ -1344,14 +1410,9 @@
 				'diagram_date.attrib', 
 				'diagram_distant.metastaticSite.result.response.attrib', 
 				'diagram_resection.attrib', 
-				'diagram_resection.attrib_Redefined0', 
-				'diagram_specialAttrs');
+				'diagram_resection.attrib_Redefined0');
 
-        var annotationBoxes= new Array('annotations_xml.xsd', 
-				'annotations_id', 
-				'annotations_lang', 
-				'annotations_base');
-
+        
         var attributesBoxes= new Array('attributes_clinicalFinding', 
 				'attributes_clinicalFinding_response', 
 				'attributes_pathologicFinding', 
@@ -1464,8 +1525,7 @@
 				'attributes_generic.attrib', 
 				'attributes_nodes.nodeGroup.result.sitespecific.attrib', 
 				'attributes_date.attrib', 
-				'attributes_resection.attrib', 
-				'attributes_specialAttrs');
+				'attributes_resection.attrib');
 
         
         var button_prefix = 'button_';
@@ -2532,7 +2592,7 @@
                <div class="level2">
                   <p><input id="button_boxIdNamespace2" type="image" value="-" src="img/btM.gif"
                             onclick="switchState('boxIdNamespace2');"
-                            class="control" /><span class="indexGroupTitle">http://www.w3.org/XML/1998/namespace</span></p>
+                            class="control" /><span class="indexGroupTitle">No namespace</span></p>
                   <div id="boxIdNamespace2" style="display:block">
                      <div class="horizontalLayout">
                         <table class="rt">
@@ -2548,74 +2608,6 @@
                                     
                                  </div>
                                  <div id="boxIdNamespace2Attribute" style="display:block">
-                                    <div><b><a href="breast-flat.html#base" target="_self"
-                                             title="http://www.w3.org/XML/1998/namespace">@xml:base</a></b></div>
-                                    <div><b><a href="breast-flat.html#id" target="_self"
-                                             title="http://www.w3.org/XML/1998/namespace">@xml:id</a></b></div>
-                                    <div><b><a href="breast-flat.html#lang" target="_self"
-                                             title="http://www.w3.org/XML/1998/namespace">@xml:lang</a></b></div>
-                                    <div><b><a href="breast-flat.html#space" target="_self"
-                                             title="http://www.w3.org/XML/1998/namespace">@xml:space</a></b></div>
-                                 </div>
-                              </td>
-                              <td class="rt_lineRight"></td>
-                           </tr>
-                           <tr>
-                              <td class="rt_cornerBottomLeft"></td>
-                              <td class="rt_lineBottom"></td>
-                              <td class="rt_cornerBottomRight"></td>
-                           </tr>
-                        </table>
-                     </div>
-                     <div class="horizontalLayout">
-                        <table class="rt">
-                           <tr>
-                              <td class="rt_cornerTopLeft"></td>
-                              <td class="rt_lineTop"></td>
-                              <td class="rt_cornerTopRight"></td>
-                           </tr>
-                           <tr>
-                              <td class="rt_lineLeft"></td>
-                              <td class="rt_content">
-                                 <div class="componentGroupTitle">Attribute Groups
-                                    
-                                 </div>
-                                 <div id="boxIdNamespace2Attribute_Group" style="display:block">
-                                    <div><b><a href="breast-flat.html#specialAttrs" target="_self"
-                                             title="http://www.w3.org/XML/1998/namespace">xml:specialAttrs</a></b></div>
-                                 </div>
-                              </td>
-                              <td class="rt_lineRight"></td>
-                           </tr>
-                           <tr>
-                              <td class="rt_cornerBottomLeft"></td>
-                              <td class="rt_lineBottom"></td>
-                              <td class="rt_cornerBottomRight"></td>
-                           </tr>
-                        </table>
-                     </div>
-                     <div style="clear:left"></div>
-                  </div>
-               </div>
-               <div class="level2">
-                  <p><input id="button_boxIdNamespace3" type="image" value="-" src="img/btM.gif"
-                            onclick="switchState('boxIdNamespace3');"
-                            class="control" /><span class="indexGroupTitle">No namespace</span></p>
-                  <div id="boxIdNamespace3" style="display:block">
-                     <div class="horizontalLayout">
-                        <table class="rt">
-                           <tr>
-                              <td class="rt_cornerTopLeft"></td>
-                              <td class="rt_lineTop"></td>
-                              <td class="rt_cornerTopRight"></td>
-                           </tr>
-                           <tr>
-                              <td class="rt_lineLeft"></td>
-                              <td class="rt_content">
-                                 <div class="componentGroupTitle">Attributes
-                                    
-                                 </div>
-                                 <div id="boxIdNamespace3Attribute" style="display:block">
                                     <div><b><a href="breast-flat.html#accessory.cis.blocks_accessory.cis.blocks_tally_for"
                                              target="_self"
                                              title="No namespace">ecc:accessory.cis.blocks/ecc:tally/@for</a></b></div>
@@ -2666,6 +2658,7 @@
                                     <div><b><a href="breast-flat.html#finding_finding_response_value" target="_self"
                                              title="No namespace">ecc:finding/ecc:response/@value</a></b></div>
                                     <div><b><a href="breast-flat.html#focus_type" target="_self" title="No namespace">ecc:focus/@type</a></b></div>
+                                    <div><b><a href="breast-flat.html#generic.attrib_id" target="_self" title="No namespace">ecc:generic.attrib/@id</a></b></div>
                                     <div><b><a href="breast-flat.html#generic.response.content_closest" target="_self"
                                              title="No namespace">ecc:generic.response.content/@closest</a></b></div>
                                     <div><b><a href="breast-flat.html#generic.response.content_extent" target="_self"
@@ -3560,14 +3553,6 @@
                               
                            </div>
                            <div id="Attribute" style="display:block">
-                              <div><b><a href="breast-flat.html#base" target="_self"
-                                       title="http://www.w3.org/XML/1998/namespace">@xml:base</a></b></div>
-                              <div><b><a href="breast-flat.html#id" target="_self"
-                                       title="http://www.w3.org/XML/1998/namespace">@xml:id</a></b></div>
-                              <div><b><a href="breast-flat.html#lang" target="_self"
-                                       title="http://www.w3.org/XML/1998/namespace">@xml:lang</a></b></div>
-                              <div><b><a href="breast-flat.html#space" target="_self"
-                                       title="http://www.w3.org/XML/1998/namespace">@xml:space</a></b></div>
                               <div><b><a href="breast-flat.html#accessory.cis.blocks_accessory.cis.blocks_tally_for"
                                        target="_self"
                                        title="No namespace">ecc:accessory.cis.blocks/ecc:tally/@for</a></b></div>
@@ -3618,6 +3603,7 @@
                               <div><b><a href="breast-flat.html#finding_finding_response_value" target="_self"
                                        title="No namespace">ecc:finding/ecc:response/@value</a></b></div>
                               <div><b><a href="breast-flat.html#focus_type" target="_self" title="No namespace">ecc:focus/@type</a></b></div>
+                              <div><b><a href="breast-flat.html#generic.attrib_id" target="_self" title="No namespace">ecc:generic.attrib/@id</a></b></div>
                               <div><b><a href="breast-flat.html#generic.response.content_closest" target="_self"
                                        title="No namespace">ecc:generic.response.content/@closest</a></b></div>
                               <div><b><a href="breast-flat.html#generic.response.content_extent" target="_self"
@@ -3966,8 +3952,6 @@
                                        title="http://purl.org/pathology/ecc/">ecc:resection.attrib_Redefined0</a></b></div>
                               <div><b><a href="breast-flat.html#section.attrib" target="_self"
                                        title="http://purl.org/pathology/ecc/">ecc:section.attrib</a></b></div>
-                              <div><b><a href="breast-flat.html#specialAttrs" target="_self"
-                                       title="http://www.w3.org/XML/1998/namespace">xml:specialAttrs</a></b></div>
                            </div>
                         </td>
                         <td class="rt_lineRight"></td>
@@ -4716,6 +4700,7 @@
                                     <div><b><a href="breast-flat.html#finding_finding_response_value" target="_self"
                                              title="No namespace">ecc:finding/ecc:response/@value</a></b></div>
                                     <div><b><a href="breast-flat.html#focus_type" target="_self" title="No namespace">ecc:focus/@type</a></b></div>
+                                    <div><b><a href="breast-flat.html#generic.attrib_id" target="_self" title="No namespace">ecc:generic.attrib/@id</a></b></div>
                                     <div><b><a href="breast-flat.html#generic.response.content_closest" target="_self"
                                              title="No namespace">ecc:generic.response.content/@closest</a></b></div>
                                     <div><b><a href="breast-flat.html#generic.response.content_extent" target="_self"
@@ -5064,74 +5049,6 @@
                                              title="http://purl.org/pathology/ecc/">ecc:resection.attrib_Redefined0</a></b></div>
                                     <div><b><a href="breast-flat.html#section.attrib" target="_self"
                                              title="http://purl.org/pathology/ecc/">ecc:section.attrib</a></b></div>
-                                 </div>
-                              </td>
-                              <td class="rt_lineRight"></td>
-                           </tr>
-                           <tr>
-                              <td class="rt_cornerBottomLeft"></td>
-                              <td class="rt_lineBottom"></td>
-                              <td class="rt_cornerBottomRight"></td>
-                           </tr>
-                        </table>
-                     </div>
-                     <div style="clear:left"></div>
-                  </div>
-               </div>
-               <div class="level2">
-                  <p><input id="button_xml.xsd" type="image" value="-" src="img/btM.gif"
-                            onclick="switchState('xml.xsd');"
-                            class="control" /><span class="indexGroupTitle">xml.xsd</span></p>
-                  <div id="xml.xsd" style="display:block">
-                     <div class="horizontalLayout">
-                        <table class="rt">
-                           <tr>
-                              <td class="rt_cornerTopLeft"></td>
-                              <td class="rt_lineTop"></td>
-                              <td class="rt_cornerTopRight"></td>
-                           </tr>
-                           <tr>
-                              <td class="rt_lineLeft"></td>
-                              <td class="rt_content">
-                                 <div class="componentGroupTitle">Attributes
-                                    
-                                 </div>
-                                 <div id="xml.xsdAttribute" style="display:block">
-                                    <div><b><a href="breast-flat.html#base" target="_self"
-                                             title="http://www.w3.org/XML/1998/namespace">@xml:base</a></b></div>
-                                    <div><b><a href="breast-flat.html#id" target="_self"
-                                             title="http://www.w3.org/XML/1998/namespace">@xml:id</a></b></div>
-                                    <div><b><a href="breast-flat.html#lang" target="_self"
-                                             title="http://www.w3.org/XML/1998/namespace">@xml:lang</a></b></div>
-                                    <div><b><a href="breast-flat.html#space" target="_self"
-                                             title="http://www.w3.org/XML/1998/namespace">@xml:space</a></b></div>
-                                 </div>
-                              </td>
-                              <td class="rt_lineRight"></td>
-                           </tr>
-                           <tr>
-                              <td class="rt_cornerBottomLeft"></td>
-                              <td class="rt_lineBottom"></td>
-                              <td class="rt_cornerBottomRight"></td>
-                           </tr>
-                        </table>
-                     </div>
-                     <div class="horizontalLayout">
-                        <table class="rt">
-                           <tr>
-                              <td class="rt_cornerTopLeft"></td>
-                              <td class="rt_lineTop"></td>
-                              <td class="rt_cornerTopRight"></td>
-                           </tr>
-                           <tr>
-                              <td class="rt_lineLeft"></td>
-                              <td class="rt_content">
-                                 <div class="componentGroupTitle">Attribute Groups
-                                    
-                                 </div>
-                                 <div id="xml.xsdAttribute_Group" style="display:block">
-                                    <div><b><a href="breast-flat.html#specialAttrs" target="_self"
-                                             title="http://www.w3.org/XML/1998/namespace">xml:specialAttrs</a></b></div>
                                  </div>
                               </td>
                               <td class="rt_lineRight"></td>

@@ -32,8 +32,7 @@
                 <xs:element name="response">
                     <xs:complexType>
                         <xs:group ref="ecc:generic.response.content"/>
-                        <xs:attribute name="value" type="ecc:history.clinical.values"
-                            use="required"/>
+                        <xs:attribute name="value" type="ecc:history.clinical.values" use="required"/>
                         <xs:attributeGroup ref="ecc:generic.attrib"/>
                     </xs:complexType>
                 </xs:element>
