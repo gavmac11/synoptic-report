@@ -62,6 +62,54 @@
             <xs:attribute fixed="http://purl.org/pathology/ecc/xxxFillInTheBlankxxx/ecc.xsl"
                 name="transformation"/>
         </xs:attributeGroup>
+        
+        <!--
+            In the next part of the schema template, you have the opportunity to add subsections 
+            and elements to existing sections. Where to put them is indicated. Here are
+            some templates for what a new section and what new elements might look like.
+            
+            (1) Here is an example of an added section:
+            
+            <xs:element name="addedSection">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:group ref="ecc:containedAddedELement-1"/>
+                        <xs:group ref="ecc:containedAddedELement-2"/>
+            
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+                    
+            (2) Here is an example of an added element
+            
+            <xs:element name="addedElementName">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element maxOccurs="1" minOccurs="0" name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value" type="ecc:addedElement.values"
+                                    use="required"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+            
+            (3) Here is an example of an added qualitative element:
+            
+            <xs:element name="addedQualitativeELement">
+                <xs:complexType>
+                    <xs:group ref="ecc:qualitative.response"/>
+                </xs:complexType>
+            </xs:element>
+            
+        -->
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <xs:group name="history.content">
             <xs:sequence>

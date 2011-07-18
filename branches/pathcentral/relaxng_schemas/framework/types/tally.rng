@@ -26,8 +26,7 @@
 <!ENTITY	section    "section.rng">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-    ns="http://purl.org/pathology/ecc/"
-    xmlns="http://relaxng.org/ns/structure/1.0"
+    ns="http://purl.org/pathology/ecc/" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <a:documentation/>
@@ -75,17 +74,17 @@
                     </define>
                     <define name="item.extension">
                         <attribute name="for">
-                            <parentRef name="item.for.valueset"/>
+                            <parentRef name="item.for.values"/>
                         </attribute>
-                        <optional>
-                            <attribute name="type">
-                                <parentRef name="item.type.valueset"/>
-                            </attribute>
-                        </optional>
+                        <parentRef name="tally.other.result.extension"/>
                     </define>
                 </grammar>
             </element>
         </zeroOrMore>
+    </define>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <define combine="choice" name="tally.other.result.extension">
+        <empty/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="tally.response">
@@ -93,12 +92,12 @@
             <attribute name="value">
                 <choice>
                     <data type="nonNegativeInteger"/>
-                    <parentRef name="base.valueset"/>
+                    <parentRef name="base.values"/>
                 </choice>
             </attribute>
             <optional>
                 <attribute a:defaultValue="equal" name="relation">
-                    <parentRef name="relation.valueset"/>
+                    <parentRef name="relation.values"/>
                 </attribute>
             </optional>
         </element>
@@ -108,12 +107,9 @@
         <empty/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="item.for.valueset">
+    <define combine="choice" name="item.for.values">
         <empty/>
     </define>
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="item.type.valueset">
-        <empty/>
-    </define>
+
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>

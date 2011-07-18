@@ -26,7 +26,7 @@
     <!--=============================================================-->
     <a:documentation>SHARED valuesets</a:documentation>
     <!--=============================================================-->
-    <define name="intrinsic.site.valueset">
+    <define name="intrinsic.site.values">
         <choice>
             <value>main bronchus</value>
             <value>entire lung</value>
@@ -57,7 +57,7 @@
             <value>lower lobe bronchus</value>
         </choice>
     </define>
-    <define name="extrinsic.site.valueset">
+    <define name="extrinsic.site.values">
         <choice>
             <choice>
                 <value>carina</value>
@@ -83,7 +83,7 @@
     <!--=============================================================-->
     <a:documentation>SPECIMEN section valuesets</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.procedure.valueset">
+    <define name="specimen.procedure.values">
         <choice>
             <value>wedge biopsy</value>
             <value>transbronchial biopsy</value>
@@ -96,17 +96,17 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.site.valueset">
-        <ref name="sites.valueset"/>
+    <define name="specimen.site.values">
+        <ref name="sites.values"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="sites.valueset">
-        <ref name="intrinsic.site.valueset"/>
+    <define name="sites.values">
+        <ref name="intrinsic.site.values"/>
     </define>
     <!--=============================================================-->
     <a:documentation>TUMOR section valuesets</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.type.valueset">
+    <define name="tumor.type.values">
         <choice>
             <value>carcinoma nos</value>
             <value>non-small cell carcinoma nos</value>
@@ -148,7 +148,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.grade.valueset">
+    <define name="tumor.grade.values">
         <choice>
             <value>1</value>
             <value>2</value>
@@ -157,13 +157,13 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.gradeSystem.valueset">
+    <define name="tumor.gradeSystem.values">
         <choice>
             <value>WHO</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="tumor.multiplicity.valueset">
+    <define combine="choice" name="tumor.multiplicity.values">
         <choice>
             <value>unifocal</value>
             <value>multifocal same lobe</value>
@@ -173,10 +173,10 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="tumor.site.valueset">
-        <ref name="intrinsic.site.valueset"/>
+    <define combine="choice" name="tumor.site.values">
+        <ref name="intrinsic.site.values"/>
     </define>
-    <define name="tumor.focus.pleuralInvasion.valueset">
+    <define name="tumor.focus.pleuralInvasion.values">
         <choice>
             <value>negative</value>
             <value>past visceral pleura elastica</value>
@@ -187,18 +187,18 @@
     <!--=============================================================-->
     <a:documentation>EXTENT section valuesets</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.contiguousExtension.status.of.valueset">
-        <ref name="extrinsic.site.valueset"/>
+    <define name="extent.contiguousExtension.to.values">
+        <ref name="extrinsic.site.values"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.contiguousExtension.status.distance.from.valueset">
+    <define name="extent.contiguousExtension.distance.from.values">
         <choice>
             <value>carina</value>
             <value>visceral pleural surface</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.pneumonitis.valueset">
+    <define name="extent.pneumonitis.values">
         <choice>
             <value>focal or negative</value>
             <value>extending to hilum</value>
@@ -210,7 +210,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.postobstructive.valueset">
+    <define name="extent.postobstructive.values">
         <choice>
             <value>negative</value>
             <value>extending to hilum</value>
@@ -218,7 +218,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.malignantEffusion.of.valueset">
+    <define name="extent.malignantEffusion.of.values">
         <choice>
             <value>pericardium</value>
             <value>pleura</value>
@@ -228,7 +228,7 @@
     <!--=============================================================-->
     <a:documentation>MARGINS section valuesets</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margin.status.of.valueset">
+    <define name="margin.status.of.values">
         <choice>
             <value>bronchial</value>
             <value>vascular</value>
@@ -241,7 +241,7 @@
     <!--=============================================================-->
     <a:documentation>NODES section valuesets</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.status.of.valueset">
+    <define name="nodes.status.of.values">
         <choice>
             <value>peribronchial</value>
             <value>hilar</value>
@@ -255,7 +255,7 @@
     <!--=============================================================-->
     <a:documentation>ACCESSORY section valuesets</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="accesssory.treatmentResponse.valueset">
+    <define name="accesssory.treatmentResponse.values">
         <choice>
             <value>inapplicable</value>
             <value>indeterminate</value>
@@ -266,7 +266,7 @@
     <!--=============================================================-->
     <a:documentation>DISTANT section valuesets</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="distant.site.status.result.type.valueset">
+    <define name="distant.site.status.result.type.values">
         <choice>
             <value>micrometastasis</value>
         </choice>
@@ -274,7 +274,7 @@
     <!--=============================================================-->
     <a:documentation>STAGE section valuesets</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pT.valueset">
+    <define name="stage.pT.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -290,7 +290,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pN.valueset">
+    <define name="stage.pN.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -300,7 +300,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pM.valueset">
+    <define name="stage.pM.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -310,7 +310,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.group.valueset">
+    <define name="stage.group.values">
         <choice>
             <value>X</value>
             <value>I</value>
@@ -322,7 +322,7 @@
     <!--=============================================================-->
     <a:documentation>ADDITIONAL section valuesets</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="additional.finding.valueset">
+    <define name="additional.finding.values">
         <choice>
             <value>atypical adenomatous hyperplasia</value>
             <value>squamous dysplasia</value>

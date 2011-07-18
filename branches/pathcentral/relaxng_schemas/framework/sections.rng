@@ -88,7 +88,7 @@
         <ref name="tumor"/>
         <ref name="extent"/>
         <ref name="accessory"/>
-        <ref name="margin"/>
+        <ref name="margins"/>
         <ref name="nodes"/>
         <ref name="distant"/>
         <ref name="studies"/>
@@ -161,12 +161,12 @@
         </element>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margin">
-        <element name="margin">
+    <define name="margins">
+        <element name="margins">
             <grammar>
                 <include href="&section;"/>
                 <define name="content">
-                    <parentRef name="margin.content"/>
+                    <parentRef name="margins.content"/>
                 </define>
             </grammar>
         </element>

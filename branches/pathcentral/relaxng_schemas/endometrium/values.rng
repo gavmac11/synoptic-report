@@ -29,9 +29,8 @@
     <!--=============================================================-->
     <a:documentation>-- shared valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="site.valueset">
+    <define name="site.values">
         <choice>
-            <!-- we really need a unified approach to laterality -->
             <value>uterine corpus</value>
             <value>cervix</value>
             <value>ovary</value>
@@ -44,7 +43,7 @@
     <!--=============================================================-->
     <a:documentation>-- ACCESSORY section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="accessory.empty.valueset">
+    <define name="accessory.empty.values">
         <choice>
             <value>empty</value>
         </choice>
@@ -52,7 +51,7 @@
     <!--=============================================================-->
     <a:documentation>== ADDITIONAL section valuesets ==</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="additional.finding.valueset">
+    <define name="additional.finding.values">
         <choice>
             <value>simple hyperplasia</value>
             <value>complex hyperplasia</value>
@@ -63,7 +62,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="additional.empty.valueset">
+    <define name="additional.empty.values">
         <choice>
             <value>empty</value>
         </choice>
@@ -71,14 +70,14 @@
     <!--=============================================================-->
     <a:documentation>-- HISTORY section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="history.priorTherapy.valueset">
+    <define name="history.priorTherapy.values">
         <choice>
             <value>neoadjuvant chemotherapy</value>
             <value>neoadjuvant irradiation</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="history.empty.valueset">
+    <define name="history.empty.values">
         <choice>
             <value>empty</value>
         </choice>
@@ -86,21 +85,21 @@
     <!--=============================================================-->
     <a:documentation>-- EXTENT section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.ascites.valueset">
-        <ref name="qualitative.valueset"/>
+    <define name="extent.ascites.values">
+        <ref name="qualitative.values"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.myometrialInvasion.valueset">
+    <define name="extent.myometrialInvasion.values">
         <choice>
             <value>less than 50%</value>
             <value>equal or greater than 50%</value>
-            <ref name="base.valueset"/>
+            <ref name="base.values"/>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.adjacentSite.valueset">
+    <define name="extent.adjacentSite.values">
         <choice>
-            <ref name="site.valueset"/>
+            <ref name="site.values"/>
             <choice>
                 <value>vagina</value>
                 <value>rectal wall</value>
@@ -111,7 +110,7 @@
             </choice>
         </choice>
     </define>
-    <define name="extent.adjacentSite.status.type.valueset">
+    <define name="extent.adjacentSite.status.type.values">
         <choice>
             <value>invades</value>
             <value>adheres</value>
@@ -120,7 +119,7 @@
     <!--=============================================================-->
     <a:documentation>-- MARGINS section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margins.margin.site.valueset">
+    <define name="margins.margin.site.values">
         <choice>
             <value>vaginal cuff</value>
             <value>cervical stump</value>
@@ -129,13 +128,13 @@
     <!--=============================================================-->
     <a:documentation>-- DISTANT section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="distant.site.valueset">
+    <define name="distant.site.values">
         <value>empty</value>
     </define>
     <!--=============================================================-->
     <a:documentation>-- NODES section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.status.of.valueset">
+    <define name="nodes.status.of.values">
         <choice>
             <value>obturator</value>
             <value>internal iliac</value>
@@ -150,7 +149,7 @@
     <!--=============================================================-->
     <a:documentation>-- SPECIMEN section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.procedure.valueset">
+    <define name="specimen.procedure.values">
         <choice>
             <!-- we need a unified approach to laterality in procedures as well -->
             <value>supracervical hysterectomy</value>
@@ -165,14 +164,14 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.site.valueset">
+    <define name="specimen.site.values">
         <choice>
-            <ref name="site.valueset"/>
+            <ref name="site.values"/>
             <value>lymph nodes</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.integrity.valueset">
+    <define name="specimen.integrity.values">
         <choice>
             <!-- need a unified approach to integrity -->
             <value>morcellated</value>
@@ -182,7 +181,7 @@
     <!--=============================================================-->
     <a:documentation>-- STAGE section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pT.valueset">
+    <define name="stage.pT.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -198,7 +197,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pN.valueset">
+    <define name="stage.pN.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -207,14 +206,14 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pM.valueset">
+    <define name="stage.pM.values">
         <choice>
             <value>0</value>
             <value>1</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.group.valueset">
+    <define name="stage.group.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -234,7 +233,7 @@
     <!--=============================================================-->
     <a:documentation>-- STUDIES section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.empty.valueset">
+    <define name="studies.empty.values">
         <choice>
             <value>empty</value>
         </choice>
@@ -242,7 +241,7 @@
     <!--=============================================================-->
     <a:documentation>-- TUMOR section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.type.valueset">
+    <define name="tumor.type.values">
         <choice>
             <value>endometrioid carcinoma</value>
             <value>endometrioid with squamous</value>
@@ -262,20 +261,20 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.focus.site.valueset">
+    <define name="tumor.focus.site.values">
         <choice>
             <value>anterior endometrium</value>
             <value>posterior endometrium</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.gradeSystem.valueset">
+    <define name="tumor.gradeSystem.values">
         <choice>
             <value>FIGO</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.grade.valueset">
+    <define name="tumor.grade.values">
         <choice>
             <value>1</value>
             <value>2</value>

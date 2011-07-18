@@ -142,9 +142,9 @@
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <xs:simpleType name="base.values">
         <xs:restriction base="xs:token">
-            <xs:enumeration value="unreported"/>
-            <xs:enumeration value="innapplicable"/>
             <xs:enumeration value="equivocal"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
         </xs:restriction>
     </xs:simpleType>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -607,7 +607,8 @@
         <xs:union memberTypes="ecc:base.values ecc:tumor.focus.type.sitespecific.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
-                    <xs:enumeration value="principal or sole"/>
+                    <xs:enumeration value="principal"/>
+                    <xs:enumeration value="sole"/>
                     <xs:enumeration value="additional"/>
                 </xs:restriction>
             </xs:simpleType>

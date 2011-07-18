@@ -86,6 +86,20 @@
             <xs:group maxOccurs="3" minOccurs="1" ref="ecc:dimension.response"/>
         </xs:sequence>
     </xs:group>
+    <xs:group name="percent.response">
+        <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.response.content"/>
+                    <xs:attribute name="value" type="ecc:positiveDecimal" use="required"/>
+                    <xs:attribute fixed="percent" name="unit" use="required"/>
+                    <xs:attribute name="relation" type="ecc:relation.values"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
     <xs:group name="weight.response">
         <xs:sequence>
             <xs:group ref="ecc:generic.content"/>

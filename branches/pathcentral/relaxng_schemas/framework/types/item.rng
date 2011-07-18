@@ -22,7 +22,7 @@
     ===========================================================================  
 -->
 <!DOCTYPE	grammar [
-<!ENTITY	generic   "../generic.rng">
+<!ENTITY	common   "../common.rng">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" xmlns="http://relaxng.org/ns/structure/1.0"
     xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
@@ -39,7 +39,7 @@
         items and/or (sub)sections. The structure of an ecc:section is given separately in the file
         section.rng.</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <include href="&generic;"/>
+    <include href="&common;"/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <define name="item.content">
         <interleave>
@@ -52,7 +52,7 @@
     <define combine="choice" name="response.defaults">
         <interleave>
             <ref name="response.extension"/>
-            <ref name="generic.content"/>
+            <ref name="generic.response.content"/>
         </interleave>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

@@ -1,0 +1,541 @@
+<valuelist>
+    <values name="accessory.cis.blocks.type.values">
+        <value>RT-PCR negative</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="accessory.dcis.grade.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="accessory.dcis.necrosis.values">
+        <value>positive</value>
+        <value>negative</value>
+    </values>
+    <values name="accessory.dcis.pattern.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="accessory.dcis.result.modifier.values">
+        <value>extensive intraductal component</value>
+        <value>unnreported</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+    </values>
+    <values name="accessory.lymphvascular.values">
+        <value>positive</value>
+        <value>negative</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="accessory.microcalcifications.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="accessory.perineural.values">
+        <value>positive</value>
+        <value>negative</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="accessory.treatmentResponse.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="additional.finding.of.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="additional.finding.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="base.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="distant.metastaticSite.name.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="distant.metastaticSite.result.for.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="extended.laterality.values">
+        <value>right</value>
+        <value>left</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="extent.contiguousExtension.focality.values">
+        <value>microfocal</value>
+        <value>unifocal</value>
+        <value>multifocal</value>
+        <value>extensive</value>
+    </values>
+    <values name="extent.contiguousExtension.for.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="extent.contiguousExtension.to.values">
+        <value>skin</value>
+        <value>pectoralis muscle</value>
+        <value>chest wall</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="extent.size.values">
+        <value>microinvasion</value>
+        <value>no residual carcinoma</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="focality.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="history.clinical.values">
+        <value>palpable mass</value>
+        <value>nipple discharge</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="history.pathology.values">
+        <value>breast carcinoma, NOS</value>
+        <value>ductal carcinoma-in-situ</value>
+        <value>lobular carcinoma-in-situ</value>
+        <value>invasive ductal carcinoma</value>
+        <value>invasive lobular carcinoma</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="history.priorTherapy.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="history.radiology.values">
+        <value>mass</value>
+        <value>architectural distortion</value>
+        <value>microcalcifications</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="laterality.values">
+        <value>right</value>
+        <value>left</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="lengthUnit.values">
+        <value>cm</value>
+        <value>mm</value>
+        <value>in</value>
+    </values>
+    <values name="margins.margin.distance.for.values">
+        <value>in-situ</value>
+        <value>invasive</value>
+    </values>
+    <values name="margins.margin.distance.from.values">
+        <value>margin</value>
+    </values>
+    <values name="margins.margin.focality.values">
+        <value>microfocal</value>
+        <value>unifocal</value>
+        <value>multifocal</value>
+        <value>extensive</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="margins.margin.name.values">
+        <value>superior</value>
+        <value>inferior</value>
+        <value>anterior</value>
+        <value>posterior</value>
+        <value>medial</value>
+        <value>lateral</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="margins.margin.result.for.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="nodes.nodeGroup.extracapsular.values">
+        <value>positive</value>
+        <value>negative</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="nodes.nodeGroup.name.values">
+        <value>low axillary</value>
+        <value>mid axillary</value>
+        <value>high axillary</value>
+        <value>supraclavicular</value>
+        <value>internal mammary</value>
+        <value>sentinel</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="nodes.nodeGroup.result.for.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="nodes.nodeGroup.result.itc.values">
+        <value>positive</value>
+        <value>negative</value>
+    </values>
+    <values name="nodes.nodeGroup.result.micrometastasis.values">
+        <value>positive</value>
+        <value>negative</value>
+    </values>
+    <values name="nodes.nodeGroup.result.tumorRegression.values">
+        <value>positive</value>
+        <value>negative</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="nodes.nodeGroup.technique.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="qualitative.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="relation.values">
+        <value>less than</value>
+        <value>less than or equal</value>
+        <value>equal</value>
+        <value>approximately equal</value>
+        <value>greater than or equal</value>
+        <value>greater than</value>
+    </values>
+    <values name="specimen.integrity.values">
+        <value>multiple designated specimens</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="specimen.procedure.values">
+        <value>excision</value>
+        <value>excision, wire-guided</value>
+        <value>total mastectomy</value>
+        <value>sentinel lymph node sampling</value>
+        <value>partial axillary dissection</value>
+        <value>complete axillary dissection</value>
+        <value>intramammary lymph node biopsy</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="specimen.site.values">
+        <value>upper outer quadrant</value>
+        <value>lower outer quadrant</value>
+        <value>upper inner quadrant</value>
+        <value>lower inner quadrant</value>
+        <value>central</value>
+        <value>nipple</value>
+        <value>axillary tail</value>
+        <value>partial breast</value>
+        <value>total breast</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="stage.group.values">
+        <value>0</value>
+        <value>IA</value>
+        <value>IB</value>
+        <value>IIA</value>
+        <value>IIB</value>
+        <value>IIIA</value>
+        <value>IIIB</value>
+        <value>IIIC</value>
+        <value>IV</value>
+        <value>specify</value>
+        <value>indeterminate</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="stage.multiplicity.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="stage.pM.values">
+        <value>0</value>
+        <value>0(i+)</value>
+        <value>1</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="stage.pN.values">
+        <value>X</value>
+        <value>0</value>
+        <value>0(i-)</value>
+        <value>0(i+)</value>
+        <value>0(mol-)</value>
+        <value>0(mol+)</value>
+        <value>1</value>
+        <value>1mi</value>
+        <value>1a</value>
+        <value>1b</value>
+        <value>1c</value>
+        <value>2</value>
+        <value>2a</value>
+        <value>2b</value>
+        <value>3</value>
+        <value>3a</value>
+        <value>3b</value>
+        <value>3c</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="stage.pT.values">
+        <value>X</value>
+        <value>0</value>
+        <value>is</value>
+        <value>is (DCIS)</value>
+        <value>is (LCIS)</value>
+        <value>is (Paget)</value>
+        <value>1</value>
+        <value>1mi</value>
+        <value>1a</value>
+        <value>1b</value>
+        <value>1c</value>
+        <value>2</value>
+        <value>3</value>
+        <value>4</value>
+        <value>4a</value>
+        <value>4b</value>
+        <value>4c</value>
+        <value>4d</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="stage.prefix.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="studies.erpr.method.antibody.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="studies.erpr.method.antibody.vendor.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="studies.erpr.method.fixative.values">
+        <value>neutral buffered formalin</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="studies.erpr.method.source.values">
+        <value>this specimen</value>
+        <value>specify</value>
+        <value>pending</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="studies.erpr.method.technique.values">
+        <value>immunohistochemistry</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="studies.erpr.result.values"/>
+    <values name="studies.her2.fish.result.values">
+        <value>not performed</value>
+        <value>specify</value>
+        <value>pending</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="studies.her2.imm.result.values">
+        <value>negative (score 0)</value>
+        <value>negative (score 1+)</value>
+        <value>equivocal (score 2+)</value>
+        <value>positive (score 3+)</value>
+        <value>specify</value>
+        <value>pending</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="studies.her2.method.antibody.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="studies.her2.method.antibody.vendor.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="studies.her2.method.assay.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="studies.her2.method.assay.vendor.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="studies.her2.method.technique.values">
+        <value>immunohistochemistry</value>
+        <value>FISH</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.focus.type.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.grade.for.values">
+        <value>combined</value>
+        <value>glands</value>
+        <value>nuclei</value>
+        <value>mitoses</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.grade.values">
+        <value>1</value>
+        <value>2</value>
+        <value>3</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.gradeSystem.values">
+        <value>nottingham</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.histologicType.values">
+        <value>ductal carcinoma</value>
+        <value>lobular carcinoma</value>
+        <value>carcinoma ductal-lobular</value>
+        <value>mucinous carcinoma</value>
+        <value>medullary carcinoma</value>
+        <value>papillary carcinoma</value>
+        <value>micropapillary carcinoma</value>
+        <value>tubular carcinoma</value>
+        <value>cribriform carcinoma</value>
+        <value>carcinoma type undetermined</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.multiplicity.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.site.values">
+        <value>upper outer quadrant</value>
+        <value>lower outer quadrant</value>
+        <value>upper inner quadrant</value>
+        <value>lower inner quadrant</value>
+        <value>central</value>
+        <value>nipple</value>
+        <value>axillary tail</value>
+        <value>12:00</value>
+        <value>1:00</value>
+        <value>2:00</value>
+        <value>3:00</value>
+        <value>4:00</value>
+        <value>5:00</value>
+        <value>6:00</value>
+        <value>7:00</value>
+        <value>8:00</value>
+        <value>9:00</value>
+        <value>10:00</value>
+        <value>11:00</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="weightUnit.values">
+        <value>mg</value>
+        <value>g</value>
+        <value>kg</value>
+    </values>
+</valuelist>

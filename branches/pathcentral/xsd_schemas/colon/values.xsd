@@ -499,7 +499,7 @@ examples given below.
         </xs:simpleType>
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     </xs:redefine>
-    <xs:simpleType name="accessory.precursorPolyp.values">
+    <xs:simpleType name="tumor.precursorPolyp.type.values">
         <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
@@ -542,7 +542,7 @@ examples given below.
             </xs:simpleType>
         </xs:union>
     </xs:simpleType>
-    <xs:simpleType name="specimen.polypConfiguration.valueset">
+    <xs:simpleType name="specimen.polypConfiguration.values">
         <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
@@ -553,7 +553,10 @@ examples given below.
             </xs:simpleType>
         </xs:union>
     </xs:simpleType>
-    <xs:simpleType name="specimen.mesorectum.valueset">
+    <xs:simpleType name="tumor.precursorPolyp.configuration.values">
+        <xs:union memberTypes="ecc:specimen.polypConfiguration.values"/>
+    </xs:simpleType>
+    <xs:simpleType name="specimen.mesorectum.values">
         <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
@@ -568,7 +571,7 @@ examples given below.
             </xs:simpleType>
         </xs:union>
     </xs:simpleType>
-    <xs:simpleType name="studies.microsatelliteInstability.valueset">
+    <xs:simpleType name="studies.microsatelliteInstability.result.values">
         <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
@@ -584,7 +587,7 @@ examples given below.
             </xs:simpleType>
         </xs:union>
     </xs:simpleType>
-    <xs:simpleType name="studies.mismatchRepair.valueset">
+    <xs:simpleType name="studies.mismatchRepair.result.values">
         <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
@@ -600,7 +603,7 @@ examples given below.
             </xs:simpleType>
         </xs:union>
     </xs:simpleType>
-    <xs:simpleType name="studies.mutationalAnalysis.valueset">
+    <xs:simpleType name="studies.mutationalAnalysis.result.values">
         <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
@@ -616,7 +619,7 @@ examples given below.
             </xs:simpleType>
         </xs:union>
     </xs:simpleType>
-    <xs:simpleType name="studies.microsatelliteInstability.method.valueset">
+    <xs:simpleType name="studies.microsatelliteInstability.method.values">
         <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
@@ -625,7 +628,7 @@ examples given below.
             </xs:simpleType>
         </xs:union>
     </xs:simpleType>
-    <xs:simpleType name="studies.mismatchRepair.method.valueset">
+    <xs:simpleType name="studies.mismatchRepair.method.values">
         <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
@@ -635,7 +638,7 @@ examples given below.
             </xs:simpleType>
         </xs:union>
     </xs:simpleType>
-    <xs:simpleType name="studies.mutationalAnalysis.method.valueset">
+    <xs:simpleType name="studies.mutationalAnalysis.method.values">
         <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
@@ -644,7 +647,7 @@ examples given below.
             </xs:simpleType>
         </xs:union>
     </xs:simpleType>
-    <xs:simpleType name="studies.BRAF.mutation.valueset">
+    <xs:simpleType name="studies.BRAF.mutation.values">
         <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">
@@ -654,7 +657,7 @@ examples given below.
             </xs:simpleType>
         </xs:union>
     </xs:simpleType>
-    <xs:simpleType name="studies.KRAS.mutation.valueset">
+    <xs:simpleType name="studies.KRAS.mutation.values">
         <xs:union memberTypes="ecc:base.values">
             <xs:simpleType>
                 <xs:restriction base="xs:token">

@@ -149,9 +149,11 @@
                 <xs:group ref="ecc:tumor.focus.content"/>
             </xs:sequence>
             <xs:attribute name="type" type="ecc:tumor.focus.type.values" use="required"/>
+            <xs:attributeGroup ref="ecc:tumor.focus.sitespecific.attrib"/>
             <xs:attributeGroup ref="ecc:generic.attrib"/>
         </xs:complexType>
     </xs:element>
+    <xs:attributeGroup name="tumor.focus.sitespecific.attrib"/>
     <xs:group name="tumor.focus.content">
         <xs:sequence>
             <xs:element ref="ecc:site"/>
@@ -328,7 +330,7 @@
             <xs:sequence>
                 <xs:group ref="ecc:generic.content"/>
                 <xs:group ref="ecc:distant.metastaticSite.result"/>
-                <xs:element minOccurs="0" ref="ecc:metastasisSize"/>
+                <xs:group maxOccurs="1" minOccurs="0" ref="ecc:metastasisSize"/>
             </xs:sequence>
             <xs:attribute name="name" type="ecc:distant.metastaticSite.name.values" use="required"/>
             <xs:attribute name="on" type="ecc:extended.laterality.values"/>
@@ -347,12 +349,10 @@
                                 <xs:group ref="ecc:generic.response.content"/>
                                 <xs:attribute name="value" type="ecc:qualitative.values"
                                     use="required"/>
-                                <!-- This attribute is required for breast only, but as extensions
+                                <!-- This attributeGroup is required for breast only, but as extensions
                                     are not possible, I have to add it for every site. You could
                                     prohibit it for all the sites that don't use it, but perhaps
                                     this is not important. -->
-                                <!--<xs:attribute name="type"
-                                type="ecc:distant.metastaticSite.result.response.type.values" />-->
                                 <xs:attributeGroup
                                     ref="ecc:distant.metastaticSite.result.response.attrib"/>
                                 <xs:attributeGroup ref="ecc:generic.attrib"/>
@@ -366,11 +366,15 @@
         </xs:sequence>
     </xs:group>
     <xs:attributeGroup name="distant.metastaticSite.result.response.attrib"/>
-    <xs:element name="metastasisSize">
-        <xs:complexType>
-            <xs:group ref="ecc:size.response"/>
-        </xs:complexType>
-    </xs:element>
+    <xs:group name="metastasisSize">
+        <xs:sequence>
+            <xs:element name="size">
+                <xs:complexType>
+                    <xs:group ref="ecc:size.response"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
     <xs:element name="prefix">
         <xs:complexType>
             <xs:sequence>

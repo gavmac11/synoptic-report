@@ -40,12 +40,12 @@
                     <data type="float">
                         <param name="minInclusive">0.0</param>
                     </data>
-                    <parentRef name="base.valueset"/>
+                    <parentRef name="base.values"/>
                 </choice>
             </attribute>
             <optional>
                 <attribute a:defaultValue="equal" name="relation">
-                    <parentRef name="relation.valueset"/>
+                    <parentRef name="relation.values"/>
                 </attribute>
             </optional>
             <ref name="response.defaults"/>

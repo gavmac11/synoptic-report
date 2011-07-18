@@ -22,17 +22,17 @@
     ===========================================================================  
 -->
 <!DOCTYPE	grammar [
-<!ENTITY    date        "../framework/shared/types/date.rng">
-<!ENTITY	items  		"../framework/shared/items.rng">
-<!ENTITY	sections  	"../framework/shared/sections.rng">
-<!ENTITY	section		"../framework/shared/types/section.rng">
-<!ENTITY	percent  	"../framework/shared/types/percent.rng">
-<!ENTITY	quantity    "../framework/shared/types/quantity.rng">
-<!ENTITY	ratio  		"../framework/shared/types/ratio.rng">
-<!ENTITY	selectMany  "../framework/shared/types/selectMany.rng">
-<!ENTITY	selectOne  	"../framework/shared/types/selectOne.rng">
-<!ENTITY	size  		"../framework/shared/types/size.rng">
-<!ENTITY	tally  		"../framework/shared/types/tally.rng">
+<!ENTITY    date        "../framework/types/date.rng">
+<!ENTITY	items  		"../framework/items.rng">
+<!ENTITY	sections  	"../framework/sections.rng">
+<!ENTITY	section		"../framework/types/section.rng">
+<!ENTITY	percent  	"../framework/types/percent.rng">
+<!ENTITY	quantity    "../framework/types/quantity.rng">
+<!ENTITY	ratio  		"../framework/types/ratio.rng">
+<!ENTITY	selectMany  "../framework/types/selectMany.rng">
+<!ENTITY	selectOne  	"../framework/types/selectOne.rng">
+<!ENTITY	size  		"../framework/types/size.rng">
+<!ENTITY	tally  		"../framework/types/tally.rng">
 <!ENTITY	values  	"values.rng">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
@@ -123,8 +123,8 @@
                 </attribute>
                 <grammar>
                     <include href="&selectOne;"/>
-                    <define name="valueset">
-                        <parentRef name="qualitative.valueset"/>
+                    <define name="values">
+                        <parentRef name="qualitative.values"/>
                     </define>
                 </grammar>
             </element>
@@ -134,20 +134,20 @@
                 </attribute>
                 <grammar>
                     <include href="&selectOne;"/>
-                    <define name="valueset">
-                        <parentRef name="qualitative.valueset"/>
+                    <define name="values">
+                        <parentRef name="qualitative.values"/>
                     </define>
                 </grammar>
             </element>
             <zeroOrMore>
                 <element name="result">
                     <attribute name="for">
-                        <ref name="extent.extracapsular.site.valueset"/>
+                        <ref name="extent.extracapsular.site.values"/>
                     </attribute>
                     <grammar>
                         <include href="&selectOne;"/>
-                        <define name="valueset">
-                            <parentRef name="qualitative.valueset"/>
+                        <define name="values">
+                            <parentRef name="qualitative.values"/>
                         </define>
                     </grammar>
                 </element>
@@ -163,13 +163,13 @@
                 </attribute>
                 <grammar>
                     <include href="&selectOne;"/>
-                    <define name="valueset">
-                        <parentRef name="qualitative.valueset"/>
+                    <define name="values">
+                        <parentRef name="qualitative.values"/>
                     </define>
                     <define name="response.extension">
                         <optional>
                             <attribute name="extent">
-                                <parentRef name="focality.valueset"/>
+                                <parentRef name="focality.values"/>
                             </attribute>
                         </optional>
                     </define>
@@ -181,13 +181,13 @@
                 </attribute>
                 <grammar>
                     <include href="&selectOne;"/>
-                    <define name="valueset">
-                        <parentRef name="qualitative.valueset"/>
+                    <define name="values">
+                        <parentRef name="qualitative.values"/>
                     </define>
                     <define name="response.extension">
                         <optional>
                             <attribute name="extent">
-                                <parentRef name="focality.valueset"/>
+                                <parentRef name="focality.values"/>
                             </attribute>
                         </optional>
                     </define>
@@ -196,10 +196,10 @@
         </element>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.contiguousExtension.status.of.valueset">
+    <define name="extent.contiguousExtension.to.values">
         <choice>
-            <ref name="intrinsic.site.valueset"/>
-            <ref name="extrinsic.site.valueset"/>
+            <ref name="intrinsic.site.values"/>
+            <ref name="extrinsic.site.values"/>
         </choice>
     </define>
     <!--=============================================================-->
@@ -215,8 +215,8 @@
         <element name="laterality">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
-                    <parentRef name="laterality.valueset"/>
+                <define name="values">
+                    <parentRef name="laterality.values"/>
                 </define>
             </grammar>
         </element>
@@ -229,12 +229,12 @@
             <element name="psa">
                 <grammar>
                     <include href="&quantity;"/>
-                    <define name="valueset">
+                    <define name="values">
                         <data type="decimal">
                             <param name="minInclusive">0.0</param>
                         </data>
                     </define>
-                    <define name="unit.valueset">
+                    <define name="unit.values">
                         <value>ng/ml</value>
                     </define>
                     <define name="item.extension">
@@ -260,7 +260,7 @@
                 </attribute>
                 <grammar>
                     <include href="&selectOne;"/>
-                    <define name="valueset">
+                    <define name="values">
                         <data type="string">
                             <param name="pattern">[12345]</param>
                         </data>
@@ -273,7 +273,7 @@
                 </attribute>
                 <grammar>
                     <include href="&selectOne;"/>
-                    <define name="valueset">
+                    <define name="values">
                         <data type="string">
                             <param name="pattern">[12345]</param>
                         </data>
@@ -287,7 +287,7 @@
                     </attribute>
                     <grammar>
                         <include href="&selectOne;"/>
-                        <define name="valueset">
+                        <define name="values">
                             <data type="string">
                                 <param name="pattern">[12345]</param>
                             </data>
@@ -301,7 +301,7 @@
                 </attribute>
                 <grammar>
                     <include href="&selectOne;"/>
-                    <define name="valueset">
+                    <define name="values">
                         <data type="string">
                             <param name="pattern">[23456789(10)]</param>
                         </data>
