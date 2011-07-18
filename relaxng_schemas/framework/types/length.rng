@@ -48,11 +48,11 @@
                 </data>
             </attribute>
             <attribute name="unit">
-                <parentRef name="lengthUnit.valueset"/>
+                <parentRef name="lengthUnit.values"/>
             </attribute>
             <optional>
                 <attribute a:defaultValue="equal" name="relation">
-                    <parentRef name="relation.valueset"/>
+                    <parentRef name="relation.values"/>
                 </attribute>
             </optional>
         </element>
@@ -61,7 +61,7 @@
     <define name="for.attrib">
         <optional>
             <attribute name="for">
-                <ref name="for.valueset"/>
+                <ref name="for.values"/>
             </attribute>
         </optional>
     </define>
@@ -69,16 +69,16 @@
     <define name="from.attrib">
         <optional>
             <attribute name="from">
-                <ref name="from.valueset"/>
+                <ref name="from.values"/>
             </attribute>
         </optional>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="for.valueset">
+    <define combine="choice" name="for.values">
         <notAllowed/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="from.valueset">
+    <define combine="choice" name="from.values">
         <notAllowed/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

@@ -98,13 +98,13 @@
         <element name="result">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
-                    <parentRef name="qualitative.valueset"/>
+                <define name="values">
+                    <parentRef name="qualitative.values"/>
                 </define>
                 <define name="response.extension">
                     <optional>
                         <attribute name="focality">
-                            <parentRef name="focality.valueset"/>
+                            <parentRef name="focality.values"/>
                         </attribute>
                     </optional>
                 </define>
@@ -136,11 +136,13 @@
         <element name="blocks">
             <grammar>
                 <include href="&tally;"/>
-                <define name="item.for.valueset">
-                    <parentRef name="qualitative.valueset"/>
+                <define name="item.for.values">
+                    <parentRef name="qualitative.values"/>
                 </define>
-                <define name="item.type.valueset">
-                    <parentRef name="accessory.cis.blocks.type.valueset"/>
+                <define name="tally.other.result.extension">
+                    <attribute name="type">
+                        <parentRef name="accessory.cis.blocks.type.values"/>
+                    </attribute>
                 </define>
             </grammar>
         </element>
@@ -150,8 +152,8 @@
         <element name="architecture">
             <grammar>
                 <include href="&selectMany;"/>
-                <define name="valueset">
-                    <parentRef name="accessory.dcis.pattern.valueset"/>
+                <define name="values">
+                    <parentRef name="accessory.dcis.pattern.values"/>
                 </define>
             </grammar>
         </element>
@@ -161,8 +163,8 @@
         <element name="grade">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
-                    <parentRef name="accessory.dcis.grade.valueset"/>
+                <define name="values">
+                    <parentRef name="accessory.dcis.grade.values"/>
                 </define>
             </grammar>
         </element>
@@ -172,8 +174,8 @@
         <element name="necrosis">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
-                    <parentRef name="accessory.dcis.necrosis.valueset"/>
+                <define name="values">
+                    <parentRef name="accessory.dcis.necrosis.values"/>
                 </define>
             </grammar>
         </element>
@@ -197,8 +199,8 @@
         <element name="microcalcifications">
             <grammar>
                 <include href="&selectMany;"/>
-                <define name="valueset">
-                    <parentRef name="accessory.microcalcifications.valueset"/>
+                <define name="values">
+                    <parentRef name="accessory.microcalcifications.values"/>
                 </define>
             </grammar>
         </element>
@@ -237,8 +239,8 @@
         <element name="skinInvasion">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
-                    <parentRef name="qualitative.valueset"/>
+                <define name="values">
+                    <parentRef name="qualitative.values"/>
                 </define>
             </grammar>
         </element>
@@ -248,8 +250,8 @@
         <element name="skinUlceration">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
-                    <parentRef name="qualitative.valueset"/>
+                <define name="values">
+                    <parentRef name="qualitative.values"/>
                 </define>
             </grammar>
         </element>
@@ -259,8 +261,8 @@
         <element name="skinSatelliteNodules">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
-                    <parentRef name="qualitative.valueset"/>
+                <define name="values">
+                    <parentRef name="qualitative.values"/>
                 </define>
             </grammar>
         </element>
@@ -270,8 +272,8 @@
         <element name="dermalLymphaticInvasion">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
-                    <parentRef name="qualitative.valueset"/>
+                <define name="values">
+                    <parentRef name="qualitative.values"/>
                 </define>
             </grammar>
         </element>
@@ -281,8 +283,8 @@
         <element name="underlyingStructures">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
-                    <parentRef name="extent.underlying.valueset"/>
+                <define name="values">
+                    <parentRef name="extent.underlying.values"/>
                 </define>
             </grammar>
         </element>
@@ -292,8 +294,8 @@
         <element name="nipplePagetDisease">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
-                    <parentRef name="qualitative.valueset"/>
+                <define name="values">
+                    <parentRef name="qualitative.values"/>
                 </define>
             </grammar>
         </element>
@@ -301,8 +303,8 @@
     <!--=============================================================-->
     <a:documentation>NODES section customizations</a:documentation>
     <!--=============================================================-->
-    <!--<define name="nodes.nodeGroup.tally.item.type.valueset">
-        <ref name="nodes.status.result.type.valueset"/>
+    <!--<define name="nodes.nodeGroup.tally.item.type.values">
+        <ref name="nodes.status.result.type.values"/>
     </define>-->
     <!--=============================================================-->
     <a:documentation>SPECIMEN section customizations</a:documentation>
@@ -311,8 +313,8 @@
         <element name="laterality">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
-                    <parentRef name="laterality.valueset"/>
+                <define name="values">
+                    <parentRef name="extended.laterality.values"/>
                 </define>
             </grammar>
         </element>
@@ -356,8 +358,8 @@
             <choice>
                 <grammar>
                     <include href="&selectOne;"/>
-                    <define name="valueset">
-                        <parentRef name="studies.her2.imm.result.valueset"/>
+                    <define name="values">
+                        <parentRef name="studies.her2.imm.result.values"/>
                     </define>
                 </grammar>
                 <grammar>
@@ -374,10 +376,10 @@
         <element name="her2GeneCopyNumber">
             <grammar>
                 <include href="&quantity;"/>
-                <define name="unit.valueset">
+                <define name="unit.values">
                     <value>per cell</value>
                 </define>
-                <define name="valueset">
+                <define name="values">
                     <data type="float">
                         <param name="minInclusive">0.0</param>
                     </data>
@@ -387,10 +389,10 @@
         <element name="chromosome17CopyNumber">
             <grammar>
                 <include href="&quantity;"/>
-                <define name="unit.valueset">
+                <define name="unit.values">
                     <value>per cell</value>
                 </define>
-                <define name="valueset">
+                <define name="values">
                     <data type="float">
                         <param name="minInclusive">0.0</param>
                     </data>
@@ -408,9 +410,9 @@
         <element name="technique">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
+                <define name="values">
                     <choice>
-                        <parentRef name="studies.her2.method.technique.valueset"/>
+                        <parentRef name="studies.her2.method.technique.values"/>
                     </choice>
                 </define>
             </grammar>
@@ -418,8 +420,8 @@
         <element name="source">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
-                    <parentRef name="studies.erpr.method.source.valueset"/>
+                <define name="values">
+                    <parentRef name="studies.erpr.method.source.values"/>
                 </define>
             </grammar>
         </element>
@@ -434,15 +436,15 @@
                     <attribute name="vendor">
                         <choice>
                             <data type="string"/>
-                            <parentRef name="base.valueset"/>
+                            <parentRef name="base.values"/>
                         </choice>
                     </attribute>
                 </define>
-                <define name="valueset">
+                <define name="values">
                     <choice>
                         <data type="string"/>
-                        <parentRef name="studies.her2.method.antibody.valueset"/>
-                        <parentRef name="base.valueset"/>
+                        <parentRef name="studies.her2.method.antibody.values"/>
+                        <parentRef name="base.values"/>
                     </choice>
                 </define>
             </grammar>
@@ -453,8 +455,8 @@
         <element name="result">
             <grammar>
                 <include href="&percent;"/>
-                <define name="valueset">
-                    <parentRef name="studies.erpr.result.valueset"/>
+                <define name="values">
+                    <parentRef name="studies.erpr.result.values"/>
                 </define>
             </grammar>
         </element>
@@ -464,16 +466,16 @@
         <element name="technique">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
-                    <parentRef name="studies.erpr.method.technique.valueset"/>
+                <define name="values">
+                    <parentRef name="studies.erpr.method.technique.values"/>
                 </define>
             </grammar>
         </element>
         <element name="source">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
-                    <parentRef name="studies.erpr.method.source.valueset"/>
+                <define name="values">
+                    <parentRef name="studies.erpr.method.source.values"/>
                 </define>
             </grammar>
         </element>
@@ -484,15 +486,15 @@
                     <define name="response.extension">
                         <attribute name="vendor">
                             <choice>
-                                <parentRef name="base.valueset"/>
+                                <parentRef name="base.values"/>
                                 <data type="string"/>
                             </choice>
                         </attribute>
                     </define>
-                    <define name="valueset">
+                    <define name="values">
                         <choice>
-                            <parentRef name="studies.erpr.method.antibody.valueset"/>
-                            <parentRef name="base.valueset"/>
+                            <parentRef name="studies.erpr.method.antibody.values"/>
+                            <parentRef name="base.values"/>
                             <data type="string"/>
                         </choice>
                     </define>
@@ -503,8 +505,8 @@
             <element name="fixative">
                 <grammar>
                     <include href="&selectOne;"/>
-                    <define name="valueset">
-                        <parentRef name="studies.erpr.method.fixative.valueset"/>
+                    <define name="values">
+                        <parentRef name="studies.erpr.method.fixative.values"/>
                     </define>
                 </grammar>
             </element>
@@ -518,12 +520,12 @@
             <element name="grade">
                 <grammar>
                     <include href="&selectMany;"/>
-                    <define name="valueset">
+                    <define name="values">
                         <choice>
                             <value>1</value>
                             <value>2</value>
                             <value>3</value>
-                            <parentRef name="base.valueset"/>
+                            <parentRef name="base.values"/>
                         </choice>
                     </define>
                     <define name="item.extension">
@@ -556,8 +558,8 @@
                 </attribute>
                 <grammar>
                     <include href="&selectOne;"/>
-                    <define name="valueset">
-                        <parentRef name="tumor.grade.valueset"/>
+                    <define name="values">
+                        <parentRef name="tumor.grade.values"/>
                     </define>
                 </grammar>
             </element>
@@ -567,8 +569,8 @@
                 </attribute>
                 <grammar>
                     <include href="&selectOne;"/>
-                    <define name="valueset">
-                        <parentRef name="tumor.grade.valueset"/>
+                    <define name="values">
+                        <parentRef name="tumor.grade.values"/>
                     </define>
                 </grammar>
             </element>
@@ -578,8 +580,8 @@
                 </attribute>
                 <grammar>
                     <include href="&selectOne;"/>
-                    <define name="valueset">
-                        <parentRef name="tumor.grade.valueset"/>
+                    <define name="values">
+                        <parentRef name="tumor.grade.values"/>
                     </define>
                 </grammar>
             </element>
@@ -589,8 +591,8 @@
                 </attribute>
                 <grammar>
                     <include href="&selectOne;"/>
-                    <define name="valueset">
-                        <parentRef name="tumor.grade.valueset"/>
+                    <define name="values">
+                        <parentRef name="tumor.grade.values"/>
                     </define>
                 </grammar>
             </element>

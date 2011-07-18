@@ -36,11 +36,11 @@
     <define name="response">
         <element name="response">
             <attribute name="value">
-                <ref name="valueset"/>
+                <ref name="values"/>
             </attribute>
             <optional>
                 <attribute a:defaultValue="equal" name="relation">
-                    <parentRef name="relation.valueset"/>
+                    <parentRef name="relation.values"/>
                 </attribute>
             </optional>
             <attribute name="unit">
@@ -49,12 +49,12 @@
             <ref name="response.defaults"/>
         </element>
     </define>
-    <define combine="choice" name="valueset">
+    <define combine="choice" name="values">
         <choice>
             <data type="nonNegativeInteger">
                 <param name="maxInclusive">100</param>
             </data>
-            <parentRef name="base.valueset"/>
+            <parentRef name="base.values"/>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

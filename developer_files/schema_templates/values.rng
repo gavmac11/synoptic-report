@@ -28,7 +28,7 @@
     <!--=============================================================-->
     <a:documentation>-- shared valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="site.valueset">
+    <define name="site.values">
         <choice>
             <value>empty</value>
         </choice>
@@ -36,7 +36,7 @@
     <!--=============================================================-->
     <a:documentation>-- ACCESSORY section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="accessory.empty.valueset">
+    <define name="accessory.empty.values">
         <choice>
             <value>empty</value>
         </choice>
@@ -44,13 +44,13 @@
     <!--=============================================================-->
     <a:documentation>== ADDITIONAL section valuesets ==</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="additional.finding.valueset">
+    <define name="additional.finding.values">
         <choice>
             <value>empty</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="additional.empty.valueset">
+    <define name="additional.empty.values">
         <choice>
             <value>empty</value>
         </choice>
@@ -58,14 +58,14 @@
     <!--=============================================================-->
     <a:documentation>-- HISTORY section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="history.priorTherapy.valueset">
+    <define name="history.priorTherapy.values">
         <choice>
             <value>neoadjuvant chemotherapy</value>
             <value>neoadjuvant irradiation</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="history.empty.valueset">
+    <define name="history.empty.values">
         <choice>
             <value>empty</value>
         </choice>
@@ -73,15 +73,15 @@
     <!--=============================================================-->
     <a:documentation>-- EXTENT section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.empty.valueset">
+    <define name="extent.empty.values">
         <choice>
             <value>empty</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.site.valueset">
+    <define name="extent.site.values">
         <choice>
-            <ref name="specimen.site.valueset"/>
+            <ref name="specimen.site.values"/>
             <choice>
                 <value>empty</value>
             </choice>
@@ -90,7 +90,7 @@
     <!--=============================================================-->
     <a:documentation>-- MARGINS section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margins.margin.site.valueset">
+    <define name="margins.margin.site.values">
         <choice>
             <value>empty</value>
         </choice>
@@ -98,13 +98,13 @@
     <!--=============================================================-->
     <a:documentation>-- DISTANT section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="distant.site.valueset">
+    <define name="distant.site.values">
         <value>empty</value>
     </define>
     <!--=============================================================-->
     <a:documentation>-- NODES section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.nodeGroup.site.valueset">
+    <define name="nodes.nodeGroup.site.values">
         <choice>
             <value>empty</value>
         </choice>
@@ -112,13 +112,13 @@
     <!--=============================================================-->
     <a:documentation>-- SPECIMEN section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.procedure.valueset">
+    <define name="specimen.procedure.values">
         <choice>
             <value>empty</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.site.valueset">
+    <define name="specimen.site.values">
         <choice>
             <value>empty</value>
         </choice>
@@ -126,7 +126,7 @@
     <!--=============================================================-->
     <a:documentation>-- STAGE section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pT.valueset">
+    <define name="stage.pT.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -137,7 +137,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pN.valueset">
+    <define name="stage.pN.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -145,14 +145,14 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pM.valueset">
+    <define name="stage.pM.values">
         <choice>
             <value>0</value>
             <value>1</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.group.valueset">
+    <define name="stage.group.values">
         <choice>
             <value>X</value>
             <value>I</value>
@@ -164,7 +164,7 @@
     <!--=============================================================-->
     <a:documentation>-- STUDIES section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.empty.valueset">
+    <define name="studies.empty.values">
         <choice>
             <value>empty</value>
         </choice>
@@ -172,19 +172,19 @@
     <!--=============================================================-->
     <a:documentation>-- TUMOR section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.type.valueset">
+    <define name="tumor.type.values">
         <choice>
             <value>empty</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.gradeSystem.valueset">
+    <define name="tumor.gradeSystem.values">
         <choice>
             <value>empty</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.grade.valueset">
+    <define name="tumor.grade.values">
         <choice>
             <value>empty</value>
         </choice>

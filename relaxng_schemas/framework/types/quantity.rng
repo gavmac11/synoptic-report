@@ -37,26 +37,26 @@
     <define name="response">
         <element name="response">
             <attribute name="value">
-                <ref name="valueset"/>
+                <ref name="values"/>
             </attribute>
             <attribute name="unit">
-                <ref name="unit.valueset"/>
+                <ref name="unit.values"/>
             </attribute>
             <optional>
                 <attribute a:defaultValue="equal" name="relation">
-                    <parentRef name="relation.valueset"/>
+                    <parentRef name="relation.values"/>
                 </attribute>
             </optional>
             <ref name="response.defaults"/>
         </element>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="valueset">
-        <parentRef name="base.valueset"/>
+    <define combine="choice" name="values">
+        <parentRef name="base.values"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="unit.valueset">
-        <parentRef name="base.valueset"/>
+    <define combine="choice" name="unit.values">
+        <parentRef name="base.values"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>

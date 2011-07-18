@@ -26,7 +26,7 @@
     <!--=============================================================-->
     <a:documentation>accessory SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="accessory.treatmentEffect.valueset">
+    <define name="accessory.treatmentEffect.values">
         <choice>
             <value>no response</value>
             <value>slight response</value>
@@ -35,13 +35,13 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="accessory.cis.blocks.type.valueset">
+    <define name="accessory.cis.blocks.type.values">
         <choice>
             <value>RT-PCR negative</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="accessory.dcis.pattern.valueset">
+    <define name="accessory.dcis.pattern.values">
         <choice>
             <value>comedocarcinoma</value>
             <value>cribriform</value>
@@ -51,7 +51,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="accessory.dcis.grade.valueset">
+    <define name="accessory.dcis.grade.values">
         <choice>
             <value>low</value>
             <value>intermediate</value>
@@ -59,11 +59,11 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="accessory.dcis.necrosis.valueset">
-        <ref name="qualitative.valueset"/>
+    <define name="accessory.dcis.necrosis.values">
+        <ref name="qualitative.values"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="accessory.microcalcifications.valueset">
+    <define name="accessory.microcalcifications.values">
         <choice>
             <value>negative</value>
             <value>in DCIS</value>
@@ -74,14 +74,14 @@
     <!--=============================================================-->
     <a:documentation>clinical SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="clinical.clinicalFindings.valueset">
+    <define name="clinical.clinicalFindings.values">
         <choice>
             <value>palpable mass</value>
             <value>nipple discharge</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="clinical.priorPathologicDiagnoses.valueset">
+    <define name="clinical.priorPathologicDiagnoses.values">
         <choice>
             <value>breast carcinoma, NOS</value>
             <value>ductal carcinoma-in-situ</value>
@@ -91,13 +91,13 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="clinical.priorTherapies.valueset">
+    <define name="clinical.priorTherapies.values">
         <choice>
             <empty/>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="clinical.radiologicFindings.valueset">
+    <define name="clinical.radiologicFindings.values">
         <choice>
             <value>mass</value>
             <value>architectural distortion</value>
@@ -110,7 +110,7 @@
     <!--=============================================================-->
     <a:documentation>extent SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.site.valueset">
+    <define name="extent.site.values">
         <choice>
             <choice>
                 <value>upper outer quadrant</value>
@@ -138,21 +138,21 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.size.valueset">
+    <define name="extent.size.values">
         <choice>
             <value>microinvasion</value>
             <value>no residual carcinoma</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.multiplicity.valueset">
+    <define name="extent.multiplicity.values">
         <choice>
             <data type="nonNegativeInteger"/>
             <value>many</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.underlying.valueset">
+    <define name="extent.underlying.values">
         <choice>
             <value>negative</value>
             <value>pectoralis muscle only</value>
@@ -160,7 +160,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="accessory.dcis.result.modifier.valueset">
+    <define name="accessory.dcis.result.modifier.values">
         <choice>
             <value>extensive intraductal component</value>
         </choice>
@@ -168,7 +168,7 @@
     <!--=============================================================-->
     <a:documentation>margin SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margins.margin.focality.valueset">
+    <define name="margins.margin.focality.values">
         <choice>
             <value>unifocal</value>
             <value>multifocal</value>
@@ -176,14 +176,14 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margin.type.valueset">
+    <define name="margin.type.values">
         <choice>
             <value>DCIS</value>
             <value>invasive carcinoma</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margin.status.of.valueset">
+    <define name="margin.status.of.values">
         <choice>
             <value>superior</value>
             <value>inferior</value>
@@ -198,7 +198,7 @@
     <a:documentation>distantSites SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="distant.site.valueset">
+    <define name="distant.site.values">
         <choice>
             <value>liver</value>
             <value>bone</value>
@@ -211,7 +211,7 @@
     <!--=============================================================-->
     <a:documentation>nodes SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.status.of.valueset">
+    <define name="nodes.status.of.values">
         <choice>
             <value>low axillary</value>
             <value>mid axillary</value>
@@ -222,7 +222,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.status.result.type.valueset">
+    <define name="nodes.status.result.type.values">
         <choice>
             <value>RT-PCR negative</value>
             <value>RT-PCR postive</value>
@@ -233,13 +233,13 @@
     <!--=============================================================-->
     <a:documentation>specimen SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.integrity.valueset">
+    <define name="specimen.integrity.values">
         <choice>
             <value>multiple designated specimens</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.procedure.valueset">
+    <define name="specimen.procedure.values">
         <choice>
             <value>excision</value>
             <value>excision, wire-guided</value>
@@ -251,7 +251,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.site.valueset">
+    <define name="specimen.site.values">
         <choice>
             <value>upper outer quadrant</value>
             <value>lower outer quadrant</value>
@@ -265,14 +265,14 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.laterality.valueset">
+    <define name="specimen.laterality.values">
         <choice>
             <value>right</value>
             <value>left</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.lymphNodeSites.valueset">
+    <define name="specimen.lymphNodeSites.values">
         <choice>
             <value>no lymph nodes</value>
             <value>sentinel lymph node(s)</value>
@@ -284,7 +284,7 @@
     <!--=============================================================-->
     <a:documentation>stage SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pT.valueset">
+    <define name="stage.pT.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -307,7 +307,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pN.valueset">
+    <define name="stage.pN.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -330,7 +330,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pM.valueset">
+    <define name="stage.pM.values">
         <choice>
             <value>0</value>
             <value>0(i+)</value>
@@ -338,7 +338,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.group.valueset">
+    <define name="stage.group.values">
         <choice>
             <value>0</value>
             <value>IA</value>
@@ -355,45 +355,45 @@
     <!--=============================================================-->
     <a:documentation>studies SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.erpr.result.valueset">
+    <define name="studies.erpr.result.values">
         <choice>
             <value>pending</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.erpr.method.technique.valueset">
+    <define name="studies.erpr.method.technique.values">
         <choice>
             <value>immunohistochemistry</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.erpr.method.source.valueset">
+    <define name="studies.erpr.method.source.values">
         <choice>
             <value>this specimen</value>
             <value>pending</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.erpr.method.fixative.valueset">
+    <define name="studies.erpr.method.fixative.values">
         <choice>
             <value>neutral buffered formalin</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.erpr.method.antibody.valueset">
+    <define name="studies.erpr.method.antibody.values">
         <choice>
             <empty/>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.her2.fish.result.valueset">
+    <define name="studies.her2.fish.result.values">
         <choice>
             <value>not am</value>
             <value>pending</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.her2.imm.result.valueset">
+    <define name="studies.her2.imm.result.values">
         <choice>
             <value>negative (score 0)</value>
             <value>negative (score 1+)</value>
@@ -403,14 +403,14 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.her2.method.technique.valueset">
+    <define name="studies.her2.method.technique.values">
         <choice>
             <value>immunohistochemistry</value>
             <value>FISH</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.her2.method.antibody.valueset">
+    <define name="studies.her2.method.antibody.values">
         <choice>
             <empty/>
         </choice>
@@ -418,12 +418,12 @@
     <!--=============================================================-->
     <a:documentation>tumor SECTION VALUESETS</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.site.valueset">
+    <define name="tumor.site.values">
         <!-- need to create a generic site valueset and refer to it -->
-        <ref name="extent.site.valueset"/>
+        <ref name="extent.site.values"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.type.valueset">
+    <define name="tumor.type.values">
         <choice>
             <value>ductal carcinoma</value>
             <value>lobular carcinoma</value>
@@ -438,7 +438,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.grade.valueset">
+    <define name="tumor.grade.values">
         <choice>
             <value>1</value>
             <value>2</value>
@@ -446,7 +446,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.gradeSystem.valueset">
+    <define name="tumor.gradeSystem.values">
         <choice>
             <value>3-grade</value>
         </choice>

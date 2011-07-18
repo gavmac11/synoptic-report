@@ -27,7 +27,7 @@
     <!--=============================================================-->
     <a:documentation>-- SHARED valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="intrinsic.site.valueset">
+    <define name="intrinsic.site.values">
         <choice>
             <value>cecum</value>
             <value>right colon</value>
@@ -42,7 +42,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extrinsic.site.valueset">
+    <define name="extrinsic.site.values">
         <choice>
             <value>ureter</value>
             <value>uterus</value>
@@ -56,7 +56,7 @@
     <!--=============================================================-->
     <a:documentation>-- ACCESSORY section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="precursorPolyp.valueset">
+    <define name="precursorPolyp.values">
         <choice>
             <value>tubular adenoma</value>
             <value>villous adenoma</value>
@@ -69,7 +69,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="accessory.immuneResponse.valueset">
+    <define name="accessory.immuneResponse.values">
         <choice>
             <value>none</value>
             <value>mild-to-moderate</value>
@@ -79,7 +79,7 @@
     <!--=============================================================-->
     <a:documentation>== ADDITIONAL section valuesets ==</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="additional.finding.valueset">
+    <define name="additional.finding.values">
         <choice>
             <value>adenoma</value>
             <value>active IBD</value>
@@ -94,7 +94,7 @@
     <!--=============================================================-->
     <a:documentation>-- HISTORY section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="history.priorTherapy.valueset">
+    <define name="history.priorTherapy.values">
         <choice>
             <value>neoadjuvant chemotherapy</value>
             <value>neoadjuvant irradiation</value>
@@ -103,14 +103,14 @@
     <!--=============================================================-->
     <a:documentation>-- EXTENT section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.severity.valueset">
+    <define name="extent.severity.values">
         <choice>
             <value>adheres</value>
             <value>invades</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.deepestInvasion.valueset">
+    <define name="extent.deepestInvasion.values">
         <choice>
             <value>lamina propria</value>
             <value>submucosa</value>
@@ -123,20 +123,20 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.contiguousExtension.status.of.valueset">
-        <ref name="extrinsic.site.valueset"/>
+    <define name="extent.contiguousExtension.to.values">
+        <ref name="extrinsic.site.values"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.site.valueset">
+    <define name="extent.site.values">
         <choice>
-            <ref name="intrinsic.site.valueset"/>
-            <ref name="extrinsic.site.valueset"/>
+            <ref name="intrinsic.site.values"/>
+            <ref name="extrinsic.site.values"/>
         </choice>
     </define>
     <!--=============================================================-->
     <a:documentation>-- MARGINS section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="margin.status.of.valueset">
+    <define name="margin.status.of.values">
         <choice>
             <value>proximal</value>
             <value>distal</value>
@@ -162,13 +162,13 @@
     <!--=============================================================-->
     <a:documentation>-- DISTANT section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="distant.status.of.valueset">
+    <define name="distant.status.of.values">
         <value>peritoneum</value>
     </define>
     <!--=============================================================-->
     <a:documentation>-- NODES section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="nodes.status.of.valueset">
+    <define name="nodes.status.of.values">
         <choice>
             <value>pericolic</value>
             <value>ileocolic</value>
@@ -200,7 +200,7 @@
     <!--=============================================================-->
     <a:documentation>-- SPECIMEN section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.procedure.valueset">
+    <define name="specimen.procedure.values">
         <choice>
             <value>total colectomy</value>
             <value>right hemicolectomy</value>
@@ -213,11 +213,11 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.site.valueset">
-        <ref name="intrinsic.site.valueset"/>
+    <define name="specimen.site.values">
+        <ref name="intrinsic.site.values"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.polypConfiguration.valueset">
+    <define name="specimen.polypConfiguration.values">
         <choice>
             <value>pedunculated</value>
             <value>sessile</value>
@@ -225,7 +225,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.mesorectum.valueset">
+    <define name="specimen.mesorectum.values">
         <choice>
             <value>complete</value>
             <value>near complete</value>
@@ -239,7 +239,7 @@
     <!--=============================================================-->
     <a:documentation>-- STAGE section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pT.valueset">
+    <define name="stage.pT.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -253,7 +253,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pN.valueset">
+    <define name="stage.pN.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -267,7 +267,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pM.valueset">
+    <define name="stage.pM.values">
         <choice>
             <value>0</value>
             <value>1</value>
@@ -276,7 +276,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.group.valueset">
+    <define name="stage.group.values">
         <choice>
             <value>X</value>
             <value>I</value>
@@ -288,7 +288,7 @@
     <!--=============================================================-->
     <a:documentation>-- STUDIES section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.microsatelliteInstability.valueset">
+    <define name="studies.microsatelliteInstability.values">
         <choice>
             <value>stable</value>
             <value>low</value>
@@ -301,7 +301,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.mismatchRepair.valueset">
+    <define name="studies.mismatchRepair.values">
         <choice>
             <value>intact nuclear positivity</value>
             <value>loss of nuclear positivity</value>
@@ -314,7 +314,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.mutationalAnalysis.valueset">
+    <define name="studies.mutationalAnalysis.values">
         <choice>
             <value>mutation detected</value>
             <value>no mutation detected</value>
@@ -327,44 +327,44 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.microsatelliteInstability.method.valueset">
+    <define name="studies.microsatelliteInstability.method.values">
         <choice>
             <empty/>
-            <ref name="base.valueset"/>
+            <ref name="base.values"/>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.mismatchRepair.method.valueset">
+    <define name="studies.mismatchRepair.method.values">
         <choice>
             <value>immunohistochemistry</value>
-            <ref name="base.valueset"/>
+            <ref name="base.values"/>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.mutationalAnalysis.method.valueset">
+    <define name="studies.mutationalAnalysis.method.values">
         <choice>
             <empty/>
-            <ref name="base.valueset"/>
+            <ref name="base.values"/>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.BRAF.mutation.valueset">
+    <define name="studies.BRAF.mutation.values">
         <choice>
             <value>V600E</value>
-            <ref name="base.valueset"/>
+            <ref name="base.values"/>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="studies.KRAS.mutation.valueset">
+    <define name="studies.KRAS.mutation.values">
         <choice>
             <empty/>
-            <ref name="base.valueset"/>
+            <ref name="base.values"/>
         </choice>
     </define>
     <!--=============================================================-->
     <a:documentation>-- TUMOR section valuesets --</a:documentation>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.type.valueset">
+    <define name="tumor.type.values">
         <choice>
             <value>adenocarcinoma</value>
             <value>mucinous adenocarcinoma</value>
@@ -378,13 +378,13 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.gradeSystem.valueset">
+    <define name="tumor.gradeSystem.values">
         <choice>
             <value>2-grade</value>
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.grade.valueset">
+    <define name="tumor.grade.values">
         <choice>
             <value>low</value>
             <value>high</value>
@@ -395,10 +395,10 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.site.valueset">
+    <define name="tumor.site.values">
         <choice>
-            <ref name="intrinsic.site.valueset"/>
-            <ref name="extrinsic.site.valueset"/>
+            <ref name="intrinsic.site.values"/>
+            <ref name="extrinsic.site.values"/>
         </choice>
     </define>
     <!--=============================================================-->

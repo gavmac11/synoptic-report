@@ -58,11 +58,11 @@
                 </data>
             </attribute>
             <attribute name="unit">
-                <parentRef name="lengthUnit.valueset"/>
+                <parentRef name="lengthUnit.values"/>
             </attribute>
             <optional>
                 <attribute a:defaultValue="equal" name="relation">
-                    <parentRef name="relation.valueset"/>
+                    <parentRef name="relation.values"/>
                 </attribute>
             </optional>
         </element>

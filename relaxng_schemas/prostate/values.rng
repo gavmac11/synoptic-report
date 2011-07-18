@@ -26,7 +26,7 @@
     <!--=============================================================-->
     <!-- SHARED valuesets -->
     <!--=============================================================-->
-    <define name="intrinsic.site.valueset">
+    <define name="intrinsic.site.values">
         <choice>
             <value>right lobe</value>
             <value>left lobe</value>
@@ -38,7 +38,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extrinsic.site.valueset">
+    <define name="extrinsic.site.values">
         <choice>
             <value>bladder</value>
             <value>bladder neck</value>
@@ -52,7 +52,7 @@
     <!--=============================================================-->
     <!-- SPECIMEN section valuesets -->
     <!--=============================================================-->
-    <define name="specimen.procedure.valueset">
+    <define name="specimen.procedure.values">
         <choice>
             <value>robotic prostatectomy</value>
             <value>enucleation</value>
@@ -62,13 +62,13 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="specimen.site.valueset">
-        <ref name="intrinsic.site.valueset"/>
+    <define name="specimen.site.values">
+        <ref name="intrinsic.site.values"/>
     </define>
     <!--=============================================================-->
     <!-- TUMOR section valuesets -->
     <!--=============================================================-->
-    <define name="tumor.type.valueset">
+    <define name="tumor.type.values">
         <choice>
             <value>acinar adenocarcinoma</value>
             <value>prostatic duct adenocarcinoma</value>
@@ -82,11 +82,11 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.site.valueset">
-        <ref name="intrinsic.site.valueset"/>
+    <define name="tumor.site.values">
+        <ref name="intrinsic.site.values"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.histologicGrade.valueset">
+    <define name="tumor.histologicGrade.values">
         <choice>
             <value>1</value>
             <value>2</value>
@@ -96,7 +96,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="tumor.grade.system.valueset">
+    <define name="tumor.grade.system.values">
         <choice>
             <value>Gleason</value>
             <value>AFIP</value>
@@ -105,23 +105,23 @@
     <!--=============================================================-->
     <!-- EXTENT section valuesets -->
     <!--=============================================================-->
-    <define name="extent.adjacentSite.valueset">
-        <ref name="extrinsic.site.valueset"/>
+    <define name="extent.adjacentSite.values">
+        <ref name="extrinsic.site.values"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="extent.extracapsular.site.valueset">
+    <define name="extent.extracapsular.site.values">
         <choice>
             <value>right side</value>
             <value>left side</value>
             <value>bladder neck</value>
             <value>apex</value>
-            <ref name="base.valueset"/>
+            <ref name="base.values"/>
         </choice>
     </define>
     <!--=============================================================-->
     <!-- MARGINS section valuesets -->
     <!--=============================================================-->
-    <define name="margin.status.of.valueset">
+    <define name="margin.status.of.values">
         <choice>
             <value>apex</value>
             <value>right anterior</value>
@@ -136,7 +136,7 @@
     <!--=============================================================-->
     <!-- NODES section valuesets -->
     <!--=============================================================-->
-    <define name="nodes.status.of.valueset">
+    <define name="nodes.status.of.values">
         <choice>
             <value>pelvic</value>
             <value>hypogastric</value>
@@ -157,26 +157,26 @@
     <!--=============================================================-->
     <!-- STUDIES section valuesets -->
     <!--=============================================================-->
-    <!--<define name="studies.gleason.pattern.result.valueset">
+    <!--<define name="studies.gleason.pattern.result.values">
         <choice>
             <data type="string">
                 <param name="pattern">[12345]</param>
             </data>
-            <ref name="base.valueset"/>
+            <ref name="base.values"/>
         </choice>
     </define>
-    <define name="studies.gleason.sum.result.valueset">
+    <define name="studies.gleason.sum.result.values">
         <choice>
             <data type="string">
                 <param name="pattern">[23456789(10)]</param>
             </data>
-            <ref name="base.valueset"/>
+            <ref name="base.values"/>
         </choice>
     </define>-->
     <!--=============================================================-->
     <!-- STAGE section valuesets -->
     <!--=============================================================-->
-    <define name="stage.pT.valueset">
+    <define name="stage.pT.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -195,7 +195,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pN.valueset">
+    <define name="stage.pN.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -203,7 +203,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.pM.valueset">
+    <define name="stage.pM.values">
         <choice>
             <value>X</value>
             <value>0</value>
@@ -214,7 +214,7 @@
         </choice>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define name="stage.group.valueset">
+    <define name="stage.group.values">
         <choice>
             <value>X</value>
             <value>I</value>
@@ -227,7 +227,7 @@
     <!--=============================================================-->
     <!-- ADDITIONAL section valuesets -->
     <!--=============================================================-->
-    <define name="additional.finding.valueset">
+    <define name="additional.finding.values">
         <choice>
             <value>benign prostatic hypertrophy</value>
             <value>granulomatous prostatitis</value>

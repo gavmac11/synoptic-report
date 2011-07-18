@@ -42,15 +42,15 @@
                     <data type="float">
                         <param name="minExclusive">0.0</param>
                     </data>
-                    <parentRef name="base.valueset"/>
+                    <parentRef name="base.values"/>
                 </choice>
             </attribute>
             <attribute name="unit">
-                <parentRef name="weightUnit.valueset"/>
+                <parentRef name="weightUnit.values"/>
             </attribute>
             <optional>
                 <attribute a:defaultValue="equal" name="relation">
-                    <parentRef name="relation.valueset"/>
+                    <parentRef name="relation.values"/>
                 </attribute>
             </optional>
         </element>

@@ -1,0 +1,255 @@
+<valuelist>
+   <values name="accessory.lymphvascular.values">
+      <value>positive</value>
+      <value>negative</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="accessory.perineural.values">
+      <value>positive</value>
+      <value>negative</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="accessory.treatmentResponse.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="additional.finding.of.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="additional.finding.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="base.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="distant.metastaticSite.name.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="distant.metastaticSite.result.for.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="extended.laterality.values">
+      <value>right</value>
+      <value>left</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="extent.contiguousExtension.focality.values">
+      <value>microfocal</value>
+      <value>unifocal</value>
+      <value>multifocal</value>
+      <value>extensive</value>
+   </values>
+   <values name="extent.contiguousExtension.for.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="extent.contiguousExtension.to.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="extent.size.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="focality.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="history.clinical.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="history.pathology.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="history.priorTherapy.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="history.radiology.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="laterality.values">
+      <value>right</value>
+      <value>left</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="lengthUnit.values">
+      <value>cm</value>
+      <value>mm</value>
+      <value>in</value>
+   </values>
+   <values name="margins.margin.focality.values">
+      <value>microfocal</value>
+      <value>unifocal</value>
+      <value>multifocal</value>
+      <value>extensive</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="margins.margin.name.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="margins.margin.result.for.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="nodes.nodeGroup.extracapsular.values">
+      <value>positive</value>
+      <value>negative</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="nodes.nodeGroup.name.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="nodes.nodeGroup.result.for.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="nodes.nodeGroup.result.tumorRegression.values">
+      <value>positive</value>
+      <value>negative</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="nodes.nodeGroup.technique.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="qualitative.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="relation.values">
+      <value>less than</value>
+      <value>less than or equal</value>
+      <value>equal</value>
+      <value>approximately equal</value>
+      <value>greater than or equal</value>
+      <value>greater than</value>
+   </values>
+   <values name="specimen.integrity.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="specimen.procedure.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="specimen.site.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="stage.group.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="stage.multiplicity.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="stage.pM.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="stage.pN.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="stage.pT.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="stage.prefix.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.focus.type.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.grade.for.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.grade.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.gradeSystem.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.histologicType.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.multiplicity.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.site.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="weightUnit.values">
+      <value>mg</value>
+      <value>g</value>
+      <value>kg</value>
+   </values>
+</valuelist>

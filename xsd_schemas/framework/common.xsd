@@ -27,15 +27,15 @@
     <!-- Generic content definitions -->
     <xs:group name="generic.content">
         <xs:sequence>
-            <xs:element minOccurs="0" name="label" type="xs:string"/>
-            <xs:element minOccurs="0" name="comment" type="xs:string"/>
-            <xs:any minOccurs="0" namespace="##other" processContents="skip"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="label" type="xs:string"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="comment" type="xs:string"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
         </xs:sequence>
     </xs:group>
     <xs:group name="generic.response.content">
         <xs:sequence>
-            <xs:element minOccurs="0" name="specify" type="xs:string"/>
-            <xs:group minOccurs="0" ref="ecc:generic.content"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="specify" type="xs:string"/>
+            <xs:group minOccurs="0" maxOccurs="1" ref="ecc:generic.content"/>
         </xs:sequence>
     </xs:group>
     <xs:attributeGroup name="item.attrib">

@@ -40,15 +40,15 @@
         <oneOrMore>
             <element name="response">
                 <attribute name="value">
-                    <ref name="valueset"/>
+                    <ref name="values"/>
                 </attribute>
                 <ref name="response.defaults"/>
             </element>
         </oneOrMore>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <define combine="choice" name="valueset">
-        <parentRef name="base.valueset"/>
+    <define combine="choice" name="values">
+        <parentRef name="base.values"/>
     </define>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 </grammar>

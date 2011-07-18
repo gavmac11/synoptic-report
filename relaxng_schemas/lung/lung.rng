@@ -22,19 +22,19 @@
     ===========================================================================  
 -->
 <!DOCTYPE	grammar [
-<!ENTITY	items  		"../framework/shared/items.rng">
-<!ENTITY	sections  	"../framework/shared/sections.rng">
-<!ENTITY	section		"../framework/shared/types/section.rng">
-<!ENTITY    length      "../framework/shared/types/length.rng">
-<!ENTITY	percent  	"../framework/shared/types/percent.rng">
-<!ENTITY	quantity    "../framework/shared/types/quantity.rng">
-<!ENTITY	ratio  		"../framework/shared/types/ratio.rng">
-<!ENTITY	selectMany  "../framework/shared/types/selectMany.rng">
-<!ENTITY	selectOne  	"../framework/shared/types/selectOne.rng">
-<!ENTITY	size  		"../framework/shared/types/size.rng">
-<!ENTITY	tally  		"../framework/shared/types/tally.rng">
-<!ENTITY	weight  	"../framework/shared/types/weight.rng">
-<!ENTITY    complex     "../framework/shared/complexFrame.rng">
+<!ENTITY	items  		"../framework/items.rng">
+<!ENTITY	sections  	"../framework/sections.rng">
+<!ENTITY	section		"../framework/types/section.rng">
+<!ENTITY    length      "../framework/types/length.rng">
+<!ENTITY	percent  	"../framework/types/percent.rng">
+<!ENTITY	quantity    "../framework/types/quantity.rng">
+<!ENTITY	ratio  		"../framework/types/ratio.rng">
+<!ENTITY	selectMany  "../framework/types/selectMany.rng">
+<!ENTITY	selectOne  	"../framework/types/selectOne.rng">
+<!ENTITY	size  		"../framework/types/size.rng">
+<!ENTITY	tally  		"../framework/types/tally.rng">
+<!ENTITY	weight  	"../framework/types/weight.rng">
+<!ENTITY    complex     "../framework/complexFrame.rng">
 ]>
 <grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://purl.org/pathology/ecc/"
     xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
@@ -64,12 +64,12 @@
             <element name="smoking">
                 <grammar>
                     <include href="&quantity;">
-                        <define name="valueset">
+                        <define name="values">
                             <data type="integer">
                                 <param name="minInclusive">0</param>
                             </data>
                         </define>
-                        <define name="unit.valueset">
+                        <define name="unit.values">
                             <value>pack-year</value>
                         </define>
                     </include>
@@ -90,10 +90,10 @@
         <element name="pleuralInvasion">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
+                <define name="values">
                     <choice>
-                        <parentRef name="tumor.focus.pleuralInvasion.valueset"/>
-                        <parentRef name="base.valueset"/>
+                        <parentRef name="tumor.focus.pleuralInvasion.values"/>
+                        <parentRef name="base.values"/>
                     </choice>
                 </define>
             </grammar>
@@ -104,10 +104,10 @@
         <element name="postobstructiveChanges">
             <grammar>
                 <include href="&selectOne;"/>
-                <define name="valueset">
+                <define name="values">
                     <choice>
-                        <parentRef name="extent.postobstructive.valueset"/>
-                        <parentRef name="base.valueset"/>
+                        <parentRef name="extent.postobstructive.values"/>
+                        <parentRef name="base.values"/>
                     </choice>
                 </define>
             </grammar>
@@ -119,18 +119,18 @@
                     <define name="item.extension">
                         <attribute name="of">
                             <choice>
-                                <parentRef name="extent.malignantEffusion.of.valueset"/>
-                                <parentRef name="base.valueset"/>
+                                <parentRef name="extent.malignantEffusion.of.values"/>
+                                <parentRef name="base.values"/>
                             </choice>
                         </attribute>
                         <optional>
                             <attribute name="laterality">
-                                <parentRef name="laterality.valueset"/>
+                                <parentRef name="extended.laterality.values"/>
                             </attribute>
                         </optional>
                     </define>
-                    <define name="valueset">
-                        <parentRef name="qualitative.valueset"/>
+                    <define name="values">
+                        <parentRef name="qualitative.values"/>
                     </define>
                 </grammar>
             </element>

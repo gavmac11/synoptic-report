@@ -22,11 +22,11 @@
     ===========================================================================  
 -->
 <!DOCTYPE	grammar [
-<!ENTITY	generic    "../generic.rng">
+<!ENTITY	common    "../common.rng">
 ]>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <include href="&generic;"/>
+    <include href="&common;"/>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <start>
         <ref name="content"/>
