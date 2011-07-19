@@ -1,0 +1,524 @@
+<valuelist>
+    <values name="accessory.lymphvascular.values">
+        <value>positive</value>
+        <value>negative</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="accessory.perineural.values">
+        <value>positive</value>
+        <value>negative</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="accessory.treatmentResponse.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="accesssory.treatmentResponse.values">
+        <value>&lt;10% viable</value>
+        <value>&gt;10% viable</value>
+        <value>specify</value>
+        <value>indeterminate</value>
+        <value>inapplicable</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="additional.finding.of.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="additional.finding.values">
+        <value>atypical adenomatous hyperplasia</value>
+        <value>squamous dysplasia</value>
+        <value>metaplasia</value>
+        <value>diffuse neuroendocrine hyperplasia</value>
+        <value>emphysema</value>
+        <value>inflammation</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+        <value>unreported</value>
+    </values>
+    <values name="base.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="distant.metastaticSite.name.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="distant.metastaticSite.result.for.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="distant.site.status.result.type.values">
+        <value>micrometastasis</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="extended.laterality.values">
+        <value>right</value>
+        <value>left</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="extent.contiguousExtension.distance.from.values">
+        <value>carina</value>
+        <value>visceral pleural surface</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="extent.contiguousExtension.focality.values">
+        <value>microfocal</value>
+        <value>unifocal</value>
+        <value>multifocal</value>
+        <value>extensive</value>
+    </values>
+    <values name="extent.contiguousExtension.for.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="extent.contiguousExtension.to.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+        <value>unreported</value>
+    </values>
+    <values name="extent.malignantEffusion.of.values">
+        <value>pericardium</value>
+        <value>pleura</value>
+        <value>peritoneum</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="extent.pneumonitis.values">
+        <value>focal or negative</value>
+        <value>extending to hilum</value>
+        <value>entire lung</value>
+        <value>inconclusive</value>
+        <value>other</value>
+        <value>specify</value>
+        <value>indeterminate</value>
+        <value>inapplicable</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="extent.postobstructive.values">
+        <value>negative</value>
+        <value>extending to hilum</value>
+        <value>involving entire lung</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="extent.size.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="extrinsic.site.values">
+        <value>carina</value>
+        <value>chest wall</value>
+        <value>diaphragm</value>
+        <value>esophagus</value>
+        <value>great vessels</value>
+        <value>heart</value>
+        <value>main bronchus</value>
+        <value>mediastinal pleura</value>
+        <value>mediastinum</value>
+        <value>parietal pericardium</value>
+        <value>visceral pleura</value>
+        <value>parietal pleura</value>
+        <value>phrenic nerve</value>
+        <value>recurrent laryngeal nerve</value>
+        <value>trachea</value>
+        <value>vertebral body</value>
+        <value>other</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="focality.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="history.clinical.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="history.pathology.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="history.priorTherapy.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="history.radiology.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="intrinsic.site.values">
+        <value>main bronchus</value>
+        <value>entire lung</value>
+        <value>upper lobe</value>
+        <value>middle lobe</value>
+        <value>lower lobe</value>
+        <value>lingula</value>
+        <value>carina</value>
+        <value>apical right upper segment</value>
+        <value>posterior right upper segment</value>
+        <value>anterior right upper segment</value>
+        <value>lateral right middle segment</value>
+        <value>medial right middle segment</value>
+        <value>superior right lower segment</value>
+        <value>medial-basal right lower segment</value>
+        <value>anterior-basal right lower segment</value>
+        <value>lateral-basal right lower segment</value>
+        <value>apical-posterior left upper segment</value>
+        <value>anterior left upper segment</value>
+        <value>inferior lingular segment</value>
+        <value>superior left lower segment</value>
+        <value>anteromedial-basal left lower segment</value>
+        <value>posterior-basal left lower segment</value>
+        <value>lateral-basal left lower segment</value>
+        <value>upper lobe bronchus</value>
+        <value>bronchus intermedius</value>
+        <value>right middle lobe bronchus</value>
+        <value>lower lobe bronchus</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="laterality.values">
+        <value>right</value>
+        <value>left</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="lengthUnit.values">
+        <value>cm</value>
+        <value>mm</value>
+        <value>in</value>
+    </values>
+    <values name="margin.status.of.values">
+        <value>bronchial</value>
+        <value>vascular</value>
+        <value>parenchymal</value>
+        <value>parietal pleural</value>
+        <value>chest wall</value>
+        <value>other</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="margins.margin.focality.values">
+        <value>microfocal</value>
+        <value>unifocal</value>
+        <value>multifocal</value>
+        <value>extensive</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="margins.margin.name.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="margins.margin.result.for.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="nodes.nodeGroup.extracapsular.values">
+        <value>positive</value>
+        <value>negative</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="nodes.nodeGroup.name.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="nodes.nodeGroup.result.for.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="nodes.nodeGroup.result.tumorRegression.values">
+        <value>positive</value>
+        <value>negative</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="nodes.nodeGroup.technique.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="nodes.status.of.values">
+        <value>peribronchial</value>
+        <value>hilar</value>
+        <value>intrapulmonary</value>
+        <value>mediastinal</value>
+        <value>subcarinal</value>
+        <value>scalene</value>
+        <value>supraclavicular</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="qualitative.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="relation.values">
+        <value>less than</value>
+        <value>less than or equal</value>
+        <value>equal</value>
+        <value>approximately equal</value>
+        <value>greater than or equal</value>
+        <value>greater than</value>
+    </values>
+    <values name="sites.values">
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="specimen.integrity.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="specimen.procedure.values">
+        <value>wedge biopsy</value>
+        <value>transbronchial biopsy</value>
+        <value>endobronchial biopsy</value>
+        <value>pneumonectomy</value>
+        <value>segmentectomy</value>
+        <value>lobectomy</value>
+        <value>bilobectomy</value>
+        <value>major airway resection</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+        <value>unreported</value>
+    </values>
+    <values name="specimen.site.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+        <value>unreported</value>
+    </values>
+    <values name="stage.group.values">
+        <value>X</value>
+        <value>I</value>
+        <value>II</value>
+        <value>III</value>
+        <value>IV</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+        <value>unreported</value>
+    </values>
+    <values name="stage.multiplicity.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="stage.pM.values">
+        <value>X</value>
+        <value>0</value>
+        <value>1</value>
+        <value>1a</value>
+        <value>1b</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+        <value>unreported</value>
+    </values>
+    <values name="stage.pN.values">
+        <value>X</value>
+        <value>0</value>
+        <value>1</value>
+        <value>2</value>
+        <value>3</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+        <value>unreported</value>
+    </values>
+    <values name="stage.pT.values">
+        <value>X</value>
+        <value>0</value>
+        <value>is</value>
+        <value>1</value>
+        <value>1a</value>
+        <value>1b</value>
+        <value>2</value>
+        <value>2a</value>
+        <value>2b</value>
+        <value>3</value>
+        <value>4</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+        <value>unreported</value>
+    </values>
+    <values name="stage.prefix.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.focus.pleuralInvasion.values">
+        <value>negative</value>
+        <value>past visceral pleura elastica</value>
+        <value>to visceral pleura surface</value>
+        <value>in parietal pleura</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.focus.type.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.grade.for.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.grade.values">
+        <value>1</value>
+        <value>2</value>
+        <value>3</value>
+        <value>4</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.gradeSystem.values">
+        <value>WHO</value>
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.histologicType.values">
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.multiplicity.values">
+        <value>unifocal</value>
+        <value>multifocal same lobe</value>
+        <value>multifocal different lobes</value>
+        <value>synchronous tumors</value>
+        <value>specify</value>
+        <value>indeterminate</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.site.values">
+        <value>specify</value>
+        <value>equivocal</value>
+        <value>inapplicable</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+        <value>unreported</value>
+    </values>
+    <values name="tumor.type.values">
+        <value>carcinoma nos</value>
+        <value>non-small cell carcinoma nos</value>
+        <value>small cell carcinoma</value>
+        <value>squamous cell carcinoma</value>
+        <value>papillary squamous cell carcinoma</value>
+        <value>clear cell squamous cell carcinoma</value>
+        <value>small cell squamous cell carcinoma</value>
+        <value>basaloid squamous cell carcinoma</value>
+        <value>adenocarcinoma</value>
+        <value>acinar adenocarcinoma</value>
+        <value>papillary adenocarcinoma</value>
+        <value>bronchioloalveolar carcinoma</value>
+        <value>nonmucinous bronchioloalveolar carcinoma</value>
+        <value>mucinous bronchioloalveolar carcinoma</value>
+        <value>fetal adenocarcinoma</value>
+        <value>mucinous adenocarcinoma</value>
+        <value>mucinous cystadenocarcinoma</value>
+        <value>signet ring cell adenocarcinoma</value>
+        <value>clear cell adenocarcinoma</value>
+        <value>large cell adenocarcinoma</value>
+        <value>large cell neuroendocrine carcinoma</value>
+        <value>basaloid carcinoma</value>
+        <value>lymphoepitheial-like carcinoma</value>
+        <value>rhabdoid large cell carcinoma</value>
+        <value>adenosquamous carcinoma</value>
+        <value>sarcomatoid carcinoma</value>
+        <value>pleomorphic carcinoma</value>
+        <value>spindle cell carcinoma</value>
+        <value>giant cell carcinoma</value>
+        <value>carcinosarcoma</value>
+        <value>pulmonary blastoma</value>
+        <value>typical carcinoid</value>
+        <value>atypical carcinoid</value>
+        <value>mucoepidermoid carcinoma</value>
+        <value>adenoid cystic carcinoma</value>
+        <value>epitheilial myoepithelial carcinoma</value>
+        <value>other</value>
+        <value>specify</value>
+        <value>inapplicable</value>
+        <value>unreported</value>
+    </values>
+    <values name="weightUnit.values">
+        <value>mg</value>
+        <value>g</value>
+        <value>kg</value>
+    </values>
+</valuelist>

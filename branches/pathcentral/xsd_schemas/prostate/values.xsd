@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+   xmlns:ecc="http://purl.org/pathology/ecc/" xmlns:rng="http://relaxng.org/ns/structure/1.0"
+   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:redefine schemaLocation="../framework/values.xsd">
+      <xs:simpleType name="specimen.procedure.sitespecific.values">
+         <xs:restriction base="ecc:specimen.procedure.sitespecific.values">
+            <xs:enumeration value="robotic prostatectomy"/>
+            <xs:enumeration value="enucleation"/>
+            <xs:enumeration value="transurethral resection"/>
+            <xs:enumeration value="radical perineal prostatectomy"/>
+            <xs:enumeration value="abdominopelvic prostatectomy"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+         </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="specimen.site.sitespecific.values">
+         <xs:restriction base="ecc:specimen.site.sitespecific.values">
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+         </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="tumor.site.sitespecific.values">
+         <xs:restriction base="ecc:tumor.site.sitespecific.values">
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+         </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="stage.pT.sitespecific.values">
+         <xs:restriction base="ecc:stage.pT.sitespecific.values">
+            <xs:enumeration value="X"/>
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="1a"/>
+            <xs:enumeration value="1b"/>
+            <xs:enumeration value="1c"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="2a"/>
+            <xs:enumeration value="2b"/>
+            <xs:enumeration value="2c"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="3a"/>
+            <xs:enumeration value="3b"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+         </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="stage.pN.sitespecific.values">
+         <xs:restriction base="ecc:stage.pN.sitespecific.values">
+            <xs:enumeration value="X"/>
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+         </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="stage.pM.sitespecific.values">
+         <xs:restriction base="ecc:stage.pM.sitespecific.values">
+            <xs:enumeration value="X"/>
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="1a"/>
+            <xs:enumeration value="1b"/>
+            <xs:enumeration value="1c"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+         </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="stage.group.sitespecific.values">
+         <xs:restriction base="ecc:stage.group.sitespecific.values">
+            <xs:enumeration value="X"/>
+            <xs:enumeration value="I"/>
+            <xs:enumeration value="IIA"/>
+            <xs:enumeration value="IIB"/>
+            <xs:enumeration value="III"/>
+            <xs:enumeration value="IV"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+         </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="additional.finding.sitespecific.values">
+         <xs:restriction base="ecc:additional.finding.sitespecific.values">
+            <xs:enumeration value="benign prostatic hypertrophy"/>
+            <xs:enumeration value="granulomatous prostatitis"/>
+            <xs:enumeration value="acute prostatitis"/>
+            <xs:enumeration value="chronic prostatitis"/>
+            <xs:enumeration value="atrophy"/>
+            <xs:enumeration value="extensive HGPIN"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+         </xs:restriction>
+      </xs:simpleType>
+   </xs:redefine>
+   <xs:simpleType name="intrinsic.site.values">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="right lobe"/>
+         <xs:enumeration value="left lobe"/>
+         <xs:enumeration value="apex"/>
+         <xs:enumeration value="base"/>
+         <xs:enumeration value="right transition zone"/>
+         <xs:enumeration value="left transition zone"/>
+         <xs:enumeration value="entire prostate"/>
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="extrinsic.site.values">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="bladder"/>
+         <xs:enumeration value="bladder neck"/>
+         <xs:enumeration value="external sphincter"/>
+         <xs:enumeration value="rectum"/>
+         <xs:enumeration value="levator muscles"/>
+         <xs:enumeration value="pelvic wall"/>
+         <xs:enumeration value="other"/>
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="tumor.type.values">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="acinar adenocarcinoma"/>
+         <xs:enumeration value="prostatic duct adenocarcinoma"/>
+         <xs:enumeration value="mucinous adenocarcinoma"/>
+         <xs:enumeration value="signet ring cell carcinoma"/>
+         <xs:enumeration value="adenosquamous carcinoma"/>
+         <xs:enumeration value="small cell carcinoma"/>
+         <xs:enumeration value="sarcomatoid carcinoma"/>
+         <xs:enumeration value="undifferentiated carcinoma"/>
+         <xs:enumeration value="other"/>
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="tumor.histologicGrade.values">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="1"/>
+         <xs:enumeration value="2"/>
+         <xs:enumeration value="3"/>
+         <xs:enumeration value="4"/>
+         <xs:enumeration value="5"/>
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="tumor.grade.system.values">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="Gleason"/>
+         <xs:enumeration value="AFIP"/>
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="extent.adjacentSite.values">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="extent.extracapsular.site.values">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="right side"/>
+         <xs:enumeration value="left side"/>
+         <xs:enumeration value="bladder neck"/>
+         <xs:enumeration value="apex"/>
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="margin.status.of.values">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="apex"/>
+         <xs:enumeration value="right anterior"/>
+         <xs:enumeration value="right mid"/>
+         <xs:enumeration value="right base"/>
+         <xs:enumeration value="left anterior"/>
+         <xs:enumeration value="left mid"/>
+         <xs:enumeration value="left base"/>
+         <xs:enumeration value="bladder neck"/>
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="nodes.status.of.values">
+      <xs:restriction base="xs:token">
+         <xs:enumeration value="pelvic"/>
+         <xs:enumeration value="hypogastric"/>
+         <xs:enumeration value="obturator"/>
+         <xs:enumeration value="internal iliac"/>
+         <xs:enumeration value="external iliac"/>
+         <xs:enumeration value="iliac"/>
+         <xs:enumeration value="sacral"/>
+         <xs:enumeration value="para-aortic"/>
+         <xs:enumeration value="deep inguinal"/>
+         <xs:enumeration value="superficial inguinal"/>
+         <xs:enumeration value="supraclavicular"/>
+         <xs:enumeration value="cervical"/>
+         <xs:enumeration value="scalene"/>
+         <xs:enumeration value="retroperitoneal"/>
+         <xs:enumeration value="specify"/>
+         <xs:enumeration value="inapplicable"/>
+         <xs:enumeration value="unreported"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

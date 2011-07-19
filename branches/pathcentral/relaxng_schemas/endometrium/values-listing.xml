@@ -1,0 +1,459 @@
+<valuelist>
+   <values name="accessory.empty.values">
+      <value>empty</value>
+      <value>specify</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="accessory.lymphvascular.values">
+      <value>positive</value>
+      <value>negative</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="accessory.perineural.values">
+      <value>positive</value>
+      <value>negative</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="accessory.treatmentResponse.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="additional.empty.values">
+      <value>empty</value>
+      <value>specify</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="additional.finding.of.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="additional.finding.values">
+      <value>simple hyperplasia</value>
+      <value>complex hyperplasia</value>
+      <value>atypical simple hyperplasia</value>
+      <value>atypical complex hyperplasia</value>
+      <value>EIN</value>
+      <value>polyp</value>
+      <value>specify</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+      <value>unreported</value>
+   </values>
+   <values name="base.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="distant.metastaticSite.name.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="distant.metastaticSite.result.for.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="distant.site.values">
+      <value>empty</value>
+      <value>specify</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="extended.laterality.values">
+      <value>right</value>
+      <value>left</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="extent.adjacentSite.status.type.values">
+      <value>invades</value>
+      <value>adheres</value>
+      <value>specify</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="extent.adjacentSite.values">
+      <value>vagina</value>
+      <value>rectal wall</value>
+      <value>bladder wall</value>
+      <value>pelvic wall</value>
+      <value>bladder mucosa</value>
+      <value>bowel mucosa</value>
+      <value>specify</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="extent.ascites.values">
+      <value>specify</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="extent.contiguousExtension.focality.values">
+      <value>microfocal</value>
+      <value>unifocal</value>
+      <value>multifocal</value>
+      <value>extensive</value>
+   </values>
+   <values name="extent.contiguousExtension.for.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="extent.contiguousExtension.to.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="extent.myometrialInvasion.values">
+      <value>less than 50%</value>
+      <value>equal or greater than 50%</value>
+      <value>specify</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="extent.size.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="focality.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="history.clinical.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="history.empty.values">
+      <value>empty</value>
+      <value>specify</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="history.pathology.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="history.priorTherapy.values">
+      <value>neoadjuvant chemotherapy</value>
+      <value>neoadjuvant irradiation</value>
+      <value>specify</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+      <value>unreported</value>
+   </values>
+   <values name="history.radiology.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="laterality.values">
+      <value>right</value>
+      <value>left</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="lengthUnit.values">
+      <value>cm</value>
+      <value>mm</value>
+      <value>in</value>
+   </values>
+   <values name="margins.margin.focality.values">
+      <value>microfocal</value>
+      <value>unifocal</value>
+      <value>multifocal</value>
+      <value>extensive</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="margins.margin.name.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="margins.margin.result.for.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="margins.margin.site.values">
+      <value>vaginal cuff</value>
+      <value>cervical stump</value>
+      <value>specify</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="nodes.nodeGroup.extracapsular.values">
+      <value>positive</value>
+      <value>negative</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="nodes.nodeGroup.name.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="nodes.nodeGroup.result.for.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="nodes.nodeGroup.result.tumorRegression.values">
+      <value>positive</value>
+      <value>negative</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="nodes.nodeGroup.technique.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="nodes.status.of.values">
+      <value>obturator</value>
+      <value>internal iliac</value>
+      <value>external iliac</value>
+      <value>common iliac</value>
+      <value>para-aortic</value>
+      <value>presacral</value>
+      <value>parametrial</value>
+      <value>inguinal</value>
+      <value>specify</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="qualitative.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="relation.values">
+      <value>less than</value>
+      <value>less than or equal</value>
+      <value>equal</value>
+      <value>approximately equal</value>
+      <value>greater than or equal</value>
+      <value>greater than</value>
+   </values>
+   <values name="site.values">
+      <value>uterine corpus</value>
+      <value>cervix</value>
+      <value>ovary</value>
+      <value>fallopian tube</value>
+      <value>parametrium</value>
+      <value>vaginal cuff</value>
+      <value>omentum</value>
+      <value>specify</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="specimen.integrity.values">
+      <value>morcellated</value>
+      <value>intact</value>
+      <value>specify</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+      <value>unreported</value>
+   </values>
+   <values name="specimen.procedure.values">
+      <value>supracervical hysterectomy</value>
+      <value>simple hysterectomy</value>
+      <value>radical hysterectomy</value>
+      <value>oophorectomy</value>
+      <value>salpingectomy</value>
+      <value>salpingo-oophorectomy</value>
+      <value>omentectomy</value>
+      <value>peritoneal biopsy(ies)</value>
+      <value>lymph node sampling</value>
+      <value>specify</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+      <value>unreported</value>
+   </values>
+   <values name="specimen.site.values">
+      <value>lymph nodes</value>
+      <value>specify</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+      <value>unreported</value>
+   </values>
+   <values name="stage.group.values">
+      <value>X</value>
+      <value>0</value>
+      <value>I</value>
+      <value>IA</value>
+      <value>IB</value>
+      <value>II</value>
+      <value>III</value>
+      <value>IIIA</value>
+      <value>IIIB</value>
+      <value>IIIC1</value>
+      <value>IIIC2</value>
+      <value>IVA</value>
+      <value>IVB</value>
+      <value>specify</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+      <value>unreported</value>
+   </values>
+   <values name="stage.multiplicity.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="stage.pM.values">
+      <value>0</value>
+      <value>1</value>
+      <value>specify</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+      <value>unreported</value>
+   </values>
+   <values name="stage.pN.values">
+      <value>X</value>
+      <value>0</value>
+      <value>1</value>
+      <value>2</value>
+      <value>specify</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+      <value>unreported</value>
+   </values>
+   <values name="stage.pT.values">
+      <value>X</value>
+      <value>0</value>
+      <value>is</value>
+      <value>1</value>
+      <value>1a</value>
+      <value>1b</value>
+      <value>2</value>
+      <value>3</value>
+      <value>3a</value>
+      <value>3b</value>
+      <value>4</value>
+      <value>specify</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+      <value>unreported</value>
+   </values>
+   <values name="stage.prefix.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="studies.empty.values">
+      <value>empty</value>
+      <value>specify</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.focus.site.values">
+      <value>anterior endometrium</value>
+      <value>posterior endometrium</value>
+      <value>specify</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.focus.type.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.grade.for.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.grade.values">
+      <value>1</value>
+      <value>2</value>
+      <value>3</value>
+      <value>specify</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.gradeSystem.values">
+      <value>FIGO</value>
+      <value>specify</value>
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.histologicType.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.multiplicity.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.site.values">
+      <value>equivocal</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="tumor.type.values">
+      <value>endometrioid carcinoma</value>
+      <value>endometrioid with squamous</value>
+      <value>endometrioid villoglandular</value>
+      <value>endometrioid secretory</value>
+      <value>endometrioid ciliated cell</value>
+      <value>mucinous adenocarcinoma</value>
+      <value>serous adenocarcinoma</value>
+      <value>clear cell adenocarcinoma</value>
+      <value>squamous cell carcinoma</value>
+      <value>transitional cell carcinoma</value>
+      <value>small cell carcinoma</value>
+      <value>undifferentiated carcinoma</value>
+      <value>carcinosarcoma</value>
+      <value>specify</value>
+      <value>inapplicable</value>
+      <value>unreported</value>
+   </values>
+   <values name="weightUnit.values">
+      <value>mg</value>
+      <value>g</value>
+      <value>kg</value>
+   </values>
+</valuelist>
