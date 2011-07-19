@@ -1,0 +1,1893 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ===========================================================================
+    Copyright 2010 Pathology Consulting Services
+    
+    This file is part of the "PCS Schema for Synoptic Cancer Reports".
+    
+    The "PCS Schema for Synoptic Cancer Reports" is licensed under the Apache 
+    License, Version 2.0 (the "License"); you may not use this file except in 
+    compliance with the License.
+    
+    You may obtain a copy of the License at:
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    ===========================================================================  
+-->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://purl.org/pathology/ecc/"
+    xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+    xmlns:data-view="http://www.w3.org/2003/g/data-view#" xmlns:ecc="http://purl.org/pathology/ecc/"
+    xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="positiveDecimal">
+        <xs:union memberTypes="ecc:base.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:decimal">
+                    <xs:minExclusive value="0.0"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <xs:simpleType name="nonNegativeDecimal">
+        <xs:union memberTypes="ecc:base.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:decimal">
+                    <xs:minInclusive value="0.0"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <xs:simpleType name="nonNegativeInteger">
+        <xs:union memberTypes="ecc:base.values xs:nonNegativeInteger"/>
+    </xs:simpleType>
+    <xs:simpleType name="date">
+        <xs:union memberTypes="ecc:base.values xs:date xs:gYearMonth xs:gYear"/>
+    </xs:simpleType>
+    <xs:attributeGroup name="date.attrib">
+        <!-- An unfortunate example of what xml schema cannot do, that Relax NG does with ease. -->
+        <!-- The RNG model for this allows you to have either a date and an optional duration; or a start date; or an end date; or both a start and end date. -->
+        <!-- In XML schema, there is no way to express optionality groups within attribute sets. Too bad, have to capture that with Schematron. -->
+        <!-- One could do a klugey workaround where you define two elements that repeat each other entirely except for the choice of attributes. -->
+        <!-- but it doesn't really seem worth it. -->
+        <xs:attribute name="date" type="ecc:date"/>
+        <xs:attribute name="start" type="ecc:date"/>
+        <xs:attribute name="end" type="ecc:date"/>
+        <xs:attribute name="duration" type="xs:duration"/>
+    </xs:attributeGroup>
+    <xs:group name="dimension.response">
+        <xs:sequence>
+            <xs:element form="qualified" name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.response.content"/>
+                    <xs:attribute name="value" type="ecc:positiveDecimal" use="required"/>
+                    <xs:attribute name="unit" type="ecc:lengthUnit.values"/>
+                    <xs:attribute name="relation" type="ecc:relation.values"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="length.response">
+        <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
+            <xs:group ref="ecc:dimension.response"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="size.response">
+        <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
+            <xs:group maxOccurs="3" minOccurs="1" ref="ecc:dimension.response"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="percent.response">
+        <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
+            <xs:element form="qualified" name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.response.content"/>
+                    <xs:attribute name="value" type="ecc:positiveDecimal" use="required"/>
+                    <xs:attribute fixed="percent" name="unit" use="required"/>
+                    <xs:attribute name="relation" type="ecc:relation.values"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="weight.response">
+        <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
+            <xs:element form="qualified" name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.response.content"/>
+                    <xs:attribute name="value" type="ecc:positiveDecimal" use="required"/>
+                    <xs:attribute name="unit" type="ecc:weightUnit.values" use="required"/>
+                    <xs:attribute name="relation" type="ecc:relation.values"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="tally.response">
+        <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
+            <xs:element form="qualified" name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.response.content"/>
+                    <xs:attribute name="value" type="ecc:nonNegativeInteger" use="required"/>
+                    <xs:attribute name="relation" type="ecc:relation.values"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="qualitative.response">
+        <!-- Remember that if you use this canned "shorthand" for a qualitative response, you will not be
+            able to extend it with additional attributes later. So for responses that are indeed
+            qualitative, but may add additional attributes later, you need to use add them
+            explicitly to the generic type. An example would be distant.status.result.response that
+            needs to be typed for breast. -->
+        <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
+            <xs:element form="qualified" name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.response.content"/>
+                    <xs:attribute name="value" type="ecc:qualitative.values" use="required"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="size">
+        <xs:complexType>
+            <xs:group ref="ecc:size.response"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="weight">
+        <xs:complexType>
+            <xs:group ref="ecc:weight.response"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="additional.finding.sitespecific.values">
+        <xs:restriction base="ecc:additional.finding.sitespecific.values_Redefined0">
+            <xs:enumeration value="simple hyperplasia"/>
+            <xs:enumeration value="complex hyperplasia"/>
+            <xs:enumeration value="atypical simple hyperplasia"/>
+            <xs:enumeration value="atypical complex hyperplasia"/>
+            <xs:enumeration value="EIN"/>
+            <xs:enumeration value="polyp"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="additional.finding.sitespecific.values_Redefined0">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <xs:simpleType name="history.priorTherapy.sitespecific.values">
+        <xs:restriction base="ecc:history.priorTherapy.sitespecific.values_Redefined0">
+            <xs:enumeration value="neoadjuvant chemotherapy"/>
+            <xs:enumeration value="neoadjuvant irradiation"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="history.priorTherapy.sitespecific.values_Redefined0">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <xs:simpleType name="specimen.procedure.sitespecific.values">
+        <xs:restriction base="ecc:specimen.procedure.sitespecific.values_Redefined0">
+            <xs:enumeration value="supracervical hysterectomy"/>
+            <xs:enumeration value="simple hysterectomy"/>
+            <xs:enumeration value="radical hysterectomy"/>
+            <xs:enumeration value="oophorectomy"/>
+            <xs:enumeration value="salpingectomy"/>
+            <xs:enumeration value="salpingo-oophorectomy"/>
+            <xs:enumeration value="omentectomy"/>
+            <xs:enumeration value="peritoneal biopsy(ies)"/>
+            <xs:enumeration value="lymph node sampling"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="specimen.procedure.sitespecific.values_Redefined0">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <xs:simpleType name="specimen.site.sitespecific.values">
+        <xs:restriction base="ecc:specimen.site.sitespecific.values_Redefined0">
+            <xs:enumeration value="lymph nodes"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="specimen.site.sitespecific.values_Redefined0">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <xs:simpleType name="specimen.integrity.sitespecific.values">
+        <xs:restriction base="ecc:specimen.integrity.sitespecific.values_Redefined0">
+            <xs:enumeration value="morcellated"/>
+            <xs:enumeration value="intact"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="specimen.integrity.sitespecific.values_Redefined0">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <xs:simpleType name="stage.pT.sitespecific.values">
+        <xs:restriction base="ecc:stage.pT.sitespecific.values_Redefined0">
+            <xs:enumeration value="X"/>
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="is"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="1a"/>
+            <xs:enumeration value="1b"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="3a"/>
+            <xs:enumeration value="3b"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="stage.pT.sitespecific.values_Redefined0">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <xs:simpleType name="stage.pN.sitespecific.values">
+        <xs:restriction base="ecc:stage.pN.sitespecific.values_Redefined0">
+            <xs:enumeration value="X"/>
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="stage.pN.sitespecific.values_Redefined0">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <xs:simpleType name="stage.pM.sitespecific.values">
+        <xs:restriction base="ecc:stage.pM.sitespecific.values_Redefined0">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="stage.pM.sitespecific.values_Redefined0">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <xs:simpleType name="stage.group.sitespecific.values">
+        <xs:restriction base="ecc:stage.group.sitespecific.values_Redefined0">
+            <xs:enumeration value="X"/>
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="I"/>
+            <xs:enumeration value="IA"/>
+            <xs:enumeration value="IB"/>
+            <xs:enumeration value="II"/>
+            <xs:enumeration value="III"/>
+            <xs:enumeration value="IIIA"/>
+            <xs:enumeration value="IIIB"/>
+            <xs:enumeration value="IIIC1"/>
+            <xs:enumeration value="IIIC2"/>
+            <xs:enumeration value="IVA"/>
+            <xs:enumeration value="IVB"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="stage.group.sitespecific.values_Redefined0">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <xs:simpleType name="tumor.gradeSystem.sitespecific.values">
+        <xs:restriction base="ecc:tumor.gradeSystem.sitespecific.values_Redefined0">
+            <xs:enumeration value="FIGO"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tumor.gradeSystem.sitespecific.values_Redefined0">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <xs:simpleType name="tumor.grade.sitespecific.values">
+        <xs:restriction base="ecc:tumor.grade.sitespecific.values_Redefined0">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tumor.grade.sitespecific.values_Redefined0">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--=============================================================-->
+    <xs:simpleType name="sitespecific.values">
+        <xs:union memberTypes="xs:token"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="base.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="equivocal"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="qualitative.values">
+        <xs:union memberTypes="ecc:base.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="positive"/>
+                    <xs:enumeration value="negative"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="lengthUnit.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="cm"/>
+            <xs:enumeration value="mm"/>
+            <xs:enumeration value="in"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="weightUnit.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="mg"/>
+            <xs:enumeration value="g"/>
+            <xs:enumeration value="kg"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="relation.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="less than"/>
+            <xs:enumeration value="less than or equal"/>
+            <xs:enumeration value="equal"/>
+            <xs:enumeration value="approximately equal"/>
+            <xs:enumeration value="greater than or equal"/>
+            <xs:enumeration value="greater than"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="laterality.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="right"/>
+            <xs:enumeration value="left"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="extended.laterality.values">
+        <xs:union memberTypes="ecc:laterality.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="ipsilateral"/>
+                    <xs:enumeration value="contralateral"/>
+                    <xs:enumeration value="bilateral"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="focality.values">
+        <xs:union memberTypes="ecc:base.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="microfocal"/>
+                    <xs:enumeration value="unifocal"/>
+                    <xs:enumeration value="multifocal"/>
+                    <xs:enumeration value="extensive"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--=============================================================-->
+    <!--accessory SECTION VALUESETS-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="accessory.lymphvascular.values">
+        <xs:union
+            memberTypes="ecc:base.values ecc:qualitative.values ecc:accessory.lymphvascular.sitespecific.values"
+        />
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="accessory.lymphvascular.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="accessory.perineural.values">
+        <xs:union
+            memberTypes="ecc:base.values ecc:qualitative.values ecc:accessory.perineural.sitespecific.values"
+        />
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="accessory.perineural.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="accessory.treatmentResponse.values">
+        <xs:union memberTypes="ecc:base.values ecc:accessory.treatmentResponse.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="none"/>
+                    <xs:enumeration value="slight"/>
+                    <xs:enumeration value="marked"/>
+                    <xs:enumeration value="complete"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="accessory.treatmentResponse.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--=============================================================-->
+    <!--additional SECTION VALUESETS-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="additional.finding.of.values">
+        <xs:union memberTypes="ecc:base.values ecc:additional.finding.of.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="additional.finding.of.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="additional.finding.values">
+        <xs:union memberTypes="ecc:base.values ecc:additional.finding.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--=============================================================-->
+    <!--extent SECTION VALUESETS-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="extent.contiguousExtension.for.values">
+        <xs:union
+            memberTypes="ecc:base.values ecc:extent.contiguousExtension.for.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="invades"/>
+                    <xs:enumeration value="adheres"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="extent.contiguousExtension.for.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="extent.contiguousExtension.to.values">
+        <xs:union
+            memberTypes="ecc:base.values ecc:extent.contiguousExtension.to.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="extent.contiguousExtension.to.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="extent.contiguousExtension.focality.values">
+        <xs:union memberTypes="ecc:focality.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="extent.contiguousExtension.focality.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--=============================================================-->
+    <!--history SECTION VALUESETS-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="history.clinical.values">
+        <xs:union memberTypes="ecc:base.values ecc:history.clinical.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="history.clinical.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="history.pathology.values">
+        <xs:union memberTypes="ecc:base.values ecc:history.pathology.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="history.pathology.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="history.priorTherapy.values">
+        <xs:union memberTypes="ecc:base.values ecc:history.priorTherapy.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="chemotherapy"/>
+                    <xs:enumeration value="radiation"/>
+                    <xs:enumeration value="surgery"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="history.radiology.values">
+        <xs:union memberTypes="ecc:base.values ecc:history.radiology.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="history.radiology.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--=============================================================-->
+    <!--extent SECTION VALUESETS-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="extent.size.values">
+        <xs:union memberTypes="ecc:base.values ecc:extent.size.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="extent.size.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--=============================================================-->
+    <!--margin SECTION VALUESETS-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="margins.margin.focality.values">
+        <xs:union
+            memberTypes="ecc:base.values ecc:focality.values ecc:margins.margin.focality.sitespecific.values"
+        />
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="margins.margin.focality.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="margins.margin.name.values">
+        <xs:union memberTypes="ecc:base.values ecc:margins.margin.name.sitespecific.values"/>
+    </xs:simpleType>
+    <xs:simpleType name="margins.margin.name.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="margins.margin.result.for.values">
+        <xs:union memberTypes="ecc:base.values ecc:margins.margin.result.for.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="in-situ"/>
+                    <xs:enumeration value="invasive"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="margins.margin.result.for.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--=============================================================-->
+    <!--distant SECTION VALUESETS-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="distant.metastaticSite.name.values">
+        <xs:union memberTypes="ecc:base.values ecc:distant.metastaticSite.name.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="liver"/>
+                    <xs:enumeration value="bone"/>
+                    <xs:enumeration value="lung"/>
+                    <xs:enumeration value="brain"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="distant.metastaticSite.name.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="distant.metastaticSite.result.for.values">
+        <xs:union
+            memberTypes="ecc:base.values ecc:distant.metastaticSite.result.for.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="this accession"/>
+                    <xs:enumeration value="prior accession"/>
+                    <xs:enumeration value="outside report"/>
+                    <xs:enumeration value="clinical history"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="distant.metastaticSite.result.for.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--=============================================================-->
+    <!--nodes SECTION VALUESETS-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="nodes.nodeGroup.name.values">
+        <xs:union memberTypes="ecc:base.values ecc:nodes.nodeGroup.name.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="nodes.nodeGroup.name.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="nodes.nodeGroup.result.for.values">
+        <xs:union memberTypes="ecc:base.values ecc:nodes.nodeGroup.result.for.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="total"/>
+                    <xs:enumeration value="negative"/>
+                    <xs:enumeration value="positive"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="nodes.nodeGroup.result.for.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="nodes.nodeGroup.result.tumorRegression.values">
+        <xs:union
+            memberTypes="ecc:base.values ecc:qualitative.values ecc:nodes.nodeGroup.result.tumorRegression.sitespecific.values"
+        />
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="nodes.nodeGroup.result.tumorRegression.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="nodes.nodeGroup.technique.values">
+        <xs:union memberTypes="ecc:base.values ecc:nodes.nodeGroup.technique.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="H+E one level"/>
+                    <xs:enumeration value="H+E multiple level(s)"/>
+                    <xs:enumeration value="H+E plus immunohistochemistry"/>
+                    <xs:enumeration value="RT-PCR"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="nodes.nodeGroup.technique.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="nodes.nodeGroup.extracapsular.values">
+        <xs:union
+            memberTypes="ecc:base.values ecc:qualitative.values ecc:nodes.nodeGroup.extracapsular.sitespecific.values"
+        />
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="nodes.nodeGroup.extracapsular.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--=============================================================-->
+    <!--specimen SECTION VALUESETS-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="specimen.integrity.values">
+        <xs:union memberTypes="ecc:base.values ecc:specimen.integrity.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="intact"/>
+                    <xs:enumeration value="fragmented"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="specimen.procedure.values">
+        <xs:union memberTypes="ecc:base.values ecc:specimen.procedure.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="specimen.site.values">
+        <xs:union memberTypes="ecc:base.values ecc:specimen.site.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--=============================================================-->
+    <!--stage SECTION VALUESETS-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="stage.prefix.values">
+        <xs:union memberTypes="ecc:base.values ecc:stage.prefix.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="y"/>
+                    <xs:enumeration value="r"/>
+                    <xs:enumeration value="a"/>
+                    <xs:enumeration value="none"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="stage.prefix.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="stage.multiplicity.values">
+        <xs:union memberTypes="ecc:base.values ecc:stage.multiplicity.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="1"/>
+                    <xs:enumeration value="2"/>
+                    <xs:enumeration value="3"/>
+                    <xs:enumeration value="4"/>
+                    <xs:enumeration value="m"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="stage.multiplicity.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="stage.pT.values">
+        <xs:union memberTypes="ecc:base.values ecc:stage.pT.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="stage.pN.values">
+        <xs:union memberTypes="ecc:base.values ecc:stage.pN.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="stage.pM.values">
+        <xs:union memberTypes="ecc:base.values ecc:stage.pM.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="stage.group.values">
+        <xs:union memberTypes="ecc:base.values ecc:stage.group.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--=============================================================-->
+    <!--tumor SECTION VALUESETS-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="tumor.focus.type.values">
+        <xs:union memberTypes="ecc:base.values ecc:tumor.focus.type.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="principal"/>
+                    <xs:enumeration value="sole"/>
+                    <xs:enumeration value="additional"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="tumor.focus.type.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="tumor.histologicType.values">
+        <xs:union memberTypes="ecc:base.values ecc:tumor.histologicType.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="tumor.histologicType.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="tumor.site.values">
+        <xs:union memberTypes="ecc:base.values ecc:tumor.site.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="tumor.site.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="tumor.grade.values">
+        <xs:union memberTypes="ecc:base.values ecc:tumor.grade.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="1"/>
+                    <xs:enumeration value="2"/>
+                    <xs:enumeration value="3"/>
+                    <xs:enumeration value="4"/>
+                    <xs:enumeration value="X"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="tumor.grade.for.values">
+        <xs:union memberTypes="ecc:base.values ecc:tumor.grade.for.sitespecific.values"/>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="tumor.grade.for.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="tumor.gradeSystem.values">
+        <xs:union memberTypes="ecc:base.values ecc:tumor.gradeSystem.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="4-grade"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="tumor.multiplicity.values">
+        <xs:union memberTypes="ecc:base.values ecc:tumor.multiplicity.sitespecific.values">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="1"/>
+                    <xs:enumeration value="2"/>
+                    <xs:enumeration value="3"/>
+                    <xs:enumeration value="4"/>
+                    <xs:enumeration value="many"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+    <!--- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <xs:simpleType name="tumor.multiplicity.sitespecific.values">
+        <xs:union memberTypes="ecc:sitespecific.values"/>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:simpleType name="site.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="uterine corpus"/>
+            <xs:enumeration value="cervix"/>
+            <xs:enumeration value="ovary"/>
+            <xs:enumeration value="fallopian tube"/>
+            <xs:enumeration value="parametrium"/>
+            <xs:enumeration value="vaginal cuff"/>
+            <xs:enumeration value="omentum"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="accessory.empty.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="empty"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="additional.empty.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="empty"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="history.empty.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="empty"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="extent.ascites.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="extent.myometrialInvasion.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="less than 50%"/>
+            <xs:enumeration value="equal or greater than 50%"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="extent.adjacentSite.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="vagina"/>
+            <xs:enumeration value="rectal wall"/>
+            <xs:enumeration value="bladder wall"/>
+            <xs:enumeration value="pelvic wall"/>
+            <xs:enumeration value="bladder mucosa"/>
+            <xs:enumeration value="bowel mucosa"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="extent.adjacentSite.status.type.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="invades"/>
+            <xs:enumeration value="adheres"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="margins.margin.site.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="vaginal cuff"/>
+            <xs:enumeration value="cervical stump"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="distant.site.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="empty"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="nodes.status.of.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="obturator"/>
+            <xs:enumeration value="internal iliac"/>
+            <xs:enumeration value="external iliac"/>
+            <xs:enumeration value="common iliac"/>
+            <xs:enumeration value="para-aortic"/>
+            <xs:enumeration value="presacral"/>
+            <xs:enumeration value="parametrial"/>
+            <xs:enumeration value="inguinal"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="studies.empty.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="empty"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tumor.type.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="endometrioid carcinoma"/>
+            <xs:enumeration value="endometrioid with squamous"/>
+            <xs:enumeration value="endometrioid villoglandular"/>
+            <xs:enumeration value="endometrioid secretory"/>
+            <xs:enumeration value="endometrioid ciliated cell"/>
+            <xs:enumeration value="mucinous adenocarcinoma"/>
+            <xs:enumeration value="serous adenocarcinoma"/>
+            <xs:enumeration value="clear cell adenocarcinoma"/>
+            <xs:enumeration value="squamous cell carcinoma"/>
+            <xs:enumeration value="transitional cell carcinoma"/>
+            <xs:enumeration value="small cell carcinoma"/>
+            <xs:enumeration value="undifferentiated carcinoma"/>
+            <xs:enumeration value="carcinosarcoma"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tumor.focus.site.values">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="anterior endometrium"/>
+            <xs:enumeration value="posterior endometrium"/>
+            <xs:enumeration value="specify"/>
+            <xs:enumeration value="inapplicable"/>
+            <xs:enumeration value="unreported"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:attributeGroup name="generic.attrib">
+        <xs:attributeGroup ref="ecc:generic.attrib_Redefined0"/>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <!-- add any site-specific "universal" attributes here (optional) -->
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    </xs:attributeGroup>
+    <xs:attributeGroup name="generic.attrib_Redefined0">
+        <xs:attribute name="id" type="xs:ID"/>
+        <!-- I would much prefer to use xml:id for this. However, the limitations of xml schema are
+            such that attributes from foreign namespaces must be imported with a @schemaLocation
+            attribute on the xs:import element. Unfortunately, MS Infopath is unable to resolve
+            xs:import elements on a schema. So I'll have to use id noNamespace. -->
+        <!-- <xs:attribute ref="xml:id"/> -->
+    </xs:attributeGroup>
+    <!-- Generic content definitions -->
+    <xs:group name="generic.content">
+        <xs:sequence>
+            <xs:element form="qualified" maxOccurs="1" minOccurs="0" name="label" type="xs:string"/>
+            <xs:element form="qualified" maxOccurs="1" minOccurs="0" name="comment" type="xs:string"/>
+            <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="generic.response.content">
+        <xs:sequence>
+            <xs:element form="qualified" maxOccurs="1" minOccurs="0" name="specify" type="xs:string"/>
+            <xs:group maxOccurs="1" minOccurs="0" ref="ecc:generic.content"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:attributeGroup name="item.attrib">
+        <!-- placeholder only -->
+    </xs:attributeGroup>
+    <xs:attributeGroup name="section.attrib">
+        <!-- placeholder only -->
+    </xs:attributeGroup>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:attributeGroup name="nodes.nodeGroup.result.sitespecific.attrib">
+        <xs:attributeGroup ref="ecc:nodes.nodeGroup.result.sitespecific.attrib_Redefined0"/>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <!-- add any site-specific nodeGroup result attributes here (optional) -->
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    </xs:attributeGroup>
+    <xs:attributeGroup name="nodes.nodeGroup.result.sitespecific.attrib_Redefined0"/>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!-- HISTORY SECTION -->
+    <xs:element name="clinicalFinding">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:history.clinical.values" use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:date.attrib"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pathologicFinding">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:history.pathology.values"
+                            use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:date.attrib"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="priorTherapy">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:history.priorTherapy.values"
+                            use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:date.attrib"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="radiologicFinding">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:history.radiology.values"
+                            use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:date.attrib"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <!-- SPECIMEN SECTION -->
+    <xs:element name="procedure">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" maxOccurs="unbounded" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:specimen.procedure.values"
+                            use="required"/>
+                        <xs:attribute name="on" type="ecc:laterality.values"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="site">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" maxOccurs="unbounded" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:specimen.site.values" use="required"/>
+                        <xs:attribute name="on" type="ecc:laterality.values"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="integrity">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:specimen.integrity.values"
+                            use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="focus">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:tumor.focus.content"/>
+            </xs:sequence>
+            <xs:attribute name="type" type="ecc:tumor.focus.type.values" use="required"/>
+            <xs:attributeGroup ref="ecc:tumor.focus.sitespecific.attrib"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="tumor.focus.sitespecific.attrib"/>
+    <xs:group name="tumor.focus.content">
+        <xs:sequence>
+            <xs:element ref="ecc:site"/>
+            <xs:element ref="ecc:size"/>
+            <xs:element ref="ecc:histologicType"/>
+            <xs:element ref="ecc:grade"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="histologicType">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" maxOccurs="unbounded" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:tumor.histologicType.values"
+                            use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="grade">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" maxOccurs="unbounded" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:tumor.grade.values" use="required"/>
+                        <xs:attribute name="for" type="ecc:tumor.grade.for.values"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="system" type="ecc:tumor.gradeSystem.values" use="required"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="tumor.grade.response">
+        <xs:sequence>
+            <xs:element form="qualified" maxOccurs="unbounded" name="response">
+                <xs:complexType>
+                    <xs:group ref="ecc:generic.response.content"/>
+                    <xs:attribute name="value" type="ecc:tumor.grade.values" use="required"/>
+                    <xs:attribute name="for" type="ecc:tumor.grade.for.values"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="contiguousExtension">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:qualitative.values" use="required"/>
+                        <xs:attribute name="focality"
+                            type="ecc:extent.contiguousExtension.focality.values"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="to" type="ecc:extent.contiguousExtension.to.values" use="required"/>
+            <xs:attribute name="on" type="ecc:laterality.values"/>
+            <xs:attribute name="for" type="ecc:extent.contiguousExtension.for.values"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="treatmentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:accessory.treatmentResponse.values"
+                            use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="lymphVascularInvasion">
+        <xs:complexType>
+            <xs:group ref="ecc:qualitative.response"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="perineuralInvasion">
+        <xs:complexType>
+            <xs:group ref="ecc:qualitative.response"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="margin">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group maxOccurs="unbounded" ref="ecc:margins.margin.result"/>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:distance"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="ecc:margins.margin.name.values" use="required"/>
+            <xs:attribute name="on" type="ecc:laterality.values"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="margins.margin.result">
+        <!-- There is more than one context for <result> element (margin.status.result, nodes.nodeGroup.result, distant.metastaticSite.result, contiguousExtension.status.result), hence need to wrap as group -->
+        <xs:sequence>
+            <xs:element form="qualified" name="result">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element form="qualified" name="response">
+                            <!-- this is a qualitative response with some modifying attributes -->
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value" type="ecc:qualitative.values"
+                                    use="required"/>
+                                <xs:attribute name="extent"
+                                    type="ecc:margins.margin.focality.values"/>
+                                <xs:attribute name="closest" type="ecc:qualitative.values"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="for" type="ecc:margins.margin.result.for.values"
+                        use="required"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="nodeGroup">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group maxOccurs="unbounded" ref="ecc:nodes.nodeGroup.result"/>
+                <xs:element minOccurs="0" ref="ecc:largestMetastasis"/>
+                <xs:element minOccurs="0" ref="ecc:extracapsularExtension"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="ecc:nodes.nodeGroup.name.values" use="required"/>
+            <xs:attribute name="on" type="ecc:laterality.values"/>
+            <xs:attribute name="technique" type="ecc:nodes.nodeGroup.technique.values"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="nodes.nodeGroup.result">
+        <!-- There is more than one context for <result> element (margin.result, nodeGroup.result, distant.result, contiguousExtension.status.result), hence need to wrap as group -->
+        <xs:sequence>
+            <xs:element form="qualified" name="result">
+                <xs:complexType>
+                    <xs:group ref="ecc:tally.response"/>
+                    <xs:attribute name="for" type="ecc:nodes.nodeGroup.result.for.values"
+                        use="required"/>
+                    <xs:attributeGroup ref="ecc:nodes.nodeGroup.result.sitespecific.attrib"/>
+                    <xs:attribute name="tumorRegression"
+                        type="ecc:nodes.nodeGroup.result.tumorRegression.values"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="metastaticSite">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:distant.metastaticSite.result"/>
+                <xs:group maxOccurs="1" minOccurs="0" ref="ecc:metastasisSize"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="ecc:distant.metastaticSite.name.values" use="required"/>
+            <xs:attribute name="on" type="ecc:extended.laterality.values"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="distant.metastaticSite.result">
+        <!-- There is more than one context for <result> element (margin.status.result, nodes.nodeGroup.result, distant.metastaticSite.result, contiguousExtension.status.result), hence need to wrap as group -->
+        <xs:sequence>
+            <xs:element form="qualified" name="result">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element form="qualified" name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value" type="ecc:qualitative.values"
+                                    use="required"/>
+                                <!-- This attributeGroup is required for breast only, but as extensions
+                                    are not possible, I have to add it for every site. You could
+                                    prohibit it for all the sites that don't use it, but perhaps
+                                    this is not important. -->
+                                <xs:attributeGroup
+                                    ref="ecc:distant.metastaticSite.result.response.attrib"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:date.attrib"/>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:attributeGroup name="distant.metastaticSite.result.response.attrib"/>
+    <xs:group name="metastasisSize">
+        <xs:sequence>
+            <xs:element form="qualified" name="size">
+                <xs:complexType>
+                    <xs:group ref="ecc:size.response"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:group>
+    <xs:element name="prefix">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" maxOccurs="unbounded" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:stage.prefix.values" use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="multiplicity">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:stage.multiplicity.values"
+                            use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pT">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:stage.pT.values" use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pN">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:stage.pN.values" use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="pM">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:stage.pM.values" use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="group">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:stage.group.values" use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="finding">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:element form="qualified" name="response">
+                    <xs:complexType>
+                        <xs:group ref="ecc:generic.response.content"/>
+                        <xs:attribute name="value" type="ecc:additional.finding.values"
+                            use="required"/>
+                        <xs:attributeGroup ref="ecc:generic.attrib"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="of" type="ecc:additional.finding.of.values"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="distance">
+        <xs:complexType>
+            <xs:group ref="ecc:length.response"/>
+            <xs:attribute name="for" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:token">
+                        <xs:enumeration value="in-situ"/>
+                        <xs:enumeration value="invasive"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="from">
+                <xs:simpleType>
+                    <xs:restriction base="xs:token">
+                        <xs:enumeration value="margin"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="largestMetastasis">
+        <xs:complexType>
+            <xs:group ref="ecc:size.response"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="extracapsularExtension">
+        <xs:complexType>
+            <xs:group ref="ecc:qualitative.response"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="resection.attrib">
+        <xs:attributeGroup ref="ecc:resection.attrib_Redefined0"/>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <!-- fill in the url of the official schemaLocation -->
+        <xs:attribute fixed="http://purl.org/pathology/ecc/xxxFillInTheBlankxxx/schema.xsd"
+            name="schemaLocation"/>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <!-- fill in the version -->
+        <xs:attribute fixed="xxxFillInTheBlankxxx" name="version"/>
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <!-- fill in the url of the official transformation -->
+        <xs:attribute fixed="http://purl.org/pathology/ecc/xxxFillInTheBlankxxx/ecc.xsl"
+            name="transformation"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="resection.attrib_Redefined0"/>
+    <!--
+            In the next part of the schema template, you have the opportunity to add subsections 
+            and elements to existing sections. Where to put them is indicated. Here are
+            some templates for what a new section and what new elements might look like.
+            
+            (1) Here is an example of an added section:
+            
+            <xs:element name="addedSection">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:group ref="ecc:containedAddedELement-1"/>
+                        <xs:group ref="ecc:containedAddedELement-2"/>
+            
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+                    
+            (2) Here is an example of an added element
+            
+            <xs:element name="addedElementName">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:group ref="ecc:generic.content"/>
+                        <xs:element maxOccurs="1" minOccurs="0" name="response">
+                            <xs:complexType>
+                                <xs:group ref="ecc:generic.response.content"/>
+                                <xs:attribute name="value" type="ecc:addedElement.values"
+                                    use="required"/>
+                                <xs:attributeGroup ref="ecc:generic.attrib"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attributeGroup ref="ecc:generic.attrib"/>
+                </xs:complexType>
+            </xs:element>
+            
+            (3) Here is an example of an added qualitative element:
+            
+            <xs:element name="addedQualitativeELement">
+                <xs:complexType>
+                    <xs:group ref="ecc:qualitative.response"/>
+                </xs:complexType>
+            </xs:element>
+            
+        -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:group name="history.content">
+        <xs:sequence>
+            <xs:group ref="ecc:history.content_Redefined0"/>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!-- add site specific history items here (optional) -->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="history.content_Redefined0">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:clinicalFinding"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:pathologicFinding"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:priorTherapy"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:radiologicFinding"/>
+        </xs:sequence>
+    </xs:group>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:group name="specimen.content">
+        <xs:sequence>
+            <xs:group ref="ecc:specimen.content_Redefined0"/>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!-- add site specific specimen items here (optional) -->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="specimen.content_Redefined0">
+        <xs:sequence>
+            <xs:element ref="ecc:procedure"/>
+            <xs:element ref="ecc:size"/>
+            <xs:element minOccurs="0" ref="ecc:weight"/>
+            <xs:element ref="ecc:site"/>
+            <xs:element minOccurs="0" ref="ecc:integrity"/>
+        </xs:sequence>
+    </xs:group>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:group name="tumor.content">
+        <xs:sequence>
+            <xs:group ref="ecc:tumor.content_Redefined0"/>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!-- add site specific tumor items here (optional) -->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="tumor.content_Redefined0">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="1" ref="ecc:focus"/>
+        </xs:sequence>
+    </xs:group>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:group name="extent.content">
+        <xs:sequence>
+            <xs:group ref="ecc:extent.content_Redefined0"/>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!-- add site specific extent items here (optional) -->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="extent.content_Redefined0">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:contiguousExtension"/>
+        </xs:sequence>
+    </xs:group>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:group name="accessory.content">
+        <xs:sequence>
+            <xs:group ref="ecc:accessory.content_Redefined0"/>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!-- add site specific accessory items here (optional) -->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="accessory.content_Redefined0">
+        <xs:sequence>
+            <xs:element minOccurs="0" ref="ecc:treatmentResponse"/>
+            <xs:element ref="ecc:lymphVascularInvasion"/>
+            <xs:element ref="ecc:perineuralInvasion"/>
+        </xs:sequence>
+    </xs:group>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:group name="margins.content">
+        <xs:sequence>
+            <xs:group ref="ecc:margins.content_Redefined0"/>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!-- add site specific items here (optional) -->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="margins.content_Redefined0">
+        <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:margin"/>
+        </xs:sequence>
+    </xs:group>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:group name="nodes.content">
+        <xs:sequence>
+            <xs:group ref="ecc:nodes.content_Redefined0"/>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!-- add site specific margins items here (optional) -->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="nodes.content_Redefined0">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:nodeGroup"/>
+        </xs:sequence>
+    </xs:group>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:group name="distant.content">
+        <xs:sequence>
+            <xs:group ref="ecc:distant.content_Redefined0"/>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!-- add site specific distant items here (optional) -->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="distant.content_Redefined0">
+        <xs:sequence>
+            <xs:group ref="ecc:generic.content"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ecc:metastaticSite"/>
+        </xs:sequence>
+    </xs:group>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:group name="studies.content">
+        <xs:sequence>
+            <xs:group ref="ecc:studies.content_Redefined0"/>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!-- add site specific studies items here (optional) -->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="studies.content_Redefined0">
+        <xs:sequence>
+            <!-- Needs further modeling: need to compare with rng spec  -->
+        </xs:sequence>
+    </xs:group>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:group name="stage.content">
+        <xs:sequence>
+            <xs:group ref="ecc:stage.content_Redefined0"/>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!-- add site specific stage items here (optional) -->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="stage.content_Redefined0">
+        <xs:sequence>
+            <xs:element ref="ecc:prefix"/>
+            <xs:element ref="ecc:multiplicity"/>
+            <xs:element ref="ecc:pT"/>
+            <xs:element ref="ecc:pN"/>
+            <xs:element ref="ecc:pM"/>
+            <xs:element ref="ecc:group"/>
+        </xs:sequence>
+    </xs:group>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:group name="additional.content">
+        <xs:sequence>
+            <xs:group ref="ecc:additional.content_Redefined0"/>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+            <!-- add site specific additional items here (optional) -->
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="additional.content_Redefined0">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" ref="ecc:finding"/>
+        </xs:sequence>
+    </xs:group>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <xs:element name="resection">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:resection.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:resection.attrib"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:group name="resection.content">
+        <xs:sequence>
+            <xs:element ref="ecc:history"/>
+            <xs:element ref="ecc:specimen"/>
+            <xs:element ref="ecc:tumor"/>
+            <xs:element ref="ecc:extent"/>
+            <xs:element ref="ecc:accessory"/>
+            <xs:element ref="ecc:margins"/>
+            <xs:element ref="ecc:nodes"/>
+            <xs:element ref="ecc:distant"/>
+            <xs:element ref="ecc:studies"/>
+            <xs:element ref="ecc:stage"/>
+            <xs:element ref="ecc:additional"/>
+        </xs:sequence>
+    </xs:group>
+    <!-- Definition of sections -->
+    <xs:element name="history">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:history.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="specimen">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:specimen.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tumor">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:tumor.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="extent">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:extent.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="accessory">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:accessory.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="margins">
+        <xs:complexType>
+            <xs:group ref="ecc:margins.content"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="nodes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:nodes.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="distant">
+        <xs:complexType>
+            <xs:group ref="ecc:distant.content"/>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="studies">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:studies.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="stage">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:stage.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="additional">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="ecc:generic.content"/>
+                <xs:group ref="ecc:additional.content"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="ecc:generic.attrib"/>
+        </xs:complexType>
+    </xs:element>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!-- Here are the "core elements" of a resection report: -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!-- HERE ARE NEW ELEMENTS -->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+</xs:schema>

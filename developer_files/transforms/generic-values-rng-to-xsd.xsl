@@ -51,7 +51,7 @@
             <xsl:comment select="'--------------------------------'"/>
             <xs:simpleType>
                 <xsl:attribute name="name">
-                    <xsl:value-of select="concat(./@name,'.extension')"/>
+                    <xsl:value-of select="concat(substring-before(./@name,'.values'),'.sitespecific.values')"/>
                 </xsl:attribute>
                 <xs:restriction base="xs:token"/>
             </xs:simpleType>
@@ -79,7 +79,7 @@
             <xsl:otherwise>
                 <xs:union>
                     <xsl:attribute name="memberTypes">
-                        <xsl:value-of select="concat(../@name,'.extension')"/>
+                        <xsl:value-of select="concat(substring-before(../@name,'.values'),'.sitespecific.values')"/>
                     </xsl:attribute>
                     <xs:simpleType>
                         <xs:restriction base="xs:token">
